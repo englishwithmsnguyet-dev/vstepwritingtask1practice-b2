@@ -72,47 +72,65 @@ function enterRoom() {
     return;
   }
 
-  if (!classVal) {
-    if (loginError) {
-      loginError.textContent = 'Vui lòng nhập Mã lớp học!';
-      loginError.style.display = 'block';
-    }
-    if (studentClassInput) studentClassInput.focus();
-    return;
-  }
+  const normName = nameVal.toUpperCase();
+  let finalClassVal = classVal;
 
-  if (!ALLOWED_CLASSES.includes(classVal)) {
-    if (loginError) {
-      loginError.textContent = 'Hệ thống hiện tại chỉ mở cho lớp CB206 và CB210! Vui lòng kiểm tra lại.';
-      loginError.style.display = 'block';
+  // Kiểm tra tài khoản Giáo viên (Tên: PTMN, Mã: GV, không cần pass)
+  const isTeacher = (normName === 'PTMN' && (finalClassVal === 'GV' || !finalClassVal)) || (normName === 'PTMN' && finalClassVal === 'GV');
+  if (isTeacher) {
+    if (!finalClassVal) finalClassVal = 'GV';
+  } else {
+    if (finalClassVal === 'GV') {
+      if (loginError) {
+        loginError.textContent = 'Mã lớp GV chỉ dành riêng cho tài khoản Giáo viên (PTMN)!';
+        loginError.style.display = 'block';
+      }
+      if (studentInput) studentInput.focus();
+      return;
     }
-    if (studentClassInput) {
-      studentClassInput.focus();
-      studentClassInput.select();
-    }
-    return;
-  }
 
-  if (!passwordVal) {
-    if (loginError) {
-      loginError.textContent = 'Vui lòng nhập Mật khẩu lớp học!';
-      loginError.style.display = 'block';
+    if (!finalClassVal) {
+      if (loginError) {
+        loginError.textContent = 'Vui lòng nhập Mã lớp học!';
+        loginError.style.display = 'block';
+      }
+      if (studentClassInput) studentClassInput.focus();
+      return;
     }
-    if (studentPasswordInput) studentPasswordInput.focus();
-    return;
-  }
 
-  // So sánh mật khẩu (chấp nhận STUDYHARD hoặc PRACTICEWRITING không phân biệt hoa thường)
-  if (!ACCESS_PASSWORDS.includes(passwordVal.toUpperCase())) {
-    if (loginError) {
-      loginError.textContent = 'Mật khẩu không chính xác! Vui lòng thử lại.';
-      loginError.style.display = 'block';
+    if (!ALLOWED_CLASSES.includes(finalClassVal)) {
+      if (loginError) {
+        loginError.textContent = 'Hệ thống hiện tại chỉ mở cho lớp CB206 và CB210! Vui lòng kiểm tra lại.';
+        loginError.style.display = 'block';
+      }
+      if (studentClassInput) {
+        studentClassInput.focus();
+        studentClassInput.select();
+      }
+      return;
     }
-    if (studentPasswordInput) {
-      studentPasswordInput.focus();
-      studentPasswordInput.select();
+
+    if (!passwordVal) {
+      if (loginError) {
+        loginError.textContent = 'Vui lòng nhập Mật khẩu lớp học!';
+        loginError.style.display = 'block';
+      }
+      if (studentPasswordInput) studentPasswordInput.focus();
+      return;
     }
-    return;
+
+    // So sánh mật khẩu (chấp nhận STUDYHARD hoặc PRACTICEWRITING không phân biệt hoa thường)
+    if (!ACCESS_PASSWORDS.includes(passwordVal.toUpperCase())) {
+      if (loginError) {
+        loginError.textContent = 'Mật khẩu không chính xác! Vui lòng thử lại.';
+        loginError.style.display = 'block';
+      }
+      if (studentPasswordInput) {
+        studentPasswordInput.focus();
+        studentPasswordInput.select();
+      }
+      return;
+    }
   }
   
   if (loginError) loginError.style.display = 'none';
@@ -122,7 +140,7 @@ function enterRoom() {
   }
   
   // Lưu thông tin học viên
-  state.studentProfile = { name: nameVal, class: classVal };
+  state.studentProfile = { name: nameVal, class: finalClassVal };
   localStorage.setItem('letter_student_profile', JSON.stringify(state.studentProfile));
   updateStudentDisplay();
 
@@ -130,7 +148,7 @@ function enterRoom() {
   try {
     const now = new Date();
     const timeString = now.toLocaleTimeString('vi-VN') + ' ' + now.toLocaleDateString('vi-VN');
-    const finalData = `[B2 LEVEL] [LOGIN ĐĂNG NHẬP] ${nameVal} - Lớp ${classVal} - Vào học lúc ${timeString}`;
+    const finalData = `[B2 LEVEL] [LOGIN ĐĂNG NHẬP] ${nameVal} - Lớp ${finalClassVal}${isTeacher ? ' (Giáo viên)' : ''} - Vào học lúc ${timeString}`;
     const formInput = document.getElementById('gform_hidden_input');
     const formEl = document.getElementById('gform_hidden_form');
     if (formInput && formEl) {
