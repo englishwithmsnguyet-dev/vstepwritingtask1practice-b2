@@ -25,7 +25,7 @@ const STORAGE_KEYS = {
   THEME: 'vstep_letters_b2_theme',
   HISTORY: 'vstep_letters_b2_history',
   DRAFTS: 'vstep_letters_b2_drafts',
-  IDEAS: 'vstep_letters_b2_selected_ideas'
+  IDEAS: 'vstep_letters_b2_selected_ideas_v2'
 };
 
 let state = {
@@ -53,124 +53,297 @@ let state = {
 };
 
 // ============================================================================
-// 2. VIETNAMESE PROMPT TRANSLATIONS
+// 2. VIETNAMESE PROMPT TRANSLATIONS (COMPLETE FOR ALL 37 TOPICS)
 // ============================================================================
+const RUBRIC_VI_FOOTER = 'Bạn nên viết ít nhất 120 từ. **Không ghi tên hoặc địa chỉ của bạn.** Bài viết của bạn sẽ được đánh giá dựa trên các tiêu chí: **Hoàn thành nhiệm vụ (Task Fulfillment)**, **Bố cục (Organization)**, **Từ vựng (Vocabulary)** và **Ngữ pháp (Grammar)**.';
+
 const PROMPT_TRANSLATIONS_VI = {
   'de-01': `Bạn vừa nhận được một bức thư từ người bạn người Anh, Helen. Bạn ấy sắp đến thăm Hà Nội vào tháng Sáu. Hãy viết một bức thư để đưa ra cho bạn ấy một vài gợi ý. Trong thư, bạn nên nói cho bạn ấy biết:
 • Nơi ở (Where to stay)
 • Món ăn nên thử (What dishes to try)
-• Điểm tham quan nên đến (Which places to visit)
-• Trang phục nên mặc khi đến Hà Nội (What to wear when visiting Hanoi)
+• Những địa điểm nên tham quan (Which places to visit)
+• Trang phục nên mặc khi đến thăm Hà Nội (What to wear when visiting Hanoi)
 
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn. Bài viết sẽ được đánh giá dựa trên 4 tiêu chí: Hoàn thành nhiệm vụ (Task Fulfillment), Bố cục (Organization), Từ vựng (Vocabulary) và Ngữ pháp (Grammar).`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-02': `Bạn vừa nhận được một email từ một người bạn người Anh đang dự định học tiếng Việt trong 6 tháng tại Đại học Hà Nội. Bạn ấy xin lời khuyên của bạn về các lựa chọn chỗ ở, chi phí sinh hoạt hàng tháng, các cách thực tế để luyện nói tiếng Việt với người bản xứ và mẹo thích nghi văn hóa.
-Hãy viết một bức thư để đưa ra cho bạn ấy một vài gợi ý (tối thiểu 120 từ, không ghi tên hoặc địa chỉ của bạn).`,
+  'de-02': `Bạn vừa nhận được một email từ người bạn người Anh đang dự định học tiếng Việt trong sáu tháng tại Đại học Hà Nội. Bạn ấy xin lời khuyên của bạn về các lựa chọn chỗ ở, chi phí sinh hoạt hàng tháng, những cách thực tế để luyện nói tiếng Việt với người dân bản địa và các mẹo thích nghi văn hóa.
 
-  'de-03': `Bạn nhìn thấy một mẩu quảng cáo về khóa học nấu ăn mùa hè tại trung tâm Delight Kitchen và rất quan tâm đến việc tham gia khóa học. Hãy viết một email gửi cho người quản lý tuyển sinh để hỏi thông tin về học phí khóa học, lịch học, trình độ của giáo viên giảng dạy và liệu nguyên liệu nấu ăn có được cung cấp sẵn hay không (tối thiểu 120 từ).`,
+Hãy viết một bức thư để đưa ra cho bạn ấy một vài gợi ý.
 
-  'de-04': `Người bạn Linda của bạn gần đây vừa hoàn thành một khóa học tiếng Trung sơ cấp tại Trung tâm Ngoại ngữ New Horizon. Bạn muốn học tiếng Trung vào mùa hè này. Hãy viết một email gửi cho Linda để hỏi về địa điểm trung tâm, học phí, chất lượng giáo viên và cơ hội luyện nói thực tế (tối thiểu 120 từ).`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-05': `Bạn vừa nhận được một email từ người bạn của bạn, John:
-"... Tớ nghe nói gần đây cậu đã tham gia một cuộc thi đua xe đạp địa hình. Trải nghiệm đó thế nào? Đường đua ra sao? Cậu có giành được giải thưởng nào không? Tớ cũng đang tính thử sức với bộ môn xe đạp leo núi. Sắp tới cậu có dự định chuyến đi đạp xe nào không? ..."
-Hãy viết email hồi âm cho John miêu tả trải nghiệm cuộc đua của bạn và mời bạn ấy cùng tham gia một chuyến đi sắp tới (tối thiểu 120 từ).`,
+  'de-03': `Bạn nhìn thấy một mẩu quảng cáo về khóa học nấu ăn mùa hè tại trung tâm Delight Kitchen và rất quan tâm đến việc tham gia khóa học. Hãy viết một email gửi người quản lý tuyển sinh để hỏi thông tin về:
+• Học phí khóa học (course fees)
+• Lịch học (class schedules)
+• Trình độ chuyên môn của giảng viên (instructor qualifications)
+• Liệu nguyên liệu nấu ăn có được trung tâm chuẩn bị sẵn hay không (whether ingredients are provided)
 
-  'de-06': `Bạn vừa nhận được một email từ người bạn Helen muốn biết về ngôi nhà mới chuyển của bạn gần khuôn viên trường đại học. Hãy viết email cho Helen miêu tả vị trí ngôi nhà, cách bố trí các phòng, khu dân cư xung quanh và mời bạn ấy đến thăm (tối thiểu 120 từ).`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-07': `Bạn là hội viên tại Câu lạc bộ Thể thao Elite Fitness Club. Gần đây, một vài máy tập gym đã bị hỏng và vẫn chưa được sửa chữa. Hãy viết email gửi người quản lý phòng gym để phàn nàn: miêu tả các thiết bị hỏng và vấn đề phát sinh, giải thích điều này ảnh hưởng thế nào đến buổi tập của bạn, và đề xuất ban quản lý nên làm gì (tối thiểu 120 từ).`,
+  'de-04': `Người bạn Linda của bạn gần đây vừa hoàn thành một khóa học tiếng Trung sơ cấp tại Trung tâm Ngoại ngữ New Horizon. Bạn muốn học tiếng Trung vào mùa hè này. Hãy viết một email gửi Linda để hỏi về:
+• Địa điểm trung tâm (center location)
+• Học phí (tuition fees)
+• Chất lượng giáo viên (teacher quality)
+• Hoạt động luyện nói thực tế trên lớp (practical speaking practice)
 
-  'de-08': `Bạn đã dùng bữa tối tại nhà hàng The Grand Bistro tối qua để kỷ niệm sự kiện gia đình. Chất lượng món ăn rất tệ, thời gian chờ quá lâu và nhân viên phục vụ thiếu nhiệt tình. Hãy viết thư khiếu nại gửi quản lý nhà hàng miêu tả các vấn đề, giải thích sự thất vọng của bạn và yêu cầu biện pháp giải quyết thích đáng (tối thiểu 120 từ).`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-09': `Bạn là hành khách thường xuyên đi tuyến xe buýt công cộng số 08. Hãy viết email gửi ông Tailor, giám đốc dịch vụ vận tải, để đóng góp ý kiến phản hồi về dịch vụ xe buýt: đề cập những mặt tích cực bạn hài lòng, chỉ ra các vấn đề tồn tại (chậm giờ và máy bán vé hỏng) và đề xuất giải pháp cải thiện thực tế (tối thiểu 120 từ).`,
+  'de-05': `Bạn vừa nhận được một email từ người bạn của bạn, John. Hãy đọc trích đoạn bức thư của bạn ấy dưới đây:
+"... Tớ nghe nói gần đây cậu đã tham gia một cuộc thi đua xe đạp địa hình trên núi. Trải nghiệm đó thế nào? Đường đua ra sao? Cậu có giành được giải thưởng nào không? Tớ cũng đang tính thử sức với bộ môn xe đạp leo núi. Sắp tới cậu có dự định chuyến đi đạp xe nào không? ..."
 
-  'de-10': `Bạn đã tổ chức bữa tiệc sinh nhật cùng bạn bè tại nhà hàng Golden Spoon vào thứ Bảy tuần trước. Hãy viết email gửi người quản lý nhà hàng để đưa ra phản hồi: khen ngợi những điểm làm tốt (hương vị món ăn và trang trí bàn tiệc), chỉ ra những điểm cần cải thiện (tiếng rè mic và món tráng miệng ra chậm) và đưa ra gợi ý cho tương lai (tối thiểu 120 từ).`,
+Hãy viết một email hồi âm cho John miêu tả trải nghiệm cuộc đua của bạn và mời bạn ấy cùng tham gia một chuyến đi sắp tới.
 
-  'de-11': `Bạn là sinh viên đại học đã không thể nộp bài nghiên cứu học phần đúng hạn. Hãy viết email gửi giảng viên hướng dẫn môn học, Giáo sư Johnson, xin lỗi vì nộp muộn: chân thành xin lỗi, giải thích nguyên nhân cụ thể ở thì quá khứ đơn, đính kèm bài làm đã hoàn thành và cam kết tuân thủ các hạn nộp trong tương lai (tối thiểu 120 từ).`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-12': `Bạn là Trưởng bộ phận Chăm sóc Khách hàng tại Khách sạn Pearl Palace. Một vị khách, ông Smith, đã có trải nghiệm lưu trú không hài lòng do dịch vụ phòng chậm và đồ ăn bị nguội. Hãy viết email xin lỗi ông Smith: chân thành xin lỗi, giải thích sự cố nhà bếp ngoài ý muốn, đề xuất bồi thường và cam kết nâng cao chất lượng dịch vụ (tối thiểu 120 từ).`,
+  'de-06': `Bạn vừa nhận được một email từ người bạn Helen muốn biết về ngôi nhà mới chuyển của bạn ở gần khuôn viên trường đại học. Hãy viết một email gửi Helen để:
+• Miêu tả vị trí của ngôi nhà (house location)
+• Miêu tả cách bố trí các phòng (room layout)
+• Kể về khu dân cư xung quanh (surrounding neighborhood)
+• Mời bạn ấy sang chơi thăm nhà mới (invite her to visit)
 
-  'de-13': `Bạn nhìn thấy quảng cáo tuyển dụng nhân viên phục vụ bàn bán thời gian tại Nhà hàng Sunflower. Hãy viết thư ứng tuyển gửi trưởng phòng tuyển dụng: giới thiệu trình độ học vấn, giải thích lý do muốn công việc này, miêu tả kinh nghiệm làm việc liên quan và khẳng định tại sao bạn là ứng viên phù hợp (tối thiểu 120 từ).`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-14': `Bạn nhìn thấy thông báo tuyển dụng vị trí Trợ lý Sự kiện tại Lễ hội Văn hóa Thanh niên sắp tới. Hãy viết thư ứng tuyển gửi Ban Tổ chức: giới thiệu bản thân và quá trình học đại học, nêu động lực ứng tuyển, phác thảo kinh nghiệm tổ chức sự kiện/tình nguyện và giải thích tại sao bạn là ứng viên sáng giá (tối thiểu 120 từ).`,
+  'de-07': `Bạn là hội viên tại Câu lạc bộ Thể hình Elite Fitness Club. Gần đây, một số máy tập gym đã bị hỏng và vẫn chưa được sửa chữa. Hãy viết một email gửi người quản lý phòng tập để phàn nàn về sự việc này. Trong email, bạn nên:
+• Miêu tả các thiết bị bị hỏng và những bất tiện phát sinh
+• Giải thích vấn đề này ảnh hưởng thế nào đến việc tập luyện của bạn
+• Đề xuất ban quản lý nên thực hiện biện pháp gì để khắc phục
 
-  'de-15': `Bạn vừa nhận được thư từ người bạn Emily. Bạn ấy sắp đến thăm Cần Thơ vào tháng Mười Hai. Hãy viết thư đưa ra một vài gợi ý về:
+${RUBRIC_VI_FOOTER}`,
+
+  'de-08': `Tối qua bạn đã dùng bữa tối tại nhà hàng The Grand Bistro để kỷ niệm một sự kiện gia đình. Chất lượng món ăn rất kém, thời gian chờ đợi quá lâu và nhân viên phục vụ thiếu nhiệt tình. Hãy viết một bức thư khiếu nại gửi quản lý nhà hàng:
+• Miêu tả cụ thể các vấn đề bạn gặp phải
+• Giải thích sự thất vọng của bạn và gia đình
+• Yêu cầu phương án giải quyết thỏa đáng
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-09': `Bạn là hành khách thường xuyên đi tuyến xe buýt công cộng số 08. Hãy viết một email gửi ông Tailor, giám đốc quản lý dịch vụ vận tải, để đóng góp ý kiến phản hồi về dịch vụ xe buýt. Trong email, bạn nên:
+• Đề cập những mặt tích cực mà bạn đánh giá cao
+• Chỉ ra các vấn đề còn tồn tại (tình trạng quá tải/trễ giờ và thái độ phục vụ)
+• Đề xuất những giải pháp cải thiện thiết thực
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-10': `Bạn đã tổ chức bữa tiệc sinh nhật cùng bạn bè tại nhà hàng Golden Spoon vào thứ Bảy tuần trước. Hãy viết một email gửi người quản lý nhà hàng để đưa ra phản hồi. Trong email, bạn nên:
+• Khen ngợi những điểm nhà hàng làm tốt (hương vị món ăn và trang trí bàn tiệc)
+• Chỉ ra những điểm cần khắc phục (lên món chậm và âm thanh/nhạc nền quá ồn)
+• Đưa ra các gợi ý cải thiện cho những sự kiện sau này
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-11': `Bạn là sinh viên đại học đã không kịp nộp bài tiểu luận nghiên cứu học phần đúng hạn. Hãy viết một email gửi giảng viên phụ trách môn học, Giáo sư Johnson, để xin lỗi vì nộp bài muộn. Trong email, bạn nên:
+• Chân thành xin lỗi thầy
+• Giải thích lý do cụ thể (sự cố hỏng hóc kỹ thuật máy tính ở thì quá khứ đơn)
+• Gửi kèm bài làm đã hoàn thành và xin phép nộp bổ sung
+• Cam kết tuân thủ nghiêm túc các thời hạn nộp bài trong tương lai
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-12': `Bạn là Trưởng bộ phận Quan hệ Khách hàng tại Khách sạn Pearl Palace. Một vị khách, ông Smith, đã có kỳ lưu trú không hài lòng do dịch vụ phòng chậm trễ và đồ ăn bị nguội. Hãy viết email xin lỗi gửi ông Smith. Trong thư, bạn nên:
+• Chân thành xin lỗi về trải nghiệm không tốt của khách
+• Giải thích sự cố ngoài ý muốn ở bộ phận bếp (dùng thì quá khứ đơn)
+• Đề xuất hình thức đền bù thiện chí (giảm trừ hóa đơn hoặc tặng phiếu ưu đãi miễn phí)
+• Khẳng định cam kết nâng cao chất lượng phục vụ của khách sạn
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-13': `Bạn nhìn thấy một mẩu quảng cáo tuyển dụng vị trí nhân viên phục vụ bàn bán thời gian (part-time waiter) tại Nhà hàng Sunflower. Hãy viết thư ứng tuyển gửi người quản lý tuyển dụng. Trong thư, bạn nên:
+• Giới thiệu trình độ học vấn hiện tại của bạn
+• Giải thích lý do tại sao bạn muốn ứng tuyển công việc này
+• Miêu tả kinh nghiệm làm việc thực tế có liên quan
+• Khẳng định lý do bạn là ứng viên phù hợp và thời gian có thể đi làm
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-14': `Bạn nhìn thấy thông báo tuyển dụng vị trí Trợ lý Sự kiện (Event Assistant) cho Lễ hội Văn hóa Thanh niên sắp tới. Hãy viết thư ứng tuyển gửi Ban Tổ chức. Trong thư, bạn nên:
+• Giới thiệu bản thân và ngành học đại học hiện tại
+• Nêu rõ động lực ứng tuyển vị trí này
+• Trình bày kinh nghiệm tham gia tổ chức sự kiện hoặc hoạt động tình nguyện trước đây
+• Giải thích tại sao kỹ năng của bạn giúp bạn trở thành một ứng viên sáng giá
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-15': `Bạn vừa nhận được một bức thư từ người bạn Emily. Bạn ấy sắp đến thăm Cần Thơ vào tháng Mười Hai. Hãy viết một bức thư để đưa ra cho bạn ấy một vài gợi ý. Bạn nên nói cho bạn ấy biết:
 • Nơi ở (Where to stay)
 • Món ăn nên thử (What dishes to try)
-• Điểm du lịch nên tham quan (Which tourist attractions to visit)
+• Những địa điểm du lịch nên tham quan (Which tourist attractions to visit)
 • Trang phục nên mặc (What to wear)
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`,
 
-  'de-16': `Bạn của bạn vừa hoàn thành một khóa học tiếng Anh tại Trung tâm Ngoại ngữ Rainbow và có trải nghiệm rất tuyệt vời. Bạn cũng đang dự định học tiếng Anh và muốn hỏi thêm thông tin về:
+${RUBRIC_VI_FOOTER}`,
+
+  'de-16': `Người bạn của bạn vừa hoàn thành một khóa học tiếng Anh tại Trung tâm Ngoại ngữ Rainbow và có trải nghiệm rất tuyệt vời. Bạn cũng đang dự định học tiếng Anh và muốn tìm hiểu thêm về khóa học đó. Hãy viết một bức thư gửi bạn mình để hỏi thêm thông tin về:
 • Địa chỉ của trung tâm (The address of the center)
 • Học phí (The tuition fee)
 • Đội ngũ giáo viên (The teachers)
 • Chương trình đào tạo (The training program)
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`,
 
-  'de-17': `Người bạn Linda vừa hoàn thành một khóa học tiếng Trung tại Trung tâm Happy Chinese và rất thích khóa học đó. Bạn cũng đang lên kế hoạch học tiếng Trung. Hãy viết thư cho Linda hỏi về:
-• Học phí (the tuition fee)
+${RUBRIC_VI_FOOTER}`,
+
+  'de-17': `Bạn vừa nhận được thư từ người bạn Linda. Bạn ấy vừa hoàn thành một khóa học tiếng Trung tại Trung tâm Ngoại ngữ Happy Chinese và rất yêu thích khóa học đó. Bạn cũng đang lên kế hoạch học tiếng Trung và muốn biết thêm thông tin về khóa học.
+Hãy viết một bức thư gửi Linda. Trong thư, bạn nên hỏi về:
+• Học phí khóa học (the tuition fee)
 • Thời lượng khóa học (the course duration)
 • Đội ngũ giáo viên (the teachers)
-• Lịch học (the class schedule)
-Bạn nên viết ít nhất 120 từ. Không ghi tên hoặc địa chỉ của bạn.`,
+• Lịch học hàng tuần (the class schedule)
 
-  'de-18': `Bạn vừa nhận được thư từ người bạn Nam hỏi thông tin về khóa học tiếng Anh tại Trung tâm Ngoại ngữ Rainbow mà bạn vừa hoàn thành. Hãy viết thư hồi âm cho Nam cung cấp thông tin về:
+${RUBRIC_VI_FOOTER}`,
+
+  'de-18': `Bạn vừa nhận được một bức thư từ người bạn của mình, Nam. Hãy đọc trích đoạn bức thư dưới đây:
+"... Tháng tới mình dự định học tiếng Anh tại Trung tâm Ngoại ngữ Rainbow. Vì cậu vừa hoàn thành một khóa học ở đó, cậu có thể chia sẻ thêm cho mình biết về khóa học được không? Mình muốn biết về địa chỉ của trung tâm, mức học phí, đội ngũ giáo viên và chương trình đào tạo trước khi quyết định đăng ký..."
+Hãy viết một bức thư hồi âm cho Nam. Trong thư, bạn nên cung cấp thông tin về:
 • Địa chỉ của trung tâm (the address of the center)
 • Học phí (the tuition fee)
 • Đội ngũ giáo viên (the teachers)
 • Chương trình đào tạo (the training program)
-Bạn nên viết ít nhất 120 từ. Không ghi tên hoặc địa chỉ của bạn.`,
 
-  'de-19': `Người bạn người Anh Emily viết thư hỏi bạn về Hoa — người bạn muốn xin ở nhờ nhà gia đình Emily tại London trong thời gian đầu tham gia khóa học cho đến khi tìm được căn hộ. Hãy viết thư hồi âm cho Emily miêu tả tính cách, sở thích, công việc hoặc việc học tập hiện tại của Hoa để Emily biết liệu Hoa có hòa hợp với gia đình mình hay không (tối thiểu 120 từ).`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-20': `Bạn là hội viên của một trung tâm thể thao địa phương. Gần đây bạn sử dụng phòng thay đồ và không hài lòng với tình trạng của phòng. Hãy viết email gửi người quản lý trung tâm thể thao:
+  'de-19': `Bạn vừa nhận được một bức thư từ người bạn người Anh, Emily. Hãy đọc trích đoạn bức thư của cô ấy dưới đây:
+"... Tớ vừa nhận được thư từ bạn của cậu là Hoa. Bạn ấy sắp sang học một khóa học tại London, nên có hỏi tớ liệu bạn ấy có thể ở cùng với tớ và gia đình tớ cho đến khi tìm được căn hộ riêng hay không. Cậu có thể cho tớ biết một vài thông tin về Hoa được không? (những điều như tính cách, sở thích, công việc hoặc việc học hiện tại của bạn ấy). Tớ cần biết liệu bạn ấy có hòa hợp với gia đình tớ hay không ..."
+
+Hãy viết một bức thư hồi âm cho Emily.
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-20': `Bạn là hội viên của một trung tâm thể thao tại địa phương. Gần đây bạn đã sử dụng phòng thay đồ và không hài lòng với tình trạng của phòng. Hãy viết một email gửi người quản lý trung tâm thể thao. Trong email, bạn nên:
 • Miêu tả các vấn đề bạn phát hiện trong phòng thay đồ
-• Giải thích tình huống đó khiến bạn cảm thấy thế nào
-• Đề xuất những việc nên làm để cải thiện cơ sở vật chất
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`,
+• Giải thích tình trạng đó khiến bạn cảm thấy như thế nào
+• Đề xuất những biện pháp cần thực hiện để cải thiện cơ sở vật chất
 
-  'de-21': `Gần đây bạn đã ở tại một khách sạn trong kỳ nghỉ nhưng không hài lòng với căn phòng của mình. Hãy viết thư gửi người quản lý khách sạn để phàn nàn:
-• Miêu tả các vấn đề của căn phòng
-• Giải thích bạn cảm thấy thế nào về trải nghiệm này
-• Đề xuất một số biện pháp cải thiện
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-22': `Gần đây bạn đã ở tại một khách sạn và nhận được email từ người quản lý xin ý kiến phản hồi về kỳ nghỉ của bạn. Hãy viết email đưa ra ý kiến:
+  'de-21': `Gần đây bạn đã lưu trú tại một khách sạn trong kỳ nghỉ. Đáng tiếc là bạn không hài lòng với căn phòng của mình. Hãy viết một bức thư gửi người quản lý khách sạn để phàn nàn về kỳ nghỉ đó. Trong thư, bạn nên:
+• Miêu tả các sự cố của căn phòng
+• Giải thích cảm nhận của bạn về trải nghiệm này
+• Đề xuất một số biện pháp khắc phục, cải thiện
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-22': `Gần đây bạn đã ở tại một khách sạn và nhận được email từ người quản lý khách sạn xin ý kiến phản hồi về kỳ lưu trú của bạn.
+Hãy viết một email để đưa ra ý kiến đóng góp. Trong email, bạn nên:
 • Nêu rõ bạn hài lòng hay không hài lòng với dịch vụ
-• Miêu tả trải nghiệm của bạn
-• Gợi ý các cách khách sạn có thể cải thiện dịch vụ
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`,
+• Miêu tả trải nghiệm thực tế của bạn
+• Gợi ý những cách khách sạn có thể áp dụng để cải thiện dịch vụ
 
-  'de-23': `Gần đây bạn đã dùng bữa tối tại một nhà hàng mới cùng gia đình. Vài ngày sau, người quản lý gửi email xin ý kiến phản hồi. Hãy viết email phản hồi:
+${RUBRIC_VI_FOOTER}`,
+
+  'de-23': `Gần đây bạn đã dùng bữa tối tại một nhà hàng mới mở. Vài ngày sau, người quản lý nhà hàng đã gửi email xin ý kiến đánh giá của bạn.
+Hãy viết một email để đưa ra nhận xét của bạn. Trong email, bạn nên:
 • Nêu rõ bạn hài lòng hay không hài lòng với nhà hàng
-• Miêu tả trải nghiệm của bạn
-• Gợi ý các cách nhà hàng có thể cải thiện dịch vụ
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`,
+• Miêu tả chi tiết trải nghiệm bữa tối của bạn
+• Gợi ý các cách giúp nhà hàng nâng cao chất lượng phục vụ
 
-  'de-24': `Bạn đã mượn một cuốn sách từ người bạn Helen nhưng quên trả lại. Hãy viết thư hồi âm cho Helen:
-• Xin lỗi vì đã không trả cuốn sách đúng hẹn
-• Giải thích hoàn cảnh hiện tại của bạn và nêu rõ bạn đã đọc xong sách hay chưa
-• Nói rõ khi nào và bằng cách nào bạn sẽ trả lại cuốn sách
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-25': `Bạn vừa nhận được email từ giáo sư nhắc nhở về việc chưa nộp bài tập đúng hạn thứ Sáu tuần trước. Hãy viết thư hồi âm cho giáo sư:
+  'de-24': `Bạn đã mượn một cuốn sách từ người bạn Helen nhưng lại quên trả. Hãy đọc trích đoạn bức thư của bạn ấy dưới đây:
+"... Này cậu! Dạo này cậu thế nào rồi? Nhân tiện cho tớ hỏi, cậu đã đọc xong cuốn sách mượn của tớ chưa? Tớ đang thắc mắc sao cậu vẫn chưa trả lại sách cho tớ. Khi nào cậu định trả lại và cậu sẽ gửi trả bằng cách nào thế? ..."
+Hãy viết một bức thư hồi âm cho Helen. Trong thư, bạn nên:
+• Xin lỗi vì đã chưa trả lại cuốn sách đúng hẹn
+• Giải thích hoàn cảnh vừa qua của bạn và cho biết bạn đã đọc xong cuốn sách hay chưa
+• Nói rõ khi nào và bằng cách nào bạn sẽ trả lại sách cho bạn ấy
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-25': `Bạn vừa nhận được một email từ giáo sư của mình:
+"... Thầy nhận thấy em vẫn chưa nộp bài tập. Hạn chót là thứ Sáu tuần trước, nhưng đến nay thầy vẫn chưa nhận được bài làm của em. Em có thể giải thích lý do tại sao bài tập lại bị trễ hạn không? Ngoài ra, khi nào em sẽ nộp bài? Thầy mong sớm nhận được phản hồi từ em. ..."
+Hãy viết một bức thư hồi âm cho giáo sư. Trong thư, bạn nên:
 • Xin lỗi vì đã nộp bài tập muộn
-• Giải thích lý do tại sao bạn không thể nộp bài đúng hạn
-• Nói rõ khi nào và bằng cách nào bạn sẽ nộp bài tập
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`,
+• Giải thích lý do tại sao bạn không thể nộp bài đúng thời hạn
+• Nói rõ khi nào và bằng hình thức nào bạn sẽ nộp bài tập
 
-  'de-26': `Bạn nhìn thấy quảng cáo tuyển dụng nhân viên bán hàng tại một cửa hàng quần áo trong thành phố. Hãy viết email ứng tuyển:
-• Giới thiệu bản thân và hoàn cảnh hiện tại của bạn
-• Nói rõ tại sao bạn quan tâm đến vị trí này
-• Đề cập đến kinh nghiệm làm việc với khách hàng
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`,
+${RUBRIC_VI_FOOTER}`,
 
-  'de-27': `Bạn nhìn thấy quảng cáo tuyển dụng vị trí nhân viên lễ tân tại một khách sạn nhỏ trong thành phố. Hãy viết email ứng tuyển:
-• Giới thiệu bản thân và hoàn cảnh hiện tại của bạn
-• Nói rõ tại sao bạn quan tâm đến vị trí này
-• Đề cập kinh nghiệm làm việc với khách hàng hoặc khách lưu trú
-• Giải thích tại sao bạn là ứng cử viên phù hợp cho công việc
-Bạn nên viết ít nhất 120 từ. Không ghi tên của bạn.`
+  'de-26': `Bạn nhìn thấy thông báo tuyển dụng vị trí nhân viên bán hàng (sales assistant) tại một cửa hàng quần áo trong thành phố. Hãy viết một email để ứng tuyển công việc này. Trong email, bạn nên:
+• Giới thiệu bản thân và hoàn cảnh/công việc học tập hiện tại của bạn
+• Nêu rõ lý do tại sao bạn quan tâm đến vị trí này
+• Đề cập bất kỳ kinh nghiệm nào bạn từng có khi làm việc, tiếp xúc với khách hàng
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-27': `Bạn nhìn thấy quảng cáo tuyển dụng vị trí nhân viên lễ tân (receptionist) tại một khách sạn nhỏ trong thành phố. Bạn rất quan tâm đến vị trí này và muốn nộp đơn ứng tuyển. Hãy viết một email ứng tuyển vị trí trên. Trong email, bạn nên:
+• Giới thiệu bản thân và tình hình hiện tại của bạn
+• Nêu rõ lý do bạn yêu thích vị trí lễ tân này
+• Đề cập kinh nghiệm làm việc với khách hàng hoặc du khách trước đây
+• Giải thích tại sao bạn là một ứng viên phù hợp cho công việc
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-28': `Bạn vừa nhận được thư từ một người bạn muốn hỏi thêm về dự án mỹ thuật chủ đề "Ở Nhà" ("At Home") mà bạn vừa thực hiện gần đây. Hãy đọc trích đoạn bức thư của bạn ấy dưới đây:
+"... Cậu đã hoàn thành dự án vẽ tranh của mình chưa? Cậu chọn vẽ khung cảnh bên trong ngôi nhà hay ngoài sân vườn? Cậu có thể miêu tả bức vẽ đó cho tớ nghe được không? Trong bức tranh của cậu có đồ vật nào đặc biệt quan trọng và ý nghĩa đối với cậu không? ..."
+
+Hãy viết một bức thư hồi âm cho người bạn của mình.
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-29': `Bạn vừa nhận được một email từ người bạn Ann, người đang dự định tham gia một khóa học tiếng Việt khi sang Việt Nam. Hãy đọc trích đoạn email của bạn ấy dưới đây:
+"... Tớ thực sự rất hào hứng về việc tham gia một khóa học tiếng Việt trong thời gian ở Việt Nam. Tuy nhiên, tớ vẫn chưa chắc mình nên chọn loại khóa học nào. Cậu có thể cho tớ biết về mức học phí và khóa học thường kéo dài bao lâu được không? Ngoài ra, tớ nên chuẩn bị những gì trước khi bắt đầu lớp học? ..."
+
+Hãy viết một email hồi âm cho Ann.
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-30': `Bạn vừa nhận được một email từ người bạn của mình, Jane. Bạn ấy hỏi bạn về hai nội dung. Hãy đọc trích đoạn email của bạn ấy dưới đây:
+"... Công việc mới của cậu dạo này thế nào rồi? Đồng nghiệp của cậu có thân thiện không, và cậu có hòa đồng tốt với mọi người không? Hàng ngày cậu đi làm đến công ty có thuận tiện không? Nhân tiện, tuần tới tớ có một buổi phỏng vấn xin việc. Cậu có thể cho tớ một vài lời khuyên về cách chuẩn bị thật tốt cho buổi phỏng vấn được không? ..."
+
+Hãy viết một email hồi âm cho Jane.
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-31': `Bạn vừa nhận được một email từ người bạn Jane. Bạn ấy đang lên kế hoạch đến thăm Việt Nam vào mùa hè này và muốn xin một vài gợi ý. Hãy đọc trích đoạn email của bạn ấy dưới đây:
+"... Tớ thực sự rất háo hức về chuyến du lịch Việt Nam vào mùa hè này. Tuy nhiên, tớ chưa rõ nên sang vào thời điểm nào và nên ghé thăm những địa điểm nào. Cậu có thể gợi ý cho tớ một điểm đến và chỉ cách di chuyển tới đó được không? Ngoài ra, vào mùa hè ở Việt Nam có lễ hội hay sự kiện đặc sắc nào không? Tớ rất muốn biết điều gì làm nên nét đặc biệt của các lễ hội đó. ..."
+
+Hãy viết một email gửi cho Jane.
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-32': `Bạn vừa nhận được một email từ người bạn Alex, người đang thực hiện một bài tập nhóm về thiết kế áp phích (poster). Hãy đọc trích đoạn email của bạn ấy dưới đây:
+"... Giáo viên của bọn tớ yêu cầu mỗi nhóm thiết kế một tấm áp phích, nhưng nhóm tớ vẫn chưa chọn được chủ đề. Cậu có thể gợi ý giúp tớ vài ý tưởng về chủ đề nên chọn được không? Ngoài ra, bọn tớ có thể tìm các nguồn thông tin đáng tin cậy ở đâu để nội dung áp phích thú vị hơn? Nhân tiện, cậu có mẹo nào giúp thiết kế áp phích trông thu hút và bắt mắt không? ..."
+
+Hãy viết một email hồi âm cho Alex.
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-33': `Gần đây bà Smith (Ms. Smith) đã viết thư phàn nàn về chất lượng dịch vụ kém mà bà gặp phải trong thời gian lưu trú tại khách sạn của bạn. Trong thư, bà yêu cầu một lời xin lỗi và được hoàn tiền. Bạn là người quản lý khách sạn. Hãy viết một bức thư phản hồi lại khiếu nại của bà ấy. Trong thư, bạn nên:
+• Xin lỗi về chất lượng dịch vụ chưa tốt mà bà ấy đã trải qua
+• Giải thích cụ thể quy trình bà ấy sẽ nhận lại khoản tiền hoàn trả như thế nào
+• Cho bà ấy biết các biện pháp mà khách sạn sẽ thực hiện để chấn chỉnh và nâng cao dịch vụ
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-34': `Bạn vừa nhận được một bức thư từ người bạn hỏi thăm về chú cún con mới nuôi của bạn. Hãy viết một bức thư hồi âm cho bạn mình. Trong thư, bạn nên:
+• Cho biết bạn đã đặt tên cho chú cún con chưa và tên của nó là gì
+• Kể rõ ai đã tặng chú cún con cho bạn
+• Miêu tả việc chăm sóc chú cún con hằng ngày có vất vả hay khó khăn không
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-35': `Gần đây bạn vừa nhận được thư từ một người bạn mới bắt đầu làm việc tại một hiệu sách địa phương. Bạn ấy đang mong nhận được lời khuyên để làm tốt công việc của mình hơn.
+Hãy viết một bức thư gửi cho người bạn của bạn. Trong thư, bạn nên:
+• Đưa ra lời khuyên về cách tìm và tư vấn đúng cuốn sách phù hợp cho khách hàng
+• Gợi ý một vài ý tưởng trang trí không gian hiệu sách
+• Đề xuất các chiến lược khuyến mãi, quảng bá hiệu quả để thu hút thêm khách đọc
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-36': `Bạn là giáo viên tại Trường Tiểu học Sunshine. Lớp của bạn sắp tổ chức một buổi hoạt động dã ngoại ngoài trời cho học sinh khối Lớp 4 vào cuối tuần tới. Bạn vừa nhận được thư từ bà Jane (Mrs. Jane), một phụ huynh học sinh, hỏi về:
+• Những hoạt động nào sẽ diễn ra trong suốt buổi dã ngoại
+• Lý do tại sao các thầy cô giáo không chuẩn bị bữa trưa tập thể cho học sinh
+• Học sinh có thể mang theo những loại đồ ăn nào cho bữa trưa, và vì sao
+• Con gái của bà ấy nên chuẩn bị mang theo những vật dụng gì để có một ngày vui chơi trọn vẹn
+
+Hãy viết một bức thư gửi bà Jane để giải đáp đầy đủ các câu hỏi của bà.
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-37': `Bạn vừa nhận được một bức thư từ bà Lan (Mrs. Lan), nhân viên phụ trách tại sân bay nơi bạn đã trình báo về chiếc vali bị thất lạc của mình. Hãy đọc trích đoạn bức thư của bà ấy dưới đây:
+"... Xin quý khách vui lòng gửi thêm cho tôi một số thông tin chi tiết về chiếc vali bị thất lạc? Tôi cần biết số hiệu chuyến bay và giờ bay của quý khách, mô tả ngắn gọn bên ngoài cũng như bên trong chiếc vali, và thông tin liên hệ để tôi có thể báo ngay cho quý khách khi tìm thấy hành lý. ..."
+
+Hãy viết một bức thư phản hồi cho bà Lan. Trong thư, bạn nên:
+• Cung cấp thông tin chi tiết về chuyến bay của bạn
+• Miêu tả rõ ràng đặc điểm nhận dạng chiếc vali
+• Cung cấp đầy đủ thông tin liên lạc của bạn
+
+${RUBRIC_VI_FOOTER}`
 };
 
 // ============================================================================
@@ -821,18 +994,68 @@ function exitExamMode() {
 // ============================================================================
 // 8. STEP 1: ĐỌC HIỂU ĐỀ, CHỌN Ý TƯỞNG B2, DÀN Ý 5 BƯỚC & TỪ VỰNG
 // ============================================================================
+function buildDefaultTopicSelectionMap(topic) {
+  const defaults = {};
+  const groups = (topic && topic.details && Array.isArray(topic.details.suggested_ideas))
+    ? topic.details.suggested_ideas
+    : [];
+  if (groups.length === 0) return defaults;
+
+  if (groups.length <= 4) {
+    // Standard 3–4 requirement topics: pick 1st option for each requirement
+    groups.forEach((group, gIdx) => {
+      defaults[gIdx] = (group.options && group.options.length > 0) ? [0] : [];
+    });
+  } else {
+    // Multi-problem topics (e.g., de-20 with 13 changing room problems, or de-07/de-08/de-21 with 5–6 groups)
+    groups.forEach((_, gIdx) => {
+      defaults[gIdx] = [];
+    });
+    if (topic.id === 'de-20') {
+      // Pick 3 representative problems (dirty changing room, broken lockers, slippery floor)
+      [0, 1, 6].forEach(idx => {
+        if (groups[idx] && groups[idx].options && groups[idx].options.length > 0) defaults[idx] = [0];
+      });
+    } else if (topic.id === 'de-08') {
+      // Food quality, wait time, server attitude + Feelings/Disappointment
+      [0, 1, 2, groups.length - 1].forEach(idx => {
+        if (groups[idx] && groups[idx].options && groups[idx].options.length > 0) defaults[idx] = [0];
+      });
+    } else {
+      // First 2 main problem groups + last Feelings/Disappointment group
+      [0, 1, groups.length - 1].forEach(idx => {
+        if (groups[idx] && groups[idx].options && groups[idx].options.length > 0) defaults[idx] = [0];
+      });
+    }
+  }
+  return defaults;
+}
+
 function ensureDefaultIdeasSelected(topic) {
   if (!topic || !topic.details || !Array.isArray(topic.details.suggested_ideas)) return;
-  if (!state.selectedIdeasByTopic[topic.id]) {
-    const defaults = {};
-    topic.details.suggested_ideas.forEach((group, gIdx) => {
-      if (group.options && group.options.length > 0) {
-        defaults[gIdx] = [0]; // Select first B2 option of each requirement by default
-      }
-    });
-    state.selectedIdeasByTopic[topic.id] = defaults;
+  const groups = topic.details.suggested_ideas;
+  const existing = state.selectedIdeasByTopic[topic.id];
+
+  let needsReset = !existing || typeof existing !== 'object';
+  if (!needsReset && groups.length > 4) {
+    // Guard against legacy cached state that selected all 13 groups at once
+    const selectedCount = Object.values(existing).reduce((acc, arr) => acc + (Array.isArray(arr) ? arr.length : 0), 0);
+    if (selectedCount > 6 || selectedCount < 2) needsReset = true;
+  }
+
+  if (needsReset) {
+    state.selectedIdeasByTopic[topic.id] = buildDefaultTopicSelectionMap(topic);
     saveSelectedIdeas();
   }
+}
+
+function resetTopicIdeasToDefault() {
+  const topic = state.activeTopic;
+  if (!topic) return;
+  state.selectedIdeasByTopic[topic.id] = buildDefaultTopicSelectionMap(topic);
+  saveSelectedIdeas();
+  renderStep1Reading();
+  showToast('Đã đặt lại bộ ý tưởng B2 mặc định cho đề bài này!', 'info');
 }
 
 function saveSelectedIdeas() {
@@ -843,31 +1066,52 @@ function saveSelectedIdeas() {
 
 function toggleLetterIdeaSelection(gIdx, optIdx) {
   const topic = state.activeTopic;
-  if (!topic) return;
+  if (!topic || !topic.details || !Array.isArray(topic.details.suggested_ideas)) return;
   ensureDefaultIdeasSelected(topic);
 
-  const topicSel = state.selectedIdeasByTopic[topic.id] || {};
+  const groups = topic.details.suggested_ideas;
+  const isMultiGroupTopic = groups.length > 4;
+  const topicSel = { ...(state.selectedIdeasByTopic[topic.id] || {}) };
   const currentArr = Array.isArray(topicSel[gIdx]) ? [...topicSel[gIdx]] : [];
 
+  const totalSelected = groups.reduce((sum, _, idx) => {
+    const arr = Array.isArray(topicSel[idx]) ? topicSel[idx] : [];
+    return sum + arr.length;
+  }, 0);
+
   const pos = currentArr.indexOf(optIdx);
-  if (pos >= 0) {
-    if (currentArr.length === 1) {
-      showToast('Mỗi yêu cầu của đề bài cần giữ ít nhất 1 ý tưởng để bài thư đủ ý!', 'warning');
-      return;
+
+  if (isMultiGroupTopic) {
+    if (pos >= 0) {
+      if (totalSelected <= 2) {
+        showToast('Bức thư phàn nàn cần giữ ít nhất 2 ý tưởng để đảm bảo đủ ý và độ dài tối thiểu 120 từ!', 'warning');
+        return;
+      }
+      currentArr.splice(pos, 1);
+      topicSel[gIdx] = currentArr;
+    } else {
+      if (totalSelected >= 5 && currentArr.length === 0) {
+        showToast('Bạn chỉ nên chọn từ 2 đến 5 vấn đề tiêu biểu để bức thư súc tích, đúng trọng tâm!', 'warning');
+        return;
+      }
+      topicSel[gIdx] = [optIdx];
     }
-    currentArr.splice(pos, 1);
   } else {
-    // Replace single selection or allow up to 2 ideas per requirement
-    if (currentArr.length >= 2) {
-      currentArr.shift();
+    // Standard 3–4 requirement topic: 1 chosen B2 idea per requirement (click another option in column to switch cleanly)
+    if (pos >= 0) {
+      if (currentArr.length === 1) {
+        showToast('Mỗi yêu cầu trong đề cần có 1 ý tưởng đại diện. Hãy bấm vào phương án khác trong cùng cột nếu bạn muốn đổi ý nhé!', 'info');
+        return;
+      }
+      currentArr.splice(pos, 1);
+      topicSel[gIdx] = currentArr;
+    } else {
+      topicSel[gIdx] = [optIdx];
     }
-    currentArr.push(optIdx);
   }
 
-  topicSel[gIdx] = currentArr;
   state.selectedIdeasByTopic[topic.id] = topicSel;
   saveSelectedIdeas();
-
   renderStep1Reading();
 }
 
@@ -875,112 +1119,264 @@ function formatPromptDisplayHtml(rawPrompt) {
   if (!rawPrompt) return '';
   return rawPrompt.split('\n').map(line => {
     const trimmed = line.trim();
-    if (!trimmed) return '<div style="height: 0.4rem;"></div>';
-    let safe = escapeHtml(trimmed).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    if (/^[•\-o]\s+/.test(trimmed)) {
-      return `<div style="padding: 0.4rem 0.75rem; margin: 0.25rem 0; background: rgba(99, 102, 241, 0.08); border-left: 3px solid var(--accent-primary); border-radius: 4px; font-weight: 600;">${safe}</div>`;
+    if (!trimmed) return '<div style="height: 0.35rem;"></div>';
+
+    // Rubric footer note (EN or VI)
+    if (/^(You should write at least 120 words|Bạn nên viết ít nhất 120 từ)/i.test(trimmed)) {
+      const safeRubric = escapeHtml(trimmed).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      return `<div class="prompt-rubric-note">${safeRubric}</div>`;
     }
-    return `<div style="margin-bottom: 0.35rem;">${safe}</div>`;
+
+    // Bullet item (- ..., • ..., * ..., o\t..., o ...)
+    if (/^(?:[•\-*]|o(?=\s))\s+/i.test(trimmed)) {
+      const stripped = trimmed.replace(/^(?:[•\-*]|o(?=\s))\s+/i, '').trim();
+      const safeBullet = escapeHtml(stripped).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      return `<div class="prompt-bullet-item"><span>•</span><span>${safeBullet}</span></div>`;
+    }
+
+    // Quoted email excerpt ("... ...", “… …”, ... ..., … …)
+    if (/^(?:["“”']\s*(?:\.\.\.|…)|(?:\.\.\.|…)\s+)/.test(trimmed)) {
+      const safeQuote = escapeHtml(trimmed).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      return `<div class="prompt-quote-box">${safeQuote}</div>`;
+    }
+
+    const safeLine = escapeHtml(trimmed).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    return `<div style="margin-bottom: 0.4rem;">${safeLine}</div>`;
   }).join('');
 }
 
-// Build a natural B2 English sentence + Vietnamese prompt from a suggested_ideas option
+function toGerundPhrase(phrase) {
+  if (!phrase) return '';
+  const cleaned = phrase.trim().replace(/^always\s+/i, '');
+  const words = cleaned.split(/\s+/);
+  let v = words[0].toLowerCase();
+  const rest = words.slice(1).join(' ');
+  const irregulars = {
+    be: 'being', have: 'having', make: 'making', take: 'taking',
+    choose: 'choosing', come: 'coming', give: 'giving', write: 'writing',
+    stay: 'staying', buy: 'buying', pay: 'paying', say: 'saying',
+    try: 'trying', study: 'studying', fly: 'flying', put: 'putting',
+    get: 'getting', run: 'running', stop: 'stopping', plan: 'planning',
+    drop: 'dropping', sit: 'sitting', travel: 'traveling', pack: 'packing',
+    use: 'using', practice: 'practicing', practise: 'practising',
+    explore: 'exploring', taste: 'tasting', sample: 'sampling',
+    participate: 'participating', compete: 'competing', organize: 'organizing',
+    prepare: 'preparing', memorize: 'memorizing', wrap: 'wrapping', set: 'setting'
+  };
+  if (irregulars[v]) {
+    v = irregulars[v];
+  } else if (v.endsWith('ie')) {
+    v = v.slice(0, -2) + 'ying';
+  } else if (v.endsWith('e') && !v.endsWith('ee')) {
+    v = v.slice(0, -1) + 'ing';
+  } else if (/^[bcdfghjklmnpqrstvwxyz]+[aeiou][bcdfghjklmnprstvz]$/.test(v) && v.length <= 4) {
+    v = v + v.slice(-1) + 'ing';
+  } else {
+    v = v + 'ing';
+  }
+  return rest ? `${v} ${rest}` : v;
+}
+
+function attachReasonClauseEn(baseClause, rsnEn) {
+  const cleanBase = baseClause.trim();
+  const isQuestion = cleanBase.endsWith('?') || /^(?:(?:First of all|Secondly|Besides that|On top of that|Finally|Last but not least|To begin with|In addition|Furthermore|Moreover),\s*)?(?:could|would|can|will|may|are|is|do|does|did|have|has)\s+(?:you|there|they|the|it|students|learners)\b/i.test(cleanBase);
+
+  const finalizedBase = isQuestion
+    ? cleanBase.replace(/[.?!]+$/, '') + '?'
+    : (/[.?!]$/.test(cleanBase) ? cleanBase : cleanBase + '.');
+
+  if (!rsnEn) return finalizedBase;
+
+  const trimmedRsn = rsnEn.trim();
+  if (isQuestion) {
+    // Never splice a subordinate clause onto a question mark; turn "because ..." into "This is because ..."
+    let followUp = trimmedRsn;
+    if (/^because\b/i.test(followUp)) {
+      followUp = 'This is ' + followUp.charAt(0).toLowerCase() + followUp.slice(1);
+    } else if (/^so\s+that\b/i.test(followUp)) {
+      // Polite modal requests like "would you kindly permit ... so that I can ..." work as a single polite question!
+      if (/^(?:(?:To begin with|Secondly|In addition|Furthermore|Finally|First of all),\s*)?(?:would|could)\s+you\s+kindly\b/i.test(cleanBase)) {
+        const bareQ = cleanBase.replace(/[.?!]+$/, '');
+        const bareR = trimmedRsn.replace(/[.?!]+$/, '');
+        return `${bareQ} ${bareR}?`;
+      }
+      followUp = 'This is ' + followUp;
+    } else if (/^[a-z]/.test(followUp)) {
+      followUp = followUp.charAt(0).toUpperCase() + followUp.slice(1);
+    }
+    if (!/[.?!]$/.test(followUp)) followUp += '.';
+    return `${finalizedBase} ${followUp}`;
+  }
+
+  // Statement base
+  if (/^[A-Z]/.test(trimmedRsn)) {
+    const cleanRsnUpper = /[.?!]$/.test(trimmedRsn) ? trimmedRsn : trimmedRsn + '.';
+    return `${finalizedBase} ${cleanRsnUpper}`;
+  }
+
+  // Lowercase subordinate reason/impact clause ("because ...", "which ...", "so ...", "in order to ...", etc.)
+  const strippedBase = finalizedBase.replace(/[.?!]+$/, '');
+  const cleanSub = trimmedRsn.replace(/[.?!]+$/, '');
+  const needsComma = /^(which|where|meaning|[a-z]+ing)\b/i.test(cleanSub) || (/^so\b/i.test(cleanSub) && !/^so\s+(?:that|as\s+to)\b/i.test(cleanSub));
+  return `${strippedBase}${needsComma ? ',' : ''} ${cleanSub}.`;
+}
+
+function attachReasonClauseVi(baseVi, rsnVi) {
+  const cleanBase = baseVi.trim();
+  const isQuestion = cleanBase.endsWith('?');
+  const finalizedBase = isQuestion
+    ? cleanBase
+    : (/[.?!]$/.test(cleanBase) ? cleanBase : cleanBase + '.');
+
+  if (!rsnVi) return finalizedBase;
+
+  const trimmedRsn = rsnVi.trim();
+  if (isQuestion) {
+    let followVi = trimmedRsn;
+    if (/^(bởi vì|vì)\b/i.test(followVi)) {
+      followVi = 'Điều này là ' + followVi.charAt(0).toLowerCase() + followVi.slice(1);
+    } else {
+      followVi = followVi.charAt(0).toUpperCase() + followVi.slice(1);
+    }
+    if (!/[.?!]$/.test(followVi)) followVi += '.';
+    return `${finalizedBase} ${followVi}`;
+  }
+
+  if (/^[A-ZÀÁẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÈÉẺẼẸÊẾỀỂỄỆÌÍỈĨỊÒÓỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÙÚỦŨỤƯỨỪỬỮỰỲÝỶỸỴĐ]/.test(trimmedRsn)) {
+    const cRsn = /[.?!]$/.test(trimmedRsn) ? trimmedRsn : trimmedRsn + '.';
+    return `${finalizedBase} ${cRsn}`;
+  }
+
+  const strippedBase = finalizedBase.replace(/[.?!]+$/, '');
+  const cleanSubVi = trimmedRsn.replace(/[.?!]+$/, '');
+  const needsCommaVi = /^(khiến|làm|giúp|nhờ đó|đảm bảo|mang lại|tránh|nâng tầm|như một|chứng minh|nhắc nhở|duy trì)/i.test(cleanSubVi);
+  return `${strippedBase}${needsCommaVi ? ',' : ''} ${cleanSubVi}.`;
+}
+
+// Build a 100% grammatical B2 English sentence + Vietnamese prompt from any suggested_ideas option
 function buildB2IdeaSentencePair(topic, group, opt, seqIndex) {
   const catKey = topic.category_id || 'advice';
   const isInformal = /informal|thân mật|bạn bè/i.test(topic.recipient_type || topic.details?.analysis?.letter_type || '');
 
-  const connectorsInformal = ['First of all,', 'Secondly,', 'Besides that,', 'Finally,', 'Last but not least,'];
+  const connectorsInformal = ['First of all,', 'Secondly,', 'Besides that,', 'On top of that,', 'Finally,'];
   const connectorsFormal = ['To begin with,', 'Secondly,', 'In addition,', 'Furthermore,', 'Finally,'];
   const conn = (isInformal ? connectorsInformal : connectorsFormal)[seqIndex % 5];
 
   const connectorsVi = ['Trước hết,', 'Thứ hai,', 'Bên cạnh đó,', 'Ngoài ra,', 'Cuối cùng,'];
   const connVi = connectorsVi[seqIndex % 5];
 
-  let actEn = (opt.action_en || opt.problem_en || '').trim();
-  let actVi = (opt.action_vi || opt.problem_vi || '').trim();
-  let rsnEn = (opt.reason_en || opt.impact_en || '').trim();
-  let rsnVi = (opt.reason_vi || opt.impact_vi || '').trim();
-  let exp1En = (opt.expansion_1_en || '').trim();
-  let exp1Vi = (opt.expansion_1_vi || '').trim();
-  let solEn = (opt.solution_en || '').trim();
-  let solVi = (opt.solution_vi || '').trim();
+  const actEn = (opt.action_en || opt.problem_en || '').trim().replace(/\s+/g, ' ');
+  const actVi = (opt.action_vi || opt.problem_vi || '').trim().replace(/\s+/g, ' ');
+  const rsnEn = (opt.reason_en || opt.impact_en || '').trim().replace(/\s+/g, ' ');
+  const rsnVi = (opt.reason_vi || opt.impact_vi || '').trim().replace(/\s+/g, ' ');
+  const exp1En = (opt.expansion_1_en || '').trim().replace(/\s+/g, ' ');
+  const exp1Vi = (opt.expansion_1_vi || '').trim().replace(/\s+/g, ' ');
+  const solEn = (opt.solution_en || '').trim().replace(/\s+/g, ' ');
+  const solVi = (opt.solution_vi || '').trim().replace(/\s+/g, ' ');
 
-  let mainSentenceEn = '';
-  let mainSentenceVi = '';
+  const alreadyHasConnectorEn = /^(First|Second|Third|Next|Finally|Last|To begin|In addition|Furthermore|Moreover|Besides|Regarding|As for|However|Overall|On the whole|On behalf|Please accept|Thank you)\b/i.test(actEn);
+  const alreadyHasConnectorVi = /^(Trước hết|Đầu tiên|Thứ hai|Bên cạnh đó|Ngoài ra|Hơn nữa|Cuối cùng|Nhìn chung|Tuy nhiên|Thay mặt|Xin hãy nhận|Cảm ơn)\b/i.test(actVi);
 
-  const startsWithUpper = /^[A-Z]/.test(actEn);
-  const alreadyHasConnector = /^(First|Second|Third|Next|Finally|Last|To begin|In addition|Furthermore|Moreover|Besides|Regarding|As for|However)\b/i.test(actEn);
+  // Detect true bare verb phrases (imperative/infinitive stems without a subject)
+  const bareActClean = actEn.replace(/[.,;:]+$/, '');
+  const bareViClean = actVi.replace(/[.,;:]+$/, '');
 
-  if (!startsWithUpper) {
-    // Bare verb phrase (e.g., "stay at a hotel in the Old Quarter") -> Wrap in B2 advice/suggestion frame
-    const framesEn = [
-      `it would be a great idea to ${actEn}`,
-      `I would strongly recommend that you ${actEn}`,
-      `if I were you, I would ${actEn}`,
-      `you should definitely ${actEn}`
-    ];
-    const framesVi = [
-      `sẽ là một ý tưởng tuyệt vời nếu bạn ${actVi}`,
-      `tớ đặc biệt khuyên bạn nên ${actVi}`,
-      `nếu tớ là bạn, tớ sẽ ${actVi}`,
-      `bạn nhất định nên ${actVi}`
-    ];
-    const fEn = framesEn[seqIndex % framesEn.length];
-    const fVi = framesVi[seqIndex % framesVi.length];
+  const isRequestVerbStem = catKey === 'request' && /^(ask|inquire)\s+/i.test(bareActClean);
+  const isFeedbackSuggestionVerb = catKey === 'feedback' &&
+    /^[a-z]/.test(bareActClean) &&
+    /^(increase|deploy|conduct|install|enforce|upgrade|synchronize|curate|train|assign|offer|hire|use|rearrange|introduce|provide|improve|repair|replace|organize|maintain)\b/i.test(bareActClean);
+  const isAdviceBareVerb = catKey === 'advice' &&
+    /^[a-z]/.test(bareActClean) &&
+    /^(stay|choose|book|try|eat|visit|wear|bring|rent|opt|look|practice|practise|use|watch|keep|find|listen|join|participate|take|attend|compete|download|buy|always\s+have|always\s+greet|walk|avoid|taste|enjoy|sample|explore|put|pack|carry)\b/i.test(bareActClean);
 
-    if (rsnEn) {
-      const cleanRsn = rsnEn.endsWith('.') ? rsnEn : rsnEn + '.';
-      mainSentenceEn = `${conn} ${fEn} ${cleanRsn}`;
+  let baseClauseEn = '';
+  let baseClauseVi = '';
+
+  if (isRequestVerbStem) {
+    // Transform "ask about/for/if/whether/how..." -> natural B2 inquiry sentence/question
+    const strippedVerb = bareActClean.replace(/^(?:ask|inquire)\s+/i, '');
+    const strippedVi = bareViClean.replace(/^(?:hỏi\s+xem\s+|hỏi\s+về\s+|hỏi\s+|tìm\s+hiểu\s+xem\s+|tìm\s+hiểu\s+về\s+)/i, '');
+    const isAboutOrFor = /^(?:about|for)\s+/i.test(strippedVerb);
+    const nounPhrase = strippedVerb.replace(/^(?:about|for)\s+/i, '');
+
+    const mode = seqIndex % 4;
+    if (isAboutOrFor) {
+      if (mode === 0) baseClauseEn = `${conn} could you tell me more about ${nounPhrase}?`;
+      else if (mode === 1) baseClauseEn = `${conn} I would like to know more about ${nounPhrase}.`;
+      else if (mode === 2) baseClauseEn = `${conn} could you give me some details about ${nounPhrase}?`;
+      else baseClauseEn = `${conn} I was wondering if you could share some information about ${nounPhrase}.`;
     } else {
-      mainSentenceEn = `${conn} ${fEn}.`;
+      if (mode === 0) baseClauseEn = `${conn} could you let me know ${strippedVerb}?`;
+      else if (mode === 1) baseClauseEn = `${conn} I would like to know ${strippedVerb}.`;
+      else if (mode === 2) baseClauseEn = `${conn} could you tell me ${strippedVerb}?`;
+      else baseClauseEn = `${conn} I was also wondering ${strippedVerb}.`;
     }
 
-    if (rsnVi) {
-      const cleanRsnVi = rsnVi.endsWith('.') ? rsnVi : rsnVi + '.';
-      mainSentenceVi = `${connVi} ${fVi} ${cleanRsnVi}`;
+    const viAlreadyQuestion = /(?:\s+không|\s+chưa|\?)$/i.test(strippedVi);
+    const cleanStrippedVi = strippedVi.replace(/\?+$/, '');
+    if (mode === 0 || mode === 2) {
+      const suffixQ = viAlreadyQuestion ? '?' : ' được không?';
+      baseClauseVi = isInformal
+        ? `${connVi} cậu có thể cho tớ biết ${cleanStrippedVi}${suffixQ}`
+        : `${connVi} quý vị có thể cho tôi biết ${cleanStrippedVi}${suffixQ}`;
     } else {
-      mainSentenceVi = `${connVi} ${fVi}.`;
+      const leadKnow = viAlreadyQuestion ? 'biết liệu' : 'tìm hiểu thêm về';
+      baseClauseVi = isInformal
+        ? `${connVi} tớ muốn ${leadKnow} ${cleanStrippedVi}.`
+        : `${connVi} tôi muốn ${leadKnow} ${cleanStrippedVi}.`;
+    }
+  } else if (isFeedbackSuggestionVerb) {
+    const sugLeadEn = seqIndex % 2 === 0
+      ? `To further improve your service quality, I suggest that you ${bareActClean}`
+      : `Furthermore, it would be much better if you could ${bareActClean}`;
+    const sugLeadVi = seqIndex % 2 === 0
+      ? `Để nâng cao hơn nữa chất lượng dịch vụ, tôi đề xuất quý vị nên ${bareViClean}`
+      : `Hơn thế nữa, sẽ tốt hơn rất nhiều nếu quý vị có thể ${bareViClean}`;
+    baseClauseEn = `${sugLeadEn}.`;
+    baseClauseVi = `${sugLeadVi}.`;
+  } else if (isAdviceBareVerb) {
+    if (/^always\s+/i.test(bareActClean)) {
+      baseClauseEn = `${conn} you should ${bareActClean}.`;
+      baseClauseVi = `${connVi} cậu nên ${bareViClean}.`;
+    } else {
+      const mode = seqIndex % 4;
+      if (mode === 0) {
+        baseClauseEn = `${conn} it would be a great idea to ${bareActClean}.`;
+        baseClauseVi = `${connVi} sẽ là một ý tưởng tuyệt vời nếu cậu ${bareViClean}.`;
+      } else if (mode === 1) {
+        baseClauseEn = `${conn} you could consider ${toGerundPhrase(bareActClean)}.`;
+        baseClauseVi = `${connVi} cậu có thể cân nhắc việc ${bareViClean}.`;
+      } else if (mode === 2) {
+        baseClauseEn = `${conn} if I were you, I would ${bareActClean}.`;
+        baseClauseVi = `${connVi} nếu tớ là cậu, tớ sẽ ${bareViClean}.`;
+      } else {
+        baseClauseEn = `${conn} I would strongly recommend ${toGerundPhrase(bareActClean)}.`;
+        baseClauseVi = `${connVi} tớ đặc biệt khuyên cậu nên ${bareViClean}.`;
+      }
     }
   } else {
-    // Already a full clause/sentence
-    let adjustedActEn = actEn;
-    if (!alreadyHasConnector) {
-      const startsWithPronounI = /^I(\s|['’])/.test(actEn);
-      const loweredFirst = startsWithPronounI ? actEn : actEn.charAt(0).toLowerCase() + actEn.slice(1);
-      adjustedActEn = `${conn} ${loweredFirst}`;
+    // Full clause/sentence (either uppercase or lowercase subject-verb clause)
+    if (alreadyHasConnectorEn) {
+      baseClauseEn = actEn.charAt(0).toUpperCase() + actEn.slice(1);
+    } else {
+      const keepCapEn = /^(?:I(?:\s|['’])|Hoa\b|Nam\b|Linda\b|Helen\b|Emily\b|John\b|Jane\b|Ann\b|Alex\b|Lucky\b|Milo\b|Sunny\b|Hero\b|Hanoi\b|Can\s+Tho\b|Da\s+Nang\b|Vietnam\b|Vietnamese\b|English\b|Chinese\b|Mr\.|Ms\.|Mrs\.|Professor\b)/.test(actEn);
+      const loweredOrKept = keepCapEn ? actEn : actEn.charAt(0).toLowerCase() + actEn.slice(1);
+      baseClauseEn = `${conn} ${loweredOrKept}`;
     }
 
-    if (rsnEn) {
-      if (/^[a-z]/.test(rsnEn)) {
-        // Subordinate clause like "because ..."
-        const strippedAct = adjustedActEn.replace(/[.?!]+$/, '');
-        const endPunct = adjustedActEn.trim().endsWith('?') ? '?' : '.';
-        const cleanRsn = rsnEn.replace(/[.?!]+$/, '') + endPunct;
-        mainSentenceEn = `${strippedAct} ${cleanRsn}`;
-      } else {
-        const cleanAct = /[.?!]$/.test(adjustedActEn) ? adjustedActEn : adjustedActEn + '.';
-        const cleanRsn = /[.?!]$/.test(rsnEn) ? rsnEn : rsnEn + '.';
-        mainSentenceEn = `${cleanAct} ${cleanRsn}`;
-      }
-    } else {
-      mainSentenceEn = /[.?!]$/.test(adjustedActEn) ? adjustedActEn : adjustedActEn + '.';
-    }
-
-    let adjustedActVi = alreadyHasConnector ? actVi : `${connVi} ${actVi.charAt(0).toLowerCase() + actVi.slice(1)}`;
-    if (rsnVi) {
-      if (/^[a-zàáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ]/.test(rsnVi)) {
-        mainSentenceVi = `${adjustedActVi.replace(/[.?!]+$/, '')} ${rsnVi.endsWith('.') ? rsnVi : rsnVi + '.'}`;
-      } else {
-        const cActVi = /[.?!]$/.test(adjustedActVi) ? adjustedActVi : adjustedActVi + '.';
-        const cRsnVi = /[.?!]$/.test(rsnVi) ? rsnVi : rsnVi + '.';
-        mainSentenceVi = `${cActVi} ${cRsnVi}`;
-      }
-    } else {
-      mainSentenceVi = /[.?!]$/.test(adjustedActVi) ? adjustedActVi : adjustedActVi + '.';
+    if (alreadyHasConnectorVi) {
+      baseClauseVi = actVi.charAt(0).toUpperCase() + actVi.slice(1);
+    } else if (actVi) {
+      const keepCapVi = /^(?:Hoa\b|Nam\b|Linda\b|Helen\b|Emily\b|John\b|Jane\b|Ann\b|Alex\b|Hà\s+Nội\b|Cần\s+Thơ\b|Đà\s+Nẵng\b|Việt\s+Nam\b)/.test(actVi);
+      const loweredVi = keepCapVi ? actVi : actVi.charAt(0).toLowerCase() + actVi.slice(1);
+      baseClauseVi = `${connVi} ${loweredVi}`;
     }
   }
 
-  // Append B2 Expansion 1 (or Solution for complaint) to make a rich B2 paragraph point!
+  let mainSentenceEn = attachReasonClauseEn(baseClauseEn, rsnEn);
+  let mainSentenceVi = attachReasonClauseVi(baseClauseVi, rsnVi);
+
+  // Append B2 Expansion 1 (or Solution for complaint) for authentic B2 paragraph depth
   const extraEn = exp1En || (catKey === 'complaint' ? solEn : '');
   const extraVi = exp1Vi || (catKey === 'complaint' ? solVi : '');
 
@@ -993,28 +1389,152 @@ function buildB2IdeaSentencePair(topic, group, opt, seqIndex) {
     mainSentenceVi = `${mainSentenceVi} ${cleanExtraVi}`;
   }
 
-  return { en: mainSentenceEn.trim(), vi: mainSentenceVi.trim() };
+  return {
+    en: mainSentenceEn.replace(/\s+/g, ' ').trim(),
+    vi: mainSentenceVi.replace(/\s+/g, ' ').trim()
+  };
+}
+
+function resolveOutlineText(rawVal, isFormal, isSemiFormal) {
+  if (!rawVal) return '';
+  if (typeof rawVal === 'string') return rawVal;
+  if (typeof rawVal === 'object') {
+    if (rawVal.request_action && rawVal.await_reply) {
+      return `${rawVal.request_action} ${rawVal.await_reply}`;
+    }
+    if (isSemiFormal) {
+      return rawVal.semi_formal || rawVal.formal || rawVal.formal_unknown || rawVal.info_formal || rawVal.describe_formal || '';
+    }
+    if (isFormal) {
+      return rawVal.formal || rawVal.formal_unknown || rawVal.info_formal || rawVal.describe_formal || rawVal.semi_formal || '';
+    }
+    return rawVal.informal || rawVal.info_informal || rawVal.describe_informal || Object.values(rawVal).find(v => typeof v === 'string') || '';
+  }
+  return '';
 }
 
 function getOutlineHtmlForTopic(topic) {
   const catKey = topic?.category_id || CATEGORY_META[state.currentCategory]?.key || 'advice';
-  if (typeof B2_DETAILED_OUTLINES !== 'undefined' && B2_DETAILED_OUTLINES[catKey]) {
-    return `<div class="b2-detailed-outline-wrapper">${B2_DETAILED_OUTLINES[catKey]}</div>`;
-  }
+  const catTheory = (typeof B2_CATEGORY_THEORY !== 'undefined' && B2_CATEGORY_THEORY[catKey]) ? B2_CATEGORY_THEORY[catKey] : null;
   const catData = getCategoryData(topic?.catNum || state.currentCategory);
-  if (catData && catData.master_outline) {
-    const mo = catData.master_outline;
-    return `
-      <ul class="outline-summary-list">
-        <li><strong>1. Lời chào mở đầu (Salutation):</strong> ${escapeHtml(mo.step1_salutation || 'Dear ...,')}</li>
-        <li><strong>2. Mở thư (Opening):</strong> ${escapeHtml(mo.step2_opening || '')}</li>
-        <li><strong>3. Thân thư (Body Paragraphs):</strong> ${escapeHtml(mo.step3_body?.intro || '')} (${escapeHtml(mo.step3_body?.connectors || '')})</li>
-        <li><strong>4. Kết thư (Closing):</strong> ${escapeHtml(mo.step4_closing || '')}</li>
-        <li><strong>5. Ký tên / Kết thúc (Sign-off):</strong> ${escapeHtml(mo.step5_signoff || '')}</li>
-      </ul>
-    `;
-  }
-  return '';
+  const mo = catData?.master_outline || {};
+  const topicOutline = topic?.details?.outline || {};
+
+  const regText = topic?.details?.analysis?.letter_type || topic?.recipient_type || '';
+  const isSemiFormal = /semi-formal|bán trang trọng/i.test(regText);
+  const isFormal = (/formal/i.test(regText) && !/informal/i.test(regText)) || isSemiFormal;
+
+  // Also check sample_b2 salutation & sign-off so every topic shows the exact salutation if available
+  const sampleEn = topic?.details?.sample_b2?.letter_en || topic?.sample_b2?.text || '';
+  const sampleParas = sampleEn.replace(/\*\*\*|\*\*_/g, '').replace(/_\*\*/g, '').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+  const sampleSalutation = (sampleParas[0] && /^Dear\b/i.test(sampleParas[0])) ? sampleParas[0] : '';
+  const sampleSignoff = (sampleParas.length >= 3 && sampleParas[sampleParas.length - 1].length < 40) ? sampleParas[sampleParas.length - 1] : '';
+
+  const salutationText = resolveOutlineText(topicOutline.salutation, isFormal, isSemiFormal)
+    || sampleSalutation
+    || resolveOutlineText(mo.step1_salutation, isFormal, isSemiFormal)
+    || (isFormal ? 'Dear Sir or Madam, / Dear Mr./Ms. [Họ],' : 'Dear [Tên bạn],');
+
+  const openingText = resolveOutlineText(topicOutline.opening, isFormal, isSemiFormal)
+    || resolveOutlineText(mo.step2_opening, isFormal, isSemiFormal)
+    || (isFormal
+      ? 'I am writing this letter regarding... / I am writing to formally...'
+      : 'Thanks for your letter. How have you been lately? I am writing to...');
+
+  const closingText = resolveOutlineText(topicOutline.closing, isFormal, isSemiFormal)
+    || resolveOutlineText(mo.step4_closing, isFormal, isSemiFormal)
+    || (isFormal
+      ? 'Thank you very much for your time and consideration. I look forward to hearing from you soon.'
+      : 'I hope you find my thoughts helpful. Let me know how things go, and write back soon!');
+
+  const signoffText = resolveOutlineText(topicOutline.sign_off || topicOutline.signoff, isFormal, isSemiFormal)
+    || sampleSignoff
+    || resolveOutlineText(mo.step5_signoff, isFormal, isSemiFormal)
+    || (isFormal
+      ? 'Yours faithfully, (nếu chào Dear Sir/Madam) / Yours sincerely, (nếu chào tên riêng)'
+      : 'Best wishes, / Warm regards,');
+
+  const connectorsHint = catTheory?.connectors_hint || mo.step3_body?.connectors || (isFormal
+    ? 'To begin with, … → In addition, … → Furthermore, … → Finally, …'
+    : 'First of all, … → Secondly, … → Besides that, … → Finally, …');
+
+  const powerStructures = Array.isArray(catTheory?.b2_power_structures) ? catTheory.b2_power_structures : [];
+  const powerGridHtml = powerStructures.length > 0 ? `
+    <div style="margin-top: 0.85rem;">
+      <div style="font-weight: 700; font-size: 0.88rem; color: var(--accent-primary); margin-bottom: 0.45rem;">
+        ✨ BỘ CẤU TRÚC CÂU "ĂN ĐIỂM" BAND B2 ĐẶC TRƯNG (${escapeHtml(catTheory.title_vi || '')}):
+      </div>
+      <div class="b2-power-grid">
+        ${powerStructures.map(ps => `
+          <div class="b2-power-item">
+            <div class="b2-power-pattern no-uppercase">🔹 ${escapeHtml(ps.pattern)}</div>
+            <div style="color: var(--text-secondary); font-size: 0.84rem; margin-top: 0.2rem;">🇻🇳 ${escapeHtml(ps.meaning)}</div>
+            ${ps.example ? `<div style="color: var(--text-primary); font-size: 0.84rem; margin-top: 0.25rem; font-style: italic;">💡 VD: "${escapeHtml(ps.example)}"</div>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  return `
+    <div class="b2-five-step-list">
+      <div class="b2-step-row step-1">
+        <div class="b2-step-head">
+          <span class="b2-step-badge">PHẦN 1</span>
+          <span>LỜI CHÀO MỞ ĐẦU (SALUTATION)</span>
+        </div>
+        <div class="b2-step-formula">
+          Mẫu áp dụng cho đề này: <code>${escapeHtml(salutationText)}</code>
+          <span style="color: var(--text-secondary); font-size: 0.86rem;"> — Luôn có dấu phẩy (<code>,</code>) cuối dòng lời chào và xuống dòng cách 1 dòng trống.</span>
+        </div>
+      </div>
+
+      <div class="b2-step-row step-2">
+        <div class="b2-step-head">
+          <span class="b2-step-badge" style="background: #0ea5e9;">PHẦN 2</span>
+          <span>MỞ THƯ (OPENING — HỎI THĂM &amp; NÊU RÕ MỤC ĐÍCH VIẾT THƯ)</span>
+        </div>
+        <div class="b2-step-formula">
+          <code>${escapeHtml(openingText)}</code>
+        </div>
+      </div>
+
+      <div class="b2-step-row step-3">
+        <div class="b2-step-head">
+          <span class="b2-step-badge" style="background: #8b5cf6;">PHẦN 3</span>
+          <span>THÂN THƯ (BODY PARAGRAPHS — GIẢI QUYẾT ĐẦY ĐỦ CÁC YÊU CẦU TRONG ĐỀ)</span>
+        </div>
+        <div class="b2-step-formula">
+          Trả lời lần lượt từng yêu cầu của đề bài (từ 2 – 3 đoạn thân thư rõ ràng). Mỗi ý cần tuân thủ công thức chuẩn B2: <strong>Ý chính (Action/Point) + Giải thích lý do/tác động (Reason/Impact) + Câu mở rộng chi tiết (Expansion/Solution)</strong>.
+        </div>
+        <div class="b2-connector-bar">
+          <strong>🔗 Chuỗi từ nối chuyển ý mạch lạc chuẩn B2:</strong> ${escapeHtml(connectorsHint)}
+        </div>
+        ${powerGridHtml}
+      </div>
+
+      <div class="b2-step-row step-4">
+        <div class="b2-step-head">
+          <span class="b2-step-badge" style="background: #f59e0b;">PHẦN 4</span>
+          <span>KẾT THƯ (CLOSING SENTENCE)</span>
+        </div>
+        <div class="b2-step-formula">
+          <code>${escapeHtml(closingText)}</code>
+        </div>
+      </div>
+
+      <div class="b2-step-row step-5">
+        <div class="b2-step-head">
+          <span class="b2-step-badge" style="background: #10b981;">PHẦN 5</span>
+          <span>LỜI CHÀO KẾT THÚC (SIGN-OFF — LƯU Ý QUY TẮC PHÒNG THI)</span>
+        </div>
+        <div class="b2-step-formula">
+          <code>${escapeHtml(signoffText)}</code>
+          <span style="color: var(--danger); font-weight: 700; font-size: 0.86rem;"> — ⚠️ Tuyệt đối KHÔNG viết tên thật hoặc địa chỉ cá nhân bên dưới để tránh vi phạm quy chế đánh dấu bài thi VSTEP!</span>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function renderStep1Reading() {
@@ -1028,23 +1548,24 @@ function renderStep1Reading() {
   const suggestedIdeas = details.suggested_ideas || [];
   const vocabList = details.vocab || [];
   const topicSel = state.selectedIdeasByTopic[topic.id] || {};
+  const isMultiGroupTopic = suggestedIdeas.length > 4;
 
   // Group vocabulary by category
   const vocabByGroup = {};
   vocabList.forEach(v => {
-    const g = v.category || 'Từ vựng trọng tâm B2';
+    const g = v.category || 'Từ vựng & Cụm từ trọng tâm B2 theo chủ đề';
     if (!vocabByGroup[g]) vocabByGroup[g] = [];
     vocabByGroup[g].push(v);
   });
 
-  // Build Interactive Idea Selection HTML
+  // Build Interactive Idea Selection HTML (Card 4 — right before transitioning to Step 2)
   let ideaSelectorHtml = '';
   if (suggestedIdeas.length > 0) {
-    let selectedSummaryItems = [];
+    const selectedSummaryItems = [];
     let seqCounter = 0;
 
     const groupsHtml = suggestedIdeas.map((group, gIdx) => {
-      const selArr = topicSel[gIdx] || [0];
+      const selArr = Array.isArray(topicSel[gIdx]) ? topicSel[gIdx] : [];
       const optionsHtml = (group.options || []).map((opt, optIdx) => {
         const isSelected = selArr.includes(optIdx);
         const actEn = opt.action_en || opt.problem_en || '';
@@ -1071,8 +1592,8 @@ function renderStep1Reading() {
             <div class="idea-card-content">
               <div class="idea-card-title">Phương án ${optIdx + 1}: ${escapeHtml(actEn)}</div>
               ${actVi ? `<div class="idea-card-point" style="font-style: italic;">🇻🇳 ${escapeHtml(actVi)}</div>` : ''}
-              ${rsnEn ? `<div class="idea-card-point" style="margin-top: 0.2rem;"><strong style="color: var(--warning);">↳ Lý do/Chi tiết:</strong> ${escapeHtml(rsnEn)}</div>` : ''}
-              ${expEn ? `<div class="idea-card-point" style="margin-top: 0.2rem;"><strong style="color: var(--success);">✨ Mở rộng B2:</strong> ${escapeHtml(expEn)}</div>` : ''}
+              ${rsnEn ? `<div class="idea-card-point" style="margin-top: 0.2rem;"><strong style="color: var(--warning);">↳ Lý do / Hệ quả:</strong> ${escapeHtml(rsnEn)}</div>` : ''}
+              ${expEn ? `<div class="idea-card-point" style="margin-top: 0.2rem;"><strong style="color: var(--success);">✨ Mở rộng / Giải pháp B2:</strong> ${escapeHtml(expEn)}</div>` : ''}
             </div>
           </div>
         `;
@@ -1082,7 +1603,7 @@ function renderStep1Reading() {
         <div class="idea-group-col">
           <div class="idea-group-title-row">
             <div class="idea-group-title">📌 ${escapeHtml(group.title_vi || group.title_en || `Yêu cầu ${gIdx + 1}`)}</div>
-            <span class="idea-group-badge">Đã chọn ${selArr.length} ý</span>
+            <span class="idea-group-badge">${selArr.length > 0 ? `✓ Đã chọn PA ${(selArr[0] || 0) + 1}` : 'Chưa chọn'}</span>
           </div>
           ${optionsHtml}
         </div>
@@ -1090,86 +1611,114 @@ function renderStep1Reading() {
     }).join('');
 
     const summaryHtml = selectedSummaryItems.length > 0 ? `
-      <div style="margin-top: 1.25rem; padding: 1rem 1.25rem; background: var(--bg-primary); border: 1px solid var(--accent-primary); border-radius: var(--radius-md);">
-        <div style="font-weight: 700; color: var(--accent-primary); margin-bottom: 0.65rem; font-size: 0.92rem;">
-          ✅ DÀN Ý CÁC CÂU THÂN THƯ B2 BẠN ĐÃ CHỌN (SẼ CHUYỂN SANG BƯỚC 2 ĐỂ TẬP DIỄN ĐẠT):
+      <div style="margin-top: 1.35rem; padding: 1.1rem 1.25rem; background: var(--bg-primary); border: 1.5px solid var(--accent-primary); border-radius: var(--radius-md);">
+        <div style="font-weight: 700; color: var(--accent-primary); margin-bottom: 0.7rem; font-size: 0.94rem;">
+          ✅ TÓM TẮT DÀN Ý ${selectedSummaryItems.length} ĐOẠN/Ý THÂN THƯ B2 BẠN ĐÃ CHỌN (ĐỒNG BỘ SANG BƯỚC 2):
         </div>
         <ul class="outline-summary-list">
           ${selectedSummaryItems.map((item, idx) => `
             <li>
-              <strong>Đoạn thân ${idx + 1} (${escapeHtml(item.reqTitle)}):</strong><br>
-              <span style="color: var(--text-primary); font-weight: 600;">${escapeHtml(item.en)}</span><br>
-              <span style="color: var(--text-secondary); font-size: 0.86rem; font-style: italic;">(${escapeHtml(item.vi)})</span>
+              <strong>Ý thân thư ${idx + 1} — ${escapeHtml(item.reqTitle)}:</strong>
+              <div style="color: var(--text-primary); font-weight: 600; margin-top: 0.25rem; line-height: 1.55;">🇬🇧 ${escapeHtml(item.en)}</div>
+              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.2rem; line-height: 1.5;">🇻🇳 ${escapeHtml(item.vi)}</div>
             </li>
           `).join('')}
         </ul>
       </div>
     ` : '';
 
+    const helperNote = isMultiGroupTopic
+      ? 'Đề thư phàn nàn này cung cấp nhiều nhóm sự cố gợi ý. Hệ thống đã chọn sẵn các ý tiêu biểu nhất — bạn có thể <strong>bấm vào ô đang chọn để bỏ chọn</strong> hoặc chọn sang nhóm sự cố khác (nên giữ từ <strong>3 – 4 ý</strong> để bức thư mạch lạc 140–180 từ).'
+      : 'Mỗi cột tương ứng với <strong>1 yêu cầu bắt buộc trong đề thi</strong>. Hãy nhấn chọn 1 phương án tâm đắc nhất cho từng cột — hệ thống sẽ tự động ghép thành câu chuẩn B2 và chuyển sang <strong>Bước 2: Tập diễn đạt ý tưởng</strong>!';
+
     ideaSelectorHtml = `
       <div class="reading-section-card idea-selection-card">
         <div class="idea-selection-header">
-          <div>
-            <h3 style="margin-bottom: 0.35rem; border: none; padding: 0;">🎯 BƯỚC CHỌN Ý TƯỞNG & CÂU MỞ RỘNG B2 CHO BỨC THƯ</h3>
-            <p style="font-size: 0.9rem; color: var(--text-secondary);">
-              Nhấn vào các ô bên dưới để chọn ý tưởng bạn muốn viết cho từng câu hỏi của đề bài. Các ý được chọn sẽ tự động đồng bộ sang <strong>Bước 2: Tập diễn đạt ý tưởng</strong>!
+          <div style="flex: 1; min-width: 260px;">
+            <h3 style="margin-bottom: 0.35rem; border: none; padding: 0;">🎯 4. CHỌN Ý TƯỞNG &amp; CÂU MỞ RỘNG B2 CHO THÂN THƯ</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55;">
+              ${helperNote}
             </p>
           </div>
+          <button type="button" class="btn btn-secondary" onclick="resetTopicIdeasToDefault()" style="font-size: 0.82rem; padding: 0.4rem 0.85rem; flex-shrink: 0;">
+            ↺ Đặt lại mặc định
+          </button>
         </div>
         <div class="idea-selection-grid">
           ${groupsHtml}
         </div>
         ${summaryHtml}
+
+        <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+          <button class="btn btn-primary" onclick="switchStep('trans')" style="padding: 0.8rem 1.65rem; font-size: 0.96rem; font-weight: 700;">
+            TIẾP THEO: BƯỚC 02 - TẬP DIỄN ĐẠT Ý TƯỞNG B2 &rarr;
+          </button>
+        </div>
       </div>
     `;
   }
 
   const reqsList = analysis.key_requirements || [];
   const taskExtractions = details.task_extractions || [];
+  const regLabel = analysis.letter_type || topic.recipient_type || 'Informal / Formal';
+  const isFormalLetter = /formal/i.test(regLabel) && !/informal/i.test(regLabel);
 
   container.innerHTML = `
-    <!-- CARD 1: ĐỀ BÀI SONG NGỮ & PHÂN TÍCH 4 YẾU TỐ CỐT LÕI -->
+    <!-- CARD 1: ĐỌC HIỂU ĐỀ BÀI SONG NGỮ & PHÂN TÍCH 4 YẾU TỐ CỐT LÕI -->
     <div class="reading-section-card">
-      <h3>📖 1. ĐỌC HIỂU & PHÂN TÍCH ĐỀ BÀI (VSTEP TASK 1 - B2)</h3>
+      <h3>📖 1. ĐỌC HIỂU &amp; PHÂN TÍCH ĐỀ BÀI (VSTEP TASK 1 - B2)</h3>
       <div class="essay-comparison-grid" style="margin-bottom: 1.25rem;">
         <div class="essay-col" style="background: var(--bg-primary);">
           <h4>🇬🇧 ĐỀ BÀI TIẾNG ANH (EXAM PROMPT)</h4>
-          <div style="font-size: 0.98rem; line-height: 1.65; color: var(--text-primary);">
+          <div style="font-size: 0.97rem; line-height: 1.68; color: var(--text-primary);">
             ${formatPromptDisplayHtml(topic.prompt || topic.context)}
           </div>
         </div>
         <div class="essay-col" style="background: var(--bg-primary);">
-          <h4>🇻🇳 BẢN DỊCH TIẾNG VIỆT</h4>
-          <div style="font-size: 0.96rem; line-height: 1.65; color: var(--text-secondary); white-space: pre-line;">
-            ${escapeHtml(getTopicPromptTranslation(topic))}
+          <h4>🇻🇳 BẢN DỊCH ĐỀ BÀI TIẾNG VIỆT</h4>
+          <div style="font-size: 0.97rem; line-height: 1.68; color: var(--text-primary);">
+            ${formatPromptDisplayHtml(getTopicPromptTranslation(topic))}
           </div>
         </div>
       </div>
 
-      <ul class="paraphrase-list">
-        <li><strong>👤 Người nhận thư (Recipient):</strong> ${escapeHtml(analysis.recipient || topic.recipient_type || 'Người nhận trong đề bài')}</li>
-        <li><strong>🎭 Văn phong bắt buộc (Register):</strong> <span style="color: var(--accent-primary); font-weight: 700;">${escapeHtml(analysis.letter_type || topic.recipient_type || 'Informal / Formal')}</span> ${/formal/i.test(analysis.letter_type || topic.recipient_type || '') && !/informal/i.test(analysis.letter_type || topic.recipient_type || '') ? '— <em>Lưu ý: Tuyệt đối KHÔNG viết tắt (I\'m, don\'t, can\'t)!</em>' : '— <em>Lưu ý: Dùng giọng điệu thân thiện, tự nhiên với bạn bè.</em>'}</li>
-        <li><strong>🎯 Mục đích viết thư (Purpose):</strong> ${escapeHtml(analysis.purpose || topic.title_vi)}</li>
-        <li>
-          <strong>📌 Các yêu cầu bắt buộc cần trả lời đủ trong Thân thư:</strong>
-          <div style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.35rem;">
+      <div class="task-analysis-grid-4">
+        <div class="task-analysis-box">
+          <div class="task-analysis-label">👤 1. Người nhận thư (Recipient)</div>
+          <div style="font-weight: 600; color: var(--text-primary);">${escapeHtml(analysis.recipient || topic.recipient_type || 'Người nhận trong đề bài')}</div>
+        </div>
+        <div class="task-analysis-box">
+          <div class="task-analysis-label">🎭 2. Văn phong bắt buộc (Register)</div>
+          <div>
+            <strong style="color: var(--accent-primary);">${escapeHtml(regLabel)}</strong>
+            <div style="font-size: 0.86rem; color: var(--text-secondary); margin-top: 0.15rem;">
+              ${isFormalLetter
+                ? '⚠️ Lưu ý: Dùng từ ngữ lịch sự, trang trọng; <strong>tuyệt đối KHÔNG viết tắt</strong> (I\'m, don\'t, can\'t)!'
+                : '💡 Lưu ý: Dùng giọng văn tự nhiên, gần gũi, thân thiện như đang trò chuyện với bạn bè.'}
+            </div>
+          </div>
+        </div>
+        <div class="task-analysis-box span-full">
+          <div class="task-analysis-label">🎯 3. Mục đích viết thư (Communicative Purpose)</div>
+          <div style="color: var(--text-primary);">${escapeHtml(analysis.purpose || topic.title_vi)}</div>
+        </div>
+        <div class="task-analysis-box span-full">
+          <div class="task-analysis-label">📌 4. Các yêu cầu trọng tâm bắt buộc giải quyết đủ trong Thân thư</div>
+          <div class="task-req-chips">
             ${taskExtractions.length > 0
-              ? taskExtractions.map((te, i) => `<div><strong>(${i + 1}) ${escapeHtml(te.task_title)}:</strong> ${escapeHtml(te.task_goal)}</div>`).join('')
-              : reqsList.map((r, i) => `<div><strong>(${i + 1})</strong> ${escapeHtml(r)}</div>`).join('')
+              ? taskExtractions.map((te, i) => `<div class="task-req-chip"><strong>(${i + 1}) ${escapeHtml(te.task_title)}:</strong> ${escapeHtml(te.task_goal)}</div>`).join('')
+              : reqsList.map((r, i) => `<div class="task-req-chip"><strong>(${i + 1})</strong> ${escapeHtml(r)}</div>`).join('')
             }
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
 
-    <!-- CARD 2: CHỌN Ý TƯỞNG B2 -->
-    ${ideaSelectorHtml}
-
-    <!-- CARD 3: KHUNG DÀN Ý 5 PHẦN CHUẨN B2 & TỪ VỰNG CHỦ ĐỀ -->
+    <!-- CARD 2: KHUNG DÀN Ý 5 PHẦN CHUẨN B2 & CẤU TRÚC ĂN ĐIỂM -->
     <div class="reading-section-card">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--panel-border); padding-bottom: 0.5rem;">
-        <h3 style="margin: 0; border: none; padding: 0;">📐 2. KHUNG DÀN Ý 5 PHẦN CHUẨN B2 (${escapeHtml((topic.categoryTitleVi || '').toUpperCase())})</h3>
-        <button class="btn btn-secondary" onclick="toggleStep1MasterOutline()" id="btn-toggle-step1-outline" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
+        <h3 style="margin: 0; border: none; padding: 0;">📐 2. KHUNG DÀN Ý 5 PHẦN &amp; CẤU TRÚC GHI ĐIỂM B2 (${escapeHtml((topic.categoryTitleVi || '').toUpperCase())})</h3>
+        <button type="button" class="btn btn-secondary" onclick="toggleStep1MasterOutline()" id="btn-toggle-step1-outline" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
           Thu gọn / Mở rộng dàn ý
         </button>
       </div>
@@ -1178,9 +1727,9 @@ function renderStep1Reading() {
       </div>
     </div>
 
-    <!-- CARD 4: TỪ VỰNG & CỤM TỪ ĂN ĐIỂM B2 THEO CHỦ ĐỀ -->
+    <!-- CARD 3: TỪ VỰNG & CỤM TỪ CHỦ ĐỀ GHI ĐIỂM B2 -->
     <div class="reading-section-card">
-      <h3>💎 3. TỪ VỰNG & CỤM TỪ CHỦ ĐỀ GHI ĐIỂM B2 (${vocabList.length} CỤM TỪ)</h3>
+      <h3>💎 3. TỪ VỰNG &amp; COLLOCATIONS CHỦ ĐỀ GHI ĐIỂM B2 (${vocabList.length} CỤM TỪ)</h3>
       ${Object.keys(vocabByGroup).length > 0 ? Object.keys(vocabByGroup).map(gName => `
         <div style="margin-bottom: 1rem;">
           <div style="font-weight: 700; font-size: 0.9rem; color: var(--warning); margin-bottom: 0.5rem;">🔸 ${escapeHtml(gName)}</div>
@@ -1188,19 +1737,22 @@ function renderStep1Reading() {
             ${vocabByGroup[gName].map(v => `
               <li>
                 <strong style="color: var(--accent-primary);">${escapeHtml(v.en)}</strong>
-                <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.15rem;">${escapeHtml(v.vi)}</div>
+                <div style="color: var(--text-secondary); font-size: 0.86rem; margin-top: 0.15rem;">${escapeHtml(v.vi)}</div>
               </li>
             `).join('')}
           </ul>
         </div>
       `).join('') : '<div class="empty-state">Từ vựng đã được tích hợp trực tiếp trong phần gợi ý ý tưởng và bài mẫu B2.</div>'}
+    </div>
 
-      <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
-        <button class="btn btn-primary" onclick="switchStep('trans')" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;">
+    <!-- CARD 4: CHỌN Ý TƯỞNG B2 & TÓM TẮT CÂU THÂN THƯ -->
+    ${ideaSelectorHtml || `
+      <div style="display: flex; justify-content: flex-end;">
+        <button class="btn btn-primary" onclick="switchStep('trans')" style="padding: 0.8rem 1.65rem; font-size: 0.96rem; font-weight: 700;">
           TIẾP THEO: BƯỚC 02 - TẬP DIỄN ĐẠT Ý TƯỞNG B2 &rarr;
         </button>
       </div>
-    </div>
+    `}
   `;
 }
 
@@ -1244,7 +1796,7 @@ function buildExercisesForActiveTopic(topic) {
 
   if (suggestedIdeas.length > 0) {
     suggestedIdeas.forEach((group, gIdx) => {
-      const selArr = topicSel[gIdx] || [0];
+      const selArr = Array.isArray(topicSel[gIdx]) ? topicSel[gIdx] : [];
       selArr.forEach(optIdx => {
         const opt = (group.options || [])[optIdx];
         if (!opt) return;
