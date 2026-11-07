@@ -3257,73 +3257,1530 @@ function checkTranslationAnswer(idx) {
     return;
   }
 
-  const evalRes = evaluateSentenceTranslation(userText, ex);
+  const evalRes = evaluateSentenceTranslation(userText, ex, idx);
 
   ansBox.classList.add('active');
   ansBox.style.borderColor = evalRes.color;
+  ansBox.style.backgroundColor = 'var(--bg-secondary)';
   ansBox.innerHTML = `
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
-      <div class="trans-answer-title" style="color: ${evalRes.color}; margin: 0;">${evalRes.badge}</div>
-      <span style="font-size: 0.82rem; font-weight: 700; color: ${evalRes.color};">Độ khớp ý & cấu trúc: ${evalRes.percent}%</span>
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--panel-border);">
+      <div class="trans-answer-title no-uppercase" style="color: ${evalRes.color}; margin: 0; font-size: 0.92rem; font-weight: 800;">${evalRes.badge}</div>
+      <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+        ${evalRes.errorCount > 0
+          ? `<span class="sent-stat-pill pill-danger">Phát hiện ${evalRes.errorCount} lỗi cần sửa</span>`
+          : `<span class="sent-stat-pill pill-success">✓ Đúng ngữ pháp & chính tả</span>`
+        }
+        <span class="sent-stat-pill" style="color: ${evalRes.color}; border-color: ${evalRes.color};">Độ khớp ý B2: ${evalRes.percent}%</span>
+      </div>
     </div>
-    <div style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.65rem; line-height: 1.5;">
+
+    <div style="font-size: 0.9rem; color: var(--text-primary); margin-bottom: 0.85rem; line-height: 1.55;">
       ${evalRes.feedbackHtml}
     </div>
-    <div class="trans-answer-title">✨ ĐÁP ÁN MẪU CHUẨN B2 THAM KHẢO:</div>
-    <div class="trans-answer-text">${escapeHtml(ex.en)}</div>
+
+    <div class="sent-ref-answer-box">
+      <div class="trans-answer-title" style="color: var(--accent-primary); margin-bottom: 0.3rem;">✨ ĐÁP ÁN MẪU CHUẨN B2 THAM KHẢO:</div>
+      <div class="trans-answer-text">${escapeHtml(ex.en)}</div>
+    </div>
   `;
 }
 
-function evaluateSentenceTranslation(userText, ex) {
-  const cleanUser = userText.toLowerCase().replace(/[^a-z0-9\s']/g, ' ').split(/\s+/).filter(Boolean);
-  const stopWords = new Set(['the', 'a', 'an', 'to', 'of', 'in', 'on', 'at', 'for', 'and', 'or', 'is', 'are', 'am', 'be', 'it', 'this', 'that']);
-  const refWords = ex.en.toLowerCase().replace(/[^a-z0-9\s']/g, ' ').split(/\s+/).filter(w => w && !stopWords.has(w));
+function applyCorrectedSentence(idx) {
+  if (!state.lastCorrectedSentences || !state.lastCorrectedSentences[idx]) return;
+  const inputEl = document.getElementById(`trans-input-${idx}`);
+  if (!inputEl) return;
+  inputEl.value = state.lastCorrectedSentences[idx];
+  handleTranslationDraftInput(idx);
+  checkTranslationAnswer(idx);
+  showToast('✨ Đã áp dụng câu sau khi sửa lỗi vào ô nhập!', 'success');
+}
 
-  let matched = 0;
-  refWords.forEach(rw => {
-    if (cleanUser.includes(rw)) matched++;
-  });
+// --- Levenshtein Distance & Comprehensive VSTEP B2 Sentence Error Detector ---
+function getLevenshteinDistance(a, b) {
+  if (a.length === 0) return b.length;
+  if (b.length === 0) return a.length;
+  const matrix = [];
+  for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+  for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        );
+      }
+    }
+  }
+  return matrix[b.length][a.length];
+}
 
-  const ratio = refWords.length > 0 ? Math.min(100, Math.round((matched / refWords.length) * 100)) : 80;
-  const notes = [];
+const COMMON_VSTEP_TYPOS = {
+  'firstlt': 'firstly',
+  'firtly': 'firstly',
+  'fisrtly': 'firstly',
+  'firsty': 'firstly',
+  'firsly': 'firstly',
+  'fisrt': 'first',
+  'firt': 'first',
+  'secound': 'second',
+  'sencond': 'second',
+  'secondlt': 'secondly',
+  'thrid': 'third',
+  'thridly': 'thirdly',
+  'finaly': 'finally',
+  'finnaly': 'finally',
+  'finnally': 'finally',
+  'begining': 'beginning',
+  'convinient': 'convenient',
+  'convienient': 'convenient',
+  'conveniant': 'convenient',
+  'convinent': 'convenient',
+  'inconvinient': 'inconvenient',
+  'inconvienient': 'inconvenient',
+  'convinience': 'convenience',
+  'inconvinience': 'inconvenience',
+  'accomodation': 'accommodation',
+  'acommodation': 'accommodation',
+  'acomodation': 'accommodation',
+  'accomodations': 'accommodations',
+  'recomend': 'recommend',
+  'reccommend': 'recommend',
+  'recommed': 'recommend',
+  'recomendation': 'recommendation',
+  'recomendations': 'recommendations',
+  'recieve': 'receive',
+  'recevie': 'receive',
+  'recieved': 'received',
+  'recieving': 'receiving',
+  'beleive': 'believe',
+  'acheive': 'achieve',
+  'resturant': 'restaurant',
+  'restaurent': 'restaurant',
+  'restarant': 'restaurant',
+  'resturants': 'restaurants',
+  'restaurents': 'restaurants',
+  'restarants': 'restaurants',
+  'definately': 'definitely',
+  'definitly': 'definitely',
+  'seperate': 'separate',
+  'neccessary': 'necessary',
+  'necesary': 'necessary',
+  'enviroment': 'environment',
+  'environtment': 'environment',
+  'goverment': 'government',
+  'oppurtunity': 'opportunity',
+  'oportunity': 'opportunity',
+  'expereince': 'experience',
+  'experiance': 'experience',
+  'infomation': 'information',
+  'informatoin': 'information',
+  'infromation': 'information',
+  'suprise': 'surprise',
+  'surpise': 'surprise',
+  'tommorow': 'tomorrow',
+  'tomorow': 'tomorrow',
+  'weahter': 'weather',
+  'futher': 'further',
+  'futhermore': 'furthermore',
+  'furthurmore': 'furthermore',
+  'additionly': 'additionally',
+  'addtionally': 'additionally',
+  'sincerly': 'sincerely',
+  'sincerelly': 'sincerely',
+  'faithfull': 'faithfully',
+  'faithfuly': 'faithfully',
+  'forwad': 'forward',
+  'foward': 'forward',
+  'collegue': 'colleague',
+  'coleague': 'colleague',
+  'collegues': 'colleagues',
+  'schedual': 'schedule',
+  'shedule': 'schedule',
+  'beautifull': 'beautiful',
+  'beatiful': 'beautiful',
+  'wonderfull': 'wonderful',
+  'carefull': 'careful',
+  'helpfull': 'helpful',
+  'usefull': 'useful',
+  'successfull': 'successful',
+  'peacefull': 'peaceful',
+  'gratefull': 'grateful',
+  'untill': 'until',
+  'allways': 'always',
+  'usally': 'usually',
+  'usualy': 'usually',
+  'especally': 'especially',
+  'especialy': 'especially',
+  'particulary': 'particularly',
+  'diffrent': 'different',
+  'diferent': 'different',
+  'intresting': 'interesting',
+  'intersting': 'interesting',
+  'importan': 'important',
+  'improtant': 'important',
+  'probem': 'problem',
+  'prolem': 'problem',
+  'travle': 'travel',
+  'considder': 'consider',
+  'cosider': 'consider',
+  'attration': 'attraction',
+  'attrations': 'attractions',
+  'hopital': 'hospital',
+  'hosptial': 'hospital',
+  'musuem': 'museum',
+  'exibition': 'exhibition',
+  'certifcate': 'certificate',
+  'understant': 'understand',
+  'knowlege': 'knowledge',
+  'maintainance': 'maintenance',
+  'questionaire': 'questionnaire',
+  'embarass': 'embarrass',
+  'embarassing': 'embarrassing',
+  'occassion': 'occasion',
+  'acess': 'access',
+  'adress': 'address',
+  'commitee': 'committee',
+  'disapointed': 'disappointed',
+  'dissappointed': 'disappointed',
+  'dissatisfed': 'dissatisfied',
+  'apologisee': 'apologize',
+  'appologize': 'apologize',
+  'appologise': 'apologise',
+  'apolozige': 'apologize',
+  'haveing': 'having',
+  'makeing': 'making',
+  'takeing': 'taking',
+  'giveing': 'giving',
+  'liveing': 'living',
+  'useing': 'using',
+  'chooseing': 'choosing',
+  'moveing': 'moving',
+  'shareing': 'sharing',
+  'comming': 'coming',
+  'writting': 'writing',
+  'studing': 'studying',
+  'stayin': 'staying',
+  'planing': 'planning',
+  'stoping': 'stopping',
+  'shoping': 'shopping',
+  'droping': 'dropping',
+  'swiming': 'swimming',
+  'runing': 'running',
+  'practiceing': 'practicing',
+  'prepareing': 'preparing',
+  'organizeing': 'organizing',
+  'inviteing': 'inviting'
+};
 
-  if (ex.role === 'salutation' && !userText.trim().endsWith(',')) {
-    notes.push('⚠️ Cuối dòng lời chào mở đầu (<em>Dear ...,</em>) cần có dấu phẩy (<code>,</code>).');
-  }
-  if (ex.role === 'signoff' && !userText.trim().endsWith(',')) {
-    notes.push('⚠️ Cuối lời chào kết thúc (<em>Best wishes, / Yours faithfully,</em>) cần có dấu phẩy (<code>,</code>).');
-  }
-  if (!/^[A-Z]/.test(userText.trim())) {
-    notes.push('⚠️ Chữ cái đầu câu cần viết hoa.');
-  }
-  if (ex.role !== 'salutation' && ex.role !== 'signoff' && !/[.?!]$/.test(userText.trim())) {
-    notes.push('⚠️ Cuối câu văn cần có dấu chấm (<code>.</code>) hoặc dấu hỏi (<code>?</code>).');
+const CORE_ENGLISH_VOCAB = [
+  'a', 'an', 'the', 'and', 'or', 'but', 'so', 'because', 'since', 'as', 'if', 'when', 'while', 'although', 'though',
+  'unless', 'until', 'till', 'before', 'after', 'once', 'whether', 'where', 'wherever', 'whenever', 'whereas', 'that',
+  'which', 'who', 'whom', 'whose', 'what', 'whatever', 'whichever', 'how', 'however', 'why', 'than', 'then',
+  'i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them', 'my', 'your', 'his', 'its', 'our', 'their',
+  'mine', 'yours', 'hers', 'ours', 'theirs', 'myself', 'yourself', 'yourselves', 'himself', 'herself', 'itself', 'ourselves', 'themselves',
+  'this', 'these', 'those', 'some', 'any', 'no', 'none', 'all', 'both', 'each', 'every', 'either', 'neither', 'another', 'other', 'others',
+  'many', 'much', 'more', 'most', 'few', 'fewer', 'fewest', 'little', 'less', 'least', 'several', 'enough', 'plenty', 'lot', 'lots',
+  'one', 'ones', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'first', 'second', 'third', 'fourth', 'fifth', 'last',
+  'firstly', 'secondly', 'thirdly', 'lastly', 'finally', 'next', 'besides', 'moreover', 'furthermore', 'additionally', 'therefore', 'thus', 'hence',
+  'nevertheless', 'nonetheless', 'meanwhile', 'otherwise', 'instead', 'indeed', 'actually', 'fact', 'personally', 'fortunately', 'unfortunately',
+  'especially', 'particularly', 'specifically', 'generally', 'usually', 'normally', 'often', 'frequently', 'sometimes', 'occasionally', 'rarely', 'seldom', 'always', 'never', 'ever',
+  'already', 'yet', 'still', 'just', 'only', 'even', 'also', 'too', 'very', 'quite', 'rather', 'pretty', 'fairly', 'really', 'truly', 'extremely', 'highly', 'completely', 'totally', 'absolutely',
+  'almost', 'nearly', 'hardly', 'barely', 'scarcely', 'well', 'badly', 'fast', 'hard', 'late', 'lately', 'early', 'soon', 'recently', 'currently', 'now', 'today', 'tonight', 'tomorrow', 'yesterday',
+  'here', 'there', 'everywhere', 'anywhere', 'somewhere', 'nowhere', 'home', 'abroad', 'away', 'back', 'together', 'alone', 'apart', 'ahead', 'around', 'nearby', 'inside', 'outside', 'upstairs', 'downstairs',
+  'in', 'on', 'at', 'to', 'for', 'from', 'with', 'without', 'by', 'about', 'of', 'off', 'out', 'up', 'down', 'into', 'onto', 'upon', 'over', 'under', 'above', 'below', 'Beneath',
+  'between', 'among', 'through', 'throughout', 'across', 'along', 'against', 'toward', 'towards', 'behind', 'beside', 'near', 'beyond', 'during', 'within', 'despite', 'via', 'per', 'including', 'regarding', 'concerning',
+  'be', 'am', 'is', 'are', 'was', 'were', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'done', 'doing',
+  'can', 'could', 'cannot', 'will', 'would', 'shall', 'should', 'may', 'might', 'must', 'ought', 'need', 'needs', 'needed', 'needing', 'dare', 'used',
+  'dear', 'sir', 'madam', 'mr', 'mrs', 'ms', 'miss', 'dr', 'professor', 'manager', 'director', 'organizer', 'organizers', 'host', 'family', 'friend', 'friends', 'colleague', 'colleagues',
+  'john', 'mary', 'peter', 'david', 'sarah', 'alex', 'helen', 'emma', 'jack', 'linda', 'tom', 'jane', 'ann', 'anna', 'ben', 'lisa', 'mark', 'paul', 'kevin', 'rachel', 'laura', 'lucy', 'nick', 'mike', 'sam', 'hoa', 'lan', 'minh', 'nam', 'linh', 'ha',
+  'vietnam', 'vietnamese', 'hanoi', 'sapa', 'halong', 'danang', 'hoian', 'hue', 'dalat', 'nhatrang', 'phuquoc', 'saigon', 'london', 'paris', 'english',
+  'stay', 'stays', 'stayed', 'staying', 'visit', 'visits', 'visited', 'visiting', 'go', 'goes', 'went', 'gone', 'going', 'come', 'comes', 'came', 'coming',
+  'take', 'takes', 'took', 'taken', 'taking', 'make', 'makes', 'made', 'making', 'get', 'gets', 'got', 'gotten', 'getting', 'give', 'gives', 'gave', 'given', 'giving',
+  'bring', 'brings', 'brought', 'bringing', 'buy', 'buys', 'bought', 'buying', 'rent', 'rents', 'rented', 'renting', 'book', 'books', 'booked', 'booking',
+  'choose', 'chooses', 'chose', 'chosen', 'choosing', 'use', 'uses', 'used', 'using', 'try', 'tries', 'tried', 'trying', 'eat', 'eats', 'ate', 'eaten', 'eating',
+  'drink', 'drinks', 'drank', 'drunk', 'drinking', 'play', 'plays', 'played', 'playing', 'work', 'works', 'worked', 'working', 'study', 'studies', 'studied', 'studying',
+  'learn', 'learns', 'learned', 'learnt', 'learning', 'live', 'lives', 'lived', 'living', 'move', 'moves', 'moved', 'moving', 'travel', 'travels', 'traveled', 'travelled', 'traveling', 'travelling',
+  'walk', 'walks', 'walked', 'walking', 'run', 'runs', 'ran', 'running', 'swim', 'swims', 'swam', 'swimming', 'drive', 'drives', 'drove', 'driven', 'driving',
+  'ride', 'rides', 'rode', 'ridden', 'riding', 'fly', 'flies', 'flew', 'flown', 'flying', 'see', 'sees', 'saw', 'seen', 'seeing', 'watch', 'watches', 'watched', 'watching',
+  'look', 'looks', 'looked', 'looking', 'hear', 'hears', 'heard', 'hearing', 'listen', 'listens', 'listened', 'listening', 'speak', 'speaks', 'spoke', 'spoken', 'speaking',
+  'talk', 'talks', 'talked', 'talking', 'say', 'says', 'said', 'saying', 'tell', 'tells', 'told', 'telling', 'ask', 'asks', 'asked', 'asking', 'answer', 'answers', 'answered', 'answering',
+  'reply', 'replies', 'replied', 'replying', 'respond', 'responds', 'responded', 'responding', 'write', 'writes', 'wrote', 'written', 'writing', 'read', 'reads', 'reading',
+  'send', 'sends', 'sent', 'sending', 'receive', 'receives', 'received', 'receiving', 'keep', 'keeps', 'kept', 'keeping', 'hold', 'holds', 'held', 'holding',
+  'put', 'puts', 'putting', 'set', 'sets', 'setting', 'leave', 'leaves', 'left', 'leaving', 'start', 'starts', 'started', 'starting', 'begin', 'begins', 'began', 'begun', 'beginning',
+  'stop', 'stops', 'stopped', 'stopping', 'finish', 'finishes', 'finished', 'finishing', 'continue', 'continues', 'continued', 'continuing', 'change', 'changes', 'changed', 'changing',
+  'meet', 'meets', 'met', 'meeting', 'join', 'joins', 'joined', 'joining', 'attend', 'attends', 'attended', 'attending', 'participate', 'participates', 'participated', 'participating',
+  'organize', 'organizes', 'organized', 'organizing', 'organise', 'organises', 'organised', 'organising', 'prepare', 'prepares', 'prepared', 'preparing',
+  'plan', 'plans', 'planned', 'planning', 'arrange', 'arranges', 'arranged', 'arranging', 'invite', 'invites', 'invited', 'inviting', 'welcome', 'welcomes', 'welcomed', 'welcoming',
+  'help', 'helps', 'helped', 'helping', 'support', 'supports', 'supported', 'supporting', 'assist', 'assists', 'assisted', 'assisting', 'advise', 'advises', 'advised', 'advising',
+  'recommend', 'recommends', 'recommended', 'recommending', 'suggest', 'suggests', 'suggested', 'suggesting', 'consider', 'considers', 'considered', 'considering',
+  'think', 'thinks', 'thought', 'thinking', 'believe', 'believes', 'believed', 'believing', 'know', 'knows', 'knew', 'known', 'knowing', 'understand', 'understands', 'understood', 'understanding',
+  'remember', 'remembers', 'remembered', 'remembering', 'forget', 'forgets', 'forgot', 'forgotten', 'forgetting', 'hope', 'hopes', 'hoped', 'hoping', 'wish', 'wishes', 'wished', 'wishing',
+  'want', 'wants', 'wanted', 'wanting', 'like', 'likes', 'liked', 'liking', 'love', 'loves', 'loved', 'loving', 'enjoy', 'enjoys', 'enjoyed', 'enjoying', 'prefer', 'prefers', 'preferred', 'preferring',
+  'avoid', 'avoids', 'avoided', 'avoiding', 'mind', 'minds', 'minded', 'minding', 'spend', 'spends', 'spent', 'spending', 'save', 'saves', 'saved', 'saving', 'waste', 'wastes', 'wasted', 'wasting',
+  'pay', 'pays', 'paid', 'paying', 'cost', 'costs', 'costing', 'afford', 'affords', 'afforded', 'BORROW', 'borrow', 'borrows', 'borrowed', 'borrowing', 'lend', 'lends', 'lent', 'lending',
+  'return', 'returns', 'returned', 'returning', 'exchange', 'exchanges', 'exchanged', 'exchanging', 'replace', 'replaces', 'replaced', 'replacing', 'refund', 'refunds', 'refunded',
+  'repair', 'repairs', 'repaired', 'repairing', 'fix', 'fixes', 'fixed', 'fixing', 'check', 'checks', 'checked', 'checking', 'solve', 'solves', 'solved', 'solving', 'resolve', 'resolves', 'resolved',
+  'apologize', 'apologizes', 'apologized', 'apologizing', 'apologise', 'apologises', 'apologised', 'apologising', 'forgive', 'forgives', 'forgave', 'forgiven', 'excuse', 'excuses',
+  'explain', 'explains', 'explained', 'explaining', 'describe', 'describes', 'described', 'describing', 'share', 'shares', 'shared', 'sharing', 'introduce', 'introduces', 'introduced', 'introducing',
+  'mention', 'mentions', 'mentioned', 'mentioning', 'inform', 'informs', 'informed', 'informing', 'contact', 'contacts', 'contacted', 'contacting', 'call', 'calls', 'called', 'calling',
+  'explore', 'explores', 'explored', 'exploring', 'discover', 'discovers', 'discovered', 'discovering', 'experience', 'experiences', 'experienced', 'experiencing',
+  'relax', 'relaxes', 'relaxed', 'relaxing', 'rest', 'rests', 'rested', 'resting', 'wear', 'wears', 'wore', 'worn', 'wearing', 'pack', 'packs', 'packed', 'packing',
+  'clean', 'cleans', 'cleaned', 'cleaning', 'cook', 'cooks', 'cooked', 'cooking', 'order', 'orders', 'ordered', 'ordering', 'serve', 'serves', 'served', 'serving',
+  'treat', 'treats', 'treated', 'treating', 'celebrate', 'celebrates', 'celebrated', 'celebrating', 'apply', 'applies', 'applied', 'applying', 'register', 'registers', 'registered', 'registering',
+  'improve', 'improves', 'improved', 'improving', 'develop', 'develops', 'developed', 'developing', 'practice', 'practices', 'practiced', 'practicing', 'practise', 'practises', 'practised', 'practising',
+  'accept', 'accepts', 'accepted', 'accepting', 'refuse', 'refuses', 'refused', 'refusing', 'agree', 'agrees', 'agreed', 'agreeing', 'complain', 'complains', 'complained', 'complaining',
+  'request', 'requests', 'requested', 'requesting', 'require', 'requires', 'required', 'requiring', 'expect', 'expects', 'expected', 'expecting', 'wait', 'waits', 'waited', 'waiting',
+  'appreciate', 'appreciates', 'appreciated', 'appreciating', 'enquire', 'enquires', 'enquired', 'inquire', 'inquires', 'inquired', 'let', 'lets', 'letting', 'allow', 'allows', 'allowed', 'allowing',
+  'hotel', 'hotels', 'homestay', 'homestays', 'guesthouse', 'guesthouses', 'hostel', 'hostels', 'resort', 'resorts', 'apartment', 'apartments', 'room', 'rooms', 'accommodation', 'accommodations',
+  'city', 'cities', 'center', 'centre', 'central', 'downtown', 'countryside', 'village', 'town', 'street', 'streets', 'road', 'roads', 'park', 'parks', 'beach', 'beaches', 'mountain', 'mountains',
+  'lake', 'river', 'sea', 'island', 'place', 'places', 'spot', 'spots', 'area', 'areas', 'location', 'locations', 'destination', 'destinations', 'attraction', 'attractions', 'sightseeing',
+  'restaurant', 'restaurants', 'cafe', 'cafes', 'shop', 'shops', 'store', 'stores', 'market', 'markets', 'supermarket', 'mall', 'museum', 'museums', 'pagoda', 'pagodas', 'temple', 'temples',
+  'gallery', 'galleries', 'theater', 'theatre', 'cinema', 'hospital', 'clinic', 'school', 'university', 'college', 'library', 'gym', 'station', 'airport', 'bus', 'buses', 'train', 'trains',
+  'taxi', 'taxis', 'motorbike', 'motorbikes', 'bicycle', 'bike', 'bikes', 'car', 'cars', 'boat', 'flight', 'traffic', 'transport', 'transportation',
+  'food', 'foods', 'dish', 'dishes', 'meal', 'meals', 'breakfast', 'lunch', 'dinner', 'seafood', 'cuisine', 'specialty', 'specialties', 'speciality', 'specialities', 'fruit', 'fruits', 'vegetable', 'vegetables', 'coffee', 'tea', 'drink', 'water',
+  'weather', 'climate', 'season', 'seasons', 'spring', 'summer', 'autumn', 'fall', 'winter', 'sun', 'sunny', 'rain', 'rainy', 'wind', 'windy', 'cloud', 'cloudy', 'warm', 'hot', 'cool', 'cold', 'dry', 'wet', 'humid', 'pleasant', 'mild',
+  'clothes', 'clothing', 'jacket', 'coat', 'sweater', 'shirt', 't-shirt', 'trousers', 'jeans', 'dress', 'skirt', 'shoes', 'sneakers', 'boots', 'sandals', 'umbrella', 'raincoat', 'hat', 'sunglasses', 'sunscreen', 'luggage', 'suitcase', 'backpack',
+  'time', 'times', 'day', 'days', 'week', 'weeks', 'weekend', 'weekends', 'month', 'months', 'year', 'years', 'morning', 'afternoon', 'evening', 'night', 'hour', 'hours', 'minute', 'minutes', 'moment',
+  'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december',
+  'convenient', 'inconvenient', 'convenience', 'inconvenience', 'easy', 'easier', 'easiest', 'easily', 'difficult', 'difficulty', 'hard', 'cheap', 'cheaper', 'cheapest', 'expensive', 'affordable', 'reasonable',
+  'good', 'better', 'best', 'bad', 'worse', 'worst', 'great', 'wonderful', 'fantastic', 'amazing', 'excellent', 'perfect', 'nice', 'lovely', 'beautiful', 'pretty', 'attractive', 'famous', 'popular', 'well-known',
+  'traditional', 'modern', 'local', 'foreign', 'international', 'public', 'private', 'personal', 'special', 'different', 'various', 'similar', 'same', 'new', 'old', 'young', 'big', 'small', 'large', 'long', 'short', 'high', 'low',
+  'free', 'busy', 'available', 'crowded', 'quiet', 'peaceful', 'noisy', 'safe', 'dangerous', 'clean', 'dirty', 'fresh', 'delicious', 'tasty', 'healthy', 'useful', 'helpful', 'important', 'necessary', 'suitable', 'comfortable', 'uncomfortable',
+  'friendly', 'kind', 'polite', 'generous', 'hospitality', 'hospitable', 'outgoing', 'sociable', 'hardworking', 'intelligent', 'smart', 'talented', 'experienced', 'qualified', 'fluent', 'enthusiastic', 'passionate',
+  'happy', 'glad', 'pleased', 'delighted', 'excited', 'thrilled', 'grateful', 'thankful', 'proud', 'sorry', 'afraid', 'worried', 'sad', 'upset', 'disappointed', 'dissatisfied', 'frustrated', 'unhappy',
+  'broken', 'damaged', 'defective', 'faulty', 'wrong', 'late', 'delayed', 'missing', 'lost', 'unacceptable', 'sincere', 'sincerely', 'faithfully', 'regards', 'warm', 'wishes', 'love', 'care', 'forward',
+  'letter', 'email', 'message', 'reply', 'response', 'question', 'questions', 'information', 'advice', 'suggestion', 'suggestions', 'recommendation', 'recommendations', 'idea', 'ideas', 'tip', 'tips', 'opinion',
+  'problem', 'problems', 'issue', 'issues', 'situation', 'reason', 'reasons', 'detail', 'details', 'fact', 'example', 'experience', 'opportunity', 'chance', 'choice', 'option', 'options',
+  'job', 'work', 'career', 'company', 'office', 'position', 'salary', 'interview', 'application', 'cv', 'resume', 'skill', 'skills', 'knowledge', 'certificate', 'degree', 'course', 'courses', 'class', 'classes', 'lesson', 'lessons', 'teacher', 'student', 'students',
+  'party', 'wedding', 'birthday', 'festival', 'holiday', 'vacation', 'trip', 'tour', 'journey', 'event', 'activity', 'activities', 'game', 'games', 'sport', 'sports', 'music', 'song', 'songs', 'movie', 'movies', 'film', 'book', 'books',
+  'money', 'price', 'prices', 'cost', 'costs', 'fee', 'fees', 'ticket', 'tickets', 'bill', 'receipt', 'invoice', 'discount', 'refund', 'compensation', 'service', 'services', 'quality', 'product', 'item', 'package',
+  'tourist', 'tourists', 'visitor', 'visitors', 'guest', 'guests', 'customer', 'customers', 'passenger', 'passengers', 'people', 'person', 'child', 'children', 'kid', 'kids', 'parent', 'parents', 'mother', 'father', 'brother', 'sister', 'husband', 'wife', 'neighbor', 'neighbour'
+];
+
+let LETTER_SPELL_DICT = null;
+function getLetterSpellcheckDictionary() {
+  if (LETTER_SPELL_DICT) return LETTER_SPELL_DICT;
+  const dict = new Set(CORE_ENGLISH_VOCAB);
+  const addWordsFromText = (str) => {
+    if (!str || typeof str !== 'string') return;
+    const tokens = str.toLowerCase().replace(/[^a-z']/g, ' ').split(/\s+/).filter(Boolean);
+    tokens.forEach(t => {
+      const clean = t.replace(/^'+|'+$/g, '');
+      if (clean.length >= 2 && !COMMON_VSTEP_TYPOS[clean]) {
+        dict.add(clean);
+        dict.add(clean.replace(/'/g, ''));
+      }
+    });
+  };
+
+  if (typeof LETTERS_DATA !== 'undefined' && Array.isArray(LETTERS_DATA)) {
+    LETTERS_DATA.forEach(topic => {
+      addWordsFromText(topic.title_en);
+      addWordsFromText(topic.prompt);
+      if (topic.details) {
+        addWordsFromText(topic.details.sample_b1);
+        addWordsFromText(topic.details.sample_b2);
+        if (Array.isArray(topic.details.vocab)) {
+          topic.details.vocab.forEach(v => addWordsFromText(v.en));
+        }
+        ['ideas_b1', 'ideas_b2'].forEach(k => {
+          const ideas = topic.details[k];
+          if (ideas && typeof ideas === 'object') {
+            Object.values(ideas).forEach(arr => {
+              if (Array.isArray(arr)) {
+                arr.forEach(item => {
+                  addWordsFromText(item.point_en);
+                  addWordsFromText(item.evidence_en);
+                  if (Array.isArray(item.collocations)) {
+                    item.collocations.forEach(c => addWordsFromText(c.en));
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
   }
 
-  // Check grammar quick rules
-  if (/\b(should|can|could|would|will|must|may|might)\s+[a-z]+ing\b/i.test(userText)) {
-    notes.push('❌ Lỗi ngữ pháp: Sau động từ khuyết thiếu (<em>should, could, would, can...</em>) phải là động từ nguyên mẫu <code>V0</code>, không dùng <code>V-ing</code>.');
-  }
-  if (/\blook\s+forward\s+to\s+(hear|receive|see|meet)\b/i.test(userText)) {
-    notes.push('❌ Lỗi cấu trúc B2: Sau <code>look forward to</code> phải dùng <code>V-ing</code> (ví dụ: <em>look forward to hearing from you</em>).');
+  if (typeof B2_CURATED_IDEAS !== 'undefined' && B2_CURATED_IDEAS) {
+    Object.values(B2_CURATED_IDEAS).forEach(topicIdeas => {
+      if (Array.isArray(topicIdeas)) {
+        topicIdeas.forEach(group => {
+          addWordsFromText(group.groupTitleEn);
+          if (Array.isArray(group.options)) {
+            group.options.forEach(opt => {
+              addWordsFromText(opt.en);
+              addWordsFromText(opt.point_en);
+              addWordsFromText(opt.evidence_en);
+            });
+          }
+        });
+      }
+    });
   }
 
-  if (notes.length === 0) {
-    if (ratio >= 65) {
-      notes.push('✅ Câu viết rất tốt, đúng ngữ pháp và truyền tải sát các từ khóa B2!');
-    } else {
-      notes.push('💡 Câu của bạn có cách diễn đạt riêng. Hãy đối chiếu thêm với câu mẫu B2 bên dưới để trau chuốt các cụm collocations nhé!');
+  LETTER_SPELL_DICT = dict;
+  return dict;
+}
+
+const GERUND_TARGET_VERBS = new Set([
+  'stay', 'visit', 'go', 'come', 'take', 'make', 'do', 'have', 'get', 'buy', 'rent', 'book', 'choose', 'use', 'try',
+  'eat', 'drink', 'play', 'learn', 'live', 'move', 'travel', 'walk', 'run', 'swim', 'drive', 'ride', 'fly', 'see',
+  'watch', 'look', 'hear', 'listen', 'speak', 'talk', 'say', 'tell', 'ask', 'write', 'read', 'send', 'receive',
+  'give', 'bring', 'spend', 'save', 'pay', 'borrow', 'lend', 'return', 'exchange', 'replace', 'apply', 'register',
+  'join', 'attend', 'participate', 'organize', 'organise', 'prepare', 'invite', 'explore', 'discover', 'relax',
+  'wear', 'pack', 'clean', 'cook', 'order', 'celebrate', 'improve', 'find', 'meet', 'call', 'contact', 'work', 'study',
+  'help', 'share', 'apologize', 'apologise', 'complain', 'explain', 'discuss', 'solve', 'fix', 'repair', 'check', 'wait'
+]);
+
+function toGerundForm(verb) {
+  const v = (verb || '').toLowerCase().trim();
+  const special = {
+    'be': 'being', 'have': 'having', 'do': 'doing', 'go': 'going', 'see': 'seeing', 'agree': 'agreeing',
+    'free': 'freeing', 'die': 'dying', 'lie': 'lying', 'tie': 'tying', 'run': 'running', 'swim': 'swimming',
+    'sit': 'sitting', 'get': 'getting', 'put': 'putting', 'cut': 'cutting', 'set': 'setting', 'let': 'letting',
+    'plan': 'planning', 'stop': 'stopping', 'shop': 'shopping', 'drop': 'dropping', 'chat': 'chatting',
+    'fit': 'fitting', 'win': 'winning', 'begin': 'beginning', 'prefer': 'preferring', 'refer': 'referring',
+    'regret': 'regretting', 'permit': 'permitting', 'admit': 'admitting', 'submit': 'submitting', 'forget': 'forgetting'
+  };
+  if (special[v]) return special[v];
+  if (v.endsWith('ie')) return v.slice(0, -2) + 'ying';
+  if (v.endsWith('e') && !v.endsWith('ee') && !v.endsWith('oe') && !v.endsWith('ye')) {
+    return v.slice(0, -1) + 'ing';
+  }
+  return v + 'ing';
+}
+
+function toBaseVerbForm(word) {
+  const w = (word || '').toLowerCase().trim();
+  const irregular = {
+    'went': 'go', 'gone': 'go', 'going': 'go', 'goes': 'go',
+    'took': 'take', 'taken': 'take', 'taking': 'take', 'takes': 'take',
+    'made': 'make', 'making': 'make', 'makes': 'make',
+    'had': 'have', 'having': 'have', 'has': 'have',
+    'did': 'do', 'done': 'do', 'doing': 'do', 'does': 'do',
+    'got': 'get', 'gotten': 'get', 'getting': 'get', 'gets': 'get',
+    'saw': 'see', 'seen': 'see', 'seeing': 'see', 'sees': 'see',
+    'came': 'come', 'coming': 'come', 'comes': 'come',
+    'gave': 'give', 'given': 'give', 'giving': 'give', 'gives': 'give',
+    'wrote': 'write', 'written': 'write', 'writing': 'write', 'writes': 'write',
+    'sent': 'send', 'sending': 'send', 'sends': 'send',
+    'spent': 'spend', 'spending': 'spend', 'spends': 'spend',
+    'left': 'leave', 'leaving': 'leave', 'leaves': 'leave',
+    'met': 'meet', 'meeting': 'meet', 'meets': 'meet',
+    'paid': 'pay', 'paying': 'pay', 'pays': 'pay',
+    'said': 'say', 'saying': 'say', 'says': 'say',
+    'told': 'tell', 'telling': 'tell', 'tells': 'tell',
+    'thought': 'think', 'thinking': 'think', 'thinks': 'think',
+    'brought': 'bring', 'bringing': 'bring', 'brings': 'bring',
+    'kept': 'keep', 'keeping': 'keep', 'keeps': 'keep',
+    'found': 'find', 'finding': 'find', 'finds': 'find',
+    'chose': 'choose', 'chosen': 'choose', 'choosing': 'choose', 'chooses': 'choose',
+    'spoke': 'speak', 'spoken': 'speak', 'speaking': 'speak', 'speaks': 'speak',
+    'wore': 'wear', 'worn': 'wear', 'wearing': 'wear', 'wears': 'wear',
+    'ate': 'eat', 'eaten': 'eat', 'eating': 'eat', 'eats': 'eat',
+    'drank': 'drink', 'drunk': 'drink', 'drinking': 'drink', 'drinks': 'drink',
+    'bought': 'buy', 'buying': 'buy', 'buys': 'buy',
+    'running': 'run', 'ran': 'run', 'runs': 'run',
+    'swimming': 'swim', 'swam': 'swim', 'swims': 'swim',
+    'sitting': 'sit', 'sat': 'sit', 'sits': 'sit',
+    'stopping': 'stop', 'stopped': 'stop', 'stops': 'stop',
+    'planning': 'plan', 'planned': 'plan', 'plans': 'plan',
+    'shopping': 'shop', 'shopped': 'shop', 'shops': 'shop',
+    'beginning': 'begin', 'began': 'begin', 'begins': 'begin',
+    'studying': 'study', 'studied': 'study', 'studies': 'study',
+    'trying': 'try', 'tried': 'try', 'tries': 'try',
+    'applying': 'apply', 'applied': 'apply', 'applies': 'apply',
+    'replying': 'reply', 'replied': 'reply', 'replies': 'reply',
+    'living': 'live', 'lived': 'live', 'lives': 'live',
+    'moving': 'move', 'moved': 'move', 'moves': 'move',
+    'using': 'use', 'used': 'use', 'uses': 'use',
+    'sharing': 'share', 'shared': 'share', 'shares': 'share',
+    'inviting': 'invite', 'invited': 'invite', 'invites': 'invite',
+    'preparing': 'prepare', 'prepared': 'prepare', 'prepares': 'prepare',
+    'organizing': 'organize', 'organized': 'organize', 'organizes': 'organize',
+    'exploring': 'explore', 'explored': 'explore', 'explores': 'explore',
+    'apologizing': 'apologize', 'apologized': 'apologize', 'apologizes': 'apologize',
+    'practicing': 'practice', 'practiced': 'practice', 'practices': 'practice'
+  };
+  if (irregular[w]) return irregular[w];
+  if (w.endsWith('ing') && w.length > 4) {
+    const stem = w.slice(0, -3);
+    if (GERUND_TARGET_VERBS.has(stem)) return stem;
+    if (GERUND_TARGET_VERBS.has(stem + 'e')) return stem + 'e';
+  }
+  if (w.endsWith('ed') && w.length > 4) {
+    const stem = w.slice(0, -2);
+    if (GERUND_TARGET_VERBS.has(stem)) return stem;
+    if (GERUND_TARGET_VERBS.has(w.slice(0, -1))) return w.slice(0, -1);
+  }
+  if (w.endsWith('es') && w.length > 4) {
+    const stem = w.slice(0, -2);
+    if (GERUND_TARGET_VERBS.has(stem)) return stem;
+  }
+  if (w.endsWith('s') && !w.endsWith('ss') && w.length > 3) {
+    const stem = w.slice(0, -1);
+    if (GERUND_TARGET_VERBS.has(stem)) return stem;
+  }
+  return w;
+}
+
+function buildInlineWordDiffHtml(originalStr, correctedStr) {
+  const tokenize = (s) => (s || '').trim().match(/[a-zA-Z0-9']+|[^\s\w']/g) || [];
+  const origTokens = tokenize(originalStr);
+  const corrTokens = tokenize(correctedStr);
+
+  const m = origTokens.length;
+  const n = corrTokens.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+  for (let i = m - 1; i >= 0; i--) {
+    for (let j = n - 1; j >= 0; j--) {
+      if (origTokens[i] === corrTokens[j]) {
+        dp[i][j] = 1 + dp[i + 1][j + 1];
+      } else {
+        dp[i][j] = Math.max(dp[i + 1][j], dp[i][j + 1]);
+      }
     }
   }
 
-  const color = ratio >= 65 && !notes.some(n => n.startsWith('❌')) ? 'var(--success)' : ratio >= 35 ? 'var(--warning)' : 'var(--danger)';
-  const badge = ratio >= 65 && !notes.some(n => n.startsWith('❌')) ? '🌟 RẤT TỐT (CHUẨN HƯỚNG B2)' : '📝 GỢI Ý CẢI THIỆN CÂU';
+  const parts = [];
+  let i = 0;
+  let j = 0;
+  while (i < m && j < n) {
+    if (origTokens[i] === corrTokens[j]) {
+      parts.push({ type: 'same', text: origTokens[i] });
+      i++;
+      j++;
+    } else if (dp[i + 1][j] >= dp[i][j + 1]) {
+      parts.push({ type: 'del', text: origTokens[i] });
+      i++;
+    } else {
+      parts.push({ type: 'ins', text: corrTokens[j] });
+      j++;
+    }
+  }
+  while (i < m) {
+    parts.push({ type: 'del', text: origTokens[i++] });
+  }
+  while (j < n) {
+    parts.push({ type: 'ins', text: corrTokens[j++] });
+  }
+
+  const joinTokensSmart = (tokens) => {
+    let out = '';
+    tokens.forEach((tok, idx) => {
+      if (idx === 0) {
+        out += tok;
+      } else if (/^[,.;:!?]$/.test(tok)) {
+        out += tok;
+      } else {
+        out += ' ' + tok;
+      }
+    });
+    return out;
+  };
+
+  // Merge adjacent tokens of the same type
+  const merged = [];
+  for (const p of parts) {
+    const last = merged[merged.length - 1];
+    if (last && last.type === p.type) {
+      last.tokens.push(p.text);
+    } else {
+      merged.push({ type: p.type, tokens: [p.text] });
+    }
+  }
+
+  let html = '';
+  merged.forEach((seg, idx) => {
+    const text = joinTokensSmart(seg.tokens);
+    const isPunctOnly = seg.tokens.length === 1 && /^[,.;:!?]$/.test(seg.tokens[0]);
+    const needSpaceBefore = idx > 0 && !(seg.type === 'same' && isPunctOnly);
+    if (needSpaceBefore) html += ' ';
+    if (seg.type === 'del') {
+      html += `<del class="sent-err-del">${escapeHtml(text)}</del>`;
+    } else if (seg.type === 'ins') {
+      html += `<ins class="sent-err-ins">${escapeHtml(text)}</ins>`;
+    } else {
+      html += escapeHtml(text);
+    }
+  });
+
+  return html;
+}
+
+function evaluateSentenceTranslation(userText, ex, idx = 0) {
+  const trimmed = (userText || '').trim().replace(/\s+/g, ' ');
+  let corrected = trimmed;
+  const structuredErrors = [];
+  const b2Upgrades = [];
+
+  const topic = state.activeTopic || {};
+  const isFormal = /formal/i.test(topic.recipient_type || topic.details?.analysis?.letter_type || '') &&
+                   !/informal/i.test(topic.recipient_type || topic.details?.analysis?.letter_type || '');
+
+  const addError = (category, wrongText, rightText, explanation) => {
+    if (!wrongText || wrongText === rightText) return;
+    if (structuredErrors.some(e => e.wrongText.toLowerCase() === wrongText.toLowerCase() && e.category === category)) return;
+    structuredErrors.push({ category, wrongText, rightText, explanation });
+  };
+
+  // Build context vocabulary from ex.en & ex.hints for priority spellcheck matching
+  const contextWords = new Set();
+  const collectContextWords = (str) => {
+    if (!str) return;
+    str.toLowerCase().replace(/[^a-z']/g, ' ').split(/\s+/).filter(Boolean).forEach(w => {
+      const clean = w.replace(/^'+|'+$/g, '');
+      if (clean.length >= 2) contextWords.add(clean);
+    });
+  };
+  collectContextWords(ex.en);
+  (ex.hints || []).forEach(h => collectContextWords(h.en));
+  ['firstly', 'secondly', 'thirdly', 'finally', 'furthermore', 'moreover', 'additionally', 'however', 'therefore', 'sincerely', 'faithfully'].forEach(w => contextWords.add(w));
+
+  const validDict = getLetterSpellcheckDictionary();
+
+  // ---------------------------------------------------------------------------
+  // 1. SPELLING & TYPO CHECK (Kiểm tra lỗi chính tả từng từ)
+  // ---------------------------------------------------------------------------
+  const rawTokens = corrected.split(/\s+/);
+  const spellFixedTokens = rawTokens.map((token, tIdx) => {
+    const leadMatch = token.match(/^([^a-zA-Z0-9']*)/);
+    const trailMatch = token.match(/([^a-zA-Z0-9']*)$/);
+    const lead = leadMatch ? leadMatch[1] : '';
+    const trail = trailMatch ? trailMatch[1] : '';
+    const core = token.slice(lead.length, token.length - trail.length);
+    if (!core || /[0-9]/.test(core)) return token;
+
+    const lowerCore = core.toLowerCase();
+    const pureAlpha = lowerCore.replace(/[^a-z]/g, '');
+    if (pureAlpha.length <= 1) return token;
+
+    // Skip contractions like I'm, don't, I'd, it's, you're, we've, etc.
+    if (/^(i'm|i'd|i'll|i've|you're|you'd|you'll|you've|he's|she's|it's|we're|we've|we'll|they're|they've|they'll|don't|doesn't|didn't|can't|couldn't|won't|wouldn't|shouldn't|isn't|aren't|wasn't|weren't|haven't|hasn't|hadn't|let's|that's|there's|who's|what's)$/i.test(lowerCore)) {
+      return token;
+    }
+
+    // Check explicit typo dictionary first
+    if (COMMON_VSTEP_TYPOS[lowerCore] || COMMON_VSTEP_TYPOS[pureAlpha]) {
+      let target = COMMON_VSTEP_TYPOS[lowerCore] || COMMON_VSTEP_TYPOS[pureAlpha];
+      if (/^[A-Z]/.test(core)) {
+        target = target.charAt(0).toUpperCase() + target.slice(1);
+      }
+      addError(
+        'Lỗi chính tả (Spelling)',
+        core,
+        target,
+        `Từ "${core}" bị gõ sai chính tả. Bạn hãy sửa thành "${target}".`
+      );
+      return lead + target + trail;
+    }
+
+    // If word is already valid in dictionary or context words, keep it
+    if (validDict.has(lowerCore) || validDict.has(pureAlpha) || contextWords.has(lowerCore) || contextWords.has(pureAlpha)) {
+      return token;
+    }
+
+    // Find closest spelling suggestion via Levenshtein distance (prefer contextWords first)
+    let bestWord = '';
+    let bestScore = 999;
+
+    const evaluateCandidate = (cand, isContext) => {
+      if (Math.abs(cand.length - pureAlpha.length) > 2) return;
+      const dist = getLevenshteinDistance(pureAlpha, cand);
+      if (dist > 2) return;
+      // Compute weighted score: prefer distance 1, same first char, same first 2 chars, and context words
+      let score = dist * 10;
+      if (cand[0] !== pureAlpha[0]) score += 6;
+      if (cand.slice(0, 2) === pureAlpha.slice(0, 2)) score -= 3;
+      if (cand.slice(-2) === pureAlpha.slice(-2)) score -= 2;
+      if (isContext) score -= 4;
+      if (score < bestScore) {
+        bestScore = score;
+        bestWord = cand;
+      }
+    };
+
+    contextWords.forEach(cw => evaluateCandidate(cw, true));
+    if (bestScore > 8) {
+      validDict.forEach(dw => evaluateCandidate(dw, false));
+    }
+
+    if (bestWord && bestScore <= 18) {
+      let target = bestWord;
+      if (/^[A-Z]/.test(core)) {
+        target = target.charAt(0).toUpperCase() + target.slice(1);
+      }
+      addError(
+        'Lỗi chính tả (Spelling)',
+        core,
+        target,
+        `Từ "${core}" không đúng chính tả tiếng Anh. Đề xuất sửa thành "${target}".`
+      );
+      return lead + target + trail;
+    }
+
+    return token;
+  });
+
+  corrected = spellFixedTokens.join(' ');
+
+  // ---------------------------------------------------------------------------
+  // 2. GRAMMAR, VERB PATTERNS & COLLOCATION CHECKS
+  // ---------------------------------------------------------------------------
+
+  // 2.1. "consider / enjoy / avoid / mind / finish / practice / keep / postpone / delay + (to)? + V0" -> V-ing
+  corrected = corrected.replace(
+    /\b(consider|considers|considered|considering|enjoy|enjoys|enjoyed|enjoying|avoid|avoids|avoided|avoiding|mind|minds|finish|finishes|finished|practice|practices|practise|practises|keep|keeps|kept|postpone|delay)\s+(to\s+)?([a-z]+)\b/gi,
+    (match, v1, toPart, v2) => {
+      const lowerV1 = v1.toLowerCase();
+      const lowerV2 = v2.toLowerCase();
+      if (lowerV2.endsWith('ing')) {
+        if (toPart) {
+          const right = `${v1} ${v2}`;
+          addError(
+            'Lỗi cấu trúc động từ (Verb Pattern)',
+            match,
+            right,
+            `Sau động từ "${lowerV1}" dùng trực tiếp danh động từ V-ing ("${right}"), không dùng giới từ "to".`
+          );
+          return right;
+        }
+        return match;
+      }
+      // Avoid flagging valid nouns after enjoy/finish/keep like "enjoy music", "finish work" unless "to" is present
+      const nounExceptions = new Set(['work', 'study', 'food', 'drinks', 'travel', 'help', 'support', 'visit', 'stay']);
+      if (!toPart && ['enjoy', 'enjoys', 'enjoyed', 'finish', 'finishes', 'finished', 'keep', 'keeps', 'kept'].includes(lowerV1) && nounExceptions.has(lowerV2)) {
+        return match;
+      }
+      if (GERUND_TARGET_VERBS.has(lowerV2)) {
+        const gerund = toGerundForm(lowerV2);
+        const right = `${v1} ${gerund}`;
+        addError(
+          'Lỗi cấu trúc động từ (Verb Pattern)',
+          match,
+          right,
+          `Sau động từ "${lowerV1}" bắt buộc dùng danh động từ V-ing (${lowerV1} + V-ing), không dùng "${toPart ? 'to ' + v2 : v2}". Đề xuất sửa thành "${right}".`
+        );
+        return right;
+      }
+      return match;
+    }
+  );
+
+  // 2.2. "suggest / recommend + somebody + to V0" (e.g. "suggest you to stay")
+  corrected = corrected.replace(
+    /\b(suggest|suggests|suggested|recommend|recommends|recommended)\s+(you|me|him|her|us|them)\s+to\s+([a-z]+)\b/gi,
+    (match, v1, pron, v2) => {
+      const lowerV1 = v1.toLowerCase();
+      const baseV2 = toBaseVerbForm(v2);
+      const right = `${v1} that ${pron} should ${baseV2}`;
+      addError(
+        'Lỗi cấu trúc câu khuyên (Advice Structure)',
+        match,
+        right,
+        `Động từ "${lowerV1}" không đi với cấu trúc "${lowerV1} + somebody + to V". Hãy sửa thành "${right}" hoặc "${v1} ${toGerundForm(baseV2)}".`
+      );
+      return right;
+    }
+  );
+
+  // 2.3. "suggest / recommend + (to)? + V0" -> V-ing
+  corrected = corrected.replace(
+    /\b(suggest|suggests|suggested|recommend|recommends|recommended)\s+(to\s+)?([a-z]+)\b/gi,
+    (match, v1, toPart, v2) => {
+      const lowerV2 = v2.toLowerCase();
+      if (lowerV2 === 'that' || lowerV2 === 'you' || lowerV2 === 'a' || lowerV2 === 'an' || lowerV2 === 'the' || lowerV2 === 'some' || lowerV2 === 'this' || lowerV2 === 'these' || lowerV2.endsWith('ing')) {
+        if (toPart && lowerV2.endsWith('ing')) {
+          const right = `${v1} ${v2}`;
+          addError('Lỗi cấu trúc động từ (Verb Pattern)', match, right, `Sau "${v1.toLowerCase()}" đi trực tiếp với V-ing, không có "to".`);
+          return right;
+        }
+        return match;
+      }
+      if (GERUND_TARGET_VERBS.has(lowerV2)) {
+        const gerund = toGerundForm(lowerV2);
+        const right = `${v1} ${gerund}`;
+        addError(
+          'Lỗi cấu trúc động từ (Verb Pattern)',
+          match,
+          right,
+          `Sau động từ "${v1.toLowerCase()}" cần dùng danh động từ V-ing ("${right}") hoặc mệnh đề "${v1.toLowerCase()} that you (should) + V0".`
+        );
+        return right;
+      }
+      return match;
+    }
+  );
+
+  // 2.4. "look forward to + V0" -> "look forward to + V-ing"
+  corrected = corrected.replace(
+    /\b(look|looks|looked|looking)\s+forward\s+to\s+([a-z]+)\b/gi,
+    (match, lookForm, v2) => {
+      const lowerV2 = v2.toLowerCase();
+      const nonVerbs = new Set(['your', 'the', 'a', 'an', 'this', 'that', 'it', 'our', 'my', 'his', 'her', 'their', 'you']);
+      if (lowerV2.endsWith('ing') || nonVerbs.has(lowerV2)) return match;
+      if (GERUND_TARGET_VERBS.has(lowerV2) || ['hear', 'receive', 'see', 'meet', 'reply', 'welcome', 'work', 'have', 'get', 'attend', 'join', 'visit'].includes(lowerV2)) {
+        const gerund = toGerundForm(lowerV2);
+        const right = `${lookForm} forward to ${gerund}`;
+        addError(
+          'Lỗi cấu trúc B2 (Look forward to + V-ing)',
+          match,
+          right,
+          `Trong cụm "look forward to" (mong đợi điều gì), từ "to" là giới từ nên động từ theo sau bắt buộc ở dạng V-ing. Hãy sửa thành "${right}".`
+        );
+        return right;
+      }
+      return match;
+    }
+  );
+
+  // 2.5. Prepositions (for / in / on / of / about / by / without / instead of / after / before) + (not)? + bare verb -> V-ing
+  corrected = corrected.replace(
+    /\b(apologize\s+for|apologise\s+for|sorry\s+for|thank\s+you\s+for|thanks\s+for|grateful\s+for|interested\s+in|keen\s+on|fond\s+of|excited\s+about|worried\s+about|thinking\s+about|thinking\s+of|instead\s+of|without|make\s+it\s+up\s+to\s+you\s+by)\s+(not\s+)?([a-z]+)\b/gi,
+    (match, prepPhrase, notPart, v2) => {
+      const lowerV2 = v2.toLowerCase();
+      const nonVerbs = new Set(['a', 'an', 'the', 'my', 'your', 'his', 'her', 'its', 'our', 'their', 'this', 'that', 'these', 'those', 'some', 'any', 'all', 'many', 'much', 'you', 'me', 'him', 'us', 'them', 'it', 'what', 'which', 'how']);
+      if (lowerV2.endsWith('ing') || nonVerbs.has(lowerV2)) return match;
+      if (GERUND_TARGET_VERBS.has(lowerV2)) {
+        const gerund = toGerundForm(lowerV2);
+        const right = `${prepPhrase} ${notPart || ''}${gerund}`;
+        addError(
+          'Lỗi ngữ pháp (Giới từ + V-ing)',
+          match,
+          right,
+          `Sau giới từ ("${prepPhrase}") động từ phải chia ở dạng danh động từ V-ing. Hãy sửa "${v2}" thành "${gerund}".`
+        );
+        return right;
+      }
+      return match;
+    }
+  );
+
+  // 2.6. Modal verbs (can, could, should, would, will, must, may, might) + "to V" or "V-ing" or "V-s/V-ed"
+  corrected = corrected.replace(
+    /\b(can|cannot|can't|could|couldn't|should|shouldn't|would|wouldn't|will|won't|must|mustn't|may|might)\s+(?:(easily|also|really|definitely|certainly|always|never|not)\s+)?(to\s+)?([a-z]+)\b/gi,
+    (match, modal, adv, toPart, verbWord) => {
+      const lowerVerb = verbWord.toLowerCase();
+      const lowerModal = modal.toLowerCase();
+      // Skip "would like", "would rather", "would prefer", "would appreciate", "can be", "will be", etc. if already valid
+      if (!toPart && ['be', 'have', 'do', 'like', 'love', 'prefer', 'rather', 'appreciate', 'recommend', 'suggest', 'consider', 'easily', 'also', 'not', 'never', 'always', 'definitely', 'certainly', 'really', 'you', 'i', 'we', 'they', 'he', 'she', 'it', 'there'].includes(lowerVerb)) {
+        return match;
+      }
+      const advStr = adv ? `${adv} ` : '';
+      if (toPart && GERUND_TARGET_VERBS.has(toBaseVerbForm(lowerVerb))) {
+        const base = toBaseVerbForm(lowerVerb);
+        const right = `${modal} ${advStr}${base}`;
+        addError(
+          'Lỗi động từ khuyết thiếu (Modal Verb)',
+          match,
+          right,
+          `Sau động từ khuyết thiếu "${lowerModal}" dùng trực tiếp động từ nguyên mẫu (V0), không có "to". Hãy sửa thành "${right}".`
+        );
+        return right;
+      }
+      if (lowerVerb.endsWith('ing') && GERUND_TARGET_VERBS.has(toBaseVerbForm(lowerVerb))) {
+        const base = toBaseVerbForm(lowerVerb);
+        const right = `${modal} ${advStr}${base}`;
+        addError(
+          'Lỗi động từ khuyết thiếu (Modal Verb)',
+          match,
+          right,
+          `Sau động từ khuyết thiếu "${lowerModal}" phải là động từ nguyên mẫu (V0), không dùng V-ing ("${verbWord}"). Hãy sửa thành "${right}".`
+        );
+        return right;
+      }
+      if ((lowerVerb.endsWith('s') || lowerVerb.endsWith('ed') || ['went', 'took', 'made', 'had', 'bought', 'saw', 'came', 'gave', 'wrote', 'sent', 'spent', 'left', 'met'].includes(lowerVerb)) &&
+          !GERUND_TARGET_VERBS.has(lowerVerb) && GERUND_TARGET_VERBS.has(toBaseVerbForm(lowerVerb))) {
+        const base = toBaseVerbForm(lowerVerb);
+        if (base !== lowerVerb) {
+          const right = `${modal} ${advStr}${base}`;
+          addError(
+            'Lỗi động từ khuyết thiếu (Modal Verb)',
+            match,
+            right,
+            `Sau động từ khuyết thiếu "${lowerModal}" động từ phải ở dạng nguyên mẫu (V0), không chia thêm "-s/-es" hay quá khứ. Hãy sửa thành "${right}".`
+          );
+          return right;
+        }
+      }
+      return match;
+    }
+  );
+
+  // 2.7. "would like / 'd like / want / need / plan / decide / promise / offer + bare verb or V-ing" -> "to + V0"
+  corrected = corrected.replace(
+    /\b(would\s+like|'d\s+like|want|wants|wanted|need|needs|needed|plan|plans|planned|decide|decided|promise|promised)\s+([a-z]+)\b/gi,
+    (match, v1, v2) => {
+      const lowerV2 = v2.toLowerCase();
+      if (lowerV2 === 'to' || lowerV2 === 'you' || lowerV2 === 'a' || lowerV2 === 'an' || lowerV2 === 'the' || lowerV2 === 'some' || lowerV2 === 'more' || lowerV2 === 'my' || lowerV2 === 'your' || lowerV2 === 'this' || lowerV2 === 'that' || lowerV2 === 'it') {
+        return match;
+      }
+      const base = toBaseVerbForm(lowerV2);
+      if (GERUND_TARGET_VERBS.has(lowerV2) || (lowerV2.endsWith('ing') && GERUND_TARGET_VERBS.has(base))) {
+        const right = `${v1} to ${base}`;
+        addError(
+          'Lỗi cấu trúc To-Infinitive (to + V0)',
+          match,
+          right,
+          `Sau "${v1}" cần dùng "to + động từ nguyên mẫu (V0)". Hãy sửa thành "${right}".`
+        );
+        return right;
+      }
+      return match;
+    }
+  );
+
+  // 2.8. "I am writing (this letter/email) for + V0/V-ing" -> "to + V0"
+  corrected = corrected.replace(
+    /\b(writing(?:\s+this\s+letter|\s+this\s+email)?)\s+for\s+([a-z]+)\b/gi,
+    (match, prefix, verbWord) => {
+      const base = toBaseVerbForm(verbWord);
+      if (GERUND_TARGET_VERBS.has(base)) {
+        const right = `${prefix} to ${base}`;
+        addError(
+          'Lỗi cấu trúc chỉ mục đích (Purpose Infinitive)',
+          match,
+          right,
+          `Để diễn tả mục đích viết thư ("để làm gì"), hãy dùng "to + V0" ("${right}") thay vì "for + ${verbWord}".`
+        );
+        return right;
+      }
+      return match;
+    }
+  );
+
+  // 2.9. Missing verb "to be" before adjectives ("because it convenient", "the weather hot", "it very cheap")
+  corrected = corrected.replace(
+    /\b(because\s+it|since\s+it|as\s+it|and\s+it|but\s+it|so\s+it|^it|the\s+weather|the\s+food|the\s+hotel|the\s+price|the\s+room|the\s+service|everything)\s+(very\s+|really\s+|quite\s+|so\s+|too\s+|extremely\s+|usually\s+|always\s+|often\s+)?(convenient|inconvenient|cheap|expensive|affordable|reasonable|delicious|tasty|crowded|noisy|quiet|peaceful|friendly|helpful|kind|nice|good|great|wonderful|amazing|beautiful|hot|cold|warm|cool|sunny|rainy|suitable|important|necessary|easy|difficult|hard|safe|dangerous|comfortable|uncomfortable|broken|damaged|defective|busy|free|available)\b/gi,
+    (match, subj, adv, adj) => {
+      const right = `${subj} is ${adv || ''}${adj}`;
+      addError(
+        'Lỗi thiếu động từ "to be" (Missing Copula)',
+        match,
+        right,
+        `Trong tiếng Anh, tính từ "${adj.toLowerCase()}" đứng sau chủ ngữ "${subj}" cần có động từ liên kết "is". Hãy sửa thành "${right}".`
+      );
+      return right;
+    }
+  );
+
+  // 2.10. Adjective + bare verb or "to + V-ing" ("convenient travel", "convenient to traveling", "easy to visiting")
+  corrected = corrected.replace(
+    /\b(convenient|inconvenient|easy|difficult|hard|important|necessary|advisable|helpful|useful|great|wonderful)\s+to\s+([a-z]+ing)\b/gi,
+    (match, adj, ving) => {
+      const base = toBaseVerbForm(ving);
+      if (GERUND_TARGET_VERBS.has(base)) {
+        const right = `${adj} to ${base}`;
+        addError(
+          'Lỗi cấu trúc "Tính từ + to V0"',
+          match,
+          right,
+          `Sau cấu trúc "It is + ${adj.toLowerCase()} + to..." cần dùng động từ nguyên mẫu (V0), không dùng V-ing. Hãy sửa thành "${right}".`
+        );
+        return right;
+      }
+      return match;
+    }
+  );
+
+  corrected = corrected.replace(
+    /\b(is\s+(?:very\s+|really\s+|quite\s+)?(?:convenient|inconvenient|easy|difficult|hard|important|necessary|advisable))\s+(travel|visit|go|move|stay|get|find|buy|learn|use|communicate|explore)\b/gi,
+    (match, adjPart, v0) => {
+      const right = `${adjPart} to ${v0}`;
+      addError(
+        'Lỗi thiếu "to" trước động từ (Missing Infinitive "to")',
+        match,
+        right,
+        `Sau tính từ trong cấu trúc "${adjPart}" cần có "to + V0" ("${right}").`
+      );
+      return right;
+    }
+  );
+
+  // 2.11. Word Form: Adjective used instead of Adverb before action verb ("can easy visit", "can convenient travel")
+  const adjToAdvMap = {
+    'easy': 'easily',
+    'quick': 'quickly',
+    'convenient': 'conveniently',
+    'comfortable': 'comfortably',
+    'direct': 'directly',
+    'regular': 'regularly',
+    'careful': 'carefully',
+    'fluent': 'fluently',
+    'safe': 'safely',
+    'simple': 'simply',
+    'clear': 'clearly'
+  };
+  corrected = corrected.replace(
+    /\b(can|could|should|would|will|to)\s+(easy|quick|convenient|comfortable|direct|regular|careful|fluent|safe|simple|clear)\s+([a-z]+)\b/gi,
+    (match, aux, adj, verbWord) => {
+      const lowerVerb = verbWord.toLowerCase();
+      if (GERUND_TARGET_VERBS.has(lowerVerb)) {
+        const adv = adjToAdvMap[adj.toLowerCase()];
+        const right = `${aux} ${adv} ${verbWord}`;
+        addError(
+          'Lỗi từ loại (Word Form: Tính từ vs Trạng từ)',
+          match,
+          right,
+          `Trước động từ thường "${lowerVerb}", bạn cần dùng trạng từ "${adv}" (thay vì tính từ "${adj}") để bổ nghĩa cho hành động.`
+        );
+        return right;
+      }
+      return match;
+    }
+  );
+
+  // 2.12. Prepositions, Articles & VSTEP Letter Collocations
+  // "stay hotel" / "staying hotel" -> "stay at a hotel" / "staying at a hotel"
+  corrected = corrected.replace(
+    /\b(stay|stays|stayed|staying)\s+hotel\b/gi,
+    (match, stayForm) => {
+      const right = `${stayForm} at a hotel`;
+      addError(
+        'Lỗi thiếu giới từ & mạo từ (Preposition & Article)',
+        match,
+        right,
+        `Cụm chuẩn tiếng Anh là "stay at a hotel" (ở tại một khách sạn) — cần có giới từ "at" và mạo từ "a" trước danh từ đếm được số ít "hotel".`
+      );
+      return right;
+    }
+  );
+
+  // "stay at hotel" / "stay in hotel" -> "stay at a hotel"
+  corrected = corrected.replace(
+    /\b(stay|stays|stayed|staying)\s+(at|in)\s+hotel\b/gi,
+    (match, stayForm) => {
+      const right = `${stayForm} at a hotel`;
+      addError(
+        'Lỗi thiếu mạo từ (Missing Article)',
+        match,
+        right,
+        `Danh từ "hotel" là danh từ đếm được số ít nên cần mạo từ "a" phía trước ("${right}").`
+      );
+      return right;
+    }
+  );
+
+  // "in city center" / "in city centre" / "at city center" -> "in the city center"
+  corrected = corrected.replace(
+    /\b(in|at)\s+(city\s+cent(?:er|re))\b/gi,
+    (match, prep, centerPart) => {
+      const right = `in the ${centerPart}`;
+      addError(
+        'Lỗi giới từ & mạo từ (Preposition & Article)',
+        match,
+        right,
+        `Cụm chỉ vị trí "tại trung tâm thành phố" chuẩn xác là "${right}" (dùng giới từ "in" và mạo từ xác định "the").`
+      );
+      return right;
+    }
+  );
+
+  // "travel around city" -> "travel around the city"
+  corrected = corrected.replace(
+    /\b(around)\s+city\b/gi,
+    (match, aroundWord) => {
+      const right = `${aroundWord} the city`;
+      addError(
+        'Lỗi thiếu mạo từ (Missing Article)',
+        match,
+        right,
+        `Cần có mạo từ xác định "the" trước danh từ "city" ("${right}").`
+      );
+      return right;
+    }
+  );
+
+  // "in your letter, you ask me" -> "in your letter, you asked me"
+  corrected = corrected.replace(
+    /\b(in\s+your\s+(?:last\s+)?(?:letter|email)\s*,?\s*you)\s+ask\b/gi,
+    (match, prefix) => {
+      const right = `${prefix} asked`;
+      addError(
+        'Lỗi thì của động từ (Verb Tense)',
+        match,
+        right,
+        `Việc người nhận hỏi bạn trong bức thư trước đã xảy ra trong quá khứ, nên động từ "ask" phải chia ở thì Quá khứ đơn là "asked".`
+      );
+      return right;
+    }
+  );
+
+  // "If I were you, I will / can" or "If I am you" -> "If I were you, I would"
+  corrected = corrected.replace(
+    /\bif\s+i\s+(?:were|was|am)\s+you\s*,?\s*i\s+(will|can|may|shall)\b/gi,
+    (match) => {
+      const right = 'If I were you, I would';
+      addError(
+        'Lỗi câu điều kiện loại 2 (Conditional Type 2)',
+        match,
+        right,
+        `Khi dùng cấu trúc giả định "If I were you" để đưa ra lời khuyên B2, mệnh đề chính phải dùng "I would + V0" (không dùng "will/can").`
+      );
+      return right;
+    }
+  );
+
+  // "I would appreciate if you" -> "I would appreciate it if you"
+  corrected = corrected.replace(
+    /\b(would\s+appreciate)\s+if\s+you\b/gi,
+    (match, appPart) => {
+      const right = `${appPart} it if you`;
+      addError(
+        'Lỗi cấu trúc B2 (appreciate it if...)',
+        match,
+        right,
+        `Trong cấu trúc đề nghị lịch sự B2, sau "would appreciate" bắt buộc có đại từ tân ngữ giả "it" trước "if you" ("I would appreciate it if you could...").`
+      );
+      return right;
+    }
+  );
+
+  // Common VSTEP Preposition Collocation errors
+  const collocationFixes = [
+    { regex: /\bdiscuss\s+about\b/gi, right: 'discuss', cat: 'Lỗi thừa giới từ (Redundant Preposition)', exp: 'Động từ "discuss" là ngoại động từ đi trực tiếp với tân ngữ, không dùng giới từ "about" theo sau.' },
+    { regex: /\bexplain\s+(me|you|him|her|us|them)\b/gi, rightFn: (m, p) => `explain to ${p}`, cat: 'Lỗi thiếu giới từ (Missing Preposition)', exp: 'Cấu trúc đúng của động từ "explain" là "explain (something) to somebody" — phải có giới từ "to" trước tân ngữ chỉ người.' },
+    { regex: /\bmarried\s+with\b/gi, right: 'married to', cat: 'Lỗi giới từ (Preposition)', exp: 'Cấu trúc "kết hôn với ai" trong tiếng Anh dùng giới từ "to" ("married to"), không dùng "with".' },
+    { regex: /\bdepend\s+(in|of|at)\b/gi, right: 'depend on', cat: 'Lỗi giới từ (Preposition)', exp: 'Động từ "depend" luôn đi với giới từ "on" ("depend on": phụ thuộc vào).' },
+    { regex: /\binterested\s+(on|at)\b/gi, right: 'interested in', cat: 'Lỗi giới từ (Preposition)', exp: 'Tính từ "interested" đi với giới từ "in" ("be interested in": quan tâm/thích thú với).' },
+    { regex: /\bdifferent\s+(with|than)\b/gi, right: 'different from', cat: 'Lỗi giới từ (Preposition)', exp: 'Tính từ "different" chuẩn văn viết đi với giới từ "from" ("different from": khác với).' },
+    { regex: /\barrive\s+to\b/gi, right: 'arrive in', cat: 'Lỗi giới từ (Preposition)', exp: 'Động từ "arrive" đi với giới từ "in" (thành phố/quốc gia) hoặc "at" (địa điểm cụ thể), không đi với "to".' },
+    { regex: /\byour\s+sincerely\b/gi, right: 'Yours sincerely', cat: 'Lỗi lời chào kết thư (Sign-off)', exp: 'Cụm chào kết thư trang trọng phải dùng đại từ sở hữu có "-s" là "Yours sincerely," (không phải "Your").' },
+    { regex: /\byour\s+faithfully\b/gi, right: 'Yours faithfully', cat: 'Lỗi lời chào kết thư (Sign-off)', exp: 'Cụm chào kết thư trang trọng phải dùng đại từ sở hữu có "-s" là "Yours faithfully," (không phải "Your").' },
+    { regex: /\bbest\s+wish\b/gi, right: 'Best wishes', cat: 'Lỗi lời chào kết thư (Sign-off)', exp: 'Cụm lời chúc kết thư thân mật luôn ở dạng số nhiều là "Best wishes,".' },
+    { regex: /\bwarm\s+regard\b/gi, right: 'Warm regards', cat: 'Lỗi lời chào kết thư (Sign-off)', exp: 'Cụm chào kết thư luôn ở dạng số nhiều là "Warm regards,".' },
+    { regex: /\b(this)\s+(suggestions|questions|problems|places|activities|restaurants|shops|attractions|ideas|tips)\b/gi, rightFn: (m, d, n) => `these ${n}`, cat: 'Lỗi hòa hợp từ hạn định (Determiner Agreement)', exp: 'Trước danh từ số nhiều cần dùng "these" (thay vì số ít "this").' },
+    { regex: /\b(these|those|many|several|various|different)\s+(suggestion|question|problem|place|restaurant|shop|attraction|idea|tip)\b/gi, rightFn: (m, d, n) => `${d} ${n}s`, cat: 'Lỗi danh từ số ít / số nhiều (Singular/Plural)', exp: 'Sau từ chỉ số lượng nhiều ("these, many, several, various, different...") danh từ đếm được phải thêm "-s/-es" ở dạng số nhiều.' }
+  ];
+
+  collocationFixes.forEach(rule => {
+    corrected = corrected.replace(rule.regex, (...args) => {
+      const match = args[0];
+      const right = rule.rightFn ? rule.rightFn(...args) : rule.right;
+      addError(rule.cat, match, right, rule.exp);
+      return right;
+    });
+  });
+
+  // 2.13. Uncountable nouns wrongly pluralized
+  const uncountableMap = {
+    'advices': 'advice',
+    'informations': 'information',
+    'equipments': 'equipment',
+    'furnitures': 'furniture',
+    'luggages': 'luggage',
+    'baggages': 'baggage',
+    'homeworks': 'homework',
+    'knowledges': 'knowledge',
+    'sceneries': 'scenery',
+    'traffics': 'traffic',
+    'weathers': 'weather'
+  };
+  corrected = corrected.replace(
+    /\b(advices|informations|equipments|furnitures|luggages|baggages|homeworks|knowledges|sceneries|traffics|weathers)\b/gi,
+    (match) => {
+      const right = uncountableMap[match.toLowerCase()];
+      addError(
+        'Lỗi danh từ không đếm được (Uncountable Noun)',
+        match,
+        right,
+        `"${right}" là danh từ không đếm được trong tiếng Anh nên tuyệt đối không thêm "-s/-es". Hãy sửa thành "${right}".`
+      );
+      return right;
+    }
+  );
+
+  // 2.13b. Countable nouns in general plural context (matching ex.en plural nouns when no singular determiner is used)
+  const countableSingToPlur = {
+    'restaurant': 'restaurants',
+    'shop': 'shops',
+    'attraction': 'attractions',
+    'museum': 'museums',
+    'pagoda': 'pagodas',
+    'temple': 'temples',
+    'park': 'parks',
+    'place': 'places',
+    'activity': 'activities',
+    'dish': 'dishes',
+    'question': 'questions',
+    'suggestion': 'suggestions',
+    'souvenir': 'souvenirs',
+    'friend': 'friends'
+  };
+  const refLowerWordsSet = new Set((ex.en || '').toLowerCase().replace(/[^a-z\s]/g, ' ').split(/\s+/).filter(Boolean));
+  Object.entries(countableSingToPlur).forEach(([sing, plur]) => {
+    if (!refLowerWordsSet.has(plur) || refLowerWordsSet.has(sing)) return;
+    const regex = new RegExp(`\\b(${sing})\\b`, 'gi');
+    corrected = corrected.replace(regex, (match, word, offset, fullStr) => {
+      const before = fullStr.slice(Math.max(0, offset - 20), offset).toLowerCase();
+      if (/\b(a|an|the|this|that|one|each|every|another|my|your|his|her|our|their|favourite|favorite)\s+(?:[a-z]+\s+)?$/.test(before)) {
+        return match;
+      }
+      const right = /^[A-Z]/.test(word) ? plur.charAt(0).toUpperCase() + plur.slice(1) : plur;
+      addError(
+        'Lỗi danh từ số ít / số nhiều (Singular/Plural)',
+        match,
+        right,
+        `Khi nhắc đến các danh từ đếm được nói chung không có mạo từ "a/an/the" phía trước, bạn cần dùng dạng số nhiều "${right}" (thay vì số ít "${match}").`
+      );
+      return right;
+    });
+  });
+
+  // 2.14. Subject-Verb Agreement with singular subjects (it / he / she / the hotel / the weather / everything)
+  const svSingularMap = {
+    'have': 'has', 'help': 'helps', 'make': 'makes', 'give': 'gives', 'take': 'takes',
+    'bring': 'brings', 'offer': 'offers', 'provide': 'provides', 'allow': 'allows',
+    'need': 'needs', 'want': 'wants', 'seem': 'seems', 'look': 'looks', 'work': 'works',
+    'live': 'lives', 'like': 'likes', 'love': 'loves', 'cost': 'costs', 'include': 'includes'
+  };
+  corrected = corrected.replace(
+    /\b(it|he|she|everything|everyone|everybody)\s+(always\s+|usually\s+|often\s+|really\s+|also\s+)?(have|help|make|give|take|bring|offer|provide|allow|need|want|seem|look|work|live|like|love|cost|include)\b/gi,
+    (match, subj, adv, verbWord, offset, fullStr) => {
+      // Do not trigger if preceded by modal/auxiliary like "can it help", "make it work", "let he/it..."
+      const before = fullStr.slice(Math.max(0, offset - 18), offset).toLowerCase();
+      if (/\b(can|could|should|would|will|must|may|might|did|didn't|does|doesn't|let|make|makes|made|help|helps|helped)\s+$/.test(before)) {
+        return match;
+      }
+      const singVerb = svSingularMap[verbWord.toLowerCase()];
+      const right = `${subj} ${adv || ''}${singVerb}`;
+      addError(
+        'Lỗi hòa hợp chủ ngữ - động từ (Subject-Verb Agreement)',
+        match,
+        right,
+        `Chủ ngữ "${subj}" là ngôi thứ 3 số ít nên động từ ở thì Hiện tại đơn phải chia số ít ("${singVerb}" thay vì "${verbWord}").`
+      );
+      return right;
+    }
+  );
+
+  // 2.15. Salutation & Sign-off specific checks
+  if (ex.role === 'salutation') {
+    if (/^dear\s+my\s+([a-z]+)/i.test(corrected)) {
+      const m = corrected.match(/^dear\s+my\s+([a-z]+)/i);
+      const targetSal = ex.en || 'Dear Friend,';
+      addError(
+        'Lỗi cấu trúc lời chào mở thư (Salutation)',
+        m[0],
+        targetSal.replace(/,$/, ''),
+        `Trong tiếng Anh không dùng "Dear my...". Bạn hãy gọi trực tiếp tên người nhận (ví dụ: "${targetSal}") hoặc "Dear Sir or Madam,".`
+      );
+      corrected = targetSal;
+    }
+  }
+
+  if (ex.role === 'signoff') {
+    // Check if student signed their real name after sign-off
+    const signMatch = corrected.match(/^(best wishes|warm regards|all the best|yours sincerely|yours faithfully|sincerely|regards|love|take care)\s*,?\s+([a-zA-Z].*)$/i);
+    if (signMatch) {
+      const cleanSignoff = signMatch[1].charAt(0).toUpperCase() + signMatch[1].slice(1) + ',';
+      addError(
+        'Lỗi quy chế thi VSTEP (Không ký tên thật)',
+         corrected,
+        cleanSignoff,
+        `Đề thi VSTEP quy định tuyệt đối KHÔNG ghi tên thật của bạn ở cuối thư (để bảo mật bài thi). Hãy xóa phần tên "${signMatch[2]}" và chỉ giữ lại "${cleanSignoff}".`
+      );
+      corrected = cleanSignoff;
+    }
+  }
+
+  // 2.16. Formal Register Contractions Check
+  if (isFormal) {
+    const formalContractionMap = {
+      "i'm": "I am", "i'd": "I would", "i'll": "I will", "i've": "I have",
+      "don't": "do not", "doesn't": "does not", "didn't": "did not",
+      "can't": "cannot", "couldn't": "could not", "won't": "will not",
+      "wouldn't": "would not", "shouldn't": "should not",
+      "isn't": "is not", "aren't": "are not", "wasn't": "was not", "weren't": "were not",
+      "haven't": "have not", "hasn't": "has not", "it's": "it is", "that's": "that is"
+    };
+    corrected = corrected.replace(
+      /\b(i'm|i'd|i'll|i've|don't|doesn't|didn't|can't|couldn't|won't|wouldn't|shouldn't|isn't|aren't|wasn't|weren't|haven't|hasn't|it's|that's)\b/gi,
+      (match) => {
+        const full = formalContractionMap[match.toLowerCase()] || match;
+        addError(
+          'Lỗi văn phong Trang trọng (Formal Register)',
+          match,
+          full,
+          `Đây là bức thư Trang trọng (Formal Letter), bạn không nên viết tắt ("${match}"). Hãy viết đầy đủ thành "${full}".`
+        );
+        return full;
+      }
+    );
+  }
+
+  // ---------------------------------------------------------------------------
+  // 3. PUNCTUATION & CAPITALIZATION CHECKS
+  // ---------------------------------------------------------------------------
+
+  // 3.1. Missing comma after introductory connector at start of sentence
+  corrected = corrected.replace(
+    /^(Firstly|Second|Secondly|Thirdly|Finally|Lastly|To begin with|First of all|In addition|Furthermore|Moreover|Besides|On top of that|However|Therefore|Nevertheless|Meanwhile|Personally|Fortunately|Unfortunately)\s+([a-zA-Z])/i,
+    (match, conn, nextChar) => {
+      const capConn = conn.charAt(0).toUpperCase() + conn.slice(1);
+      const right = `${capConn}, ${nextChar}`;
+      addError(
+        'Lỗi dấu câu (Thiếu dấu phẩy sau từ nối)',
+        `${conn} ${nextChar}`,
+        right,
+        `Sau từ/cụm từ nối mở đầu câu ("${capConn}") cần có dấu phẩy (,) để tách biệt với mệnh đề chính.`
+      );
+      return right;
+    }
+  );
+
+  // 3.2. Lowercase pronoun "i"
+  corrected = corrected.replace(/\bi\b/g, (match) => {
+    addError('Lỗi viết hoa (Capitalization)', 'i', 'I', 'Đại từ nhân xưng ngôi thứ nhất "I" trong tiếng Anh luôn luôn phải viết hoa.');
+    return 'I';
+  });
+
+  // 3.3. First character of sentence must be capitalized
+  if (corrected.length > 0 && /^[a-z]/.test(corrected)) {
+    const firstWord = corrected.split(/\s+/)[0];
+    const capFirstWord = firstWord.charAt(0).toUpperCase() + firstWord.slice(1);
+    addError(
+      'Lỗi viết hoa đầu câu (Capitalization)',
+      firstWord,
+      capFirstWord,
+      `Chữ cái đầu tiên của câu ("${firstWord}") bắt buộc phải viết hoa ("${capFirstWord}").`
+    );
+    corrected = corrected.charAt(0).toUpperCase() + corrected.slice(1);
+  }
+
+  // 3.4. Ending punctuation according to role
+  if (ex.role === 'salutation' || ex.role === 'signoff') {
+    if (!corrected.endsWith(',')) {
+      const stripped = corrected.replace(/[.!?]+$/, '');
+      const right = stripped + ',';
+      addError(
+        'Lỗi dấu câu (Punctuation)',
+        corrected,
+        right,
+        ex.role === 'salutation'
+          ? 'Cuối dòng lời chào mở đầu thư (Dear ...,) bắt buộc phải có dấu phẩy (,).'
+          : 'Cuối dòng lời chào kết thúc thư (Best wishes, / Yours sincerely,) bắt buộc phải có dấu phẩy (,).'
+      );
+      corrected = right;
+    }
+  } else {
+    // Check if first clause is a direct question ending with a period instead of question mark
+    if (/^(How have you been(?:\s+lately|\s+recently)?|How are you(?:\s+doing)?|How is everything(?:\s+going)?)\s*\./i.test(corrected)) {
+      corrected = corrected.replace(/^(How have you been(?:\s+lately|\s+recently)?|How are you(?:\s+doing)?|How is everything(?:\s+going)?)\s*\./i, (m, qPart) => {
+        const right = `${qPart}?`;
+        addError('Lỗi dấu câu hỏi (Question Mark)', m, right, `Câu hỏi thăm trực tiếp "${qPart}" cần kết thúc bằng dấu chấm hỏi (?) thay vì dấu chấm (.).`);
+        return right;
+      });
+    }
+    if (!/[.!?]$/.test(corrected)) {
+      const isDirectQuestion = /^(How|What|Where|When|Why|Who|Which|Could you|Would you|Can you|Will you|Do you|Have you|Are you)\b/i.test(corrected) && !/\bI\s+(?:hope|am|would|want)\b/i.test(corrected);
+      const endPunct = isDirectQuestion ? '?' : '.';
+      const lastWord = corrected.split(/\s+/).pop();
+      addError(
+        'Lỗi dấu câu kết thúc (Ending Punctuation)',
+        lastWord,
+        lastWord + endPunct,
+        `Cuối câu văn tiếng Anh cần có dấu kết thúc câu (${endPunct === '?' ? 'dấu chấm hỏi "?"' : 'dấu chấm "."'}).`
+      );
+      corrected = corrected + endPunct;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // 4. B2 EXPRESSION UPGRADE SUGGESTIONS (Gợi ý nâng cấp từ B1 lên B2)
+  // ---------------------------------------------------------------------------
+  if (/\bfirstly,\s+you\s+can\b/i.test(corrected) && /\bto begin with,\s+you\s+could\b/i.test(ex.en)) {
+    b2Upgrades.push('Thay <code>"Firstly, you can..."</code> bằng <strong><code>"To begin with, you could..."</code></strong> để lời khuyên nghe mềm mại, lịch sự và ăn điểm cấu trúc B2 hơn.');
+  } else if (/\byou\s+can\s+consider\b/i.test(corrected) && /\byou\s+could\s+consider\b/i.test(ex.en)) {
+    b2Upgrades.push('Dùng trợ động từ tình thái <strong><code>"you could consider..."</code></strong> (thay cho <code>"you can consider..."</code>) giúp giọng văn đưa lời khuyên lịch sự và chuẩn B2 hơn.');
+  }
+  if (/\bsecond(?:ly)?,\s+you\s+can\b/i.test(corrected) && /\b(in addition|furthermore|moreover)\b/i.test(ex.en)) {
+    b2Upgrades.push('Thay <code>"Second/Secondly, you can..."</code> bằng <strong><code>"In addition, ..."</code></strong> hoặc <strong><code>"Furthermore, ..."</code></strong> để tăng điểm liên kết câu (Coherence & Cohesion) ở bậc B2.');
+  }
+  if (/\bi\s+want\s+to\s+(share|tell|ask|invite|apologize|complain)\b/i.test(corrected)) {
+    b2Upgrades.push('Thay <code>"I want to..."</code> (mức A2/B1) bằng <strong><code>"I would like to..."</code></strong> hoặc <strong><code>"I am writing to..."</code></strong> để câu văn trang nhã, lịch sự chuẩn B2.');
+  }
+
+  // ---------------------------------------------------------------------------
+  // 5. IDEA & COLLOCATION COMPLETENESS CHECK AGAINST VIETNAMESE PROMPT
+  // ---------------------------------------------------------------------------
+  const normalizeText = (s) => (s || '').toLowerCase()
+    .replace(/\bcentre\b/g, 'center')
+    .replace(/\btravelling\b/g, 'traveling')
+    .replace(/\btravelled\b/g, 'traveled')
+    .replace(/\bapologise\b/g, 'apologize')
+    .replace(/\bapologising\b/g, 'apologizing')
+    .replace(/\borganise\b/g, 'organize')
+    .replace(/\borganising\b/g, 'organizing')
+    .replace(/[^a-z0-9\s']/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const normUser = normalizeText(corrected);
+  const normUserWords = normUser.split(/\s+/).filter(Boolean);
+  const normUserStems = new Set(normUserWords.map(w => toBaseVerbForm(w)));
+  normUserWords.forEach(w => normUserStems.add(w));
+
+  const stopWords = new Set(['the', 'a', 'an', 'to', 'of', 'in', 'on', 'at', 'for', 'and', 'or', 'is', 'are', 'am', 'be', 'it', 'this', 'that', 'with', 'you', 'your', 'my', 'i']);
+  const normRefWords = normalizeText(ex.en).split(/\s+/).filter(w => w && !stopWords.has(w));
+
+  let matchedRefCount = 0;
+  normRefWords.forEach(rw => {
+    const rwStem = toBaseVerbForm(rw);
+    if (normUserStems.has(rw) || normUserStems.has(rwStem)) {
+      matchedRefCount++;
+    }
+  });
+  const ratio = normRefWords.length > 0 ? Math.min(100, Math.round((matchedRefCount / normRefWords.length) * 100)) : 85;
+
+  // Check each non-formula vocab/collocation hint in ex.hints
+  const matchedHints = [];
+  const missingHints = [];
+  if (ex.role !== 'salutation' && ex.role !== 'signoff' && Array.isArray(ex.hints)) {
+    ex.hints.forEach(h => {
+      if (!h || !h.en) return;
+      // Skip formula hints containing brackets or meta labels
+      if (/\[|\]|\bV-ing\b|\bV0\b|Công thức|Khung cấu trúc|Lưu ý/i.test(h.en + ' ' + (h.vi || ''))) return;
+      const hintWords = normalizeText(h.en).split(/\s+/).filter(w => w.length > 2 && !stopWords.has(w));
+      if (hintWords.length === 0) return;
+      const hitCount = hintWords.filter(hw => normUserStems.has(hw) || normUserStems.has(toBaseVerbForm(hw))).length;
+      if (hitCount >= Math.ceil(hintWords.length * 0.6)) {
+        matchedHints.push(h);
+      } else {
+        missingHints.push(h);
+      }
+    });
+  }
+
+  // Save corrected sentence for 1-click apply
+  if (!state.lastCorrectedSentences) state.lastCorrectedSentences = {};
+  state.lastCorrectedSentences[idx] = corrected;
+
+  // ---------------------------------------------------------------------------
+  // 6. BUILD RICH, CLEAR FEEDBACK HTML
+  // ---------------------------------------------------------------------------
+  const blocksHtml = [];
+
+  if (structuredErrors.length > 0) {
+    const errorCardsHtml = structuredErrors.map((err, i) => `
+      <div class="sent-error-item">
+        <div class="sent-error-item-head">
+          <span class="sent-error-num">LỖI ${i + 1}</span>
+          <span class="sent-error-cat">${escapeHtml(err.category)}</span>
+        </div>
+        <div class="sent-error-change">
+          <span>Trong câu của bạn: <del class="sent-err-del">${escapeHtml(err.wrongText)}</del></span>
+          <span style="color: var(--text-muted); font-weight: 700;">&rarr;</span>
+          <span>Đề xuất sửa thành: <ins class="sent-err-ins">${escapeHtml(err.rightText)}</ins></span>
+        </div>
+        <div class="sent-error-exp">💡 <strong>Giải thích:</strong> ${escapeHtml(err.explanation)}</div>
+      </div>
+    `).join('');
+
+    const inlineDiffHtml = buildInlineWordDiffHtml(trimmed, corrected);
+
+    blocksHtml.push(`
+      <div class="sent-feedback-section">
+        <div class="sent-section-label" style="color: var(--danger);">🔍 1. NHẬN DIỆN LỖI & ĐỀ XUẤT CHỈNH SỬA TRÊN CÂU CỦA BẠN:</div>
+        <div class="sent-error-list">${errorCardsHtml}</div>
+      </div>
+
+      <div class="sent-feedback-section">
+        <div class="sent-section-label" style="color: var(--success);">✍️ 2. CÂU CỦA BẠN SAU KHI SỬA LỖI NGỮ PHÁP & CHÍNH TẢ:</div>
+        <div class="sent-diff-preview">
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.25rem; font-weight: 600;">Vết chỉnh sửa trực tiếp trên câu bạn viết:</div>
+          <div style="font-size: 0.94rem; line-height: 1.6;">${inlineDiffHtml}</div>
+        </div>
+        <div class="sent-corrected-clean">
+          <div style="flex: 1; min-width: 0;">
+            <div style="font-size: 0.78rem; color: var(--success); font-weight: 700; margin-bottom: 0.2rem;">✓ Câu của bạn sau khi hoàn thiện ngữ pháp & chính tả:</div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); line-height: 1.5;">${escapeHtml(corrected)}</div>
+          </div>
+          <button type="button" class="btn-apply-correction" onclick="applyCorrectedSentence(${idx})">
+            ✨ Áp dụng câu đã sửa
+          </button>
+        </div>
+      </div>
+    `);
+  } else {
+    blocksHtml.push(`
+      <div class="sent-feedback-section">
+        <div class="sent-grammar-ok-box">
+          ✅ <strong>Ngữ pháp & Chính tả:</strong> Câu bạn viết (<code>"${escapeHtml(trimmed)}"</code>) hoàn toàn <strong>đúng ngữ pháp và chính tả</strong>!
+        </div>
+      </div>
+    `);
+  }
+
+  if (b2Upgrades.length > 0) {
+    blocksHtml.push(`
+      <div class="sent-feedback-section">
+        <div class="sent-b2-upgrade-box">
+          <div style="font-weight: 700; color: var(--accent-primary); margin-bottom: 0.25rem;">💎 GỢI Ý NÂNG CẤP DIỄN ĐẠT LÊN CHUẨN B2:</div>
+          <ul style="margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
+            ${b2Upgrades.map(u => `<li>${u}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `);
+  }
+
+  if (ex.role !== 'salutation' && ex.role !== 'signoff' && (matchedHints.length > 0 || missingHints.length > 0)) {
+    const stepNum = structuredErrors.length > 0 ? 3 : 2;
+    blocksHtml.push(`
+      <div class="sent-feedback-section">
+        <div class="sent-section-label" style="color: var(--accent-primary);">📌 ${stepNum}. ĐỐI CHIẾU ĐỘ ĐẦY ĐỦ Ý VỚI CÂU ĐỀ BÀI TIẾNG VIỆT:</div>
+        <div class="sent-completeness-box">
+          ${matchedHints.length > 0 ? `
+            <div style="margin-bottom: ${missingHints.length > 0 ? '0.55rem' : '0'};">
+              <div style="font-size: 0.82rem; font-weight: 700; color: var(--success); margin-bottom: 0.3rem;">✅ Ý bạn đã diễn đạt được trong câu:</div>
+              <div class="sent-hint-Wait-tags">
+                ${matchedHints.map(h => `<span class="sent-idea-chip chip-matched">✓ <strong>${escapeHtml(h.en)}</strong> <em>(${escapeHtml(h.vi)})</em></span>`).join('')}
+              </div>
+            </div>
+          ` : ''}
+          ${missingHints.length > 0 ? `
+            <div>
+              <div style="font-size: 0.82rem; font-weight: 700; color: var(--warning); margin-bottom: 0.3rem;">➕ Các ý trong câu tiếng Việt bạn chưa đề cập (hãy viết nối tiếp để hoàn chỉnh câu):</div>
+              <div class="sent-hint-Wait-tags">
+                ${missingHints.map(h => `<span class="sent-idea-chip chip-missing">+ <strong>${escapeHtml(h.en)}</strong>: ${escapeHtml(h.vi)}</span>`).join('')}
+              </div>
+            </div>
+          ` : `
+            <div style="font-size: 0.86rem; color: var(--success); font-weight: 600;">
+              🎉 Tuyệt vời! Câu của bạn đã bao phủ đầy đủ các cụm ý chính của câu đề bài tiếng Việt.
+            </div>
+          `}
+        </div>
+      </div>
+    `);
+  }
+
+  const hasErrors = structuredErrors.length > 0;
+  let color = 'var(--success)';
+  let badge = '🌟 RẤT TỐT — ĐÚNG NGỮ PHÁP & ĐẦY ĐỦ Ý B2';
+
+  if (hasErrors) {
+    color = 'var(--danger)';
+    badge = `🔍 PHẢN HỒI CHI TIẾT: CẦN CHỈNH SỬA ${structuredErrors.length} LỖI TRONG CÂU CỦA BẠN`;
+  } else if (missingHints.length > 0 || ratio < 65) {
+    color = 'var(--warning)';
+    badge = '✅ ĐÚNG NGỮ PHÁP — HÃY BỔ SUNG THÊM Ý ĐỂ HOÀN CHỈNH CÂU';
+  }
 
   return {
     percent: ratio,
+    errorCount: structuredErrors.length,
     color,
     badge,
-    feedbackHtml: notes.join('<br>')
+    feedbackHtml: blocksHtml.join('')
   };
 }
 
