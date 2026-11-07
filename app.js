@@ -2092,6 +2092,492 @@ function buildB2IdeaSentencePair(topic, group, opt, seqIndex, totalSelected = 4,
   };
 }
 
+// Build non-spoiler vocabulary & structure hints (2–6 word chunks + skeletal B2 patterns, NEVER full answer sentences)
+const B2_OPENING_CHUNK_HINTS = {
+  advice: [
+    { en: 'thanks for + V-ing (writing to sb)', vi: 'cảm ơn vì đã viết thư cho ai' },
+    { en: 'lately', vi: 'dạo này, gần đây (How have you been ...?)' },
+    { en: 'after + V-ing (reading your letter)', vi: 'sau khi đọc thư của cậu' },
+    { en: 'have a few suggestions + (that sb may want to consider)', vi: 'có một vài gợi ý (mà ai đó có thể muốn cân nhắc)' }
+  ],
+  request_informal: [
+    { en: 'lately', vi: 'dạo này, gần đây (How have you been ...?)' },
+    { en: 'go well', vi: 'diễn ra suôn sẻ (I hope everything is ...)' },
+    { en: 'write to ask for some information about + [N]', vi: 'viết thư để hỏi xin một số thông tin về... (I’m writing to ...)' }
+  ],
+  request_formal: [
+    { en: 'request information about + [N]', vi: 'xin thông tin về... (I am writing this letter to ...)' },
+    { en: 'I would appreciate it if you could + Vo', vi: 'Cấu trúc B2: Tôi rất cảm kích nếu quý vị có thể...' },
+    { en: 'answer a few questions regarding + [N]', vi: 'giải đáp một vài câu hỏi liên quan đến... (this matter)' }
+  ],
+  description_informal: [
+    { en: 'lately', vi: 'dạo này, gần đây (How have you been ...?)' },
+    { en: 'go well', vi: 'diễn ra suôn sẻ (I hope everything is ...)' },
+    { en: 'ask sb about + [N]', vi: 'hỏi ai về điều gì (In your letter, you ...)' },
+    { en: 'would like to + Vo', vi: 'muốn làm gì (so I’d like to ...)' },
+    { en: 'share some information with sb', vi: 'chia sẻ một số thông tin với ai' }
+  ],
+  description_formal: [
+    { en: 'provide sb with a detailed description of + [N]', vi: 'cung cấp cho ai mô tả/thông tin chi tiết về... (I am writing to ...)' },
+    { en: 'as requested', vi: 'theo như yêu cầu' },
+    { en: 'previous correspondence', vi: 'thư từ trao đổi trước đó (in your ...)' }
+  ],
+  complaint: [
+    { en: 'express one’s dissatisfaction with + [N]', vi: 'bày tỏ sự không hài lòng về... (I am writing to ...)' },
+    { en: 'recently use / dine at + [N]', vi: 'gần đây có sử dụng / dùng bữa tại...' },
+    { en: 'be quite disappointed with + [N]', vi: 'khá thất vọng với... (the experience)' }
+  ],
+  feedback: [
+    { en: 'provide feedback on + [N]', vi: 'đóng góp ý kiến phản hồi về... (I am writing to ...)' },
+    { en: 'recently use + [N]', vi: 'gần đây có sử dụng...' },
+    { en: 'would like to + Vo (share one’s experience)', vi: 'muốn chia sẻ trải nghiệm của mình' }
+  ],
+  apology_informal: [
+    { en: 'be really sorry for + (not) V-ing', vi: 'thực sự rất xin lỗi vì đã (không)...' },
+    { en: 'feel terrible about what happened', vi: 'cảm thấy rất áy náy về chuyện đã xảy ra' },
+    { en: 'explain the situation more clearly', vi: 'giải thích tình hình rõ ràng hơn (I’d like to ...)' }
+  ],
+  apology_formal: [
+    { en: 'sincerely apologize for + V-ing / [N]', vi: 'chân thành xin lỗi về... (I am writing to ...)' },
+    { en: 'deeply regret + [N]', vi: 'vô cùng hối tiếc / lấy làm tiếc về...' },
+    { en: 'inconvenience or distress', vi: 'sự bất tiện hay phiền hà (any ... that this situation may have caused you)' }
+  ],
+  application: [
+    { en: 'apply for the position of + [Vị trí]', vi: 'ứng tuyển vào vị trí... (I am writing to ...)' },
+    { en: 'which was advertised on/in + [N]', vi: 'Mệnh đề quan hệ bị động B2: được đăng tuyển trên...' }
+  ]
+};
+
+const B2_CLOSING_CHUNK_HINTS = {
+  advice: [
+    { en: 'find + [N] + adj (helpful)', vi: 'thấy điều gì hữu ích (I hope you find my suggestions ...)' },
+    { en: 'let sb know how things go', vi: 'cho ai biết mọi chuyện diễn ra thế nào' },
+    { en: 'write back soon', vi: 'hồi âm sớm nhé' }
+  ],
+  request_informal: [
+    { en: 'hear from sb soon', vi: 'sớm nhận được tin từ ai (I hope to ...)' },
+    { en: 'thank sb for + [N]', vi: 'cảm ơn ai vì điều gì (Thanks a lot for your help)' },
+    { en: 'take care', vi: 'giữ gìn sức khỏe / bảo trọng nhé' }
+  ],
+  request_formal: [
+    { en: 'thank sb in advance for + [N]', vi: 'cảm ơn trước vì... (your time and assistance)' },
+    { en: 'look forward to + V-ing (receiving your response)', vi: 'rất mong nhận được phản hồi của quý vị' },
+    { en: 'at one’s earliest convenience', vi: 'vào thời gian sớm nhất thuận tiện (at your ...)' }
+  ],
+  description_informal: [
+    { en: 'give sb a clear picture of + [N]', vi: 'giúp ai hình dung rõ về... (I hope this gives you ...)' },
+    { en: 'let sb know if + S + V', vi: 'cho ai biết nếu... (you want more details)' },
+    { en: 'write back soon', vi: 'hồi âm sớm nhé' }
+  ],
+  description_formal: [
+    { en: 'the above information / be useful to sb', vi: 'những thông tin trên / hữu ích đối với ai' },
+    { en: 'feel free to + Vo (contact sb)', vi: 'đừng ngần ngại / vui lòng liên hệ với ai' },
+    { en: 'require any further details', vi: 'cần thêm bất kỳ thông tin chi tiết nào (if you ...)' }
+  ],
+  complaint: [
+    { en: 'resolve this issue promptly', vi: 'giải quyết vấn đề này một cách nhanh chóng (I hope you will ...)' },
+    { en: 'look forward to + V-ing (receiving a prompt reply)', vi: 'rất mong nhận được phản hồi nhanh chóng' },
+    { en: 'a satisfactory solution', vi: 'một hướng khắc phục / giải pháp thỏa đáng' }
+  ],
+  feedback: [
+    { en: 'be useful in + V-ing (improving + [N])', vi: 'hữu ích trong việc nâng cao/cải thiện...' },
+    { en: 'feel free to + Vo (contact sb)', vi: 'vui lòng liên hệ với ai' },
+    { en: 'have any further questions', vi: 'có bất kỳ câu hỏi nào thêm (if you ...)' }
+  ],
+  apology_informal: [
+    { en: 'once again', vi: 'một lần nữa (I’m really sorry ...)' },
+    { en: 'truly appreciate + [N]', vi: 'vô cùng trân trọng... (your understanding)' },
+    { en: 'write back soon', vi: 'hồi âm sớm nhé' }
+  ],
+  apology_formal: [
+    { en: 'sincerely apologize once again for + [N]', vi: 'chân thành xin lỗi một lần nữa vì... (the inconvenience)' },
+    { en: 'thank sb for + [N] (your understanding)', vi: 'cảm ơn vì sự cảm thông của Ông/Bà/Giáo sư' },
+    { en: 'look forward to + V-ing (receiving your reply soon)', vi: 'rất mong sớm nhận được phản hồi' }
+  ],
+  application: [
+    { en: 'I would be grateful if you could + Vo', vi: 'Cấu trúc B2: Tôi sẽ rất biết ơn nếu quý vị có thể... (consider my application)' },
+    { en: 'be available for an interview at one’s convenience', vi: 'sẵn sàng tham gia phỏng vấn vào thời gian thuận tiện' },
+    { en: 'look forward to + V-ing (hearing from sb soon)', vi: 'rất mong sớm nhận được phản hồi từ ai' }
+  ]
+};
+
+const TOPIC_OPENING_KEY_CHUNKS = {
+  'de-01': { en: 'upcoming trip to Hanoi', vi: 'chuyến đi sắp tới đến Hà Nội' },
+  'de-02': { en: 'six-month Vietnamese course', vi: 'khóa học tiếng Việt sáu tháng' },
+  'de-15': { en: 'upcoming trip to Can Tho', vi: 'chuyến đi sắp tới đến Cần Thơ' },
+  'de-29': { en: 'Vietnamese course in Vietnam', vi: 'khóa học tiếng Việt tại Việt Nam' },
+  'de-30': { en: 'update sb on + [N] / job interview', vi: 'cập nhật cho ai về... / buổi phỏng vấn xin việc' },
+  'de-31': { en: 'summer holiday in Vietnam', vi: 'chuyến du lịch mùa hè tới Việt Nam' },
+  'de-32': { en: 'group poster project', vi: 'dự án thiết kế áp phích nhóm' },
+  'de-35': { en: 'new job at the local bookstore', vi: 'công việc mới tại hiệu sách địa phương' },
+  'de-03': { en: 'summer cooking course', vi: 'khóa học nấu ăn mùa hè' },
+  'de-04': { en: 'beginner Chinese course', vi: 'khóa học tiếng Trung sơ cấp' },
+  'de-16': { en: 'English course at Rainbow Language Center', vi: 'khóa học tiếng Anh tại Trung tâm Anh ngữ Rainbow' },
+  'de-17': { en: 'Chinese course at Happy Chinese Language Center', vi: 'khóa học tiếng Trung tại Trung tâm Happy Chinese' },
+  'de-19': { en: 'my friend Hoa', vi: 'cô bạn Hoa của tớ' },
+  'de-05': { en: 'mountain biking competition', vi: 'giải đua xe đạp địa hình' },
+  'de-06': { en: 'new house near the university campus', vi: 'ngôi nhà mới gần khuôn viên trường đại học' },
+  'de-18': { en: 'English course at Rainbow Language Center', vi: 'khóa học tiếng Anh tại Trung tâm Anh ngữ Rainbow' },
+  'de-28': { en: 'art project on the topic “At Home”', vi: 'dự án vẽ tranh chủ đề “Ở Nhà”' },
+  'de-34': { en: 'new puppy', vi: 'chú cún con mới nuôi' },
+  'de-36': { en: 'upcoming outdoor activity for Grade 4 students', vi: 'hoạt động dã ngoại sắp tới cho học sinh khối 4' },
+  'de-37': { en: 'lost suitcase and flight itinerary', vi: 'chiếc vali bị thất lạc và lịch trình chuyến bay' },
+  'de-20': { en: 'condition of the changing rooms', vi: 'tình trạng phòng thay đồ' },
+  'de-07': { en: 'broken workout equipment', vi: 'thiết bị tập luyện bị hỏng' },
+  'de-08': { en: 'food quality and customer service', vi: 'chất lượng món ăn và dịch vụ khách hàng' },
+  'de-21': { en: 'condition of the guest room', vi: 'tình trạng phòng nghỉ' },
+  'de-09': { en: 'public bus service on Route 08', vi: 'dịch vụ xe buýt công cộng tuyến số 08' },
+  'de-10': { en: 'birthday party service', vi: 'dịch vụ tổ chức tiệc sinh nhật' },
+  'de-22': { en: 'recent stay at your hotel', vi: 'kỳ lưu trú vừa qua tại khách sạn' },
+  'de-23': { en: 'recent dinner at your new restaurant', vi: 'bữa tối vừa qua tại nhà hàng mới' },
+  'de-11': { en: 'fail to submit + [N] + on time (term research paper)', vi: 'không nộp bài tiểu luận nghiên cứu học kỳ đúng hạn' },
+  'de-12': { en: 'delayed room service', vi: 'sự chậm trễ của dịch vụ ăn uống tại phòng' },
+  'de-24': { en: 'return a book on time', vi: 'trả lại sách đúng hẹn' },
+  'de-25': { en: 'fail to submit + [N] + before the deadline', vi: 'không nộp bài tập môn học trước thời hạn' },
+  'de-33': { en: 'unsatisfactory service during one’s recent stay', vi: 'trải nghiệm dịch vụ chưa thỏa đáng trong kỳ lưu trú vừa qua' },
+  'de-13': { en: 'part-time waiter / restaurant’s website', vi: 'nhân viên phục vụ bán thời gian / trang web của nhà hàng' },
+  'de-14': { en: 'Event Assistant / university noticeboard', vi: 'Trợ lý Sự kiện / bảng tin trường đại học' },
+  'de-26': { en: 'Sales Assistant / official website', vi: 'Nhân viên bán hàng / trang web chính thức' },
+  'de-27': { en: 'Receptionist / official website', vi: 'Lễ tân / trang web chính thức' }
+};
+
+function toBaseVerbForHint(v) {
+  const lower = (v || '').toLowerCase();
+  const map = {
+    is: 'be', are: 'be', was: 'be', were: 'be',
+    has: 'have', had: 'have', does: 'do', did: 'do', goes: 'go', went: 'go',
+    gets: 'get', got: 'get', makes: 'make', made: 'make', takes: 'take', took: 'take',
+    gives: 'give', gave: 'give', comes: 'come', came: 'come', keeps: 'keep', kept: 'keep',
+    brings: 'bring', brought: 'bring', buys: 'buy', bought: 'buy', teaches: 'teach', taught: 'teach',
+    studies: 'study', studied: 'study', tries: 'try', tried: 'try', carries: 'carry', carried: 'carry',
+    worries: 'worry', worried: 'worry', flies: 'fly', flew: 'fly',
+    helps: 'help', works: 'work', lives: 'live', loves: 'love', enjoys: 'enjoy',
+    needs: 'need', wants: 'want', likes: 'like', uses: 'use', provides: 'provide',
+    offers: 'offer', includes: 'include', requires: 'require', allows: 'allow', enables: 'enable',
+    causes: 'cause', creates: 'create', builds: 'build', maintains: 'maintain',
+    operates: 'operate', arrives: 'arrive', leaves: 'leave', starts: 'start', ends: 'end',
+    opens: 'open', closes: 'close', costs: 'cost', lasts: 'last',
+    looks: 'look', seems: 'seem', feels: 'feel', smells: 'smell', tastes: 'taste', sounds: 'sound',
+    reveals: 'reveal', trains: 'train', ensures: 'ensure', prevents: 'prevent', reduces: 'reduce',
+    increases: 'increase', improves: 'improve', enhances: 'enhance', boosts: 'boost',
+    failing: 'fail', submitting: 'submit', majoring: 'major',
+    chatting: 'chat', pausing: 'pause', categorizing: 'categorize', singing: 'sing',
+    participating: 'participate', molding: 'mold', walking: 'walk', living: 'live',
+    studying: 'study', working: 'work', joining: 'join', practicing: 'practice',
+    booking: 'book', choosing: 'choose', using: 'use', taking: 'take', wearing: 'wear',
+    bringing: 'bring', packing: 'pack', visiting: 'visit', renting: 'rent', staying: 'stay',
+    eating: 'eat', cooking: 'cook', shopping: 'shop', traveling: 'travel', commuting: 'commute',
+    maintaining: 'maintain', building: 'build', creating: 'create', developing: 'develop'
+  };
+  if (map[lower]) return map[lower];
+  if (/ies$/i.test(lower)) return lower.replace(/ies$/i, 'y');
+  if (/(?:ches|shes|xes|zes|sses)$/i.test(lower)) return lower.replace(/es$/i, '');
+  if (/s$/i.test(lower) && !/(?:ss|us|is|as|os)$/i.test(lower)) return lower.replace(/s$/i, '');
+  return lower;
+}
+
+function extractCompactCollocationPair(rawEn, rawVi) {
+  let en = (rawEn || '').trim().replace(/[.?!]+$/, '').trim();
+  let vi = (rawVi || '').trim().replace(/[.?!]+$/, '').trim();
+  if (!en) return null;
+
+  const commaTrailEn = /,\s+(?:so|which|where|when|while|whereas|although|though|giving|allowing|enabling|making|helping|ensuring|creating|bringing|causing|leaving|forcing|resulting|meaning|saving|preventing|reducing)\b/i;
+  if (commaTrailEn.test(en)) {
+    en = en.split(commaTrailEn)[0].trim();
+    const commaTrailVi = /,\s+(?:vì vậy|do đó|nhờ đó|nên|giúp|mang lại|tạo|đảm bảo|khiến|làm|tránh|tiết kiệm|giảm|gây|để lại|buộc|đồng nghĩa|trong khi|mặc dù|dù)/i;
+    if (commaTrailVi.test(vi)) {
+      vi = vi.split(commaTrailVi)[0].trim();
+    }
+  }
+
+  const leadEn = [
+    /^(?:First of all|Secondly|Second|Next|Besides that|On top of that|Finally|To begin with|In addition|Furthermore|Moreover|However|Therefore|As a result|Consequently|Specifically|In fact|For example|For instance|Overall|Unfortunately|Additionally|Meanwhile|Otherwise),?\s*/i,
+    /^(?:Could you please|Would you mind|Could you also|I would like to|I was wondering if you could|I would appreciate it if you could|I would be grateful if you could|Please let me know|Could you|Please)\s+(?:inform me of|tell me about|let me know about|provide me with details about|clarify whether|clarify if|clarify|confirm whether|confirm if|confirm|share|explain|advise me on|let me know|tell me)\s+/i,
+    /^(?:Could you please|Would you mind|Could you also|I would like to|I was wondering if you could|I would appreciate it if you could|I would be grateful if you could|Please)\s+/i,
+    /^(?:ask|inquire)\s+(?:about|for|whether|if)\s+/i,
+    /^(?:there\s+(?:is|are|was|were|will\s+be)\s+(?:any\s+|many\s+|plenty\s+of\s+|numerous\s+|several\s+)?)/i,
+    /^(?:whether|if)\s+there\s+(?:is|are|was|were|will\s+be)\s+(?:any\s+)?/i,
+    /^(?:whether|if)\s+(?:you|they|we|I|the\s+\w+|it)\s+(?:can|could|will|would|have|has|need\s+to|should|offer|provide|include)s?\s+/i,
+    /^(?:This is because|Because of this,|Because|Since|As|So that)\s+/i,
+    /^(?:I am writing to|I would like to|I want to|Let me)\s+(?:express my deepest apologies for|sincerely apologize for|apologize for|provide feedback on|apply for|highlight that|mention that|explain that|inform you that)\s+/i,
+    /^(?:I\s+(?:fully|truly|deeply|completely|really)?\s*(?:understand|recognize|realize|believe|think|know|hope|feel|suggest|recommend|expect)\s+(?:that\s+)?)/i,
+    /^(?:You|I|We|They|He|She)\s+(?:will|can|could|may|might)?\s*(?:also\s+)?(?:have|find|get|receive|gain|enjoy)\s+(?:countless|many|numerous|plenty\s+of|a\s+lot\s+of|great|good|more)\s+(?:chances|opportunities)\s+to\s+/i,
+    /^(?:This|It)\s+(?:will|can|would|could|may|might)?\s*(?:also\s+)?(?:give|gives|offer|offers|provide|provides|bring|brings)\s+(?:me|you|him|her|us|them|[a-z]+\s+[a-z]+)\s+(?:a\s+chance|an\s+opportunity|the\s+chance|the\s+opportunity|enough\s+time|more\s+time)\s+to\s+/i,
+    /^(?:This|It)\s+(?:will|can|would|could|may|might)?\s*(?:also\s+)?(?:help|helps|allow|allows|enable|enables)\s+(?:me|you|him|her|us|them)\s+(?:to\s+)?/i,
+    /^.*?\b(?:allowing|enabling|helping|which allows|which enables|which helps|allow|allows|enable|enables|help|helps|train|trains|encourage|encourages|force|forces|require|requires)\s+(?:[a-z]+\s+){1,5}?to\s+/i,
+    /^.*?\b(?:is|are|was|were)\s+(?:essential|important|crucial|vital|necessary|helpful|useful|beneficial)\s+(?:to|for)\s+/i,
+    /^(?:I\s+am\s+currently\s+a\s+[a-z0-9-]+\s+student\s+)/i,
+    /^(?:(?:He|She)\s+is\s+currently\s+a\s+university\s+student,\s*)/i,
+    /^(?:You|I|We|They|He|She|It|Hoa|Nam|Linda|Helen|Emily|John|Jane|Ann|Alex|Moonie|Lucky|Milo)\s+(?:can|could|should|will|would|may|might|need to|have to|must|ought to|would like to|am\s+able\s+to|is\s+able\s+to|are\s+able\s+to|always|often|usually|currently|really|truly|also|easily|quickly|simply)+\s*(?:not\s+)?(?:also|easily|quickly|simply|always|often|definitely|certainly)?\s*/i,
+    /^(?:You|I|We|They|He|She|It|Hoa|Nam|Linda|Helen|Emily|John|Jane|Ann|Alex|Moonie|Lucky|Milo)\s+(?:is|are|was|were)\s+(?:a\s+|an\s+)?(?:very\s+|quite\s+|extremely\s+|remarkably\s+|truly\s+)?/i,
+    /^(?:You|I|We|They|He|She|Hoa|Nam|Linda|Helen|Emily|John|Jane|Ann|Alex|Moonie|Lucky|Milo)\s+(?=[a-z]{3,}\s+)/i
+  ];
+
+  const leadVi = [
+    /^(?:Trước hết|Đầu tiên|Thứ hai|Tiếp theo|Bên cạnh đó|Ngoài ra|Hơn nữa|Cuối cùng|Tuy nhiên|Vì vậy|Do đó|Nhờ đó|Chính vì vậy|Cụ thể là|Thực tế là|Nhìn chung),?\s*/i,
+    /^(?:Xin vui lòng|Vui lòng|Cậu có thể|Bạn có thể|Quý vị có thể|Tôi sẽ rất cảm kích nếu quý vị có thể|Tôi rất mong quý vị có thể|Tôi muốn|Tớ muốn|Em muốn)\s+(?:thông báo cho tôi về|cho tôi biết về|cho tớ biết về|cho biết thêm về|làm rõ liệu|làm rõ xem|xác nhận xem|chia sẻ|giải thích|cho tôi biết|cho tớ biết)?\s*/i,
+    /^(?:hỏi xem|hỏi về|tìm hiểu xem|tìm hiểu về|có chương trình|liệu có)\s+/i,
+    /^(?:Điều này là vì|Bởi vì|Vì|Do|Nhờ)\s+/i,
+    /^(?:em|tôi|tớ|mình)\s+viết\s+thư\s+này\s+để\s+(?:bày tỏ lời xin lỗi sâu sắc nhất vì đã|chân thành xin lỗi vì đã|xin lỗi vì đã)\s+/i,
+    /^(?:Em|Tôi|Tớ|Mình|Cô ấy|Anh ấy|Cậu|Bạn|Họ|Chúng tôi|Chúng tớ)\s+(?:hiểu sâu sắc rằng|hiểu rằng|nhận thấy rằng|tin rằng|nghĩ rằng|hy vọng rằng)\s+/i,
+    /^(?:Bạn|Cậu|Tôi|Tớ|Em|Chúng ta|Họ)\s+(?:sẽ|có thể|cũng sẽ)?\s*có\s+(?:vô số|nhiều|rất nhiều|thêm)\s+cơ\s+hội\s+(?:để\s+)?/i,
+    /^(?:Điều này|Việc này)\s+(?:sẽ\s+|cũng\s+sẽ\s+)?(?:cho|mang\s+lại\s+cho|giúp)\s+(?:cô\s+ấy|anh\s+ấy|bạn|cậu|tôi|tớ|em|chúng\s+tôi|họ)\s+(?:có\s+)?(?:cơ\s+hội|đủ\s+thời\s+gian|thêm\s+thời\s+gian)\s+(?:để\s+)?/i,
+    /^(?:Điều này|Việc này)\s+(?:sẽ\s+)?(?:giúp|cho\s+phép)\s+(?:các\s+thành\s+viên\s+khác(?:\s+trong\s+gia\s+đình)?|bạn|cậu|tôi|tớ|em|mọi\s+người|khách\s+hàng|hành\s+khách|sinh\s+viên)\s+/i,
+    /^.*?\b(?:giúp|cho phép|tạo điều kiện cho|rèn luyện)\s+(?:những\s+|đôi\s+tai\s+của\s+)?(?:hành khách|sinh viên|học viên|học sinh|thực khách|khách hàng|người học|mọi người|dân công sở|tôi|tớ|em|bạn|cậu|chúng tôi)(?:\s+và\s+(?:học sinh|sinh viên|du khách))?(?:\s+đi lại hàng ngày)?(?:\s+như\s+(?:tôi|tớ|em))?\s+(?:có thể\s+)?/i,
+    /^.*?\b(?:là\s+điều\s+cốt\s+yếu|là\s+rất\s+quan\s+trọng|là\s+cần\s+thiết)\s+để\s+/i,
+    /^(?:hiện\s+tại\s+|hiện\s+)?(?:cô\s+ấy|anh\s+ấy|tôi|tớ|em)\s+(?:đang\s+)?là\s+sinh\s+viên\s+(?:đại\s+học,?\s*|năm\s+(?:thứ\s+)?(?:nhất|hai|ba|tư|cuối)\s*)/i,
+    /^(?:Hoa|Nam|Cô ấy|Anh ấy|Nó)\s+là\s+(?:một\s+người\s+)?(?:rất\s+|khá\s+)?/i,
+    /^(?:Cô ấy|Anh ấy|Cậu|Bạn|Tôi|Tớ|Em|Họ|Chúng ta|Nó|Hoa|Nam)\s+(?:luôn|thường|cũng|có thể|nên|cần|phải|sẽ|đã|đang)?\s*(?:dễ dàng|nhanh chóng|luôn|thường)?\s*/i
+  ];
+
+  for (let pass = 0; pass < 4; pass++) {
+    for (const p of leadEn) en = en.replace(p, '').trim();
+    for (const p of leadVi) vi = vi.replace(p, '').trim();
+  }
+
+  const gerundPredEn = en.match(/^([A-Z][a-z]+ing\s+.+?)\s+(makes|helps|brings|creates|reveals|ensures|prevents|reduces|improves|enhances|boosts|builds|gives|offers|provides|requires|causes|is|are)\s+(.+)$/);
+  if (gerundPredEn) {
+    const verbPart = toBaseVerbForHint(gerundPredEn[2]);
+    const objPart = gerundPredEn[3].trim();
+    en = `${verbPart} ${objPart}`;
+    const viPredMatch = vi.match(/^.+?\s+(giúp|mang lại|tạo nên|tạo ra|hé lộ|đảm bảo|ngăn ngừa|giảm thiểu|cải thiện|nâng cao|xây dựng|cung cấp|đòi hỏi|gây ra)\s+(.+)$/i);
+    if (viPredMatch) {
+      vi = `${viPredMatch[1]} ${viPredMatch[2]}`.trim();
+    }
+  }
+
+  const compoundVpEn = /\s+and\s+(?:practice|find|try|enjoy|visit|explore|learn|meet|make|keep|save|avoid|get|have|use|take|join|participate|experiment|speak|listen|write|read|ask|check|request|prepare|bring|pack|wear|buy|book)\s+/i;
+  if (en.split(/\s+/).length > 6 && compoundVpEn.test(en)) {
+    const firstHalfEn = en.split(compoundVpEn)[0].trim();
+    if (firstHalfEn.split(/\s+/).length >= 2) {
+      en = firstHalfEn;
+      if (/\s+và\s+/i.test(vi)) {
+        const firstHalfVi = vi.split(/\s+và\s+/i)[0].trim();
+        if (firstHalfVi.split(/\s+/).length >= 2) vi = firstHalfVi;
+      }
+    }
+  }
+
+  const passiveMatch = en.match(/^(?:[A-Za-z0-9-]+\s+){1,5}?(?:is|are|was|were|has\s+been|have\s+been)\s+(.+)$/i);
+  if (passiveMatch && passiveMatch[1].split(/\s+/).length >= 2) {
+    const comp = passiveMatch[1].trim();
+    en = /^(?:a|an|the)\s+/i.test(comp) ? comp : 'be ' + comp;
+  }
+
+  const subjVerbMatch = en.match(/^(?:The|My|Our|His|Her|Your|This|These|Campus|Local|Public|Daily|Regular|Frequent)\s+(?:[a-z0-9-]+\s+){1,4}?(operate|operates|run|runs|work|works|provide|provides|offer|offers|create|creates|cause|causes|make|makes|help|helps|allow|allows|require|requires|lack|lacks|smell|smells|look|looks|sound|sounds|taste|tastes|cost|costs|last|lasts)\s+(.+)$/i);
+  if (subjVerbMatch) {
+    en = toBaseVerbForHint(subjVerbMatch[1]) + ' ' + subjVerbMatch[2].trim();
+  }
+
+  const firstWordMatch = en.match(/^([A-Za-z]+)\s+(.+)$/);
+  if (firstWordMatch) {
+    const w1 = firstWordMatch[1];
+    const rest = firstWordMatch[2];
+    if (/^(?:gets|makes|takes|gives|keeps|brings|helps|works|lives|loves|enjoys|needs|wants|uses|provides|offers|includes|requires|causes|creates|builds|maintains|operates|arrives|leaves|starts|ends|opens|closes|costs|lasts|looks|seems|feels|smells|tastes|sounds|knows|treats|fits|failing|submitting|majoring|maintaining)$/i.test(w1)) {
+      en = toBaseVerbForHint(w1) + ' ' + rest;
+    }
+  }
+
+  en = en.replace(/\s+(?:while|when|before|after|because|since|so\s+that|which|where|during|throughout|according\s+to|in\s+order\s+to)\s+.+$/i, '').trim();
+  vi = vi.replace(/\s+(?:trong\s+khi|khi\s+mà|trước\s+khi|sau\s+khi|bởi\s+vì|vì\s+(?:cô|anh|nó|họ|tôi|tớ|em|bạn|cậu)|nhằm\s+để|theo\s+lịch\s+trình|mà\s+không\s+bị)\s+.+$/i, '').trim();
+
+  if (en.split(/\s+/).length > 5 && /\s+such\s+as\s+/i.test(en)) {
+    en = en.split(/\s+such\s+as\s+/i)[0].trim();
+    if (/\s+như\s+/i.test(vi)) {
+      vi = vi.split(/\s+như\s+/i)[0].trim();
+    }
+  }
+
+  if (en.split(/\s+/).length > 7) {
+    const finiteVerbRegex = /^(?:[A-Za-z0-9,-]+\s+){1,6}?\b(made|make|makes|had|have|has|felt|feel|feels|left|leave|leaves|forced|force|forces|caused|cause|causes|corrupted|corrupt|corrupts|ruined|ruin|ruins|sets|set|boasts|boast|verify|verifies|informs|inform|brake|brakes|answered|answer|gave|give|gives|upgrade|upgrades|solve|solves|would\s+solve|can\s+explain|will\s+help|helps|help|allow|allows|enable|enables|encourage|encourages|provide|provides|offer|offers|serve|serves|function|functions|operate|operates|smelled|smell|smells|looked|look|looks|was|were|is|are)\s+(.+)$/i;
+    const fvMatch = en.match(finiteVerbRegex);
+    if (fvMatch && fvMatch[2].split(/\s+/).length >= 2) {
+      const vRaw = fvMatch[1].replace(/^(?:would|can|will)\s+/i, '');
+      const vBase = toBaseVerbForHint(vRaw);
+      const tail = fvMatch[2].trim();
+      en = vBase === 'be' ? (/^(?:a|an|the)\s+/i.test(tail) ? tail : `be ${tail}`) : `${vBase} ${tail}`;
+    }
+  }
+
+  if (en.split(/\s+/).length > 7 && /\s+and\s+/i.test(en)) {
+    const parts = en.split(/\s+and\s+/i);
+    if (parts[0].trim().split(/\s+/).length >= 3 && !/^[a-z]+\s+[a-z]+s\b/i.test(parts[1].trim())) {
+      en = parts[0].trim().replace(/,+$/, '');
+      if (/\s+và\s+/i.test(vi)) {
+        const vParts = vi.split(/\s+và\s+/i);
+        if (vParts[0].trim().split(/\s+/).length >= 2) vi = vParts[0].trim();
+      }
+    }
+  }
+
+  if (en.split(/\s+/).length > 6) {
+    const strippedPrepEn = en.replace(/^((?:[A-Za-z0-9,-]+\s+){2,6}?)(?:near|at|in\s+(?:the|a|an|my|your|our|their|his|her|this|these|[A-Z])|on|with|for|from|as\s+part\s+of|during|throughout|around|across|against|between|among|under|over|through|without|within|along|alongside|inside|like|such\s+as|including|beside|behind|beyond|by|every\s+day|every|several|this\s+summer|right\s+on)\s+.+$/i, '$1').trim();
+    if (strippedPrepEn.split(/\s+/).length >= 2 && strippedPrepEn.split(/\s+/).length <= 7) {
+      en = strippedPrepEn;
+      const strippedPrepVi = vi.replace(/^((?:[^\s]+\s+){2,7}?)(?:gần|tại|ở|trong|trên|với|cùng|cho|từ|như\s+một\s+phần|suốt|quanh|khắp|giữa|dưới|qua|theo|mỗi\s+ngày|hằng\s+ngày|hàng\s+ngày|ngay\s+trước|khi\s+đăng\s+ký|của\s+khóa\s+học)\s+.+$/i, '$1').trim();
+      if (strippedPrepVi.split(/\s+/).length >= 2) {
+        vi = strippedPrepVi;
+      }
+    }
+  }
+
+  if (en.split(/\s+/).length > 7) {
+    en = en.split(/\s+/).slice(0, 7).join(' ');
+  }
+  while (/\s+(?:the|a|an|to|of|in|on|at|for|with|and|or|by|from|both|either|whether|if|that|which|who|my|your|our|their|his|her|its|very|quite|too|so|more|most|this|these|those|be|is|are|was|were|such|as)$/i.test(en)) {
+    en = en.replace(/\s+(?:the|a|an|to|of|in|on|at|for|with|and|or|by|from|both|either|whether|if|that|which|who|my|your|our|their|his|her|its|very|quite|too|so|more|most|this|these|those|be|is|are|was|were|such|as)$/i, '').trim();
+  }
+  en = en.replace(/[,;]+$/, '').trim();
+
+  return { en, vi };
+}
+
+function getBodySentencePatternHint(topic, sentenceEn) {
+  const s = (sentenceEn || '').trim();
+  if (/^To begin with,\s+you could consider\s+/i.test(s)) {
+    return { en: 'To begin with, you could consider + V-ing ... because + [Mệnh đề].', vi: 'Khung cấu trúc B2 mở ý khuyên thứ nhất kèm lý do' };
+  }
+  if (/^To begin with,\s+I think you should\s+/i.test(s)) {
+    return { en: 'To begin with, I think you should + Vo ... because + [Mệnh đề].', vi: 'Khung cấu trúc B2 mở ý khuyên thứ nhất kèm lý do' };
+  }
+  if (/^Second,\s+it would be a good idea to\s+/i.test(s)) {
+    return { en: 'Second, it would be a good idea to + Vo ...', vi: 'Khung cấu trúc B2 nêu lời khuyên thứ hai' };
+  }
+  if (/^Next,\s+if I were you,\s+I would\s+/i.test(s)) {
+    return { en: 'Next, if I were you, I would + Vo ...', vi: 'Khung cấu trúc câu điều kiện loại 2 khuyên nhủ chuẩn B2' };
+  }
+  if (/^(?:Finally|Next|Second|To begin with),\s+remember to\s+/i.test(s)) {
+    const conn = s.split(',')[0];
+    return { en: `${conn}, remember to + Vo ...`, vi: 'Khung cấu trúc B2 nhắc nhở thực hiện lời khuyên' };
+  }
+  if (/^Finally,\s+you may want to\s+/i.test(s)) {
+    return { en: 'Finally, you may want to + Vo ...', vi: 'Khung cấu trúc B2 chốt lời khuyên cuối cùng' };
+  }
+  if (/^To begin with,\s+could you please let me know/i.test(s)) {
+    return { en: 'To begin with, could you please let me know + (more about [N] / Wh- + S + V)?', vi: 'Khung câu hỏi gián tiếp lịch sự mở đầu thân thư B2' };
+  }
+  if (/^In addition,\s+I was wondering if you could provide me with details about/i.test(s)) {
+    return { en: 'In addition, I was wondering if you could provide me with details about + [N].', vi: 'Khung cấu trúc B2 hỏi xin thông tin chi tiết thứ hai' };
+  }
+  if (/^In addition,\s+I would like to ask/i.test(s)) {
+    return { en: 'In addition, I would like to ask + (whether/if / Wh- + S + V).', vi: 'Khung cấu trúc B2 đặt câu hỏi gián tiếp thứ hai' };
+  }
+  if (/^(?:Furthermore|Finally),\s+could you also tell me/i.test(s)) {
+    const conn = s.split(',')[0];
+    return { en: `${conn}, could you also tell me + (about [N] / Wh- + S + V)?`, vi: 'Khung cấu trúc B2 hỏi thêm thông tin' };
+  }
+  if (/^(?:Furthermore|Finally),\s+would you mind letting me know/i.test(s)) {
+    const conn = s.split(',')[0];
+    return { en: `${conn}, would you mind letting me know + (more about [N] / Wh- + S + V)?`, vi: 'Khung cấu trúc B2 hỏi thông tin lịch sự' };
+  }
+  if (/^Finally,\s+I would also be grateful if you could clarify/i.test(s)) {
+    return { en: 'Finally, I would also be grateful if you could clarify + (whether/if / [N]).', vi: 'Khung cấu trúc trang trọng B2 chốt câu hỏi cuối thân thư' };
+  }
+  if (/^The main issue that I would like to highlight is that/i.test(s)) {
+    return { en: 'The main issue that I would like to highlight is that + [Mệnh đề]. Specifically, ...', vi: 'Khung cấu trúc B2 nhấn mạnh sự cố chính và tác động cụ thể' };
+  }
+  if (/^Furthermore,\s+to make matters worse,/i.test(s)) {
+    return { en: 'Furthermore, to make matters worse, + [Mệnh đề]. In fact, ...', vi: 'Khung cấu trúc B2 bổ sung sự cố thứ hai nghiêm trọng hơn' };
+  }
+  if (/Given these circumstances,\s+I expect you to/i.test(s)) {
+    return { en: 'Given these circumstances, ... I expect you to + Vo.', vi: 'Khung cấu trúc B2 yêu cầu đơn vị cung cấp giải quyết thỏa đáng' };
+  }
+  if (/^Overall,\s+I found your/i.test(s)) {
+    return { en: 'Overall, I found your + [dịch vụ] + quite satisfactory. One aspect I appreciated was that + [Mệnh đề].', vi: 'Khung cấu trúc B2 đánh giá tích cực mở đầu thư phản hồi' };
+  }
+  if (/^Moreover,\s+another positive point was that/i.test(s)) {
+    return { en: 'Moreover, another positive point was that + [Mệnh đề].', vi: 'Khung cấu trúc B2 bổ sung điểm cộng thứ hai' };
+  }
+  if (/^However,\s+there were also several areas that required improvement\./i.test(s)) {
+    return { en: 'However, there were also several areas that required improvement. One issue that I encountered was that ... To enhance the quality of ..., I suggest that you + Vo.', vi: 'Khung cấu trúc B2 chuyển ý nêu điểm hạn chế và đề xuất cải thiện' };
+  }
+  if (/^First of all,\s+here is the reason for this\./i.test(s)) {
+    return { en: 'First of all, here is the reason for this. Unfortunately, + [Mệnh đề] + because ...', vi: 'Khung cấu trúc B2 trình bày nguyên nhân sự việc trong thư xin lỗi' };
+  }
+  if (/Let me make it up to you by/i.test(s)) {
+    return { en: 'Let me make it up to you by + V-ing ..., and I’ll make sure this does not happen again.', vi: 'Khung cấu trúc B2 đề xuất hướng bù đắp trong thư xin lỗi thân mật' };
+  }
+  if (/To make up for this inconvenience,\s+I would like to/i.test(s)) {
+    return { en: 'To make up for this inconvenience, I would like to + Vo ...', vi: 'Khung cấu trúc B2 đề xuất hướng khắc phục trong thư xin lỗi trang trọng' };
+  }
+  if (/^I am particularly interested in this position because/i.test(s)) {
+    return { en: 'I am particularly interested in this position because + [Mệnh đề].', vi: 'Khung cấu trúc B2 nêu lý do ứng tuyển' };
+  }
+  if (/^Regarding my previous experience,/i.test(s)) {
+    return { en: 'Regarding my previous experience, + [Mệnh đề kinh nghiệm/chuyên môn].', vi: 'Khung cấu trúc B2 trình bày kinh nghiệm và nền tảng chuyên môn' };
+  }
+  if (/^Moreover,\s+I believe I would be a suitable candidate for this position because/i.test(s)) {
+    return { en: 'Moreover, I believe I would be a suitable candidate for this position because + [Mệnh đề].', vi: 'Khung cấu trúc B2 khẳng định sự phù hợp với vị trí ứng tuyển' };
+  }
+
+  const connMatch = s.match(/^(To begin with|First of all|In addition|Furthermore|Moreover|Finally|Secondly|Second|Next|Besides that|On top of that|However|Additionally),/i);
+  const conn = connMatch ? connMatch[1] : 'To begin with';
+  if (/\.\s+Therefore,/i.test(s)) {
+    return { en: `${conn}, + [Mệnh đề chính]. Therefore, + [Mệnh đề hệ quả].`, vi: 'Khung từ nối mở ý và nêu hệ quả chuẩn B2' };
+  }
+  if (/\.\s+This is because\b/i.test(s)) {
+    return { en: `${conn}, + [Mệnh đề chính]. This is because + [Mệnh đề lý do].`, vi: 'Khung từ nối mở ý và giải thích lý do chuẩn B2' };
+  }
+  return { en: `${conn}, + [Mệnh đề chính] + because + [Lý do / Chi tiết mở rộng].`, vi: 'Khung từ nối chuyển ý và mở rộng câu chuẩn B2' };
+}
+
+function buildBodyItemVocabAndStructureHints(topic, opt, pairEn, pairVi) {
+  const hints = [];
+  const seenEn = new Set();
+
+  const pushUniqueHint = (enVal, viVal) => {
+    const cleanEn = (enVal || '').trim();
+    const cleanVi = (viVal || '').trim();
+    if (!cleanEn || !cleanVi) return;
+    if (cleanEn.toLowerCase() === (pairEn || '').trim().toLowerCase()) return;
+    const key = cleanEn.toLowerCase();
+    if (seenEn.has(key)) return;
+    const isSubOrSuper = [...seenEn].some(existing => existing.includes(key) || key.includes(existing));
+    if (isSubOrSuper && hints.length > 1) return;
+    seenEn.add(key);
+    hints.push({ en: cleanEn, vi: cleanVi });
+  };
+
+  // 1. Skeletal B2 connector & sentence-starter pattern
+  const patternHint = getBodySentencePatternHint(topic, pairEn);
+  pushUniqueHint(patternHint.en, patternHint.vi);
+
+  // 2. Match relevant short collocations from topic.details.vocab
+  const topicVocab = topic?.details?.vocab || [];
+  const lowerSentEn = (pairEn || '').toLowerCase();
+  const lowerSentVi = (pairVi || '').toLowerCase();
+  topicVocab.forEach(v => {
+    if (!v || !v.en || !v.vi) return;
+    const vEnLower = v.en.toLowerCase().trim();
+    const vViLower = v.vi.toLowerCase().trim();
+    const significantWords = vEnLower.split(/\s+/).filter(w => w.length > 3 && !['with', 'from', 'that', 'this', 'your', 'have', 'been'].includes(w));
+    const directMatch = lowerSentEn.includes(vEnLower) || (vViLower.length > 4 && lowerSentVi.includes(vViLower));
+    const keywordMatch = significantWords.length >= 2 && significantWords.every(w => lowerSentEn.includes(w.replace(/s$/, '')));
+    if (directMatch || keywordMatch) {
+      pushUniqueHint(v.en, v.vi);
+    }
+  });
+
+  // 3. Extract compact 2–6 word collocation chunks from opt's 3 parts
+  const rawPairs = [
+    [opt.action_en || opt.problem_en, opt.action_vi || opt.problem_vi],
+    [opt.reason_en || opt.impact_en, opt.reason_vi || opt.impact_vi],
+    [opt.expansion_1_en || opt.solution_en, opt.expansion_1_vi || opt.solution_vi]
+  ];
+  rawPairs.forEach(([rEn, rVi]) => {
+    if (!rEn) return;
+    const compact = extractCompactCollocationPair(rEn, rVi);
+    if (compact && compact.en && compact.vi) {
+      pushUniqueHint(compact.en, compact.vi);
+    }
+  });
+
+  return {
+    patternHint,
+    hints: hints.slice(0, 6)
+  };
+}
+
 // Build complete 5-part B2 writing frame (Salutation, Opening, Body items, Closing, Sign-off) for any topic
 function buildTopicB2FivePartFrame(topic) {
   if (!topic) return null;
@@ -2120,6 +2606,24 @@ function buildTopicB2FivePartFrame(topic) {
   const signoffEn = preset?.signoffEn || (isSemiFormal ? 'Yours sincerely,' : (isFormal ? 'Yours faithfully,' : 'Best wishes,'));
   const signoffVi = preset?.signoffVi || (isFormal ? 'Trân trọng,' : 'Chúc những điều tốt đẹp nhất,');
 
+  const salutationFormulaEn = isInformal
+    ? 'Dear + [Tên người nhận],'
+    : (/^Dear\s+Sir\/Madam/i.test(salutationEn)
+      ? 'Dear + [Sir/Madam],'
+      : 'Dear + [Mr. / Ms. / Mrs. / Professor + Tên/Họ],');
+
+  const signoffFormulaEn = isInformal
+    ? 'Best wishes, / Warm regards,'
+    : (/^Dear\s+Sir\/Madam/i.test(salutationEn)
+      ? 'Yours faithfully, (dùng khi chào Dear Sir/Madam,)'
+      : 'Yours sincerely, (dùng khi chào tên riêng Dear Mr./Ms./Professor...,)');
+
+  const openingHints = [...(B2_OPENING_CHUNK_HINTS[hintBucketKey] || B2_OPENING_CHUNK_HINTS.advice)];
+  if (TOPIC_OPENING_KEY_CHUNKS[topic.id]) {
+    openingHints.push(TOPIC_OPENING_KEY_CHUNKS[topic.id]);
+  }
+  const closingHints = [...(B2_CLOSING_CHUNK_HINTS[hintBucketKey] || B2_CLOSING_CHUNK_HINTS.advice)];
+
   const suggestedIdeas = topic.details?.suggested_ideas || [];
   const topicSel = state.selectedIdeasByTopic[topic.id] || {};
   const selectedRawList = [];
@@ -2135,13 +2639,7 @@ function buildTopicB2FivePartFrame(topic) {
   const totalSelected = selectedRawList.length;
   const bodyItems = selectedRawList.map((entry, seqIdx) => {
     const pair = buildB2IdeaSentencePair(topic, entry.group, entry.opt, seqIdx, totalSelected, entry.gIdx);
-    const hints = [
-      { en: formulaHints.bodyFormula, vi: 'Cấu trúc thân thư chuẩn dàn ý B2' }
-    ];
-    if (entry.opt.action_en) hints.push({ en: entry.opt.action_en, vi: entry.opt.action_vi || 'Ý chính' });
-    if (entry.opt.reason_en) hints.push({ en: entry.opt.reason_en, vi: entry.opt.reason_vi || 'Lý do / Hệ quả' });
-    if (entry.opt.expansion_1_en) hints.push({ en: entry.opt.expansion_1_en, vi: entry.opt.expansion_1_vi || 'Câu mở rộng B2' });
-    else if (entry.opt.solution_en) hints.push({ en: entry.opt.solution_en, vi: entry.opt.solution_vi || 'Hướng giải quyết B2' });
+    const builtHints = buildBodyItemVocabAndStructureHints(topic, entry.opt, pair.en, pair.vi);
 
     return {
       seqIdx,
@@ -2149,19 +2647,24 @@ function buildTopicB2FivePartFrame(topic) {
       reqTitle: entry.group.title_vi || entry.group.title_en || `Yêu cầu ${entry.gIdx + 1}`,
       en: pair.en,
       vi: pair.vi,
-      hints
+      patternHint: builtHints.patternHint,
+      hints: builtHints.hints
     };
   });
 
   return {
     salutationEn,
     salutationVi,
+    salutationFormulaEn,
     openingEn,
     openingVi,
+    openingHints,
     closingEn,
     closingVi,
+    closingHints,
     signoffEn,
     signoffVi,
+    signoffFormulaEn,
     formulaHints,
     bodyItems
   };
@@ -2341,7 +2844,15 @@ function renderStep1Reading() {
         const actEn = opt.action_en || opt.problem_en || '';
         const actVi = opt.action_vi || opt.problem_vi || '';
         const rsnEn = opt.reason_en || opt.impact_en || '';
+        const rsnVi = opt.reason_vi || opt.impact_vi || '';
         const expEn = opt.expansion_1_en || opt.solution_en || '';
+        const expVi = opt.expansion_1_vi || opt.solution_vi || '';
+
+        const shortKwList = [
+          extractCompactCollocationPair(actEn, actVi)?.en,
+          extractCompactCollocationPair(rsnEn, rsnVi)?.en,
+          extractCompactCollocationPair(expEn, expVi)?.en
+        ].filter(Boolean);
 
         return `
           <div class="idea-checkbox-card ${isSelected ? 'is-selected' : ''}" onclick="toggleLetterIdeaSelection(${gIdx}, ${optIdx})">
@@ -2351,10 +2862,10 @@ function renderStep1Reading() {
               </svg>
             </div>
             <div class="idea-card-content">
-              <div class="idea-card-title">Phương án ${optIdx + 1}: ${escapeHtml(actEn)}</div>
-              ${actVi ? `<div class="idea-card-point" style="font-style: italic;">🇻🇳 ${escapeHtml(actVi)}</div>` : ''}
-              ${rsnEn ? `<div class="idea-card-point" style="margin-top: 0.2rem;"><strong style="color: var(--warning);">↳ Lý do / Hệ quả:</strong> ${escapeHtml(rsnEn)}</div>` : ''}
-              ${expEn ? `<div class="idea-card-point" style="margin-top: 0.2rem;"><strong style="color: var(--success);">✨ Mở rộng / Giải pháp B2:</strong> ${escapeHtml(expEn)}</div>` : ''}
+              <div class="idea-card-title">Phương án ${optIdx + 1}: ${escapeHtml(actVi || actEn)}</div>
+              ${rsnVi ? `<div class="idea-card-point" style="margin-top: 0.2rem;"><strong style="color: var(--warning);">↳ Lý do / Hệ quả:</strong> ${escapeHtml(rsnVi)}</div>` : ''}
+              ${expVi ? `<div class="idea-card-point" style="margin-top: 0.2rem;"><strong style="color: var(--success);">✨ Mở rộng / Giải pháp B2:</strong> ${escapeHtml(expVi)}</div>` : ''}
+              ${shortKwList.length > 0 ? `<div class="idea-card-point" style="margin-top: 0.28rem; font-size: 0.82rem; color: var(--accent-primary); font-style: italic;">🔑 Cụm từ B2 gợi ý: ${escapeHtml(shortKwList.join(' • '))}</div>` : ''}
             </div>
           </div>
         `;
@@ -2387,8 +2898,8 @@ function renderStep1Reading() {
               <span>LỜI CHÀO MỞ ĐẦU (SALUTATION)</span>
             </div>
             <div class="b2-step-formula">
-              <div style="font-weight: 700; color: var(--text-primary);">🇬🇧 ${escapeHtml(b2Frame.salutationEn)}</div>
-              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.15rem;">🇻🇳 ${escapeHtml(b2Frame.salutationVi)}</div>
+              <div style="color: var(--text-primary); font-size: 0.93rem; font-weight: 600;">🇻🇳 ${escapeHtml(b2Frame.salutationVi)}</div>
+              <div style="font-size: 0.84rem; color: var(--accent-primary); margin-top: 0.2rem;">🔑 Cấu trúc B2 gợi ý: <code>${escapeHtml(b2Frame.salutationFormulaEn)}</code></div>
             </div>
           </div>
 
@@ -2398,9 +2909,8 @@ function renderStep1Reading() {
               <span>MỞ THƯ (OPENING — NÊU LÝ DO &amp; MỤC ĐÍCH VIẾT THƯ)</span>
             </div>
             <div class="b2-step-formula">
-              <div style="font-size: 0.83rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.25rem;">📐 Công thức B2: ${escapeHtml(b2Frame.formulaHints.openingFormula)}</div>
-              <div style="font-weight: 700; color: var(--text-primary); line-height: 1.55;">🇬🇧 ${escapeHtml(b2Frame.openingEn)}</div>
-              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.2rem; line-height: 1.5;">🇻🇳 ${escapeHtml(b2Frame.openingVi)}</div>
+              <div style="color: var(--text-primary); font-size: 0.93rem; font-weight: 600; line-height: 1.55;">🇻🇳 ${escapeHtml(b2Frame.openingVi)}</div>
+              <div style="font-size: 0.84rem; color: var(--accent-primary); margin-top: 0.25rem; line-height: 1.5;">🔑 Cụm từ &amp; cấu trúc B2 gợi ý: <code>${escapeHtml(b2Frame.openingHints.map(h => h.en).join(' • '))}</code></div>
             </div>
           </div>
 
@@ -2410,13 +2920,12 @@ function renderStep1Reading() {
               <span>THÂN THƯ (BODY PARAGRAPHS — ${b2Frame.bodyItems.length} Ý B2 BẠN ĐÃ CHỌN)</span>
             </div>
             <div class="b2-step-formula">
-              <div style="font-size: 0.83rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.55rem;">📐 Công thức B2: ${escapeHtml(b2Frame.formulaHints.bodyFormula)}</div>
               <ul class="outline-summary-list" style="margin: 0;">
                 ${b2Frame.bodyItems.map((item, idx) => `
                   <li>
                     <strong>Ý thân thư ${idx + 1} — ${escapeHtml(item.reqTitle)}:</strong>
-                    <div style="color: var(--text-primary); font-weight: 600; margin-top: 0.25rem; line-height: 1.55;">🇬🇧 ${escapeHtml(item.en)}</div>
-                    <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.2rem; line-height: 1.5;">🇻🇳 ${escapeHtml(item.vi)}</div>
+                    <div style="color: var(--text-primary); font-size: 0.93rem; margin-top: 0.2rem; line-height: 1.55;">🇻🇳 ${escapeHtml(item.vi)}</div>
+                    <div style="font-size: 0.83rem; color: var(--accent-primary); margin-top: 0.22rem; line-height: 1.5;">🔑 Cấu trúc &amp; cụm từ B2 gợi ý: <code>${escapeHtml(item.hints.map(h => h.en).join(' • '))}</code></div>
                   </li>
                 `).join('')}
               </ul>
@@ -2429,9 +2938,8 @@ function renderStep1Reading() {
               <span>KẾT THƯ (CLOSING SENTENCE)</span>
             </div>
             <div class="b2-step-formula">
-              <div style="font-size: 0.83rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.25rem;">📐 Công thức B2: ${escapeHtml(b2Frame.formulaHints.closingFormula)}</div>
-              <div style="font-weight: 700; color: var(--text-primary); line-height: 1.55;">🇬🇧 ${escapeHtml(b2Frame.closingEn)}</div>
-              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.2rem; line-height: 1.5;">🇻🇳 ${escapeHtml(b2Frame.closingVi)}</div>
+              <div style="color: var(--text-primary); font-size: 0.93rem; font-weight: 600; line-height: 1.55;">🇻🇳 ${escapeHtml(b2Frame.closingVi)}</div>
+              <div style="font-size: 0.84rem; color: var(--accent-primary); margin-top: 0.25rem; line-height: 1.5;">🔑 Cụm từ &amp; cấu trúc B2 gợi ý: <code>${escapeHtml(b2Frame.closingHints.map(h => h.en).join(' • '))}</code></div>
             </div>
           </div>
 
@@ -2441,8 +2949,8 @@ function renderStep1Reading() {
               <span>LỜI CHÀO KẾT THÚC (SIGN-OFF — KHÔNG KÝ TÊN THẬT)</span>
             </div>
             <div class="b2-step-formula">
-              <div style="font-weight: 700; color: var(--text-primary);">🇬🇧 ${escapeHtml(b2Frame.signoffEn)}</div>
-              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.15rem;">🇻🇳 ${escapeHtml(b2Frame.signoffVi)} <span style="color: var(--danger); font-weight: 700; font-style: normal;">— ⚠️ Lưu ý: Đề thi VSTEP yêu cầu KHÔNG viết tên riêng bên dưới!</span></div>
+              <div style="color: var(--text-primary); font-size: 0.93rem; font-weight: 600;">🇻🇳 ${escapeHtml(b2Frame.signoffVi)} <span style="color: var(--danger); font-weight: 700;">— ⚠️ Lưu ý: Đề thi VSTEP yêu cầu KHÔNG viết tên riêng bên dưới!</span></div>
+              <div style="font-size: 0.84rem; color: var(--accent-primary); margin-top: 0.2rem;">🔑 Cấu trúc B2 gợi ý: <code>${escapeHtml(b2Frame.signoffFormulaEn)}</code></div>
             </div>
           </div>
         </div>
@@ -2594,7 +3102,7 @@ function buildExercisesForActiveTopic(topic) {
       vi: b2Frame.salutationVi,
       en: b2Frame.salutationEn,
       hints: [
-        { en: b2Frame.salutationEn, vi: 'Lời chào mở đầu chuẩn văn phong kèm dấu phẩy cuối dòng' }
+        { en: b2Frame.salutationFormulaEn, vi: 'Cấu trúc chào mở đầu chuẩn văn phong kèm dấu phẩy cuối dòng' }
       ]
     },
     {
@@ -2602,10 +3110,7 @@ function buildExercisesForActiveTopic(topic) {
       partTitle: 'PHẦN 2: MỞ THƯ (OPENING — NÊU LÝ DO & MỤC ĐÍCH VIẾT THƯ)',
       vi: b2Frame.openingVi,
       en: b2Frame.openingEn,
-      hints: [
-        { en: b2Frame.formulaHints.openingFormula, vi: 'Công thức Mở thư chuẩn dàn ý B2' },
-        { en: b2Frame.openingEn, vi: b2Frame.openingVi }
-      ]
+      hints: b2Frame.openingHints
     },
     ...bodyExercises,
     {
@@ -2613,10 +3118,7 @@ function buildExercisesForActiveTopic(topic) {
       partTitle: 'PHẦN 4: KẾT THƯ (CLOSING SENTENCE)',
       vi: b2Frame.closingVi,
       en: b2Frame.closingEn,
-      hints: [
-        { en: b2Frame.formulaHints.closingFormula, vi: 'Công thức Kết thư chuẩn dàn ý B2' },
-        { en: b2Frame.closingEn, vi: b2Frame.closingVi }
-      ]
+      hints: b2Frame.closingHints
     },
     {
       role: 'signoff',
@@ -2624,7 +3126,7 @@ function buildExercisesForActiveTopic(topic) {
       vi: b2Frame.signoffVi,
       en: b2Frame.signoffEn,
       hints: [
-        { en: b2Frame.signoffEn, vi: 'Lưu ý: Đề thi VSTEP yêu cầu KHÔNG ghi tên thật của bạn bên dưới!' }
+        { en: b2Frame.signoffFormulaEn, vi: 'Lưu ý: Đề thi VSTEP yêu cầu KHÔNG ghi tên thật của bạn bên dưới!' }
       ]
     }
   ];
