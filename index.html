@@ -3,66 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VSTEP WRITING TASK 01 - B2 NÂNG CAO | ENGLISH WITH MISS NGUYET</title>
-  
-  <!-- Google Fonts: Plus Jakarta Sans (Đồng bộ chuẩn hệ thống Miss Nguyet) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome 6.4.0 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Canvas Confetti (celebration effects like speaking portal) -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2">
+  <title>PHÒNG VIẾT THƯ - B2 LEVEL - ENGLISH WITH MISS NGUYET</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- ====================================================================
-       MÀN HÌNH ĐĂNG NHẬP / CHÀO MỪNG (WELCOME LOGIN MODAL)
-       Bắt buộc nhập Họ tên, Lớp học và Mật khẩu (VSTEOWRITING)
-       ==================================================================== -->
-  <div class="modal-overlay active" id="welcome-modal">
-    <div class="modal-card login-card-custom">
-      <!-- Miss Nguyet Avatar Brand Ring -->
+  <!-- ACCESS GATEWAY OVERLAY -->
+  <div id="access-gateway">
+    <div class="login-card-custom">
+      <!-- Teacher Avatar Halo -->
       <div class="login-teacher-avatar-wrap">
         <div class="login-teacher-halo">
-          <img src="miss_nguyet.jpg" alt="Miss Nguyet" class="login-teacher-avatar">
+          <img src="miss_nguyet.jpg" alt="Miss Nguyet" class="login-teacher-avatar" onerror="this.src='welcome_cats.png'">
         </div>
-        <span class="login-teacher-badge"><i class="fa-solid fa-certificate"></i> Lead Instructor</span>
+        <span class="login-teacher-badge">✨ Lead Instructor</span>
       </div>
 
       <div class="login-brand-tag">
-        <i class="fa-solid fa-graduation-cap"></i> Welcome to Miss Nguyet's Class!
+        <span>🌸</span> Welcome to Miss Nguyet's Class!
       </div>
-      <div class="login-course-title">VSTEP WRITING TASK 01 - B2 NÂNG CAO</div>
-      <h2 class="login-title-custom">NHẬP THÔNG TIN<br/>ĐỂ BẮT ĐẦU HỌC 🚀</h2>
-      
-      <div class="input-group-custom">
-        <label for="student-name">
-          <i class="fa-solid fa-user-pen" style="color: var(--accent-primary);"></i> HỌ VÀ TÊN HỌC VIÊN:
-        </label>
-        <input autocomplete="off" id="student-name" type="text" placeholder="Nhập họ và tên học viên..." onkeydown="if(event.key==='Enter') enterRoom()" />
+      <div class="login-course-title">
+        VSTEP WRITING TASK 01 – B2 LEVEL
       </div>
       
+      <h2 class="login-title-custom">ĐĂNG NHẬP PHÒNG LUYỆN VIẾT THƯ</h2>
+      
       <div class="input-group-custom">
-        <label for="student-class">
-          <i class="fa-solid fa-chalkboard-user" style="color: var(--cyan-light);"></i> MÃ LỚP HỌC:
-        </label>
-        <input autocomplete="off" id="student-class" type="text" placeholder="Nhập mã lớp học..." onkeydown="if(event.key==='Enter') enterRoom()" />
+        <label>👤 Họ và Tên Học Viên</label>
+        <input type="text" id="gateway-name" placeholder="Nhập họ và tên của bạn..." autocomplete="name">
       </div>
-
+      
       <div class="input-group-custom">
-        <label for="student-password">
-          <i class="fa-solid fa-key" style="color: var(--amber-light);"></i> MẬT KHẨU TRUY CẬP:
-        </label>
+        <label>🏫 Mã Lớp Học</label>
+        <input type="text" id="gateway-class" placeholder="Nhập mã lớp học..." autocomplete="off">
+      </div>
+      
+      <div class="input-group-custom" style="margin-bottom: 1.35rem;">
+        <label>🔑 Mật Khẩu Lớp Học</label>
         <div style="position: relative; width: 100%;">
-          <input autocomplete="off" id="student-password" type="password" placeholder="Nhập mật khẩu..." onkeydown="if(event.key==='Enter') enterRoom()" style="padding-right: 2.8rem !important;" />
+          <input type="password" id="gateway-pass" placeholder="Nhập mật khẩu được cấp..." onkeypress="if(event.key === 'Enter') verifyGateway()" style="padding-right: 44px !important;">
           <button type="button" onclick="togglePasswordVisibility()" class="btn-toggle-pwd" title="Hiện/Ẩn mật khẩu">
-            <svg id="toggle-pwd-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg id="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
               <circle cx="12" cy="12" r="3"></circle>
             </svg>
@@ -70,1177 +50,707 @@
         </div>
       </div>
       
-      <p id="login-error" class="login-error-msg" style="display: none;"></p>
+      <div id="gateway-error" class="login-error-msg" style="display: none;">
+        ⚠️ Mật khẩu chưa chính xác hoặc thông tin còn thiếu!
+      </div>
       
-      <button class="btn-login-custom" id="start-btn" onclick="enterRoom()">
-        <span>BẮT ĐẦU HỌC</span>
-        <i class="fa-solid fa-arrow-right"></i>
+      <button onclick="verifyGateway()" class="btn-login-custom">
+        <span>VÀO PHÒNG LUYỆN VIẾT</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </button>
 
       <div class="login-footer-signature">
-        <a href="https://www.facebook.com/nguyetpham28" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
-          <i class="fa-brands fa-facebook" style="color: #1877f2;"></i>
-          <span>ENGLISH WITH MISS NGUYET</span>
-        </a>
+        <span>✨</span> ENGLISH WITH MISS NGUYET <span>✨</span>
       </div>
     </div>
   </div>
 
-  <!-- Hidden Google Form Target Iframe & Form for Login Tracking (https://forms.gle/232xy5SsK36JqpCn7) -->
-  <iframe name="gform_hidden_iframe" id="gform_hidden_iframe" style="display:none;" title="Google Form Submission Frame"></iframe>
-  <form id="gform_hidden_form" action="https://docs.google.com/forms/d/e/1FAIpQLScjhthdSEklX3xgFywh0WVnboJiMrdtwktPgdImgsVwl3ymbQ/formResponse" method="POST" target="gform_hidden_iframe" style="display:none;">
-    <input type="hidden" name="entry.1205151935" id="gform_hidden_input">
-    <input type="hidden" name="fvv" value="1">
-    <input type="hidden" name="pageHistory" value="0">
-  </form>
-
   <div id="app-container">
-    
-    <!-- ====================================================================
-         SIDEBAR NAVIGATION
-         ==================================================================== -->
-    <aside class="sidebar" id="mainSidebar">
-      
-      <!-- Brand Box -->
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeMobileSidebar()"></div>
+
+    <!-- LEFT SIDEBAR NAVIGATION -->
+    <aside class="sidebar">
       <div class="sidebar-header">
-        <div class="sidebar-brand-box">
+        <div class="sidebar-brand-box" onclick="switchScreen('dashboard')">
           <div class="sidebar-avatar-wrap">
-            <img src="miss_nguyet.jpg" alt="Miss Nguyet" class="brand-avatar">
+            <img src="miss_nguyet.jpg" alt="Miss Nguyet" class="brand-avatar" onerror="this.src='welcome_cats.png'">
             <span class="online-indicator" title="Miss Nguyet Online"></span>
           </div>
-          <div>
-            <div class="brand-title">VSTEP WRITING TASK 01</div>
+          <div class="brand-info">
+            <div class="brand-title">PHÒNG VIẾT THƯ B2</div>
             <div class="brand-sub">ENGLISH WITH MISS NGUYET</div>
           </div>
         </div>
-        <button class="btn-close-sidebar" id="sidebarCloseBtn" onclick="closeMobileSidebar()" aria-label="Đóng menu" title="Đóng danh mục">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
       </div>
 
-      <!-- Navigation Menu -->
-      <nav class="sidebar-nav">
-        
-        <!-- TRANG CHỦ / LÝ THUYẾT TỔNG QUAN -->
+      <ul class="nav-menu">
         <li class="nav-item">
-          <a class="nav-link active" id="nav-link-overview" onclick="switchMainScreen('overview')">
-            <i class="fa-solid fa-house"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">TRANG CHỦ</div>
-              <div class="nav-title-vi">Màn hình khởi đầu</div>
-            </div>
+          <a class="nav-link active" data-target="dashboard" onclick="switchScreen('dashboard')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            HOME PAGE
           </a>
         </li>
-
-        <!-- 7 DẠNG THƯ VSTEP CHUẨN B2 -->
         <li class="nav-item">
-          <a class="nav-link" id="nav-cat-advice" onclick="selectCategory('advice')">
-            <i class="fa-solid fa-lightbulb"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">Letter of Advice</div>
-              <div class="nav-title-vi">Thư Cho Lời Khuyên</div>
-            </div>
-          </a>
+          <div style="padding: 1rem 1rem 0.25rem; font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.05em;">7 Dạng Thư VSTEP B2</div>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link" id="nav-cat-request" onclick="selectCategory('request')">
-            <i class="fa-solid fa-handshake"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">Letter of Request</div>
-              <div class="nav-title-vi">Thư Yêu Cầu</div>
-            </div>
+          <a class="nav-link" data-target="cat-1" onclick="switchCategory(1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            1. Thư Cho Lời Khuyên
           </a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link" id="nav-cat-description" onclick="selectCategory('description')">
-            <i class="fa-solid fa-circle-info"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">Letter of Description</div>
-              <div class="nav-title-vi">Thư Mô Tả</div>
-            </div>
+          <a class="nav-link" data-target="cat-2" onclick="switchCategory(2)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            2. Thư Yêu Cầu Thông Tin
           </a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link" id="nav-cat-complaint" onclick="selectCategory('complaint')">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">Letter of Complaint</div>
-              <div class="nav-title-vi">Thư Phàn Nàn</div>
-            </div>
+          <a class="nav-link" data-target="cat-3" onclick="switchCategory(3)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            3. Thư Miêu Tả & Kể Chuyện
           </a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link" id="nav-cat-feedback" onclick="selectCategory('feedback')">
-            <i class="fa-solid fa-comments"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">Letter of Feedback</div>
-              <div class="nav-title-vi">Thư Phản Hồi, Đánh Giá</div>
-            </div>
+          <a class="nav-link" data-target="cat-4" onclick="switchCategory(4)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            4. Thư Phàn Nàn
           </a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link" id="nav-cat-apology" onclick="selectCategory('apology')">
-            <i class="fa-solid fa-reply"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">Letter of Apology</div>
-              <div class="nav-title-vi">Thư Xin Lỗi</div>
-            </div>
+          <a class="nav-link" data-target="cat-5" onclick="switchCategory(5)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            5. Thư Phản Hồi Đánh Giá
           </a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link" id="nav-cat-application" onclick="selectCategory('application')">
-            <i class="fa-solid fa-briefcase"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">Letter of Application</div>
-              <div class="nav-title-vi">Thư Ứng Tuyển</div>
-            </div>
+          <a class="nav-link" data-target="cat-6" onclick="switchCategory(6)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            6. Thư Xin Lỗi
           </a>
         </li>
-
-        <!-- HỒ SƠ & BÀI LÀM -->
-        <li class="nav-item" style="margin-top: 0.6rem; border-top: 1px dashed var(--panel-border); padding-top: 0.6rem;">
-          <a class="nav-link" id="nav-link-all-submissions" onclick="switchMainScreen('all-submissions')">
-            <i class="fa-solid fa-clipboard-check"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">All Submissions</div>
-              <div class="nav-title-vi">Lịch Sử Nộp Bài</div>
-            </div>
-          </a>
-        </li>
-
         <li class="nav-item">
-          <a class="nav-link" id="nav-link-all-drafts" onclick="switchMainScreen('all-drafts')">
-            <i class="fa-solid fa-floppy-disk"></i>
-            <div class="nav-text">
-              <div class="nav-title-en">Saved Drafts</div>
-              <div class="nav-title-vi">Bản Nháp Đã Lưu</div>
-            </div>
+          <a class="nav-link" data-target="cat-7" onclick="switchCategory(7)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            7. Thư Ứng Tuyển Công Việc
           </a>
         </li>
-      </nav>
+        <li class="nav-item" style="margin-top: 0.75rem;">
+          <a class="nav-link" data-target="history" onclick="switchScreen('history')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            Lịch sử bài viết
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-target="drafts" onclick="switchScreen('drafts')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            Bản nháp đã lưu
+          </a>
+        </li>
+      </ul>
 
-      <!-- Sidebar Footer -->
       <div class="sidebar-footer">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
-          <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">GIAO DIỆN</span>
-          <div class="theme-pill-group">
-            <button class="theme-pill-btn" id="theme-light-btn" onclick="setTheme('light')">
-              <i class="fa-solid fa-sun"></i> Sáng
+        <div class="theme-toggle">
+          <span class="theme-label">Giao diện</span>
+          <div class="theme-btn-group">
+            <button class="theme-btn active" id="theme-light" onclick="setTheme('light')" title="Chế độ Sáng">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
             </button>
-            <button class="theme-pill-btn active" id="theme-dark-btn" onclick="setTheme('dark')">
-              <i class="fa-solid fa-moon"></i> Tối
+            <button class="theme-btn" id="theme-dark" onclick="setTheme('dark')" title="Chế độ Tối">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
             </button>
           </div>
         </div>
-        <div class="sidebar-footer-brand">
-          <a href="https://www.facebook.com/nguyetpham28" target="_blank" rel="noopener noreferrer" class="sidebar-footer-link" title="Facebook: English with Miss Nguyet">
-            <img src="miss_nguyet.jpg" alt="Miss Nguyet" class="sidebar-footer-avatar">
-            <div style="text-align: left; overflow: hidden;">
-              <div style="font-weight: 800; color: var(--text-primary); font-size: 0.74rem; letter-spacing: 0.2px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">ENGLISH WITH MISS NGUYET</div>
-              <div style="font-size: 0.68rem; color: #1877f2; display: flex; align-items: center; gap: 0.25rem;">
-                <i class="fa-brands fa-facebook"></i> Theo dõi Fanpage
-              </div>
-            </div>
-          </a>
-        </div>
       </div>
-
     </aside>
 
-    <!-- Backdrop Overlay for Mobile Sidebar Drawer -->
-    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeMobileSidebar()"></div>
-
-    <!-- ====================================================================
-         MAIN CONTENT AREA
-         ==================================================================== -->
+    <!-- MAIN CONTENT AREA -->
     <main class="main-content">
-      
-      <!-- Top Action Bar -->
+      <!-- Top Header -->
       <header class="top-header">
-        <button class="btn-menu-mobile" id="mobileMenuBtn" onclick="toggleMobileSidebar()" aria-label="Mở danh mục menu" title="Mở danh mục">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-
-        <div class="header-title-box">
-          <i class="fa-solid fa-compass-drafting" style="color: var(--accent-primary);"></i>
-          <span id="top-header-title-badge">LÝ THUYẾT TỔNG QUAN TASK 01</span>
+        <div style="display: flex; align-items: center; gap: 0.75rem; min-width: 0;">
+          <button class="mobile-menu-btn" onclick="toggleMobileSidebar()" aria-label="Mở menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <h1 class="page-title" id="topbar-title">PHÒNG VIẾT THƯ - B2 LEVEL</h1>
         </div>
-
-        <a href="https://www.facebook.com/nguyetpham28" target="_blank" rel="noopener noreferrer" class="header-middle-brand-wrap" title="Facebook: English with Miss Nguyet">
-          <img src="miss_nguyet.jpg" alt="Miss Nguyet" class="header-brand-avatar">
-          <span class="header-middle-brand">ENGLISH WITH MISS NGUYET</span>
-        </a>
-
+        <a href="https://www.facebook.com/EnglishwithMissNguyet" target="_blank" rel="noopener noreferrer" class="header-middle-brand" title="Ghé thăm Fanpage English with Miss Nguyet">ENGLISH WITH MISS NGUYET</a>
         <div class="header-actions">
-          <button class="btn-ambient" id="ambientRainBtn" onclick="toggleAmbientRainSound()" title="Tiếng mưa tập trung">
-            <i class="fa-solid fa-cloud-rain"></i> <span>Tiếng mưa</span>
-          </button>
-          <button class="btn-zen" id="zenModeBtn" onclick="toggleZenWritingMode()" title="Chế độ tập trung">
-            <i class="fa-solid fa-expand"></i> <span>Zen Mode</span>
-          </button>
-          <div class="student-badge-pill" onclick="openStudentModal()" title="Học viên">
-            <i class="fa-solid fa-user-graduate"></i>
-            <span id="studentNameDisplay">Học viên</span>
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-input" id="global-search" placeholder="Tìm kiếm chủ đề viết thư (VD: Hanoi, hotel...)" oninput="handleSearch(event)">
           </div>
         </div>
       </header>
 
-      <!-- ================================================================
-           SCREEN: CATEGORY VIEW (5 WORKFLOW TABS CHO TỪNG DẠNG THƯ)
-           ================================================================ -->
-      <section id="screen-category" class="screen">
-        
-        <!-- Category Sticky Top Navigation -->
-        <div class="cat-sticky-header">
+      <!-- SCREEN 1: DASHBOARD -->
+      <section class="screen active" id="screen-dashboard">
+        <div class="welcome-banner">
+          <div class="welcome-text">
+            <h2>Luyện Viết Thư VSTEP B2 Level</h2>
+            <p>Hệ thống bao gồm <strong>37 đề thi Viết thư thực chiến (VSTEP Task 1)</strong> chia theo 7 dạng thư trọng tâm, tích hợp đầy đủ từ vựng theo chủ đề, gợi ý mở rộng ý tưởng chuẩn B2, tập diễn đạt 5 phần của bức thư và bài mẫu đối chiếu song ngữ.</p>
+          </div>
+          <div class="welcome-graphic">
+            <img src="welcome_cats.png" alt="Cute Cats Illustration">
+          </div>
+        </div>
+
+        <!-- Quick Stats Row -->
+        <div class="stats-row">
+          <div class="stats-card">
+            <div class="stats-icon-wrapper" style="background-color: var(--info-bg); color: var(--info);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <div class="stats-info">
+              <h3>Đã hoàn thành</h3>
+              <div class="stats-value" id="stat-completed-count">0</div>
+            </div>
+          </div>
           
-          <!-- Category Hero Banner -->
-          <div class="cat-banner">
-            <div class="cat-banner-left">
-              <div class="cat-icon-box" id="catHeroIcon">
-                <i class="fa-solid fa-lightbulb"></i>
-              </div>
-              <div class="cat-title-text">
-                <h2 id="catHeroTitleVi">TYPE 01: THƯ CHO LỜI KHUYÊN HOẶC GỢI Ý</h2>
-                <p id="catHeroDesc">Dạng thư dùng để đưa ra lời khuyên hoặc gợi ý phù hợp với tình huống của đề bài.</p>
-              </div>
+          <div class="stats-card" style="cursor: pointer;" onclick="switchScreen('drafts')" title="Nhấn để xem các bản nháp đã lưu">
+            <div class="stats-icon-wrapper" style="background-color: var(--danger-bg); color: var(--danger);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+              </svg>
             </div>
-            <div class="cat-banner-right">
-              <span class="cat-stat-pill"><i class="fa-solid fa-stopwatch" style="color: var(--cyan-light);"></i> 20 Phút</span>
-              <span class="cat-stat-pill"><i class="fa-solid fa-feather-pointed" style="color: var(--emerald-light);"></i> 120+ Từ</span>
-              <span class="cat-tag-pill" id="catHeroBadge">BAND B2</span>
+            <div class="stats-info">
+              <h3>Bản nháp đang lưu</h3>
+              <div class="stats-value" id="stat-draft-count">0</div>
             </div>
           </div>
 
-          <!-- 5 Horizontal Workflow Tabs (LÝ THUYẾT ➔ DÀN Ý CHUNG ➔ BÀI MẪU ➔ TRẢ BÀI ➔ THỰC HÀNH VIẾT) -->
-          <nav class="workflow-tab-bar" id="workflowTabNav">
-            <button class="tab-btn active" id="tab-btn-theory" onclick="switchWorkflowTab('theory')">
-              <i class="fa-solid fa-book"></i> LÝ THUYẾT
-            </button>
-            <button class="tab-btn" id="tab-btn-outline" onclick="switchWorkflowTab('outline')">
-              <i class="fa-solid fa-list-check"></i> DÀN Ý CHUNG
-            </button>
-            <button class="tab-btn" id="tab-btn-samples" onclick="switchWorkflowTab('samples')">
-              <i class="fa-solid fa-star"></i> BÀI MẪU
-            </button>
-            <button class="tab-btn" id="tab-btn-submissions" onclick="switchWorkflowTab('submissions')">
-              <i class="fa-solid fa-graduation-cap"></i> TRẢ BÀI
-            </button>
-            <button class="tab-btn" id="tab-btn-practice" onclick="switchWorkflowTab('practice')">
-              <i class="fa-solid fa-pen-nib"></i> THỰC HÀNH VIẾT
-            </button>
-          </nav>
-
-        </div>
-
-        <!-- ==============================================================
-             TAB 1: LÝ THUYẾT DẠNG THƯ (3D BENTO GRID & COLOR HIGHLIGHTS)
-             ============================================================== -->
-        <div class="tab-content-panel active" id="tab-panel-theory">
-          
-          <div class="bento-grid">
-            
-            <!-- Card 1: 4 Bước phân tích đề (4 Hộp nổi 4 màu sắc) -->
-            <div class="bento-card card-theme-violet" style="grid-column: span 12;">
-              <div class="bento-card-header">
-                <div class="bento-header-left">
-                  <div class="bento-icon-badge"><i class="fa-solid fa-compass"></i></div>
-                  <div>
-                    <h3>4 BƯỚC PHÂN TÍCH ĐỀ (BẮT BUỘC TRƯỚC KHI ĐẶT BÚT VIẾT)</h3>
-                    <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Trả lời nhanh 4 câu hỏi cốt lõi chuẩn B2 để đúng 100% văn phong & yêu cầu:</p>
-                  </div>
-                </div>
-                <span class="hl-pill hl-violet"><i class="fa-solid fa-shield-halved"></i> Chống lạc đề 100%</span>
-              </div>
-
-              <div class="analysis-quad-grid">
-                <!-- Bước 1: Cyan -->
-                <div class="analysis-step-item step-cyan">
-                  <div class="analysis-step-top">
-                    <div class="num">1</div>
-                    <span class="hl-pill hl-cyan"><i class="fa-solid fa-user-check"></i> Đối tượng</span>
-                  </div>
-                  <div class="label">Người nhận là ai?</div>
-                  <div class="val">Xác định rõ người nhận thư để chọn đúng cách xưng hô và lời chào đầu/cuối thư.</div>
-                  <div class="analysis-tags-row">
-                    <span class="hl-pill hl-cyan">Bạn bè (Dear + Tên)</span>
-                    <span class="hl-pill hl-cyan">Tổ chức (Sir/Madam)</span>
-                  </div>
-                </div>
-
-                <!-- Bước 2: Amber -->
-                <div class="analysis-step-item step-amber">
-                  <div class="analysis-step-top">
-                    <div class="num">2</div>
-                    <span class="hl-pill hl-amber"><i class="fa-solid fa-bullseye"></i> Trọng tâm</span>
-                  </div>
-                  <div class="label">Mục đích thư là gì?</div>
-                  <div class="val">Xác định nhiệm vụ cốt lõi của bức thư để áp dụng đúng câu mẫu Mở bài & Kết bài.</div>
-                  <div class="analysis-tags-row">
-                    <span class="hl-pill hl-amber">Khuyên / Gợi ý</span>
-                    <span class="hl-pill hl-amber">Yêu cầu / Xin thông tin</span>
-                  </div>
-                </div>
-
-                <!-- Bước 3: Emerald -->
-                <div class="analysis-step-item step-emerald">
-                  <div class="analysis-step-top">
-                    <div class="num">3</div>
-                    <span class="hl-pill hl-emerald"><i class="fa-solid fa-masks-theater"></i> Giọng văn</span>
-                  </div>
-                  <div class="label">Văn phong thư là gì?</div>
-                  <div class="val">Quyết định mức độ trang trọng để chọn bộ cấu trúc ngữ pháp và chuỗi từ nối phù hợp.</div>
-                  <div class="analysis-tags-row">
-                    <span class="hl-pill hl-emerald">Thân mật (Informal)</span>
-                    <span class="hl-pill hl-emerald">Trang trọng (Formal)</span>
-                  </div>
-                </div>
-
-                <!-- Bước 4: Rose -->
-                <div class="analysis-step-item step-rose">
-                  <div class="analysis-step-top">
-                    <div class="num">4</div>
-                    <span class="hl-pill hl-rose"><i class="fa-solid fa-list-check"></i> Điểm số TF</span>
-                  </div>
-                  <div class="label">Có những yêu cầu gì?</div>
-                  <div class="val">Đếm và gạch chân toàn bộ 3 - 4 câu hỏi/yêu cầu trong đề để giải quyết lần lượt ở thân bài.</div>
-                  <div class="analysis-tags-row">
-                    <span class="hl-pill hl-rose">Đủ 3 - 4 ý hỏi</span>
-                    <span class="hl-pill hl-rose">Mối nối rõ ràng</span>
-                  </div>
-                </div>
-              </div>
+          <div class="stats-card">
+            <div class="stats-icon-wrapper" style="background-color: var(--warning-bg); color: var(--warning);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
             </div>
-
-            <!-- Card 2: Dấu hiệu nhận biết trong đề thi -->
-            <div class="bento-card card-theme-cyan" style="grid-column: span 6;">
-              <div class="bento-card-header">
-                <div class="bento-header-left">
-                  <div class="bento-icon-badge badge-cyan"><i class="fa-solid fa-magnifying-glass"></i></div>
-                  <div>
-                    <h3>DẤU HIỆU NHẬN BIẾT TRONG ĐỀ THI</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Bắt gặp các cụm từ khóa này trong đề $\to$ Nhận diện ngay dạng thư:</p>
-                  </div>
-                </div>
-                <span class="hl-pill hl-cyan"><i class="fa-solid fa-key"></i> Keywords</span>
-              </div>
-              <div id="catTheorySignsList" class="signs-chip-grid"></div>
+            <div class="stats-info">
+              <h3>Từ vựng đã dùng</h3>
+              <div class="stats-value" id="stat-vocab-count">0</div>
             </div>
-
-            <!-- Card 3: Mục đích & Chuỗi liên từ gợi ý -->
-            <div class="bento-card card-theme-emerald" style="grid-column: span 6;">
-              <div class="bento-card-header">
-                <div class="bento-header-left">
-                  <div class="bento-icon-badge badge-emerald"><i class="fa-solid fa-diagram-project"></i></div>
-                  <div>
-                    <h3>VĂN PHONG & SƠ ĐỒ CHUỖI LIÊN TỪ NỐI Ý</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Công thức chuyển ý mượt mà giúp ăn trọn điểm tiêu chí Organization:</p>
-                  </div>
-                </div>
-                <span class="hl-pill hl-emerald"><i class="fa-solid fa-bolt"></i> Chuẩn B2</span>
-              </div>
-              <div id="catTheoryPurposeContent" style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1rem;"></div>
-              
-              <div class="connector-flow-box">
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
-                  <strong style="color: var(--emerald-light); font-size: 0.84rem; text-transform: uppercase; letter-spacing: 0.03em;">
-                    <i class="fa-solid fa-route"></i> SƠ ĐỒ CHUỖI LIÊN TỪ NỐI Ý:
-                  </strong>
-                </div>
-                <div id="catTheoryConnectorsHint" class="connector-chain-nodes"></div>
-              </div>
-            </div>
-
           </div>
 
-          <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
-            <button class="btn btn-primary" onclick="switchWorkflowTab('outline')">
-              Tiếp tục: Xem Dàn Ý Chung 5 Bước <i class="fa-solid fa-arrow-right" style="margin-left: 0.4rem;"></i>
-            </button>
-          </div>
-
-        </div>
-
-        <!-- ==============================================================
-             TAB 2: DÀN Ý CHUNG 5 BƯỚC (BAND B2)
-             ============================================================== -->
-        <div class="tab-content-panel" id="tab-panel-outline">
-          <div style="width: 100%; margin: 0 auto;">
-            
-            <div class="bento-card card-theme-violet" style="margin-bottom: 1.5rem; padding: 1.25rem 1.65rem;">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <div style="display: flex; align-items: center; gap: 0.85rem;">
-                  <div class="bento-icon-badge"><i class="fa-solid fa-layer-group"></i></div>
-                  <div>
-                    <h3 style="font-size: 1.18rem; font-weight: 900; color: var(--text-primary); margin: 0;">
-                      KHUNG DÀN Ý CHUẨN 5 BƯỚC (BAND B2)
-                    </h3>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.15rem 0 0 0;">
-                      Áp dụng đúng 5 hộp cấu trúc màu sắc dưới đây giúp bài viết mạch lạc, đủ ý và đạt điểm tối đa Organization.
-                    </p>
-                  </div>
-                </div>
-                <span class="hl-pill hl-violet"><i class="fa-solid fa-check-double"></i> Bố cục 5 Bước Chuẩn</span>
-              </div>
+          <div class="stats-card">
+            <div class="stats-icon-wrapper" style="background-color: var(--success-bg); color: var(--success);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
             </div>
-
-            <div id="catDetailedOutlineContent">
-              <!-- Rendered dynamically from theory_data.js -->
-            </div>
-
-            <div style="display: flex; justify-content: flex-end; margin-top: 1.75rem;">
-              <button class="btn btn-primary" onclick="switchWorkflowTab('samples')">
-                Tiếp tục: Xem Bài Mẫu B2 Có Highlight <i class="fa-solid fa-arrow-right" style="margin-left: 0.4rem;"></i>
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ==============================================================
-             TAB 3: BÀI MẪU B2 SONG NGỮ (CÓ HIGHLIGHT MÀU SẮC TRỰC QUAN)
-             ============================================================== -->
-        <div class="tab-content-panel" id="tab-panel-samples">
-          <div style="width: 100%; margin: 0 auto;">
-            
-            <!-- Selector & Action Bar -->
-            <div class="bento-card card-theme-cyan" style="padding: 1.15rem 1.5rem; margin-bottom: 1.35rem;">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
-                  <span class="hl-pill hl-cyan" style="font-size: 0.82rem; padding: 0.35rem 0.75rem;">
-                    <i class="fa-solid fa-list-ol"></i> Chọn đề bài:
-                  </span>
-                  <select id="sampleTopicSelect" onchange="renderSampleLetterForSelectedTopic(this.value)" style="min-width: 340px; padding: 0.55rem 0.95rem; background: var(--bg-inner); border: 1px solid var(--cyan-border); border-radius: var(--radius-md); color: var(--text-primary); font-size: 0.9rem; font-weight: 700; font-family: inherit; box-shadow: var(--shadow-sm);">
-                    <!-- Options rendered by JS -->
-                  </select>
-                </div>
-
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                  <button class="btn btn-secondary btn-sm" onclick="toggleSampleHighlightMode()" id="btnToggleSampleHighlight" style="border-color: var(--amber-border); color: var(--amber-light);">
-                    <i class="fa-solid fa-highlighter"></i> Đang bật Highlight
-                  </button>
-                  <button class="btn btn-secondary btn-sm" onclick="toggleSampleTranslationMode()" id="btnToggleSampleTrans">
-                    <i class="fa-solid fa-language"></i> Hiện dịch tiếng Việt
-                  </button>
-                  <button class="btn btn-primary btn-sm" onclick="jumpToPracticeFromSample()">
-                    <i class="fa-solid fa-pen-nib"></i> Luyện viết đề này ngay
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Exam Prompt Box -->
-            <div class="bento-card card-theme-amber" style="padding: 1.35rem 1.65rem; margin-bottom: 1.35rem;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
-                <span class="hl-pill hl-amber" style="font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.05em;">
-                  <i class="fa-solid fa-file-signature"></i> ĐỀ BÀI CHUẨN THI
-                </span>
-                <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Đọc kỹ các yêu cầu được đánh dấu nổi bật</span>
-              </div>
-              <div id="samplePromptTextEn" style="font-size: 0.96rem; color: var(--text-primary); line-height: 1.7;"></div>
-              <div id="samplePromptTextVi" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; border-top: 1px dashed var(--panel-border); padding-top: 0.65rem; margin-top: 0.65rem; display: none;"></div>
-            </div>
-
-            <!-- Paper Letter Display -->
-            <div class="sample-paper-card bento-card card-theme-emerald">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; border-bottom: 1px solid var(--panel-border); padding-bottom: 1rem; margin-bottom: 1rem;">
-                <div style="display: flex; align-items: center; gap: 0.65rem;">
-                  <span class="cat-tag-pill">BÀI MẪU BAND B2</span>
-                  <span id="sampleWordCountBadge" class="hl-pill hl-emerald" style="font-size: 0.84rem; padding: 0.3rem 0.75rem;">156 từ</span>
-                </div>
-                <div style="font-size: 0.82rem; color: var(--text-secondary); font-weight: 600;">
-                  <i class="fa-solid fa-certificate" style="color: var(--amber-light);"></i> Áp dụng 100% Dàn ý & Chuỗi liên từ chuẩn B2
-                </div>
-              </div>
-
-              <!-- Color Highlight Legend -->
-              <div class="sample-legend-bar" id="sampleHighlightLegend">
-                <span style="font-weight: 800; color: var(--text-primary); margin-right: 0.25rem;"><i class="fa-solid fa-palette" style="color: var(--accent-primary);"></i> Chú thích màu Highlight:</span>
-                <span class="legend-item"><span class="legend-dot" style="background: #a855f7;"></span> <span class="hl-mark-opening" style="font-size: 0.76rem;">Mở thư & Kết thư mẫu</span></span>
-                <span class="legend-item"><span class="legend-dot" style="background: #f59e0b;"></span> <span class="hl-mark-connector" style="font-size: 0.76rem;">Chuỗi liên từ nối ý</span></span>
-                <span class="legend-item"><span class="legend-dot" style="background: #10b981;"></span> <span class="hl-mark-structure" style="font-size: 0.76rem;">Cấu trúc ăn điểm B2</span></span>
-                <span class="legend-item"><span class="legend-dot" style="background: var(--text-primary);"></span> <span class="hl-key-idea" style="font-size: 0.76rem; font-weight: 800; font-style: italic;">In đậm & Nghiêng: Ý chính trả lời yêu cầu đề</span></span>
-              </div>
-
-              <div class="sample-letter-text" id="sampleLetterEnBody"></div>
-
-              <div id="sampleLetterViContainer" class="sample-trans-text" style="display: none;">
-                <strong style="color: var(--cyan-light); font-size: 0.88rem; display: block; margin-bottom: 0.5rem;">
-                  <i class="fa-solid fa-language"></i> BẢN DỊCH THAM KHẢO TIẾNG VIỆT:
-                </strong>
-                <div id="sampleLetterViBody"></div>
-              </div>
-
-              <!-- Vocab highlights -->
-              <div style="margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--panel-border);">
-                <div style="font-size: 0.85rem; font-weight: 800; color: var(--emerald-light); margin-bottom: 0.75rem;">
-                  <i class="fa-solid fa-sparkles"></i> TỪ VỰNG & CỤM TỪ ĂN ĐIỂM TRONG BÀI MẪU:
-                </div>
-                <div id="sampleVocabChipsList" style="display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ==============================================================
-             TAB 4: TRẢ BÀI & ĐÁNH GIÁ (FEEDBACK)
-             ============================================================== -->
-        <div class="tab-content-panel" id="tab-panel-submissions">
-          <div style="width: 100%; margin: 0 auto;">
-            <!-- Submissions Mode Switcher Bar -->
-            <div id="submissionsSubNav" style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 0.6rem 1rem; background: var(--bg-card); border: 1px solid var(--panel-border); border-radius: var(--radius-md);">
-              <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-                <button class="btn btn-primary btn-sm active" id="btnSubNavRecitation" onclick="switchSubmissionsSubTab('recitation')" style="font-weight: 700;">
-                  <i class="fa-solid fa-graduation-cap"></i> Trả bài dàn ý chi tiết
-                </button>
-                <button class="btn btn-secondary btn-sm" id="btnSubNavResult" onclick="switchSubmissionsSubTab('result')" style="font-weight: 700;">
-                  <i class="fa-solid fa-square-poll-vertical"></i> Kết quả chấm điểm bài viết
-                </button>
-              </div>
-              <div id="subNavMetaText" style="font-size: 0.8rem; color: var(--text-muted);">
-                <i class="fa-solid fa-award" style="color: var(--amber-light);"></i> Tiêu chuẩn VSTEP Task 01 - Band B2
-              </div>
-            </div>
-
-            <div id="categorySubmissionResultContainer">
-              <!-- Rendered by JS -->
+            <div class="stats-info">
+              <h3>Điểm trung bình</h3>
+              <div class="stats-value" id="stat-avg-score">0.0</div>
             </div>
           </div>
         </div>
 
-        <!-- ==============================================================
-             TAB 5: THỰC HÀNH VIẾT (PRACTICE LAB - KHO TẤT CẢ ĐỀ THI PHÒNG VIẾT THƯ)
-             ============================================================== -->
-        <div class="tab-content-panel" id="tab-panel-practice">
-          
-          <div class="practice-container-grid" id="practiceEditorGrid">
-            
-            <!-- LEFT PANE: PROMPT & 4-STEP ANALYSIS & ASSISTANT -->
-            <div class="prompt-pane bento-card card-theme-cyan">
-              
-              <!-- Category-Specific Topic Selector & Quick Switch Pills -->
-              <div style="margin-bottom: 0.85rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--panel-border);">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.5rem;">
-                  <label for="practiceTopicSelect" style="font-size: 0.85rem; font-weight: 800; color: var(--cyan-light); white-space: nowrap;">
-                    <i class="fa-solid fa-list-check"></i> <span id="practiceTopicSelectLabel">Chọn đề bài thực hành:</span>
-                  </label>
-                  <button class="btn btn-secondary btn-sm" id="btnOpenCategoryTopicsModal" onclick="openCategoryTopicsModal()" style="border-color: var(--cyan-border); color: var(--cyan-light); font-weight: 700; font-size: 0.76rem; padding: 0.22rem 0.6rem;">
-                    <i class="fa-solid fa-layer-group"></i> <span id="btnCategoryTopicsCountLabel">Xem danh sách đề</span>
-                  </button>
-                </div>
-                <select id="practiceTopicSelect" onchange="onPracticeTopicChange(this.value)" style="width: 100%; padding: 0.5rem 0.75rem; background: var(--bg-inner); border: 1px solid var(--cyan-border); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 0.85rem; font-weight: 700; font-family: inherit;">
-                  <!-- Options populated specifically for active category by JS -->
-                </select>
-                <!-- Quick Topic Switch Pills for this active category -->
-                <div id="practiceTopicQuickPills" style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem;">
-                  <!-- Pills rendered dynamically by JS -->
-                </div>
+        <div class="dashboard-grid">
+          <!-- Left Column: User Guide & Featured Topics -->
+          <div>
+            <!-- User Guide Section -->
+            <div class="user-guide-container">
+              <div class="dashboard-section-title">
+                <span>HƯỚNG DẪN SỬ DỤNG HỆ THỐNG LUYỆN VIẾT THƯ (4 BƯỚC)</span>
               </div>
-
-              <!-- Prompt Display -->
-              <div style="margin-bottom: 1rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem;">
-                  <span class="hl-pill hl-amber"><i class="fa-solid fa-file-lines"></i> ĐỀ BÀI</span>
-                  <div style="display: flex; gap: 0.4rem; align-items: center;">
-                    <button class="btn btn-secondary btn-sm" onclick="togglePracticePromptTranslation()" style="padding: 0.2rem 0.6rem; font-size: 0.74rem;">
-                      <i class="fa-solid fa-language"></i> <span id="btnPromptTransLabel">Dịch đề</span>
-                    </button>
-                    <button class="btn btn-secondary btn-sm" onclick="openPracticeIdeasModal()" style="padding: 0.2rem 0.65rem; font-size: 0.74rem; color: var(--amber-light); border-color: var(--amber-border); font-weight: 700;" title="Mở bảng gợi ý chi tiết đề này">
-                      <i class="fa-solid fa-lightbulb"></i> Gợi ý ý tưởng
-                    </button>
+              <div class="guide-steps-grid">
+                <div class="guide-step-card">
+                  <div class="guide-step-num">1</div>
+                  <div class="guide-step-content">
+                    <h4>Bước 1: Đọc hiểu đề, Chọn ý tưởng B2 & Từ vựng</h4>
+                    <p>Đọc kỹ đề bài song ngữ, xác định 4 yếu tố cốt lõi (Người nhận, Văn phong, Mục đích, Yêu cầu), tự chọn ý tưởng kèm câu mở rộng chuẩn B2 muốn đưa vào thư và nắm vững dàn ý 5 bước cùng từ vựng chủ đề.</p>
                   </div>
                 </div>
-                <div id="practicePromptEn" style="font-size: 0.92rem; color: var(--text-primary); line-height: 1.65; background: var(--bg-inner); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--panel-border); box-shadow: var(--shadow-sm);"></div>
-                <div id="practicePromptVi" style="display: none; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; padding: 0.75rem; background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: var(--radius-sm); margin-top: 0.5rem;"></div>
-              </div>
-
-              <!-- Assistant Box: 4-Step Analysis & Checkpoints -->
-              <div style="border-top: 1px solid var(--panel-border); padding-top: 1rem; flex-grow: 1; display: flex; flex-direction: column;">
-                
-                <div style="display: flex; gap: 0.4rem; margin-bottom: 0.75rem; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-                  <div style="display: flex; gap: 0.4rem;">
-                    <button class="btn btn-secondary btn-sm active" id="btnAssistCheckpoints" onclick="switchAssistTab('checkpoints')">
-                      <i class="fa-solid fa-compass"></i> Phân tích & 4 Ý
-                    </button>
-                    <button class="btn btn-secondary btn-sm" id="btnAssistIdeas" onclick="switchAssistTab('ideas')" style="color: var(--amber-light); border-color: var(--amber-border); font-weight: 700;">
-                      <i class="fa-solid fa-lightbulb"></i> Gợi ý ý tưởng
-                    </button>
-                    <button class="btn btn-secondary btn-sm" id="btnAssistVocab" onclick="switchAssistTab('vocab')">
-                      <i class="fa-solid fa-spell-check"></i> Từ vựng
-                    </button>
+                <div class="guide-step-card">
+                  <div class="guide-step-num">2</div>
+                  <div class="guide-step-content">
+                    <h4>Bước 2: Tập diễn đạt ý tưởng theo 5 phần của bức thư</h4>
+                    <p>Thực hành dịch và viết từng câu hoàn chỉnh từ Lời chào mở đầu, Mở thư, các câu Thân thư (theo đúng ý tưởng B2 bạn vừa chọn ở Bước 1) đến Kết thư và Ký tên. Bấm <strong>Ghép bài sang Bước 3</strong> để chuyển thẳng thành bài viết.</p>
                   </div>
-                  <button class="btn btn-secondary btn-sm" onclick="openPracticeIdeasModal()" style="font-size: 0.72rem; padding: 0.2rem 0.55rem; color: var(--cyan-light); border-color: var(--cyan-border);" title="Phóng to xem toàn màn hình">
-                    <i class="fa-solid fa-expand"></i> Phóng to
-                  </button>
                 </div>
-
-                <div id="assistCheckpointsContent" style="display: block; overflow-y: auto; max-height: calc(100vh - 430px); min-height: 380px;">
-                  <div id="practiceTaskExtractionsList"></div>
+                <div class="guide-step-card">
+                  <div class="guide-step-num">3</div>
+                  <div class="guide-step-content">
+                    <h4>Bước 3: Viết bài thư hoàn chỉnh & Nhận chấm điểm VSTEP</h4>
+                    <p>Hoàn thiện bức thư của bạn với bộ đếm giờ 20 phút và thanh tiến độ tối thiểu 120 từ. Bấm nộp bài để nhận báo cáo chấm điểm chi tiết theo 4 tiêu chí VSTEP B2 và xuất phiếu chấm ra file Word (.doc).</p>
+                  </div>
                 </div>
-
-                <div id="assistIdeasContent" style="display: none; overflow-y: auto; max-height: calc(100vh - 430px); min-height: 380px;">
-                  <div id="practiceIdeasContainer"></div>
+                <div class="guide-step-card">
+                  <div class="guide-step-num">4</div>
+                  <div class="guide-step-content">
+                    <h4>Bước 4: Tham khảo bài thư mẫu B2 & Đối chiếu</h4>
+                    <p>Đọc bài thư mẫu Band B2 kèm bản dịch tiếng Việt và các cấu trúc ăn điểm được tô sáng. Bấm <strong>So sánh bài viết</strong> để đối chiếu trực tiếp bài của bạn với bài mẫu.</p>
+                  </div>
                 </div>
-
-                <div id="assistVocabContent" style="display: none; overflow-y: auto; max-height: calc(100vh - 430px); min-height: 380px;">
-                  <div id="practiceVocabContainer"></div>
-                </div>
-
               </div>
-
             </div>
 
-            <!-- RIGHT PANE: WRITING EDITOR & LIVE STATS -->
-            <div class="editor-pane bento-card card-theme-violet">
-              
-              <!-- Toolbar: Modern Minimalist Timer, Auto-Save & Word Gauge -->
-              <div class="editor-top-toolbar">
-                
-                <!-- Left: Timer -->
-                <div class="editor-timer-wrapper">
-                  <div class="timer-chip">
-                    <i class="fa-regular fa-clock" style="color: var(--cyan-light);"></i>
-                    <span class="timer-digits" id="practiceTimerDisplay">20:00</span>
-                  </div>
-                  <button class="btn btn-timer-play" id="practiceTimerToggleBtn" onclick="togglePracticeTimer()" title="Bắt đầu / Tạm dừng đếm giờ">
-                    <i class="fa-solid fa-play"></i> <span>Bắt đầu</span>
-                  </button>
-                  <button class="btn btn-timer-reset" onclick="resetPracticeTimer()" title="Đặt lại 20 phút">
-                    <i class="fa-solid fa-rotate-left"></i>
-                  </button>
-                </div>
-
-                <!-- Center: Auto-Save Status Indicator (Subtle & Clean) -->
-                <div id="practiceAutoSaveStatus" class="editor-autosave-indicator" title="Tiến độ bài viết được tự động lưu liên tục">
-                  <i class="fa-solid fa-cloud-arrow-up" style="color: var(--emerald-light);"></i> <span>Đã bật tự động lưu</span>
-                </div>
-
-                <!-- Right: Word Counter -->
-                <div class="editor-word-count-card">
-                  <span class="word-count-label">Số từ:</span>
-                  <span id="practiceWordCountNum" class="word-count-value word-count-danger">0</span>
-                  <span class="word-count-target">/ 120 từ</span>
-                  <span id="practiceWordCountBadge" class="word-count-status-pill badge-danger">Chưa đủ</span>
-                </div>
-
-              </div>
-
-              <!-- Progress Bar -->
-              <div style="width: 100%; height: 4px; background: rgba(255,255,255,0.06); border-radius: 9999px; margin-bottom: 0.85rem; overflow: hidden;">
-                <div id="practiceWordProgressBar" style="width: 0%; height: 100%; background: var(--danger); transition: width 0.25s ease, background 0.25s ease;"></div>
-              </div>
-
-              <!-- Revision Mode Banner (Hiển thị khi đang sửa lại bài viết) -->
-              <div id="practiceRevisionBanner" style="display: none; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-sm); padding: 0.6rem 0.85rem; margin-bottom: 0.75rem; font-size: 0.85rem; color: var(--text-primary); justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                  <span class="hl-pill hl-violet" style="font-size: 0.75rem; font-weight: 800;"><i class="fa-solid fa-pen-to-square"></i> CHẾ ĐỘ SỬA BÀI</span>
-                  <span id="practiceRevisionText" style="font-size: 0.84rem; color: var(--text-secondary);">Bạn đang sửa lại bài viết. Hãy áp dụng góp ý từ phiếu chấm điểm và bấm Nộp bài để nhận đánh giá mới!</span>
-                </div>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="cancelRevisionMode()" style="font-size: 0.72rem; padding: 0.2rem 0.5rem;">Thoát chế độ sửa</button>
-              </div>
-
-              <!-- Textarea -->
-              <textarea id="practiceWritingTextarea" class="writing-editor-box" placeholder="Bắt đầu viết bài thi tại đây (yêu cầu tối thiểu 120 từ)..." oninput="onPracticeTextareaInput()"></textarea>
-
-              <!-- Actions -->
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; flex-wrap: wrap; gap: 0.75rem;">
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                  <button class="btn btn-secondary" onclick="saveCurrentDraftAction()" title="Lưu nháp thủ công vào trình duyệt">
-                    <i class="fa-solid fa-floppy-disk"></i> Lưu nháp
-                  </button>
-                  <button class="btn btn-secondary" onclick="openProgressBackupModal()" title="Xem tất cả bản nháp & sao lưu tiến độ ra tệp">
-                    <i class="fa-solid fa-box-archive"></i> Sao lưu tiến độ
-                  </button>
-                  <button class="btn btn-secondary" onclick="exportCurrentEditorToWord()" title="Xuất bản nháp đang viết ra tệp Microsoft Word (.doc)">
-                    <i class="fa-solid fa-file-word"></i> Xuất bản thảo (.doc)
-                  </button>
-                  <button class="btn btn-secondary" onclick="clearPracticeTextareaAction()" title="Xóa viết lại">
-                    <i class="fa-solid fa-trash-can"></i> Xóa
-                  </button>
-                </div>
-
-                <button class="btn btn-primary" onclick="submitAndEvaluatePracticeLetter()" style="padding: 0.65rem 1.5rem; font-size: 0.95rem;">
-                  <i class="fa-solid fa-paper-plane" style="margin-right: 0.4rem;"></i> NỘP BÀI & CHẤM ĐIỂM B2
-                </button>
-              </div>
-
+            <div class="dashboard-section-title">
+              <span>Chủ đề gợi ý hôm nay (Có Hướng Dẫn Chi Tiết)</span>
+              <a class="view-all-link" onclick="switchCategory(1)" style="cursor:pointer">Xem tất cả 37 đề &rarr;</a>
             </div>
-
+            <div class="featured-topics-grid" id="featured-topics-container">
+              <!-- Dynamically populated by app.js -->
+            </div>
           </div>
 
-          <!-- Practice Completion Evaluation Result Container -->
-          <div id="practiceCompletionResultContainer" style="display: none; width: 100%; margin: 0 auto;"></div>
+          <!-- Right Column: Recent Activity & Tips -->
+          <div class="dashboard-sidebar">
+            <div class="sidebar-panel">
+              <div class="panel-header">Hoạt động gần đây</div>
+              <ul class="panel-list" id="recent-activity-list">
+                <li class="empty-state">Chưa có bài viết nào được lưu.</li>
+              </ul>
+            </div>
 
+            <div class="sidebar-panel">
+              <div class="panel-header">Tiêu chí chấm VSTEP Writing Task 1</div>
+              <ul class="panel-list" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+                <li><strong style="color: var(--text-primary)">1. Task Fulfillment:</strong> Trả lời đầy đủ tất cả các câu hỏi/yêu cầu trong đề bài, độ dài tối thiểu 120 từ.</li>
+                <li><strong style="color: var(--text-primary)">2. Organization:</strong> Bố cục chuẩn 5 phần của bức thư (Salutation, Opening, Body, Closing, Sign-off), dùng từ nối mạch lạc.</li>
+                <li><strong style="color: var(--text-primary)">3. Vocabulary & Register:</strong> Đúng văn phong (Thân mật với bạn bè / Trang trọng với tổ chức, quản lý) và dùng cụm từ tự nhiên chuẩn B2.</li>
+                <li><strong style="color: var(--text-primary)">4. Grammar & Accuracy:</strong> Đa dạng cấu trúc câu phức, câu ghép, hạn chế sai sót ngữ pháp và chính tả.</li>
+              </ul>
+            </div>
+          </div>
         </div>
-
       </section>
 
-      <!-- ================================================================
-           SCREEN: LÝ THUYẾT TỔNG QUAN (TAB ĐẦU TIÊN BÊN SIDEBAR)
-           ================================================================ -->
-      <section id="screen-overview" class="screen active">
-        
-        <!-- Sticky Top Banner & Sub-Tabs for Overview -->
-        <div class="cat-sticky-header">
-          <div class="cat-banner">
-            <div class="cat-banner-left">
-              <div class="cat-icon-box" style="background: linear-gradient(135deg, #06b6d4 0%, #6366f1 50%, #a855f7 100%);">
-                <i class="fa-solid fa-compass-drafting"></i>
-              </div>
-              <div class="cat-title-text">
-                <h2>LÝ THUYẾT TỔNG QUAN VSTEP WRITING TASK 01 <span style="white-space: nowrap;">(BAND B2)</span></h2>
-              </div>
-            </div>
-            <div class="cat-banner-right">
-              <span class="cat-stat-pill"><i class="fa-solid fa-stopwatch" style="color: var(--cyan-light);"></i> 20 Phút</span>
-              <span class="cat-stat-pill"><i class="fa-solid fa-feather-pointed" style="color: var(--emerald-light);"></i> 120+ Từ</span>
-              <span class="cat-stat-pill"><i class="fa-solid fa-scale-balanced" style="color: var(--amber-light);"></i> 1/3 Điểm Viết</span>
-              <span class="cat-tag-pill">MỤC TIÊU BAND B2</span>
-            </div>
-          </div>
-
-          <!-- Interactive Filter Sub-Tabs for Overview (4 Chuyên đề chia đều) -->
-          <nav class="workflow-tab-bar" id="overviewSubTabNav">
-            <button class="tab-btn active" id="ov-tab-strategy" onclick="switchOverviewSubTab('strategy')">
-              <i class="fa-solid fa-stopwatch"></i> 1. Chiến lược 20p & Bố cục 5 bước
-            </button>
-            <button class="tab-btn" id="ov-tab-criteria" onclick="switchOverviewSubTab('criteria')">
-              <i class="fa-solid fa-award"></i> 2. 4 Tiêu chí chấm VSTEP (25%×4)
-            </button>
-            <button class="tab-btn" id="ov-tab-register" onclick="switchOverviewSubTab('register')">
-              <i class="fa-solid fa-masks-theater"></i> 3. So sánh Văn phong (Informal vs Formal)
-            </button>
-            <button class="tab-btn" id="ov-tab-connectors" onclick="switchOverviewSubTab('connectors')">
-              <i class="fa-solid fa-diagram-project"></i> 4. Chuỗi liên từ & 5 Lỗi chí mạng
-            </button>
-          </nav>
+      <!-- SCREEN 2: CATEGORY VIEW -->
+      <section class="screen" id="screen-category">
+        <div class="category-intro">
+          <p id="category-description">Mô tả dạng thư sẽ hiển thị ở đây.</p>
         </div>
 
-        <!-- Overview Main Bento Dashboard -->
-        <div style="max-width: 1320px; margin: 0 auto; padding: 2rem;">
+        <div class="topics-grid" id="topics-list-container">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="pagination" id="topics-pagination">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- SCREEN 3: WRITING WORKSPACE -->
+      <section class="screen" id="screen-workspace" style="padding: 0; overflow: hidden;">
+        <div class="workspace-layout" id="workspace-grid">
           
-          <!-- 4 KPI Highlight Cards Row -->
-          <div class="analysis-quad-grid" style="margin-top: 0; margin-bottom: 1.5rem;" id="ov-section-kpi">
-            <div class="analysis-step-item step-cyan">
-              <div class="analysis-step-top">
-                <div class="num"><i class="fa-solid fa-clock"></i></div>
-                <span class="hl-pill hl-cyan">Thời lượng chuẩn</span>
+          <!-- CENTER PANE: WIZARD 4-STEP CONTAINER -->
+          <div class="workspace-pane editor-pane">
+            <!-- Header for Topic Title & Category -->
+            <div class="resources-header" style="border-bottom: 1px solid var(--panel-border); padding: 1rem 1.5rem; background-color: var(--bg-secondary);">
+              <div class="topic-header-meta">
+                <span id="workspace-topic-category" class="category-tag tag-adv">Category</span>
+                <span id="workspace-enrichment-badge" class="detail-badge">★ Có hướng dẫn B2</span>
               </div>
-              <div class="label" style="font-size: 1.15rem;">20 Phút / 60 Phút</div>
-              <div class="val">Chia theo công thức vàng <strong style="color: var(--cyan-light);">3p - 14p - 3p</strong> (Phân tích đề ➔ Viết 5 bước ➔ Soát lỗi).</div>
+              <div class="topic-header-title" id="workspace-topic-title" style="font-size: 1.25rem; margin-top: 0.25rem;">Topic Title Here</div>
             </div>
 
-            <div class="analysis-step-item step-emerald">
-              <div class="analysis-step-top">
-                <div class="num"><i class="fa-solid fa-pen-ruler"></i></div>
-                <span class="hl-pill hl-emerald">Độ dài an toàn</span>
+            <!-- Step Indicator Header (4 Steps) -->
+            <div class="workspace-step-header" id="workspace-step-header-tabs">
+              <div class="step-tab active" id="step-tab-read" onclick="switchStep('read')">
+                <span class="step-num">1</span>
+                <span class="step-label">BƯỚC 01: ĐỌC HIỂU ĐỀ</span>
               </div>
-              <div class="label" style="font-size: 1.15rem;">135 – 165 Từ</div>
-              <div class="val">Yêu cầu tối thiểu <strong style="color: var(--emerald-light);">120 từ</strong>. Viết dưới 100 từ sẽ bị trừ nặng điểm Task Fulfillment.</div>
-            </div>
-
-            <div class="analysis-step-item step-amber">
-              <div class="analysis-step-top">
-                <div class="num"><i class="fa-solid fa-sitemap"></i></div>
-                <span class="hl-pill hl-amber">Cấu trúc chuẩn</span>
+              <div class="step-tab" id="step-tab-trans" onclick="switchStep('trans')">
+                <span class="step-num">2</span>
+                <span class="step-label">BƯỚC 02: TẬP DIỄN ĐẠT Ý TƯỞNG</span>
               </div>
-              <div class="label" style="font-size: 1.15rem;">4 Câu hỏi & 5 Bước</div>
-              <div class="val">Luôn trả lời <strong style="color: var(--amber-light);">4 câu hỏi phân tích đề</strong> và viết theo <strong style="color: var(--amber-light);">Bố cục 5 phần chuẩn B2</strong>.</div>
-            </div>
-
-            <div class="analysis-step-item step-rose">
-              <div class="analysis-step-top">
-                <div class="num"><i class="fa-solid fa-trophy"></i></div>
-                <span class="hl-pill hl-rose">Trọng số điểm</span>
+              <div class="step-tab" id="step-tab-write" onclick="switchStep('write')">
+                <span class="step-num">3</span>
+                <span class="step-label">BƯỚC 03: VIẾT BÀI THƯ</span>
               </div>
-              <div class="label" style="font-size: 1.15rem;">1/3 Tổng Điểm Viết</div>
-              <div class="val">Task 01 là phần dễ lấy điểm <strong style="color: var(--rose-light);">7.0 - 8.5 nhất</strong> để kéo điểm toàn bài thi Writing lên chuẩn B2.</div>
-            </div>
-          </div>
-
-          <div class="bento-grid">
-
-            <!-- MODULE 1A: CHIẾN LƯỢC 20 PHÚT (3 - 14 - 3) -->
-            <div class="bento-card card-theme-cyan ov-module" data-ov-group="strategy" style="grid-column: span 7;">
-              <div class="bento-card-header">
-                <div class="bento-header-left">
-                  <div class="bento-icon-badge badge-cyan"><i class="fa-solid fa-stopwatch"></i></div>
-                  <div>
-                    <h3>CHIẾN LƯỢC PHÂN BỔ 20 PHÚT VÀNG (CÔNG THỨC 3 - 14 - 3)</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Kiểm soát từng phút trong phòng thi để không bao giờ thiếu giờ cho Task 02:</p>
-                  </div>
-                </div>
-                <span class="hl-pill hl-cyan">3 Giai đoạn</span>
-              </div>
-
-              <!-- Visual Segmented Bar -->
-              <div style="display: flex; height: 28px; border-radius: 9999px; overflow: hidden; margin-bottom: 1.15rem; border: 1px solid var(--panel-border); font-size: 0.75rem; font-weight: 800; color: #fff;">
-                <div style="width: 18%; background: linear-gradient(90deg, #06b6d4, #2563eb); display: flex; align-items: center; justify-content: center;" title="3 Phút đầu">3p (15%)</div>
-                <div style="width: 64%; background: linear-gradient(90deg, #6366f1, #a855f7); display: flex; align-items: center; justify-content: center;" title="14 Phút viết bài">14 Phút Viết Thư 5 Bước (70%)</div>
-                <div style="width: 18%; background: linear-gradient(90deg, #10b981, #059669); display: flex; align-items: center; justify-content: center;" title="3 Phút cuối">3p (15%)</div>
-              </div>
-
-              <div id="overview-time-strategy-container" style="display: flex; flex-direction: column; gap: 0.85rem;"></div>
-            </div>
-
-            <!-- MODULE 1B: GIẢI PHẪU BỨC THƯ 5 BƯỚC & 4 CÂU HỎI PHÂN TÍCH -->
-            <div class="bento-card card-theme-violet ov-module" data-ov-group="strategy" style="grid-column: span 5;">
-              <div class="bento-card-header">
-                <div class="bento-header-left">
-                  <div class="bento-icon-badge"><i class="fa-solid fa-layer-group"></i></div>
-                  <div>
-                    <h3>GIẢI PHẪU BỨC THƯ CHUẨN 5 BƯỚC</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Bố cục 5 phần chuẩn mực cho bài thi VSTEP Task 01:</p>
-                  </div>
-                </div>
-                <span class="hl-pill hl-violet">5 Phần chuẩn</span>
-              </div>
-
-              <!-- 5-Step Anatomy Diagram -->
-              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                <div style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.14), var(--bg-inner)); border: 1px solid var(--cyan-border); border-left: 4px solid var(--cyan-light); border-radius: var(--radius-md); padding: 0.7rem 0.95rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <strong style="color: var(--cyan-light); font-size: 0.86rem;">1. LỜI CHÀO MỞ ĐẦU (Salutation)</strong>
-                    <span class="hl-pill hl-cyan">1 dòng</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-primary); margin-top: 0.2rem;">
-                    <code>Dear [Tên],</code> <em>(Thân mật)</em> | <code>Dear Sir/Madam,</code> <em>(Trang trọng)</em>
-                  </div>
-                </div>
-
-                <div style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.14), var(--bg-inner)); border: 1px solid var(--violet-border); border-left: 4px solid var(--violet-light); border-radius: var(--radius-md); padding: 0.7rem 0.95rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <strong style="color: var(--violet-light); font-size: 0.86rem;">2. MỞ THƯ (Opening Paragraph)</strong>
-                    <span class="hl-pill hl-violet">2 - 3 câu</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.2rem;">
-                    Hỏi thăm sức khỏe (nếu thân mật) + Nêu rõ lý do/mục đích viết bức thư.
-                  </div>
-                </div>
-
-                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), var(--bg-inner)); border: 1px solid var(--emerald-border); border-left: 4px solid var(--emerald-light); border-radius: var(--radius-md); padding: 0.85rem 0.95rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <strong style="color: var(--emerald-light); font-size: 0.86rem;">3. THÂN THƯ (Body Paragraphs)</strong>
-                    <span class="hl-pill hl-emerald">Trọng tâm 80 - 110 từ</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.25rem; line-height: 1.5;">
-                    Giải quyết lần lượt <strong>3 – 4 yêu cầu của đề</strong> bằng cách kết hợp:<br>
-                    <span class="hl-mark-connector" style="font-size: 0.75rem;">Chuỗi liên từ nối ý</span> + <span class="hl-mark-structure" style="font-size: 0.75rem;">Cấu trúc câu B2</span>
-                  </div>
-                </div>
-
-                <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.14), var(--bg-inner)); border: 1px solid var(--amber-border); border-left: 4px solid var(--amber-light); border-radius: var(--radius-md); padding: 0.7rem 0.95rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <strong style="color: var(--amber-light); font-size: 0.86rem;">4. KẾT THƯ (Closing Sentence)</strong>
-                    <span class="hl-pill hl-amber">1 - 2 câu</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.2rem;">
-                    Bày tỏ thiện chí giúp đỡ, cảm ơn và mong sớm nhận được hồi âm.
-                  </div>
-                </div>
-
-                <div style="background: linear-gradient(135deg, rgba(244, 63, 94, 0.14), var(--bg-inner)); border: 1px solid var(--rose-border); border-left: 4px solid var(--rose-light); border-radius: var(--radius-md); padding: 0.7rem 0.95rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <strong style="color: var(--rose-light); font-size: 0.86rem;">5. LỜI CHÀO KẾT THÚC (Sign-off)</strong>
-                    <span class="hl-pill hl-rose">Không ký tên thật!</span>
-                  </div>
-                  <div style="font-size: 0.82rem; color: var(--text-primary); margin-top: 0.2rem;">
-                    <code>Best wishes,</code> | <code>Yours sincerely,</code> | <code>Yours faithfully,</code>
-                  </div>
-                </div>
+              <div class="step-tab" id="step-tab-model" onclick="switchStep('model')">
+                <span class="step-num">4</span>
+                <span class="step-label">BƯỚC 04: THAM KHẢO BÀI THƯ MẪU</span>
               </div>
             </div>
 
-            <!-- MODULE 2: 4 TIÊU CHÍ ĐÁNH GIÁ VSTEP (25% × 4) -->
-            <div class="bento-card card-theme-amber ov-module" data-ov-group="criteria" style="grid-column: span 12; display: none;">
-              <div class="bento-card-header">
-                <div class="bento-header-left">
-                  <div class="bento-icon-badge badge-amber"><i class="fa-solid fa-scale-balanced"></i></div>
-                  <div>
-                    <h3>4 TIÊU CHÍ CHẤM ĐIỂM CHÍNH THỨC CỦA BỘ GD&ĐT (MỖI TIÊU CHÍ CHIẾM 25%)</h3>
-                    <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Hiểu rõ giám khảo chấm gì để tối ưu từng câu chữ đạt chuẩn Band B2 (6.5 – 8.0+):</p>
-                  </div>
-                </div>
-                <span class="hl-pill hl-amber"><i class="fa-solid fa-award"></i> VSTEP Rubric</span>
-              </div>
-              <div class="formulas-grid-2col" id="overview-criteria-container"></div>
-            </div>
-
-            <!-- MODULE 3: BẢNG ĐỐI CHIẾU VĂN PHONG THÂN MẬT VS TRANG TRỌNG -->
-            <div class="bento-card card-theme-emerald ov-module" data-ov-group="register" style="grid-column: span 12; display: none;">
-              <div class="bento-card-header">
-                <div class="bento-header-left">
-                  <div class="bento-icon-badge badge-emerald"><i class="fa-solid fa-masks-theater"></i></div>
-                  <div>
-                    <h3>ĐỐI CHIẾU VĂN PHONG: THÂN MẬT (INFORMAL) VS TRANG TRỌNG (FORMAL)</h3>
-                    <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Quy tắc sống còn: Tuyệt đối không nhầm lẫn lời chào và cách viết tắt giữa 2 văn phong này!</p>
-                  </div>
-                </div>
-                <div style="display: flex; gap: 0.4rem;">
-                  <span class="hl-pill hl-cyan">Informal: Bạn bè</span>
-                  <span class="hl-pill hl-violet">Formal: Tổ chức/Quản lý</span>
-                </div>
-              </div>
-
-              <div style="overflow-x: auto; background: var(--bg-inner); border: 1px solid var(--panel-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left;">
-                  <thead>
-                    <tr style="background: var(--bg-card); border-bottom: 2px solid var(--panel-border);">
-                      <th style="padding: 1rem 1.25rem; width: 22%; color: var(--amber-light); font-weight: 800;"><i class="fa-solid fa-sliders"></i> TIÊU CHÍ SO SÁNH</th>
-                      <th style="padding: 1rem 1.25rem; width: 39%; color: var(--cyan-light); font-weight: 800;"><i class="fa-solid fa-face-smile"></i> THƯ THÂN MẬT (INFORMAL)</th>
-                      <th style="padding: 1rem 1.25rem; width: 39%; color: var(--violet-light); font-weight: 800;"><i class="fa-solid fa-user-tie"></i> THƯ TRANG TRỌNG (FORMAL / SEMI-FORMAL)</th>
-                    </tr>
-                  </thead>
-                  <tbody id="overview-register-tbody"></tbody>
-                </table>
+            <!-- STEP 1 CONTENT: ĐỌC HIỂU ĐỀ, CHỌN Ý TƯỞNG B2, DÀN Ý & TỪ VỰNG -->
+            <div class="workspace-step-content active" id="workspace-step1-container">
+              <div class="step1-reading-view" id="ws-step1-reading-content">
+                <!-- Populated by JS -->
               </div>
             </div>
 
-            <!-- MODULE 4A: BỘ CHUỖI LIÊN TỪ CHUẨN B2 -->
-            <div class="bento-card card-theme-cyan ov-module" data-ov-group="connectors" style="grid-column: span 6; display: none;">
-              <div class="bento-card-header">
-                <div class="bento-header-left">
-                  <div class="bento-icon-badge badge-cyan"><i class="fa-solid fa-route"></i></div>
-                  <div>
-                    <h3>3 CHUỖI LIÊN TỪ NỐI Ý CHUẨN BAND B2</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Học thuộc 3 chuỗi này để lắp ghép tự động vào mọi đề thi:</p>
+            <!-- STEP 2 CONTENT: TRANSLATION EXERCISES (5 PARTS OF A LETTER) -->
+            <div class="workspace-step-content" id="workspace-step2-container">
+              <div class="editor-header">
+                <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                  <div style="font-size: 0.9rem; color: var(--text-secondary);">
+                    Hoàn thành dịch từng phần của bức thư dựa trên từ vựng và cấu trúc gợi ý bên dưới.
+                  </div>
+                  <div class="outline-level-selector" style="margin-bottom: 0; width: 320px;">
+                    <div class="level-pill active" id="trans-pill-b2" style="cursor: default;">📕 LUYỆN TẬP DIỄN ĐẠT Ý TƯỞNG B2</div>
                   </div>
                 </div>
-                <span class="hl-pill hl-emerald">Ăn điểm Organization</span>
+                <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+                  <button class="btn btn-secondary" onclick="clearProgressAction()" title="Xóa toàn bộ nội dung đang làm để viết lại từ đầu" style="border-color: var(--danger); color: var(--danger);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
+                      <polyline points="3 6 5 6 21 6"></polyline>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    XÓA BẢN NHÁP
+                  </button>
+                  <button class="btn btn-secondary" onclick="saveProgressAction()" title="Sao lưu toàn bộ các câu đã dịch và bài viết hiện tại" style="border-color: var(--accent-primary); color: var(--accent-primary);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
+                      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                      <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                      <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                    SAO LƯU TIẾN ĐỘ
+                  </button>
+                  <button class="btn btn-success" onclick="assembleSentencesToStep3()" title="Tự động ghép các câu bạn vừa viết ở Bước 2 thành bức thư hoàn chỉnh ở Bước 3">
+                    ✨ GHÉP BÀI SANG BƯỚC 3 &rsaquo;
+                  </button>
+                  <button class="btn btn-primary" onclick="switchStep('write')">
+                    VIẾT BÀI &rsaquo;
+                  </button>
+                </div>
               </div>
-              <div id="overview-connectors-container" style="display: flex; flex-direction: column; gap: 1rem;"></div>
+              <div class="translation-exercises-list" id="ws-translation-list">
+                <!-- Populated by JS -->
+              </div>
             </div>
 
-            <!-- MODULE 4B: 5 LỖI SAI CHÍ MẠNG CẦN TRÁNH -->
-            <div class="bento-card card-theme-amber ov-module" data-ov-group="connectors" style="grid-column: span 6; display: none;">
-              <div class="bento-card-header">
-                <div class="bento-header-left">
-                  <div class="bento-icon-badge" style="background: linear-gradient(135deg, #f43f5e, #e11d48);"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                  <div>
-                    <h3>5 LỖI SAI CHÍ MẠNG KHIẾN RỚT ĐIỂM BAND B2</h3>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Những cạm bẫy phổ biến nhất mà học viên cần tuyệt đối tránh:</p>
+            <!-- STEP 3 CONTENT: WRITING EDITOR (TIMED 20 MINS, MIN 120 WORDS) -->
+            <div class="workspace-step-content" id="workspace-step3-container">
+              <div id="step3-editor-view" style="display: flex; flex-direction: column; height: 100%; width: 100%;">
+                <div class="editor-header">
+                <div class="timer-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--warning)">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span class="timer-display" id="timer-display">20:00</span>
+                  <button class="timer-btn" id="timer-toggle-btn" onclick="toggleTimer()" title="Bắt đầu / Tạm dừng">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                  </button>
+                  <button class="timer-btn" onclick="resetTimer()" title="Đặt lại 20 phút">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                      <path d="M3 3v5h5"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="editor-actions">
+                  <button class="btn btn-secondary" onclick="clearProgressAction()" title="Xóa bài viết và bản nháp hiện tại" style="border-color: var(--danger); color: var(--danger);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="3 6 5 6 21 6"></polyline>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    XÓA NHÁP
+                  </button>
+                  <button class="btn btn-secondary" onclick="saveProgressAction()" title="Sao lưu tiến độ bài viết hiện tại" style="border-color: var(--accent-primary); color: var(--accent-primary);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                      <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                      <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                    SAO LƯU TIẾN ĐỘ
+                  </button>
+                  <button class="btn btn-secondary" onclick="copyEssay()" title="Sao chép bài viết">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Sao chép
+                  </button>
+                  <button class="btn btn-secondary" onclick="downloadCurrentEssayAction()" title="Tải bài viết về máy (.doc)" style="border-color: #10b981; color: #10b981;">
+                    📥 TẢI BÀI VỀ
+                  </button>
+                  <button class="btn btn-primary" onclick="submitEssay()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Nộp Bài chấm điểm
+                  </button>
+                  <button class="btn btn-secondary" onclick="exitExamMode()" title="Thoát khỏi chế độ phòng thi để xem lại đề và gợi ý" style="border-color: #f59e0b; color: #f59e0b;">
+                    🚪 THOÁT PHÒNG THI
+                  </button>
+                </div>
+              </div>
+
+              <div class="textarea-container">
+                <textarea 
+                  class="writing-textarea" 
+                  id="essay-textarea" 
+                  placeholder="Hãy bắt đầu viết bức thư của bạn tại đây (Dear ...,). Lưu ý trả lời đầy đủ các yêu cầu trong đề bài và đạt tối thiểu 120 từ (Mục tiêu VSTEP B2: 140 - 180 từ)..."
+                  oninput="handleTextareaInput()"
+                  onpaste="handleEditorPaste(event)"
+                  oncopy="handleEditorCopyCut(event)"
+                  oncut="handleEditorCopyCut(event)"
+                  ondrop="handleEditorDrop(event)"
+                  oncontextmenu="handleEditorContextMenu(event)"
+                ></textarea>
+              </div>
+
+              <div class="editor-status-bar">
+                <div class="word-count-widget">
+                  <span>Số từ: <strong id="words-typed" style="color: var(--text-primary)">0</strong> / tối thiểu 120 từ</span>
+                  <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="word-progress-bar"></div>
                   </div>
                 </div>
-                <span class="hl-pill hl-rose">Cảnh báo đỏ</span>
-              </div>
-              <div id="overview-pitfalls-container" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
-            </div>
-
-            <!-- QUICK LAUNCH TO 2 LETTER TYPES -->
-            <div class="bento-card card-theme-violet" style="grid-column: span 12;">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
                 <div>
-                  <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--text-primary); margin: 0;">
-                    <i class="fa-solid fa-rocket" style="color: var(--amber-light); margin-right: 0.4rem;"></i>
-                    BẮT ĐẦU HỌC & LUYỆN VIẾT 2 CHUYÊN ĐỀ TRỌNG TÂM NGAY
-                  </h3>
-                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.2rem 0 0 0;">
-                    Chọn một trong 2 dạng thư dưới đây để vào quy trình 5 bước: Lý thuyết ➔ Dàn ý chung ➔ Bài mẫu ➔ Thực hành viết ➔ Trả bài:
-                  </p>
+                  <span id="char-count">0 ký tự</span>
                 </div>
               </div>
+              </div>
+              <!-- VSTEP Evaluation Result View (Hidden by Default) -->
+              <div id="step3-evaluation-view" style="display: none; height: 100%; overflow-y: auto; padding: 1.5rem;"></div>
+            </div>
 
-              <div class="formulas-grid-2col">
-                <div class="analysis-step-item step-cyan" style="cursor: pointer; padding: 1.25rem 1.4rem;" onclick="selectCategory('advice')">
-                  <div class="analysis-step-top">
-                    <span class="step-badge-3d step-badge-cyan"><i class="fa-solid fa-lightbulb"></i> TYPE 01 • ADVICE</span>
-                    <span class="hl-pill hl-cyan">Thư thân mật (Informal)</span>
-                  </div>
-                  <div class="label" style="font-size: 1.1rem; margin-top: 0.25rem;">1. Thư cho lời khuyên hoặc gợi ý (Letter of Advice / Suggestions)</div>
-                  <div class="val">Tích hợp 8 cấu trúc khuyên B2 + Chuỗi liên từ <em>First of all, when it comes to... ➔ As for... ➔ Regarding... ➔ Last but not least...</em></div>
-                  <div style="margin-top: 0.5rem;">
-                    <span class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i> Vào học Chuyên đề 1 ngay</span>
-                  </div>
+            <!-- STEP 4 CONTENT: MODEL LETTER (BÀI THƯ MẪU B2) -->
+            <div class="workspace-step-content" id="workspace-step4-container">
+              <div class="editor-header" style="justify-content: space-between;">
+                <div class="sample-essay-selector" style="margin-bottom: 0; width: 300px;">
+                  <div class="sample-pill active" id="step4-pill-b2" style="cursor: default;">📕 BÀI THƯ MẪU CHUẨN B2</div>
                 </div>
-
-                <div class="analysis-step-item step-emerald" style="cursor: pointer; padding: 1.25rem 1.4rem;" onclick="selectCategory('request')">
-                  <div class="analysis-step-top">
-                    <span class="step-badge-3d step-badge-violet"><i class="fa-solid fa-envelope-open-text"></i> TYPE 02 • REQUEST</span>
-                    <span class="hl-pill hl-violet">Informal & Formal</span>
-                  </div>
-                  <div class="label" style="font-size: 1.1rem; margin-top: 0.25rem;">2. Thư yêu cầu / xin thông tin (Letter of Request)</div>
-                  <div class="val">Phân nhánh rõ rệt công thức Thân mật vs Trang trọng + Bộ cấu trúc hỏi thông tin lịch sự chuẩn Band B2.</div>
-                  <div style="margin-top: 0.5rem;">
-                    <span class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i> Vào học Chuyên đề 2 ngay</span>
-                  </div>
-                </div>
+                <button class="btn btn-secondary" onclick="openComparisonModal()">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <path d="M12 3v18"></path>
+                  </svg>
+                  So sánh bài viết
+                </button>
+              </div>
+              <div class="model-essay-step-content" id="ws-model-step-view">
+                <!-- Populated by JS -->
               </div>
             </div>
 
           </div>
 
+          <!-- RIGHT PANE: AI FEEDBACK & MODEL ANSWER (Hidden until submitted) -->
+          <div class="workspace-pane analysis-pane">
+            <div class="analysis-header">
+              <h3 style="font-family: var(--font-display); font-size: 1rem;">Kết quả Đánh giá Bài thư</h3>
+            </div>
+            
+            <div class="analysis-tabs">
+              <button class="analysis-tab-btn active" onclick="switchAnalysisTab('score')">Chấm điểm</button>
+              <button class="analysis-tab-btn" onclick="switchAnalysisTab('sample')">Bài thư mẫu</button>
+            </div>
+
+            <div class="analysis-content">
+              <!-- Tab 1: Score & Checklist -->
+              <div class="analysis-section active" id="ans-score">
+                <div class="score-circle-wrapper">
+                  <div class="score-circle">
+                    <span class="score-num" id="eval-score">0.0</span>
+                    <span class="score-scale">Thang 10</span>
+                  </div>
+                  <div class="score-feedback" id="eval-title">Đang chấm...</div>
+                </div>
+
+                <div class="grade-details-list" id="eval-details-list">
+                  <!-- Populated by JS -->
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                  <h5 style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;">Từ vựng mục tiêu đã dùng:</h5>
+                  <div class="vocab-match-list" id="eval-vocab-matches">
+                    <!-- Populated by JS -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 2: Sample Letter & Comparison -->
+              <div class="analysis-section" id="ans-sample">
+                <div id="ws-sample-section">
+                  <div class="sample-essay-selector">
+                    <div class="sample-pill active" id="sample-pill-b2" style="cursor: default;">Bài thư mẫu B2</div>
+                  </div>
+                  <div class="sample-essay-text" id="ws-sample-text">
+                    <!-- Populated by JS -->
+                  </div>
+                  <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem; justify-content: center;" onclick="openComparisonModal()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                      <path d="M12 3v18"></path>
+                    </svg>
+                    Mở chế độ So sánh Song song
+                  </button>
+                </div>
+                <div id="ws-no-sample" class="empty-state" style="display: none;">
+                  Chủ đề này hiện chưa có bài mẫu. Bạn hãy đối chiếu với khung dàn ý 5 bước chuẩn B2 ở Bước 1 nhé!
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <!-- ================================================================
-           SCREEN: TẤT CẢ BÀI ĐÃ NỘP & BẢN NHÁP
-           ================================================================ -->
-      <section id="screen-all-submissions" class="screen">
-        <div style="max-width: 1050px; margin: 0 auto; padding: 2rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--panel-border);">
-            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-primary);">
-              <i class="fa-solid fa-clipboard-check" style="color: var(--accent-primary);"></i>
-              DANH SÁCH BÀI VIẾT ĐÃ TRẢ & ĐÁNH GIÁ
-            </h2>
-            <button class="btn btn-secondary btn-sm" onclick="exportSubmissionsHistoryAction()">
-              <i class="fa-solid fa-download"></i> Xuất dữ liệu JSON
-            </button>
-          </div>
-          <div id="allSubmissionsListContainer"></div>
+      <!-- SCREEN 4: WRITING HISTORY -->
+      <section class="screen" id="screen-history">
+        <div class="category-intro">
+          <p>Lưu trữ toàn bộ lịch sử các bức thư bạn đã viết trên trình duyệt này. Bạn có thể xem lại để theo dõi sự tiến bộ của bản thân.</p>
+        </div>
+
+        <div class="history-table-container">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Ngày viết</th>
+                <th>Chủ đề</th>
+                <th>Dạng thư</th>
+                <th>Số từ</th>
+                <th>Điểm số</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="history-table-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
         </div>
       </section>
 
-      <section id="screen-all-drafts" class="screen">
-        <div style="max-width: 1050px; margin: 0 auto; padding: 2rem;">
-          <div style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--panel-border);">
-            <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-primary);">
-              <i class="fa-solid fa-floppy-disk" style="color: var(--accent-primary);"></i>
-              DANH SÁCH BẢN NHÁP ĐÃ LƯU
-            </h2>
-          </div>
-          <div id="allDraftsListContainer"></div>
+      <!-- SCREEN 5: SAVED DRAFTS -->
+      <section class="screen" id="screen-drafts">
+        <div class="category-intro">
+          <p>Danh sách các bài viết và phần luyện dịch câu bạn đã sao lưu hoặc hệ thống tự động lưu nháp. Nhấn <strong>Tiếp tục làm bài</strong> để khôi phục ngay bài đang viết dở.</p>
+        </div>
+
+        <div class="history-table-container">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Cập nhật lần cuối</th>
+                <th>Chủ đề</th>
+                <th>Dạng thư</th>
+                <th>Tiến độ đã lưu</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="drafts-table-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
         </div>
       </section>
 
     </main>
   </div>
 
-  <!-- Student Profile Modal -->
-  <div class="modal-overlay" id="studentProfileModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center;">
-    <div style="background: var(--bg-card); border: 1px solid var(--panel-border); border-radius: var(--radius-xl); padding: 2rem; max-width: 450px; width: 90%;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary);"><i class="fa-solid fa-user-graduate" style="color: var(--accent-primary);"></i> THÔNG TIN HỌC VIÊN</h3>
-        <button onclick="closeStudentModal()" style="background: transparent; border: none; font-size: 1.25rem; color: var(--text-muted); cursor: pointer;">✕</button>
+  <!-- COMPARISON MODAL OVERLAY -->
+  <div class="modal-overlay" id="comparison-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">So Sánh Bài Thư Của Bạn & Bài Thư Mẫu B2</div>
+        <button class="modal-close" onclick="closeComparisonModal()">&times;</button>
       </div>
-      <div style="margin-bottom: 1rem;">
-        <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.35rem;">Họ và tên:</label>
-        <input type="text" id="modalStudentNameInput" style="width: 100%; padding: 0.6rem 0.85rem; background: var(--bg-inner); border: 1px solid var(--panel-border); border-radius: var(--radius-md); color: var(--text-primary); font-size: 0.95rem;">
-      </div>
-      <div style="margin-bottom: 1.5rem;">
-        <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.35rem;">Mục tiêu / Lớp học:</label>
-        <input type="text" id="modalStudentClassInput" placeholder="Nhập mã lớp học..." style="width: 100%; padding: 0.6rem 0.85rem; background: var(--bg-inner); border: 1px solid var(--panel-border); border-radius: var(--radius-md); color: var(--text-primary); font-size: 0.95rem;">
-      </div>
-      <div style="display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-        <button class="btn btn-secondary" onclick="reopenLoginModal()" style="margin-right: auto; font-size: 0.85rem; color: var(--accent-primary); border-color: rgba(99, 102, 241, 0.4);">
-          <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập lại
-        </button>
-        <button class="btn btn-secondary" onclick="closeStudentModal()">Hủy</button>
-        <button class="btn btn-primary" onclick="saveStudentModalProfile()">Lưu lại</button>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Hãy đặt bài viết của bạn cạnh bài mẫu để phân tích cách mở thư, nối ý, chọn từ vựng theo văn phong (Informal / Formal) và phát triển câu phức chuẩn B2.
+        </p>
+        <div class="comparison-container">
+          <div class="comparison-box">
+            <h5>Bài viết của bạn (<span id="comp-user-words">0</span> từ)</h5>
+            <div class="comparison-text" id="comp-user-text"></div>
+          </div>
+          <div class="comparison-box">
+            <h5>Bài thư mẫu (<span id="comp-sample-level">B2</span>)</h5>
+            <div class="comparison-text" id="comp-sample-text" style="border-color: var(--accent-primary);"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Practice Ideas Modal (Xem toàn bộ Gợi ý chi tiết từng đề theo chuẩn B2) -->
-  <div class="modal-overlay" id="practiceIdeasModalOverlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.78); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center;">
-    <div style="background: var(--bg-card); border: 1px solid var(--panel-border); border-radius: var(--radius-xl); max-width: 960px; width: 92%; max-height: 90vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-xl);">
-      
-      <!-- Modal Header -->
-      <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--panel-border); display: flex; justify-content: space-between; align-items: center; background: var(--bg-inner);">
-        <div>
-          <h3 id="practiceIdeasModalTitle" style="font-size: 1.15rem; font-weight: 900; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
-            <i class="fa-solid fa-lightbulb" style="color: var(--amber-light);"></i>
-            GỢI Ý Ý TƯỞNG & CÂU MỞ RỘNG (BAND B2)
-          </h3>
-          <p id="practiceIdeasModalSub" style="font-size: 0.82rem; color: var(--text-secondary); margin: 0.2rem 0 0 0;">
-            Triển khai chi tiết cho đề thi này: Ý chính (Action) ➔ Lý do (Reason) ➔ Câu mở rộng 1 & 2 (Expansion).
-          </p>
-        </div>
-        <button onclick="closePracticeIdeasModal()" style="background: transparent; border: none; font-size: 1.35rem; color: var(--text-muted); cursor: pointer; padding: 0.25rem 0.5rem;" title="Đóng">✕</button>
+  <!-- ANTI-CHEAT WARNING MODAL -->
+  <div id="cheat-warning-modal" class="cheat-modal-overlay">
+    <div class="cheat-modal-content">
+      <div class="cheat-modal-icon">🚨</div>
+      <h3 style="color: #ef4444; font-size: 1.35rem; margin-bottom: 0.75rem;">CẢNH BÁO VI PHẠM QUY CHẾ PHÒNG THI!</h3>
+      <p id="cheat-modal-message" style="color: var(--text-primary); font-size: 0.98rem; line-height: 1.6; margin-bottom: 1rem;">
+        Hệ thống phát hiện bạn vừa rời khỏi màn hình làm bài ở Bước 3.
+      </p>
+      <div class="cheat-warning-badge">
+        Số lần vi phạm: <span id="cheat-strike-count">1</span> / 2
       </div>
-
-      <!-- Modal Body -->
-      <div id="practiceIdeasModalBody" style="flex-grow: 1; overflow-y: auto; padding: 1.5rem; background: var(--bg-inner);">
-        <!-- Loaded dynamically for the active practice topic -->
-      </div>
-
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.5;">
+        ⚠️ <strong>Lưu ý:</strong> Trong chế độ <strong>Bước 3: Viết bài</strong>, hành vi <strong>Copy / Paste</strong> bị vô hiệu hóa hoàn toàn. Nếu bạn chuyển tab hoặc rời màn hình quá <strong>2 lần</strong>, hệ thống sẽ tự động <strong>XÓA TRẮNG</strong> bài viết hiện tại để đảm bảo tính trung thực!
+      </p>
+      <button class="btn btn-primary" onclick="acknowledgeCheatWarning()" style="width: 100%; justify-content: center; background: #ef4444; border: none; padding: 0.75rem; font-weight: 700;">
+        TÔI ĐÃ HIỂU & QUAY LẠI LÀM BÀI
+      </button>
     </div>
   </div>
 
-  <!-- Category Topics Modal (Danh sách toàn bộ đề thi của riêng Dạng thư đang chọn) -->
-  <div class="modal-overlay" id="categoryTopicsModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center;">
-    <div style="background: var(--bg-card); border: 1px solid var(--panel-border); border-radius: var(--radius-xl); max-width: 900px; width: 92%; max-height: 88vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-xl);">
-      
-      <!-- Modal Header -->
-      <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--panel-border); display: flex; justify-content: space-between; align-items: center; background: var(--bg-inner);">
-        <div>
-          <h3 id="categoryTopicsModalTitle" style="font-size: 1.15rem; font-weight: 900; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
-            <i class="fa-solid fa-folder-open" style="color: var(--cyan-light);"></i>
-            DANH SÁCH ĐỀ THI
-          </h3>
-          <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0.2rem 0 0 0;">
-            Toàn bộ các đề thi thực hành từ Phòng Viết Thư dành riêng cho dạng thư này. Bấm chọn đề để bắt đầu viết bài thi.
-          </p>
-        </div>
-        <button onclick="closeCategoryTopicsModal()" style="background: transparent; border: none; font-size: 1.35rem; color: var(--text-muted); cursor: pointer; padding: 0.25rem 0.5rem;" title="Đóng">✕</button>
-      </div>
-
-      <!-- Topic Cards Grid -->
-      <div id="categoryTopicsModalGrid" style="flex-grow: 1; overflow-y: auto; padding: 1.25rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1rem; background: var(--bg-inner);">
-        <!-- Loaded dynamically for the active category -->
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Modal Sao Lưu Tiến Độ & Quản Lý Bản Nháp -->
-  <div class="modal-overlay" id="progressBackupModalOverlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.78); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center;">
-    <div style="background: var(--bg-card); border: 1px solid var(--panel-border); border-radius: var(--radius-xl); max-width: 920px; width: 92%; max-height: 88vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-xl);">
-      
-      <!-- Modal Header -->
-      <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--panel-border); display: flex; justify-content: space-between; align-items: center; background: var(--bg-inner);">
-        <div>
-          <h3 style="font-size: 1.15rem; font-weight: 900; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 0.5rem;">
-            <i class="fa-solid fa-box-archive" style="color: var(--amber-light);"></i>
-            SAO LƯU TIẾN ĐỘ & QUẢN LÝ BẢN NHÁP
-          </h3>
-          <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0.2rem 0 0 0;">
-            Hệ thống tự động lưu trữ bài viết liên tục. Bạn có thể tải tệp sao lưu về máy để không bao giờ bị mất bài.
-          </p>
-        </div>
-        <button onclick="closeProgressBackupModal()" style="background: transparent; border: none; font-size: 1.35rem; color: var(--text-muted); cursor: pointer; padding: 0.25rem 0.5rem;" title="Đóng">✕</button>
-      </div>
-
-      <!-- Quick Action Toolbar -->
-      <div style="padding: 0.75rem 1.5rem; background: var(--bg-card); border-bottom: 1px solid var(--panel-border); display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; justify-content: space-between;">
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <button class="btn btn-secondary btn-sm" onclick="downloadAllBackupJson()" style="font-size: 0.8rem; font-weight: 700; color: var(--emerald-light); border-color: var(--emerald-border);" title="Tải toàn bộ bản nháp và bài nộp về máy dạng tệp JSON">
-            <i class="fa-solid fa-download"></i> Tải tệp sao lưu (.json)
-          </button>
-          <button class="btn btn-secondary btn-sm" onclick="triggerImportBackupJson()" style="font-size: 0.8rem; font-weight: 700; color: var(--cyan-light); border-color: var(--cyan-border);" title="Khôi phục lại dữ liệu từ tệp sao lưu đã tải trước đó">
-            <i class="fa-solid fa-upload"></i> Khôi phục từ tệp
-          </button>
-          <button class="btn btn-secondary btn-sm" onclick="exportCurrentEditorToWord()" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-primary); border-color: var(--accent-primary);" title="Xuất nội dung đang gõ ra tệp Word">
-            <i class="fa-solid fa-file-word"></i> Xuất bản thảo hiện tại (.doc)
-          </button>
-        </div>
-        <div id="backupModalStatsBadge" style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;"></div>
-      </div>
-
-      <!-- Modal Body (Drafts & History list) -->
-      <div id="progressBackupModalBody" style="flex-grow: 1; overflow-y: auto; padding: 1.25rem 1.5rem; background: var(--bg-inner);">
-        <!-- Loaded dynamically -->
-      </div>
-
-    </div>
-  </div>
-
-  <input type="file" id="backupJsonFileInput" accept=".json" style="display: none;" onchange="handleBackupFileImport(event)">
-
-  <!-- Toast -->
-  <div id="toastNotification">
-    <i class="fa-solid fa-circle-check" id="toastIcon" style="color: var(--success);"></i>
-    <span id="toastMsg">Thông báo</span>
-  </div>
+  <!-- Notification Toast Container -->
+  <div id="toast-container"></div>
 
   <!-- Scripts -->
-  <script src="letters_db.js?v=2"></script>
+  <script src="letters_db.js"></script>
   <script src="theory_data.js"></script>
-  <script src="app.js?v=2"></script>
+  <script src="app.js"></script>
 </body>
 </html>
