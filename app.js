@@ -988,7 +988,7 @@ function exitExamMode() {
   pauseTimer();
   saveProgressAction(true);
   switchStep('read');
-  showToast('Đã lưu nháp và quay lại Bước 1 để xem đề & dàn ý.', 'info');
+  showToast('Đã lưu nháp và quay lại Bước 1 để xem đề & gợi ý ý tưởng.', 'info');
 }
 
 // ============================================================================
@@ -1635,7 +1635,7 @@ function renderStep1Reading() {
       <div class="reading-section-card idea-selection-card">
         <div class="idea-selection-header">
           <div style="flex: 1; min-width: 260px;">
-            <h3 style="margin-bottom: 0.35rem; border: none; padding: 0;">🎯 4. CHỌN Ý TƯỞNG &amp; CÂU MỞ RỘNG B2 CHO THÂN THƯ</h3>
+            <h3 style="margin-bottom: 0.35rem; border: none; padding: 0;">🎯 3. CHỌN Ý TƯỞNG &amp; CÂU MỞ RỘNG B2 CHO THÂN THƯ</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55;">
               ${helperNote}
             </p>
@@ -1714,22 +1714,9 @@ function renderStep1Reading() {
       </div>
     </div>
 
-    <!-- CARD 2: KHUNG DÀN Ý 5 PHẦN CHUẨN B2 & CẤU TRÚC ĂN ĐIỂM -->
+    <!-- CARD 2: TỪ VỰNG & CỤM TỪ CHỦ ĐỀ GHI ĐIỂM B2 -->
     <div class="reading-section-card">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--panel-border); padding-bottom: 0.5rem;">
-        <h3 style="margin: 0; border: none; padding: 0;">📐 2. KHUNG DÀN Ý 5 PHẦN &amp; CẤU TRÚC GHI ĐIỂM B2 (${escapeHtml((topic.categoryTitleVi || '').toUpperCase())})</h3>
-        <button type="button" class="btn btn-secondary" onclick="toggleStep1MasterOutline()" id="btn-toggle-step1-outline" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
-          Thu gọn / Mở rộng dàn ý
-        </button>
-      </div>
-      <div id="step1-master-outline-box" style="display: block;">
-        ${getOutlineHtmlForTopic(topic)}
-      </div>
-    </div>
-
-    <!-- CARD 3: TỪ VỰNG & CỤM TỪ CHỦ ĐỀ GHI ĐIỂM B2 -->
-    <div class="reading-section-card">
-      <h3>💎 3. TỪ VỰNG &amp; COLLOCATIONS CHỦ ĐỀ GHI ĐIỂM B2 (${vocabList.length} CỤM TỪ)</h3>
+      <h3>💎 2. TỪ VỰNG &amp; COLLOCATIONS CHỦ ĐỀ GHI ĐIỂM B2 (${vocabList.length} CỤM TỪ)</h3>
       ${Object.keys(vocabByGroup).length > 0 ? Object.keys(vocabByGroup).map(gName => `
         <div style="margin-bottom: 1rem;">
           <div style="font-weight: 700; font-size: 0.9rem; color: var(--warning); margin-bottom: 0.5rem;">🔸 ${escapeHtml(gName)}</div>
@@ -1745,7 +1732,7 @@ function renderStep1Reading() {
       `).join('') : '<div class="empty-state">Từ vựng đã được tích hợp trực tiếp trong phần gợi ý ý tưởng và bài mẫu B2.</div>'}
     </div>
 
-    <!-- CARD 4: CHỌN Ý TƯỞNG B2 & TÓM TẮT CÂU THÂN THƯ -->
+    <!-- CARD 3: CHỌN Ý TƯỞNG B2 & TÓM TẮT CÂU THÂN THƯ -->
     ${ideaSelectorHtml || `
       <div style="display: flex; justify-content: flex-end;">
         <button class="btn btn-primary" onclick="switchStep('trans')" style="padding: 0.8rem 1.65rem; font-size: 0.96rem; font-weight: 700;">
