@@ -1179,7 +1179,7 @@ function toGerundPhrase(phrase) {
 
 function attachReasonClauseEn(baseClause, rsnEn) {
   const cleanBase = baseClause.trim();
-  const isQuestion = cleanBase.endsWith('?') || /^(?:(?:First of all|Secondly|Besides that|On top of that|Finally|Last but not least|To begin with|In addition|Furthermore|Moreover),\s*)?(?:could|would|can|will|may|are|is|do|does|did|have|has)\s+(?:you|there|they|the|it|students|learners)\b/i.test(cleanBase);
+  const isQuestion = cleanBase.endsWith('?') || /^(?:(?:First of all|Secondly|Second|Next|Besides that|On top of that|Finally|Last but not least|To begin with|In addition|Furthermore|Moreover|To make up for my mistake|To make up for this inconvenience),\s*)?(?:could|would|can|will|may|are|is|do|does|did|have|has)\s+(?:you|there|they|the|it|students|learners)\b/i.test(cleanBase);
 
   const finalizedBase = isQuestion
     ? cleanBase.replace(/[.?!]+$/, '') + '?'
@@ -1195,7 +1195,7 @@ function attachReasonClauseEn(baseClause, rsnEn) {
       followUp = 'This is ' + followUp.charAt(0).toLowerCase() + followUp.slice(1);
     } else if (/^so\s+that\b/i.test(followUp)) {
       // Polite modal requests like "would you kindly permit ... so that I can ..." work as a single polite question!
-      if (/^(?:(?:To begin with|Secondly|In addition|Furthermore|Finally|First of all),\s*)?(?:would|could)\s+you\s+kindly\b/i.test(cleanBase)) {
+      if (/^(?:(?:To begin with|Secondly|Second|Next|In addition|Furthermore|Finally|First of all|To make up for my mistake|To make up for this inconvenience),\s*)?(?:would|could)\s+you\s+kindly\b/i.test(cleanBase)) {
         const bareQ = cleanBase.replace(/[.?!]+$/, '');
         const bareR = trimmedRsn.replace(/[.?!]+$/, '');
         return `${bareQ} ${bareR}?`;
@@ -1221,7 +1221,7 @@ function attachReasonClauseEn(baseClause, rsnEn) {
   return `${strippedBase}${needsComma ? ',' : ''} ${cleanSub}.`;
 }
 
-function attachReasonClauseVi(baseVi, rsnVi) {
+function attachReasonClauseVi(baseVi, rsnVi, rsnEn = '') {
   const cleanBase = baseVi.trim();
   const isQuestion = cleanBase.endsWith('?');
   const finalizedBase = isQuestion
@@ -1249,24 +1249,482 @@ function attachReasonClauseVi(baseVi, rsnVi) {
 
   const strippedBase = finalizedBase.replace(/[.?!]+$/, '');
   const cleanSubVi = trimmedRsn.replace(/[.?!]+$/, '');
-  const needsCommaVi = /^(khiến|làm|giúp|nhờ đó|đảm bảo|mang lại|tránh|nâng tầm|như một|chứng minh|nhắc nhở|duy trì)/i.test(cleanSubVi);
+
+  // If Vietnamese reason is an independent clause starting with a subject noun/pronoun
+  if (/^(?:mình|tớ|em|tôi|chúng\s+tôi|chúng\s+mình|điều\s+này|việc\s+này|thái\s+độ|họ|chăm\s+sóc)(?=\s|$)/i.test(cleanSubVi)) {
+    return `${strippedBase}. ${cleanSubVi.charAt(0).toUpperCase() + cleanSubVi.slice(1)}.`;
+  }
+
+  // If English reason starts with "because" and Vietnamese reason omits "vì/bởi vì/do/nhờ"
+  if (/^because\b/i.test((rsnEn || '').trim()) && !/^(?:vì|bởi\s+vì|do|nhờ|gây\s+ra|như\s+một)(?=\s|$)/i.test(cleanSubVi)) {
+    return `${strippedBase} vì ${cleanSubVi}.`;
+  }
+
+  const needsCommaVi = /^(khiến|làm|giúp|nhờ đó|đảm bảo|mang lại|tránh|nâng tầm|như một|chứng minh|nhắc nhở|duy trì|giữ cho|thể hiện|nhận được|tạo nên|góp phần|buộc|cho phép|mở ra|để lại)/i.test(cleanSubVi);
   return `${strippedBase}${needsCommaVi ? ',' : ''} ${cleanSubVi}.`;
 }
 
-// Build a 100% grammatical B2 English sentence + Vietnamese prompt from any suggested_ideas option
-function buildB2IdeaSentencePair(topic, group, opt, seqIndex) {
+// ============================================================================
+// OFFICIAL B2 OUTLINE FRAMES (100% ALIGNED WITH vstepwritingtask1b2)
+// ============================================================================
+const B2_CATEGORY_FORMULA_HINTS = {
+  advice: {
+    openingFormula: 'Thanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider.',
+    bodyFormula: 'To begin with, you could consider + V-ing... / Second, it would be a good idea to + Vo... / Next, if I were you, I would + Vo... / Finally, remember to + Vo...',
+    closingFormula: 'I hope you find my suggestions helpful. Let me know how things go. Write back soon.'
+  },
+  request_informal: {
+    openingFormula: 'How have you been lately? I hope everything is going well. I’m writing to ask for some information about [thông tin cần hỏi].',
+    bodyFormula: 'To begin with, could you please let me know...? / In addition, I would like to ask whether/if... / Furthermore, I was wondering if you could provide me with details about... / Finally, would you mind letting me know...?',
+    closingFormula: 'I hope to hear from you soon. Thanks a lot for your help. Take care.'
+  },
+  request_formal: {
+    openingFormula: 'I am writing this letter to request information about [thông tin cần hỏi]. I would appreciate it if you could answer a few questions regarding this matter.',
+    bodyFormula: 'To begin with, could you please let me know...? / In addition, I would like to ask whether/if... / Furthermore, I was wondering if you could provide me with details about... / Finally, I would also be grateful if you could clarify...',
+    closingFormula: 'Thank you in advance for your time and assistance. I look forward to receiving your response at your earliest convenience.'
+  },
+  description_informal: {
+    openingFormula: 'How have you been lately? I hope everything is going well. In your letter, you asked me about [đối tượng cần mô tả], so I’d like to share some information with you.',
+    bodyFormula: 'To begin with, ... / In addition, ... / Furthermore, ... / Finally, ...',
+    closingFormula: 'I hope this gives you a clear picture of [đối tượng]. Let me know if you want more details. Write back soon.'
+  },
+  description_formal: {
+    openingFormula: 'I am writing to provide you with a detailed description of [đối tượng cần mô tả], as requested in your previous correspondence.',
+    bodyFormula: 'To begin with, ... / In addition, ... / Furthermore, ... / Finally, ...',
+    closingFormula: 'I hope the above information is useful to you. Please feel free to contact me if you require any further details.'
+  },
+  complaint: {
+    openingFormula: 'I am writing to express my dissatisfaction with [sản phẩm/dịch vụ]. I recently used your [dịch vụ/cơ sở vật chất], and I was quite disappointed with the experience.',
+    bodyFormula: 'The main issue that I would like to highlight is that... Specifically, ... / Furthermore, to make matters worse, ... In fact, ... / Given these circumstances, I expect you to + Vo.',
+    closingFormula: 'I hope you will resolve this issue promptly. I look forward to receiving your prompt reply and a satisfactory solution.'
+  },
+  feedback: {
+    openingFormula: 'I am writing to provide feedback on [vấn đề phản hồi]. I recently used your [sản phẩm/dịch vụ] and would like to share my experience.',
+    bodyFormula: 'Overall, I found your [dịch vụ] quite satisfactory... One aspect I appreciated was... / However, there were also several areas that required improvement. One issue that I encountered was... / To enhance the quality of your [dịch vụ], I suggest that you + Vo.',
+    closingFormula: 'I hope my feedback will be useful in improving your [dịch vụ]. Please feel free to contact me if you have any further questions.'
+  },
+  apology_informal: {
+    openingFormula: 'I’m really sorry for [lỗi lầm - Ving/N]. I feel terrible about what happened, and I’d like to explain the situation more clearly.',
+    bodyFormula: 'First of all, here is the reason for this. Unfortunately, I could not + Vo because... / Let me make it up to you by + V-ing, and I’ll make sure this does not happen again.',
+    closingFormula: 'I’m really sorry once again. I truly appreciate your understanding. Write back soon.'
+  },
+  apology_formal: {
+    openingFormula: 'I am writing to sincerely apologize for [lỗi lầm - Ving/N]. I deeply regret any inconvenience or distress that this situation may have caused you.',
+    bodyFormula: 'First of all, here is the reason for this. / Unfortunately, ... / To make up for my mistake (this inconvenience), I would like to...',
+    closingFormula: 'I would like to sincerely apologize once again for the inconvenience. Thank you for your understanding. I look forward to receiving your reply soon.'
+  },
+  application: {
+    openingFormula: 'I am writing to apply for the position of [vị trí công việc], which was advertised on/in [nguồn tuyển dụng].',
+    bodyFormula: 'I am particularly interested in this position because... / Regarding my previous experience, I worked part-time as... / Moreover, I believe I would be a suitable candidate for this position because...',
+    closingFormula: 'I would be grateful if you could consider my application. I am available for an interview at your convenience and look forward to hearing from you soon.'
+  }
+};
+
+const TOPIC_B2_OUTLINE_FRAMES = {
+  // === 1. ADVICE (8 ĐỀ) ===
+  'de-01': {
+    salutationEn: 'Dear Helen,', salutationVi: 'Helen thân mến,',
+    openingEn: 'Thanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your upcoming trip to Hanoi in June.',
+    openingVi: 'Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến đi sắp tới đến Hà Nội vào tháng Sáu.',
+    closingEn: 'I hope you find my suggestions helpful. Let me know how things go. Write back soon.',
+    closingVi: 'Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-02': {
+    salutationEn: 'Dear David,', salutationVi: 'David thân mến,',
+    openingEn: 'Thanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your six-month Vietnamese course at Hanoi University.',
+    openingVi: 'Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho khóa học tiếng Việt sáu tháng tại Đại học Hà Nội.',
+    closingEn: 'I hope you find my suggestions helpful. Let me know how things go. Write back soon.',
+    closingVi: 'Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-15': {
+    salutationEn: 'Dear Emily,', salutationVi: 'Emily thân mến,',
+    openingEn: 'Thanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your upcoming trip to Can Tho in December.',
+    openingVi: 'Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến đi sắp tới đến Cần Thơ vào tháng Mười Hai.',
+    closingEn: 'I hope you find my suggestions helpful. Let me know how things go. Write back soon.',
+    closingVi: 'Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-29': {
+    salutationEn: 'Dear Ann,', salutationVi: 'Ann thân mến,',
+    openingEn: 'Thanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your Vietnamese course in Vietnam.',
+    openingVi: 'Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho khóa học tiếng Việt tại Việt Nam.',
+    closingEn: 'I hope you find my suggestions helpful. Let me know how things go. Write back soon.',
+    closingVi: 'Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-30': {
+    salutationEn: 'Dear Jane,', salutationVi: 'Jane thân mến,',
+    openingEn: 'Thanks for writing to me. How have you been lately? After reading your letter, I’d love to update you on my new job, and I also have a few suggestions that you may want to consider for your job interview.',
+    openingVi: 'Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ rất vui được kể về công việc mới của mình và gửi cậu vài gợi ý đáng cân nhắc cho buổi phỏng vấn xin việc.',
+    closingEn: 'I hope you find my suggestions helpful. Let me know how things go. Write back soon.',
+    closingVi: 'Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-31': {
+    salutationEn: 'Dear Jane,', salutationVi: 'Jane thân mến,',
+    openingEn: 'Thanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your summer holiday in Vietnam.',
+    openingVi: 'Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến du lịch mùa hè tới Việt Nam.',
+    closingEn: 'I hope you find my suggestions helpful. Let me know how things go. Write back soon.',
+    closingVi: 'Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-32': {
+    salutationEn: 'Dear Alex,', salutationVi: 'Alex thân mến,',
+    openingEn: 'Thanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your group poster project.',
+    openingVi: 'Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho dự án thiết kế áp phích nhóm.',
+    closingEn: 'I hope you find my suggestions helpful. Let me know how things go. Write back soon.',
+    closingVi: 'Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-35': {
+    salutationEn: 'Dear Moonie,', salutationVi: 'Moonie thân mến,',
+    openingEn: 'Thanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your new job at the local bookstore.',
+    openingVi: 'Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho công việc mới tại hiệu sách địa phương.',
+    closingEn: 'I hope you find my suggestions helpful. Let me know how things go. Write back soon.',
+    closingVi: 'Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+
+  // === 2. REQUEST (4 ĐỀ) ===
+  'de-03': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing this letter to request information about the summer cooking course at Delight Kitchen Center. I would appreciate it if you could answer a few questions regarding this matter.',
+    openingVi: 'Tôi viết bức thư này để xin thông tin về khóa học nấu ăn mùa hè tại Trung tâm Delight Kitchen. Tôi rất cảm kích nếu quý vị có thể giải đáp một vài câu hỏi liên quan đến vấn đề này.',
+    closingEn: 'Thank you in advance for your time and assistance. I look forward to receiving your response at your earliest convenience.',
+    closingVi: 'Xin chân thành cảm ơn trước vì thời gian và sự hỗ trợ của quý vị. Tôi rất mong sớm nhận được phản hồi từ quý vị.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+  'de-04': {
+    salutationEn: 'Dear Linda,', salutationVi: 'Linda thân mến,',
+    openingEn: 'How have you been lately? I hope everything is going well. I’m writing to ask for some information about the beginner Chinese course at New Horizon Language Center.',
+    openingVi: 'Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Tớ viết thư này để hỏi xin một số thông tin về khóa học tiếng Trung sơ cấp tại Trung tâm Ngoại ngữ New Horizon.',
+    closingEn: 'I hope to hear from you soon. Thanks a lot for your help. Take care.',
+    closingVi: 'Tớ hy vọng sớm nhận được tin từ cậu. Cảm ơn sự giúp đỡ của cậu rất nhiều nhé. Giữ gìn sức khỏe nhé.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-16': {
+    salutationEn: 'Dear Moonie,', salutationVi: 'Moonie thân mến,',
+    openingEn: 'How have you been lately? I hope everything is going well. I’m writing to ask for some information about the English course at Rainbow Language Center.',
+    openingVi: 'Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Tớ viết thư này để hỏi xin một số thông tin về khóa học tiếng Anh tại Trung tâm Anh ngữ Rainbow.',
+    closingEn: 'I hope to hear from you soon. Thanks a lot for your help. Take care.',
+    closingVi: 'Tớ hy vọng sớm nhận được tin từ cậu. Cảm ơn sự giúp đỡ của cậu rất nhiều nhé. Giữ gìn sức khỏe nhé.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-17': {
+    salutationEn: 'Dear Linda,', salutationVi: 'Linda thân mến,',
+    openingEn: 'How have you been lately? I hope everything is going well. I’m writing to ask for some information about the Chinese course at Happy Chinese Language Center.',
+    openingVi: 'Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Tớ viết thư này để hỏi xin một số thông tin về khóa học tiếng Trung tại Trung tâm Happy Chinese.',
+    closingEn: 'I hope to hear from you soon. Thanks a lot for your help. Take care.',
+    closingVi: 'Tớ hy vọng sớm nhận được tin từ cậu. Cảm ơn sự giúp đỡ của cậu rất nhiều nhé. Giữ gìn sức khỏe nhé.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+
+  // === 3. DESCRIPTION (8 ĐỀ) ===
+  'de-19': {
+    salutationEn: 'Dear Emily,', salutationVi: 'Emily thân mến,',
+    openingEn: 'How have you been lately? I hope everything is going well. In your letter, you asked me about my friend Hoa, so I’d like to share some information with you.',
+    openingVi: 'Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Trong thư trước, cậu có hỏi tớ về cô bạn Hoa của tớ, nên tớ muốn chia sẻ một số thông tin với cậu.',
+    closingEn: 'I hope this gives you a clear picture of Hoa. Let me know if you want more details. Write back soon.',
+    closingVi: 'Tớ hy vọng những điều trên giúp cậu hình dung rõ hơn về Hoa. Hãy cho tớ biết nếu cậu cần thêm thông tin nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-05': {
+    salutationEn: 'Dear John,', salutationVi: 'John thân mến,',
+    openingEn: 'How have you been lately? I hope everything is going well. In your letter, you asked me about the mountain biking competition, so I’d like to share some information with you.',
+    openingVi: 'Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Trong thư, cậu có hỏi tớ về giải đua xe đạp địa hình vừa qua, nên tớ muốn chia sẻ một số thông tin thú vị với cậu.',
+    closingEn: 'I hope this gives you a clear picture of the race and our upcoming tour. Let me know if you want more details. Write back soon.',
+    closingVi: 'Tớ hy vọng những chia sẻ này giúp cậu hình dung rõ về cuộc đua và chuyến đi sắp tới. Hãy cho tớ biết nếu cậu muốn thêm thông tin nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-06': {
+    salutationEn: 'Dear Helen,', salutationVi: 'Helen thân mến,',
+    openingEn: 'How have you been lately? I hope everything is going well. In your letter, you asked me about my new house near the university campus, so I’d like to share some information with you.',
+    openingVi: 'Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Trong thư, cậu có hỏi tớ về ngôi nhà mới gần khuôn viên trường đại học, nên tớ muốn chia sẻ một số thông tin với cậu.',
+    closingEn: 'I hope this gives you a clear picture of my new house. Let me know if you want more details. Write back soon.',
+    closingVi: 'Tớ hy vọng những điều này giúp cậu hình dung rõ về ngôi nhà mới của tớ. Hãy cho tớ biết nếu cậu muốn biết thêm chi tiết nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-18': {
+    salutationEn: 'Dear Nam,', salutationVi: 'Nam thân mến,',
+    openingEn: 'How have you been lately? I hope everything is going well. In your letter, you asked me about the English course at Rainbow Language Center, so I’d like to share some information with you.',
+    openingVi: 'Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Trong thư, cậu có hỏi tớ về khóa học tiếng Anh tại Trung tâm Anh ngữ Rainbow, nên tớ muốn chia sẻ một số thông tin với cậu.',
+    closingEn: 'I hope this gives you a clear picture of the English course. Let me know if you want more details. Write back soon.',
+    closingVi: 'Tớ hy vọng những chia sẻ trên giúp cậu hình dung rõ về khóa học tiếng Anh này. Hãy báo tớ nếu cậu cần thêm thông tin nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-28': {
+    salutationEn: 'Dear Moonie,', salutationVi: 'Moonie thân mến,',
+    openingEn: 'How have you been lately? I hope everything is going well. In your letter, you asked me about my art project on the topic “At Home”, so I’d like to share some information with you.',
+    openingVi: 'Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Trong thư, cậu có hỏi tớ về dự án vẽ tranh chủ đề “Ở Nhà”, nên tớ muốn chia sẻ một số thông tin với cậu.',
+    closingEn: 'I hope this gives you a clear picture of my art project. Let me know if you want more details. Write back soon.',
+    closingVi: 'Tớ hy vọng những chia sẻ này giúp cậu hình dung rõ về bức tranh của tớ. Hãy cho tớ biết nếu cậu muốn biết thêm chi tiết nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-34': {
+    salutationEn: 'Dear Helen,', salutationVi: 'Helen thân mến,',
+    openingEn: 'How have you been lately? I hope everything is going well. In your letter, you asked me about my new puppy, so I’d like to share some information with you.',
+    openingVi: 'Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Trong thư, cậu có hỏi tớ về chú cún con mới nuôi, nên tớ muốn chia sẻ một số thông tin với cậu.',
+    closingEn: 'I hope this gives you a clear picture of my new puppy. Let me know if you want more details. Write back soon.',
+    closingVi: 'Tớ hy vọng những chia sẻ này giúp cậu hình dung rõ về chú cún mới của tớ. Hãy cho tớ biết nếu cậu muốn biết thêm chi tiết nhé. Hồi âm sớm cho tớ.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-36': {
+    salutationEn: 'Dear Mrs. Jane,', salutationVi: 'Kính gửi Bà Jane,',
+    openingEn: 'I am writing to provide you with a detailed description of our upcoming outdoor activity for Grade 4 students, as requested in your previous correspondence.',
+    openingVi: 'Tôi viết thư này để cung cấp cho Bà thông tin chi tiết về hoạt động dã ngoại sắp tới dành cho học sinh khối 4, theo yêu cầu trong thư trước của Bà.',
+    closingEn: 'I hope the above information is useful to you. Please feel free to contact me if you require any further details.',
+    closingVi: 'Tôi hy vọng những thông tin trên hữu ích đối với Bà. Xin đừng ngần ngại liên hệ với tôi nếu Bà cần thêm bất kỳ chi tiết nào.',
+    signoffEn: 'Yours sincerely,', signoffVi: 'Trân trọng,'
+  },
+  'de-37': {
+    salutationEn: 'Dear Mrs. Lan,', salutationVi: 'Kính gửi Bà Lan,',
+    openingEn: 'I am writing to provide you with a detailed description of my lost suitcase and flight itinerary, as requested in your previous correspondence.',
+    openingVi: 'Tôi viết thư này để cung cấp cho Bà mô tả chi tiết về chiếc vali bị thất lạc và lịch trình chuyến bay của tôi, theo yêu cầu trong thư trước của Bà.',
+    closingEn: 'I hope the above information is useful to you. Please feel free to contact me if you require any further details.',
+    closingVi: 'Tôi hy vọng những thông tin trên hữu ích cho quá trình tìm kiếm của Bà. Xin vui lòng liên hệ với tôi nếu Bà cần thêm bất kỳ thông tin nào.',
+    signoffEn: 'Yours sincerely,', signoffVi: 'Trân trọng,'
+  },
+
+  // === 4. COMPLAINT (4 ĐỀ) ===
+  'de-20': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to express my dissatisfaction with the condition of the changing rooms at your sports center. I recently used your facilities, and I was quite disappointed with the experience.',
+    openingVi: 'Tôi viết thư này để bày tỏ sự không hài lòng về tình trạng phòng thay đồ tại trung tâm thể thao của quý vị. Gần đây tôi có sử dụng cơ sở vật chất của trung tâm và khá thất vọng với trải nghiệm này.',
+    closingEn: 'I hope you will resolve this issue promptly. I look forward to receiving your prompt reply and a satisfactory solution.',
+    closingVi: 'Tôi hy vọng quý vị sẽ sớm giải quyết vấn đề này. Tôi rất mong nhận được phản hồi nhanh chóng cùng hướng khắc phục thỏa đáng từ quý vị.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+  'de-07': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to express my dissatisfaction with the broken workout equipment at Elite Fitness Club. I recently used your gym facilities, and I was quite disappointed with the experience.',
+    openingVi: 'Tôi viết thư này để bày tỏ sự không hài lòng về tình trạng nhiều thiết bị tập luyện bị hỏng tại Elite Fitness Club. Gần đây tôi có sử dụng phòng tập của quý vị và khá thất vọng với trải nghiệm này.',
+    closingEn: 'I hope you will resolve this issue promptly. I look forward to receiving your prompt reply and a satisfactory solution.',
+    closingVi: 'Tôi hy vọng quý vị sẽ sớm giải quyết vấn đề này. Tôi rất mong nhận được phản hồi nhanh chóng cùng hướng khắc phục thỏa đáng từ quý vị.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+  'de-08': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to express my dissatisfaction with the food quality and customer service at The Grand Bistro. I recently dined at your restaurant, and I was quite disappointed with the experience.',
+    openingVi: 'Tôi viết thư này để bày tỏ sự không hài lòng về chất lượng món ăn và dịch vụ khách hàng tại nhà hàng The Grand Bistro. Gần đây tôi có dùng bữa tại nhà hàng và khá thất vọng với trải nghiệm này.',
+    closingEn: 'I hope you will resolve this issue promptly. I look forward to receiving your prompt reply and a satisfactory solution.',
+    closingVi: 'Tôi hy vọng quý vị sẽ sớm giải quyết vấn đề này. Tôi rất mong nhận được phản hồi nhanh chóng cùng hướng khắc phục thỏa đáng từ quý vị.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+  'de-21': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to express my dissatisfaction with the condition of my guest room during my recent holiday stay. I recently used your hotel services, and I was quite disappointed with the experience.',
+    openingVi: 'Tôi viết thư này để bày tỏ sự không hài lòng về tình trạng phòng nghỉ trong kỳ lưu trú vừa qua. Gần đây tôi có sử dụng dịch vụ khách sạn của quý vị và khá thất vọng với trải nghiệm này.',
+    closingEn: 'I hope you will resolve this issue promptly. I look forward to receiving your prompt reply and a satisfactory solution.',
+    closingVi: 'Tôi hy vọng quý vị sẽ sớm giải quyết vấn đề này. Tôi rất mong nhận được phản hồi nhanh chóng cùng hướng khắc phục thỏa đáng từ quý vị.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+
+  // === 5. FEEDBACK (4 ĐỀ) ===
+  'de-09': {
+    salutationEn: 'Dear Mr. Tailor,', salutationVi: 'Kính gửi Ông Tailor,',
+    openingEn: 'I am writing to provide feedback on the public bus service on Route 08. I recently used your transport service and would like to share my experience.',
+    openingVi: 'Tôi viết thư này để đóng góp ý kiến phản hồi về dịch vụ xe buýt công cộng tuyến số 08. Thời gian qua tôi thường xuyên sử dụng dịch vụ vận tải của quý đơn vị và muốn chia sẻ trải nghiệm của mình.',
+    closingEn: 'I hope my feedback will be useful in improving your public bus service. Please feel free to contact me if you have any further questions.',
+    closingVi: 'Tôi hy vọng những phản hồi của tôi sẽ hữu ích trong việc nâng cao chất lượng dịch vụ xe buýt công cộng. Xin vui lòng liên hệ với tôi nếu Ông có bất kỳ câu hỏi nào thêm.',
+    signoffEn: 'Yours sincerely,', signoffVi: 'Trân trọng,'
+  },
+  'de-10': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to provide feedback on the birthday party service at Golden Spoon Restaurant. I recently used your dining facilities and would like to share my experience.',
+    openingVi: 'Tôi viết thư này để đóng góp ý kiến phản hồi về dịch vụ tổ chức tiệc sinh nhật tại Nhà hàng Golden Spoon. Vừa qua tôi có sử dụng dịch vụ tại nhà hàng và muốn chia sẻ trải nghiệm của mình.',
+    closingEn: 'I hope my feedback will be useful in improving your restaurant service. Please feel free to contact me if you have any further questions.',
+    closingVi: 'Tôi hy vọng những phản hồi của tôi sẽ hữu ích trong việc cải thiện dịch vụ của nhà hàng. Xin vui lòng liên hệ với tôi nếu quý vị có bất kỳ câu hỏi nào thêm.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+  'de-22': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to provide feedback on my recent stay at your hotel. I recently used your accommodation services and would like to share my experience.',
+    openingVi: 'Tôi viết thư này để đóng góp ý kiến phản hồi về kỳ lưu trú vừa qua tại khách sạn của quý vị. Gần đây tôi có sử dụng dịch vụ lưu trú tại khách sạn và muốn chia sẻ trải nghiệm của mình.',
+    closingEn: 'I hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.',
+    closingVi: 'Tôi hy vọng những ý kiến phản hồi của tôi sẽ hữu ích trong việc nâng cao chất lượng dịch vụ khách sạn. Xin vui lòng liên hệ với tôi nếu quý vị có bất kỳ câu hỏi nào thêm.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+  'de-23': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to provide feedback on my recent dinner at your new restaurant. I recently used your dining services and would like to share my experience.',
+    openingVi: 'Tôi viết thư này để đóng góp ý kiến phản hồi về bữa tối vừa qua tại nhà hàng mới của quý vị. Gần đây tôi có sử dụng dịch vụ ẩm thực tại nhà hàng và muốn chia sẻ trải nghiệm của mình.',
+    closingEn: 'I hope my feedback will be useful in improving your restaurant services. Please feel free to contact me if you have any further questions.',
+    closingVi: 'Tôi hy vọng những ý kiến phản hồi của tôi sẽ hữu ích trong việc hoàn thiện dịch vụ nhà hàng. Xin vui lòng liên hệ với tôi nếu quý vị có bất kỳ câu hỏi nào thêm.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+
+  // === 6. APOLOGY (5 ĐỀ) ===
+  'de-11': {
+    salutationEn: 'Dear Professor Johnson,', salutationVi: 'Kính gửi Giáo sư Johnson,',
+    openingEn: 'I am writing to sincerely apologize for failing to submit my term research paper on time. I deeply regret any inconvenience or distress that this situation may have caused you.',
+    openingVi: 'Em viết thư này để chân thành xin lỗi vì đã không nộp bài tiểu luận nghiên cứu học kỳ đúng hạn. Em vô cùng hối tiếc về bất kỳ sự bất tiện hay phiền hà nào mà sự việc này có thể đã gây ra cho Giáo sư.',
+    closingEn: 'I would like to sincerely apologize once again for the inconvenience. Thank you for your understanding. I look forward to receiving your reply soon.',
+    closingVi: 'Một lần nữa em xin chân thành xin lỗi vì sự bất tiện này. Cảm ơn sự cảm thông của Giáo sư. Em rất mong sớm nhận được phản hồi từ Giáo sư.',
+    signoffEn: 'Yours sincerely,', signoffVi: 'Trân trọng,'
+  },
+  'de-12': {
+    salutationEn: 'Dear Mr. Smith,', salutationVi: 'Kính gửi Ông Smith,',
+    openingEn: 'I am writing to sincerely apologize for the delayed room service you experienced during your recent stay at Pearl Palace Hotel. I deeply regret any inconvenience or distress that this situation may have caused you.',
+    openingVi: 'Tôi viết thư này để chân thành xin lỗi về sự chậm trễ của dịch vụ ăn uống tại phòng mà Ông đã gặp phải trong kỳ nghỉ vừa qua tại Khách sạn Pearl Palace. Tôi vô cùng lấy làm tiếc về bất kỳ sự bất tiện nào mà tình huống này đã gây ra cho Ông.',
+    closingEn: 'I would like to sincerely apologize once again for the inconvenience. Thank you for your understanding. I look forward to receiving your reply soon.',
+    closingVi: 'Một lần nữa tôi xin chân thành xin lỗi vì sự bất tiện vừa qua. Cảm ơn sự thông cảm của Ông. Tôi rất mong sớm nhận được phản hồi từ Ông.',
+    signoffEn: 'Yours sincerely,', signoffVi: 'Trân trọng,'
+  },
+  'de-24': {
+    salutationEn: 'Dear Helen,', salutationVi: 'Helen thân mến,',
+    openingEn: 'I’m really sorry for not returning your book on time. I feel terrible about what happened, and I’d like to explain the situation more clearly.',
+    openingVi: 'Tớ thực sự rất xin lỗi vì đã không trả lại sách cho cậu đúng hẹn. Tớ cảm thấy rất áy náy về chuyện đã xảy ra và muốn giải thích rõ hơn về tình hình của mình.',
+    closingEn: 'I’m really sorry once again. I truly appreciate your understanding. Write back soon.',
+    closingVi: 'Một lần nữa tớ thực sự xin lỗi cậu. Tớ vô cùng trân trọng sự thông cảm của cậu. Hồi âm sớm cho tớ nhé.',
+    signoffEn: 'Best wishes,', signoffVi: 'Chúc cậu những điều tốt đẹp nhất,'
+  },
+  'de-25': {
+    salutationEn: 'Dear Professor,', salutationVi: 'Kính gửi Giáo sư,',
+    openingEn: 'I am writing to sincerely apologize for failing to submit my course assignment before last Friday’s deadline. I deeply regret any inconvenience or distress that this situation may have caused you.',
+    openingVi: 'Em viết thư này để chân thành xin lỗi vì đã không nộp bài tập môn học trước thời hạn thứ Sáu tuần trước. Em vô cùng hối tiếc về bất kỳ sự bất tiện nào mà tình huống này đã gây ra cho Giáo sư.',
+    closingEn: 'I would like to sincerely apologize once again for the inconvenience. Thank you for your understanding. I look forward to receiving your reply soon.',
+    closingVi: 'Một lần nữa em xin chân thành xin lỗi vì sự bất tiện này. Cảm ơn sự cảm thông của Giáo sư. Em rất mong sớm nhận được phản hồi từ Giáo sư.',
+    signoffEn: 'Yours sincerely,', signoffVi: 'Trân trọng,'
+  },
+  'de-33': {
+    salutationEn: 'Dear Ms. Smith,', salutationVi: 'Kính gửi Bà Smith,',
+    openingEn: 'I am writing to sincerely apologize for the unsatisfactory service you experienced during your recent stay at our hotel. I deeply regret any inconvenience or distress that this situation may have caused you.',
+    openingVi: 'Tôi viết thư này để chân thành xin lỗi về trải nghiệm dịch vụ chưa thỏa đáng mà Bà đã gặp phải trong kỳ lưu trú vừa qua tại khách sạn của chúng tôi. Tôi vô cùng lấy làm tiếc về mọi sự bất tiện mà sự việc này đã gây ra cho Bà.',
+    closingEn: 'I would like to sincerely apologize once again for the inconvenience. Thank you for your understanding. I look forward to receiving your reply soon.',
+    closingVi: 'Một lần nữa tôi xin chân thành xin lỗi vì sự bất tiện vừa qua. Cảm ơn sự thông cảm của Bà. Tôi rất mong sớm nhận được phản hồi từ Bà.',
+    signoffEn: 'Yours sincerely,', signoffVi: 'Trân trọng,'
+  },
+
+  // === 7. APPLICATION (4 ĐỀ) ===
+  'de-13': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to apply for the position of part-time waiter at Sunflower Restaurant, which was advertised on your restaurant’s website.',
+    openingVi: 'Tôi viết thư này để ứng tuyển vào vị trí nhân viên phục vụ bán thời gian tại Nhà hàng Sunflower, được đăng tuyển trên trang web của nhà hàng.',
+    closingEn: 'I would be grateful if you could consider my application. I am available for an interview at your convenience and look forward to hearing from you soon.',
+    closingVi: 'Tôi sẽ rất biết ơn nếu quý vị xem xét hồ sơ ứng tuyển của tôi. Tôi sẵn sàng tham gia phỏng vấn vào thời gian thuận tiện cho quý vị và rất mong sớm nhận được phản hồi.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+  'de-14': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to apply for the position of Event Assistant for the upcoming Youth Cultural Festival, which was advertised on the university noticeboard.',
+    openingVi: 'Tôi viết thư này để ứng tuyển vào vị trí Trợ lý Sự kiện cho Lễ hội Văn hóa Thanh niên sắp tới, được đăng thông báo trên bảng tin trường đại học.',
+    closingEn: 'I would be grateful if you could consider my application. I am available for an interview at your convenience and look forward to hearing from you soon.',
+    closingVi: 'Tôi sẽ rất biết ơn nếu quý ban tổ chức xem xét đơn ứng tuyển của tôi. Tôi sẵn sàng tham gia phỏng vấn vào bất kỳ thời điểm nào thuận tiện và rất mong sớm nhận được hồi âm.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+  'de-26': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to apply for the position of Sales Assistant at your clothing store, which was advertised on your official website.',
+    openingVi: 'Tôi viết thư này để ứng tuyển vào vị trí Nhân viên bán hàng tại cửa hàng thời trang của quý vị, được đăng tuyển trên trang web chính thức của cửa hàng.',
+    closingEn: 'I would be grateful if you could consider my application. I am available for an interview at your convenience and look forward to hearing from you soon.',
+    closingVi: 'Tôi sẽ rất biết ơn nếu quý vị xem xét hồ sơ ứng tuyển của tôi. Tôi sẵn sàng tham gia phỏng vấn vào thời gian thuận tiện và rất mong sớm nhận được phản hồi từ quý vị.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+  'de-27': {
+    salutationEn: 'Dear Sir/Madam,', salutationVi: 'Kính gửi Quý Ông/Bà,',
+    openingEn: 'I am writing to apply for the position of Receptionist at your hotel, which was advertised on your official website.',
+    openingVi: 'Tôi viết thư này để ứng tuyển vào vị trí Lễ tân tại khách sạn của quý vị, được đăng tuyển trên trang web chính thức của khách sạn.',
+    closingEn: 'I would be grateful if you could consider my application. I am available for an interview at your convenience and look forward to hearing from you soon.',
+    closingVi: 'Tôi sẽ rất biết ơn nếu quý vị xem xét hồ sơ ứng tuyển của tôi. Tôi sẵn sàng tham gia phỏng vấn vào thời gian thuận tiện và rất mong sớm nhận được phản hồi từ quý vị.',
+    signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  }
+};
+
+function lowerClauseUnlessProperEn(str) {
+  const s = (str || '').trim();
+  if (!s) return '';
+  const keepCap = /^(?:I(?:\s|['’])|Wi-Fi\b|Hoa\b|Nam\b|Linda\b|Helen\b|Emily\b|John\b|Jane\b|Ann\b|Alex\b|Moonie\b|Lucky\b|Milo\b|Sunny\b|Hero\b|Hanoi\b|Can\s+Tho\b|Da\s+Nang\b|Ho\s+Chi\s+Minh\b|Tan\s+Son\s+Nhat\b|Noi\s+Bai\b|Vietnam\b|Vietnamese\b|English\b|Chinese\b|Mandarin\b|Monday\b|Tuesday\b|Wednesday\b|Thursday\b|Friday\b|Saturday\b|Sunday\b|Mr\.|Ms\.|Mrs\.|Professor\b|National\s+Geographic\b|BBC\b|QR\b|PDF\b|CV\b|B2\b|Elite\b|Rainbow\b|Delight\b|Pearl\b|Sunflower\b)/.test(s);
+  return keepCap ? s : s.charAt(0).toLowerCase() + s.slice(1);
+}
+
+function lowerClauseUnlessProperVi(str) {
+  const s = (str || '').trim();
+  if (!s) return '';
+  const keepCapVi = /^(?:Hoa\b|Nam\b|Linda\b|Helen\b|Emily\b|John\b|Jane\b|Ann\b|Alex\b|Moonie\b|Lucky\b|Milo\b|Hà\s+Nội\b|Cần\s+Thơ\b|Đà\s+Nẵng\b|Việt\s+Nam\b|TP\.|Tân\s+Sơn\s+Nhất\b|Nội\s+Bài\b|Wi-Fi\b)/.test(s);
+  return keepCapVi ? s : s.charAt(0).toLowerCase() + s.slice(1);
+}
+
+function formatComplaintExpectedActionEn(solEn, useExpectedFormula) {
+  if (!solEn) return '';
+  const cleanSol = solEn.trim().replace(/[.?!]+$/, '');
+  if (!useExpectedFormula) return `${cleanSol}.`;
+
+  let m = cleanSol.match(/^I (?:would appreciate it if you could|(?:would like to )?suggest that you|strongly recommend that you|believe that (?:these )?steps should be taken to|hope that you will)\s+(.+)$/i);
+  if (m) {
+    return `Given these circumstances, I expect you to ${m[1]}.`;
+  }
+  m = cleanSol.match(/^I strongly recommend that (?:the )?(management|staff|head chef)\s+(.+)$/i);
+  if (m) {
+    return `Given these circumstances, I expect your ${m[1].toLowerCase()} to ${m[2]}.`;
+  }
+  return `Given these circumstances, ${lowerClauseUnlessProperEn(cleanSol)}.`;
+}
+
+function formatComplaintExpectedActionVi(solVi, useExpectedFormula) {
+  if (!solVi) return '';
+  const cleanSolVi = solVi.trim().replace(/[.?!]+$/, '');
+  if (!useExpectedFormula) return `${cleanSolVi}.`;
+
+  const stripped = cleanSolVi.replace(/^(?:Tôi rất cảm kích nếu quý vị có thể|Tôi rất mong quý vị có thể|Tôi muốn đề xuất quý vị|Tôi đề xuất quý vị|Tôi đặc biệt khuyến nghị quý vị|Tôi kiến nghị quý vị|Tôi tin rằng cần thực hiện các biện pháp để|Tôi tin rằng các biện pháp này cần được thực hiện để|Tôi hy vọng rằng quý vị sẽ|Tôi hy vọng quý vị sẽ)\s+/i, '');
+  if (stripped !== cleanSolVi) {
+    return `Trước những tình huống này, tôi đề nghị quý vị ${stripped}.`;
+  }
+  return `Trước những tình huống này, ${lowerClauseUnlessProperVi(cleanSolVi)}.`;
+}
+
+// Build a 100% grammatical B2 English sentence + Vietnamese prompt strictly following Miss Nguyet's vstepwritingtask1b2 outline
+function buildB2IdeaSentencePair(topic, group, opt, seqIndex, totalSelected = 4, groupIndex = -1) {
   const catKey = topic.category_id || 'advice';
   const isInformal = /informal|thân mật|bạn bè/i.test(topic.recipient_type || topic.details?.analysis?.letter_type || '');
+  const resolvedGroupIdx = groupIndex >= 0
+    ? groupIndex
+    : Math.max(0, (topic.details?.suggested_ideas || []).indexOf(group));
+  const isLastSelected = totalSelected > 1 && seqIndex === totalSelected - 1;
 
-  const connectorsInformal = ['First of all,', 'Secondly,', 'Besides that,', 'On top of that,', 'Finally,'];
-  const connectorsFormal = ['To begin with,', 'Secondly,', 'In addition,', 'Furthermore,', 'Finally,'];
-  const conn = (isInformal ? connectorsInformal : connectorsFormal)[seqIndex % 5];
+  // Select category-authentic connectors from vstepwritingtask1b2
+  let conn = 'To begin with,';
+  let connVi = 'Đầu tiên,';
 
-  const connectorsVi = ['Trước hết,', 'Thứ hai,', 'Bên cạnh đó,', 'Ngoài ra,', 'Cuối cùng,'];
-  const connVi = connectorsVi[seqIndex % 5];
+  if (catKey === 'advice') {
+    if (topic.id === 'de-30') {
+      const de30En = ['To begin with,', 'In addition,', 'Regarding your job interview,', 'Finally,'];
+      const de30Vi = ['Đầu tiên,', 'Thêm vào đó,', 'Về buổi phỏng vấn xin việc của cậu,', 'Cuối cùng,'];
+      const idx30 = isLastSelected ? 3 : Math.min(3, resolvedGroupIdx);
+      conn = de30En[idx30];
+      connVi = de30Vi[idx30];
+    } else {
+      const advEn = ['To begin with,', 'Second,', 'Next,', 'Finally,'];
+      const advVi = ['Đầu tiên,', 'Thứ hai,', 'Tiếp theo,', 'Cuối cùng,'];
+      const idxAdv = isLastSelected ? 3 : (seqIndex % 4);
+      conn = advEn[idxAdv];
+      connVi = advVi[idxAdv];
+    }
+  } else if (catKey === 'request' || catKey === 'description') {
+    const reqEn = ['To begin with,', 'In addition,', 'Furthermore,', 'Finally,'];
+    const reqVi = catKey === 'request'
+      ? ['Đầu tiên,', 'Thêm vào đó,', 'Hơn nữa,', 'Cuối cùng,']
+      : ['Đầu tiên,', 'Ngoài ra,', 'Hơn nữa,', 'Cuối cùng,'];
+    const idxReq = isLastSelected ? 3 : (seqIndex % 4);
+    conn = reqEn[idxReq];
+    connVi = reqVi[idxReq];
+  } else if (catKey === 'application') {
+    const appEn = ['First of all,', 'In addition,', 'Regarding my previous experience,', 'Moreover,'];
+    const appVi = ['Trước hết,', 'Thêm vào đó,', 'Về kinh nghiệm làm việc trước đây,', 'Hơn thế nữa,'];
+    const idxApp = Math.min(3, resolvedGroupIdx >= 0 ? resolvedGroupIdx : (seqIndex % 4));
+    conn = appEn[idxApp];
+    connVi = appVi[idxApp];
+  } else {
+    const genEn = ['First of all,', 'In addition,', 'Furthermore,', 'Finally,'];
+    const genVi = ['Trước hết,', 'Thêm vào đó,', 'Hơn nữa,', 'Cuối cùng,'];
+    const idxGen = isLastSelected ? 3 : (seqIndex % 4);
+    conn = genEn[idxGen];
+    connVi = genVi[idxGen];
+  }
 
-  const actEn = (opt.action_en || opt.problem_en || '').trim().replace(/\s+/g, ' ');
-  const actVi = (opt.action_vi || opt.problem_vi || '').trim().replace(/\s+/g, ' ');
+  let actEn = (opt.action_en || opt.problem_en || '').trim().replace(/\s+/g, ' ');
+  let actVi = (opt.action_vi || opt.problem_vi || '').trim().replace(/\s+/g, ' ');
   const rsnEn = (opt.reason_en || opt.impact_en || '').trim().replace(/\s+/g, ' ');
   const rsnVi = (opt.reason_vi || opt.impact_vi || '').trim().replace(/\s+/g, ' ');
   const exp1En = (opt.expansion_1_en || '').trim().replace(/\s+/g, ' ');
@@ -1274,26 +1732,253 @@ function buildB2IdeaSentencePair(topic, group, opt, seqIndex) {
   const solEn = (opt.solution_en || '').trim().replace(/\s+/g, ' ');
   const solVi = (opt.solution_vi || '').trim().replace(/\s+/g, ' ');
 
-  const alreadyHasConnectorEn = /^(First|Second|Third|Next|Finally|Last|To begin|In addition|Furthermore|Moreover|Besides|Regarding|As for|However|Overall|On the whole|On behalf|Please accept|Thank you)\b/i.test(actEn);
-  const alreadyHasConnectorVi = /^(Trước hết|Đầu tiên|Thứ hai|Bên cạnh đó|Ngoài ra|Hơn nữa|Cuối cùng|Nhìn chung|Tuy nhiên|Thay mặt|Xin hãy nhận|Cảm ơn)\b/i.test(actVi);
+  // === DẠNG 4: COMPLAINT (Exact vstepwritingtask1b2 formulas) ===
+  if (catKey === 'complaint') {
+    const cleanAct = actEn.replace(/[.?!]+$/, '');
+    const cleanActVi = actVi.replace(/[.?!]+$/, '');
+    const isFeelingSummary = /^I was particularly disappointed\b/i.test(cleanAct);
 
-  // Detect true bare verb phrases (imperative/infinitive stems without a subject)
+    let compEn = '';
+    let compVi = '';
+
+    if (isFeelingSummary) {
+      compEn = `Furthermore, ${cleanAct}.`;
+      compVi = `Hơn nữa, ${lowerClauseUnlessProperVi(cleanActVi)}.`;
+      if (rsnEn) compEn += ` ${/[.?!]$/.test(rsnEn) ? rsnEn : rsnEn + '.'}`;
+      if (rsnVi) compVi += ` ${/[.?!]$/.test(rsnVi) ? rsnVi : rsnVi + '.'}`;
+    } else if (seqIndex === 0) {
+      compEn = `The main issue that I would like to highlight is that ${lowerClauseUnlessProperEn(cleanAct)}.`;
+      compVi = `Vấn đề chính mà tôi muốn nhấn mạnh là ${lowerClauseUnlessProperVi(cleanActVi)}.`;
+      if (rsnEn) {
+        const cleanRsn = rsnEn.replace(/[.?!]+$/, '');
+        compEn += ` Specifically, ${lowerClauseUnlessProperEn(cleanRsn)}.`;
+      }
+      if (rsnVi) {
+        const cleanRsnVi = rsnVi.replace(/[.?!]+$/, '');
+        compVi += ` Cụ thể là, ${lowerClauseUnlessProperVi(cleanRsnVi)}.`;
+      }
+      compEn += ' This caused a great deal of inconvenience for me.';
+      compVi += ' Điều này đã gây ra rất nhiều sự bất tiện cho tôi.';
+    } else if (seqIndex === 1) {
+      compEn = `Furthermore, to make matters worse, ${lowerClauseUnlessProperEn(cleanAct)}.`;
+      compVi = `Hơn nữa, tệ hơn là ${lowerClauseUnlessProperVi(cleanActVi)}.`;
+      if (rsnEn) {
+        const cleanRsn = rsnEn.replace(/[.?!]+$/, '');
+        compEn += ` In fact, ${lowerClauseUnlessProperEn(cleanRsn)}.`;
+      }
+      if (rsnVi) {
+        const cleanRsnVi = rsnVi.replace(/[.?!]+$/, '');
+        compVi += ` Thực tế là, ${lowerClauseUnlessProperVi(cleanRsnVi)}.`;
+      }
+    } else {
+      compEn = `In addition, ${lowerClauseUnlessProperEn(cleanAct)}.`;
+      compVi = `Thêm vào đó, ${lowerClauseUnlessProperVi(cleanActVi)}.`;
+      if (rsnEn) compEn += ` ${/[.?!]$/.test(rsnEn) ? rsnEn : rsnEn + '.'}`;
+      if (rsnVi) compVi += ` ${/[.?!]$/.test(rsnVi) ? rsnVi : rsnVi + '.'}`;
+    }
+
+    if (solEn) {
+      compEn += ' ' + formatComplaintExpectedActionEn(solEn, isLastSelected || totalSelected === 1);
+    }
+    if (solVi) {
+      compVi += ' ' + formatComplaintExpectedActionVi(solVi, isLastSelected || totalSelected === 1);
+    }
+
+    return {
+      en: compEn.replace(/\s+/g, ' ').trim(),
+      vi: compVi.replace(/\s+/g, ' ').trim()
+    };
+  }
+
+  // === DẠNG 5: FEEDBACK (Exact vstepwritingtask1b2 Praise / Issue / Suggestion formulas) ===
+  if (catKey === 'feedback') {
+    const bareAct = actEn.replace(/[.,;:]+$/, '');
+    const bareVi = actVi.replace(/[.,;:]+$/, '');
+    const isBareSuggestionVerb = /^[a-z]/.test(bareAct) &&
+      /^(increase|deploy|conduct|install|enforce|upgrade|synchronize|curate|train|assign|offer|hire|use|rearrange|introduce|provide|improve|repair|replace|organize|maintain)\b/i.test(bareAct);
+    const isFullSuggestionClause = /^I\s+(?:suggest|recommend|would\s+suggest|would\s+recommend|believe\s+the\s+hotel\s+should)\b/i.test(bareAct);
+    const isFourGroupFeedback = (topic.details?.suggested_ideas || []).length >= 4;
+
+    let fbBaseEn = '';
+    let fbBaseVi = '';
+
+    if (isBareSuggestionVerb) {
+      fbBaseEn = seqIndex % 2 === 0
+        ? `To enhance the quality of your service, I suggest that you ${bareAct}.`
+        : `To enhance the quality of your service, it would be better if you could ${bareAct}.`;
+      fbBaseVi = seqIndex % 2 === 0
+        ? `Để nâng cao chất lượng dịch vụ, tôi đề xuất quý vị ${bareVi}.`
+        : `Để nâng cao chất lượng dịch vụ, sẽ tốt hơn nếu quý vị có thể ${bareVi}.`;
+    } else if (isFullSuggestionClause) {
+      fbBaseEn = `To enhance the quality of your service, ${bareAct}.`;
+      fbBaseVi = `Để nâng cao chất lượng dịch vụ, ${lowerClauseUnlessProperVi(bareVi)}.`;
+    } else if (isFourGroupFeedback) {
+      if (resolvedGroupIdx === 0) {
+        fbBaseEn = `Overall, I found your service quite satisfactory, although there are some aspects that could be improved. One aspect I appreciated was that ${lowerClauseUnlessProperEn(bareAct)}.`;
+        fbBaseVi = `Nhìn chung, tôi thấy dịch vụ của quý vị khá thỏa đáng, mặc dù vẫn còn một vài điểm có thể cải thiện. Một khía cạnh tôi đánh giá cao là ${lowerClauseUnlessProperVi(bareVi)}.`;
+      } else if (resolvedGroupIdx === 1) {
+        fbBaseEn = `However, there were also several areas that required improvement. One issue that I encountered was that ${lowerClauseUnlessProperEn(bareAct)}.`;
+        fbBaseVi = `Tuy nhiên, vẫn còn một số khía cạnh cần được cải thiện. Một vấn đề mà tôi gặp phải là ${lowerClauseUnlessProperVi(bareVi)}.`;
+      } else {
+        fbBaseEn = `Furthermore, I was disappointed that ${lowerClauseUnlessProperEn(bareAct)}.`;
+        fbBaseVi = `Hơn nữa, tôi khá thất vọng khi ${lowerClauseUnlessProperVi(bareVi)}.`;
+      }
+    } else {
+      // 3-group feedback topics (de-22, de-23): G0 = Overall, G1 = Specific praise/issue
+      if (resolvedGroupIdx === 0) {
+        const hasOverall = /^(Overall|On the whole|While|Unfortunately)\b/i.test(bareAct);
+        fbBaseEn = hasOverall
+          ? `${bareAct.charAt(0).toUpperCase() + bareAct.slice(1)}.`
+          : `Overall, ${lowerClauseUnlessProperEn(bareAct)}.`;
+        const hasOverallVi = /^(Nhìn chung|Tổng thể|Mặc dù|Thật không may)/i.test(bareVi);
+        fbBaseVi = hasOverallVi
+          ? `${bareVi.charAt(0).toUpperCase() + bareVi.slice(1)}.`
+          : `Nhìn chung, ${lowerClauseUnlessProperVi(bareVi)}.`;
+      } else {
+        const isNegativeExp = /\b(unstable|disconnected|not very effective|inconsistent|wait nearly|gone cold|too close together)\b/i.test(bareAct);
+        if (/^however\b/i.test(bareAct)) {
+          fbBaseEn = `${bareAct.charAt(0).toUpperCase() + bareAct.slice(1)}.`;
+          fbBaseVi = `${bareVi.charAt(0).toUpperCase() + bareVi.slice(1)}.`;
+        } else if (isNegativeExp) {
+          fbBaseEn = `However, one issue that I encountered was that ${lowerClauseUnlessProperEn(bareAct)}.`;
+          fbBaseVi = `Tuy nhiên, một vấn đề mà tôi gặp phải là ${lowerClauseUnlessProperVi(bareVi)}.`;
+        } else {
+          fbBaseEn = `One aspect I appreciated was that ${lowerClauseUnlessProperEn(bareAct)}.`;
+          fbBaseVi = `Một khía cạnh tôi đánh giá cao là ${lowerClauseUnlessProperVi(bareVi)}.`;
+        }
+      }
+    }
+
+    let fbEn = attachReasonClauseEn(fbBaseEn, rsnEn);
+    let fbVi = attachReasonClauseVi(fbBaseVi, rsnVi, rsnEn);
+    if (exp1En) fbEn += ` ${/[.?!]$/.test(exp1En) ? exp1En : exp1En + '.'}`;
+    if (exp1Vi) fbVi += ` ${/[.?!]$/.test(exp1Vi) ? exp1Vi : exp1Vi + '.'}`;
+
+    return {
+      en: fbEn.replace(/\s+/g, ' ').trim(),
+      vi: fbVi.replace(/\s+/g, ' ').trim()
+    };
+  }
+
+  // === DẠNG 6: APOLOGY (Exact vstepwritingtask1b2 reason & make-up formulas) ===
+  if (catKey === 'apology') {
+    const cleanApol = actEn.replace(/[.?!]+$/, '');
+    const cleanApolVi = actVi.replace(/[.?!]+$/, '');
+
+    // Informal apology to Helen (de-24)
+    if (topic.id === 'de-24') {
+      let apolBaseEn = '';
+      let apolBaseVi = '';
+      if (resolvedGroupIdx === 0) {
+        apolBaseEn = 'First of all, here is the reason for this. Unfortunately, I could not return your book on time.';
+        apolBaseVi = 'Trước hết, đây là lý do của việc này. Thật sự không may là tớ đã không thể trả sách cho cậu đúng hẹn.';
+      } else if (resolvedGroupIdx === 1) {
+        apolBaseEn = `Specifically, ${lowerClauseUnlessProperEn(cleanApol)}.`;
+        apolBaseVi = `Cụ thể là, ${lowerClauseUnlessProperVi(cleanApolVi)}.`;
+      } else if (resolvedGroupIdx === 2) {
+        if (/^To be honest\b/i.test(cleanApol)) {
+          apolBaseEn = cleanApol + '.';
+          apolBaseVi = cleanApolVi + '.';
+        } else {
+          apolBaseEn = `Regarding the book, ${lowerClauseUnlessProperEn(cleanApol)}.`;
+          apolBaseVi = `Về cuốn sách của cậu, ${lowerClauseUnlessProperVi(cleanApolVi)}.`;
+        }
+      } else {
+        const mWill = cleanApol.match(/^I will\s+(.+)$/i);
+        if (mWill) {
+          apolBaseEn = `Let me make it up to you by ${toGerundPhrase(mWill[1])}.`;
+          const strippedWillVi = cleanApolVi.replace(/^(?:Tớ sẽ|Mình sẽ)\s+/i, '');
+          apolBaseVi = `Hãy để tớ bù đắp cho cậu bằng cách ${strippedWillVi}.`;
+        } else {
+          apolBaseEn = `To make it up to you, ${lowerClauseUnlessProperEn(cleanApol)}.`;
+          apolBaseVi = `Để bù đắp cho cậu, ${lowerClauseUnlessProperVi(cleanApolVi)}.`;
+        }
+      }
+      let resEn = attachReasonClauseEn(apolBaseEn, rsnEn);
+      let resVi = attachReasonClauseVi(apolBaseVi, rsnVi, rsnEn);
+      if (exp1En) resEn += ` ${/[.?!]$/.test(exp1En) ? exp1En : exp1En + '.'}`;
+      if (exp1Vi) resVi += ` ${/[.?!]$/.test(exp1Vi) ? exp1Vi : exp1Vi + '.'}`;
+      return { en: resEn.replace(/\s+/g, ' ').trim(), vi: resVi.replace(/\s+/g, ' ').trim() };
+    }
+
+    // Formal / Semi-formal apologies (de-11, de-12, de-25, de-33)
+    const isManagerApology = (topic.id === 'de-12' || topic.id === 'de-33');
+    let formalApolAct = cleanApol.replace(/^I am writing (?:this email )?to (?:express my deepest apologies|apologize) for /i, 'I deeply regret ');
+    let formalApolVi = cleanApolVi.replace(/^(?:Em|Tôi) viết (?:bức )?(?:thư|email) này để (?:bày tỏ lời xin lỗi sâu sắc nhất|chân thành xin lỗi|xin lỗi) vì /i, 'em thực sự vô cùng hối tiếc vì ');
+
+    const hasApolLeadEn = /^(On behalf|Please accept|Thank you|Once again|First|Unfortunately|To make up)\b/i.test(formalApolAct);
+    let apolLeadEn = 'First of all,';
+    let apolLeadVi = 'Trước hết,';
+
+    if (resolvedGroupIdx === 0) {
+      apolLeadEn = 'First of all,';
+      apolLeadVi = 'Trước hết,';
+    } else if (resolvedGroupIdx === 1) {
+      apolLeadEn = isManagerApology && topic.id === 'de-33' ? 'To make up for this inconvenience,' : 'Unfortunately,';
+      apolLeadVi = isManagerApology && topic.id === 'de-33' ? 'Để bù đắp cho sự bất tiện này,' : 'Thật không may,';
+    } else if (resolvedGroupIdx === 2) {
+      apolLeadEn = isManagerApology ? 'Furthermore,' : 'To make up for my mistake,';
+      apolLeadVi = isManagerApology ? 'Hơn nữa,' : 'Để khắc phục sai sót của mình,';
+    } else {
+      apolLeadEn = isManagerApology
+        ? (topic.id === 'de-33' ? 'Finally, as a gesture of goodwill,' : 'To make up for this inconvenience,')
+        : 'Finally,';
+      apolLeadVi = isManagerApology
+        ? (topic.id === 'de-33' ? 'Cuối cùng, như một thiện chí bù đắp,' : 'Để bù đắp cho sự bất tiện này,')
+        : 'Cuối cùng,';
+    }
+
+    const apolBaseEn = hasApolLeadEn
+      ? formalApolAct.charAt(0).toUpperCase() + formalApolAct.slice(1)
+      : `${apolLeadEn} ${lowerClauseUnlessProperEn(formalApolAct)}`;
+    const apolBaseVi = /^(Thay mặt|Xin hãy nhận|Cảm ơn|Trước hết|Thật không may|Để bù đắp)/i.test(formalApolVi)
+      ? formalApolVi.charAt(0).toUpperCase() + formalApolVi.slice(1)
+      : `${apolLeadVi} ${lowerClauseUnlessProperVi(formalApolVi)}`;
+
+    let resEn = attachReasonClauseEn(apolBaseEn, rsnEn);
+    let resVi = attachReasonClauseVi(apolBaseVi, rsnVi, rsnEn);
+    if (exp1En) resEn += ` ${/[.?!]$/.test(exp1En) ? exp1En : exp1En + '.'}`;
+    if (exp1Vi) resVi += ` ${/[.?!]$/.test(exp1Vi) ? exp1Vi : exp1Vi + '.'}`;
+    return { en: resEn.replace(/\s+/g, ' ').trim(), vi: resVi.replace(/\s+/g, ' ').trim() };
+  }
+
+  // === DẠNG 7: APPLICATION (Avoid repeating "I am writing..." & upgrade to vstepwritingtask1b2 phrases) ===
+  if (catKey === 'application') {
+    actEn = actEn
+      .replace(/^I am writing to express my enthusiastic interest in\b/i, 'I am particularly interested in')
+      .replace(/^I am very interested in this position\b/i, 'I am particularly interested in this position')
+      .replace(/^I really want to work at\b/i, 'I am particularly interested in working at');
+    actVi = actVi
+      .replace(/^tôi viết thư này để bày tỏ sự quan tâm nhiệt thành tới\b/i, 'tôi đặc biệt quan tâm đến')
+      .replace(/^tôi rất muốn làm việc tại\b/i, 'tôi đặc biệt quan tâm đến việc làm việc tại');
+  }
+
+  if (isInformal && actVi) {
+    actVi = actVi
+      .replace(/^Xin vui lòng (?:cho tôi biết|thông báo cho tôi về)\s+/i, 'cậu có thể cho tớ biết ')
+      .replace(/\bcho tôi biết\b/gi, 'cho tớ biết')
+      .replace(/\bgửi cho tôi\b/gi, 'gửi cho tớ');
+  }
+
+  const alreadyHasConnectorEn = /^(First|Second|Third|Next|Finally|Last|To begin|In addition|Furthermore|Moreover|Besides|Regarding|As for|However|Overall|On the whole|On behalf|Please accept|Thank you)\b/i.test(actEn);
+  const alreadyHasConnectorVi = /^(Trước hết|Đầu tiên|Thứ hai|Tiếp theo|Bên cạnh đó|Thêm vào đó|Ngoài ra|Hơn nữa|Hơn thế nữa|Cuối cùng|Nhìn chung|Tuy nhiên|Thay mặt|Xin hãy nhận|Cảm ơn|Về\s+)/i.test(actVi);
+
   const bareActClean = actEn.replace(/[.,;:]+$/, '');
   const bareViClean = actVi.replace(/[.,;:]+$/, '');
 
   const isRequestVerbStem = catKey === 'request' && /^(ask|inquire)\s+/i.test(bareActClean);
-  const isFeedbackSuggestionVerb = catKey === 'feedback' &&
-    /^[a-z]/.test(bareActClean) &&
-    /^(increase|deploy|conduct|install|enforce|upgrade|synchronize|curate|train|assign|offer|hire|use|rearrange|introduce|provide|improve|repair|replace|organize|maintain)\b/i.test(bareActClean);
   const isAdviceBareVerb = catKey === 'advice' &&
     /^[a-z]/.test(bareActClean) &&
     /^(stay|choose|book|try|eat|visit|wear|bring|rent|opt|look|practice|practise|use|watch|keep|find|listen|join|participate|take|attend|compete|download|buy|always\s+have|always\s+greet|walk|avoid|taste|enjoy|sample|explore|put|pack|carry)\b/i.test(bareActClean);
+  const adviceModalMatch = catKey === 'advice'
+    ? bareActClean.match(/^you\s+(?:should|can)\s+(?!(?:never|not|also|definitely|be\b))([a-z]+\b.*)$/i)
+    : null;
 
   let baseClauseEn = '';
   let baseClauseVi = '';
 
   if (isRequestVerbStem) {
-    // Transform "ask about/for/if/whether/how..." -> natural B2 inquiry sentence/question
+    // Transform "ask about/for/if/whether/how..." -> exact vstepwritingtask1b2 Request structures
     const strippedVerb = bareActClean.replace(/^(?:ask|inquire)\s+/i, '');
     const strippedVi = bareViClean.replace(/^(?:hỏi\s+xem\s+|hỏi\s+về\s+|hỏi\s+|tìm\s+hiểu\s+xem\s+|tìm\s+hiểu\s+về\s+)/i, '');
     const isAboutOrFor = /^(?:about|for)\s+/i.test(strippedVerb);
@@ -1301,97 +1986,180 @@ function buildB2IdeaSentencePair(topic, group, opt, seqIndex) {
 
     const mode = seqIndex % 4;
     if (isAboutOrFor) {
-      if (mode === 0) baseClauseEn = `${conn} could you tell me more about ${nounPhrase}?`;
-      else if (mode === 1) baseClauseEn = `${conn} I would like to know more about ${nounPhrase}.`;
-      else if (mode === 2) baseClauseEn = `${conn} could you give me some details about ${nounPhrase}?`;
-      else baseClauseEn = `${conn} I was wondering if you could share some information about ${nounPhrase}.`;
+      if (mode === 0) baseClauseEn = `${conn} could you please let me know more about ${nounPhrase}?`;
+      else if (mode === 1) baseClauseEn = `${conn} I was wondering if you could provide me with details about ${nounPhrase}.`;
+      else if (mode === 2) baseClauseEn = `${conn} could you also tell me about ${nounPhrase}?`;
+      else baseClauseEn = isInformal
+        ? `${conn} would you mind letting me know more about ${nounPhrase}?`
+        : `${conn} I would also be grateful if you could clarify ${nounPhrase}.`;
     } else {
-      if (mode === 0) baseClauseEn = `${conn} could you let me know ${strippedVerb}?`;
-      else if (mode === 1) baseClauseEn = `${conn} I would like to know ${strippedVerb}.`;
-      else if (mode === 2) baseClauseEn = `${conn} could you tell me ${strippedVerb}?`;
-      else baseClauseEn = `${conn} I was also wondering ${strippedVerb}.`;
+      if (mode === 0) baseClauseEn = `${conn} could you please let me know ${strippedVerb}?`;
+      else if (mode === 1) baseClauseEn = `${conn} I would like to ask ${strippedVerb}.`;
+      else if (mode === 2) baseClauseEn = `${conn} would you mind letting me know ${strippedVerb}?`;
+      else baseClauseEn = isInformal
+        ? `${conn} could you also tell me ${strippedVerb}?`
+        : `${conn} I would also be grateful if you could clarify ${strippedVerb}.`;
     }
 
     const viAlreadyQuestion = /(?:\s+không|\s+chưa|\?)$/i.test(strippedVi);
+    const viHasEmbeddedWh = /\b(?:bao nhiêu|mấy|nào|gì|đâu|sao|thế nào|như thế nào|hay\s+|liệu\b)/i.test(strippedVi);
     const cleanStrippedVi = strippedVi.replace(/\?+$/, '');
-    if (mode === 0 || mode === 2) {
-      const suffixQ = viAlreadyQuestion ? '?' : ' được không?';
+    const isQuestionOut = baseClauseEn.trim().endsWith('?');
+    if (isQuestionOut) {
+      const suffixQ = (viAlreadyQuestion || viHasEmbeddedWh) ? '?' : ' được không?';
       baseClauseVi = isInformal
         ? `${connVi} cậu có thể cho tớ biết ${cleanStrippedVi}${suffixQ}`
-        : `${connVi} quý vị có thể cho tôi biết ${cleanStrippedVi}${suffixQ}`;
+        : `${connVi} quý vị có thể vui lòng cho tôi biết ${cleanStrippedVi}${suffixQ}`;
     } else {
-      const leadKnow = viAlreadyQuestion ? 'biết liệu' : 'tìm hiểu thêm về';
+      const leadKnow = (viAlreadyQuestion || viHasEmbeddedWh) ? 'hỏi xem' : 'nhờ cung cấp thông tin chi tiết về';
       baseClauseVi = isInformal
         ? `${connVi} tớ muốn ${leadKnow} ${cleanStrippedVi}.`
         : `${connVi} tôi muốn ${leadKnow} ${cleanStrippedVi}.`;
     }
-  } else if (isFeedbackSuggestionVerb) {
-    const sugLeadEn = seqIndex % 2 === 0
-      ? `To further improve your service quality, I suggest that you ${bareActClean}`
-      : `Furthermore, it would be much better if you could ${bareActClean}`;
-    const sugLeadVi = seqIndex % 2 === 0
-      ? `Để nâng cao hơn nữa chất lượng dịch vụ, tôi đề xuất quý vị nên ${bareViClean}`
-      : `Hơn thế nữa, sẽ tốt hơn rất nhiều nếu quý vị có thể ${bareViClean}`;
-    baseClauseEn = `${sugLeadEn}.`;
-    baseClauseVi = `${sugLeadVi}.`;
-  } else if (isAdviceBareVerb) {
-    if (/^always\s+/i.test(bareActClean)) {
-      baseClauseEn = `${conn} you should ${bareActClean}.`;
-      baseClauseVi = `${connVi} cậu nên ${bareViClean}.`;
+  } else if (isAdviceBareVerb || adviceModalMatch) {
+    const voPhrase = adviceModalMatch ? adviceModalMatch[1].trim() : bareActClean;
+    const viVoPhrase = bareViClean
+      .replace(/^(?:nhóm\s+cậu|các\s+cậu|các\s+bạn|cậu|bạn)\s+(?:nhất\s+định\s+)?(?:nên|có\s+thể|cần|hãy)\s+/i, '')
+      .replace(/^(?:hãy\s+luôn|luôn\s+hãy|luôn\s+luôn|hãy)\s+/i, '');
+    const hasCompoundVerb = /\band\s+(?:try|bring|wear|visit|book|buy|take|stay|keep|avoid|make|use|pack|maintain|highlight)\b/i.test(voPhrase);
+
+    if (/^always\s+/i.test(voPhrase)) {
+      const cleanAlwaysVo = voPhrase.replace(/^always\s+/i, '');
+      const cleanAlwaysVi = viVoPhrase.replace(/^(?:luôn|hãy\s+luôn|luôn\s+hãy)\s+/i, '');
+      baseClauseEn = `${conn} remember to ${cleanAlwaysVo}.`;
+      baseClauseVi = `${connVi} hãy nhớ luôn ${cleanAlwaysVi}.`;
     } else {
       const mode = seqIndex % 4;
       if (mode === 0) {
-        baseClauseEn = `${conn} it would be a great idea to ${bareActClean}.`;
-        baseClauseVi = `${connVi} sẽ là một ý tưởng tuyệt vời nếu cậu ${bareViClean}.`;
+        if (hasCompoundVerb) {
+          baseClauseEn = `${conn} I think you should ${voPhrase}.`;
+          baseClauseVi = `${connVi} tớ nghĩ cậu nên ${viVoPhrase}.`;
+        } else {
+          baseClauseEn = `${conn} you could consider ${toGerundPhrase(voPhrase)}.`;
+          baseClauseVi = `${connVi} cậu có thể cân nhắc việc ${viVoPhrase}.`;
+        }
       } else if (mode === 1) {
-        baseClauseEn = `${conn} you could consider ${toGerundPhrase(bareActClean)}.`;
-        baseClauseVi = `${connVi} cậu có thể cân nhắc việc ${bareViClean}.`;
+        baseClauseEn = `${conn} it would be a good idea to ${voPhrase}.`;
+        baseClauseVi = `${connVi} sẽ là một ý kiến hay nếu cậu ${viVoPhrase}.`;
       } else if (mode === 2) {
-        baseClauseEn = `${conn} if I were you, I would ${bareActClean}.`;
-        baseClauseVi = `${connVi} nếu tớ là cậu, tớ sẽ ${bareViClean}.`;
+        baseClauseEn = `${conn} if I were you, I would ${voPhrase}.`;
+        baseClauseVi = `${connVi} nếu tớ là cậu, tớ sẽ ${viVoPhrase}.`;
       } else {
-        baseClauseEn = `${conn} I would strongly recommend ${toGerundPhrase(bareActClean)}.`;
-        baseClauseVi = `${connVi} tớ đặc biệt khuyên cậu nên ${bareViClean}.`;
+        const isPrepVerb = /^(pack|bring|wear|carry|buy|keep|arrive|proofread|install|download|book|put)\b/i.test(voPhrase);
+        if (isPrepVerb) {
+          baseClauseEn = `${conn} remember to ${voPhrase}.`;
+          baseClauseVi = `${connVi} hãy nhớ ${viVoPhrase}.`;
+        } else {
+          baseClauseEn = `${conn} you may want to ${voPhrase}.`;
+          baseClauseVi = `${connVi} cậu có thể cân nhắc ${viVoPhrase}.`;
+        }
       }
     }
   } else {
-    // Full clause/sentence (either uppercase or lowercase subject-verb clause)
+    // Full clause/sentence
     if (alreadyHasConnectorEn) {
       baseClauseEn = actEn.charAt(0).toUpperCase() + actEn.slice(1);
     } else {
-      const keepCapEn = /^(?:I(?:\s|['’])|Hoa\b|Nam\b|Linda\b|Helen\b|Emily\b|John\b|Jane\b|Ann\b|Alex\b|Lucky\b|Milo\b|Sunny\b|Hero\b|Hanoi\b|Can\s+Tho\b|Da\s+Nang\b|Vietnam\b|Vietnamese\b|English\b|Chinese\b|Mr\.|Ms\.|Mrs\.|Professor\b)/.test(actEn);
-      const loweredOrKept = keepCapEn ? actEn : actEn.charAt(0).toLowerCase() + actEn.slice(1);
-      baseClauseEn = `${conn} ${loweredOrKept}`;
+      baseClauseEn = `${conn} ${lowerClauseUnlessProperEn(actEn)}`;
     }
 
     if (alreadyHasConnectorVi) {
       baseClauseVi = actVi.charAt(0).toUpperCase() + actVi.slice(1);
     } else if (actVi) {
-      const keepCapVi = /^(?:Hoa\b|Nam\b|Linda\b|Helen\b|Emily\b|John\b|Jane\b|Ann\b|Alex\b|Hà\s+Nội\b|Cần\s+Thơ\b|Đà\s+Nẵng\b|Việt\s+Nam\b)/.test(actVi);
-      const loweredVi = keepCapVi ? actVi : actVi.charAt(0).toLowerCase() + actVi.slice(1);
-      baseClauseVi = `${connVi} ${loweredVi}`;
+      baseClauseVi = `${connVi} ${lowerClauseUnlessProperVi(actVi)}`;
     }
   }
 
   let mainSentenceEn = attachReasonClauseEn(baseClauseEn, rsnEn);
-  let mainSentenceVi = attachReasonClauseVi(baseClauseVi, rsnVi);
+  let mainSentenceVi = attachReasonClauseVi(baseClauseVi, rsnVi, rsnEn);
 
-  // Append B2 Expansion 1 (or Solution for complaint) for authentic B2 paragraph depth
-  const extraEn = exp1En || (catKey === 'complaint' ? solEn : '');
-  const extraVi = exp1Vi || (catKey === 'complaint' ? solVi : '');
-
-  if (extraEn) {
-    const cleanExtraEn = /[.?!]$/.test(extraEn) ? extraEn : extraEn + '.';
+  if (exp1En) {
+    const cleanExtraEn = /[.?!]$/.test(exp1En) ? exp1En : exp1En + '.';
     mainSentenceEn = `${mainSentenceEn} ${cleanExtraEn}`;
   }
-  if (extraVi) {
-    const cleanExtraVi = /[.?!]$/.test(extraVi) ? extraVi : extraVi + '.';
+  if (exp1Vi) {
+    const cleanExtraVi = /[.?!]$/.test(exp1Vi) ? exp1Vi : exp1Vi + '.';
     mainSentenceVi = `${mainSentenceVi} ${cleanExtraVi}`;
   }
 
   return {
     en: mainSentenceEn.replace(/\s+/g, ' ').trim(),
     vi: mainSentenceVi.replace(/\s+/g, ' ').trim()
+  };
+}
+
+// Build complete 5-part B2 writing frame (Salutation, Opening, Body items, Closing, Sign-off) for any topic
+function buildTopicB2FivePartFrame(topic) {
+  if (!topic) return null;
+  ensureDefaultIdeasSelected(topic);
+
+  const catKey = topic.category_id || 'advice';
+  const regText = topic.recipient_type || topic.details?.analysis?.letter_type || '';
+  const isInformal = /informal|thân mật|bạn bè/i.test(regText);
+  const isSemiFormal = /semi-formal|bán trang trọng/i.test(regText);
+  const isFormal = !isInformal;
+
+  let hintBucketKey = catKey;
+  if (catKey === 'request') hintBucketKey = isInformal ? 'request_informal' : 'request_formal';
+  else if (catKey === 'description') hintBucketKey = isInformal ? 'description_informal' : 'description_formal';
+  else if (catKey === 'apology') hintBucketKey = isInformal ? 'apology_informal' : 'apology_formal';
+
+  const formulaHints = B2_CATEGORY_FORMULA_HINTS[hintBucketKey] || B2_CATEGORY_FORMULA_HINTS.advice;
+  const preset = TOPIC_B2_OUTLINE_FRAMES[topic.id];
+
+  const salutationEn = preset?.salutationEn || (isSemiFormal ? 'Dear Mr./Ms.,' : (isFormal ? 'Dear Sir/Madam,' : 'Dear Friend,'));
+  const salutationVi = preset?.salutationVi || (isFormal ? 'Kính gửi Quý Ông/Bà,' : 'Bạn thân mến,');
+  const openingEn = preset?.openingEn || formulaHints.openingFormula;
+  const openingVi = preset?.openingVi || 'Mở thư theo đúng cấu trúc dàn ý chuẩn B2.';
+  const closingEn = preset?.closingEn || formulaHints.closingFormula;
+  const closingVi = preset?.closingVi || 'Kết thư theo đúng cấu trúc dàn ý chuẩn B2.';
+  const signoffEn = preset?.signoffEn || (isSemiFormal ? 'Yours sincerely,' : (isFormal ? 'Yours faithfully,' : 'Best wishes,'));
+  const signoffVi = preset?.signoffVi || (isFormal ? 'Trân trọng,' : 'Chúc những điều tốt đẹp nhất,');
+
+  const suggestedIdeas = topic.details?.suggested_ideas || [];
+  const topicSel = state.selectedIdeasByTopic[topic.id] || {};
+  const selectedRawList = [];
+
+  suggestedIdeas.forEach((group, gIdx) => {
+    const selArr = Array.isArray(topicSel[gIdx]) ? topicSel[gIdx] : [];
+    selArr.forEach(optIdx => {
+      const opt = (group.options || [])[optIdx];
+      if (opt) selectedRawList.push({ group, gIdx, opt });
+    });
+  });
+
+  const totalSelected = selectedRawList.length;
+  const bodyItems = selectedRawList.map((entry, seqIdx) => {
+    const pair = buildB2IdeaSentencePair(topic, entry.group, entry.opt, seqIdx, totalSelected, entry.gIdx);
+    const hints = [
+      { en: formulaHints.bodyFormula, vi: 'Cấu trúc thân thư chuẩn dàn ý B2' }
+    ];
+    if (entry.opt.action_en) hints.push({ en: entry.opt.action_en, vi: entry.opt.action_vi || 'Ý chính' });
+    if (entry.opt.reason_en) hints.push({ en: entry.opt.reason_en, vi: entry.opt.reason_vi || 'Lý do / Hệ quả' });
+    if (entry.opt.expansion_1_en) hints.push({ en: entry.opt.expansion_1_en, vi: entry.opt.expansion_1_vi || 'Câu mở rộng B2' });
+    else if (entry.opt.solution_en) hints.push({ en: entry.opt.solution_en, vi: entry.opt.solution_vi || 'Hướng giải quyết B2' });
+
+    return {
+      seqIdx,
+      gIdx: entry.gIdx,
+      reqTitle: entry.group.title_vi || entry.group.title_en || `Yêu cầu ${entry.gIdx + 1}`,
+      en: pair.en,
+      vi: pair.vi,
+      hints
+    };
+  });
+
+  return {
+    salutationEn,
+    salutationVi,
+    openingEn,
+    openingVi,
+    closingEn,
+    closingVi,
+    signoffEn,
+    signoffVi,
+    formulaHints,
+    bodyItems
   };
 }
 
@@ -1549,6 +2317,7 @@ function renderStep1Reading() {
   const vocabList = details.vocab || [];
   const topicSel = state.selectedIdeasByTopic[topic.id] || {};
   const isMultiGroupTopic = suggestedIdeas.length > 4;
+  const b2Frame = buildTopicB2FivePartFrame(topic);
 
   // Group vocabulary by category
   const vocabByGroup = {};
@@ -1558,12 +2327,9 @@ function renderStep1Reading() {
     vocabByGroup[g].push(v);
   });
 
-  // Build Interactive Idea Selection HTML (Card 4 — right before transitioning to Step 2)
+  // Build Interactive Idea Selection HTML + Complete 5-Part B2 Writing Suggestion Frame
   let ideaSelectorHtml = '';
-  if (suggestedIdeas.length > 0) {
-    const selectedSummaryItems = [];
-    let seqCounter = 0;
-
+  if (suggestedIdeas.length > 0 && b2Frame) {
     const groupsHtml = suggestedIdeas.map((group, gIdx) => {
       const selArr = Array.isArray(topicSel[gIdx]) ? topicSel[gIdx] : [];
       const optionsHtml = (group.options || []).map((opt, optIdx) => {
@@ -1572,15 +2338,6 @@ function renderStep1Reading() {
         const actVi = opt.action_vi || opt.problem_vi || '';
         const rsnEn = opt.reason_en || opt.impact_en || '';
         const expEn = opt.expansion_1_en || opt.solution_en || '';
-
-        if (isSelected) {
-          const built = buildB2IdeaSentencePair(topic, group, opt, seqCounter++);
-          selectedSummaryItems.push({
-            reqTitle: group.title_vi || group.title_en || `Yêu cầu ${gIdx + 1}`,
-            en: built.en,
-            vi: built.vi
-          });
-        }
 
         return `
           <div class="idea-checkbox-card ${isSelected ? 'is-selected' : ''}" onclick="toggleLetterIdeaSelection(${gIdx}, ${optIdx})">
@@ -1610,32 +2367,93 @@ function renderStep1Reading() {
       `;
     }).join('');
 
-    const summaryHtml = selectedSummaryItems.length > 0 ? `
-      <div style="margin-top: 1.35rem; padding: 1.1rem 1.25rem; background: var(--bg-primary); border: 1.5px solid var(--accent-primary); border-radius: var(--radius-md);">
-        <div style="font-weight: 700; color: var(--accent-primary); margin-bottom: 0.7rem; font-size: 0.94rem;">
-          ✅ TÓM TẮT DÀN Ý ${selectedSummaryItems.length} ĐOẠN/Ý THÂN THƯ B2 BẠN ĐÃ CHỌN (ĐỒNG BỘ SANG BƯỚC 2):
+    const summaryHtml = `
+      <div style="margin-top: 1.45rem; padding: 1.25rem; background: var(--bg-primary); border: 1.5px solid var(--accent-primary); border-radius: var(--radius-md);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem;">
+          <div style="font-weight: 800; color: var(--accent-primary); font-size: 0.98rem;">
+            📝 KHUNG GỢI Ý VIẾT BÀI THƯ CHUẨN DÀN Ý B2 (ĐỒNG BỘ SANG BƯỚC 02)
+          </div>
+          <span class="detail-badge">Chuẩn dàn ý 5 phần VSTEP B2</span>
         </div>
-        <ul class="outline-summary-list">
-          ${selectedSummaryItems.map((item, idx) => `
-            <li>
-              <strong>Ý thân thư ${idx + 1} — ${escapeHtml(item.reqTitle)}:</strong>
-              <div style="color: var(--text-primary); font-weight: 600; margin-top: 0.25rem; line-height: 1.55;">🇬🇧 ${escapeHtml(item.en)}</div>
-              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.2rem; line-height: 1.5;">🇻🇳 ${escapeHtml(item.vi)}</div>
-            </li>
-          `).join('')}
-        </ul>
+
+        <div class="b2-five-step-list">
+          <div class="b2-step-row step-1">
+            <div class="b2-step-head">
+              <span class="b2-step-badge">PHẦN 1</span>
+              <span>LỜI CHÀO MỞ ĐẦU (SALUTATION)</span>
+            </div>
+            <div class="b2-step-formula">
+              <div style="font-weight: 700; color: var(--text-primary);">🇬🇧 ${escapeHtml(b2Frame.salutationEn)}</div>
+              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.15rem;">🇻🇳 ${escapeHtml(b2Frame.salutationVi)}</div>
+            </div>
+          </div>
+
+          <div class="b2-step-row step-2">
+            <div class="b2-step-head">
+              <span class="b2-step-badge" style="background: #0ea5e9;">PHẦN 2</span>
+              <span>MỞ THƯ (OPENING — NÊU LÝ DO &amp; MỤC ĐÍCH VIẾT THƯ)</span>
+            </div>
+            <div class="b2-step-formula">
+              <div style="font-size: 0.83rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.25rem;">📐 Công thức B2: ${escapeHtml(b2Frame.formulaHints.openingFormula)}</div>
+              <div style="font-weight: 700; color: var(--text-primary); line-height: 1.55;">🇬🇧 ${escapeHtml(b2Frame.openingEn)}</div>
+              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.2rem; line-height: 1.5;">🇻🇳 ${escapeHtml(b2Frame.openingVi)}</div>
+            </div>
+          </div>
+
+          <div class="b2-step-row step-3">
+            <div class="b2-step-head">
+              <span class="b2-step-badge" style="background: #8b5cf6;">PHẦN 3</span>
+              <span>THÂN THƯ (BODY PARAGRAPHS — ${b2Frame.bodyItems.length} Ý B2 BẠN ĐÃ CHỌN)</span>
+            </div>
+            <div class="b2-step-formula">
+              <div style="font-size: 0.83rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.55rem;">📐 Công thức B2: ${escapeHtml(b2Frame.formulaHints.bodyFormula)}</div>
+              <ul class="outline-summary-list" style="margin: 0;">
+                ${b2Frame.bodyItems.map((item, idx) => `
+                  <li>
+                    <strong>Ý thân thư ${idx + 1} — ${escapeHtml(item.reqTitle)}:</strong>
+                    <div style="color: var(--text-primary); font-weight: 600; margin-top: 0.25rem; line-height: 1.55;">🇬🇧 ${escapeHtml(item.en)}</div>
+                    <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.2rem; line-height: 1.5;">🇻🇳 ${escapeHtml(item.vi)}</div>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+          </div>
+
+          <div class="b2-step-row step-4">
+            <div class="b2-step-head">
+              <span class="b2-step-badge" style="background: #f59e0b;">PHẦN 4</span>
+              <span>KẾT THƯ (CLOSING SENTENCE)</span>
+            </div>
+            <div class="b2-step-formula">
+              <div style="font-size: 0.83rem; color: var(--accent-primary); font-weight: 600; margin-bottom: 0.25rem;">📐 Công thức B2: ${escapeHtml(b2Frame.formulaHints.closingFormula)}</div>
+              <div style="font-weight: 700; color: var(--text-primary); line-height: 1.55;">🇬🇧 ${escapeHtml(b2Frame.closingEn)}</div>
+              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.2rem; line-height: 1.5;">🇻🇳 ${escapeHtml(b2Frame.closingVi)}</div>
+            </div>
+          </div>
+
+          <div class="b2-step-row step-5">
+            <div class="b2-step-head">
+              <span class="b2-step-badge" style="background: #10b981;">PHẦN 5</span>
+              <span>LỜI CHÀO KẾT THÚC (SIGN-OFF — KHÔNG KÝ TÊN THẬT)</span>
+            </div>
+            <div class="b2-step-formula">
+              <div style="font-weight: 700; color: var(--text-primary);">🇬🇧 ${escapeHtml(b2Frame.signoffEn)}</div>
+              <div style="color: var(--text-secondary); font-size: 0.88rem; font-style: italic; margin-top: 0.15rem;">🇻🇳 ${escapeHtml(b2Frame.signoffVi)} <span style="color: var(--danger); font-weight: 700; font-style: normal;">— ⚠️ Lưu ý: Đề thi VSTEP yêu cầu KHÔNG viết tên riêng bên dưới!</span></div>
+            </div>
+          </div>
+        </div>
       </div>
-    ` : '';
+    `;
 
     const helperNote = isMultiGroupTopic
       ? 'Đề thư phàn nàn này cung cấp nhiều nhóm sự cố gợi ý. Hệ thống đã chọn sẵn các ý tiêu biểu nhất — bạn có thể <strong>bấm vào ô đang chọn để bỏ chọn</strong> hoặc chọn sang nhóm sự cố khác (nên giữ từ <strong>3 – 4 ý</strong> để bức thư mạch lạc 140–180 từ).'
-      : 'Mỗi cột tương ứng với <strong>1 yêu cầu bắt buộc trong đề thi</strong>. Hãy nhấn chọn 1 phương án tâm đắc nhất cho từng cột — hệ thống sẽ tự động ghép thành câu chuẩn B2 và chuyển sang <strong>Bước 2: Tập diễn đạt ý tưởng</strong>!';
+      : 'Mỗi cột tương ứng với <strong>1 yêu cầu bắt buộc trong đề thi</strong>. Hãy nhấn chọn 1 phương án tâm đắc nhất cho từng cột — hệ thống sẽ tự động ghép vào <strong>Khung gợi ý viết 5 phần chuẩn dàn ý B2</strong> bên dưới và đồng bộ sang <strong>Bước 2: Tập diễn đạt ý tưởng</strong>!';
 
     ideaSelectorHtml = `
       <div class="reading-section-card idea-selection-card">
         <div class="idea-selection-header">
           <div style="flex: 1; min-width: 260px;">
-            <h3 style="margin-bottom: 0.35rem; border: none; padding: 0;">🎯 3. CHỌN Ý TƯỞNG &amp; CÂU MỞ RỘNG B2 CHO THÂN THƯ</h3>
+            <h3 style="margin-bottom: 0.35rem; border: none; padding: 0;">🎯 3. CHỌN Ý TƯỞNG &amp; KHUNG GỢI Ý VIẾT BÀI THƯ CHUẨN DÀN Ý B2</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55;">
               ${helperNote}
             </p>
@@ -1732,7 +2550,7 @@ function renderStep1Reading() {
       `).join('') : '<div class="empty-state">Từ vựng đã được tích hợp trực tiếp trong phần gợi ý ý tưởng và bài mẫu B2.</div>'}
     </div>
 
-    <!-- CARD 3: CHỌN Ý TƯỞNG B2 & TÓM TẮT CÂU THÂN THƯ -->
+    <!-- CARD 3: CHỌN Ý TƯỞNG B2 & KHUNG GỢI Ý VIẾT 5 PHẦN CHUẨN DÀN Ý B2 -->
     ${ideaSelectorHtml || `
       <div style="display: flex; justify-content: flex-end;">
         <button class="btn btn-primary" onclick="switchStep('trans')" style="padding: 0.8rem 1.65rem; font-size: 0.96rem; font-weight: 700;">
@@ -1754,118 +2572,56 @@ function toggleStep1MasterOutline() {
 // ============================================================================
 function buildExercisesForActiveTopic(topic) {
   if (!topic) return [];
-  ensureDefaultIdeasSelected(topic);
+  const b2Frame = buildTopicB2FivePartFrame(topic);
+  if (!b2Frame) return [];
 
-  const sampleB2 = topic.details?.sample_b2 || topic.sample_b2 || {};
-  const enParas = (sampleB2.letter_en || sampleB2.text || '').replace(/\*\*\*|\*\*_/g, '').replace(/_\*\*/g, '').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
-  const viParas = (sampleB2.letter_vi || sampleB2.translation || '').replace(/\*\*\*|\*\*_/g, '').replace(/_\*\*/g, '').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
-  const b1List = topic.details?.sentence_practice_b1 || [];
-  const vocabList = topic.details?.vocab || [];
-
-  const isFormal = /formal/i.test(topic.recipient_type || topic.details?.analysis?.letter_type || '') && !/informal/i.test(topic.recipient_type || topic.details?.analysis?.letter_type || '');
-
-  // 1. Salutation
-  const salutationEn = (enParas[0] && /^Dear\b/i.test(enParas[0])) ? enParas[0] : (isFormal ? 'Dear Sir or Madam,' : 'Dear Friend,');
-  const salutationVi = (viParas[0] && viParas[0].length < 50) ? viParas[0] : (isFormal ? 'Kính gửi Ông/Bà,' : 'Bạn thân mến,');
-
-  // 2. Opening
-  const openingEn = enParas[1] || (b1List[0] ? b1List[0].en : 'I am writing this letter regarding your request.');
-  const openingVi = viParas[1] || (b1List[0] ? b1List[0].vi : 'Tôi viết bức thư này để phản hồi các nội dung bạn quan tâm.');
-  const openingHints = (b1List[0] && b1List[0].vocab_hints) ? b1List[0].vocab_hints : [
-    { en: isFormal ? 'I am writing to...' : 'Thanks for your letter. How have you been lately?', vi: isFormal ? 'Tôi viết thư này để...' : 'Cảm ơn thư của bạn. Dạo này bạn thế nào?' }
-  ];
-
-  // 3. Body paragraphs based on Student's Selected B2 Ideas in Step 1!
-  const suggestedIdeas = topic.details?.suggested_ideas || [];
-  const topicSel = state.selectedIdeasByTopic[topic.id] || {};
-  const bodyExercises = [];
-  let seqIdx = 0;
-
-  if (suggestedIdeas.length > 0) {
-    suggestedIdeas.forEach((group, gIdx) => {
-      const selArr = Array.isArray(topicSel[gIdx]) ? topicSel[gIdx] : [];
-      selArr.forEach(optIdx => {
-        const opt = (group.options || [])[optIdx];
-        if (!opt) return;
-        const pair = buildB2IdeaSentencePair(topic, group, opt, seqIdx);
-        const hints = [];
-        if (opt.action_en) hints.push({ en: opt.action_en, vi: opt.action_vi || 'Ý chính' });
-        if (opt.reason_en) hints.push({ en: opt.reason_en, vi: opt.reason_vi || 'Lý do / Giải thích' });
-        if (opt.expansion_1_en) hints.push({ en: opt.expansion_1_en, vi: opt.expansion_1_vi || 'Câu mở rộng B2' });
-        else if (opt.solution_en) hints.push({ en: opt.solution_en, vi: opt.solution_vi || 'Hướng giải quyết B2' });
-
-        bodyExercises.push({
-          role: 'body',
-          partTitle: `PHẦN 3.${seqIdx + 1}: THÂN THƯ — ${(group.title_vi || group.title_en || `YÊU CẦU ${gIdx + 1}`).toUpperCase()}`,
-          vi: pair.vi,
-          en: pair.en,
-          hints
-        });
-        seqIdx++;
-      });
-    });
-  } else if (enParas.length > 4) {
-    for (let i = 2; i < enParas.length - 2; i++) {
-      bodyExercises.push({
-        role: 'body',
-        partTitle: `PHẦN 3.${i - 1}: THÂN THƯ — ĐOẠN ${i - 1}`,
-        vi: viParas[i] || 'Hãy diễn đạt đoạn thân thư này sang tiếng Anh chuẩn B2.',
-        en: enParas[i],
-        hints: vocabList.slice((i - 2) * 2, (i - 2) * 2 + 3)
-      });
-    }
-  }
-
-  // 4. Closing sentence (second to last paragraph in sample_b2)
-  const closingEn = enParas.length >= 4
-    ? enParas[enParas.length - 2]
-    : (isFormal ? 'Thank you for your time and consideration. I look forward to hearing from you soon.' : 'I hope you find my suggestions helpful. Write back soon.');
-  const closingVi = viParas.length >= 4
-    ? viParas[viParas.length - 2]
-    : (isFormal ? 'Cảm ơn thời gian và sự quan tâm của quý vị. Tôi rất mong sớm nhận được phản hồi từ quý vị.' : 'Tớ hy vọng những chia sẻ của tớ sẽ hữu ích cho cậu. Viết thư lại cho tớ sớm nhé.');
-
-  // 5. Sign-off (last paragraph in sample_b2)
-  const signoffEn = enParas.length >= 3
-    ? enParas[enParas.length - 1]
-    : (isFormal ? 'Yours faithfully,' : 'Best wishes,');
-  const signoffVi = viParas.length >= 3
-    ? viParas[viParas.length - 1]
-    : (isFormal ? 'Trân trọng,' : 'Thân mến,');
+  const bodyExercises = b2Frame.bodyItems.map((item, idx) => ({
+    role: 'body',
+    partTitle: `PHẦN 3.${idx + 1}: THÂN THƯ — ${item.reqTitle.toUpperCase()}`,
+    vi: item.vi,
+    en: item.en,
+    hints: item.hints
+  }));
 
   return [
     {
       role: 'salutation',
       partTitle: 'PHẦN 1: LỜI CHÀO MỞ ĐẦU (SALUTATION)',
-      vi: salutationVi,
-      en: salutationEn,
-      hints: [{ en: salutationEn, vi: 'Lời chào mở đầu chuẩn văn phong kèm dấu phẩy cuối dòng' }]
+      vi: b2Frame.salutationVi,
+      en: b2Frame.salutationEn,
+      hints: [
+        { en: b2Frame.salutationEn, vi: 'Lời chào mở đầu chuẩn văn phong kèm dấu phẩy cuối dòng' }
+      ]
     },
     {
       role: 'opening',
-      partTitle: 'PHẦN 2: MỞ THƯ (OPENING — CHÀO HỎI & NÊU MỤC ĐÍCH VIẾT THƯ)',
-      vi: openingVi,
-      en: openingEn,
-      hints: openingHints
+      partTitle: 'PHẦN 2: MỞ THƯ (OPENING — NÊU LÝ DO & MỤC ĐÍCH VIẾT THƯ)',
+      vi: b2Frame.openingVi,
+      en: b2Frame.openingEn,
+      hints: [
+        { en: b2Frame.formulaHints.openingFormula, vi: 'Công thức Mở thư chuẩn dàn ý B2' },
+        { en: b2Frame.openingEn, vi: b2Frame.openingVi }
+      ]
     },
     ...bodyExercises,
     {
       role: 'closing',
       partTitle: 'PHẦN 4: KẾT THƯ (CLOSING SENTENCE)',
-      vi: closingVi,
-      en: closingEn,
+      vi: b2Frame.closingVi,
+      en: b2Frame.closingEn,
       hints: [
-        {
-          en: isFormal ? 'I look forward to hearing from you soon.' : 'Let me know how things go. Write back soon.',
-          vi: isFormal ? 'Tôi rất mong sớm nhận được hồi âm từ quý vị.' : 'Cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm nhé.'
-        }
+        { en: b2Frame.formulaHints.closingFormula, vi: 'Công thức Kết thư chuẩn dàn ý B2' },
+        { en: b2Frame.closingEn, vi: b2Frame.closingVi }
       ]
     },
     {
       role: 'signoff',
       partTitle: 'PHẦN 5: LỜI CHÀO KẾT THÚC (SIGN-OFF — KHÔNG KÝ TÊN THẬT)',
-      vi: signoffVi,
-      en: signoffEn,
-      hints: [{ en: signoffEn, vi: 'Lưu ý: Đề thi VSTEP yêu cầu KHÔNG ghi tên thật của bạn bên dưới!' }]
+      vi: b2Frame.signoffVi,
+      en: b2Frame.signoffEn,
+      hints: [
+        { en: b2Frame.signoffEn, vi: 'Lưu ý: Đề thi VSTEP yêu cầu KHÔNG ghi tên thật của bạn bên dưới!' }
+      ]
     }
   ];
 }
@@ -2342,7 +3098,7 @@ function evaluateLetterB2(text, topic) {
   }
 
   // Check Connectors
-  const connectorPatterns = ['first of all', 'firstly', 'to begin with', 'secondly', 'in addition', 'furthermore', 'moreover', 'besides', 'on top of that', 'finally', 'last but not least', 'however', 'therefore', 'regarding', 'as for'];
+  const connectorPatterns = ['first of all', 'firstly', 'to begin with', 'second,', 'secondly', 'next,', 'in addition', 'furthermore', 'moreover', 'besides', 'on top of that', 'finally', 'last but not least', 'however', 'therefore', 'overall,', 'in particular', 'specifically', 'in fact', 'given these circumstances', 'to make up for', 'to enhance', 'regarding', 'as for'];
   const usedConnectors = connectorPatterns.filter(c => lower.includes(c));
 
   // Check Topic Vocabulary Matches
@@ -2722,10 +3478,10 @@ function highlightSampleLetterB2(rawText) {
   html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong class="hl-key-idea">$1</strong>');
   html = html.replace(/\*\*_(.*?)_\*\*/g, '<strong class="hl-key-idea">$1</strong>');
 
-  const connectorRegex = /\b(First of all,|Firstly,|To begin with,|Secondly,|In addition,|Furthermore,|Moreover,|Besides that,|On top of that,|However,|Therefore,|Finally,|Last but not least,|Regarding\s+[A-Za-z]+|As for\b)/g;
+  const connectorRegex = /\b(First of all,|Firstly,|To begin with,|Second,|Secondly,|Next,|In addition,|Furthermore,\s*to make matters worse,|Furthermore,|Moreover,|Besides that,|On top of that,|However,|Therefore,|Overall,|In particular,|Specifically,|In fact,|Given these circumstances,|To make up for my mistake,|To make up for this inconvenience,|To enhance the quality of your service,|Finally,|Last but not least,|Regarding\s+my\s+previous\s+experience,|Regarding\s+[A-Za-z]+|As for\b)/g;
   html = html.replace(connectorRegex, m => `<span class="hl-mark-connector" title="Từ nối mạch lạc B2">${m}</span>`);
 
-  const structRegex = /\b(I am writing to|I’m writing to|I'm writing to|I would appreciate it if you could|I strongly recommend|It would be a good idea to|If I were you,\s*I would|You could consider|I look forward to hearing from you|I look forward to receiving your reply|I would be grateful if you could|Please accept my sincere apologies|To make up for)\b/gi;
+  const structRegex = /\b(I am writing to formally complain about|I am writing to sincerely apologize for|I am writing to apply for the position of|I am writing to provide feedback on|I am writing to ask for some detailed information about|I am writing to|I’m writing to|I'm writing to|After reading your letter,\s*I have a few suggestions that you may want to consider|The main issue that I would like to highlight is|One aspect I appreciated was|One issue that I encountered was|First of all,\s*here is the reason for this|Let me make it up to you by|I am particularly interested in|I believe I would be a suitable candidate|I would appreciate it if you could|I strongly recommend|It would be a good idea to|If I were you,\s*I would|You could consider|You may want to|I look forward to hearing from you|I look forward to receiving your response|I look forward to receiving your reply|I would be grateful if you could|Please accept my sincere apologies|To make up for)\b/gi;
   html = html.replace(structRegex, m => `<span class="hl-mark-structure" title="Cấu trúc ăn điểm B2">${m}</span>`);
 
   return html;
