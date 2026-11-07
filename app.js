@@ -551,11 +551,12 @@ function switchScreen(screenName) {
   const topHeader = document.querySelector('.top-header');
   if (topHeader) {
     topHeader.classList.toggle('view-category', screenName === 'category');
+    topHeader.classList.toggle('view-workspace', screenName === 'workspace');
   }
 
   const titleEl = document.getElementById('topbar-title');
   if (screenName === 'dashboard') {
-    if (titleEl) titleEl.textContent = 'PHÒNG VIẾT THƯ - B2 LEVEL';
+    if (titleEl) titleEl.textContent = 'PHÒNG VIẾT THƯ B2';
     renderDashboard();
   } else if (screenName === 'history') {
     if (titleEl) titleEl.textContent = 'LỊCH SỬ BÀI VIẾT ĐÃ NỘP';
@@ -921,7 +922,10 @@ function startPractice(topicId) {
     wsScreen.style.display = 'block';
   }
   const topHeader = document.querySelector('.top-header');
-  if (topHeader) topHeader.classList.remove('view-category');
+  if (topHeader) {
+    topHeader.classList.remove('view-category');
+    topHeader.classList.add('view-workspace');
+  }
 
   // Pre-render all 4 steps and activate Step 1 ('read') immediately!
   renderStep1Reading();
