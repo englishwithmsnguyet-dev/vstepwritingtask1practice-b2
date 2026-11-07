@@ -115,7 +115,7 @@
               <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
               <line x1="12" y1="17" x2="12.01" y2="17"></line>
             </svg>
-            2. Thư Yêu Cầu Thông Tin
+            2. Thư Yêu Cầu
           </a>
         </li>
         <li class="nav-item">
@@ -126,7 +126,7 @@
               <line x1="16" y1="13" x2="8" y2="13"></line>
               <line x1="16" y1="17" x2="8" y2="17"></line>
             </svg>
-            3. Thư Miêu Tả & Kể Chuyện
+            3. Thư Mô Tả
           </a>
         </li>
         <li class="nav-item">
@@ -144,7 +144,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
             </svg>
-            5. Thư Phản Hồi Đánh Giá
+            5. Thư Phản Hồi/Đánh Giá
           </a>
         </li>
         <li class="nav-item">
@@ -161,7 +161,7 @@
               <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
               <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
             </svg>
-            7. Thư Ứng Tuyển Công Việc
+            7. Thư Ứng Tuyển – Xin Việc
           </a>
         </li>
         <li class="nav-item" style="margin-top: 0.75rem;">
@@ -328,14 +328,14 @@
                   <div class="guide-step-num">2</div>
                   <div class="guide-step-content">
                     <h4>Bước 2: Tập diễn đạt ý tưởng theo 5 phần của bức thư</h4>
-                    <p>Thực hành dịch và viết từng câu hoàn chỉnh từ Lời chào mở đầu, Mở thư, các câu Thân thư (theo đúng ý tưởng B2 bạn vừa chọn ở Bước 1) đến Kết thư và Ký tên. Bấm <strong>Ghép bài sang Bước 3</strong> để chuyển thẳng thành bài viết.</p>
+                    <p>Thực hành dịch và viết từng câu hoàn chỉnh từ Lời chào mở đầu, Mở thư, các câu Thân thư (theo đúng ý tưởng B2 bạn vừa chọn ở Bước 1) đến Kết thư và Ký tên kèm nhận diện lỗi và gợi ý chỉnh sửa chi tiết.</p>
                   </div>
                 </div>
                 <div class="guide-step-card">
                   <div class="guide-step-num">3</div>
                   <div class="guide-step-content">
                     <h4>Bước 3: Viết bài thư hoàn chỉnh & Nhận chấm điểm VSTEP</h4>
-                    <p>Hoàn thiện bức thư của bạn với bộ đếm giờ 20 phút và thanh tiến độ tối thiểu 120 từ. Bấm nộp bài để nhận báo cáo chấm điểm chi tiết theo 4 tiêu chí VSTEP B2 và xuất phiếu chấm ra file Word (.doc).</p>
+                    <p>Tự gõ lại bức thư hoàn chỉnh của bạn với bộ đếm giờ 20 phút và thanh tiến độ tối thiểu 120 từ (khóa sao chép/dán để rèn phản xạ phòng thi). Bấm nộp bài để nhận báo cáo chấm điểm chi tiết theo 4 tiêu chí VSTEP B2.</p>
                   </div>
                 </div>
                 <div class="guide-step-card">
@@ -349,7 +349,7 @@
             </div>
 
             <div class="dashboard-section-title">
-              <span>Chủ đề gợi ý hôm nay (Có Hướng Dẫn Chi Tiết)</span>
+              <span>Chủ đề gợi ý hôm nay</span>
               <a class="view-all-link" onclick="switchCategory(1)" style="cursor:pointer">Xem tất cả 37 đề &rarr;</a>
             </div>
             <div class="featured-topics-grid" id="featured-topics-container">
@@ -404,7 +404,6 @@
             <div class="resources-header" style="border-bottom: 1px solid var(--panel-border); padding: 1rem 1.5rem; background-color: var(--bg-secondary);">
               <div class="topic-header-meta">
                 <span id="workspace-topic-category" class="category-tag tag-adv">Category</span>
-                <span id="workspace-enrichment-badge" class="detail-badge">★ Có hướng dẫn B2</span>
               </div>
               <div class="topic-header-title" id="workspace-topic-title" style="font-size: 1.25rem; margin-top: 0.25rem;">Topic Title Here</div>
             </div>
@@ -463,9 +462,6 @@
                     </svg>
                     SAO LƯU TIẾN ĐỘ
                   </button>
-                  <button class="btn btn-success" onclick="assembleSentencesToStep3()" title="Tự động ghép các câu bạn vừa viết ở Bước 2 thành bức thư hoàn chỉnh ở Bước 3">
-                    ✨ GHÉP BÀI SANG BƯỚC 3 &rsaquo;
-                  </button>
                   <button class="btn btn-primary" onclick="switchStep('write')">
                     VIẾT BÀI &rsaquo;
                   </button>
@@ -514,13 +510,6 @@
                       <polyline points="7 3 7 8 15 8"></polyline>
                     </svg>
                     SAO LƯU TIẾN ĐỘ
-                  </button>
-                  <button class="btn btn-secondary" onclick="copyEssay()" title="Sao chép bài viết">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                    Sao chép
                   </button>
                   <button class="btn btn-secondary" onclick="downloadCurrentEssayAction()" title="Tải bài viết về máy (.doc)" style="border-color: #10b981; color: #10b981;">
                     📥 TẢI BÀI VỀ

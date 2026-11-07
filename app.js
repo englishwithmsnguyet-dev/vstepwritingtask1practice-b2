@@ -8,12 +8,12 @@
 // ============================================================================
 const CATEGORY_META = {
   1: { id: 1, key: 'advice', title: 'Letter of Advice', titleVi: '1. Thư Cho Lời Khuyên', tagClass: 'tag-adv' },
-  2: { id: 2, key: 'request', title: 'Letter of Request', titleVi: '2. Thư Yêu Cầu Thông Tin', tagClass: 'tag-cause' },
-  3: { id: 3, key: 'description', title: 'Letter of Description', titleVi: '3. Thư Miêu Tả & Kể Chuyện', tagClass: 'tag-discussion' },
+  2: { id: 2, key: 'request', title: 'Letter of Request', titleVi: '2. Thư Yêu Cầu', tagClass: 'tag-cause' },
+  3: { id: 3, key: 'description', title: 'Letter of Description', titleVi: '3. Thư Mô Tả', tagClass: 'tag-discussion' },
   4: { id: 4, key: 'complaint', title: 'Letter of Complaint', titleVi: '4. Thư Phàn Nàn', tagClass: 'tag-opinion' },
-  5: { id: 5, key: 'feedback', title: 'Letter of Feedback', titleVi: '5. Thư Phản Hồi Đánh Giá', tagClass: 'tag-adv' },
+  5: { id: 5, key: 'feedback', title: 'Letter of Feedback', titleVi: '5. Thư Phản Hồi/Đánh Giá', tagClass: 'tag-adv' },
   6: { id: 6, key: 'apology', title: 'Letter of Apology', titleVi: '6. Thư Xin Lỗi', tagClass: 'tag-cause' },
-  7: { id: 7, key: 'application', title: 'Letter of Application', titleVi: '7. Thư Ứng Tuyển Công Việc', tagClass: 'tag-discussion' }
+  7: { id: 7, key: 'application', title: 'Letter of Application', titleVi: '7. Thư Ứng Tuyển – Xin Việc', tagClass: 'tag-discussion' }
 };
 
 const VALID_PASSWORDS = ['STUDYHARD', 'VSTEPWRITING', 'VSTEOWRITING', 'PRACTICEWRITING'];
@@ -715,11 +715,16 @@ function renderDashboard() {
 
     featuredContainer.innerHTML = featured.map(t => {
       const meta = CATEGORY_META[t.catNum] || CATEGORY_META[1];
+      const hasDraft = !!state.drafts[t.id];
+      const isDone = state.history.some(h => h.topicId === t.id);
+      const statusBadge = isDone
+        ? '<span class="detail-badge">✓ Đã hoàn thành</span>'
+        : (hasDraft ? '<span class="detail-badge">📝 Đang lưu nháp</span>' : '');
       return `
         <div class="topic-card" onclick="startPractice('${t.id}')">
           <div class="card-header">
             <span class="category-tag ${meta.tagClass}">${escapeHtml(t.categoryTitleVi)}</span>
-            <span class="detail-badge">★ Chuẩn B2</span>
+            ${statusBadge}
           </div>
           <div class="card-body">
             <h4>${escapeHtml(t.title_en)}</h4>
@@ -819,7 +824,7 @@ function renderCategoryView() {
       <div class="topic-card" onclick="startPractice('${t.id}')">
         <div class="card-header">
           <span class="category-tag ${meta.tagClass}">${escapeHtml(t.recipient_type || t.categoryTitleVi)}</span>
-          <span class="detail-badge">${isDone ? '✓ Đã hoàn thành' : hasDraft ? '📝 Đang lưu nháp' : '★ Hướng dẫn B2'}</span>
+          ${isDone ? '<span class="detail-badge">✓ Đã hoàn thành</span>' : hasDraft ? '<span class="detail-badge">📝 Đang lưu nháp</span>' : ''}
         </div>
         <div class="card-body">
           <h4>${escapeHtml(t.title_en)}</h4>
@@ -879,7 +884,6 @@ function startPractice(topicId) {
   // Update Workspace Header
   const titleEl = document.getElementById('workspace-topic-title');
   const catEl = document.getElementById('workspace-topic-category');
-  const badgeEl = document.getElementById('workspace-enrichment-badge');
   const topTitleEl = document.getElementById('topbar-title');
   const meta = CATEGORY_META[topic.catNum] || CATEGORY_META[1];
 
@@ -888,7 +892,6 @@ function startPractice(topicId) {
     catEl.className = `category-tag ${meta.tagClass}`;
     catEl.textContent = `${topic.categoryTitleVi} • ${topic.recipient_type || 'VSTEP B2'}`;
   }
-  if (badgeEl) badgeEl.textContent = '★ Có hướng dẫn B2 chi tiết';
   if (topTitleEl) topTitleEl.textContent = topic.title_vi || topic.title_en;
 
   // Reset layout from previous submission
@@ -3148,7 +3151,7 @@ function renderTranslationExercises() {
       <div>
         <strong style="color: var(--accent-primary);">💡 Lộ trình 5 phần chuẩn VSTEP B2:</strong>
         <span style="font-size: 0.9rem; color: var(--text-secondary); margin-left: 0.35rem;">
-          Các câu thân thư bên dưới được tạo trực tiếp từ những ý tưởng B2 bạn đã chọn ở Bước 1. Sau khi tự gõ câu tiếng Anh, hãy nhấn <strong>✨ GHÉP BÀI SANG BƯỚC 3</strong> để chuyển thành bức thư hoàn chỉnh!
+          Các câu thân thư bên dưới được tạo trực tiếp từ những ý tưởng B2 bạn đã chọn ở Bước 1. Sau khi tự gõ và kiểm tra lỗi từng câu tiếng Anh, hãy chuyển sang Bước 3 để tự đánh máy lại bức thư hoàn chỉnh!
         </span>
       </div>
       <button class="btn btn-secondary" onclick="switchStep('read')" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
@@ -3188,6 +3191,11 @@ function renderTranslationExercises() {
           style="height: ${isShortLine ? '52px' : '88px'};"
           placeholder="Nhập câu tiếng Anh của bạn tại đây..."
           oninput="handleTranslationDraftInput(${idx})"
+          onpaste="handleEditorPaste(event)"
+          oncopy="handleEditorCopyCut(event)"
+          oncut="handleEditorCopyCut(event)"
+          ondrop="handleEditorDrop(event)"
+          oncontextmenu="handleEditorContextMenu(event)"
         >${escapeHtml(prevVal)}</textarea>
 
         <div class="trans-actions">
@@ -3203,9 +3211,6 @@ function renderTranslationExercises() {
 
   const bottomActionHtml = `
     <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 0.5rem; padding-bottom: 1rem;">
-      <button class="btn btn-success" onclick="assembleSentencesToStep3()" style="padding: 0.75rem 1.4rem; font-size: 0.95rem;">
-        ✨ GHÉP CÁC CÂU ĐÃ VIẾT SANG BƯỚC 3 &rsaquo;
-      </button>
       <button class="btn btn-primary" onclick="switchStep('write')" style="padding: 0.75rem 1.4rem; font-size: 0.95rem;">
         CHUYỂN SANG BƯỚC 3: VIẾT BÀI THƯ &rarr;
       </button>
@@ -3283,16 +3288,6 @@ function checkTranslationAnswer(idx) {
       <div class="trans-answer-text">${escapeHtml(ex.en)}</div>
     </div>
   `;
-}
-
-function applyCorrectedSentence(idx) {
-  if (!state.lastCorrectedSentences || !state.lastCorrectedSentences[idx]) return;
-  const inputEl = document.getElementById(`trans-input-${idx}`);
-  if (!inputEl) return;
-  inputEl.value = state.lastCorrectedSentences[idx];
-  handleTranslationDraftInput(idx);
-  checkTranslationAnswer(idx);
-  showToast('✨ Đã áp dụng câu sau khi sửa lỗi vào ô nhập!', 'success');
 }
 
 // --- Levenshtein Distance & Comprehensive VSTEP B2 Sentence Error Detector ---
@@ -4700,12 +4695,9 @@ function evaluateSentenceTranslation(userText, ex, idx = 0) {
         </div>
         <div class="sent-corrected-clean">
           <div style="flex: 1; min-width: 0;">
-            <div style="font-size: 0.78rem; color: var(--success); font-weight: 700; margin-bottom: 0.2rem;">✓ Câu của bạn sau khi hoàn thiện ngữ pháp & chính tả:</div>
+            <div style="font-size: 0.78rem; color: var(--success); font-weight: 700; margin-bottom: 0.2rem;">✓ Gợi ý câu của bạn sau khi hoàn thiện ngữ pháp & chính tả (hãy tự gõ lại để ghi nhớ nhé):</div>
             <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); line-height: 1.5;">${escapeHtml(corrected)}</div>
           </div>
-          <button type="button" class="btn-apply-correction" onclick="applyCorrectedSentence(${idx})">
-            ✨ Áp dụng câu đã sửa
-          </button>
         </div>
       </div>
     `);
@@ -4782,54 +4774,6 @@ function evaluateSentenceTranslation(userText, ex, idx = 0) {
     badge,
     feedbackHtml: blocksHtml.join('')
   };
-}
-
-function assembleSentencesToStep3() {
-  if (!state.activeTopic || !state.currentExercises.length) return;
-
-  const salutationParts = [];
-  const openingParts = [];
-  const bodyParts = [];
-  const closingParts = [];
-  const signoffParts = [];
-
-  let typedCount = 0;
-  state.currentExercises.forEach((ex, idx) => {
-    const el = document.getElementById(`trans-input-${idx}`);
-    const val = el ? el.value.trim() : '';
-    if (!val) return;
-    typedCount++;
-    if (ex.role === 'salutation') salutationParts.push(val);
-    else if (ex.role === 'opening') openingParts.push(val);
-    else if (ex.role === 'body') bodyParts.push(val);
-    else if (ex.role === 'closing') closingParts.push(val);
-    else if (ex.role === 'signoff') signoffParts.push(val);
-  });
-
-  if (typedCount === 0) {
-    showToast('Bạn hãy tự gõ các câu tiếng Anh ở Bước 2 trước khi ghép bài sang Bước 3 nhé!', 'warning');
-    return;
-  }
-
-  const blocks = [];
-  if (salutationParts.length) blocks.push(salutationParts.join(' '));
-  if (openingParts.length) blocks.push(openingParts.join(' '));
-  if (bodyParts.length) {
-    // Group body sentences neatly into 1 or 2 cohesive body paragraphs or separate clear paragraphs
-    blocks.push(bodyParts.join('\n\n'));
-  }
-  if (closingParts.length) blocks.push(closingParts.join(' '));
-  if (signoffParts.length) blocks.push(signoffParts.join(' '));
-
-  const assembled = blocks.join('\n\n');
-  const textarea = document.getElementById('essay-textarea');
-  if (textarea) {
-    textarea.value = assembled;
-    handleTextareaInput();
-  }
-
-  switchStep('write');
-  showToast(`✨ Đã ghép ${typedCount} phần bạn vừa viết sang Bước 3! Hãy đọc rà soát và bổ sung hoàn thiện bức thư nhé!`, 'success');
 }
 
 // ============================================================================
@@ -4975,26 +4919,22 @@ function copyEssay() {
   }).catch(() => {});
 }
 
-// --- Anti-Cheat Handlers (Active in Step 3 for Students; Bypassed for Teacher GV) ---
+// --- Anti-Cheat Handlers (Strictly Block Copy/Cut/Paste/Drop in Writing Boxes) ---
 function handleEditorPaste(event) {
-  if (state.isTeacher) return;
   event.preventDefault();
-  showToast('🚫 Chế độ Phòng thi Bước 3 không cho phép Dán (Paste) văn bản từ bên ngoài! Bạn hãy tự gõ hoặc dùng nút Ghép bài từ Bước 2 nhé.', 'danger');
+  showToast('🚫 Không cho phép Dán (Paste) văn bản! Bạn vui lòng tự đánh máy lại để rèn phản xạ viết bài nhé.', 'danger');
 }
 
 function handleEditorCopyCut(event) {
-  if (state.isTeacher) return;
   event.preventDefault();
-  showToast('🚫 Không thể Copy / Cut trực tiếp trong ô làm bài thi Bước 3.', 'warning');
+  showToast('🚫 Không thể Sao chép / Cắt (Copy / Cut) trực tiếp trong khung viết bài.', 'warning');
 }
 
 function handleEditorDrop(event) {
-  if (state.isTeacher) return;
   event.preventDefault();
 }
 
 function handleEditorContextMenu(event) {
-  if (state.isTeacher) return;
   event.preventDefault();
 }
 
