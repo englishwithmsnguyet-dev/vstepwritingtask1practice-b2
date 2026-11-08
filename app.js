@@ -2891,7 +2891,6 @@ function renderStep1Reading() {
           <div style="font-weight: 800; color: var(--accent-primary); font-size: 0.98rem;">
             📝 KHUNG GỢI Ý VIẾT BÀI THƯ CHUẨN DÀN Ý B2 (ĐỒNG BỘ SANG BƯỚC 02)
           </div>
-          <span class="detail-badge">Chuẩn dàn ý 5 phần VSTEP B2</span>
         </div>
 
         <div class="b2-five-step-list">
