@@ -2874,11 +2874,16 @@ function renderStep1Reading() {
         `;
       }).join('');
 
+      const rawGroupTitle = group.title_vi || group.title_en || `Yêu cầu ${gIdx + 1}`;
+      const numberedGroupTitle = /^\s*(yêu cầu|\d+[\.\)])/i.test(rawGroupTitle)
+        ? rawGroupTitle
+        : `${gIdx + 1}. ${rawGroupTitle}`;
+
       return `
         <div class="idea-group-col">
           <div class="idea-group-title-row">
-            <div class="idea-group-title">📌 ${escapeHtml(group.title_vi || group.title_en || `Yêu cầu ${gIdx + 1}`)}</div>
-            <span class="idea-group-badge">${selArr.length > 0 ? `✓ Đã chọn PA ${(selArr[0] || 0) + 1}` : 'Chưa chọn'}</span>
+            <div class="idea-group-title">📌 ${escapeHtml(numberedGroupTitle)}</div>
+            <span class="idea-group-badge">${selArr.length > 0 ? `✓ Đã chọn Phương án ${(selArr[0] || 0) + 1}` : 'Chưa chọn'}</span>
           </div>
           ${optionsHtml}
         </div>
@@ -2887,7 +2892,7 @@ function renderStep1Reading() {
 
     const helperNote = isMultiGroupTopic
       ? 'Đề thư phàn nàn này cung cấp nhiều nhóm sự cố gợi ý. Hãy <strong>chọn từ 2 đến 4 ý tiêu biểu</strong> để đưa sang Bước 2 luyện tập diễn đạt.'
-      : 'Mỗi cột tương ứng với <strong>1 yêu cầu trọng tâm trong đề bài</strong>. Hãy bấm chọn 1 phương án gợi ý bạn muốn viết cho từng cột — hệ thống sẽ tự động đưa các ý này sang <strong>Bước 2: Tập diễn đạt ý tưởng</strong> để bạn luyện viết từng câu!';
+      : 'Mỗi mục bên dưới tương ứng với <strong>1 yêu cầu trọng tâm trong đề bài</strong>. Hãy bấm chọn 1 phương án gợi ý bạn muốn viết cho từng mục — hệ thống sẽ tự động đưa các ý này sang <strong>Bước 2: Tập diễn đạt ý tưởng</strong> để bạn luyện viết từng câu!';
 
     ideaSelectorHtml = `
       <div class="reading-section-card idea-selection-card">
