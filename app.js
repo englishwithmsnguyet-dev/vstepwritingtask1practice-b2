@@ -1670,7 +1670,7 @@ const TOPIC_B2_OUTLINE_FRAMES = {
   },
   'de-37': {
     salutationEn: 'Dear Mrs. Lan,', salutationVi: 'Kính gửi Bà Lan,',
-    openingEn: 'I am writing to provide you with a detailed description of my lost suitcase and flight itinerary, as requested in your previous correspondence.',
+    openingEn: 'I am writing to provide you with a detailed description of my lost suitcase and flight schedule, as requested in your previous correspondence.',
     openingVi: 'Tôi viết thư này để cung cấp cho Bà mô tả chi tiết về chiếc vali bị thất lạc và lịch trình chuyến bay của tôi, theo yêu cầu trong thư trước của Bà.',
     closingEn: 'I hope the above information is useful to you. Please feel free to contact me if you require any further details.',
     closingVi: 'Tôi hy vọng những thông tin trên hữu ích cho quá trình tìm kiếm của Bà. Xin vui lòng liên hệ với tôi nếu Bà cần thêm bất kỳ thông tin nào.',
@@ -2033,7 +2033,7 @@ function buildB2IdeaSentencePair(topic, group, opt, seqIndex, totalSelected = 4,
     : Math.max(0, (topic.details?.suggested_ideas || []).indexOf(group));
   const isLastSelected = totalSelected > 1 && seqIndex === totalSelected - 1;
 
-  // Select category-authentic connectors from vstepwritingtask1b2
+  // Select category-traditional connectors from vstepwritingtask1b2
   let conn = 'To begin with,';
   let connVi = 'Đầu tiên,';
 
@@ -2153,7 +2153,7 @@ function buildB2IdeaSentencePair(topic, group, opt, seqIndex, totalSelected = 4,
     const bareAct = actEn.replace(/[.,;:]+$/, '');
     const bareVi = actVi.replace(/[.,;:]+$/, '');
     const isBareSuggestionVerb = /^[a-z]/.test(bareAct) &&
-      /^(increase|deploy|conduct|install|enforce|upgrade|synchronize|curate|train|assign|offer|hire|use|rearrange|introduce|provide|improve|repair|replace|organize|maintain)\b/i.test(bareAct);
+      /^(increase|deploy|conduct|install|enforce|upgrade|match|curate|train|assign|offer|hire|use|rearrange|introduce|provide|improve|repair|replace|organize|maintain)\b/i.test(bareAct);
     const isFullSuggestionClause = /^I\s+(?:suggest|recommend|would\s+suggest|would\s+recommend|believe\s+the\s+hotel\s+should)\b/i.test(bareAct);
     const isFourGroupFeedback = (topic.details?.suggested_ideas || []).length >= 4;
 
@@ -2279,7 +2279,7 @@ function buildB2IdeaSentencePair(topic, group, opt, seqIndex, totalSelected = 4,
       apolLeadVi = isManagerApology ? 'Hơn nữa,' : 'Để khắc phục sai sót của mình,';
     } else {
       apolLeadEn = isManagerApology
-        ? (topic.id === 'de-33' ? 'Finally, as a gesture of goodwill,' : 'To make up for this inconvenience,')
+        ? (topic.id === 'de-33' ? 'Finally, as a special offer,' : 'To make up for this inconvenience,')
         : 'Finally,';
       apolLeadVi = isManagerApology
         ? (topic.id === 'de-33' ? 'Cuối cùng, như một thiện chí bù đắp,' : 'Để bù đắp cho sự bất tiện này,')
@@ -2575,7 +2575,7 @@ const TOPIC_OPENING_KEY_CHUNKS = {
   'de-28': { en: 'art project on the topic “At Home”', vi: 'dự án vẽ tranh chủ đề “Ở Nhà”' },
   'de-34': { en: 'new puppy', vi: 'chú cún con mới nuôi' },
   'de-36': { en: 'upcoming outdoor activity for Grade 4 students', vi: 'hoạt động dã ngoại sắp tới cho học sinh khối 4' },
-  'de-37': { en: 'lost suitcase and flight itinerary', vi: 'chiếc vali bị thất lạc và lịch trình chuyến bay' },
+  'de-37': { en: 'lost suitcase and flight schedule', vi: 'chiếc vali bị thất lạc và lịch trình chuyến bay' },
   'de-20': { en: 'condition of the changing rooms', vi: 'tình trạng phòng thay đồ' },
   'de-07': { en: 'broken workout equipment', vi: 'thiết bị tập luyện bị hỏng' },
   'de-08': { en: 'food quality and customer service', vi: 'chất lượng món ăn và dịch vụ khách hàng' },
@@ -2640,7 +2640,7 @@ function toBaseVerbForHint(v) {
     studying: 'study', working: 'work', joining: 'join', practicing: 'practice',
     booking: 'book', choosing: 'choose', using: 'use', taking: 'take', wearing: 'wear',
     bringing: 'bring', packing: 'pack', visiting: 'visit', renting: 'rent', staying: 'stay',
-    eating: 'eat', cooking: 'cook', shopping: 'shop', traveling: 'travel', commuting: 'commute',
+    eating: 'eat', cooking: 'cook', shopping: 'shop', traveling: 'travel', traveling: 'travel',
     maintaining: 'maintain', building: 'build', creating: 'create', developing: 'develop'
   };
   if (map[lower]) return map[lower];
@@ -2683,7 +2683,7 @@ function extractCompactCollocationPair(rawEn, rawVi) {
     /^(?:I\s+am\s+currently\s+a\s+[a-z0-9-]+\s+student\s+)/i,
     /^(?:(?:He|She)\s+is\s+currently\s+a\s+university\s+student,\s*)/i,
     /^(?:You|I|We|They|He|She|It|Hoa|Nam|Linda|Helen|Emily|John|Jane|Ann|Alex|Moonie|Lucky|Milo)\s+(?:can|could|should|will|would|may|might|need to|have to|must|ought to|would like to|am\s+able\s+to|is\s+able\s+to|are\s+able\s+to|always|often|usually|currently|really|truly|also|easily|quickly|simply)+\s*(?:not\s+)?(?:also|easily|quickly|simply|always|often|definitely|certainly)?\s*/i,
-    /^(?:You|I|We|They|He|She|It|Hoa|Nam|Linda|Helen|Emily|John|Jane|Ann|Alex|Moonie|Lucky|Milo)\s+(?:is|are|was|were)\s+(?:a\s+|an\s+)?(?:very\s+|quite\s+|extremely\s+|remarkably\s+|truly\s+)?/i,
+    /^(?:You|I|We|They|He|She|It|Hoa|Nam|Linda|Helen|Emily|John|Jane|Ann|Alex|Moonie|Lucky|Milo)\s+(?:is|are|was|were)\s+(?:a\s+|an\s+)?(?:very\s+|quite\s+|extremely\s+|very\s+|truly\s+)?/i,
     /^(?:You|I|We|They|He|She|Hoa|Nam|Linda|Helen|Emily|John|Jane|Ann|Alex|Moonie|Lucky|Milo)\s+(?=[a-z]{3,}\s+)/i
   ];
 
@@ -3809,7 +3809,7 @@ const CORE_ENGLISH_VOCAB = [
   'good', 'better', 'best', 'bad', 'worse', 'worst', 'great', 'wonderful', 'fantastic', 'amazing', 'excellent', 'perfect', 'nice', 'lovely', 'beautiful', 'pretty', 'attractive', 'famous', 'popular', 'well-known',
   'traditional', 'modern', 'local', 'foreign', 'international', 'public', 'private', 'personal', 'special', 'different', 'various', 'similar', 'same', 'new', 'old', 'young', 'big', 'small', 'large', 'long', 'short', 'high', 'low',
   'free', 'busy', 'available', 'crowded', 'quiet', 'peaceful', 'noisy', 'safe', 'dangerous', 'clean', 'dirty', 'fresh', 'delicious', 'tasty', 'healthy', 'useful', 'helpful', 'important', 'necessary', 'suitable', 'comfortable', 'uncomfortable',
-  'friendly', 'kind', 'polite', 'generous', 'hospitality', 'hospitable', 'outgoing', 'sociable', 'hardworking', 'intelligent', 'smart', 'talented', 'experienced', 'qualified', 'fluent', 'enthusiastic', 'passionate',
+  'friendly', 'kind', 'polite', 'generous', 'hospitality', 'friendly and welcoming', 'outgoing', 'sociable', 'hardworking', 'intelligent', 'smart', 'talented', 'experienced', 'qualified', 'fluent', 'enthusiastic', 'passionate',
   'happy', 'glad', 'pleased', 'delighted', 'excited', 'thrilled', 'grateful', 'thankful', 'proud', 'sorry', 'afraid', 'worried', 'sad', 'upset', 'disappointed', 'dissatisfied', 'frustrated', 'unhappy',
   'broken', 'damaged', 'defective', 'faulty', 'wrong', 'late', 'delayed', 'missing', 'lost', 'unacceptable', 'sincere', 'sincerely', 'faithfully', 'regards', 'warm', 'wishes', 'love', 'care', 'forward',
   'letter', 'email', 'message', 'reply', 'response', 'question', 'questions', 'information', 'advice', 'suggestion', 'suggestions', 'recommendation', 'recommendations', 'idea', 'ideas', 'tip', 'tips', 'opinion',

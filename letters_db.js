@@ -24,23 +24,23 @@ const LETTERS_DATA = [
         "structures": [
           {
             "name": "Cấu trúc 1",
-            "pattern": "You should + Vo... because [lý do]..."
+            "pattern": "You should + Vo... Because [lý do]..."
           },
           {
             "name": "Cấu trúc 2",
-            "pattern": "It would be a good idea to + Vo... because [lý do]..."
+            "pattern": "It would be a good idea to + Vo... Because [lý do]..."
           },
           {
             "name": "Cấu trúc 3",
-            "pattern": "If I were you, I would + Vo... because [lý do]..."
+            "pattern": "If I were you, I would + Vo... Because [lý do]..."
           },
           {
             "name": "Cấu trúc 4",
-            "pattern": "You can try + Ving... because [lý do]..."
+            "pattern": "You can try + Ving... Because [lý do]..."
           },
           {
             "name": "Cấu trúc 5",
-            "pattern": "Remember to + Vo... / Don’t forget to + Vo... because [lý do]..."
+            "pattern": "Remember to + Vo... / Don’t forget to + Vo... Because [lý do]..."
           }
         ],
         "connectors": "First, … → Second, … → Next, … → Finally, …"
@@ -51,15 +51,15 @@ const LETTERS_DATA = [
     "common_structures": [
       {
         "name": "Cấu trúc 1",
-        "en": "You should + Vo... because..."
+        "en": "You should + Vo... Because..."
       },
       {
         "name": "Cấu trúc 2",
-        "en": "It would be a good idea to + Vo... because..."
+        "en": "It would be a good idea to + Vo... Because..."
       },
       {
         "name": "Cấu trúc 3",
-        "en": "If I were you, I would + Vo... because..."
+        "en": "If I were you, I would + Vo... Because..."
       },
       {
         "name": "Cấu trúc 4",
@@ -188,7 +188,7 @@ const LETTERS_DATA = [
                   "reason_vi": "vì đây là một số món ăn nổi tiếng nhất ở Việt Nam/Hà Nội.",
                   "expansion_1_en": "You can easily find them at many local restaurants.",
                   "expansion_1_vi": "Bạn có thể dễ dàng tìm thấy chúng ở nhiều nhà hàng địa phương.",
-                  "expansion_2_en": "This will give you a chance to enjoy authentic Vietnamese food during your trip.",
+                  "expansion_2_en": "This will give you a chance to enjoy traditional Vietnamese food during your trip.",
                   "expansion_2_vi": "Điều này sẽ cho bạn cơ hội thưởng thức ẩm thực Việt Nam chính thống trong chuyến đi."
                 },
                 {
@@ -204,7 +204,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "eat at local restaurants and try dishes such as pho, bun cha, and egg coffee",
                   "action_vi": "ăn tại các quán ăn địa phương và thử các món như phở, bún chả, cà phê trứng",
-                  "reason_en": "because you can enjoy authentic local food at reasonable prices.",
+                  "reason_en": "because you can enjoy traditional local food at reasonable prices.",
                   "reason_vi": "vì bạn có thể thưởng thức đồ ăn địa phương chính thống với mức giá hợp lý.",
                   "expansion_1_en": "You can also have a more interesting experience with local people.",
                   "expansion_1_vi": "Bạn cũng có thể có trải nghiệm thú vị hơn với người dân địa phương.",
@@ -342,7 +342,7 @@ const LETTERS_DATA = [
               "category": "2. Món ăn (What dishes to try)"
             },
             {
-              "en": "special authentic flavours",
+              "en": "special traditional flavours",
               "vi": "hương vị đặc trưng chuẩn bản địa khó quên",
               "category": "2. Món ăn (What dishes to try)"
             },
@@ -664,8 +664,8 @@ const LETTERS_DATA = [
                 }
               ],
               "alternatives": [
-                "Next, I strongly recommend visiting Hoan Kiem Lake and exploring the Old Quarter so that you can enjoy the vibrant atmosphere of Hanoi.",
-                "Furthermore, if I were in your shoes, I would wander around Hoan Kiem Lake and the Old Quarter to soak in the bustling city life."
+                "Next, I strongly recommend visiting Hoan Kiem Lake and exploring the Old Quarter so that you can enjoy the lively atmosphere of Hanoi.",
+                "Furthermore, if I were in your shoes, I would wander around Hoan Kiem Lake and the Old Quarter to soak in the busy and lively city life."
               ],
               "criteria_tip": "Mẫu câu điều kiện loại 2 `If I were you, I would...` là cấu trúc đắt giá thường được giám khảo đánh giá rất cao về khả năng biến hóa ngữ pháp trong Task 1."
             },
@@ -788,15 +788,15 @@ const LETTERS_DATA = [
                   "vi": "Xét về chỗ ở"
                 },
                 {
-                  "en": "optimize your sightseeing itinerary",
+                  "en": "optimize your sightseeing travel plan",
                   "vi": "tối ưu hóa lịch trình tham quan"
                 },
                 {
-                  "en": "savoring authentic street food",
+                  "en": "savoring traditional street food",
                   "vi": "thưởng thức các món ngon đường phố chính gốc"
                 },
                 {
-                  "en": "local culinary heritage",
+                  "en": "local cooking heritage",
                   "vi": "di sản ẩm thực địa phương"
                 }
               ],
@@ -811,21 +811,21 @@ const LETTERS_DATA = [
                 },
                 {
                   "id": "cp2",
-                  "name": "Danh động từ & tối ưu lịch trình (Gerund phrase & Itinerary)",
+                  "name": "Danh động từ & tối ưu lịch trình (Gerund phrase & travel plan)",
                   "pattern": {},
                   "desc": "Việc đặt trước khách sạn tối ưu hóa lịch trình tham quan",
-                  "missingFeedback": "Cần diễn đạt mệnh đề danh động từ 'booking a hotel... will optimize your sightseeing itinerary'."
+                  "missingFeedback": "Cần diễn đạt mệnh đề danh động từ 'booking a hotel... Will optimize your sightseeing travel plan'."
                 },
                 {
                   "id": "cp3",
                   "name": "Thưởng thức ẩm thực bản địa (Savoring local specialties)",
                   "pattern": {},
                   "desc": "Thưởng thức món ăn đường phố và trải nghiệm di sản ẩm thực bản địa",
-                  "missingFeedback": "Cần thể hiện trải nghiệm ẩm thực bản địa với các từ vựng cao cấp như 'specialties', 'culinary heritage'."
+                  "missingFeedback": "Cần thể hiện trải nghiệm ẩm thực bản địa với các từ vựng cao cấp như 'specialties', 'cooking heritage'."
                 }
               ],
               "alternatives": [
-                "As far as accommodation is concerned, reserving a room near the Old Quarter beforehand will save time your sightseeing schedule, while tasting iconic street specialties such as pho and egg coffee provides an authentic cultural experience."
+                "As far as accommodation is concerned, reserving a room near the Old Quarter beforehand will save time your sightseeing schedule, while tasting iconic street specialties such as pho and egg coffee provides a traditional cultural experience."
               ],
               "criteria_tip": "Sử dụng cấu trúc câu phức với danh động từ làm chủ ngữ (`booking a hotel...`) và liên từ đối chiếu (`while/while`) là vũ khí chủ đạo để đạt band điểm B2+."
             }
@@ -856,9 +856,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Helen,\n\nThanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your upcoming trip to Hanoi in June.\n\nTo begin with, you could consider ***staying in a boutique hotel in the Old Quarter***. This area is situated right in the heart of the city, which makes it extremely convenient for sightseeing.\n\nSecondly, it would be a good idea to ***try out our renowned local cuisine, particularly Pho, Bun Cha, and Banh Mi***. These traditional dishes are not only mouth-watering but also deeply represent our culinary culture.\n\nNext, if I were you, I would ***spend time visiting significant historical landmarks such as Hoan Kiem Lake, the Temple of Literature, and the Ho Chi Minh Mausoleum***. They offer fascinating insights into Vietnam's rich heritage.\n\nFinally, remember to ***pack light and breathable clothing, such as cotton T-shirts and shorts***, as the weather in June can be exceptionally hot and humid.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Helen,\n\nThanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your upcoming trip to Hanoi in June.\n\nTo begin with, you could consider ***staying in a boutique hotel in the Old Quarter***. This area is situated right in the heart of the city, which makes it extremely convenient for sightseeing.\n\nSecondly, it would be a good idea to ***try out our renowned local cuisine, particularly Pho, Bun Cha, and Banh Mi***. These traditional dishes are not only delicious but also deeply represent our food culture.\n\nNext, if I were you, I would ***spend time visiting significant historical landmarks such as Hoan Kiem Lake, the Temple of Literature, and the Ho Chi Minh Mausoleum***. They offer fascinating insights into Vietnam's rich heritage.\n\nFinally, remember to ***pack light and breathable clothing, such as cotton T-shirts and shorts***, as the weather in June can be very hot and humid.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
             "letter_vi": "Helen thân mến,\n\nCảm ơn vì đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến đi sắp tới đến Hà Nội vào tháng Sáu.\n\nĐầu tiên, cậu có thể cân nhắc ***ở tại một khách sạn boutique trong khu Phố Cổ***. Khu vực này nằm ngay trung tâm thành phố, điều này làm cho việc tham quan ngắm cảnh cực kỳ thuận tiện.\n\nThứ hai, sẽ là một ý kiến hay nếu ***thử nền ẩm thực địa phương nổi tiếng của chúng tớ, đặc biệt là Phở, Bún Chả và Bánh Mì***. Những món ăn truyền thống này không chỉ ngon miệng mà còn thể hiện sâu sắc văn hóa ẩm thực của chúng tớ.\n\nTiếp theo, nếu tớ là cậu, tớ sẽ ***dành thời gian tham quan các di tích lịch sử quan trọng như Hồ Hoàn Kiếm, Văn Miếu và Lăng Chủ tịch Hồ Chí Minh***. Chúng mang đến cái nhìn hấp dẫn về di sản phong phú của Việt Nam.\n\nCuối cùng, hãy nhớ ***mang theo quần áo mỏng nhẹ và thoáng khí, như áo phông cotton và quần đùi***, vì thời tiết vào tháng Sáu có thể vô cùng nóng và ẩm.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Helen,\n\nThanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your upcoming trip to Hanoi in June.\n\nTo begin with, you could consider ***staying in a boutique hotel in the Old Quarter***. This area is situated right in the heart of the city, which makes it extremely convenient for sightseeing.\n\nSecondly, it would be a good idea to ***try out our renowned local cuisine, particularly Pho, Bun Cha, and Banh Mi***. These traditional dishes are not only mouth-watering but also deeply represent our culinary culture.\n\nNext, if I were you, I would ***spend time visiting significant historical landmarks such as Hoan Kiem Lake, the Temple of Literature, and the Ho Chi Minh Mausoleum***. They offer fascinating insights into Vietnam's rich heritage.\n\nFinally, remember to ***pack light and breathable clothing, such as cotton T-shirts and shorts***, as the weather in June can be exceptionally hot and humid.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
+            "text": "Dear Helen,\n\nThanks for writing to me. How have you been lately? After reading your letter, I have a few suggestions that you may want to consider for your upcoming trip to Hanoi in June.\n\nTo begin with, you could consider ***staying in a boutique hotel in the Old Quarter***. This area is situated right in the heart of the city, which makes it extremely convenient for sightseeing.\n\nSecondly, it would be a good idea to ***try out our renowned local cuisine, particularly Pho, Bun Cha, and Banh Mi***. These traditional dishes are not only delicious but also deeply represent our food culture.\n\nNext, if I were you, I would ***spend time visiting significant historical landmarks such as Hoan Kiem Lake, the Temple of Literature, and the Ho Chi Minh Mausoleum***. They offer fascinating insights into Vietnam's rich heritage.\n\nFinally, remember to ***pack light and breathable clothing, such as cotton T-shirts and shorts***, as the weather in June can be very hot and humid.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
             "translation": "Helen thân mến,\n\nCảm ơn vì đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến đi sắp tới đến Hà Nội vào tháng Sáu.\n\nĐầu tiên, cậu có thể cân nhắc ***ở tại một khách sạn boutique trong khu Phố Cổ***. Khu vực này nằm ngay trung tâm thành phố, điều này làm cho việc tham quan ngắm cảnh cực kỳ thuận tiện.\n\nThứ hai, sẽ là một ý kiến hay nếu ***thử nền ẩm thực địa phương nổi tiếng của chúng tớ, đặc biệt là Phở, Bún Chả và Bánh Mì***. Những món ăn truyền thống này không chỉ ngon miệng mà còn thể hiện sâu sắc văn hóa ẩm thực của chúng tớ.\n\nTiếp theo, nếu tớ là cậu, tớ sẽ ***dành thời gian tham quan các di tích lịch sử quan trọng như Hồ Hoàn Kiếm, Văn Miếu và Lăng Chủ tịch Hồ Chí Minh***. Chúng mang đến cái nhìn hấp dẫn về di sản phong phú của Việt Nam.\n\nCuối cùng, hãy nhớ ***mang theo quần áo mỏng nhẹ và thoáng khí, như áo phông cotton và quần đùi***, vì thời tiết vào tháng Sáu có thể vô cùng nóng và ẩm.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 182,
             "key_structures": [
@@ -916,22 +916,22 @@ const LETTERS_DATA = [
             "body_points": [
               {
                 "point": "Lời khuyên 1 (Chỗ ở)",
-                "formula": "Firstly, you should + Vo... because...",
+                "formula": "Firstly, you should + Vo... Because...",
                 "detail": "Firstly, you should stay in a shared apartment near Hanoi University because it is affordable and comfortable."
               },
               {
                 "point": "Lời khuyên 2 (Chi phí)",
-                "formula": "Secondly, it would be a good idea to + Vo... because...",
+                "formula": "Secondly, it would be a good idea to + Vo... Because...",
                 "detail": "Secondly, it would be a good idea to prepare around 10 to 12 million VND per month because living costs in Hanoi are quite reasonable."
               },
               {
                 "point": "Lời khuyên 3 (Luyện tiếng Việt)",
-                "formula": "Next, if I were you, I would + Vo... because...",
+                "formula": "Next, if I were you, I would + Vo... Because...",
                 "detail": "Next, if I were you, I would join a language exchange club with local Vietnamese students because you can practice speaking every day."
               },
               {
                 "point": "Lời khuyên 4 (Văn hóa & Nhắc nhở)",
-                "formula": "Finally, remember to + Vo... because...",
+                "formula": "Finally, remember to + Vo... Because...",
                 "detail": "Finally, remember to try local street food and carry an umbrella because the weather in Hanoi can be quite unpredictable."
               }
             ],
@@ -979,25 +979,25 @@ const LETTERS_DATA = [
             },
             {
               "id": 2,
-              "part": "2. Thân thư - Ý 1 (Cấu trúc: You should + Vo... because...)",
+              "part": "2. Thân thư - Ý 1 (Cấu trúc: You should + Vo... Because...)",
               "vi": "Đầu tiên, cậu nên ở trong một căn hộ thuê chung gần trường vì nó có giá cả phải chăng và rất thoải mái.",
               "en": "Firstly, you should stay in a shared apartment near the university because it is affordable and very comfortable.",
               "hints": [
                 "Firstly, you should stay in a shared apartment",
                 "affordable and very comfortable"
               ],
-              "explanation": "Áp dụng cấu trúc khuyên bảo số 1: 'You should + Vo... because...'."
+              "explanation": "Áp dụng cấu trúc khuyên bảo số 1: 'You should + Vo... Because...'."
             },
             {
               "id": 3,
-              "part": "3. Thân thư - Ý 2 (Cấu trúc: It would be a good idea to + Vo... because...)",
+              "part": "3. Thân thư - Ý 2 (Cấu trúc: It would be a good idea to + Vo... Because...)",
               "vi": "Thứ hai, sẽ là một ý kiến hay nếu cậu chuẩn bị khoảng 10 đến 12 triệu đồng mỗi tháng vì chi phí sinh hoạt ở Hà Nội khá hợp lý.",
               "en": "Secondly, it would be a good idea to prepare around 10 to 12 million VND per month because living costs in Hanoi are quite reasonable.",
               "hints": [
                 "Secondly, it would be a good idea to prepare",
                 "living costs in Hanoi are quite reasonable"
               ],
-              "explanation": "Áp dụng cấu trúc khuyên bảo số 2: 'It would be a good idea to + Vo... because...'."
+              "explanation": "Áp dụng cấu trúc khuyên bảo số 2: 'It would be a good idea to + Vo... Because...'."
             },
             {
               "id": 4,
@@ -1075,9 +1075,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear David,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to accommodation in Hanoi, you could consider ***renting a shared apartment near Hanoi University campus*** because it is affordable and convenient to walk to class every day. You can also share living costs and practice speaking Vietnamese with your roommates.\n\nAs for how to learn Vietnamese effectively, it would be a good idea to ***practice speaking Vietnamese every day with local undergraduates*** because local peers are friendly, patient, and always enthusiastic to help you.\n\nRegarding student activities, if I were you, I would ***join student clubs and youth volunteer projects on campus*** because you can make many new friends and participate in exciting cultural events.\n\nLast but not least, remember to ***download ride-hailing apps like Grab or Be on your smartphone*** because they are very convenient, price-transparent, and safe for international visitors. Don’t forget to ***save your dormitory address on your phone*** so that you can navigate easily.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "letter_en": "Dear David,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to accommodation in Hanoi, you could consider ***renting a shared apartment near Hanoi University campus*** because it is affordable and convenient to walk to class every day. You can also share living costs and practice speaking Vietnamese with your roommates.\n\nAs for how to learn Vietnamese effectively, it would be a good idea to ***practice speaking Vietnamese every day with local university students*** because local peers are friendly, patient, and always enthusiastic to help you.\n\nRegarding student activities, if I were you, I would ***join student clubs and youth volunteer projects on campus*** because you can make many new friends and participate in exciting cultural events.\n\nLast but not least, remember to ***download ride-hailing apps like Grab or Be on your smartphone*** because they are very convenient, price-transparent, and safe for international visitors. Don’t forget to ***save your dormitory address on your phone*** so that you can navigate easily.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "letter_vi": "David thân mến,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về chỗ ở tại Hà Nội, cậu có thể cân nhắc ***thuê một căn hộ chia sẻ gần khuôn viên trường Đại học Hà Nội*** vì vừa túi tiền và thuận tiện đi bộ đến giảng đường mỗi ngày. Cậu cũng có thể chia sẻ chi phí sinh hoạt và luyện nói tiếng Việt với các bạn cùng phòng.\n\nVề phương pháp học tiếng Việt hiệu quả, sẽ là một ý kiến hay nếu cậu ***luyện nói tiếng Việt hàng ngày với các bạn sinh viên bản xứ*** vì các bạn rất thân thiện, kiên nhẫn và luôn nhiệt tình giúp đỡ cậu.\n\nLiên quan đến các hoạt động sinh viên, nếu tớ là cậu, tớ sẽ ***tham gia các câu lạc bộ sinh viên và các dự án tình nguyện trong trường*** vì cậu có thể kết thêm nhiều bạn mới và tham gia các sự kiện văn hóa thú vị.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ ***tải các ứng dụng gọi xe như Grab hoặc Be trên điện thoại*** vì chúng rất tiện lợi, minh bạch về giá cả và an toàn cho người nước ngoài. Đừng quên ***lưu địa chỉ ký túc xá trên điện thoại*** để có thể chỉ đường một cách dễ dàng.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc những điều tốt đẹp nhất,",
-            "text": "Dear David,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to accommodation in Hanoi, you could consider ***renting a shared apartment near Hanoi University campus*** because it is affordable and convenient to walk to class every day. You can also share living costs and practice speaking Vietnamese with your roommates.\n\nAs for how to learn Vietnamese effectively, it would be a good idea to ***practice speaking Vietnamese every day with local undergraduates*** because local peers are friendly, patient, and always enthusiastic to help you.\n\nRegarding student activities, if I were you, I would ***join student clubs and youth volunteer projects on campus*** because you can make many new friends and participate in exciting cultural events.\n\nLast but not least, remember to ***download ride-hailing apps like Grab or Be on your smartphone*** because they are very convenient, price-transparent, and safe for international visitors. Don’t forget to ***save your dormitory address on your phone*** so that you can navigate easily.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "text": "Dear David,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to accommodation in Hanoi, you could consider ***renting a shared apartment near Hanoi University campus*** because it is affordable and convenient to walk to class every day. You can also share living costs and practice speaking Vietnamese with your roommates.\n\nAs for how to learn Vietnamese effectively, it would be a good idea to ***practice speaking Vietnamese every day with local university students*** because local peers are friendly, patient, and always enthusiastic to help you.\n\nRegarding student activities, if I were you, I would ***join student clubs and youth volunteer projects on campus*** because you can make many new friends and participate in exciting cultural events.\n\nLast but not least, remember to ***download ride-hailing apps like Grab or Be on your smartphone*** because they are very convenient, price-transparent, and safe for international visitors. Don’t forget to ***save your dormitory address on your phone*** so that you can navigate easily.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "translation": "David thân mến,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về chỗ ở tại Hà Nội, cậu có thể cân nhắc ***thuê một căn hộ chia sẻ gần khuôn viên trường Đại học Hà Nội*** vì vừa túi tiền và thuận tiện đi bộ đến giảng đường mỗi ngày. Cậu cũng có thể chia sẻ chi phí sinh hoạt và luyện nói tiếng Việt với các bạn cùng phòng.\n\nVề phương pháp học tiếng Việt hiệu quả, sẽ là một ý kiến hay nếu cậu ***luyện nói tiếng Việt hàng ngày với các bạn sinh viên bản xứ*** vì các bạn rất thân thiện, kiên nhẫn và luôn nhiệt tình giúp đỡ cậu.\n\nLiên quan đến các hoạt động sinh viên, nếu tớ là cậu, tớ sẽ ***tham gia các câu lạc bộ sinh viên và các dự án tình nguyện trong trường*** vì cậu có thể kết thêm nhiều bạn mới và tham gia các sự kiện văn hóa thú vị.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ ***tải các ứng dụng gọi xe như Grab hoặc Be trên điện thoại*** vì chúng rất tiện lợi, minh bạch về giá cả và an toàn cho người nước ngoài. Đừng quên ***lưu địa chỉ ký túc xá trên điện thoại*** để có thể chỉ đường một cách dễ dàng.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc những điều tốt đẹp nhất,",
             "word_count": 193,
             "key_structures": [
@@ -1175,11 +1175,11 @@ const LETTERS_DATA = [
               "icon": "fa-book-open-reader",
               "options": [
                 {
-                  "action_en": "practice speaking Vietnamese every day with local undergraduates",
+                  "action_en": "practice speaking Vietnamese every day with local university students",
                   "action_vi": "luyện nói tiếng Việt hàng ngày với các bạn sinh viên bản xứ",
                   "reason_en": "because local peers are friendly, patient, and always enthusiastic to help you.",
                   "reason_vi": "vì các bạn sinh viên rất thân thiện, kiên nhẫn và sẵn sàng hỗ trợ bạn.",
-                  "expansion_1_en": "Chatting about university life, favorite music, and street food makes language acquisition effortless.",
+                  "expansion_1_en": "Chatting about university life, favorite music, and street food makes learning the language much easier.",
                   "expansion_1_vi": "Trò chuyện về đời sống đại học, âm nhạc yêu thích và ẩm thực đường phố giúp việc tiếp thu ngôn ngữ thật nhẹ nhàng.",
                   "expansion_2_en": "They will gladly correct tricky accents and explain lively everyday slang that textbooks omit.",
                   "expansion_2_vi": "Các bạn ấy sẽ vui vẻ sửa những phát âm khó và giải thích từ lóng đời thường sinh động mà sách giáo khoa không có."
@@ -1191,13 +1191,13 @@ const LETTERS_DATA = [
                   "reason_vi": "vì nó giúp bạn ghi nhớ từ vựng và luyện tập thanh điệu tiếng Việt mọi lúc mọi nơi.",
                   "expansion_1_en": "Reviewing ten vocabulary items on your smartphone during bus commutes turns idle minutes into productive study.",
                   "expansion_1_vi": "Ôn tập 10 mục từ vựng trên điện thoại khi đi xe buýt sẽ biến những phút rảnh rỗi thành giờ học hiệu quả.",
-                  "expansion_2_en": "Spaced repetition features inside modern apps will ensure long-term retention of tone combinations.",
+                  "expansion_2_en": "Spaced repetition features inside modern apps will ensure remembering new words and tones for a long time.",
                   "expansion_2_vi": "Tính năng lặp lại ngắt quãng trong các ứng dụng hiện đại sẽ đảm bảo bạn ghi nhớ lâu dài các thanh điệu tiếng Việt."
                 },
                 {
                   "action_en": "watch Vietnamese films, news, and YouTube shows with subtitles",
                   "action_vi": "xem phim, thời sự và các chương trình YouTube Việt Nam có phụ đề",
-                  "reason_en": "because this method trains your ears to understand native speaking speed and natural intonation.",
+                  "reason_en": "because this method trains your ears to understand native speaking speed and natural speaking tone.",
                   "reason_vi": "vì phương pháp này giúp bạn quen với ngữ điệu tự nhiên và tốc độ nói của người bản xứ.",
                   "expansion_1_en": "Pausing dialogue scenes and repeating full sentences aloud trains your tongue muscles to sound natural.",
                   "expansion_1_vi": "Tạm dừng các đoạn hội thoại và nhắc lại to từng câu sẽ luyện cho khẩu hình của bạn phát âm thật tự nhiên.",
@@ -1227,9 +1227,9 @@ const LETTERS_DATA = [
                 {
                   "action_en": "listen to popular Vietnamese acoustic songs and sing along",
                   "action_vi": "nghe các bài hát acoustic nhạc Việt thịnh hành và hát theo",
-                  "reason_en": "because melodies make mimicking tricky pronunciation and intonation tones much more enjoyable.",
+                  "reason_en": "because melodies make mimicking tricky pronunciation and tones much more enjoyable.",
                   "reason_vi": "vì giai điệu âm nhạc giúp bạn bắt chước cách phát âm chuẩn và các dấu thanh điệu vui vẻ hơn.",
-                  "expansion_1_en": "Singing along with memorable song refrains helps you master rhythm, phrasing, and emotional inflection.",
+                  "expansion_1_en": "Singing along with memorable song refrains helps you master natural speaking rhythm and tone.",
                   "expansion_1_vi": "Hát theo những đoạn điệp khúc bắt tai giúp bạn làm chủ nhịp điệu, cách ngắt câu và ngữ điệu cảm xúc.",
                   "expansion_2_en": "Discussing song lyrics with Vietnamese friends offers wonderful conversation starters at social get-togethers.",
                   "expansion_2_vi": "Thảo luận về lời bài hát với bạn bè Việt Nam đem lại những chủ đề mở đầu câu chuyện tuyệt vời khi tụ tập."
@@ -1253,7 +1253,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Bạn sẽ làm việc chặt chẽ cùng các bạn trẻ bản xứ trong khi sử dụng tiếng Việt giao tiếp vào các nhiệm vụ nhóm thực tế."
                 },
                 {
-                  "action_en": "participate in cultural excursions and traditional craft workshops",
+                  "action_en": "participate in cultural short trips and traditional craft workshops",
                   "action_vi": "tham gia các chuyến dã ngoại văn hóa và xưởng thủ công truyền thống",
                   "reason_en": "because field trips give you fascinating insights into Vietnamese history, art, and customs.",
                   "reason_vi": "vì những chuyến đi thực tế giúp bạn hiểu sâu sắc về lịch sử, nghệ thuật và phong tục Việt Nam.",
@@ -1279,7 +1279,7 @@ const LETTERS_DATA = [
                   "reason_vi": "vì thưởng thức các món ăn đường phố là cách chân thực nhất để trải nghiệm đời sống ẩm thực.",
                   "expansion_1_en": "Sitting on low plastic stools with classmates to sip iced tea and enjoy crispy banh goi is delightful.",
                   "expansion_1_vi": "Ngồi trên những chiếc ghế nhựa thấp cùng bạn học nhâm nhi trà đá và thưởng thức bánh gối giòn rụm thật thú vị.",
-                  "expansion_2_en": "Observing dynamic street life up close gives you an authentic feel for the city's vibrant pulse.",
+                  "expansion_2_en": "Observing dynamic street life up close gives you a traditional feel for the city's lively pulse.",
                   "expansion_2_vi": "Quan sát nhịp sống đường phố sinh động ở cự ly gần mang đến cho bạn cảm nhận chân thực về sức sống của thành phố."
                 },
                 {
@@ -1295,7 +1295,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "compete in university sports tournaments and campus festival days",
                   "action_vi": "tham gia các giải đấu thể thao và ngày hội văn hóa của trường",
-                  "reason_en": "because outdoor sports help you stay healthy and bond quickly with other undergraduates.",
+                  "reason_en": "because outdoor sports help you stay healthy and bond quickly with other university students.",
                   "reason_vi": "vì các hoạt động thể thao giúp rèn luyện sức khỏe và gắn kết nhanh chóng với các bạn sinh viên.",
                   "expansion_1_en": "Playing football or badminton on campus courts creates instant friendships that cross language barriers.",
                   "expansion_1_vi": "Chơi bóng đá hoặc cầu lông trên sân trường tạo nên tình bạn tức thì vượt qua mọi rào cản ngôn ngữ.",
@@ -1327,7 +1327,7 @@ const LETTERS_DATA = [
                   "reason_vi": "vì giá vé cực kỳ rẻ và kết nối trực tiếp đến các cụm trường đại học lớn.",
                   "expansion_1_en": "Buying an unlimited monthly student bus pass costs just a tiny fraction of taxi travel expenses.",
                   "expansion_1_vi": "Mua vé xe buýt tháng không giới hạn cho sinh viên chỉ tốn một phần rất nhỏ so với chi phí đi taxi.",
-                  "expansion_2_en": "The elevated metro provides air-conditioned comfort and speeds smoothly past highway traffic gridlock.",
+                  "expansion_2_en": "The elevated metro provides air-conditioned comfort and speeds smoothly past highway traffic traffic jams.",
                   "expansion_2_vi": "Tuyến đường sắt trên cao có máy lạnh mát mẻ và di chuyển êm ái vượt qua mọi điểm nghẽn kẹt xe trên đường."
                 },
                 {
@@ -1335,7 +1335,7 @@ const LETTERS_DATA = [
                   "action_vi": "mua một chiếc xe đạp cũ hoặc xe máy điện cho những chặng đường ngắn",
                   "reason_en": "because a compact vehicle gives you independence and navigates narrow alleys easily.",
                   "reason_vi": "vì phương tiện nhỏ gọn giúp bạn chủ động và dễ dàng luồn lách qua các con ngõ nhỏ.",
-                  "expansion_1_en": "Cycling allows you to discover charming hidden cafes tucked away in Hanoi's maze of narrow alleyways.",
+                  "expansion_1_en": "Cycling allows you to discover charming hidden cafes tucked away in Hanoi's small old streets.",
                   "expansion_1_vi": "Đi xe đạp cho phép bạn khám phá những quán cà phê ẩn mình đầy quyến rũ trong mê cung ngõ nhỏ của Hà Nội.",
                   "expansion_2_en": "Always remember to wear a certified helmet and ride cautiously alongside busy city traffic.",
                   "expansion_2_vi": "Hãy luôn nhớ đội mũ bảo hiểm đạt chuẩn và điều khiển xe cẩn thận giữa dòng phương tiện đông đúc của thành phố."
@@ -1361,11 +1361,11 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Tản bộ trong không gian phố đi bộ tạo nên bối cảnh lý tưởng để xả hơi và chụp những bức ảnh nghệ thuật."
                 },
                 {
-                  "action_en": "avoid travelling along major thoroughfares during rush hours",
+                  "action_en": "avoid travelling along busy main roads during rush hours",
                   "action_vi": "tránh di chuyển trên các trục đường huyết mạch vào giờ cao điểm",
                   "reason_en": "because heavy morning and evening traffic congestion can delay your journey significantly.",
                   "reason_vi": "vì tình trạng tắc đường nghiêm trọng vào buổi sáng và giờ tan tầm có thể làm bạn bị trễ giờ.",
-                  "expansion_1_en": "Heading out thirty minutes earlier in the morning helps you avoid suffocating exhaust fumes and gridlock.",
+                  "expansion_1_en": "Heading out thirty minutes earlier in the morning helps you avoid heavy traffic smoke and traffic jams.",
                   "expansion_1_vi": "Khởi hành sớm hơn 30 phút vào buổi sáng giúp bạn tránh được khói bụi ngột ngạt và cảnh tắc đường kẹt cứng.",
                   "expansion_2_en": "You can spend that extra time having a leisurely breakfast and a cup of rich Vietnamese milk coffee.",
                   "expansion_2_vi": "Bạn có thể dùng khoảng thời gian dư đó để thong thả ăn sáng và thưởng thức một ly cà phê sữa thơm đậm đà."
@@ -1419,7 +1419,7 @@ const LETTERS_DATA = [
                   "reason_vi": "vì rất thuận tiện để đi tour thuyền buổi sáng và dạo bộ ngắm cảnh ven sông.",
                   "expansion_1_en": "You can wake up early to catch the morning river breeze and walk along the scenic riverside park.",
                   "expansion_1_vi": "Bạn có thể thức dậy sớm để đón gió sông ban mai và tản bộ dọc công viên bờ sông thơ mộng.",
-                  "expansion_2_en": "This area is also packed with bustling night stalls and traditional folk food vendors.",
+                  "expansion_2_en": "This area is also packed with busy and lively night stalls and traditional folk food vendors.",
                   "expansion_2_vi": "Khu vực này cũng tập trung rất nhiều quầy hàng đêm nhộn nhịp và các gánh hàng ẩm thực dân gian truyền thống."
                 },
                 {
@@ -1493,7 +1493,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "taste grilled snakehead fish wrapped in rice paper",
                   "action_vi": "thưởng thức cá lóc nướng trui cuốn bánh tráng",
-                  "reason_en": "because it is an authentic rustic specialty with rich, smoky flavour.",
+                  "reason_en": "because it is a traditional rustic specialty with rich, smoky flavour.",
                   "reason_vi": "vì đây là món ăn dân dã chuẩn vị miền sông nước với hương thơm nướng rơm đặc trưng.",
                   "expansion_1_en": "The tender fish is grilled over hot charcoal and seasoned with fragrant scallion oil and roasted peanuts.",
                   "expansion_1_vi": "Thịt cá mềm thơm được nướng trên than hồng, rưới mỡ hành thơm lừng và rắc đậu phộng rang giòn.",
@@ -1507,13 +1507,13 @@ const LETTERS_DATA = [
                   "reason_vi": "vì nước dùng thanh ngọt, thơm lừng và nấu từ cá tươi đồng bằng.",
                   "expansion_1_en": "The aromatic broth is brewed with fresh lemongrass and southern spices, giving it a comforting, rich taste.",
                   "expansion_1_vi": "Nước dùng thơm lừng được ninh từ sả tươi và các loại gia vị Nam Bộ, mang lại hương vị đậm đà, ấm áp.",
-                  "expansion_2_en": "Adding shredded banana blossoms and lime juice makes each steaming mouthful extraordinarily refreshing.",
+                  "expansion_2_en": "Adding shredded banana blossoms and lime juice makes each hot mouthful extraordinarily refreshing.",
                   "expansion_2_vi": "Thêm bắp chuối bào sợi và chút nước cốt chanh khiến từng muỗng canh nóng hổi trở nên vô cùng thanh mát."
                 },
                 {
                   "action_en": "sample fresh tropical fruits at the floating market",
                   "action_vi": "thưởng thức trái cây nhiệt đới tại chợ nổi",
-                  "reason_en": "because they are freshly harvested from orchards and exceptionally sweet.",
+                  "reason_en": "because they are freshly harvested from orchards and very sweet.",
                   "reason_vi": "vì trái cây vừa hái từ vườn nên rất tươi ngon, ngọt mọng nước.",
                   "expansion_1_en": "You will discover sweet mangoes, juicy pomelos, and creamy durians picked straight from local trees.",
                   "expansion_1_vi": "Bạn sẽ khám phá những trái xoài ngọt lịm, bưởi mọng nước và sầu riêng béo ngậy được hái trực tiếp từ vườn.",
@@ -1533,7 +1533,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "try traditional magenta sticky rice cakes (banh tet la cam)",
                   "action_vi": "thử bánh tét lá cẩm truyền thống Cần Thơ",
-                  "reason_en": "because of its attractive purple color and rich savory-sweet filling.",
+                  "reason_en": "because of its attractive purple color and rich delicious filling.",
                   "reason_vi": "vì bánh có màu tím bắt mắt cùng nhân thịt mỡ, đậu xanh và trứng muối thơm bùi.",
                   "expansion_1_en": "Natural magenta plant leaves give the sticky rice an eye-catching purple color and subtle fragrance.",
                   "expansion_1_vi": "Lá cẩm tự nhiên đem lại cho nếp một màu tím bắt mắt cùng hương thơm thảo mộc dịu nhẹ.",
@@ -1551,7 +1551,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "visit Cai Rang Floating Market in the early morning",
                   "action_vi": "đi chợ nổi Cái Răng vào sáng sớm",
-                  "reason_en": "because you can witness the bustling boat-to-boat trading culture of the Mekong Delta.",
+                  "reason_en": "because you can witness the busy and lively boat-to-boat trading culture of the Mekong Delta.",
                   "reason_vi": "vì bạn sẽ được tận mắt ngắm nhìn cảnh giao thương ghe xuồng tấp nập của miền Tây.",
                   "expansion_1_en": "Hundreds of wooden sampans gather on the river, displaying fruit samples high up on bamboo poles.",
                   "expansion_1_vi": "Hàng trăm chiếc ghe gỗ tụ hội trên sông, treo các loại trái cây mẫu lên ngọn cây bẹo bằng tre.",
@@ -1591,7 +1591,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "visit Truc Lam Phuong Nam Zen Monastery",
                   "action_vi": "chiêm bái Thiền viện Trúc Lâm Phương Nam",
-                  "reason_en": "because it is the largest tranquil monastery with magnificent wooden architecture.",
+                  "reason_en": "because it is the largest quiet and peaceful monastery with beautiful wooden architecture.",
                   "reason_vi": "vì đây là thiền viện lớn và thanh tịnh nhất vùng với kiến trúc gỗ lim bề thế.",
                   "expansion_1_en": "It features majestic Buddhist temples built in traditional Ly and Tran dynasty architectural styles.",
                   "expansion_1_vi": "Nơi đây sở hữu các tòa chánh điện trang nghiêm được xây dựng theo phong cách kiến trúc thời Lý - Trần.",
@@ -1601,7 +1601,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "take a small boat ride along canal networks under coconut trees",
                   "action_vi": "chèo xuồng len lỏi qua các con rạch rợp bóng dừa nước",
-                  "reason_en": "because you can fully immerse yourself in peaceful Southwestern nature.",
+                  "reason_en": "because you can fully experience and enjoy peaceful Southwestern nature.",
                   "reason_vi": "vì bạn sẽ được hòa mình trọn vẹn vào không gian thiên nhiên thanh bình Tây Nam Bộ.",
                   "expansion_1_en": "The experienced boatman will row quietly through quiet channels shaded by water coconut fronds.",
                   "expansion_1_vi": "Người chèo đò giàu kinh nghiệm sẽ khua mái chèo êm ả qua những con rạch râm mát rợp bóng dừa nước.",
@@ -1661,7 +1661,7 @@ const LETTERS_DATA = [
                   "action_vi": "chuẩn bị trang phục lịch sự che kín vai và đầu gối",
                   "reason_en": "because they are required when visiting sacred pagodas and ancient houses.",
                   "reason_vi": "vì cần thiết khi đến thăm các chùa chiền linh thiêng và di tích nhà cổ.",
-                  "expansion_1_en": "Historical temples and pagodas maintain strict dress codes out of respect for sacred sanctuaries.",
+                  "expansion_1_en": "Historical temples and pagodas maintain strict dress codes out of respect for temples and pagodas.",
                   "expansion_1_vi": "Các ngôi chùa và đền thờ lịch sử duy trì quy định trang phục nghiêm túc nhằm tôn trọng chốn tôn nghiêm.",
                   "expansion_2_en": "Carrying a light scarf allows you to easily cover your shoulders before entering main worship halls.",
                   "expansion_2_vi": "Mang theo một chiếc khăn choàng nhẹ giúp bạn dễ dàng che vai trước khi bước vào các gian điện thờ chính."
@@ -1711,7 +1711,7 @@ const LETTERS_DATA = [
               "category": "2. Món ăn (What dishes to try)"
             },
             {
-              "en": "authentic rustic specialty",
+              "en": "traditional rustic specialty",
               "vi": "đặc sản dân dã chuẩn vị miền sông nước",
               "category": "2. Món ăn (What dishes to try)"
             },
@@ -1849,7 +1849,7 @@ const LETTERS_DATA = [
               "id": 3,
               "part": "3. Thân thư - Lời khuyên 2: Món ăn (What dishes to try)",
               "vi": "Thứ hai, sẽ là một ý kiến tuyệt vời nếu cậu thử bánh xèo giòn rụm và cá lóc nướng trui vì đây là những món đặc sản dân dã với hương vị khó quên.",
-              "en": "Secondly, it would be a great idea to try crispy Vietnamese sizzling pancakes and grilled snakehead fish because they are authentic rustic specialties with unforgettable flavours.",
+              "en": "Secondly, it would be a great idea to try crispy Vietnamese sizzling pancakes and grilled snakehead fish because they are traditional rustic specialties with unforgettable flavours.",
               "vocab_hints": [
                 {
                   "en": "crispy Vietnamese sizzling pancakes",
@@ -1884,7 +1884,7 @@ const LETTERS_DATA = [
                   "id": "cp3",
                   "name": "Lý do đặc sản dân dã thơm ngon",
                   "pattern": {},
-                  "desc": "Lý do hương vị đặc sản ('authentic rustic specialties with unforgettable flavours')",
+                  "desc": "Lý do hương vị đặc sản ('traditional rustic specialties with unforgettable flavours')",
                   "missingFeedback": "Cần giải thích lý do món ăn hấp dẫn bằng liên từ 'because'."
                 }
               ],
@@ -2002,7 +2002,7 @@ const LETTERS_DATA = [
                 }
               ],
               "alternatives": [
-                "Lastly, don't forget to pack lightweight outfits for the daytime and a cozy cardigan since it can get breezy and chilly by the river at night."
+                "Lastly, don't forget to pack lightweight outfits for the daytime and a cozy cardigan since it can get cool and chilly by the river at night."
               ],
               "criteria_tip": "Gợi ý trang phục gắn liền với đặc thù thời tiết tháng 12 của đề bài giúp đạt điểm tuyệt đối Task Fulfillment."
             },
@@ -2050,18 +2050,18 @@ const LETTERS_DATA = [
               "id": 1,
               "part": "Diễn đạt nâng cao B2 - Nơi ở & Trải nghiệm sông nước",
               "vi": "Về nơi lưu trú, việc lựa chọn một khách sạn ven sông gần bến Ninh Kiều sẽ tạo điều kiện thuận lợi nhất cho lịch trình khám phá của bạn, trong khi việc dậy sớm để trải nghiệm văn hóa chợ nổi Cái Răng sẽ đem lại cái nhìn chân thực về nhịp sống thương hồ miền Tây.",
-              "en": "Regarding accommodation, opting for a riverside hotel near Ninh Kieu Wharf will greatly optimize your travel itinerary, while getting up early to experience Cai Rang Floating Market provides a captivating insight into the bustling river trade culture.",
+              "en": "Regarding accommodation, opting for a riverside hotel near Ninh Kieu Wharf will greatly optimize your travel travel plan, while getting up early to experience Cai Rang Floating Market provides a interesting insight into the busy and lively river trade culture.",
               "vocab_hints": [
                 {
                   "en": "Regarding accommodation",
                   "vi": "Về nơi lưu trú"
                 },
                 {
-                  "en": "optimize your travel itinerary",
+                  "en": "optimize your travel travel plan",
                   "vi": "tối ưu hóa lịch trình tham quan"
                 },
                 {
-                  "en": "bustling river trade culture",
+                  "en": "busy and lively river trade culture",
                   "vi": "văn hóa thương hồ sông nước nhộn nhịp"
                 }
               ],
@@ -2081,9 +2081,9 @@ const LETTERS_DATA = [
             }
           ],
           "sample_b1": {
-            "letter_en": "Dear Emily,\n\nThanks for your letter. I hope you are doing well. I’m writing to give you some advice for your upcoming trip to Can Tho in December.\n\nFirstly, you should stay at a riverside hotel or homestay near Ninh Kieu Wharf because it is very convenient for travelling and offers stunning river views.\n\nSecondly, it would be a good idea to try out local specialties such as grilled snakehead fish, crispy sizzling pancakes, and fresh tropical fruits.\n\nNext, if I were you, I would take an early morning boat to visit Cai Rang floating market because you can experience the authentic river commerce of the Mekong Delta.\n\nFinally, remember to bring lightweight clothes, sunscreen, and an umbrella because the weather is warm and sunny during December.\n\nI hope my advice will be helpful to you. Please let me know how everything turns out. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Emily,\n\nThanks for your letter. I hope you are doing well. I’m writing to give you some advice for your upcoming trip to Can Tho in December.\n\nFirstly, you should stay at a riverside hotel or homestay near Ninh Kieu Wharf because it is very convenient for travelling and offers stunning river views.\n\nSecondly, it would be a good idea to try out local specialties such as grilled snakehead fish, crispy sizzling pancakes, and fresh tropical fruits.\n\nNext, if I were you, I would take an early morning boat to visit Cai Rang floating market because you can experience the traditional river commerce of the Mekong Delta.\n\nFinally, remember to bring lightweight clothes, sunscreen, and an umbrella because the weather is warm and sunny during December.\n\nI hope my advice will be helpful to you. Please let me know how everything turns out. Write back soon.\n\nBest wishes,",
             "letter_vi": "Emily thân mến,\n\nCảm ơn thư của cậu. Tớ hy vọng cậu vẫn khỏe. Tớ viết thư này để đưa ra một vài lời khuyên cho chuyến du lịch sắp tới của cậu đến Cần Thơ vào tháng Mười Hai.\n\nĐầu tiên, cậu nên ở một khách sạn ven sông hoặc homestay gần Bến Ninh Kiều vì nó rất thuận tiện cho việc đi lại và có tầm nhìn hướng sông tuyệt đẹp.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu thưởng thức các món ăn đặc sản địa phương như cá lóc nướng trui, bánh xèo giòn rụm và các loại trái cây nhiệt đới tươi ngon.\n\nTiếp theo, nếu tớ là cậu, tớ sẽ đi thuyền vào sáng sớm để tham quan chợ nổi Cái Răng vì cậu có thể trải nghiệm nét giao thương sông nước đích thực của miền Tây.\n\nCuối cùng, hãy nhớ mang theo quần áo mỏng nhẹ, kem chống nắng và một chiếc ô vì thời tiết vào tháng Mười Hai rất ấm áp và nhiều nắng.\n\nTớ hy vọng những lời khuyên của tớ sẽ hữu ích cho cậu. Hãy cho tớ biết chuyến đi diễn ra thế nào nhé. Hồi âm sớm cho tớ nhé.\n\nChúc cậu mọi điều tốt lành,",
-            "text": "Dear Emily,\n\nThanks for your letter. I hope you are doing well. I’m writing to give you some advice for your upcoming trip to Can Tho in December.\n\nFirstly, you should stay at a riverside hotel or homestay near Ninh Kieu Wharf because it is very convenient for travelling and offers stunning river views.\n\nSecondly, it would be a good idea to try out local specialties such as grilled snakehead fish, crispy sizzling pancakes, and fresh tropical fruits.\n\nNext, if I were you, I would take an early morning boat to visit Cai Rang floating market because you can experience the authentic river commerce of the Mekong Delta.\n\nFinally, remember to bring lightweight clothes, sunscreen, and an umbrella because the weather is warm and sunny during December.\n\nI hope my advice will be helpful to you. Please let me know how everything turns out. Write back soon.\n\nBest wishes,",
+            "text": "Dear Emily,\n\nThanks for your letter. I hope you are doing well. I’m writing to give you some advice for your upcoming trip to Can Tho in December.\n\nFirstly, you should stay at a riverside hotel or homestay near Ninh Kieu Wharf because it is very convenient for travelling and offers stunning river views.\n\nSecondly, it would be a good idea to try out local specialties such as grilled snakehead fish, crispy sizzling pancakes, and fresh tropical fruits.\n\nNext, if I were you, I would take an early morning boat to visit Cai Rang floating market because you can experience the traditional river commerce of the Mekong Delta.\n\nFinally, remember to bring lightweight clothes, sunscreen, and an umbrella because the weather is warm and sunny during December.\n\nI hope my advice will be helpful to you. Please let me know how everything turns out. Write back soon.\n\nBest wishes,",
             "translation": "Emily thân mến,\n\nCảm ơn thư của cậu. Tớ hy vọng cậu vẫn khỏe. Tớ viết thư này để đưa ra một vài lời khuyên cho chuyến du lịch sắp tới của cậu đến Cần Thơ vào tháng Mười Hai.\n\nĐầu tiên, cậu nên ở một khách sạn ven sông hoặc homestay gần Bến Ninh Kiều vì nó rất thuận tiện cho việc đi lại và có tầm nhìn hướng sông tuyệt đẹp.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu thưởng thức các món ăn đặc sản địa phương như cá lóc nướng trui, bánh xèo giòn rụm và các loại trái cây nhiệt đới tươi ngon.\n\nTiếp theo, nếu tớ là cậu, tớ sẽ đi thuyền vào sáng sớm để tham quan chợ nổi Cái Răng vì cậu có thể trải nghiệm nét giao thương sông nước đích thực của miền Tây.\n\nCuối cùng, hãy nhớ mang theo quần áo mỏng nhẹ, kem chống nắng và một chiếc ô vì thời tiết vào tháng Mười Hai rất ấm áp và nhiều nắng.\n\nTớ hy vọng những lời khuyên của tớ sẽ hữu ích cho cậu. Hãy cho tớ biết chuyến đi diễn ra thế nào nhé. Hồi âm sớm cho tớ nhé.\n\nChúc cậu mọi điều tốt lành,",
             "word_count": 149,
             "key_structures": [
@@ -2106,9 +2106,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Emily,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to where to stay, you could consider ***staying at a hotel near Ninh Kieu Wharf*** because it is close to the city center and convenient for traveling. You can easily stroll along the river and enjoy scenic sunsets.\n\nAs for what dishes to try, it would be a good idea to ***try local specialties such as crispy Vietnamese sizzling pancakes and grilled snakehead fish*** because they are very delicious and popular in the Mekong Delta.\n\nRegarding which tourist attractions to visit, if I were you, I would ***visit Cai Rang Floating Market in the early morning*** because you can see how local people trade on the river and explore vibrant fruit orchards.\n\nLast but not least, remember to ***wear light, breathable cotton clothes such as T-shirts and shorts*** because the weather is warm and sunny. Don’t forget to ***bring sunglasses and sunscreen*** to protect yourself from the sun.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "letter_en": "Dear Emily,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to where to stay, you could consider ***staying at a hotel near Ninh Kieu Wharf*** because it is close to the city center and convenient for traveling. You can easily stroll along the river and enjoy scenic sunsets.\n\nAs for what dishes to try, it would be a good idea to ***try local specialties such as crispy Vietnamese sizzling pancakes and grilled snakehead fish*** because they are very delicious and popular in the Mekong Delta.\n\nRegarding which tourist attractions to visit, if I were you, I would ***visit Cai Rang Floating Market in the early morning*** because you can see how local people trade on the river and explore lively fruit orchards.\n\nLast but not least, remember to ***wear light, breathable cotton clothes such as T-shirts and shorts*** because the weather is warm and sunny. Don’t forget to ***bring sunglasses and sunscreen*** to protect yourself from the sun.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "letter_vi": "Emily thân mến,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về nơi ở, cậu có thể cân nhắc ***ở tại một khách sạn gần bến Ninh Kiều*** vì nó gần trung tâm thành phố và thuận tiện cho việc đi lại. Cậu có thể dễ dàng dạo bộ dọc bờ sông và ngắm cảnh hoàng hôn thơ mộng.\n\nVề những món ăn nên thử, sẽ là một ý kiến hay nếu cậu thử ***các món đặc sản địa phương như bánh xèo giòn rụm và cá lóc nướng trui*** vì chúng rất ngon và phổ biến ở miền Tây sông nước.\n\nLiên quan đến các điểm tham quan du lịch, nếu tớ là cậu, tớ sẽ tham quan ***Chợ nổi Cái Răng vào sáng sớm*** vì cậu có thể chứng kiến cách người dân địa phương buôn bán trên sông và khám phá những vườn cây ăn trái sum suê.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ ***mặc quần áo cotton mỏng nhẹ và thoáng khí như áo phông và quần đùi*** vì thời tiết ở đây ấm áp và nhiều nắng. Đừng quên ***mang theo kính râm và kem chống nắng*** để bảo vệ bản thân khỏi ánh nắng mặt trời.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc những điều tốt đẹp nhất,",
-            "text": "Dear Emily,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to where to stay, you could consider ***staying at a hotel near Ninh Kieu Wharf*** because it is close to the city center and convenient for traveling. You can easily stroll along the river and enjoy scenic sunsets.\n\nAs for what dishes to try, it would be a good idea to ***try local specialties such as crispy Vietnamese sizzling pancakes and grilled snakehead fish*** because they are very delicious and popular in the Mekong Delta.\n\nRegarding which tourist attractions to visit, if I were you, I would ***visit Cai Rang Floating Market in the early morning*** because you can see how local people trade on the river and explore vibrant fruit orchards.\n\nLast but not least, remember to ***wear light, breathable cotton clothes such as T-shirts and shorts*** because the weather is warm and sunny. Don’t forget to ***bring sunglasses and sunscreen*** to protect yourself from the sun.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "text": "Dear Emily,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to where to stay, you could consider ***staying at a hotel near Ninh Kieu Wharf*** because it is close to the city center and convenient for traveling. You can easily stroll along the river and enjoy scenic sunsets.\n\nAs for what dishes to try, it would be a good idea to ***try local specialties such as crispy Vietnamese sizzling pancakes and grilled snakehead fish*** because they are very delicious and popular in the Mekong Delta.\n\nRegarding which tourist attractions to visit, if I were you, I would ***visit Cai Rang Floating Market in the early morning*** because you can see how local people trade on the river and explore lively fruit orchards.\n\nLast but not least, remember to ***wear light, breathable cotton clothes such as T-shirts and shorts*** because the weather is warm and sunny. Don’t forget to ***bring sunglasses and sunscreen*** to protect yourself from the sun.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "translation": "Emily thân mến,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về nơi ở, cậu có thể cân nhắc ***ở tại một khách sạn gần bến Ninh Kiều*** vì nó gần trung tâm thành phố và thuận tiện cho việc đi lại. Cậu có thể dễ dàng dạo bộ dọc bờ sông và ngắm cảnh hoàng hôn thơ mộng.\n\nVề những món ăn nên thử, sẽ là một ý kiến hay nếu cậu thử ***các món đặc sản địa phương như bánh xèo giòn rụm và cá lóc nướng trui*** vì chúng rất ngon và phổ biến ở miền Tây sông nước.\n\nLiên quan đến các điểm tham quan du lịch, nếu tớ là cậu, tớ sẽ tham quan ***Chợ nổi Cái Răng vào sáng sớm*** vì cậu có thể chứng kiến cách người dân địa phương buôn bán trên sông và khám phá những vườn cây ăn trái sum suê.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ ***mặc quần áo cotton mỏng nhẹ và thoáng khí như áo phông và quần đùi*** vì thời tiết ở đây ấm áp và nhiều nắng. Đừng quên ***mang theo kính râm và kem chống nắng*** để bảo vệ bản thân khỏi ánh nắng mặt trời.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc những điều tốt đẹp nhất,",
             "word_count": 193,
             "key_structures": [
@@ -2343,7 +2343,7 @@ const LETTERS_DATA = [
                 "boost your confidence when communicating with",
                 "teachers and classmates"
               ],
-              "explanation": "Sử dụng cấu trúc danh động từ làm chủ ngữ 'Learning... will boost your confidence'."
+              "explanation": "Sử dụng cấu trúc danh động từ làm chủ ngữ 'Learning... Will boost your confidence'."
             }
           ],
           "sample_b1": {
@@ -2454,7 +2454,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì nó cho phép cậu đi tham quan thành phố vào ban ngày.",
                   "expansion_1_en": "Digital lessons are recorded, so you can easily review grammar points and tone pronunciation after work.",
                   "expansion_1_vi": "Các bài học trực tuyến đều được ghi hình lại, do đó bạn có thể dễ dàng ôn lại ngữ pháp và phát âm thanh điệu sau giờ làm.",
-                  "expansion_2_en": "This setup saves significant commuting time in busy rush-hour traffic across the city.",
+                  "expansion_2_en": "This setup saves significant travel time in busy rush-hour traffic across the city.",
                   "expansion_2_vi": "Cách sắp xếp này giúp tiết kiệm đáng kể thời gian di chuyển giữa dòng xe cộ giờ cao điểm trong thành phố."
                 },
                 {
@@ -2472,7 +2472,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu nên tìm các khóa học tại trường Đại học Hà Nội",
                   "reason_en": "because the university offers very affordable rates for foreign students.",
                   "reason_vi": "bởi vì trường có mức học phí rất ưu đãi cho sinh viên quốc tế.",
-                  "expansion_1_en": "Their accredited course program follows national communicative standards and awards reputable certificates.",
+                  "expansion_1_en": "Their accredited course program follows national communicative standards and awards reliable certificates.",
                   "expansion_1_vi": "Giáo trình được kiểm định tại đây tuân theo chuẩn giao tiếp quốc gia và cấp chứng chỉ uy tín.",
                   "expansion_2_en": "You can also access spacious university libraries and join dynamic campus student clubs.",
                   "expansion_2_vi": "Bạn cũng có thể sử dụng thư viện đại học rộng lớn và tham gia các câu lạc bộ sinh viên năng động."
@@ -2512,7 +2512,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì tinh thần của cậu rất sảng khoái và tràn đầy năng lượng vào buổi sáng.",
                   "expansion_1_en": "Starting your day with focused language study leaves afternoons free for sightseeing and self-study.",
                   "expansion_1_vi": "Bắt đầu ngày mới bằng việc học ngôn ngữ tập trung giúp bạn có trọn buổi chiều để tham quan và tự học.",
-                  "expansion_2_en": "Morning learning also coincides with the peak alert hours of your brain for memory retention.",
+                  "expansion_2_en": "Morning learning also coincides with the peak alert hours of your brain for remembering new lessons.",
                   "expansion_2_vi": "Học vào buổi sáng cũng trùng với khung giờ não bộ tỉnh táo nhất để ghi nhớ kiến thức."
                 },
                 {
@@ -2520,7 +2520,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể chọn một khóa học cấp tốc ngắn trong bốn tuần",
                   "reason_en": "because it fits your short holiday schedule in Vietnam perfectly.",
                   "reason_vi": "bởi vì nó hoàn toàn vừa vặn với lịch trình kỳ nghỉ ngắn của cậu tại Việt Nam.",
-                  "expansion_1_en": "Daily three-hour sessions will immerse you completely in survival conversational patterns.",
+                  "expansion_1_en": "Daily three-hour sessions will experience you completely in survival conversational patterns.",
                   "expansion_1_vi": "Các buổi học 3 tiếng mỗi ngày sẽ đưa bạn đắm chìm hoàn toàn vào các mẫu câu giao tiếp sinh tồn cơ bản.",
                   "expansion_2_en": "This format is perfect if you need quick conversational skills for immediate travel or relocation.",
                   "expansion_2_vi": "Hình thức này rất hoàn hảo nếu bạn cần phản xạ giao tiếp cấp tốc để đi du lịch hay định cư ngay."
@@ -2560,7 +2560,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì việc tự tay viết từ mới giúp ích rất nhiều cho trí nhớ của cậu.",
                   "expansion_1_en": "Organizing pages into sections for nouns, verbs, and common idioms makes periodic revision effortless.",
                   "expansion_1_vi": "Sắp xếp sổ thành các phần riêng cho danh từ, động từ và thành ngữ thông dụng giúp việc ôn lại thật dễ dàng.",
-                  "expansion_2_en": "Writing new words down by hand also creates muscle memory that enhances word retention.",
+                  "expansion_2_en": "Writing new words down by hand also creates muscle memory that helps you remember new words better.",
                   "expansion_2_vi": "Tự tay chép từ mới còn tạo nên trí nhớ cơ bắp giúp việc khắc sâu từ vựng hiệu quả hơn."
                 },
                 {
@@ -2598,9 +2598,9 @@ const LETTERS_DATA = [
                   "action_vi": "cậu nên chuẩn bị một chiếc máy ghi âm nhỏ bỏ túi",
                   "reason_en": "because you can listen to teacher pronunciations again at home.",
                   "reason_vi": "bởi vì cậu có thể nghe lại cách phát âm của thầy cô khi về nhà.",
-                  "expansion_1_en": "Recording teacher pronunciation allows you to replay authentic audio clips at home at slower speeds.",
+                  "expansion_1_en": "Recording teacher pronunciation allows you to replay traditional audio clips at home at slower speeds.",
                   "expansion_1_vi": "Ghi âm phát âm của giáo viên cho phép bạn nghe lại giọng chuẩn ở nhà với tốc độ chậm hơn.",
-                  "expansion_2_en": "Comparing your recorded voice with the teacher's model helps you eliminate subtle accent flaws.",
+                  "expansion_2_en": "Comparing your recorded voice with the teacher's model helps you reduce subtle accent flaws.",
                   "expansion_2_vi": "Đối chiếu giọng ghi âm của bạn với mẫu của giáo viên giúp bạn loại bỏ những lỗi ngữ điệu nhỏ nhất."
                 }
               ]
@@ -2626,7 +2626,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể học những câu chào hỏi cơ bản trước khi đến",
                   "reason_en": "because friendly greetings help you make friends with local people easily.",
                   "reason_vi": "bởi vì những lời chào thân thiện giúp cậu dễ dàng kết bạn với người dân.",
-                  "expansion_1_en": "Saying 'xin chào' and 'cảm ơn' with proper polite honorifics creates an immediate warm impression with locals.",
+                  "expansion_1_en": "Saying 'xin chào' and 'cảm ơn' with polite everyday words creates an immediate warm impression with locals.",
                   "expansion_1_vi": "Nói 'xin chào' và 'cảm ơn' kèm đại từ xưng hô lịch sự sẽ tạo thiện cảm ấm áp ngay lập tức với người bản xứ.",
                   "expansion_2_en": "Shopkeepers and taxi drivers will appreciate your respect for their culture and speak more patiently.",
                   "expansion_2_vi": "Người bán hàng và tài xế taxi sẽ rất trân trọng sự tôn trọng của bạn và trò chuyện kiên nhẫn hơn."
@@ -2646,7 +2646,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể tập gọi món ăn bằng tiếng Việt",
                   "reason_en": "because street vendors will feel very happy and appreciate your effort.",
                   "reason_vi": "bởi vì các cô chú bán hàng rong sẽ rất vui và quý mến sự cố gắng của cậu.",
-                  "expansion_1_en": "Role-playing food orders with phrases like 'cho tôi một tô phở' prepares you for authentic street dining.",
+                  "expansion_1_en": "Role-playing food orders with phrases like 'cho tôi một tô phở' prepares you for traditional street dining.",
                   "expansion_1_vi": "Tập gọi món với các câu như 'cho tôi một tô phở' sẽ chuẩn bị sẵn sàng cho bạn đi ăn hàng quán vỉa hè.",
                   "expansion_2_en": "Knowing how to request 'ít cay' (less spicy) or 'không đường' (no sugar) makes daily meals much more enjoyable.",
                   "expansion_2_vi": "Biết cách dặn 'ít cay' hoặc 'không đường' sẽ giúp các bữa ăn hằng ngày của bạn hợp khẩu vị hơn nhiều."
@@ -2689,7 +2689,7 @@ const LETTERS_DATA = [
             "purpose": "Kể cho Jane nghe về công việc mới, đồng nghiệp, quãng đường đi làm và đưa ra lời khuyên chuẩn bị cho buổi phỏng vấn xin việc sắp tới của cô ấy",
             "key_requirements": [
               "Kể về tình hình công việc mới và mối quan hệ với đồng nghiệp (Colleagues & work environment)",
-              "Miêu tả việc đi lại hàng ngày đến công ty có thuận tiện không (Daily commute)",
+              "Miêu tả việc đi lại hàng ngày đến công ty có thuận tiện không (daily trip to work)",
               "Đưa ra lời khuyên nghiên cứu kỹ thông tin công ty và luyện tập câu hỏi phỏng vấn (Company research & practice)",
               "Khuyên về trang phục lịch sự và thái độ tự tin khi tham gia phỏng vấn (Lựa chọn trang phục phù hợp & sự tự tin)"
             ]
@@ -2728,7 +2728,7 @@ const LETTERS_DATA = [
               "vi": "đồng nghiệp luôn hỗ trợ"
             },
             {
-              "en": "convenient commute",
+              "en": "convenient travel",
               "vi": "quãng đường đi làm thuận tiện"
             },
             {
@@ -2848,11 +2848,11 @@ const LETTERS_DATA = [
             },
             {
               "id": 3,
-              "part": "3. Thân bài B2 - Ý 2 (Convenient commute)",
+              "part": "3. Thân bài B2 - Ý 2 (Convenient travel)",
               "vi": "Quãng đường đi làm hàng ngày rất dễ chịu vì vị trí công ty nằm gần trạm tàu điện, giúp tớ tránh được tình trạng kẹt xe giờ cao điểm.",
-              "en": "My daily commute is very convenient because the office is located right next to the metro station, saving me from peak hour traffic.",
+              "en": "My daily trip to work is very convenient because the office is located right next to the metro station, saving me from peak hour traffic.",
               "hints": [
-                "daily commute is very convenient",
+                "daily trip to work is very convenient",
                 "saving me from peak hour traffic"
               ],
               "explanation": "Cụm từ 'very convenient' và 'peak hour traffic' diễn đạt tự nhiên chuẩn B2."
@@ -2915,21 +2915,21 @@ const LETTERS_DATA = [
           },
           "sample_b2": {
             "word_count": 179,
-            "letter_en": "Dear Jane,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to my new workplace, I am really happy with ***the supportive colleagues and convenient commuting distance*** because everyone is welcoming and the office is only a short bus ride from my home.\n\nAs for what to research before your job interview, it would be a good idea to ***study the company’s core values, recent projects, and main products thoroughly*** because interviewers always appreciate candidates who demonstrate genuine curiosity and preparation.\n\nRegarding how to prepare for typical interview questions, if I were you, I would ***practice answering common interview questions using specific examples from your past experience*** because this makes your answers compelling and authentic.\n\nLast but not least, remember to ***dress professionally and arrive at the interview location fifteen minutes early*** because making a punctual and polished first impression shows high dedication and reliability.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "letter_en": "Dear Jane,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to my new workplace, I am really happy with ***the supportive colleagues and convenient traveling distance*** because everyone is welcoming and the office is only a short bus ride from my home.\n\nAs for what to research before your job interview, it would be a good idea to ***study the company’s core values, recent projects, and main products thoroughly*** because interviewers always appreciate candidates who demonstrate genuine curiosity and preparation.\n\nRegarding how to prepare for typical interview questions, if I were you, I would ***practice answering common interview questions using specific examples from your past experience*** because this makes your answers interesting and traditional.\n\nLast but not least, remember to ***dress professionally and arrive at the interview location fifteen minutes early*** because making a punctual and polished first impression shows high dedication and reliability.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "letter_vi": "Chào Jane,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về nơi làm việc mới của tớ, tớ thực sự rất hài lòng với các đồng nghiệp luôn hỗ trợ và khoảng cách đi lại thuận tiện vì mọi người đều thân thiện và văn phòng chỉ cách nhà tớ một chuyến xe buýt ngắn.\n\nVề những điều cần tìm hiểu trước buổi phỏng vấn xin việc, sẽ là một ý tưởng hay nếu cậu nghiên cứu kỹ về giá trị cốt lõi, các dự án gần đây và sản phẩm chính của công ty vì người phỏng vấn luôn đánh giá cao những ứng viên thể hiện sự tò mò và chuẩn bị chu đáo.\n\nLiên quan đến cách chuẩn bị cho các câu hỏi phỏng vấn điển hình, nếu tớ là cậu, tớ sẽ luyện tập trả lời các câu hỏi tình huống phổ biến bằng cách sử dụng các ví dụ cụ thể từ kinh nghiệm trước đây của cậu vì điều này giúp câu trả lời của cậu thuyết phục và chân thực.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ ăn mặc lịch sự và đến địa điểm phỏng vấn trước mười lăm phút vì việc tạo ấn tượng đầu tiên đúng giờ và chỉn chu thể hiện sự tận tâm và đáng tin cậy cao.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
-            "text": "Dear Jane,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to my new workplace, I am really happy with ***the supportive colleagues and convenient commuting distance*** because everyone is welcoming and the office is only a short bus ride from my home.\n\nAs for what to research before your job interview, it would be a good idea to ***study the company’s core values, recent projects, and main products thoroughly*** because interviewers always appreciate candidates who demonstrate genuine curiosity and preparation.\n\nRegarding how to prepare for typical interview questions, if I were you, I would ***practice answering common interview questions using specific examples from your past experience*** because this makes your answers compelling and authentic.\n\nLast but not least, remember to ***dress professionally and arrive at the interview location fifteen minutes early*** because making a punctual and polished first impression shows high dedication and reliability.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "text": "Dear Jane,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to my new workplace, I am really happy with ***the supportive colleagues and convenient traveling distance*** because everyone is welcoming and the office is only a short bus ride from my home.\n\nAs for what to research before your job interview, it would be a good idea to ***study the company’s core values, recent projects, and main products thoroughly*** because interviewers always appreciate candidates who demonstrate genuine curiosity and preparation.\n\nRegarding how to prepare for typical interview questions, if I were you, I would ***practice answering common interview questions using specific examples from your past experience*** because this makes your answers interesting and traditional.\n\nLast but not least, remember to ***dress professionally and arrive at the interview location fifteen minutes early*** because making a punctual and polished first impression shows high dedication and reliability.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "translation": "Chào Jane,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về nơi làm việc mới của tớ, tớ thực sự rất hài lòng với các đồng nghiệp luôn hỗ trợ và khoảng cách đi lại thuận tiện vì mọi người đều thân thiện và văn phòng chỉ cách nhà tớ một chuyến xe buýt ngắn.\n\nVề những điều cần tìm hiểu trước buổi phỏng vấn xin việc, sẽ là một ý tưởng hay nếu cậu nghiên cứu kỹ về giá trị cốt lõi, các dự án gần đây và sản phẩm chính của công ty vì người phỏng vấn luôn đánh giá cao những ứng viên thể hiện sự tò mò và chuẩn bị chu đáo.\n\nLiên quan đến cách chuẩn bị cho các câu hỏi phỏng vấn điển hình, nếu tớ là cậu, tớ sẽ luyện tập trả lời các câu hỏi tình huống phổ biến bằng cách sử dụng các ví dụ cụ thể từ kinh nghiệm trước đây của cậu vì điều này giúp câu trả lời của cậu thuyết phục và chân thực.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ ăn mặc lịch sự và đến địa điểm phỏng vấn trước mười lăm phút vì việc tạo ấn tượng đầu tiên đúng giờ và chỉn chu thể hiện sự tận tâm và đáng tin cậy cao.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
             "structure_analysis": [
               {
                 "label": "Opening & Reconnection",
-                "desc": "Enthusiastic greeting praising Jane's milestone and establishing a supportive tone"
+                "desc": "Enthusiastic greeting praising Jane's special event and establishing a supportive tone"
               },
               {
                 "label": "Career & Colleague Dynamics",
                 "desc": "Elaborate reflection on workplace onboarding, teamwork, and managerial support"
               },
               {
-                "label": "Commute Convenience",
+                "label": "travel Convenience",
                 "desc": "Description of modern public transit connectivity and stress-free travel"
               },
               {
@@ -2976,9 +2976,9 @@ const LETTERS_DATA = [
                   "action_vi": "công việc mới của tớ mỗi ngày đều rất suôn sẻ",
                   "reason_en": "because my manager gives clear guidance and reasonable deadlines.",
                   "reason_vi": "bởi vì người quản lý đưa ra hướng dẫn rõ ràng và thời hạn làm việc hợp lý.",
-                  "expansion_1_en": "My department head sets transparent milestones and encourages creative initiatives from junior members.",
+                  "expansion_1_en": "My department head sets transparent goals and encourages creative initiatives from junior members.",
                   "expansion_1_vi": "Trưởng bộ phận của mình luôn đặt ra các cột mốc rõ ràng và khuyến khích sáng kiến từ nhân viên mới.",
-                  "expansion_2_en": "This supportive leadership style eliminates workplace anxiety and motivates me to excel every single day.",
+                  "expansion_2_en": "This supportive leadership style removes workplace anxiety and motivates me to excel every single day.",
                   "expansion_2_vi": "Phong cách lãnh đạo khích lệ này xóa tan áp lực nơi làm việc và thôi thúc mình nỗ lực vượt trội mỗi ngày."
                 },
                 {
@@ -3016,16 +3016,16 @@ const LETTERS_DATA = [
                   "action_vi": "tớ rất thích không gian làm việc sáng sủa và thoáng đãng",
                   "reason_en": "because large glass windows bring in plenty of natural sunlight.",
                   "reason_vi": "bởi vì những khung cửa kính lớn đón rất nhiều ánh sáng tự nhiên.",
-                  "expansion_1_en": "Floor-to-ceiling glass windows let in abundant daylight and overlook a tranquil green courtyard.",
+                  "expansion_1_en": "Floor-to-ceiling glass windows let in abundant daylight and overlook a quiet and peaceful green courtyard.",
                   "expansion_1_vi": "Cửa kính lớn từ sàn đến trần đón ngập tràn ánh sáng tự nhiên và nhìn ra khoảng sân vườn xanh mát.",
-                  "expansion_2_en": "Ergonomic chairs and communal breakout spaces spark spontaneous brainstorms among colleagues.",
+                  "expansion_2_en": "Comfortable chairs and shared rest areas spark spontaneous brainstorms among colleagues.",
                   "expansion_2_vi": "Ghế công thái học và các không gian thư giãn chung tạo cảm hứng cho những buổi thảo luận sáng tạo."
                 }
               ]
             },
             {
               "id": 2,
-              "title_en": "2. Convenient commute & daily travel",
+              "title_en": "2. Convenient travel & daily travel",
               "title_vi": "Đi lại làm việc thuận tiện & dễ dàng",
               "icon": "fa-subway",
               "options": [
@@ -3044,7 +3044,7 @@ const LETTERS_DATA = [
                   "action_vi": "tớ chỉ mất mười lăm phút đi xe máy",
                   "reason_en": "because the new bridge helps me avoid heavy traffic jams.",
                   "reason_vi": "bởi vì cây cầu mới giúp tớ tránh được các điểm ùn tắc giao thông.",
-                  "expansion_1_en": "The short distance means I can easily return home for a wholesome lunch and a brief refreshing nap.",
+                  "expansion_1_en": "The short distance means I can easily return home for a healthy lunch and a brief refreshing nap.",
                   "expansion_1_vi": "Khoảng cách ngắn đồng nghĩa với việc mình có thể tút về nhà ăn bữa trưa nóng hổi và chợp mắt nghỉ ngơi.",
                   "expansion_2_en": "Saving on petrol expenses also leaves extra savings at the end of each month.",
                   "expansion_2_vi": "Tiết kiệm tiền xăng xe cũng giúp mình dư ra một khoản tích lũy nho nhỏ vào cuối mỗi tháng."
@@ -3114,7 +3114,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì điều này thể hiện sự quan tâm thực sự của cậu đối với vị trí công việc.",
                   "expansion_1_en": "Ask thoughtful questions regarding team collaboration dynamics or opportunities for professional development.",
                   "expansion_1_vi": "Hãy đặt những câu hỏi sâu sắc về cách thức phối hợp nhóm hoặc cơ hội phát triển chuyên môn tại công ty.",
-                  "expansion_2_en": "This demonstrates strong intellectual curiosity and positions you as a proactive long-term contributor.",
+                  "expansion_2_en": "This demonstrates strong intellectual curiosity and positions you as a active and helpful long-term contributor.",
                   "expansion_2_vi": "Điều này thể hiện sự ham học hỏi và định vị bạn như một nhân sự chủ động, muốn gắn bó lâu dài."
                 },
                 {
@@ -3182,7 +3182,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì điều này chứng minh sự chuẩn bị chu đáo và tư duy ngăn nắp của cậu.",
                   "expansion_1_en": "Place them inside a clean professional folder so they remain crisp without bent corners.",
                   "expansion_1_vi": "Hãy đặt các giấy tờ vào một bìa hồ sơ chuyên nghiệp sạch sẽ để tài liệu luôn phẳng phiu, không bị gập mép.",
-                  "expansion_2_en": "Offering an extra physical copy shows forethought and thorough organizational discipline.",
+                  "expansion_2_en": "Offering a extra physical copy shows forethought and thorough organizational discipline.",
                   "expansion_2_vi": "Chủ động gửi thêm bản in cho nhà tuyển dụng thể hiện tính chu đáo và tác phong làm việc bài bản."
                 },
                 {
@@ -3245,7 +3245,7 @@ const LETTERS_DATA = [
               {
                 "point": "Lễ hội đặc sắc mùa hè",
                 "formula": "Next, there is the famous Da Nang International Fireworks Festival ...",
-                "detail": "Next, there is the famous Da Nang International Fireworks Festival in the summer with spectacular pyrotechnic performances."
+                "detail": "Next, there is the famous Da Nang International Fireworks Festival in the summer with wonderful fireworks shows."
               },
               {
                 "point": "Chuẩn bị đồ dùng & trang phục",
@@ -3278,11 +3278,11 @@ const LETTERS_DATA = [
               "vi": "lễ hội pháo hoa"
             },
             {
-              "en": "spectacular performance",
+              "en": "wonderful performance",
               "vi": "màn trình diễn ngoạn mục"
             },
             {
-              "en": "vibrant nightlife",
+              "en": "lively nightlife",
               "vi": "cuộc sống về đêm sôi động"
             },
             {
@@ -3372,12 +3372,12 @@ const LETTERS_DATA = [
               "id": 2,
               "part": "2. Thân bài B2 - Ý 1 (Thời điểm & Thời tiết)",
               "vi": "Đầu mùa hè, đặc biệt là tháng Sáu, là thời điểm lý tưởng nhất trước khi những cơn mưa rào mùa thu bắt đầu xuất hiện.",
-              "en": "Early summer, especially June, is the ideal window for traveling before heavy autumn downpours set in.",
+              "en": "Early summer, especially June, is the ideal window for traveling before heavy autumn rain starts.",
               "hints": [
                 "ideal window for traveling",
-                "before heavy autumn downpours set in"
+                "before heavy autumn rain starts"
               ],
-              "explanation": "Cụm từ 'ideal window for traveling' và 'autumn downpours' giúp tăng điểm Lexical Resource."
+              "explanation": "Cụm từ 'ideal window for traveling' và 'heavy autumn rain' giúp tăng điểm Lexical Resource."
             },
             {
               "id": 3,
@@ -3448,9 +3448,9 @@ const LETTERS_DATA = [
           },
           "sample_b2": {
             "word_count": 182,
-            "letter_en": "Dear Jane,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to ideal summer destinations, you could consider ***visiting Da Nang and Hoi An in Central Vietnam*** because both cities offer stunning beaches, world-renowned heritage sites, and extraordinary local cuisine within close distance.\n\nAs for exciting festivals to experience, it would be a good idea to ***attend the Da Nang International Fireworks Festival in June*** because vibrant fireworks teams from across the globe deliver spectacular night displays along the Han River.\n\nRegarding practical travel preparation, if I were you, I would ***pack light cotton clothing, comfortable walking shoes, and reliable sun protection*** because daytime temperatures can be quite high during the peak summer months.\n\nLast but not least, remember to ***book your domestic flights and hotel accommodations at least one month in advance*** because summer is the busiest tourism season and popular beachfront resorts fill up very quickly.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "letter_en": "Dear Jane,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to ideal summer destinations, you could consider ***visiting Da Nang and Hoi An in Central Vietnam*** because both cities offer stunning beaches, world-renowned heritage sites, and extraordinary local cuisine within close distance.\n\nAs for exciting festivals to experience, it would be a good idea to ***attend the Da Nang International Fireworks Festival in June*** because lively fireworks teams from across the globe deliver wonderful night displays along the Han River.\n\nRegarding practical travel preparation, if I were you, I would ***pack light cotton clothing, comfortable walking shoes, and reliable sun protection*** because daytime temperatures can be quite high during the peak summer months.\n\nLast but not least, remember to ***book your domestic flights and hotel accommodations at least one month in advance*** because summer is the busiest tourism season and popular beachfront resorts fill up very quickly.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "letter_vi": "Chào Jane,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về các điểm đến mùa hè lý tưởng, cậu có thể cân nhắc ghé thăm Đà Nẵng và Hội An ở miền Trung Việt Nam vì cả hai thành phố đều có những bãi biển tuyệt đẹp, các di sản nổi tiếng thế giới và nền ẩm thực địa phương đặc sắc trong khoảng cách rất gần.\n\nVề các lễ hội thú vị nên trải nghiệm, sẽ là một ý tưởng hay nếu cậu tham dự Lễ hội Pháo hoa Quốc tế Đà Nẵng vào tháng Sáu vì các đội pháo hoa tài năng từ khắp nơi trên thế giới mang đến những màn trình diễn đêm ngoạn mục dọc sông Hàn.\n\nLiên quan đến việc chuẩn bị đồ đạc du lịch thực tế, nếu tớ là cậu, tớ sẽ mang theo quần áo cotton mỏng nhẹ, giày đi bộ thoải mái và kem chống nắng tốt vì nhiệt độ ban ngày có thể khá cao trong những tháng cao điểm mùa hè.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ đặt vé máy bay nội địa và phòng khách sạn trước ít nhất một tháng vì mùa hè là mùa du lịch bận rộn nhất và các khu nghỉ dưỡng ven biển nổi tiếng sẽ kín phòng rất nhanh.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
-            "text": "Dear Jane,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to ideal summer destinations, you could consider ***visiting Da Nang and Hoi An in Central Vietnam*** because both cities offer stunning beaches, world-renowned heritage sites, and extraordinary local cuisine within close distance.\n\nAs for exciting festivals to experience, it would be a good idea to ***attend the Da Nang International Fireworks Festival in June*** because vibrant fireworks teams from across the globe deliver spectacular night displays along the Han River.\n\nRegarding practical travel preparation, if I were you, I would ***pack light cotton clothing, comfortable walking shoes, and reliable sun protection*** because daytime temperatures can be quite high during the peak summer months.\n\nLast but not least, remember to ***book your domestic flights and hotel accommodations at least one month in advance*** because summer is the busiest tourism season and popular beachfront resorts fill up very quickly.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "text": "Dear Jane,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to ideal summer destinations, you could consider ***visiting Da Nang and Hoi An in Central Vietnam*** because both cities offer stunning beaches, world-renowned heritage sites, and extraordinary local cuisine within close distance.\n\nAs for exciting festivals to experience, it would be a good idea to ***attend the Da Nang International Fireworks Festival in June*** because lively fireworks teams from across the globe deliver wonderful night displays along the Han River.\n\nRegarding practical travel preparation, if I were you, I would ***pack light cotton clothing, comfortable walking shoes, and reliable sun protection*** because daytime temperatures can be quite high during the peak summer months.\n\nLast but not least, remember to ***book your domestic flights and hotel accommodations at least one month in advance*** because summer is the busiest tourism season and popular beachfront resorts fill up very quickly.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "translation": "Chào Jane,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về các điểm đến mùa hè lý tưởng, cậu có thể cân nhắc ghé thăm Đà Nẵng và Hội An ở miền Trung Việt Nam vì cả hai thành phố đều có những bãi biển tuyệt đẹp, các di sản nổi tiếng thế giới và nền ẩm thực địa phương đặc sắc trong khoảng cách rất gần.\n\nVề các lễ hội thú vị nên trải nghiệm, sẽ là một ý tưởng hay nếu cậu tham dự Lễ hội Pháo hoa Quốc tế Đà Nẵng vào tháng Sáu vì các đội pháo hoa tài năng từ khắp nơi trên thế giới mang đến những màn trình diễn đêm ngoạn mục dọc sông Hàn.\n\nLiên quan đến việc chuẩn bị đồ đạc du lịch thực tế, nếu tớ là cậu, tớ sẽ mang theo quần áo cotton mỏng nhẹ, giày đi bộ thoải mái và kem chống nắng tốt vì nhiệt độ ban ngày có thể khá cao trong những tháng cao điểm mùa hè.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ đặt vé máy bay nội địa và phòng khách sạn trước ít nhất một tháng vì mùa hè là mùa du lịch bận rộn nhất và các khu nghỉ dưỡng ven biển nổi tiếng sẽ kín phòng rất nhanh.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
             "structure_analysis": [
               {
@@ -3467,11 +3467,11 @@ const LETTERS_DATA = [
               },
               {
                 "label": "Cultural & Festival Immersion",
-                "desc": "Vivid depiction of the International Fireworks Festival and culinary delights"
+                "desc": "Vivid depiction of the International Fireworks Festival and cooking delights"
               },
               {
                 "label": "Packing Essentials",
-                "desc": "Practical tips on sun protection, hydration, and breathable fabrics"
+                "desc": "Practical tips on sun protection, drinking water, and breathable fabrics"
               },
               {
                 "label": "Sign-off & Reunion Offer",
@@ -3517,11 +3517,11 @@ const LETTERS_DATA = [
                 {
                   "action_en": "you should avoid traveling in late August",
                   "action_vi": "cậu nên tránh đi du lịch vào cuối tháng Tám",
-                  "reason_en": "because tropical summer storms may disrupt your boat tours.",
+                  "reason_en": "because tropical summer storms may affect your boat tours.",
                   "reason_vi": "bởi vì các cơn bão mùa hè nhiệt đới có thể làm gián đoạn các tour đi thuyền.",
-                  "expansion_1_en": "Late summer frequently brings sudden tropical squalls and monsoon downpours that can disrupt flight schedules.",
+                  "expansion_1_en": "Late summer frequently brings sudden heavy rain and storms that can affect flight schedules.",
                   "expansion_1_vi": "Cuối mùa hè thường xuất hiện những cơn dông nhiệt đới và mưa gió mùa có thể làm gián đoạn lịch trình bay.",
-                  "expansion_2_en": "Outdoor boat tours and island excursions are often suspended temporarily for tourist safety.",
+                  "expansion_2_en": "Outdoor boat tours and island short trips are often suspended temporarily for tourist safety.",
                   "expansion_2_vi": "Các tour thuyền ngoài trời và chuyến tham quan đảo thường bị tạm hoãn để đảm bảo an toàn cho du khách."
                 },
                 {
@@ -3539,7 +3539,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể chọn đến thăm vào đầu tháng Bảy",
                   "reason_en": "because many tropical fruit orchards enter their harvest season.",
                   "reason_vi": "bởi vì nhiều vườn cây ăn trái nhiệt đới bước vào mùa thu hoạch rộ.",
-                  "expansion_1_en": "Many cultural festivals and street food fairs are in full swing across vibrant coastal hubs.",
+                  "expansion_1_en": "Many cultural festivals and street food fairs are in full swing across lively coastal hubs.",
                   "expansion_1_vi": "Nhiều lễ hội văn hóa và hội chợ ẩm thực đường phố đang diễn ra sôi nổi khắp các thành phố biển náo nhiệt.",
                   "expansion_2_en": "Booking flights three weeks ahead ensures competitive fares on domestic airlines.",
                   "expansion_2_vi": "Đặt vé máy bay trước 3 tuần sẽ đảm bảo mức giá cạnh tranh trên các hãng hàng không nội địa."
@@ -3569,7 +3569,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì nơi đây có bãi biển cát sạch và hải sản tươi ngon giá rẻ.",
                   "expansion_1_en": "My Khe Beach boasts fine white sand, gentle waves, and seaside restaurants serving live seafood.",
                   "expansion_1_vi": "Bãi biển Mỹ Khê sở hữu dải cát trắng mịn, sóng êm và các nhà hàng ven biển phục vụ hải sản tươi sống.",
-                  "expansion_2_en": "At night, you can watch the iconic Dragon Bridge breathe fire and water in a spectacular public display.",
+                  "expansion_2_en": "At night, you can watch the iconic Dragon Bridge breathe fire and water in a wonderful public display.",
                   "expansion_2_vi": "Vào ban đêm, bạn có thể chiêm ngưỡng Cầu Rồng phun lửa và phun nước trong màn trình diễn hoành tráng."
                 },
                 {
@@ -3623,9 +3623,9 @@ const LETTERS_DATA = [
                 {
                   "action_en": "you should attend the Da Nang International Fireworks Festival",
                   "action_vi": "cậu nên tham dự Lễ hội Pháo hoa Quốc tế Đà Nẵng",
-                  "reason_en": "because world-class pyrotechnic teams perform spectacular shows across the river.",
+                  "reason_en": "because famous fireworks teams perform wonderful shows across the river.",
                   "reason_vi": "bởi vì các đội pháo hoa hàng đầu thế giới biểu diễn các màn trình diễn ngoạn mục trên sông.",
-                  "expansion_1_en": "Pyrotechnic teams from around the world compete with synchronized musical fireworks over the Han River.",
+                  "expansion_1_en": "Fireworks teams from around the world compete with combined musical fireworks over the Han River.",
                   "expansion_1_vi": "Các đội pháo hoa quốc tế thi thố tài năng với những màn pháo hoa kết hợp âm nhạc mãn nhãn trên sông Hàn.",
                   "expansion_2_en": "Booking a river cruise ticket lets you admire the dazzling light displays right from the water.",
                   "expansion_2_vi": "Đặt vé du thuyền trên sông cho phép bạn ngắm nhìn những màn pháo hoa rực rỡ ngay trên mặt nước."
@@ -3633,9 +3633,9 @@ const LETTERS_DATA = [
                 {
                   "action_en": "you can enjoy street carnival parades in the city center",
                   "action_vi": "cậu có thể thưởng thức các đoàn diễu hành lễ hội đường phố tại trung tâm",
-                  "reason_en": "because dancers in vibrant costumes bring exciting music and positive energy.",
+                  "reason_en": "because dancers in lively costumes bring exciting music and positive energy.",
                   "reason_vi": "bởi vì các vũ công trong trang phục rực rỡ mang đến âm nhạc sôi động và năng lượng tích cực.",
-                  "expansion_1_en": "Dancers in colorful costumes perform upbeat Latin music and street circus stunts along riverside boulevards.",
+                  "expansion_1_en": "Dancers in colorful costumes perform upbeat Latin music and street circus stunts along riverside streets.",
                   "expansion_1_vi": "Các vũ công trong trang phục rực rỡ biểu diễn vũ điệu Latin sôi động và xiếc đường phố dọc đại lộ ven sông.",
                   "expansion_2_en": "Tourists and locals join hands together, filling the entire city with joyful summer energy.",
                   "expansion_2_vi": "Du khách và người dân địa phương cùng hòa mình khiêu vũ, làm bừng lên nguồn năng lượng mùa hè ngập tràn."
@@ -3663,7 +3663,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "you should explore night food markets along the Han River",
                   "action_vi": "cậu nên khám phá các khu chợ ẩm thực đêm dọc bờ sông Hàn",
-                  "reason_en": "because you can taste authentic local snacks with welcoming residents.",
+                  "reason_en": "because you can taste traditional local snacks with welcoming residents.",
                   "reason_vi": "bởi vì cậu có thể thưởng thức các món ăn vặt bản địa chuẩn vị cùng người dân hiếu khách.",
                   "expansion_1_en": "Stalls sell grilled rice paper snacks, iced avocado smoothies, and delicious lemongrass beef skewers.",
                   "expansion_1_vi": "Các quầy hàng bán bánh tráng nướng, sinh tố bơ mát lạnh và xiên bò nướng sả thơm nức mũi.",
@@ -3683,7 +3683,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu nên xếp các áo thun cotton nhẹ và quần soóc vào vali",
                   "reason_en": "because breathable fabrics help you stay cool in the tropical heat.",
                   "reason_vi": "bởi vì chất vải thoáng khí giúp cậu luôn mát mẻ trong tiết trời nhiệt đới.",
-                  "expansion_1_en": "Light cotton absorbs sweat quickly, helping your body stay cool and breezy in the tropical humidity.",
+                  "expansion_1_en": "Light cotton absorbs sweat quickly, helping your body stay cool and cool in the tropical humidity.",
                   "expansion_1_vi": "Vải cotton mềm nhẹ thấm mồ hôi nhanh, giúp cơ thể bạn luôn thoáng mát giữa độ ẩm nhiệt đới.",
                   "expansion_2_en": "They wash easily by hand in hotel bathrooms and dry overnight without wrinkling.",
                   "expansion_2_vi": "Quần áo giặt tay rất nhanh khô trong phòng khách sạn và không hề bị nhăn nhúm."
@@ -3701,7 +3701,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "you should carry a refillable water bottle during day tours",
                   "action_vi": "cậu nên mang theo một bình nước uống trong các tour ban ngày",
-                  "reason_en": "because regular water drinking prevents dehydration under hot temperatures.",
+                  "reason_en": "because regular water drinking prevents getting thirsty and tired under hot temperatures.",
                   "reason_vi": "bởi vì uống nước đều đặn giúp chống mất nước dưới nền nhiệt độ cao.",
                   "expansion_1_en": "Many tourist attractions and eco-cafes offer free filtered water refilling stations for visitors.",
                   "expansion_1_vi": "Nhiều điểm tham quan và quán cà phê xanh có trạm tiếp nước uống tinh khiết miễn phí cho khách.",
@@ -3713,7 +3713,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể mang theo một chiếc ô nhỏ gọn trong balo",
                   "reason_en": "because sudden quick afternoon showers can happen on hot days.",
                   "reason_vi": "bởi vì những cơn mưa rào bất chợt vào buổi chiều có thể xảy ra trong ngày nắng.",
-                  "expansion_1_en": "A UV-blocking foldable umbrella shields you from scorching noon heat as well as sudden afternoon showers.",
+                  "expansion_1_en": "A UV-blocking foldable umbrella shields you from hot midday sun as well as sudden afternoon showers.",
                   "expansion_1_vi": "Một chiếc ô gấp chống tia UV sẽ che chắn cho bạn khỏi cái nắng trưa gay gắt lẫn những cơn mưa rào chiều bất chợt.",
                   "expansion_2_en": "Its compact lightweight design slips neatly into any side pocket of your backpack.",
                   "expansion_2_vi": "Thiết kế nhỏ gọn, nhẹ tênh của ô dễ dàng trượt gọn vào bất kỳ ngăn bên nào của balo."
@@ -3915,12 +3915,12 @@ const LETTERS_DATA = [
               "id": 3,
               "part": "3. Thân bài B2 - Ý 2 (Credible research)",
               "vi": "Nhóm cậu có thể trích xuất các số liệu thống kê đáng tin cậy từ báo cáo của UNESCO hoặc các tạp chí khoa học uy tín.",
-              "en": "Your group can extract credible statistics from official UNESCO reports or reputable academic science journals.",
+              "en": "Your group can extract credible statistics from official UNESCO reports or reliable academic science journals.",
               "hints": [
                 "extract credible statistics from",
-                "reputable academic science journals"
+                "reliable academic science journals"
               ],
-              "explanation": "Dùng từ vựng học thuật 'extract credible statistics', 'reputable academic journals'."
+              "explanation": "Dùng từ vựng học thuật 'extract credible statistics', 'reliable academic journals'."
             },
             {
               "id": 4,
@@ -3943,7 +3943,7 @@ const LETTERS_DATA = [
                 "clear message like 'Save Our Oceans'",
                 "inspire viewers to encourage people to protect the environment"
               ],
-              "explanation": "Cấu trúc câu hoàn chỉnh và từ vựng nâng cao 'clear message like \"Save Our Oceans\"', 'sustainable habits'."
+              "explanation": "Cấu trúc câu hoàn chỉnh và từ vựng nâng cao 'clear message like \"Save Our Oceans\"', 'long-term habits'."
             }
           ],
           "sample_b1": {
@@ -3995,7 +3995,7 @@ const LETTERS_DATA = [
                 "desc": "Detailed rationale for choosing climate change solutions or renewable energy"
               },
               {
-                "label": "Data Integrity & Citations",
+                "label": "Data & References",
                 "desc": "Recommending academic repositories, government datasets, and peer-reviewed journals"
               },
               {
@@ -4100,7 +4100,7 @@ const LETTERS_DATA = [
                   "action_vi": "các cậu có thể thu thập các thông tin thú vị từ trang web National Geographic",
                   "reason_en": "because professional scientists write and verify all their research articles.",
                   "reason_vi": "bởi vì các nhà khoa học chuyên nghiệp trực tiếp viết và thẩm định các bài báo.",
-                  "expansion_1_en": "Their science editors rigorously verify facts and provide clear visual charts and facts you can cite.",
+                  "expansion_1_en": "Their science editors carefully check all information and provide clear visual charts and facts you can cite.",
                   "expansion_1_vi": "Các biên tập viên khoa học kiểm chứng dữ liệu nghiêm ngặt và cung cấp đồ họa thông tin sắc nét bạn có thể trích dẫn.",
                   "expansion_2_en": "Citing world-renowned publications instantly lends strong credibility to your team's presentation.",
                   "expansion_2_vi": "Trích dẫn các ấn phẩm nổi tiếng thế giới lập tức tạo dựng uy tín vững vàng cho bài thuyết trình nhóm."
@@ -4112,7 +4112,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì các cậu có thể tải về các báo cáo và số liệu thống kê giáo dục miễn phí.",
                   "expansion_1_en": "Academic journals offer reliable research articles and precise statistics about conservation.",
                   "expansion_1_vi": "Các tạp chí học thuật cung cấp báo cáo nghiên cứu có bình duyệt và số liệu đo lường chính xác về bảo tồn.",
-                  "expansion_2_en": "Using authentic academic sources will impress teachers during project grading.",
+                  "expansion_2_en": "Using traditional academic sources will impress teachers during project grading.",
                   "expansion_2_vi": "Sử dụng nguồn tài liệu học thuật chuẩn chỉnh sẽ gây ấn tượng mạnh với thầy cô khi chấm điểm dự án."
                 },
                 {
@@ -4132,7 +4132,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì thầy cô có thể gợi ý các tình huống thực tế và ví dụ địa phương quý giá.",
                   "expansion_1_en": "A science teacher can recommend age-appropriate case studies and verify that your scientific facts are accurate.",
                   "expansion_1_vi": "Thầy cô bộ môn có thể gợi ý các nghiên cứu điển hình phù hợp lứa tuổi và xác minh tính chính xác của dữ liệu.",
-                  "expansion_2_en": "Quoting a respected school educator shows your proactive initiative and serious research attitude.",
+                  "expansion_2_en": "Quoting a respected school educator shows your active and helpful initiative and serious research attitude.",
                   "expansion_2_vi": "Trích dẫn ý kiến của giáo viên trong trường thể hiện sự chủ động và thái độ nghiên cứu nghiêm túc của bạn."
                 },
                 {
@@ -4160,7 +4160,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì hình ảnh sắc nét trông chuyên nghiệp và thu hút sự chú ý rất nhanh.",
                   "expansion_1_en": "Sharply focused graphics maintain clarity even when printed out on giant A0-sized poster boards.",
                   "expansion_1_vi": "Hình ảnh sắc nét giữ nguyên độ rõ ràng ngay cả khi in ấn trên khổ giấy lớn A0 phục vụ triển lãm.",
-                  "expansion_2_en": "Compelling visuals draw people across the hallway to step closer and read your key message.",
+                  "expansion_2_en": "interesting visuals draw people across the hallway to step closer and read your key message.",
                   "expansion_2_vi": "Hình ảnh thu hút sẽ thôi thúc người đi ngang qua dừng chân bước lại gần để đọc thông điệp chính của bạn."
                 },
                 {
@@ -4168,7 +4168,7 @@ const LETTERS_DATA = [
                   "action_vi": "các cậu có thể dùng màu xanh lá tươi và trắng sạch làm màu sắc chủ đạo",
                   "reason_en": "because this fresh color combination represents nature and environmental purity.",
                   "reason_vi": "bởi vì sự kết hợp màu sắc tươi mới này tượng trưng cho thiên nhiên và sự thuần khiết.",
-                  "expansion_1_en": "Green conveys vitality and sustainable growth, while clean white provides refreshing visual contrast.",
+                  "expansion_1_en": "Green conveys vitality and long-term growth, while clean white provides refreshing visual contrast.",
                   "expansion_1_vi": "Màu xanh lá biểu thị sức sống và sự phát triển bền vững, trong khi màu trắng sạch sẽ tạo độ tương phản dịu mắt.",
                   "expansion_2_en": "Sticking strictly to a two- or three-color palette avoids a chaotic, amateurish visual impression.",
                   "expansion_2_vi": "Kiên định giữ bảng màu từ 2 đến 3 màu chủ đạo sẽ tránh được cảm giác rối mắt, nghiệp dư."
@@ -4446,7 +4446,7 @@ const LETTERS_DATA = [
             },
             {
               "id": 3,
-              "part": "3. Thân bài B2 - Ý 2 (Aesthetic ambiance)",
+              "part": "3. Thân bài B2 - Ý 2 (nice ambiance)",
               "vi": "Tạo lập một không gian đọc thanh lịch kết hợp với hương thơm cà phê thoang thoảng sẽ biến hiệu sách thành một điểm hẹn văn hóa lý tưởng.",
               "en": "Creating a warm and cozy atmosphere with soft background music and coffee aromas will make your bookstore a favorite spot for readers.",
               "hints": [
@@ -4470,12 +4470,12 @@ const LETTERS_DATA = [
               "id": 5,
               "part": "5. Thân bài B2 - Ý 4 (Warmth & Customer rapport)",
               "vi": "Xây dựng sự gắn kết tự nhiên bằng lòng hiếu khách chân thành là chiếc chìa khóa vàng đưa khách hàng quay trở lại nhiều năm sau đó.",
-              "en": "Establishing authentic rapport through gracious hospitality is the golden key to ensuring enduring customer loyalty.",
+              "en": "Establishing traditional rapport through gracious hospitality is the golden key to ensuring enduring customer loyalty.",
               "hints": [
-                "Establishing authentic rapport",
+                "Establishing traditional rapport",
                 "ensuring enduring customer loyalty"
               ],
-              "explanation": "Cấu trúc danh động từ làm chủ ngữ 'Establishing authentic rapport'."
+              "explanation": "Cấu trúc danh động từ làm chủ ngữ 'Establishing traditional rapport'."
             }
           ],
           "sample_b1": {
@@ -4513,9 +4513,9 @@ const LETTERS_DATA = [
           },
           "sample_b2": {
             "word_count": 173,
-            "letter_en": "Dear Moonie,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to curating customer book selections, you could consider ***stocking bestselling contemporary fiction alongside popular personal development and self-help titles*** because these genres consistently attract young urban readers and students.\n\nAs for bookstore atmosphere and decoration, it would be a good idea to ***arrange cozy wooden reading nooks with warm lighting and comfortable armchairs*** because a welcoming and peaceful environment encourages visitors to stay longer and enjoy reading.\n\nRegarding promotional campaigns, if I were you, I would ***launch weekend loyalty stamp cards and host monthly book discussion clubs*** because engaging community events foster customer retention and word-of-mouth recommendations.\n\nLast but not least, remember to ***maintain an active social media presence featuring weekly staff reading recommendations*** because visually appealing book reviews can draw a steady stream of passionate booklovers to your store.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "letter_en": "Dear Moonie,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to curating customer book selections, you could consider ***stocking bestselling contemporary fiction alongside popular personal development and self-help titles*** because these genres consistently attract young urban readers and students.\n\nAs for bookstore atmosphere and decoration, it would be a good idea to ***arrange cozy wooden reading nooks with warm lighting and comfortable armchairs*** because a welcoming and peaceful environment encourages visitors to stay longer and enjoy reading.\n\nRegarding promotional campaigns, if I were you, I would ***launch weekend loyalty stamp cards and host monthly book discussion clubs*** because engaging community events keep regular customers coming back and word-of-mouth recommendations.\n\nLast but not least, remember to ***maintain a active social media presence featuring weekly staff reading recommendations*** because visually appealing book reviews can draw a steady stream of passionate booklovers to your store.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "letter_vi": "Chào Moonie,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về việc lựa chọn đầu sách cho khách hàng, cậu có thể cân nhắc việc nhập các tiểu thuyết đương đại bán chạy nhất cùng với các tựa sách phát triển bản thân nổi tiếng vì những thể loại này luôn thu hút độc giả trẻ và sinh viên.\n\nVề không gian và trang trí hiệu sách, sẽ là một ý tưởng hay nếu cậu bố trí những góc đọc sách bằng gỗ ấm cúng với ánh đèn vàng và ghế bành thoải mái vì một môi trường hấp dẫn, yên bình sẽ khuyến khích khách nán lại và đọc sách.\n\nLiên quan đến các chiến dịch khuyến mãi, nếu tớ là cậu, tớ sẽ phát hành thẻ tích điểm vào cuối tuần và tổ chức các câu lạc bộ thảo luận sách hàng tháng vì các sự kiện cộng đồng hấp dẫn sẽ giúp giữ chân khách hàng và lan tỏa sự ủng hộ.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ duy trì sự hiện diện tích cực trên mạng xã hội với các bài giới thiệu sách hàng tuần của nhân viên vì các bài đánh giá sách trực quan hấp dẫn có thể thu hút lượng lớn những người yêu sách đến cửa hàng của cậu.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
-            "text": "Dear Moonie,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to curating customer book selections, you could consider ***stocking bestselling contemporary fiction alongside popular personal development and self-help titles*** because these genres consistently attract young urban readers and students.\n\nAs for bookstore atmosphere and decoration, it would be a good idea to ***arrange cozy wooden reading nooks with warm lighting and comfortable armchairs*** because a welcoming and peaceful environment encourages visitors to stay longer and enjoy reading.\n\nRegarding promotional campaigns, if I were you, I would ***launch weekend loyalty stamp cards and host monthly book discussion clubs*** because engaging community events foster customer retention and word-of-mouth recommendations.\n\nLast but not least, remember to ***maintain an active social media presence featuring weekly staff reading recommendations*** because visually appealing book reviews can draw a steady stream of passionate booklovers to your store.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
+            "text": "Dear Moonie,\n\nThanks for your letter. How have you been lately? After thinking about your situation, I have a few suggestions that might help.\n\nFirst of all, when it comes to curating customer book selections, you could consider ***stocking bestselling contemporary fiction alongside popular personal development and self-help titles*** because these genres consistently attract young urban readers and students.\n\nAs for bookstore atmosphere and decoration, it would be a good idea to ***arrange cozy wooden reading nooks with warm lighting and comfortable armchairs*** because a welcoming and peaceful environment encourages visitors to stay longer and enjoy reading.\n\nRegarding promotional campaigns, if I were you, I would ***launch weekend loyalty stamp cards and host monthly book discussion clubs*** because engaging community events keep regular customers coming back and word-of-mouth recommendations.\n\nLast but not least, remember to ***maintain a active social media presence featuring weekly staff reading recommendations*** because visually appealing book reviews can draw a steady stream of passionate booklovers to your store.\n\nI hope you find my suggestions helpful. Let me know how things go.\n\nBest wishes,",
             "translation": "Chào Moonie,\n\nCảm ơn vì bức thư của cậu. Dạo này cậu thế nào? Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được.\n\nTrước hết, khi nói về việc lựa chọn đầu sách cho khách hàng, cậu có thể cân nhắc việc nhập các tiểu thuyết đương đại bán chạy nhất cùng với các tựa sách phát triển bản thân nổi tiếng vì những thể loại này luôn thu hút độc giả trẻ và sinh viên.\n\nVề không gian và trang trí hiệu sách, sẽ là một ý tưởng hay nếu cậu bố trí những góc đọc sách bằng gỗ ấm cúng với ánh đèn vàng và ghế bành thoải mái vì một môi trường hấp dẫn, yên bình sẽ khuyến khích khách nán lại và đọc sách.\n\nLiên quan đến các chiến dịch khuyến mãi, nếu tớ là cậu, tớ sẽ phát hành thẻ tích điểm vào cuối tuần và tổ chức các câu lạc bộ thảo luận sách hàng tháng vì các sự kiện cộng đồng hấp dẫn sẽ giúp giữ chân khách hàng và lan tỏa sự ủng hộ.\n\nCuối cùng nhưng không kém phần quan trọng, hãy nhớ duy trì sự hiện diện tích cực trên mạng xã hội với các bài giới thiệu sách hàng tuần của nhân viên vì các bài đánh giá sách trực quan hấp dẫn có thể thu hút lượng lớn những người yêu sách đến cửa hàng của cậu.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra như thế nào nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
             "structure_analysis": [
               {
@@ -4584,9 +4584,9 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể đọc đoạn tóm tắt của các cuốn sách bán chạy vào mỗi sáng",
                   "reason_en": "because you can describe the plot quickly to busy shoppers.",
                   "reason_vi": "bởi vì cậu có thể tóm tắt nhanh cốt truyện cho những người mua bận rộn.",
-                  "expansion_1_en": "Skimming book jackets gives you three compelling plot highlights to share when customers ask for advice.",
+                  "expansion_1_en": "Skimming book jackets gives you three interesting plot highlights to share when customers ask for advice.",
                   "expansion_1_vi": "Đọc lướt bìa sách cho bạn 3 điểm nhấn cốt truyện hấp dẫn để chia sẻ ngay khi khách hỏi xin lời khuyên.",
-                  "expansion_2_en": "Offering authentic enthusiasm about a story builds immediate trust and sparks book sales.",
+                  "expansion_2_en": "Offering traditional enthusiasm about a story builds immediate trust and sparks book sales.",
                   "expansion_2_vi": "Sự nhiệt tình chân thành khi kể về câu chuyện sẽ gây dựng niềm tin tức thì và thôi thúc khách mua sách."
                 },
                 {
@@ -4596,7 +4596,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì những lời nhận xét chân thực tạo dựng niềm tin và sự tò mò cho khách.",
                   "expansion_1_en": "Write concise handwritten notes on pastel cards explaining why you personally loved reading each chosen title.",
                   "expansion_1_vi": "Hãy viết những mẩu giấy tay ngắn gọn trên bìa màu giải thích vì sao bạn lại yêu thích cuốn sách đó.",
-                  "expansion_2_en": "Shoppers love following authentic recommendations from passionate staff rather than plain sales ads.",
+                  "expansion_2_en": "Shoppers love following traditional recommendations from passionate staff rather than plain sales ads.",
                   "expansion_2_vi": "Khách hàng rất thích mua theo gợi ý chân thực từ nhân viên tâm huyết hơn là những quảng cáo bán hàng khô khan."
                 },
                 {
@@ -4632,9 +4632,9 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể kê một chiếc ghế dài đọc sách bằng gỗ ấm cúng ở góc phòng",
                   "reason_en": "because tired customers can sit down and sample book chapters comfortably.",
                   "reason_vi": "bởi vì những khách hàng mệt mỏi có thể ngồi xuống đọc thử vài chương sách một cách thoải mái.",
-                  "expansion_1_en": "Add soft fabric cushions and a low wooden coffee table where guests can inspect preview copies unhurriedly.",
+                  "expansion_1_en": "Add soft fabric cushions and a low wooden coffee table where guests can read sample books comfortably.",
                   "expansion_1_vi": "Thêm những chiếc đệm êm ái và bàn trà gỗ thấp nơi khách có thể thong thả xem trước các cuốn sách mẫu.",
-                  "expansion_2_en": "A hospitable reading nook encourages prolonged visits, and this naturally increases book purchasing.",
+                  "expansion_2_en": "A friendly and welcoming reading nook encourages prolonged visits, and this naturally increases book purchasing.",
                   "expansion_2_vi": "Góc đọc sách hiếu khách thôi thúc khách ở lại lâu hơn, và điều này làm tăng khả năng mua sách một cách tự nhiên."
                 },
                 {
@@ -4664,7 +4664,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì giai điệu thanh bình giúp độc giả thư giãn và dạo xem sách lâu hơn.",
                   "expansion_1_en": "Instrumental jazz or solo classical piano played at low volume masks distracting noise from the street outside.",
                   "expansion_1_vi": "Nhạc jazz không lời hoặc độc tấu piano mở âm lượng nhỏ sẽ át đi tiếng ồn ào từ đường phố bên ngoài.",
-                  "expansion_2_en": "Peaceful background tunes set a contemplative mood that invites readers to slow down and unwind.",
+                  "expansion_2_en": "Peaceful background tunes set a contemplative mood that invites readers to slow down and relax.",
                   "expansion_2_vi": "Giai điệu thanh bình tạo nên không gian suy tư, mời gọi người đọc sống chậm lại và thư giãn tâm hồn."
                 },
                 {
@@ -4674,7 +4674,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì các bạn trẻ rất thích chụp ảnh kỷ niệm trước những bức tường danh ngôn nghệ thuật.",
                   "expansion_1_en": "Hand-letter famous author quotes about the magic of reading above doorways and cashier counters.",
                   "expansion_1_vi": "Viết nắn nót những câu nói nổi tiếng của các đại văn hào về sự kỳ diệu của việc đọc lên lối đi và quầy thu ngân.",
-                  "expansion_2_en": "Delighted book lovers will photograph these aesthetic walls and share them on Instagram, boosting free publicity.",
+                  "expansion_2_en": "Delighted book lovers will photograph these nice walls and share them on Instagram, boosting free publicity.",
                   "expansion_2_vi": "Những người yêu sách sẽ chụp ảnh các bức tường nghệ thuật này chia sẻ lên mạng, giúp quảng bá miễn phí cho quán."
                 }
               ]
@@ -4700,9 +4700,9 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể tặng một chiếc kẹp sách nghệ thuật miễn phí cho mỗi hóa đơn mua hàng",
                   "reason_en": "because thoughtful small gifts leave a lovely impression on readers.",
                   "reason_vi": "bởi vì những món quà nhỏ chu đáo để lại ấn tượng rất đẹp trong lòng người đọc.",
-                  "expansion_1_en": "Design collectible bookmarks featuring seasonal literary artwork and motivational quotes on textured cardstock.",
+                  "expansion_1_en": "Design collectible bookmarks featuring seasonal literary artwork and motivational quotes on thick paper.",
                   "expansion_1_vi": "Thiết kế những chiếc kẹp sách sưu tầm in tranh văn học theo mùa và câu nói truyền cảm hứng trên giấy mỹ thuật.",
-                  "expansion_2_en": "Customers will use these stylish keepsakes daily, keeping your bookstore fondly in their thoughts.",
+                  "expansion_2_en": "Customers will use these nice souvenirs daily, keeping your bookstore fondly in their thoughts.",
                   "expansion_2_vi": "Khách hàng sẽ sử dụng món quà xinh xắn này mỗi ngày, giúp hình ảnh hiệu sách luôn ở trong tâm trí họ."
                 },
                 {
@@ -4730,7 +4730,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể tổ chức ngày hội đổi sách cũ hàng tháng",
                   "reason_en": "because community gatherings bring hundreds of new readers to your shop.",
                   "reason_vi": "bởi vì các sự kiện cộng đồng sẽ mang hàng trăm độc giả mới đến với cửa hàng.",
-                  "expansion_1_en": "Invite neighbors to bring pre-loved books to trade with others over complimentary cups of herbal tea.",
+                  "expansion_1_en": "Invite neighbors to bring pre-loved books to trade with others over free cups of herbal tea.",
                   "expansion_1_vi": "Mời bạn bè và hàng xóm mang sách cũ đến giao lưu, đổi sách cùng nhau bên những tách trà thảo mộc thơm lừng.",
                   "expansion_2_en": "Positioning your bookstore as a cultural neighborhood gathering place builds great long-term community goodwill.",
                   "expansion_2_vi": "Định vị tiệm sách như một điểm hẹn văn hóa cộng đồng sẽ tạo dựng tình cảm gắn bó vô cùng bền chặt."
@@ -4768,7 +4768,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu có thể gói sách đã mua vào những chiếc túi giấy thân thiện với môi trường",
                   "reason_en": "because green packaging protects the environment and looks charming.",
                   "reason_vi": "bởi vì bao bì xanh vừa bảo vệ môi trường vừa trông rất trang nhã.",
-                  "expansion_1_en": "Tying paper bags with rustic jute twine and sealing them with a vintage wax stamp adds an artisanal touch.",
+                  "expansion_1_en": "Tying paper bags with rustic jute twine and sealing them with a vintage wax stamp adds a special handmade touch.",
                   "expansion_1_vi": "Buộc túi giấy bằng dây đay mộc mạc và dán niêm phong bằng con dấu sáp cổ điển mang lại nét thủ công tinh tế.",
                   "expansion_2_en": "Thoughtful packaging makes every book purchase feel like a special gift to oneself.",
                   "expansion_2_vi": "Cách đóng gói chu đáo khiến mỗi cuốn sách mua về đều mang lại cảm giác như một món quà tuyệt vời cho chính mình."
@@ -4922,7 +4922,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "practice jogging and swimming for thirty minutes every day starting from now",
                   "action_vi": "tập chạy bộ và bơi lội khoảng ba mươi phút mỗi ngày ngay từ bây giờ",
-                  "reason_en": "because this will build your stamina and help you keep up with all the camp activities.",
+                  "reason_en": "because this will build your energy and help you keep up with all the camp activities.",
                   "reason_vi": "vì điều này sẽ giúp cậu tăng cường sức bền và theo kịp mọi hoạt động của trại hè.",
                   "expansion_1_en": "You should also prepare a checklist of essential items like hiking shoes, a sleeping bag, and a first-aid kit.",
                   "expansion_1_vi": "Cậu cũng nên lập danh sách các vật dụng thiết yếu như giày leo núi, túi ngủ và bộ sơ cứu cá nhân."
@@ -4936,7 +4936,7 @@ const LETTERS_DATA = [
                   "expansion_1_vi": "Ngoài ra, việc mua quần áo dã ngoại bền chắc và một chiếc ba lô chống nước sẽ giúp chuyến đi của cậu thoải mái hơn nhiều."
                 },
                 {
-                  "action_en": "train your endurance with daily cardio workouts and learn basic camping skills beforehand",
+                  "action_en": "train your fitness with daily cardio workouts and learn basic camping skills beforehand",
                   "action_vi": "rèn luyện sức bền bằng các bài tập vận động hàng ngày và học trước một số kỹ năng cắm trại cơ bản",
                   "reason_en": "because being physically and mentally prepared will allow you to enjoy the camp to the fullest.",
                   "reason_vi": "vì việc chuẩn bị tốt cả về thể chất lẫn tinh thần sẽ giúp cậu tận hưởng trại hè một cách trọn vẹn nhất.",
@@ -4988,7 +4988,7 @@ const LETTERS_DATA = [
               "category": "2. Yêu cầu cần kiểm tra (Special requirements)"
             },
             {
-              "en": "build your stamina and endurance",
+              "en": "build your health and energy",
               "vi": "tăng cường thể lực và sức bền",
               "category": "3. Cách chuẩn bị (How to prepare)"
             },
@@ -5015,9 +5015,9 @@ const LETTERS_DATA = [
             "sign_off": "Best wishes,"
           },
           "sample_b1": {
-            "letter_en": "Dear John,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider before joining the summer camp.\n\nTo begin with, you could consider joining the camp without hesitation because my summer camp experience last year was truly unforgettable because I made many new friends and learned valuable outdoor survival skills. Taking part in team-building games also helped me become much more confident and independent.\n\nSecond, it would be a good idea to check the physical fitness requirements and medical certificate rules carefully before registering because many camps include long hiking trips and intense outdoor sports. You should also check whether the camp requires basic swimming skills or special camping gear.\n\nFinally, remember to practice jogging and swimming for thirty minutes every day starting from now because this will build your stamina and help you keep up with all the camp activities. You should also prepare a checklist of essential items like hiking shoes, a sleeping bag, and a first-aid kit.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear John,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider before joining the summer camp.\n\nTo begin with, you could consider joining the camp without hesitation because my summer camp experience last year was truly unforgettable because I made many new friends and learned valuable outdoor survival skills. Taking part in team-building games also helped me become much more confident and independent.\n\nSecond, it would be a good idea to check the physical fitness requirements and medical certificate rules carefully before registering because many camps include long hiking trips and intense outdoor sports. You should also check whether the camp requires basic swimming skills or special camping gear.\n\nFinally, remember to practice jogging and swimming for thirty minutes every day starting from now because this will build your energy and help you keep up with all the camp activities. You should also prepare a checklist of essential items like hiking shoes, a sleeping bag, and a first-aid kit.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
             "letter_vi": "John thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc trước khi tham gia trại hè.\n\nĐầu tiên, cậu có thể cân nhắc việc tham gia trại hè ngay đừng ngần ngại vì trải nghiệm trại hè năm ngoái của tớ thực sự rất đáng nhớ vì tớ đã kết thêm nhiều bạn mới và học được các kỹ năng sinh tồn ngoài trời quý giá. Việc tham gia các trò chơi đồng đội cũng giúp tớ trở nên tự tin và tự lập hơn rất nhiều.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu kiểm tra kỹ các yêu cầu về thể lực và quy định giấy khám sức khỏe trước khi đăng ký vì nhiều trại hè bao gồm các chuyến đi bộ đường dài và các môn thể thao ngoài trời cường độ cao. Cậu cũng nên kiểm tra xem trại hè có yêu cầu kỹ năng bơi cơ bản hoặc dụng cụ cắm trại chuyên dụng hay không.\n\nCuối cùng, hãy nhớ tập chạy bộ và bơi lội khoảng ba mươi phút mỗi ngày ngay từ bây giờ vì điều này sẽ giúp cậu tăng cường sức bền và theo kịp mọi hoạt động của trại hè. Cậu cũng nên lập danh sách các vật dụng thiết yếu như giày leo núi, túi ngủ và bộ sơ cứu cá nhân.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear John,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider before joining the summer camp.\n\nTo begin with, you could consider joining the camp without hesitation because my summer camp experience last year was truly unforgettable because I made many new friends and learned valuable outdoor survival skills. Taking part in team-building games also helped me become much more confident and independent.\n\nSecond, it would be a good idea to check the physical fitness requirements and medical certificate rules carefully before registering because many camps include long hiking trips and intense outdoor sports. You should also check whether the camp requires basic swimming skills or special camping gear.\n\nFinally, remember to practice jogging and swimming for thirty minutes every day starting from now because this will build your stamina and help you keep up with all the camp activities. You should also prepare a checklist of essential items like hiking shoes, a sleeping bag, and a first-aid kit.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
+            "text": "Dear John,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider before joining the summer camp.\n\nTo begin with, you could consider joining the camp without hesitation because my summer camp experience last year was truly unforgettable because I made many new friends and learned valuable outdoor survival skills. Taking part in team-building games also helped me become much more confident and independent.\n\nSecond, it would be a good idea to check the physical fitness requirements and medical certificate rules carefully before registering because many camps include long hiking trips and intense outdoor sports. You should also check whether the camp requires basic swimming skills or special camping gear.\n\nFinally, remember to practice jogging and swimming for thirty minutes every day starting from now because this will build your energy and help you keep up with all the camp activities. You should also prepare a checklist of essential items like hiking shoes, a sleeping bag, and a first-aid kit.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
             "translation": "John thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc trước khi tham gia trại hè.\n\nĐầu tiên, cậu có thể cân nhắc việc tham gia trại hè ngay đừng ngần ngại vì trải nghiệm trại hè năm ngoái của tớ thực sự rất đáng nhớ vì tớ đã kết thêm nhiều bạn mới và học được các kỹ năng sinh tồn ngoài trời quý giá. Việc tham gia các trò chơi đồng đội cũng giúp tớ trở nên tự tin và tự lập hơn rất nhiều.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu kiểm tra kỹ các yêu cầu về thể lực và quy định giấy khám sức khỏe trước khi đăng ký vì nhiều trại hè bao gồm các chuyến đi bộ đường dài và các môn thể thao ngoài trời cường độ cao. Cậu cũng nên kiểm tra xem trại hè có yêu cầu kỹ năng bơi cơ bản hoặc dụng cụ cắm trại chuyên dụng hay không.\n\nCuối cùng, hãy nhớ tập chạy bộ và bơi lội khoảng ba mươi phút mỗi ngày ngay từ bây giờ vì điều này sẽ giúp cậu tăng cường sức bền và theo kịp mọi hoạt động của trại hè. Cậu cũng nên lập danh sách các vật dụng thiết yếu như giày leo núi, túi ngủ và bộ sơ cứu cá nhân.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 193,
             "key_structures": [
@@ -5040,9 +5040,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear John,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider before joining the summer camp.\n\nTo begin with, you could consider ***joining the camp without hesitation because my summer camp experience last year was truly unforgettable*** because I made many new friends and learned valuable outdoor survival skills. Taking part in team-building games also helped me become much more confident and independent.\n\nSecond, it would be a good idea to ***check the physical fitness requirements and medical certificate rules carefully before registering*** because many camps include long hiking trips and intense outdoor sports. You should also check whether the camp requires basic swimming skills or special camping gear.\n\nFinally, remember to ***practice jogging and swimming for thirty minutes every day starting from now*** because this will build your stamina and help you keep up with all the camp activities. You should also prepare a checklist of essential items like hiking shoes, a sleeping bag, and a first-aid kit.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear John,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider before joining the summer camp.\n\nTo begin with, you could consider ***joining the camp without hesitation because my summer camp experience last year was truly unforgettable*** because I made many new friends and learned valuable outdoor survival skills. Taking part in team-building games also helped me become much more confident and independent.\n\nSecond, it would be a good idea to ***check the physical fitness requirements and medical certificate rules carefully before registering*** because many camps include long hiking trips and intense outdoor sports. You should also check whether the camp requires basic swimming skills or special camping gear.\n\nFinally, remember to ***practice jogging and swimming for thirty minutes every day starting from now*** because this will build your energy and help you keep up with all the camp activities. You should also prepare a checklist of essential items like hiking shoes, a sleeping bag, and a first-aid kit.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
             "letter_vi": "John thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc trước khi tham gia trại hè.\n\nĐầu tiên, cậu có thể cân nhắc việc ***tham gia trại hè ngay đừng ngần ngại vì trải nghiệm trại hè năm ngoái của tớ thực sự rất đáng nhớ*** vì tớ đã kết thêm nhiều bạn mới và học được các kỹ năng sinh tồn ngoài trời quý giá. Việc tham gia các trò chơi đồng đội cũng giúp tớ trở nên tự tin và tự lập hơn rất nhiều.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***kiểm tra kỹ các yêu cầu về thể lực và quy định giấy khám sức khỏe trước khi đăng ký*** vì nhiều trại hè bao gồm các chuyến đi bộ đường dài và các môn thể thao ngoài trời cường độ cao. Cậu cũng nên kiểm tra xem trại hè có yêu cầu kỹ năng bơi cơ bản hoặc dụng cụ cắm trại chuyên dụng hay không.\n\nCuối cùng, hãy nhớ ***tập chạy bộ và bơi lội khoảng ba mươi phút mỗi ngày ngay từ bây giờ*** vì điều này sẽ giúp cậu tăng cường sức bền và theo kịp mọi hoạt động của trại hè. Cậu cũng nên lập danh sách các vật dụng thiết yếu như giày leo núi, túi ngủ và bộ sơ cứu cá nhân.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear John,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider before joining the summer camp.\n\nTo begin with, you could consider ***joining the camp without hesitation because my summer camp experience last year was truly unforgettable*** because I made many new friends and learned valuable outdoor survival skills. Taking part in team-building games also helped me become much more confident and independent.\n\nSecond, it would be a good idea to ***check the physical fitness requirements and medical certificate rules carefully before registering*** because many camps include long hiking trips and intense outdoor sports. You should also check whether the camp requires basic swimming skills or special camping gear.\n\nFinally, remember to ***practice jogging and swimming for thirty minutes every day starting from now*** because this will build your stamina and help you keep up with all the camp activities. You should also prepare a checklist of essential items like hiking shoes, a sleeping bag, and a first-aid kit.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
+            "text": "Dear John,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider before joining the summer camp.\n\nTo begin with, you could consider ***joining the camp without hesitation because my summer camp experience last year was truly unforgettable*** because I made many new friends and learned valuable outdoor survival skills. Taking part in team-building games also helped me become much more confident and independent.\n\nSecond, it would be a good idea to ***check the physical fitness requirements and medical certificate rules carefully before registering*** because many camps include long hiking trips and intense outdoor sports. You should also check whether the camp requires basic swimming skills or special camping gear.\n\nFinally, remember to ***practice jogging and swimming for thirty minutes every day starting from now*** because this will build your energy and help you keep up with all the camp activities. You should also prepare a checklist of essential items like hiking shoes, a sleeping bag, and a first-aid kit.\n\nI hope you find my suggestions helpful. Let me know how things go. Write back soon.\n\nBest wishes,",
             "translation": "John thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc trước khi tham gia trại hè.\n\nĐầu tiên, cậu có thể cân nhắc việc ***tham gia trại hè ngay đừng ngần ngại vì trải nghiệm trại hè năm ngoái của tớ thực sự rất đáng nhớ*** vì tớ đã kết thêm nhiều bạn mới và học được các kỹ năng sinh tồn ngoài trời quý giá. Việc tham gia các trò chơi đồng đội cũng giúp tớ trở nên tự tin và tự lập hơn rất nhiều.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***kiểm tra kỹ các yêu cầu về thể lực và quy định giấy khám sức khỏe trước khi đăng ký*** vì nhiều trại hè bao gồm các chuyến đi bộ đường dài và các môn thể thao ngoài trời cường độ cao. Cậu cũng nên kiểm tra xem trại hè có yêu cầu kỹ năng bơi cơ bản hoặc dụng cụ cắm trại chuyên dụng hay không.\n\nCuối cùng, hãy nhớ ***tập chạy bộ và bơi lội khoảng ba mươi phút mỗi ngày ngay từ bây giờ*** vì điều này sẽ giúp cậu tăng cường sức bền và theo kịp mọi hoạt động của trại hè. Cậu cũng nên lập danh sách các vật dụng thiết yếu như giày leo núi, túi ngủ và bộ sơ cứu cá nhân.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 193,
             "key_structures": [
@@ -5126,7 +5126,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I would recommend visiting Central Mall and the Riverside Night Market for shopping",
                   "action_vi": "tôi khuyên đoàn nên ghé thăm Trung tâm thương mại Central Mall và Chợ đêm Riverside để mua sắm",
-                  "reason_en": "because Central Mall offers a wide range offashion brands while the night market sells unique local handicrafts at reasonable prices.",
+                  "reason_en": "because Central Mall offers a wide range offashion brands while the night market sells unique local handmade items at reasonable prices.",
                   "reason_vi": "vì Central Mall cung cấp nhiều thương hiệu thời trang đa dạng trong khi chợ đêm bán các mặt hàng thủ công địa phương độc đáo với giá cả hợp lý.",
                   "expansion_1_en": "Both places are located within walking distance of the town center and are very convenient for large groups.",
                   "expansion_1_vi": "Cả hai địa điểm này đều nằm trong bán kính đi bộ từ trung tâm thị trấn và rất thuận tiện cho các đoàn khách đông người."
@@ -5142,7 +5142,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "for shopping, I suggest exploring Vincom Mega Mall and the Local Craft Street",
                   "action_vi": "về việc mua sắm, tôi đề xuất đoàn khám phá Vincom Mega Mall và Phố Thủ công Địa phương",
-                  "reason_en": "because they provide both modern shopping facilities and authentic cultural gifts.",
+                  "reason_en": "because they provide both modern shopping facilities and traditional cultural gifts.",
                   "reason_vi": "vì hai nơi này mang đến cả tiện ích mua sắm hiện đại lẫn những món quà văn hóa đặc trưng.",
                   "expansion_1_en": "Many shops there also offer special discounts for visiting tour groups.",
                   "expansion_1_vi": "Nhiều cửa hàng ở đó cũng có chương trình giảm giá đặc biệt dành cho các đoàn khách tham quan."
@@ -5158,7 +5158,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "the City Sports Centre nearby can offer your group an indoor heated swimming pool, badminton courts, and a modern gym",
                   "action_vi": "Trung tâm Thể thao Thành phố ở gần đó có thể cung cấp cho đoàn hồ bơi nước ấm trong nhà, sân cầu lông và phòng tập gym hiện đại",
-                  "reason_en": "because it is newly renovated and specifically designed to accommodate group activities.",
+                  "reason_en": "because it is newly renovated and specifically designed to have enough space for group activities.",
                   "reason_vi": "vì trung tâm vừa mới được nâng cấp và được thiết kế riêng để phục vụ các hoạt động tập thể theo đoàn.",
                   "expansion_1_en": "They also provide discounted group day passes and equipment rental for visitors.",
                   "expansion_1_vi": "Họ cũng cung cấp vé ngày ưu đãi cho khách đoàn và dịch vụ cho thuê dụng cụ thể thao cho du khách."
@@ -5216,7 +5216,7 @@ const LETTERS_DATA = [
           ],
           "vocab": [
             {
-              "en": "local handicrafts and souvenirs",
+              "en": "local handmade items and souvenirs",
               "vi": "đồ thủ công địa phương và quà lưu niệm",
               "category": "1. Địa điểm mua sắm (Shopping places)"
             },
@@ -5241,7 +5241,7 @@ const LETTERS_DATA = [
               "category": "2. Trung tâm thể thao (Sports centre)"
             },
             {
-              "en": "accommodate group activities",
+              "en": "have enough space for group activities",
               "vi": "đáp ứng các hoạt động tập thể theo đoàn",
               "category": "2. Trung tâm thể thao (Sports centre)"
             },
@@ -5283,14 +5283,14 @@ const LETTERS_DATA = [
             "sign_off": "Yours faithfully,"
           },
           "sample_b1": {
-            "letter_en": "Dear Sir/Madam,\n\nThank you for your email regarding your group’s upcoming visit to our area. I am writing to share some local recommendations about shopping places, sports facilities, and your hotel booking.\n\nTo begin with, I would recommend visiting Central Mall and the Riverside Night Market for shopping because Central Mall offers a wide range of fashion brands while the night market sells unique local handicrafts at reasonable prices. Both places are located within walking distance of the town center and are very convenient for large groups.\n\nSecond, the City Sports Centre nearby can offer your group an indoor heated swimming pool, badminton courts, and a modern gym because it is newly renovated and specifically designed to accommodate group activities. They also provide discounted group day passes and equipment rental for visitors.\n\nFinally, the hotel your group has booked is an excellent choice with clean rooms and friendly staff, but you should confirm whether breakfast and airport shuttle buses are included because some group bookings require advance reservation for shuttle services and dining arrangements. You should also double-check the check-in time and whether the rooms are on the same floor.\n\nI hope these recommendations help your group have a pleasant stay. Please feel free to contact me if you need any further local information.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nThank you for your email regarding your group’s upcoming visit to our area. I am writing to share some local recommendations about shopping places, sports facilities, and your hotel booking.\n\nTo begin with, I would recommend visiting Central Mall and the Riverside Night Market for shopping because Central Mall offers a wide range of fashion brands while the night market sells unique local handmade items at reasonable prices. Both places are located within walking distance of the town center and are very convenient for large groups.\n\nSecond, the City Sports Centre nearby can offer your group an indoor heated swimming pool, badminton courts, and a modern gym because it is newly renovated and specifically designed to have enough space for group activities. They also provide discounted group day passes and equipment rental for visitors.\n\nFinally, the hotel your group has booked is an excellent choice with clean rooms and friendly staff, but you should confirm whether breakfast and airport shuttle buses are included because some group bookings require advance reservation for shuttle services and dining arrangements. You should also double-check the check-in time and whether the rooms are on the same floor.\n\nI hope these recommendations help your group have a pleasant stay. Please feel free to contact me if you need any further local information.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Quý Ông/Bà,\n\nCảm ơn email của Ông/Bà về chuyến tham quan sắp tới của đoàn đến khu vực của chúng tôi. Tôi viết thư này để chia sẻ một số gợi ý địa phương về địa điểm mua sắm, cơ sở thể thao và việc đặt phòng khách sạn của đoàn.\n\nĐầu tiên, tôi khuyên đoàn nên ghé thăm Trung tâm thương mại Central Mall và Chợ đêm Riverside để mua sắm vì Central Mall cung cấp nhiều thương hiệu thời trang đa dạng trong khi chợ đêm bán các mặt hàng thủ công địa phương độc đáo với giá cả hợp lý. Cả hai địa điểm này đều nằm trong bán kính đi bộ từ trung tâm thị trấn và rất thuận tiện cho các đoàn khách đông người.\n\nThứ hai, Trung tâm Thể thao Thành phố ở gần đó có thể cung cấp cho đoàn hồ bơi nước ấm trong nhà, sân cầu lông và phòng tập gym hiện đại vì trung tâm vừa mới được nâng cấp và được thiết kế riêng để phục vụ các hoạt động tập thể theo đoàn. Họ cũng cung cấp vé ngày ưu đãi cho khách đoàn và dịch vụ cho thuê dụng cụ thể thao cho du khách.\n\nCuối cùng, khách sạn mà đoàn đã đặt là một lựa chọn tuyệt vời với phòng ốc sạch sẽ và nhân viên thân thiện, nhưng Ông/Bà nên xác nhận lại xem bữa sáng và xe đưa đón sân bay đã bao gồm trong giá phòng chưa vì một số đơn đặt phòng theo đoàn yêu cầu phải đăng ký trước dịch vụ xe đưa đón và sắp xếp khu vực ăn uống. Ông/Bà cũng nên kiểm tra kỹ giờ nhận phòng và xem các phòng của đoàn có được xếp cùng một tầng hay không.\n\nTôi hy vọng những gợi ý này sẽ giúp đoàn của Ông/Bà có một kỳ lưu trú tốt đẹp. Xin vui lòng liên hệ với tôi nếu Ông/Bà cần thêm bất kỳ thông tin địa phương nào.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nThank you for your email regarding your group’s upcoming visit to our area. I am writing to share some local recommendations about shopping places, sports facilities, and your hotel booking.\n\nTo begin with, I would recommend visiting Central Mall and the Riverside Night Market for shopping because Central Mall offers a wide range of fashion brands while the night market sells unique local handicrafts at reasonable prices. Both places are located within walking distance of the town center and are very convenient for large groups.\n\nSecond, the City Sports Centre nearby can offer your group an indoor heated swimming pool, badminton courts, and a modern gym because it is newly renovated and specifically designed to accommodate group activities. They also provide discounted group day passes and equipment rental for visitors.\n\nFinally, the hotel your group has booked is an excellent choice with clean rooms and friendly staff, but you should confirm whether breakfast and airport shuttle buses are included because some group bookings require advance reservation for shuttle services and dining arrangements. You should also double-check the check-in time and whether the rooms are on the same floor.\n\nI hope these recommendations help your group have a pleasant stay. Please feel free to contact me if you need any further local information.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nThank you for your email regarding your group’s upcoming visit to our area. I am writing to share some local recommendations about shopping places, sports facilities, and your hotel booking.\n\nTo begin with, I would recommend visiting Central Mall and the Riverside Night Market for shopping because Central Mall offers a wide range of fashion brands while the night market sells unique local handmade items at reasonable prices. Both places are located within walking distance of the town center and are very convenient for large groups.\n\nSecond, the City Sports Centre nearby can offer your group an indoor heated swimming pool, badminton courts, and a modern gym because it is newly renovated and specifically designed to have enough space for group activities. They also provide discounted group day passes and equipment rental for visitors.\n\nFinally, the hotel your group has booked is an excellent choice with clean rooms and friendly staff, but you should confirm whether breakfast and airport shuttle buses are included because some group bookings require advance reservation for shuttle services and dining arrangements. You should also double-check the check-in time and whether the rooms are on the same floor.\n\nI hope these recommendations help your group have a pleasant stay. Please feel free to contact me if you need any further local information.\n\nYours faithfully,",
             "translation": "Kính gửi Quý Ông/Bà,\n\nCảm ơn email của Ông/Bà về chuyến tham quan sắp tới của đoàn đến khu vực của chúng tôi. Tôi viết thư này để chia sẻ một số gợi ý địa phương về địa điểm mua sắm, cơ sở thể thao và việc đặt phòng khách sạn của đoàn.\n\nĐầu tiên, tôi khuyên đoàn nên ghé thăm Trung tâm thương mại Central Mall và Chợ đêm Riverside để mua sắm vì Central Mall cung cấp nhiều thương hiệu thời trang đa dạng trong khi chợ đêm bán các mặt hàng thủ công địa phương độc đáo với giá cả hợp lý. Cả hai địa điểm này đều nằm trong bán kính đi bộ từ trung tâm thị trấn và rất thuận tiện cho các đoàn khách đông người.\n\nThứ hai, Trung tâm Thể thao Thành phố ở gần đó có thể cung cấp cho đoàn hồ bơi nước ấm trong nhà, sân cầu lông và phòng tập gym hiện đại vì trung tâm vừa mới được nâng cấp và được thiết kế riêng để phục vụ các hoạt động tập thể theo đoàn. Họ cũng cung cấp vé ngày ưu đãi cho khách đoàn và dịch vụ cho thuê dụng cụ thể thao cho du khách.\n\nCuối cùng, khách sạn mà đoàn đã đặt là một lựa chọn tuyệt vời với phòng ốc sạch sẽ và nhân viên thân thiện, nhưng Ông/Bà nên xác nhận lại xem bữa sáng và xe đưa đón sân bay đã bao gồm trong giá phòng chưa vì một số đơn đặt phòng theo đoàn yêu cầu phải đăng ký trước dịch vụ xe đưa đón và sắp xếp khu vực ăn uống. Ông/Bà cũng nên kiểm tra kỹ giờ nhận phòng và xem các phòng của đoàn có được xếp cùng một tầng hay không.\n\nTôi hy vọng những gợi ý này sẽ giúp đoàn của Ông/Bà có một kỳ lưu trú tốt đẹp. Xin vui lòng liên hệ với tôi nếu Ông/Bà cần thêm bất kỳ thông tin địa phương nào.\n\nTrân trọng,",
             "word_count": 216,
             "key_structures": [
               {
-                "en": "local handicrafts and souvenirs",
+                "en": "local handmade items and souvenirs",
                 "vi": "đồ thủ công địa phương và quà lưu niệm"
               },
               {
@@ -5308,14 +5308,14 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Sir/Madam,\n\nThank you for your email regarding your group’s upcoming visit to our area. I am writing to share some local recommendations about shopping places, sports facilities, and your hotel booking.\n\nTo begin with, ***I would recommend visiting Central Mall and the Riverside Night Market for shopping*** because Central Mall offers a wide range of fashion brands while the night market sells unique local handicrafts at reasonable prices. Both places are located within walking distance of the town center and are very convenient for large groups.\n\nSecond, ***the City Sports Centre nearby can offer your group an indoor heated swimming pool, badminton courts, and a modern gym*** because it is newly renovated and specifically designed to accommodate group activities. They also provide discounted group day passes and equipment rental for visitors.\n\nFinally, ***the hotel your group has booked is an excellent choice with clean rooms and friendly staff, but you should confirm whether breakfast and airport shuttle buses are included*** because some group bookings require advance reservation for shuttle services and dining arrangements. You should also double-check the check-in time and whether the rooms are on the same floor.\n\nI hope these recommendations help your group have a pleasant stay. Please feel free to contact me if you need any further local information.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nThank you for your email regarding your group’s upcoming visit to our area. I am writing to share some local recommendations about shopping places, sports facilities, and your hotel booking.\n\nTo begin with, ***I would recommend visiting Central Mall and the Riverside Night Market for shopping*** because Central Mall offers a wide range of fashion brands while the night market sells unique local handmade items at reasonable prices. Both places are located within walking distance of the town center and are very convenient for large groups.\n\nSecond, ***the City Sports Centre nearby can offer your group an indoor heated swimming pool, badminton courts, and a modern gym*** because it is newly renovated and specifically designed to have enough space for group activities. They also provide discounted group day passes and equipment rental for visitors.\n\nFinally, ***the hotel your group has booked is an excellent choice with clean rooms and friendly staff, but you should confirm whether breakfast and airport shuttle buses are included*** because some group bookings require advance reservation for shuttle services and dining arrangements. You should also double-check the check-in time and whether the rooms are on the same floor.\n\nI hope these recommendations help your group have a pleasant stay. Please feel free to contact me if you need any further local information.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Quý Ông/Bà,\n\nCảm ơn email của Ông/Bà về chuyến tham quan sắp tới của đoàn đến khu vực của chúng tôi. Tôi viết thư này để chia sẻ một số gợi ý địa phương về địa điểm mua sắm, cơ sở thể thao và việc đặt phòng khách sạn của đoàn.\n\nĐầu tiên, ***tôi khuyên đoàn nên ghé thăm Trung tâm thương mại Central Mall và Chợ đêm Riverside để mua sắm*** vì Central Mall cung cấp nhiều thương hiệu thời trang đa dạng trong khi chợ đêm bán các mặt hàng thủ công địa phương độc đáo với giá cả hợp lý. Cả hai địa điểm này đều nằm trong bán kính đi bộ từ trung tâm thị trấn và rất thuận tiện cho các đoàn khách đông người.\n\nThứ hai, ***Trung tâm Thể thao Thành phố ở gần đó có thể cung cấp cho đoàn hồ bơi nước ấm trong nhà, sân cầu lông và phòng tập gym hiện đại*** vì trung tâm vừa mới được nâng cấp và được thiết kế riêng để phục vụ các hoạt động tập thể theo đoàn. Họ cũng cung cấp vé ngày ưu đãi cho khách đoàn và dịch vụ cho thuê dụng cụ thể thao cho du khách.\n\nCuối cùng, ***khách sạn mà đoàn đã đặt là một lựa chọn tuyệt vời với phòng ốc sạch sẽ và nhân viên thân thiện, nhưng Ông/Bà nên xác nhận lại xem bữa sáng và xe đưa đón sân bay đã bao gồm trong giá phòng chưa*** vì một số đơn đặt phòng theo đoàn yêu cầu phải đăng ký trước dịch vụ xe đưa đón và sắp xếp khu vực ăn uống. Ông/Bà cũng nên kiểm tra kỹ giờ nhận phòng và xem các phòng của đoàn có được xếp cùng một tầng hay không.\n\nTôi hy vọng những gợi ý này sẽ giúp đoàn của Ông/Bà có một kỳ lưu trú tốt đẹp. Xin vui lòng liên hệ với tôi nếu Ông/Bà cần thêm bất kỳ thông tin địa phương nào.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nThank you for your email regarding your group’s upcoming visit to our area. I am writing to share some local recommendations about shopping places, sports facilities, and your hotel booking.\n\nTo begin with, ***I would recommend visiting Central Mall and the Riverside Night Market for shopping*** because Central Mall offers a wide range of fashion brands while the night market sells unique local handicrafts at reasonable prices. Both places are located within walking distance of the town center and are very convenient for large groups.\n\nSecond, ***the City Sports Centre nearby can offer your group an indoor heated swimming pool, badminton courts, and a modern gym*** because it is newly renovated and specifically designed to accommodate group activities. They also provide discounted group day passes and equipment rental for visitors.\n\nFinally, ***the hotel your group has booked is an excellent choice with clean rooms and friendly staff, but you should confirm whether breakfast and airport shuttle buses are included*** because some group bookings require advance reservation for shuttle services and dining arrangements. You should also double-check the check-in time and whether the rooms are on the same floor.\n\nI hope these recommendations help your group have a pleasant stay. Please feel free to contact me if you need any further local information.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nThank you for your email regarding your group’s upcoming visit to our area. I am writing to share some local recommendations about shopping places, sports facilities, and your hotel booking.\n\nTo begin with, ***I would recommend visiting Central Mall and the Riverside Night Market for shopping*** because Central Mall offers a wide range of fashion brands while the night market sells unique local handmade items at reasonable prices. Both places are located within walking distance of the town center and are very convenient for large groups.\n\nSecond, ***the City Sports Centre nearby can offer your group an indoor heated swimming pool, badminton courts, and a modern gym*** because it is newly renovated and specifically designed to have enough space for group activities. They also provide discounted group day passes and equipment rental for visitors.\n\nFinally, ***the hotel your group has booked is an excellent choice with clean rooms and friendly staff, but you should confirm whether breakfast and airport shuttle buses are included*** because some group bookings require advance reservation for shuttle services and dining arrangements. You should also double-check the check-in time and whether the rooms are on the same floor.\n\nI hope these recommendations help your group have a pleasant stay. Please feel free to contact me if you need any further local information.\n\nYours faithfully,",
             "translation": "Kính gửi Quý Ông/Bà,\n\nCảm ơn email của Ông/Bà về chuyến tham quan sắp tới của đoàn đến khu vực của chúng tôi. Tôi viết thư này để chia sẻ một số gợi ý địa phương về địa điểm mua sắm, cơ sở thể thao và việc đặt phòng khách sạn của đoàn.\n\nĐầu tiên, ***tôi khuyên đoàn nên ghé thăm Trung tâm thương mại Central Mall và Chợ đêm Riverside để mua sắm*** vì Central Mall cung cấp nhiều thương hiệu thời trang đa dạng trong khi chợ đêm bán các mặt hàng thủ công địa phương độc đáo với giá cả hợp lý. Cả hai địa điểm này đều nằm trong bán kính đi bộ từ trung tâm thị trấn và rất thuận tiện cho các đoàn khách đông người.\n\nThứ hai, ***Trung tâm Thể thao Thành phố ở gần đó có thể cung cấp cho đoàn hồ bơi nước ấm trong nhà, sân cầu lông và phòng tập gym hiện đại*** vì trung tâm vừa mới được nâng cấp và được thiết kế riêng để phục vụ các hoạt động tập thể theo đoàn. Họ cũng cung cấp vé ngày ưu đãi cho khách đoàn và dịch vụ cho thuê dụng cụ thể thao cho du khách.\n\nCuối cùng, ***khách sạn mà đoàn đã đặt là một lựa chọn tuyệt vời với phòng ốc sạch sẽ và nhân viên thân thiện, nhưng Ông/Bà nên xác nhận lại xem bữa sáng và xe đưa đón sân bay đã bao gồm trong giá phòng chưa*** vì một số đơn đặt phòng theo đoàn yêu cầu phải đăng ký trước dịch vụ xe đưa đón và sắp xếp khu vực ăn uống. Ông/Bà cũng nên kiểm tra kỹ giờ nhận phòng và xem các phòng của đoàn có được xếp cùng một tầng hay không.\n\nTôi hy vọng những gợi ý này sẽ giúp đoàn của Ông/Bà có một kỳ lưu trú tốt đẹp. Xin vui lòng liên hệ với tôi nếu Ông/Bà cần thêm bất kỳ thông tin địa phương nào.\n\nTrân trọng,",
             "word_count": 216,
             "key_structures": [
               {
-                "en": "local handicrafts and souvenirs",
+                "en": "local handmade items and souvenirs",
                 "vi": "đồ thủ công địa phương và quà lưu niệm"
               },
               {
@@ -5426,7 +5426,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "practice cardio exercises like cycling, jogging, and squats three times a week",
                   "action_vi": "tập các bài rèn tim mạch như đạp xe, chạy bộ và squat ba lần mỗi tuần",
-                  "reason_en": "because ice hockey requires strong leg muscles and high cardiovascular endurance.",
+                  "reason_en": "because ice hockey requires strong leg muscles and high daily fitness.",
                   "reason_vi": "vì môn khúc côn cầu trên băng đòi hỏi cơ chân khỏe và sức bền tim mạch cao.",
                   "expansion_1_en": "Doing stretching exercises before and after workouts will also improve your flexibility and prevent muscle cramps.",
                   "expansion_1_vi": "Thực hiện các bài tập giãn cơ trước và sau khi tập cũng sẽ giúp cải thiện độ dẻo dai và ngăn ngừa chuột rút."
@@ -5442,7 +5442,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "spend thirty minutes a day doing brisk walking, jumping rope, and leg-strengthening exercises",
                   "action_vi": "dành ba mươi phút mỗi ngày để đi bộ nhanh, nhảy dây và tập các bài tăng cường sức mạnh đôi chân",
-                  "reason_en": "because these workouts will boost your stamina without putting too much pressure on your body.",
+                  "reason_en": "because these workouts will boost your energy without putting too much pressure on your body.",
                   "reason_vi": "vì những bài tập này sẽ giúp tăng sức bền mà không gây quá nhiều áp lực lên cơ thể của cậu.",
                   "expansion_1_en": "You can also train with a friend so that you stay motivated every week.",
                   "expansion_1_vi": "Cậu cũng có thể tập cùng một người bạn để luôn giữ được động lực mỗi tuần."
@@ -5456,9 +5456,9 @@ const LETTERS_DATA = [
               "icon": "fa-apple-whole",
               "options": [
                 {
-                  "action_en": "eat a balanced diet rich in lean protein, whole grains, and fresh vegetables while drinking plenty of water",
+                  "action_en": "eat a balanced diet rich in meat, fish, and eggs, brown rice and bread, and fresh vegetables while drinking plenty of water",
                   "action_vi": "ăn chế độ dinh dưỡng cân bằng giàu đạm nạc, ngũ cốc nguyên hạt và rau xanh đồng thời uống thật nhiều nước",
-                  "reason_en": "because nutritious food provides steady energy for your workouts and helps your muscles recover faster.",
+                  "reason_en": "because healthy food provides steady energy for your workouts and helps your muscles recover faster.",
                   "reason_vi": "vì thực phẩm giàu dinh dưỡng cung cấp nguồn năng lượng ổn định cho các buổi tập và giúp cơ bắp phục hồi nhanh hơn.",
                   "expansion_1_en": "You should also cut down on sugary drinks and fast food so that you can stay in top shape.",
                   "expansion_1_vi": "Cậu cũng nên cắt giảm đồ uống có đường và thức ăn nhanh để có thể duy trì thể trạng tốt nhất."
@@ -5476,7 +5476,7 @@ const LETTERS_DATA = [
                   "action_vi": "tránh bỏ bữa sáng và chọn các món ăn nhẹ lành mạnh như các loại hạt, sữa chua và trái cây tươi",
                   "reason_en": "because your body needs proper fuel to handle the physical demands of a fast-paced sport.",
                   "reason_vi": "vì cơ thể cậu cần nguồn năng lượng hợp lý để đáp ứng cường độ vận động của một môn thể thao tốc độ cao.",
-                  "expansion_1_en": "Combining sensible eating habits with enough sleep will help you progress remarkably fast.",
+                  "expansion_1_en": "Combining sensible eating habits with enough sleep will help you progress very fast.",
                   "expansion_1_vi": "Việc kết hợp thói quen ăn uống khoa học với ngủ đủ giấc sẽ giúp cậu tiến bộ nhanh chóng."
                 }
               ]
@@ -5504,7 +5504,7 @@ const LETTERS_DATA = [
               "category": "1. Bắt đầu tập luyện (Getting started)"
             },
             {
-              "en": "cardiovascular endurance",
+              "en": "daily fitness",
               "vi": "sức bền hệ tim mạch",
               "category": "2. Rèn luyện thể lực (Physical preparation)"
             },
@@ -5524,12 +5524,12 @@ const LETTERS_DATA = [
               "category": "2. Rèn luyện thể lực (Physical preparation)"
             },
             {
-              "en": "balanced diet rich in lean protein",
+              "en": "balanced diet rich in meat, fish, and eggs",
               "vi": "chế độ ăn cân bằng giàu đạm nạc",
               "category": "3. Chế độ ăn uống (Sensible eating habits)"
             },
             {
-              "en": "whole grains and fresh vegetables",
+              "en": "brown rice and bread and fresh vegetables",
               "vi": "ngũ cốc nguyên hạt và rau tươi",
               "category": "3. Chế độ ăn uống (Sensible eating habits)"
             },
@@ -5551,9 +5551,9 @@ const LETTERS_DATA = [
             "sign_off": "Best wishes,"
           },
           "sample_b1": {
-            "letter_en": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider as you start playing ice hockey.\n\nTo begin with, you could consider joining a beginner ice hockey class and focusing on basic skating skills first because learning how to balance and stop safely on the ice will build your confidence quickly. You can also rent protective gear such as a helmet and knee pads at the rink before buying your own equipment.\n\nSecond, it would be a good idea to practice cardio exercises like cycling, jogging, and squats three times a week because ice hockey requires strong leg muscles and high cardiovascular endurance. Doing stretching exercises before and after workouts will also improve your flexibility and prevent muscle cramps.\n\nFinally, remember to eat a balanced diet rich in lean protein, whole grains, and fresh vegetables while drinking plenty of water because nutritious food provides steady energy for your workouts and helps your muscles recover faster. You should also cut down on sugary drinks and fast food so that you can stay in top shape.\n\nI hope you find my suggestions helpful. Let me know how your first training session goes. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider as you start playing ice hockey.\n\nTo begin with, you could consider joining a beginner ice hockey class and focusing on basic skating skills first because learning how to balance and stop safely on the ice will build your confidence quickly. You can also rent protective gear such as a helmet and knee pads at the rink before buying your own equipment.\n\nSecond, it would be a good idea to practice cardio exercises like cycling, jogging, and squats three times a week because ice hockey requires strong leg muscles and high daily fitness. Doing stretching exercises before and after workouts will also improve your flexibility and prevent muscle cramps.\n\nFinally, remember to eat a balanced diet rich in meat, fish, and eggs, brown rice and bread, and fresh vegetables while drinking plenty of water because healthy food provides steady energy for your workouts and helps your muscles recover faster. You should also cut down on sugary drinks and fast food so that you can stay in top shape.\n\nI hope you find my suggestions helpful. Let me know how your first training session goes. Write back soon.\n\nBest wishes,",
             "letter_vi": "Alex thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc khi bắt đầu tập chơi môn khúc côn cầu trên băng.\n\nĐầu tiên, cậu có thể cân nhắc việc tham gia một lớp khúc côn cầu dành cho người mới bắt đầu và tập trung vào kỹ năng trượt băng cơ bản trước vì việc học cách giữ thăng bằng và dừng lại an toàn trên mặt băng sẽ giúp cậu nhanh chóng tự tin hơn. Cậu cũng có thể thuê đồ bảo hộ như mũ bảo hiểm và đệm đầu gối tại sân băng trước khi tự mua trang bị riêng.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu tập các bài rèn tim mạch như đạp xe, chạy bộ và squat ba lần mỗi tuần vì môn khúc côn cầu trên băng đòi hỏi cơ chân khỏe và sức bền tim mạch cao. Thực hiện các bài tập giãn cơ trước và sau khi tập cũng sẽ giúp cải thiện độ dẻo dai và ngăn ngừa chuột rút.\n\nCuối cùng, hãy nhớ ăn chế độ dinh dưỡng cân bằng giàu đạm nạc, ngũ cốc nguyên hạt và rau xanh đồng thời uống thật nhiều nước vì thực phẩm giàu dinh dưỡng cung cấp nguồn năng lượng ổn định cho các buổi tập và giúp cơ bắp phục hồi nhanh hơn. Cậu cũng nên cắt giảm đồ uống có đường và thức ăn nhanh để có thể duy trì thể trạng tốt nhất.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết buổi tập đầu tiên của cậu diễn ra thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider as you start playing ice hockey.\n\nTo begin with, you could consider joining a beginner ice hockey class and focusing on basic skating skills first because learning how to balance and stop safely on the ice will build your confidence quickly. You can also rent protective gear such as a helmet and knee pads at the rink before buying your own equipment.\n\nSecond, it would be a good idea to practice cardio exercises like cycling, jogging, and squats three times a week because ice hockey requires strong leg muscles and high cardiovascular endurance. Doing stretching exercises before and after workouts will also improve your flexibility and prevent muscle cramps.\n\nFinally, remember to eat a balanced diet rich in lean protein, whole grains, and fresh vegetables while drinking plenty of water because nutritious food provides steady energy for your workouts and helps your muscles recover faster. You should also cut down on sugary drinks and fast food so that you can stay in top shape.\n\nI hope you find my suggestions helpful. Let me know how your first training session goes. Write back soon.\n\nBest wishes,",
+            "text": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider as you start playing ice hockey.\n\nTo begin with, you could consider joining a beginner ice hockey class and focusing on basic skating skills first because learning how to balance and stop safely on the ice will build your confidence quickly. You can also rent protective gear such as a helmet and knee pads at the rink before buying your own equipment.\n\nSecond, it would be a good idea to practice cardio exercises like cycling, jogging, and squats three times a week because ice hockey requires strong leg muscles and high daily fitness. Doing stretching exercises before and after workouts will also improve your flexibility and prevent muscle cramps.\n\nFinally, remember to eat a balanced diet rich in meat, fish, and eggs, brown rice and bread, and fresh vegetables while drinking plenty of water because healthy food provides steady energy for your workouts and helps your muscles recover faster. You should also cut down on sugary drinks and fast food so that you can stay in top shape.\n\nI hope you find my suggestions helpful. Let me know how your first training session goes. Write back soon.\n\nBest wishes,",
             "translation": "Alex thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc khi bắt đầu tập chơi môn khúc côn cầu trên băng.\n\nĐầu tiên, cậu có thể cân nhắc việc tham gia một lớp khúc côn cầu dành cho người mới bắt đầu và tập trung vào kỹ năng trượt băng cơ bản trước vì việc học cách giữ thăng bằng và dừng lại an toàn trên mặt băng sẽ giúp cậu nhanh chóng tự tin hơn. Cậu cũng có thể thuê đồ bảo hộ như mũ bảo hiểm và đệm đầu gối tại sân băng trước khi tự mua trang bị riêng.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu tập các bài rèn tim mạch như đạp xe, chạy bộ và squat ba lần mỗi tuần vì môn khúc côn cầu trên băng đòi hỏi cơ chân khỏe và sức bền tim mạch cao. Thực hiện các bài tập giãn cơ trước và sau khi tập cũng sẽ giúp cải thiện độ dẻo dai và ngăn ngừa chuột rút.\n\nCuối cùng, hãy nhớ ăn chế độ dinh dưỡng cân bằng giàu đạm nạc, ngũ cốc nguyên hạt và rau xanh đồng thời uống thật nhiều nước vì thực phẩm giàu dinh dưỡng cung cấp nguồn năng lượng ổn định cho các buổi tập và giúp cơ bắp phục hồi nhanh hơn. Cậu cũng nên cắt giảm đồ uống có đường và thức ăn nhanh để có thể duy trì thể trạng tốt nhất.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết buổi tập đầu tiên của cậu diễn ra thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 212,
             "key_structures": [
@@ -5576,9 +5576,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider as you start playing ice hockey.\n\nTo begin with, you could consider ***joining a beginner ice hockey class and focusing on basic skating skills first*** because learning how to balance and stop safely on the ice will build your confidence quickly. You can also rent protective gear such as a helmet and knee pads at the rink before buying your own equipment.\n\nSecond, it would be a good idea to ***practice cardio exercises like cycling, jogging, and squats three times a week*** because ice hockey requires strong leg muscles and high cardiovascular endurance. Doing stretching exercises before and after workouts will also improve your flexibility and prevent muscle cramps.\n\nFinally, remember to ***eat a balanced diet rich in lean protein, whole grains, and fresh vegetables while drinking plenty of water*** because nutritious food provides steady energy for your workouts and helps your muscles recover faster. You should also cut down on sugary drinks and fast food so that you can stay in top shape.\n\nI hope you find my suggestions helpful. Let me know how your first training session goes. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider as you start playing ice hockey.\n\nTo begin with, you could consider ***joining a beginner ice hockey class and focusing on basic skating skills first*** because learning how to balance and stop safely on the ice will build your confidence quickly. You can also rent protective gear such as a helmet and knee pads at the rink before buying your own equipment.\n\nSecond, it would be a good idea to ***practice cardio exercises like cycling, jogging, and squats three times a week*** because ice hockey requires strong leg muscles and high daily fitness. Doing stretching exercises before and after workouts will also improve your flexibility and prevent muscle cramps.\n\nFinally, remember to ***eat a balanced diet rich in meat, fish, and eggs, brown rice and bread, and fresh vegetables while drinking plenty of water*** because healthy food provides steady energy for your workouts and helps your muscles recover faster. You should also cut down on sugary drinks and fast food so that you can stay in top shape.\n\nI hope you find my suggestions helpful. Let me know how your first training session goes. Write back soon.\n\nBest wishes,",
             "letter_vi": "Alex thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc khi bắt đầu tập chơi môn khúc côn cầu trên băng.\n\nĐầu tiên, cậu có thể cân nhắc việc ***tham gia một lớp khúc côn cầu dành cho người mới bắt đầu và tập trung vào kỹ năng trượt băng cơ bản trước*** vì việc học cách giữ thăng bằng và dừng lại an toàn trên mặt băng sẽ giúp cậu nhanh chóng tự tin hơn. Cậu cũng có thể thuê đồ bảo hộ như mũ bảo hiểm và đệm đầu gối tại sân băng trước khi tự mua trang bị riêng.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***tập các bài rèn tim mạch như đạp xe, chạy bộ và squat ba lần mỗi tuần*** vì môn khúc côn cầu trên băng đòi hỏi cơ chân khỏe và sức bền tim mạch cao. Thực hiện các bài tập giãn cơ trước và sau khi tập cũng sẽ giúp cải thiện độ dẻo dai và ngăn ngừa chuột rút.\n\nCuối cùng, hãy nhớ ***ăn chế độ dinh dưỡng cân bằng giàu đạm nạc, ngũ cốc nguyên hạt và rau xanh đồng thời uống thật nhiều nước*** vì thực phẩm giàu dinh dưỡng cung cấp nguồn năng lượng ổn định cho các buổi tập và giúp cơ bắp phục hồi nhanh hơn. Cậu cũng nên cắt giảm đồ uống có đường và thức ăn nhanh để có thể duy trì thể trạng tốt nhất.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết buổi tập đầu tiên của cậu diễn ra thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider as you start playing ice hockey.\n\nTo begin with, you could consider ***joining a beginner ice hockey class and focusing on basic skating skills first*** because learning how to balance and stop safely on the ice will build your confidence quickly. You can also rent protective gear such as a helmet and knee pads at the rink before buying your own equipment.\n\nSecond, it would be a good idea to ***practice cardio exercises like cycling, jogging, and squats three times a week*** because ice hockey requires strong leg muscles and high cardiovascular endurance. Doing stretching exercises before and after workouts will also improve your flexibility and prevent muscle cramps.\n\nFinally, remember to ***eat a balanced diet rich in lean protein, whole grains, and fresh vegetables while drinking plenty of water*** because nutritious food provides steady energy for your workouts and helps your muscles recover faster. You should also cut down on sugary drinks and fast food so that you can stay in top shape.\n\nI hope you find my suggestions helpful. Let me know how your first training session goes. Write back soon.\n\nBest wishes,",
+            "text": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider as you start playing ice hockey.\n\nTo begin with, you could consider ***joining a beginner ice hockey class and focusing on basic skating skills first*** because learning how to balance and stop safely on the ice will build your confidence quickly. You can also rent protective gear such as a helmet and knee pads at the rink before buying your own equipment.\n\nSecond, it would be a good idea to ***practice cardio exercises like cycling, jogging, and squats three times a week*** because ice hockey requires strong leg muscles and high daily fitness. Doing stretching exercises before and after workouts will also improve your flexibility and prevent muscle cramps.\n\nFinally, remember to ***eat a balanced diet rich in meat, fish, and eggs, brown rice and bread, and fresh vegetables while drinking plenty of water*** because healthy food provides steady energy for your workouts and helps your muscles recover faster. You should also cut down on sugary drinks and fast food so that you can stay in top shape.\n\nI hope you find my suggestions helpful. Let me know how your first training session goes. Write back soon.\n\nBest wishes,",
             "translation": "Alex thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc khi bắt đầu tập chơi môn khúc côn cầu trên băng.\n\nĐầu tiên, cậu có thể cân nhắc việc ***tham gia một lớp khúc côn cầu dành cho người mới bắt đầu và tập trung vào kỹ năng trượt băng cơ bản trước*** vì việc học cách giữ thăng bằng và dừng lại an toàn trên mặt băng sẽ giúp cậu nhanh chóng tự tin hơn. Cậu cũng có thể thuê đồ bảo hộ như mũ bảo hiểm và đệm đầu gối tại sân băng trước khi tự mua trang bị riêng.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***tập các bài rèn tim mạch như đạp xe, chạy bộ và squat ba lần mỗi tuần*** vì môn khúc côn cầu trên băng đòi hỏi cơ chân khỏe và sức bền tim mạch cao. Thực hiện các bài tập giãn cơ trước và sau khi tập cũng sẽ giúp cải thiện độ dẻo dai và ngăn ngừa chuột rút.\n\nCuối cùng, hãy nhớ ***ăn chế độ dinh dưỡng cân bằng giàu đạm nạc, ngũ cốc nguyên hạt và rau xanh đồng thời uống thật nhiều nước*** vì thực phẩm giàu dinh dưỡng cung cấp nguồn năng lượng ổn định cho các buổi tập và giúp cơ bắp phục hồi nhanh hơn. Cậu cũng nên cắt giảm đồ uống có đường và thức ăn nhanh để có thể duy trì thể trạng tốt nhất.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết buổi tập đầu tiên của cậu diễn ra thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 212,
             "key_structures": [
@@ -5662,7 +5662,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "choose FastMove Express for your move because they are the most reliable moving company in our university area",
                   "action_vi": "chọn dịch vụ FastMove Express cho đợt chuyển nhà này vì họ là công ty chuyển nhà uy tín nhất ở khu vực trường đại học của chúng mình",
-                  "reason_en": "because their staff handle fragile items very carefully and offer a twenty percent discount for students.",
+                  "reason_en": "because their staff handle glass and breakable items very carefully and offer a twenty percent discount for students.",
                   "reason_vi": "vì nhân viên của họ vận chuyển đồ dễ vỡ rất cẩn thận và có chương trình giảm giá hai mươi phần trăm cho sinh viên.",
                   "expansion_1_en": "I used their full-package service last year, and everything was delivered on time without a single scratch.",
                   "expansion_1_vi": "Năm ngoái tớ đã sử dụng dịch vụ trọn gói của họ, và mọi đồ đạc đều được giao đúng giờ mà không hề bị trầy xước chút nào."
@@ -5676,7 +5676,7 @@ const LETTERS_DATA = [
                   "expansion_1_vi": "Cậu có thể dễ dàng đặt xe tải trên trang web của họ trước ngày chuyển ít nhất ba ngày."
                 },
                 {
-                  "action_en": "hire Green Truck Moving Service to transport your belongings",
+                  "action_en": "hire Green Truck Moving Service to transport your things",
                   "action_vi": "thuê Dịch vụ Chuyển nhà Green Truck để vận chuyển đồ đạc của cậu",
                   "reason_en": "because they have excellent customer reviews and transparent pricing with no hidden fees.",
                   "reason_vi": "vì họ có nhiều đánh giá rất tốt từ khách hàng và bảng giá minh bạch không phát sinh chi phí ẩn.",
@@ -5757,7 +5757,7 @@ const LETTERS_DATA = [
               "category": "1. Công ty chuyển nhà (Moving company)"
             },
             {
-              "en": "handle fragile items carefully",
+              "en": "handle glass and breakable items carefully",
               "vi": "vận chuyển đồ dễ vỡ một cách cẩn thận",
               "category": "1. Công ty chuyển nhà (Moving company)"
             },
@@ -5819,9 +5819,9 @@ const LETTERS_DATA = [
             "sign_off": "Best wishes,"
           },
           "sample_b1": {
-            "letter_en": "Dear Anna,\n\nThanks for writing to me. How have you been lately? I am so excited to hear that you are moving to a house near my university, and I have a few helpful suggestions and details for you.\n\nTo begin with, you could consider choosing FastMove Express for your move because they are the most reliable moving company in our university area because their staff handle fragile items very carefully and offer a twenty percent discount for students. I used their full-package service last year, and everything was delivered on time without a single scratch.\n\nSecond, I am completely free this weekend, so I would be more than happy to help you with the move because my house is just a five-minute walk from your new place. I can help you unpack your boxes, clean the rooms, and arrange your books and kitchenware.\n\nFinally, the neighbours in our area are mostly university lecturers, young families, and students who are extremely friendly and polite because everyone respects each other’s privacy and keeps the street quiet at night. They are always willing to help newcomers, so you will feel right at home very quickly.\n\nI hope you find this information helpful. Let me know the exact moving date so I can come over to help. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Anna,\n\nThanks for writing to me. How have you been lately? I am so excited to hear that you are moving to a house near my university, and I have a few helpful suggestions and details for you.\n\nTo begin with, you could consider choosing FastMove Express for your move because they are the most reliable moving company in our university area because their staff handle glass and breakable items very carefully and offer a twenty percent discount for students. I used their full-package service last year, and everything was delivered on time without a single scratch.\n\nSecond, I am completely free this weekend, so I would be more than happy to help you with the move because my house is just a five-minute walk from your new place. I can help you unpack your boxes, clean the rooms, and arrange your books and kitchenware.\n\nFinally, the neighbours in our area are mostly university lecturers, young families, and students who are extremely friendly and polite because everyone respects each other’s privacy and keeps the street quiet at night. They are always willing to help newcomers, so you will feel right at home very quickly.\n\nI hope you find this information helpful. Let me know the exact moving date so I can come over to help. Write back soon.\n\nBest wishes,",
             "letter_vi": "Anna thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Tớ vô cùng hào hứng khi nghe tin cậu sắp chuyển đến một ngôi nhà gần trường đại học của tớ, và tớ có một vài gợi ý cũng như thông tin hữu ích dành cho cậu.\n\nĐầu tiên, cậu có thể cân nhắc việc chọn dịch vụ FastMove Express cho đợt chuyển nhà này vì họ là công ty chuyển nhà uy tín nhất ở khu vực trường đại học của chúng mình vì nhân viên của họ vận chuyển đồ dễ vỡ rất cẩn thận và có chương trình giảm giá hai mươi phần trăm cho sinh viên. Năm ngoái tớ đã sử dụng dịch vụ trọn gói của họ, và mọi đồ đạc đều được giao đúng giờ mà không hề bị trầy xước chút nào.\n\nThứ hai, cuối tuần này tớ hoàn toàn rảnh, nên tớ rất sẵn lòng sang phụ giúp cậu chuyển nhà vì nhà của tớ chỉ cách chỗ ở mới của cậu khoảng năm phút đi bộ. Tớ có thể giúp cậu dỡ các thùng đồ, dọn dẹp phòng ốc và sắp xếp sách vở cũng như đồ dùng nhà bếp.\n\nCuối cùng, những người hàng xóm trong khu vực của chúng mình chủ yếu là giảng viên đại học, các gia đình trẻ và sinh viên vô cùng thân thiện, lịch sự vì mọi người đều tôn trọng không gian riêng tư của nhau và giữ gìn khu phố yên tĩnh vào ban đêm. Họ luôn sẵn lòng giúp đỡ những người mới chuyển đến, nên cậu sẽ nhanh chóng cảm thấy gần gũi như ở nhà.\n\nTớ hy vọng cậu thấy những thông tin này hữu ích. Hãy báo cho tớ biết ngày chuyển nhà chính xác để tớ sang phụ giúp nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Anna,\n\nThanks for writing to me. How have you been lately? I am so excited to hear that you are moving to a house near my university, and I have a few helpful suggestions and details for you.\n\nTo begin with, you could consider choosing FastMove Express for your move because they are the most reliable moving company in our university area because their staff handle fragile items very carefully and offer a twenty percent discount for students. I used their full-package service last year, and everything was delivered on time without a single scratch.\n\nSecond, I am completely free this weekend, so I would be more than happy to help you with the move because my house is just a five-minute walk from your new place. I can help you unpack your boxes, clean the rooms, and arrange your books and kitchenware.\n\nFinally, the neighbours in our area are mostly university lecturers, young families, and students who are extremely friendly and polite because everyone respects each other’s privacy and keeps the street quiet at night. They are always willing to help newcomers, so you will feel right at home very quickly.\n\nI hope you find this information helpful. Let me know the exact moving date so I can come over to help. Write back soon.\n\nBest wishes,",
+            "text": "Dear Anna,\n\nThanks for writing to me. How have you been lately? I am so excited to hear that you are moving to a house near my university, and I have a few helpful suggestions and details for you.\n\nTo begin with, you could consider choosing FastMove Express for your move because they are the most reliable moving company in our university area because their staff handle glass and breakable items very carefully and offer a twenty percent discount for students. I used their full-package service last year, and everything was delivered on time without a single scratch.\n\nSecond, I am completely free this weekend, so I would be more than happy to help you with the move because my house is just a five-minute walk from your new place. I can help you unpack your boxes, clean the rooms, and arrange your books and kitchenware.\n\nFinally, the neighbours in our area are mostly university lecturers, young families, and students who are extremely friendly and polite because everyone respects each other’s privacy and keeps the street quiet at night. They are always willing to help newcomers, so you will feel right at home very quickly.\n\nI hope you find this information helpful. Let me know the exact moving date so I can come over to help. Write back soon.\n\nBest wishes,",
             "translation": "Anna thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Tớ vô cùng hào hứng khi nghe tin cậu sắp chuyển đến một ngôi nhà gần trường đại học của tớ, và tớ có một vài gợi ý cũng như thông tin hữu ích dành cho cậu.\n\nĐầu tiên, cậu có thể cân nhắc việc chọn dịch vụ FastMove Express cho đợt chuyển nhà này vì họ là công ty chuyển nhà uy tín nhất ở khu vực trường đại học của chúng mình vì nhân viên của họ vận chuyển đồ dễ vỡ rất cẩn thận và có chương trình giảm giá hai mươi phần trăm cho sinh viên. Năm ngoái tớ đã sử dụng dịch vụ trọn gói của họ, và mọi đồ đạc đều được giao đúng giờ mà không hề bị trầy xước chút nào.\n\nThứ hai, cuối tuần này tớ hoàn toàn rảnh, nên tớ rất sẵn lòng sang phụ giúp cậu chuyển nhà vì nhà của tớ chỉ cách chỗ ở mới của cậu khoảng năm phút đi bộ. Tớ có thể giúp cậu dỡ các thùng đồ, dọn dẹp phòng ốc và sắp xếp sách vở cũng như đồ dùng nhà bếp.\n\nCuối cùng, những người hàng xóm trong khu vực của chúng mình chủ yếu là giảng viên đại học, các gia đình trẻ và sinh viên vô cùng thân thiện, lịch sự vì mọi người đều tôn trọng không gian riêng tư của nhau và giữ gìn khu phố yên tĩnh vào ban đêm. Họ luôn sẵn lòng giúp đỡ những người mới chuyển đến, nên cậu sẽ nhanh chóng cảm thấy gần gũi như ở nhà.\n\nTớ hy vọng cậu thấy những thông tin này hữu ích. Hãy báo cho tớ biết ngày chuyển nhà chính xác để tớ sang phụ giúp nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 219,
             "key_structures": [
@@ -5830,7 +5830,7 @@ const LETTERS_DATA = [
                 "vi": "công ty chuyển nhà uy tín"
               },
               {
-                "en": "handle fragile items carefully",
+                "en": "handle glass and breakable items carefully",
                 "vi": "vận chuyển đồ dễ vỡ một cách cẩn thận"
               },
               {
@@ -5844,9 +5844,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Anna,\n\nThanks for writing to me. How have you been lately? I am so excited to hear that you are moving to a house near my university, and I have a few helpful suggestions and details for you.\n\nTo begin with, you could consider ***choosing FastMove Express for your move because they are the most reliable moving company in our university area*** because their staff handle fragile items very carefully and offer a twenty percent discount for students. I used their full-package service last year, and everything was delivered on time without a single scratch.\n\nSecond, ***I am completely free this weekend, so I would be more than happy to help you with the move*** because my house is just a five-minute walk from your new place. I can help you unpack your boxes, clean the rooms, and arrange your books and kitchenware.\n\nFinally, ***the neighbours in our area are mostly university lecturers, young families, and students who are extremely friendly and polite*** because everyone respects each other’s privacy and keeps the street quiet at night. They are always willing to help newcomers, so you will feel right at home very quickly.\n\nI hope you find this information helpful. Let me know the exact moving date so I can come over to help. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Anna,\n\nThanks for writing to me. How have you been lately? I am so excited to hear that you are moving to a house near my university, and I have a few helpful suggestions and details for you.\n\nTo begin with, you could consider ***choosing FastMove Express for your move because they are the most reliable moving company in our university area*** because their staff handle glass and breakable items very carefully and offer a twenty percent discount for students. I used their full-package service last year, and everything was delivered on time without a single scratch.\n\nSecond, ***I am completely free this weekend, so I would be more than happy to help you with the move*** because my house is just a five-minute walk from your new place. I can help you unpack your boxes, clean the rooms, and arrange your books and kitchenware.\n\nFinally, ***the neighbours in our area are mostly university lecturers, young families, and students who are extremely friendly and polite*** because everyone respects each other’s privacy and keeps the street quiet at night. They are always willing to help newcomers, so you will feel right at home very quickly.\n\nI hope you find this information helpful. Let me know the exact moving date so I can come over to help. Write back soon.\n\nBest wishes,",
             "letter_vi": "Anna thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Tớ vô cùng hào hứng khi nghe tin cậu sắp chuyển đến một ngôi nhà gần trường đại học của tớ, và tớ có một vài gợi ý cũng như thông tin hữu ích dành cho cậu.\n\nĐầu tiên, cậu có thể cân nhắc việc ***chọn dịch vụ FastMove Express cho đợt chuyển nhà này vì họ là công ty chuyển nhà uy tín nhất ở khu vực trường đại học của chúng mình*** vì nhân viên của họ vận chuyển đồ dễ vỡ rất cẩn thận và có chương trình giảm giá hai mươi phần trăm cho sinh viên. Năm ngoái tớ đã sử dụng dịch vụ trọn gói của họ, và mọi đồ đạc đều được giao đúng giờ mà không hề bị trầy xước chút nào.\n\nThứ hai, ***cuối tuần này tớ hoàn toàn rảnh, nên tớ rất sẵn lòng sang phụ giúp cậu chuyển nhà*** vì nhà của tớ chỉ cách chỗ ở mới của cậu khoảng năm phút đi bộ. Tớ có thể giúp cậu dỡ các thùng đồ, dọn dẹp phòng ốc và sắp xếp sách vở cũng như đồ dùng nhà bếp.\n\nCuối cùng, ***những người hàng xóm trong khu vực của chúng mình chủ yếu là giảng viên đại học, các gia đình trẻ và sinh viên vô cùng thân thiện, lịch sự*** vì mọi người đều tôn trọng không gian riêng tư của nhau và giữ gìn khu phố yên tĩnh vào ban đêm. Họ luôn sẵn lòng giúp đỡ những người mới chuyển đến, nên cậu sẽ nhanh chóng cảm thấy gần gũi như ở nhà.\n\nTớ hy vọng cậu thấy những thông tin này hữu ích. Hãy báo cho tớ biết ngày chuyển nhà chính xác để tớ sang phụ giúp nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Anna,\n\nThanks for writing to me. How have you been lately? I am so excited to hear that you are moving to a house near my university, and I have a few helpful suggestions and details for you.\n\nTo begin with, you could consider ***choosing FastMove Express for your move because they are the most reliable moving company in our university area*** because their staff handle fragile items very carefully and offer a twenty percent discount for students. I used their full-package service last year, and everything was delivered on time without a single scratch.\n\nSecond, ***I am completely free this weekend, so I would be more than happy to help you with the move*** because my house is just a five-minute walk from your new place. I can help you unpack your boxes, clean the rooms, and arrange your books and kitchenware.\n\nFinally, ***the neighbours in our area are mostly university lecturers, young families, and students who are extremely friendly and polite*** because everyone respects each other’s privacy and keeps the street quiet at night. They are always willing to help newcomers, so you will feel right at home very quickly.\n\nI hope you find this information helpful. Let me know the exact moving date so I can come over to help. Write back soon.\n\nBest wishes,",
+            "text": "Dear Anna,\n\nThanks for writing to me. How have you been lately? I am so excited to hear that you are moving to a house near my university, and I have a few helpful suggestions and details for you.\n\nTo begin with, you could consider ***choosing FastMove Express for your move because they are the most reliable moving company in our university area*** because their staff handle glass and breakable items very carefully and offer a twenty percent discount for students. I used their full-package service last year, and everything was delivered on time without a single scratch.\n\nSecond, ***I am completely free this weekend, so I would be more than happy to help you with the move*** because my house is just a five-minute walk from your new place. I can help you unpack your boxes, clean the rooms, and arrange your books and kitchenware.\n\nFinally, ***the neighbours in our area are mostly university lecturers, young families, and students who are extremely friendly and polite*** because everyone respects each other’s privacy and keeps the street quiet at night. They are always willing to help newcomers, so you will feel right at home very quickly.\n\nI hope you find this information helpful. Let me know the exact moving date so I can come over to help. Write back soon.\n\nBest wishes,",
             "translation": "Anna thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Tớ vô cùng hào hứng khi nghe tin cậu sắp chuyển đến một ngôi nhà gần trường đại học của tớ, và tớ có một vài gợi ý cũng như thông tin hữu ích dành cho cậu.\n\nĐầu tiên, cậu có thể cân nhắc việc ***chọn dịch vụ FastMove Express cho đợt chuyển nhà này vì họ là công ty chuyển nhà uy tín nhất ở khu vực trường đại học của chúng mình*** vì nhân viên của họ vận chuyển đồ dễ vỡ rất cẩn thận và có chương trình giảm giá hai mươi phần trăm cho sinh viên. Năm ngoái tớ đã sử dụng dịch vụ trọn gói của họ, và mọi đồ đạc đều được giao đúng giờ mà không hề bị trầy xước chút nào.\n\nThứ hai, ***cuối tuần này tớ hoàn toàn rảnh, nên tớ rất sẵn lòng sang phụ giúp cậu chuyển nhà*** vì nhà của tớ chỉ cách chỗ ở mới của cậu khoảng năm phút đi bộ. Tớ có thể giúp cậu dỡ các thùng đồ, dọn dẹp phòng ốc và sắp xếp sách vở cũng như đồ dùng nhà bếp.\n\nCuối cùng, ***những người hàng xóm trong khu vực của chúng mình chủ yếu là giảng viên đại học, các gia đình trẻ và sinh viên vô cùng thân thiện, lịch sự*** vì mọi người đều tôn trọng không gian riêng tư của nhau và giữ gìn khu phố yên tĩnh vào ban đêm. Họ luôn sẵn lòng giúp đỡ những người mới chuyển đến, nên cậu sẽ nhanh chóng cảm thấy gần gũi như ở nhà.\n\nTớ hy vọng cậu thấy những thông tin này hữu ích. Hãy báo cho tớ biết ngày chuyển nhà chính xác để tớ sang phụ giúp nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 219,
             "key_structures": [
@@ -5855,7 +5855,7 @@ const LETTERS_DATA = [
                 "vi": "công ty chuyển nhà uy tín"
               },
               {
-                "en": "handle fragile items carefully",
+                "en": "handle glass and breakable items carefully",
                 "vi": "vận chuyển đồ dễ vỡ một cách cẩn thận"
               },
               {
@@ -5928,11 +5928,11 @@ const LETTERS_DATA = [
               "icon": "fa-salad",
               "options": [
                 {
-                  "action_en": "cut down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, lean protein, and whole grains",
+                  "action_en": "cut down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, meat, fish, and brown rice",
                   "action_vi": "cắt giảm đồ uống có đường, đồ ăn chiên rán và các bữa ăn khuya đồng thời ăn nhiều rau xanh, đạm nạc và ngũ cốc nguyên hạt hơn",
                   "reason_en": "because controlling daily calorie intake is the most important factor in healthy weight loss.",
                   "reason_vi": "vì việc kiểm soát lượng calo nạp vào hàng ngày là yếu tố quan trọng nhất để giảm cân lành mạnh.",
-                  "expansion_1_en": "Cooking your own meals at home instead of ordering fast food will also help you manage portion sizes easily.",
+                  "expansion_1_en": "Cooking your own meals at home instead of ordering fast food will also help you manage how much you eat easily.",
                   "expansion_1_vi": "Việc tự nấu ăn tại nhà thay vì đặt đồ ăn nhanh cũng sẽ giúp cậu dễ dàng kiểm soát khẩu phần ăn hơn."
                 },
                 {
@@ -5996,13 +5996,13 @@ const LETTERS_DATA = [
                   "action_vi": "đặt ra các mục tiêu thực tế theo từng tuần, ngủ đủ giấc vào ban đêm và tập luyện cùng một người bạn thân",
                   "reason_en": "because high stress and lack of sleep can actually cause weight gain and make you give up easily.",
                   "reason_vi": "vì căng thẳng kéo dài và thiếu ngủ thực chất có thể gây tăng cân và khiến cậu dễ bỏ cuộc.",
-                  "expansion_1_en": "Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small milestone will keep your motivation high.",
+                  "expansion_1_en": "Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small goal will keep your motivation high.",
                   "expansion_1_vi": "Việc tự thưởng cho bản thân một bộ trang phục mới hoặc một bộ phim thư giãn mỗi khi đạt được cột mốc nhỏ sẽ giúp cậu luôn giữ vững động lực."
                 },
                 {
                   "action_en": "stop checking the scale every day and focus on how energetic and healthy you feel instead",
                   "action_vi": "ngừng việc bước lên bàn cân mỗi ngày và thay vào đó hãy tập trung vào cảm giác khỏe khoắn, tràn đầy năng lượng của cơ thể",
-                  "reason_en": "because sustainable weight loss takes time and patience.",
+                  "reason_en": "because healthy weight loss takes time and patience.",
                   "reason_vi": "vì quá trình giảm cân bền vững luôn cần có thời gian và sự kiên nhẫn.",
                   "expansion_1_en": "Listening to upbeat music during workouts or practicing ten minutes of meditation before bed will also relieve your stress.",
                   "expansion_1_vi": "Nghe nhạc sôi động khi tập hoặc dành mười phút thiền nhẹ trước khi ngủ cũng sẽ giúp cậu giải tỏa căng thẳng."
@@ -6035,7 +6035,7 @@ const LETTERS_DATA = [
               "category": "1. Thói quen ăn uống (Eating habits)"
             },
             {
-              "en": "manage portion sizes",
+              "en": "manage how much you eat",
               "vi": "kiểm soát khẩu phần ăn",
               "category": "1. Thói quen ăn uống (Eating habits)"
             },
@@ -6065,12 +6065,12 @@ const LETTERS_DATA = [
               "category": "3. Giảm stress & Động lực (Stress & Motivation)"
             },
             {
-              "en": "sustainable weight loss",
+              "en": "healthy weight loss",
               "vi": "giảm cân lành mạnh, bền vững",
               "category": "3. Giảm stress & Động lực (Stress & Motivation)"
             },
             {
-              "en": "reach a small milestone",
+              "en": "reach a small goal",
               "vi": "đạt được một cột mốc nhỏ",
               "category": "3. Giảm stress & Động lực (Stress & Motivation)"
             },
@@ -6087,9 +6087,9 @@ const LETTERS_DATA = [
             "sign_off": "Best wishes,"
           },
           "sample_b1": {
-            "letter_en": "Dear Anna,\n\nThanks for writing to me. How have you been lately? Please don’t feel too stressed about your weight because I have a few practical suggestions that helped me lose weight successfully.\n\nTo begin with, you could consider cutting down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, lean protein, and whole grains because controlling daily calorie intake is the most important factor in healthy weight loss. Cooking your own meals at home instead of ordering fast food will also help you manage portion sizes easily.\n\nSecond, it would be a good idea to practice brisk walking, jogging, or cycling in the park for thirty minutes at least four times a week because cardio exercises burn fat effectively and improve your overall health. You can also combine cardio with light yoga or swimming so that your workouts never feel boring.\n\nFinally, remember to set realistic weekly goals, get enough sleep at night, and exercise with a close friend because high stress and lack of sleep can actually cause weight gain and make you give up easily. Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small milestone will keep your motivation high.\n\nI hope you find my suggestions helpful. Believe in yourself and let me know how things go. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Anna,\n\nThanks for writing to me. How have you been lately? Please don’t feel too stressed about your weight because I have a few practical suggestions that helped me lose weight successfully.\n\nTo begin with, you could consider cutting down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, meat, fish, and brown rice because controlling daily calorie intake is the most important factor in healthy weight loss. Cooking your own meals at home instead of ordering fast food will also help you manage how much you eat easily.\n\nSecond, it would be a good idea to practice brisk walking, jogging, or cycling in the park for thirty minutes at least four times a week because cardio exercises burn fat effectively and improve your overall health. You can also combine cardio with light yoga or swimming so that your workouts never feel boring.\n\nFinally, remember to set realistic weekly goals, get enough sleep at night, and exercise with a close friend because high stress and lack of sleep can actually cause weight gain and make you give up easily. Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small goal will keep your motivation high.\n\nI hope you find my suggestions helpful. Believe in yourself and let me know how things go. Write back soon.\n\nBest wishes,",
             "letter_vi": "Anna thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Đừng quá căng thẳng về cân nặng của mình nhé vì tớ có một vài gợi ý thực tế từng giúp tớ giảm cân thành công.\n\nĐầu tiên, cậu có thể cân nhắc việc cắt giảm đồ uống có đường, đồ ăn chiên rán và các bữa ăn khuya đồng thời ăn nhiều rau xanh, đạm nạc và ngũ cốc nguyên hạt hơn vì việc kiểm soát lượng calo nạp vào hàng ngày là yếu tố quan trọng nhất để giảm cân lành mạnh. Việc tự nấu ăn tại nhà thay vì đặt đồ ăn nhanh cũng sẽ giúp cậu dễ dàng kiểm soát khẩu phần ăn hơn.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu tập đi bộ nhanh, chạy bộ hoặc đạp xe trong công viên khoảng ba mươi phút ít nhất bốn lần một tuần vì các bài tập vận động tim mạch giúp đốt cháy mỡ thừa hiệu quả và cải thiện sức khỏe tổng thể của cậu. Cậu cũng có thể kết hợp vận động tim mạch với tập yoga nhẹ nhàng hoặc bơi lội để các buổi tập không bao giờ nhàm chán.\n\nCuối cùng, hãy nhớ đặt ra các mục tiêu thực tế theo từng tuần, ngủ đủ giấc vào ban đêm và tập luyện cùng một người bạn thân vì căng thẳng kéo dài và thiếu ngủ thực chất có thể gây tăng cân và khiến cậu dễ bỏ cuộc. Việc tự thưởng cho bản thân một bộ trang phục mới hoặc một bộ phim thư giãn mỗi khi đạt được cột mốc nhỏ sẽ giúp cậu luôn giữ vững động lực.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy tin vào bản thân và cho tớ biết mọi chuyện tiến triển thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Anna,\n\nThanks for writing to me. How have you been lately? Please don’t feel too stressed about your weight because I have a few practical suggestions that helped me lose weight successfully.\n\nTo begin with, you could consider cutting down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, lean protein, and whole grains because controlling daily calorie intake is the most important factor in healthy weight loss. Cooking your own meals at home instead of ordering fast food will also help you manage portion sizes easily.\n\nSecond, it would be a good idea to practice brisk walking, jogging, or cycling in the park for thirty minutes at least four times a week because cardio exercises burn fat effectively and improve your overall health. You can also combine cardio with light yoga or swimming so that your workouts never feel boring.\n\nFinally, remember to set realistic weekly goals, get enough sleep at night, and exercise with a close friend because high stress and lack of sleep can actually cause weight gain and make you give up easily. Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small milestone will keep your motivation high.\n\nI hope you find my suggestions helpful. Believe in yourself and let me know how things go. Write back soon.\n\nBest wishes,",
+            "text": "Dear Anna,\n\nThanks for writing to me. How have you been lately? Please don’t feel too stressed about your weight because I have a few practical suggestions that helped me lose weight successfully.\n\nTo begin with, you could consider cutting down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, meat, fish, and brown rice because controlling daily calorie intake is the most important factor in healthy weight loss. Cooking your own meals at home instead of ordering fast food will also help you manage how much you eat easily.\n\nSecond, it would be a good idea to practice brisk walking, jogging, or cycling in the park for thirty minutes at least four times a week because cardio exercises burn fat effectively and improve your overall health. You can also combine cardio with light yoga or swimming so that your workouts never feel boring.\n\nFinally, remember to set realistic weekly goals, get enough sleep at night, and exercise with a close friend because high stress and lack of sleep can actually cause weight gain and make you give up easily. Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small goal will keep your motivation high.\n\nI hope you find my suggestions helpful. Believe in yourself and let me know how things go. Write back soon.\n\nBest wishes,",
             "translation": "Anna thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Đừng quá căng thẳng về cân nặng của mình nhé vì tớ có một vài gợi ý thực tế từng giúp tớ giảm cân thành công.\n\nĐầu tiên, cậu có thể cân nhắc việc cắt giảm đồ uống có đường, đồ ăn chiên rán và các bữa ăn khuya đồng thời ăn nhiều rau xanh, đạm nạc và ngũ cốc nguyên hạt hơn vì việc kiểm soát lượng calo nạp vào hàng ngày là yếu tố quan trọng nhất để giảm cân lành mạnh. Việc tự nấu ăn tại nhà thay vì đặt đồ ăn nhanh cũng sẽ giúp cậu dễ dàng kiểm soát khẩu phần ăn hơn.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu tập đi bộ nhanh, chạy bộ hoặc đạp xe trong công viên khoảng ba mươi phút ít nhất bốn lần một tuần vì các bài tập vận động tim mạch giúp đốt cháy mỡ thừa hiệu quả và cải thiện sức khỏe tổng thể của cậu. Cậu cũng có thể kết hợp vận động tim mạch với tập yoga nhẹ nhàng hoặc bơi lội để các buổi tập không bao giờ nhàm chán.\n\nCuối cùng, hãy nhớ đặt ra các mục tiêu thực tế theo từng tuần, ngủ đủ giấc vào ban đêm và tập luyện cùng một người bạn thân vì căng thẳng kéo dài và thiếu ngủ thực chất có thể gây tăng cân và khiến cậu dễ bỏ cuộc. Việc tự thưởng cho bản thân một bộ trang phục mới hoặc một bộ phim thư giãn mỗi khi đạt được cột mốc nhỏ sẽ giúp cậu luôn giữ vững động lực.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy tin vào bản thân và cho tớ biết mọi chuyện tiến triển thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 225,
             "key_structures": [
@@ -6106,15 +6106,15 @@ const LETTERS_DATA = [
                 "vi": "thúc đẩy quá trình trao đổi chất"
               },
               {
-                "en": "manage portion sizes",
+                "en": "manage how much you eat",
                 "vi": "kiểm soát khẩu phần ăn"
               }
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Anna,\n\nThanks for writing to me. How have you been lately? Please don’t feel too stressed about your weight because I have a few practical suggestions that helped me lose weight successfully.\n\nTo begin with, you could consider ***cutting down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, lean protein, and whole grains*** because controlling daily calorie intake is the most important factor in healthy weight loss. Cooking your own meals at home instead of ordering fast food will also help you manage portion sizes easily.\n\nSecond, it would be a good idea to ***practice brisk walking, jogging, or cycling in the park for thirty minutes at least four times a week*** because cardio exercises burn fat effectively and improve your overall health. You can also combine cardio with light yoga or swimming so that your workouts never feel boring.\n\nFinally, remember to ***set realistic weekly goals, get enough sleep at night, and exercise with a close friend*** because high stress and lack of sleep can actually cause weight gain and make you give up easily. Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small milestone will keep your motivation high.\n\nI hope you find my suggestions helpful. Believe in yourself and let me know how things go. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Anna,\n\nThanks for writing to me. How have you been lately? Please don’t feel too stressed about your weight because I have a few practical suggestions that helped me lose weight successfully.\n\nTo begin with, you could consider ***cutting down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, meat, fish, and brown rice*** because controlling daily calorie intake is the most important factor in healthy weight loss. Cooking your own meals at home instead of ordering fast food will also help you manage how much you eat easily.\n\nSecond, it would be a good idea to ***practice brisk walking, jogging, or cycling in the park for thirty minutes at least four times a week*** because cardio exercises burn fat effectively and improve your overall health. You can also combine cardio with light yoga or swimming so that your workouts never feel boring.\n\nFinally, remember to ***set realistic weekly goals, get enough sleep at night, and exercise with a close friend*** because high stress and lack of sleep can actually cause weight gain and make you give up easily. Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small goal will keep your motivation high.\n\nI hope you find my suggestions helpful. Believe in yourself and let me know how things go. Write back soon.\n\nBest wishes,",
             "letter_vi": "Anna thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Đừng quá căng thẳng về cân nặng của mình nhé vì tớ có một vài gợi ý thực tế từng giúp tớ giảm cân thành công.\n\nĐầu tiên, cậu có thể cân nhắc việc ***cắt giảm đồ uống có đường, đồ ăn chiên rán và các bữa ăn khuya đồng thời ăn nhiều rau xanh, đạm nạc và ngũ cốc nguyên hạt hơn*** vì việc kiểm soát lượng calo nạp vào hàng ngày là yếu tố quan trọng nhất để giảm cân lành mạnh. Việc tự nấu ăn tại nhà thay vì đặt đồ ăn nhanh cũng sẽ giúp cậu dễ dàng kiểm soát khẩu phần ăn hơn.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***tập đi bộ nhanh, chạy bộ hoặc đạp xe trong công viên khoảng ba mươi phút ít nhất bốn lần một tuần*** vì các bài tập vận động tim mạch giúp đốt cháy mỡ thừa hiệu quả và cải thiện sức khỏe tổng thể của cậu. Cậu cũng có thể kết hợp vận động tim mạch với tập yoga nhẹ nhàng hoặc bơi lội để các buổi tập không bao giờ nhàm chán.\n\nCuối cùng, hãy nhớ ***đặt ra các mục tiêu thực tế theo từng tuần, ngủ đủ giấc vào ban đêm và tập luyện cùng một người bạn thân*** vì căng thẳng kéo dài và thiếu ngủ thực chất có thể gây tăng cân và khiến cậu dễ bỏ cuộc. Việc tự thưởng cho bản thân một bộ trang phục mới hoặc một bộ phim thư giãn mỗi khi đạt được cột mốc nhỏ sẽ giúp cậu luôn giữ vững động lực.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy tin vào bản thân và cho tớ biết mọi chuyện tiến triển thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Anna,\n\nThanks for writing to me. How have you been lately? Please don’t feel too stressed about your weight because I have a few practical suggestions that helped me lose weight successfully.\n\nTo begin with, you could consider ***cutting down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, lean protein, and whole grains*** because controlling daily calorie intake is the most important factor in healthy weight loss. Cooking your own meals at home instead of ordering fast food will also help you manage portion sizes easily.\n\nSecond, it would be a good idea to ***practice brisk walking, jogging, or cycling in the park for thirty minutes at least four times a week*** because cardio exercises burn fat effectively and improve your overall health. You can also combine cardio with light yoga or swimming so that your workouts never feel boring.\n\nFinally, remember to ***set realistic weekly goals, get enough sleep at night, and exercise with a close friend*** because high stress and lack of sleep can actually cause weight gain and make you give up easily. Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small milestone will keep your motivation high.\n\nI hope you find my suggestions helpful. Believe in yourself and let me know how things go. Write back soon.\n\nBest wishes,",
+            "text": "Dear Anna,\n\nThanks for writing to me. How have you been lately? Please don’t feel too stressed about your weight because I have a few practical suggestions that helped me lose weight successfully.\n\nTo begin with, you could consider ***cutting down on sugary drinks, fried snacks, and late-night meals while eating more fresh vegetables, meat, fish, and brown rice*** because controlling daily calorie intake is the most important factor in healthy weight loss. Cooking your own meals at home instead of ordering fast food will also help you manage how much you eat easily.\n\nSecond, it would be a good idea to ***practice brisk walking, jogging, or cycling in the park for thirty minutes at least four times a week*** because cardio exercises burn fat effectively and improve your overall health. You can also combine cardio with light yoga or swimming so that your workouts never feel boring.\n\nFinally, remember to ***set realistic weekly goals, get enough sleep at night, and exercise with a close friend*** because high stress and lack of sleep can actually cause weight gain and make you give up easily. Rewarding yourself with a new outfit or a relaxing movie whenever you reach a small goal will keep your motivation high.\n\nI hope you find my suggestions helpful. Believe in yourself and let me know how things go. Write back soon.\n\nBest wishes,",
             "translation": "Anna thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Đừng quá căng thẳng về cân nặng của mình nhé vì tớ có một vài gợi ý thực tế từng giúp tớ giảm cân thành công.\n\nĐầu tiên, cậu có thể cân nhắc việc ***cắt giảm đồ uống có đường, đồ ăn chiên rán và các bữa ăn khuya đồng thời ăn nhiều rau xanh, đạm nạc và ngũ cốc nguyên hạt hơn*** vì việc kiểm soát lượng calo nạp vào hàng ngày là yếu tố quan trọng nhất để giảm cân lành mạnh. Việc tự nấu ăn tại nhà thay vì đặt đồ ăn nhanh cũng sẽ giúp cậu dễ dàng kiểm soát khẩu phần ăn hơn.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***tập đi bộ nhanh, chạy bộ hoặc đạp xe trong công viên khoảng ba mươi phút ít nhất bốn lần một tuần*** vì các bài tập vận động tim mạch giúp đốt cháy mỡ thừa hiệu quả và cải thiện sức khỏe tổng thể của cậu. Cậu cũng có thể kết hợp vận động tim mạch với tập yoga nhẹ nhàng hoặc bơi lội để các buổi tập không bao giờ nhàm chán.\n\nCuối cùng, hãy nhớ ***đặt ra các mục tiêu thực tế theo từng tuần, ngủ đủ giấc vào ban đêm và tập luyện cùng một người bạn thân*** vì căng thẳng kéo dài và thiếu ngủ thực chất có thể gây tăng cân và khiến cậu dễ bỏ cuộc. Việc tự thưởng cho bản thân một bộ trang phục mới hoặc một bộ phim thư giãn mỗi khi đạt được cột mốc nhỏ sẽ giúp cậu luôn giữ vững động lực.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy tin vào bản thân và cho tớ biết mọi chuyện tiến triển thế nào nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 225,
             "key_structures": [
@@ -6131,7 +6131,7 @@ const LETTERS_DATA = [
                 "vi": "thúc đẩy quá trình trao đổi chất"
               },
               {
-                "en": "manage portion sizes",
+                "en": "manage how much you eat",
                 "vi": "kiểm soát khẩu phần ăn"
               }
             ]
@@ -6198,7 +6198,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "visit the Old Quarter Food Street and Lotus Garden Restaurant to try our famous beef noodle soup, grilled pork noodles, and fresh spring rolls",
                   "action_vi": "ghé Phố Ẩm thực Khu Phố Cổ và Nhà hàng Lotus Garden để thử món phở bò, bún chả và gỏi cuốn tươi nổi tiếng của thành phố tớ",
-                  "reason_en": "because these places serve authentic local dishes with fresh ingredients at very reasonable prices.",
+                  "reason_en": "because these places serve traditional local dishes with fresh ingredients at very reasonable prices.",
                   "reason_vi": "vì những nơi này phục vụ các món ăn bản địa chính gốc với nguyên liệu tươi ngon và mức giá rất hợp lý.",
                   "expansion_1_en": "I will definitely take you to my favorite street food stalls on your first evening here.",
                   "expansion_1_vi": "Chắc chắn tớ sẽ dẫn cậu đến những quán ăn đường phố ruột của tớ ngay vào buổi tối đầu tiên cậu đến đây."
@@ -6293,7 +6293,7 @@ const LETTERS_DATA = [
               "category": "1. Quán ăn ngon (Good places to eat)"
             },
             {
-              "en": "authentic local dishes",
+              "en": "traditional local dishes",
               "vi": "các món ăn bản địa chính gốc",
               "category": "1. Quán ăn ngon (Good places to eat)"
             },
@@ -6355,9 +6355,9 @@ const LETTERS_DATA = [
             "sign_off": "Best wishes,"
           },
           "sample_b1": {
-            "letter_en": "Dear Sam,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your visit to my city next month.\n\nTo begin with, you could consider visiting the Old Quarter Food Street and Lotus Garden Restaurant to try our famous beef noodle soup, grilled pork noodles, and fresh spring rolls because these places serve authentic local dishes with fresh ingredients at very reasonable prices. I will definitely take you to my favorite street food stalls on your first evening here.\n\nSecond, it would be a good idea to bring me a box of traditional butter cookies or handmade chocolates from your hometown if you have extra space in your luggage because my family and I really loved the sweet flavor when you gave us some last year. Of course, please let me know how much it costs so I can pay you back when you arrive.\n\nFinally, remember to download ride-hailing apps like Grab or Xanh SM and use the city metro line to travel around because they show the exact fare in advance and help you avoid traffic jams during rush hours. For short distances in the city center, walking or renting a public bicycle is also very convenient.\n\nI hope you find my suggestions helpful. Let me know your arrival date so we can meet up. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Sam,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your visit to my city next month.\n\nTo begin with, you could consider visiting the Old Quarter Food Street and Lotus Garden Restaurant to try our famous beef noodle soup, grilled pork noodles, and fresh spring rolls because these places serve traditional local dishes with fresh ingredients at very reasonable prices. I will definitely take you to my favorite street food stalls on your first evening here.\n\nSecond, it would be a good idea to bring me a box of traditional butter cookies or handmade chocolates from your hometown if you have extra space in your luggage because my family and I really loved the sweet flavor when you gave us some last year. Of course, please let me know how much it costs so I can pay you back when you arrive.\n\nFinally, remember to download ride-hailing apps like Grab or Xanh SM and use the city metro line to travel around because they show the exact fare in advance and help you avoid traffic jams during rush hours. For short distances in the city center, walking or renting a public bicycle is also very convenient.\n\nI hope you find my suggestions helpful. Let me know your arrival date so we can meet up. Write back soon.\n\nBest wishes,",
             "letter_vi": "Sam thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm thành phố của tớ vào tháng tới.\n\nĐầu tiên, cậu có thể cân nhắc việc ghé Phố Ẩm thực Khu Phố Cổ và Nhà hàng Lotus Garden để thử món phở bò, bún chả và gỏi cuốn tươi nổi tiếng của thành phố tớ vì những nơi này phục vụ các món ăn bản địa chính gốc với nguyên liệu tươi ngon và mức giá rất hợp lý. Chắc chắn tớ sẽ dẫn cậu đến những quán ăn đường phố ruột của tớ ngay vào buổi tối đầu tiên cậu đến đây.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu mang giúp tớ một hộp bánh quy bơ truyền thống hoặc sô-cô-la thủ công từ quê hương của cậu nếu hành lý của cậu còn chỗ trống vì gia đình tớ và tớ thực sự rất thích hương vị thơm ngọt đó khi cậu tặng chúng tớ vào năm ngoái. Tất nhiên, cậu nhớ cho tớ biết giá tiền để tớ gửi lại cậu khi cậu sang tới nơi nhé.\n\nCuối cùng, hãy nhớ tải các ứng dụng gọi xe công nghệ như Grab hoặc Xanh SM và sử dụng tuyến tàu điện thành phố để đi lại vì các phương tiện này hiển thị giá cước chính xác từ trước và giúp cậu tránh được cảnh tắc đường vào giờ cao điểm. Đối với những quãng đường ngắn ở khu trung tâm, việc đi bộ hoặc thuê xe đạp công cộng cũng rất thuận tiện.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ ngày đến của cậu để chúng mình gặp nhau nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Sam,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your visit to my city next month.\n\nTo begin with, you could consider visiting the Old Quarter Food Street and Lotus Garden Restaurant to try our famous beef noodle soup, grilled pork noodles, and fresh spring rolls because these places serve authentic local dishes with fresh ingredients at very reasonable prices. I will definitely take you to my favorite street food stalls on your first evening here.\n\nSecond, it would be a good idea to bring me a box of traditional butter cookies or handmade chocolates from your hometown if you have extra space in your luggage because my family and I really loved the sweet flavor when you gave us some last year. Of course, please let me know how much it costs so I can pay you back when you arrive.\n\nFinally, remember to download ride-hailing apps like Grab or Xanh SM and use the city metro line to travel around because they show the exact fare in advance and help you avoid traffic jams during rush hours. For short distances in the city center, walking or renting a public bicycle is also very convenient.\n\nI hope you find my suggestions helpful. Let me know your arrival date so we can meet up. Write back soon.\n\nBest wishes,",
+            "text": "Dear Sam,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your visit to my city next month.\n\nTo begin with, you could consider visiting the Old Quarter Food Street and Lotus Garden Restaurant to try our famous beef noodle soup, grilled pork noodles, and fresh spring rolls because these places serve traditional local dishes with fresh ingredients at very reasonable prices. I will definitely take you to my favorite street food stalls on your first evening here.\n\nSecond, it would be a good idea to bring me a box of traditional butter cookies or handmade chocolates from your hometown if you have extra space in your luggage because my family and I really loved the sweet flavor when you gave us some last year. Of course, please let me know how much it costs so I can pay you back when you arrive.\n\nFinally, remember to download ride-hailing apps like Grab or Xanh SM and use the city metro line to travel around because they show the exact fare in advance and help you avoid traffic jams during rush hours. For short distances in the city center, walking or renting a public bicycle is also very convenient.\n\nI hope you find my suggestions helpful. Let me know your arrival date so we can meet up. Write back soon.\n\nBest wishes,",
             "translation": "Sam thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm thành phố của tớ vào tháng tới.\n\nĐầu tiên, cậu có thể cân nhắc việc ghé Phố Ẩm thực Khu Phố Cổ và Nhà hàng Lotus Garden để thử món phở bò, bún chả và gỏi cuốn tươi nổi tiếng của thành phố tớ vì những nơi này phục vụ các món ăn bản địa chính gốc với nguyên liệu tươi ngon và mức giá rất hợp lý. Chắc chắn tớ sẽ dẫn cậu đến những quán ăn đường phố ruột của tớ ngay vào buổi tối đầu tiên cậu đến đây.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu mang giúp tớ một hộp bánh quy bơ truyền thống hoặc sô-cô-la thủ công từ quê hương của cậu nếu hành lý của cậu còn chỗ trống vì gia đình tớ và tớ thực sự rất thích hương vị thơm ngọt đó khi cậu tặng chúng tớ vào năm ngoái. Tất nhiên, cậu nhớ cho tớ biết giá tiền để tớ gửi lại cậu khi cậu sang tới nơi nhé.\n\nCuối cùng, hãy nhớ tải các ứng dụng gọi xe công nghệ như Grab hoặc Xanh SM và sử dụng tuyến tàu điện thành phố để đi lại vì các phương tiện này hiển thị giá cước chính xác từ trước và giúp cậu tránh được cảnh tắc đường vào giờ cao điểm. Đối với những quãng đường ngắn ở khu trung tâm, việc đi bộ hoặc thuê xe đạp công cộng cũng rất thuận tiện.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ ngày đến của cậu để chúng mình gặp nhau nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 238,
             "key_structures": [
@@ -6366,7 +6366,7 @@ const LETTERS_DATA = [
                 "vi": "Phố Ẩm thực Khu Phố Cổ"
               },
               {
-                "en": "authentic local dishes",
+                "en": "traditional local dishes",
                 "vi": "các món ăn bản địa chính gốc"
               },
               {
@@ -6380,9 +6380,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Sam,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your visit to my city next month.\n\nTo begin with, you could consider ***visiting the Old Quarter Food Street and Lotus Garden Restaurant to try our famous beef noodle soup, grilled pork noodles, and fresh spring rolls*** because these places serve authentic local dishes with fresh ingredients at very reasonable prices. I will definitely take you to my favorite street food stalls on your first evening here.\n\nSecond, it would be a good idea to ***bring me a box of traditional butter cookies or handmade chocolates from your hometown if you have extra space in your luggage*** because my family and I really loved the sweet flavor when you gave us some last year. Of course, please let me know how much it costs so I can pay you back when you arrive.\n\nFinally, remember to ***download ride-hailing apps like Grab or Xanh SM and use the city metro line to travel around*** because they show the exact fare in advance and help you avoid traffic jams during rush hours. For short distances in the city center, walking or renting a public bicycle is also very convenient.\n\nI hope you find my suggestions helpful. Let me know your arrival date so we can meet up. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Sam,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your visit to my city next month.\n\nTo begin with, you could consider ***visiting the Old Quarter Food Street and Lotus Garden Restaurant to try our famous beef noodle soup, grilled pork noodles, and fresh spring rolls*** because these places serve traditional local dishes with fresh ingredients at very reasonable prices. I will definitely take you to my favorite street food stalls on your first evening here.\n\nSecond, it would be a good idea to ***bring me a box of traditional butter cookies or handmade chocolates from your hometown if you have extra space in your luggage*** because my family and I really loved the sweet flavor when you gave us some last year. Of course, please let me know how much it costs so I can pay you back when you arrive.\n\nFinally, remember to ***download ride-hailing apps like Grab or Xanh SM and use the city metro line to travel around*** because they show the exact fare in advance and help you avoid traffic jams during rush hours. For short distances in the city center, walking or renting a public bicycle is also very convenient.\n\nI hope you find my suggestions helpful. Let me know your arrival date so we can meet up. Write back soon.\n\nBest wishes,",
             "letter_vi": "Sam thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm thành phố của tớ vào tháng tới.\n\nĐầu tiên, cậu có thể cân nhắc việc ***ghé Phố Ẩm thực Khu Phố Cổ và Nhà hàng Lotus Garden để thử món phở bò, bún chả và gỏi cuốn tươi nổi tiếng của thành phố tớ*** vì những nơi này phục vụ các món ăn bản địa chính gốc với nguyên liệu tươi ngon và mức giá rất hợp lý. Chắc chắn tớ sẽ dẫn cậu đến những quán ăn đường phố ruột của tớ ngay vào buổi tối đầu tiên cậu đến đây.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***mang giúp tớ một hộp bánh quy bơ truyền thống hoặc sô-cô-la thủ công từ quê hương của cậu nếu hành lý của cậu còn chỗ trống*** vì gia đình tớ và tớ thực sự rất thích hương vị thơm ngọt đó khi cậu tặng chúng tớ vào năm ngoái. Tất nhiên, cậu nhớ cho tớ biết giá tiền để tớ gửi lại cậu khi cậu sang tới nơi nhé.\n\nCuối cùng, hãy nhớ ***tải các ứng dụng gọi xe công nghệ như Grab hoặc Xanh SM và sử dụng tuyến tàu điện thành phố để đi lại*** vì các phương tiện này hiển thị giá cước chính xác từ trước và giúp cậu tránh được cảnh tắc đường vào giờ cao điểm. Đối với những quãng đường ngắn ở khu trung tâm, việc đi bộ hoặc thuê xe đạp công cộng cũng rất thuận tiện.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ ngày đến của cậu để chúng mình gặp nhau nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Sam,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your visit to my city next month.\n\nTo begin with, you could consider ***visiting the Old Quarter Food Street and Lotus Garden Restaurant to try our famous beef noodle soup, grilled pork noodles, and fresh spring rolls*** because these places serve authentic local dishes with fresh ingredients at very reasonable prices. I will definitely take you to my favorite street food stalls on your first evening here.\n\nSecond, it would be a good idea to ***bring me a box of traditional butter cookies or handmade chocolates from your hometown if you have extra space in your luggage*** because my family and I really loved the sweet flavor when you gave us some last year. Of course, please let me know how much it costs so I can pay you back when you arrive.\n\nFinally, remember to ***download ride-hailing apps like Grab or Xanh SM and use the city metro line to travel around*** because they show the exact fare in advance and help you avoid traffic jams during rush hours. For short distances in the city center, walking or renting a public bicycle is also very convenient.\n\nI hope you find my suggestions helpful. Let me know your arrival date so we can meet up. Write back soon.\n\nBest wishes,",
+            "text": "Dear Sam,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your visit to my city next month.\n\nTo begin with, you could consider ***visiting the Old Quarter Food Street and Lotus Garden Restaurant to try our famous beef noodle soup, grilled pork noodles, and fresh spring rolls*** because these places serve traditional local dishes with fresh ingredients at very reasonable prices. I will definitely take you to my favorite street food stalls on your first evening here.\n\nSecond, it would be a good idea to ***bring me a box of traditional butter cookies or handmade chocolates from your hometown if you have extra space in your luggage*** because my family and I really loved the sweet flavor when you gave us some last year. Of course, please let me know how much it costs so I can pay you back when you arrive.\n\nFinally, remember to ***download ride-hailing apps like Grab or Xanh SM and use the city metro line to travel around*** because they show the exact fare in advance and help you avoid traffic jams during rush hours. For short distances in the city center, walking or renting a public bicycle is also very convenient.\n\nI hope you find my suggestions helpful. Let me know your arrival date so we can meet up. Write back soon.\n\nBest wishes,",
             "translation": "Sam thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm thành phố của tớ vào tháng tới.\n\nĐầu tiên, cậu có thể cân nhắc việc ***ghé Phố Ẩm thực Khu Phố Cổ và Nhà hàng Lotus Garden để thử món phở bò, bún chả và gỏi cuốn tươi nổi tiếng của thành phố tớ*** vì những nơi này phục vụ các món ăn bản địa chính gốc với nguyên liệu tươi ngon và mức giá rất hợp lý. Chắc chắn tớ sẽ dẫn cậu đến những quán ăn đường phố ruột của tớ ngay vào buổi tối đầu tiên cậu đến đây.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***mang giúp tớ một hộp bánh quy bơ truyền thống hoặc sô-cô-la thủ công từ quê hương của cậu nếu hành lý của cậu còn chỗ trống*** vì gia đình tớ và tớ thực sự rất thích hương vị thơm ngọt đó khi cậu tặng chúng tớ vào năm ngoái. Tất nhiên, cậu nhớ cho tớ biết giá tiền để tớ gửi lại cậu khi cậu sang tới nơi nhé.\n\nCuối cùng, hãy nhớ ***tải các ứng dụng gọi xe công nghệ như Grab hoặc Xanh SM và sử dụng tuyến tàu điện thành phố để đi lại*** vì các phương tiện này hiển thị giá cước chính xác từ trước và giúp cậu tránh được cảnh tắc đường vào giờ cao điểm. Đối với những quãng đường ngắn ở khu trung tâm, việc đi bộ hoặc thuê xe đạp công cộng cũng rất thuận tiện.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ ngày đến của cậu để chúng mình gặp nhau nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 238,
             "key_structures": [
@@ -6391,7 +6391,7 @@ const LETTERS_DATA = [
                 "vi": "Phố Ẩm thực Khu Phố Cổ"
               },
               {
-                "en": "authentic local dishes",
+                "en": "traditional local dishes",
                 "vi": "các món ăn bản địa chính gốc"
               },
               {
@@ -6474,7 +6474,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "explore the City History Museum, Dragon Bridge, and the central beach during your stay",
                   "action_vi": "khám phá Bảo tàng Lịch sử Thành phố, Cầu Rồng và bãi biển trung tâm trong chuyến đi của cậu",
-                  "reason_en": "because they are the most breathtaking attractions for first-time visitors.",
+                  "reason_en": "because they are the most beautiful attractions for first-time visitors.",
                   "reason_vi": "vì đó là những điểm tham quan ấn tượng nhất dành cho du khách lần đầu ghé thăm.",
                   "expansion_1_en": "You will be able to take plenty of stunning photos and enjoy the fresh sea breeze.",
                   "expansion_1_vi": "Cậu sẽ có thể chụp được rất nhiều bức ảnh tuyệt đẹp và tận hưởng làn gió biển trong lành."
@@ -6500,15 +6500,15 @@ const LETTERS_DATA = [
                   "action_vi": "thử các món đặc sản nổi tiếng thế giới của thành phố tớ bao gồm phở, bún chả, bánh mì giòn và cà phê trứng",
                   "reason_en": "because they have unforgettable flavors made from fresh herbs and traditional recipes.",
                   "reason_vi": "vì chúng có hương vị khó quên được chế biến từ các loại rau thơm tươi ngon và công thức truyền thống.",
-                  "expansion_1_en": "You can easily find these mouth-watering dishes at affordable street food stalls throughout the Old Quarter.",
+                  "expansion_1_en": "You can easily find these delicious dishes at affordable street food stalls throughout the Old Quarter.",
                   "expansion_1_vi": "Cậu có thể dễ dàng tìm thấy những món ăn hấp dẫn này tại các quán ăn đường phố bình dân khắp khu Phố Cổ."
                 },
                 {
                   "action_en": "sample traditional dishes such as fresh spring rolls, savory pancakes, and grilled seafood at the night market",
                   "action_vi": "thưởng thức các món ăn truyền thống như gỏi cuốn tươi, bánh xèo và hải sản nướng tại khu chợ đêm",
-                  "reason_en": "because they represent the vibrant culinary culture of our city.",
+                  "reason_en": "because they represent the lively food culture of our city.",
                   "reason_vi": "vì chúng đại diện cho nền văn hóa ẩm thực đặc sắc của thành phố chúng tớ.",
-                  "expansion_1_en": "I will gladly be your food tour guide so you can taste the most authentic restaurants in town.",
+                  "expansion_1_en": "I will gladly be your food tour guide so you can taste the most traditional restaurants in town.",
                   "expansion_1_vi": "Tớ rất sẵn lòng làm hướng dẫn viên ẩm thực để cậu có thể thưởng thức những quán ăn chuẩn vị nhất trong thành phố."
                 },
                 {
@@ -6581,7 +6581,7 @@ const LETTERS_DATA = [
               "category": "2. Món ăn phải thử (Must-try dishes)"
             },
             {
-              "en": "mouth-watering street food",
+              "en": "delicious street food",
               "vi": "ẩm thực đường phố thơm ngon hấp dẫn",
               "category": "2. Món ăn phải thử (Must-try dishes)"
             },
@@ -6591,7 +6591,7 @@ const LETTERS_DATA = [
               "category": "2. Món ăn phải thử (Must-try dishes)"
             },
             {
-              "en": "vibrant culinary culture",
+              "en": "lively food culture",
               "vi": "nền văn hóa ẩm thực đặc sắc",
               "category": "2. Món ăn phải thử (Must-try dishes)"
             },
@@ -6623,9 +6623,9 @@ const LETTERS_DATA = [
             "sign_off": "Best wishes,"
           },
           "sample_b1": {
-            "letter_en": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your first trip to my city.\n\nTo begin with, you could consider visiting iconic landmarks such as Hoan Kiem Lake, the Old Quarter, and the Temple of Literature because they showcase the ancient architecture and rich history of my city. Walking around the lake in the early morning or evening is a wonderful way to experience the local lifestyle.\n\nSecond, it would be a good idea to try our world-famous local specialties including pho, bun cha, crispy banh mi, and egg coffee because they have unforgettable flavors made from fresh herbs and traditional recipes. You can easily find these mouth-watering dishes at affordable street food stalls throughout the Old Quarter.\n\nFinally, remember to attend the annual Street Music and Food Festival taking place at the Central Square during your trip because there will be live acoustic bands, traditional folk games, and colorful lantern displays every weekend night. Admission is completely free, so we can go there together on Saturday evening.\n\nI hope you find my suggestions helpful. Let me know when you arrive so I can show you around. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your first trip to my city.\n\nTo begin with, you could consider visiting iconic landmarks such as Hoan Kiem Lake, the Old Quarter, and the Temple of Literature because they showcase the ancient architecture and rich history of my city. Walking around the lake in the early morning or evening is a wonderful way to experience the local lifestyle.\n\nSecond, it would be a good idea to try our world-famous local specialties including pho, bun cha, crispy banh mi, and egg coffee because they have unforgettable flavors made from fresh herbs and traditional recipes. You can easily find these delicious dishes at affordable street food stalls throughout the Old Quarter.\n\nFinally, remember to attend the annual Street Music and Food Festival taking place at the Central Square during your trip because there will be live acoustic bands, traditional folk games, and colorful lantern displays every weekend night. Admission is completely free, so we can go there together on Saturday evening.\n\nI hope you find my suggestions helpful. Let me know when you arrive so I can show you around. Write back soon.\n\nBest wishes,",
             "letter_vi": "Alex thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến đi đầu tiên đến thành phố của tớ.\n\nĐầu tiên, cậu có thể cân nhắc việc tham quan các địa danh biểu tượng như Hồ Hoàn Kiếm, Phố Cổ và Văn Miếu Quốc Tử Giám vì những nơi này thể hiện nét kiến trúc cổ kính cùng bề dày lịch sử phong phú của thành phố tớ. Đi dạo quanh hồ vào sáng sớm hoặc buổi tối là một cách tuyệt vời để trải nghiệm nhịp sống của người dân địa phương.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu thử các món đặc sản nổi tiếng thế giới của thành phố tớ bao gồm phở, bún chả, bánh mì giòn và cà phê trứng vì chúng có hương vị khó quên được chế biến từ các loại rau thơm tươi ngon và công thức truyền thống. Cậu có thể dễ dàng tìm thấy những món ăn hấp dẫn này tại các quán ăn đường phố bình dân khắp khu Phố Cổ.\n\nCuối cùng, hãy nhớ tham dự Lễ hội Âm nhạc và Ẩm thực Đường phố thường niên diễn ra tại Quảng trường Trung tâm đúng vào dịp chuyến đi của cậu vì ở đó sẽ có các ban nhạc biểu diễn trực tiếp, trò chơi dân gian truyền thống và màn trưng bày đèn lồng rực rỡ vào mỗi tối cuối tuần. Vé vào cửa hoàn toàn miễn phí, nên hai đứa mình có thể cùng nhau đến đó vào tối thứ Bảy.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ khi cậu đến nơi để tớ dẫn cậu đi dạo quanh thành phố nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your first trip to my city.\n\nTo begin with, you could consider visiting iconic landmarks such as Hoan Kiem Lake, the Old Quarter, and the Temple of Literature because they showcase the ancient architecture and rich history of my city. Walking around the lake in the early morning or evening is a wonderful way to experience the local lifestyle.\n\nSecond, it would be a good idea to try our world-famous local specialties including pho, bun cha, crispy banh mi, and egg coffee because they have unforgettable flavors made from fresh herbs and traditional recipes. You can easily find these mouth-watering dishes at affordable street food stalls throughout the Old Quarter.\n\nFinally, remember to attend the annual Street Music and Food Festival taking place at the Central Square during your trip because there will be live acoustic bands, traditional folk games, and colorful lantern displays every weekend night. Admission is completely free, so we can go there together on Saturday evening.\n\nI hope you find my suggestions helpful. Let me know when you arrive so I can show you around. Write back soon.\n\nBest wishes,",
+            "text": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your first trip to my city.\n\nTo begin with, you could consider visiting iconic landmarks such as Hoan Kiem Lake, the Old Quarter, and the Temple of Literature because they showcase the ancient architecture and rich history of my city. Walking around the lake in the early morning or evening is a wonderful way to experience the local lifestyle.\n\nSecond, it would be a good idea to try our world-famous local specialties including pho, bun cha, crispy banh mi, and egg coffee because they have unforgettable flavors made from fresh herbs and traditional recipes. You can easily find these delicious dishes at affordable street food stalls throughout the Old Quarter.\n\nFinally, remember to attend the annual Street Music and Food Festival taking place at the Central Square during your trip because there will be live acoustic bands, traditional folk games, and colorful lantern displays every weekend night. Admission is completely free, so we can go there together on Saturday evening.\n\nI hope you find my suggestions helpful. Let me know when you arrive so I can show you around. Write back soon.\n\nBest wishes,",
             "translation": "Alex thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến đi đầu tiên đến thành phố của tớ.\n\nĐầu tiên, cậu có thể cân nhắc việc tham quan các địa danh biểu tượng như Hồ Hoàn Kiếm, Phố Cổ và Văn Miếu Quốc Tử Giám vì những nơi này thể hiện nét kiến trúc cổ kính cùng bề dày lịch sử phong phú của thành phố tớ. Đi dạo quanh hồ vào sáng sớm hoặc buổi tối là một cách tuyệt vời để trải nghiệm nhịp sống của người dân địa phương.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu thử các món đặc sản nổi tiếng thế giới của thành phố tớ bao gồm phở, bún chả, bánh mì giòn và cà phê trứng vì chúng có hương vị khó quên được chế biến từ các loại rau thơm tươi ngon và công thức truyền thống. Cậu có thể dễ dàng tìm thấy những món ăn hấp dẫn này tại các quán ăn đường phố bình dân khắp khu Phố Cổ.\n\nCuối cùng, hãy nhớ tham dự Lễ hội Âm nhạc và Ẩm thực Đường phố thường niên diễn ra tại Quảng trường Trung tâm đúng vào dịp chuyến đi của cậu vì ở đó sẽ có các ban nhạc biểu diễn trực tiếp, trò chơi dân gian truyền thống và màn trưng bày đèn lồng rực rỡ vào mỗi tối cuối tuần. Vé vào cửa hoàn toàn miễn phí, nên hai đứa mình có thể cùng nhau đến đó vào tối thứ Bảy.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ khi cậu đến nơi để tớ dẫn cậu đi dạo quanh thành phố nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 212,
             "key_structures": [
@@ -6648,9 +6648,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your first trip to my city.\n\nTo begin with, you could consider ***visiting iconic landmarks such as Hoan Kiem Lake, the Old Quarter, and the Temple of Literature*** because they showcase the ancient architecture and rich history of my city. Walking around the lake in the early morning or evening is a wonderful way to experience the local lifestyle.\n\nSecond, it would be a good idea to ***try our world-famous local specialties including pho, bun cha, crispy banh mi, and egg coffee*** because they have unforgettable flavors made from fresh herbs and traditional recipes. You can easily find these mouth-watering dishes at affordable street food stalls throughout the Old Quarter.\n\nFinally, remember to ***attend the annual Street Music and Food Festival taking place at the Central Square during your trip*** because there will be live acoustic bands, traditional folk games, and colorful lantern displays every weekend night. Admission is completely free, so we can go there together on Saturday evening.\n\nI hope you find my suggestions helpful. Let me know when you arrive so I can show you around. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your first trip to my city.\n\nTo begin with, you could consider ***visiting iconic landmarks such as Hoan Kiem Lake, the Old Quarter, and the Temple of Literature*** because they showcase the ancient architecture and rich history of my city. Walking around the lake in the early morning or evening is a wonderful way to experience the local lifestyle.\n\nSecond, it would be a good idea to ***try our world-famous local specialties including pho, bun cha, crispy banh mi, and egg coffee*** because they have unforgettable flavors made from fresh herbs and traditional recipes. You can easily find these delicious dishes at affordable street food stalls throughout the Old Quarter.\n\nFinally, remember to ***attend the annual Street Music and Food Festival taking place at the Central Square during your trip*** because there will be live acoustic bands, traditional folk games, and colorful lantern displays every weekend night. Admission is completely free, so we can go there together on Saturday evening.\n\nI hope you find my suggestions helpful. Let me know when you arrive so I can show you around. Write back soon.\n\nBest wishes,",
             "letter_vi": "Alex thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến đi đầu tiên đến thành phố của tớ.\n\nĐầu tiên, cậu có thể cân nhắc việc ***tham quan các địa danh biểu tượng như Hồ Hoàn Kiếm, Phố Cổ và Văn Miếu Quốc Tử Giám*** vì những nơi này thể hiện nét kiến trúc cổ kính cùng bề dày lịch sử phong phú của thành phố tớ. Đi dạo quanh hồ vào sáng sớm hoặc buổi tối là một cách tuyệt vời để trải nghiệm nhịp sống của người dân địa phương.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***thử các món đặc sản nổi tiếng thế giới của thành phố tớ bao gồm phở, bún chả, bánh mì giòn và cà phê trứng*** vì chúng có hương vị khó quên được chế biến từ các loại rau thơm tươi ngon và công thức truyền thống. Cậu có thể dễ dàng tìm thấy những món ăn hấp dẫn này tại các quán ăn đường phố bình dân khắp khu Phố Cổ.\n\nCuối cùng, hãy nhớ ***tham dự Lễ hội Âm nhạc và Ẩm thực Đường phố thường niên diễn ra tại Quảng trường Trung tâm đúng vào dịp chuyến đi của cậu*** vì ở đó sẽ có các ban nhạc biểu diễn trực tiếp, trò chơi dân gian truyền thống và màn trưng bày đèn lồng rực rỡ vào mỗi tối cuối tuần. Vé vào cửa hoàn toàn miễn phí, nên hai đứa mình có thể cùng nhau đến đó vào tối thứ Bảy.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ khi cậu đến nơi để tớ dẫn cậu đi dạo quanh thành phố nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your first trip to my city.\n\nTo begin with, you could consider ***visiting iconic landmarks such as Hoan Kiem Lake, the Old Quarter, and the Temple of Literature*** because they showcase the ancient architecture and rich history of my city. Walking around the lake in the early morning or evening is a wonderful way to experience the local lifestyle.\n\nSecond, it would be a good idea to ***try our world-famous local specialties including pho, bun cha, crispy banh mi, and egg coffee*** because they have unforgettable flavors made from fresh herbs and traditional recipes. You can easily find these mouth-watering dishes at affordable street food stalls throughout the Old Quarter.\n\nFinally, remember to ***attend the annual Street Music and Food Festival taking place at the Central Square during your trip*** because there will be live acoustic bands, traditional folk games, and colorful lantern displays every weekend night. Admission is completely free, so we can go there together on Saturday evening.\n\nI hope you find my suggestions helpful. Let me know when you arrive so I can show you around. Write back soon.\n\nBest wishes,",
+            "text": "Dear Alex,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your first trip to my city.\n\nTo begin with, you could consider ***visiting iconic landmarks such as Hoan Kiem Lake, the Old Quarter, and the Temple of Literature*** because they showcase the ancient architecture and rich history of my city. Walking around the lake in the early morning or evening is a wonderful way to experience the local lifestyle.\n\nSecond, it would be a good idea to ***try our world-famous local specialties including pho, bun cha, crispy banh mi, and egg coffee*** because they have unforgettable flavors made from fresh herbs and traditional recipes. You can easily find these delicious dishes at affordable street food stalls throughout the Old Quarter.\n\nFinally, remember to ***attend the annual Street Music and Food Festival taking place at the Central Square during your trip*** because there will be live acoustic bands, traditional folk games, and colorful lantern displays every weekend night. Admission is completely free, so we can go there together on Saturday evening.\n\nI hope you find my suggestions helpful. Let me know when you arrive so I can show you around. Write back soon.\n\nBest wishes,",
             "translation": "Alex thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến đi đầu tiên đến thành phố của tớ.\n\nĐầu tiên, cậu có thể cân nhắc việc ***tham quan các địa danh biểu tượng như Hồ Hoàn Kiếm, Phố Cổ và Văn Miếu Quốc Tử Giám*** vì những nơi này thể hiện nét kiến trúc cổ kính cùng bề dày lịch sử phong phú của thành phố tớ. Đi dạo quanh hồ vào sáng sớm hoặc buổi tối là một cách tuyệt vời để trải nghiệm nhịp sống của người dân địa phương.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***thử các món đặc sản nổi tiếng thế giới của thành phố tớ bao gồm phở, bún chả, bánh mì giòn và cà phê trứng*** vì chúng có hương vị khó quên được chế biến từ các loại rau thơm tươi ngon và công thức truyền thống. Cậu có thể dễ dàng tìm thấy những món ăn hấp dẫn này tại các quán ăn đường phố bình dân khắp khu Phố Cổ.\n\nCuối cùng, hãy nhớ ***tham dự Lễ hội Âm nhạc và Ẩm thực Đường phố thường niên diễn ra tại Quảng trường Trung tâm đúng vào dịp chuyến đi của cậu*** vì ở đó sẽ có các ban nhạc biểu diễn trực tiếp, trò chơi dân gian truyền thống và màn trưng bày đèn lồng rực rỡ vào mỗi tối cuối tuần. Vé vào cửa hoàn toàn miễn phí, nên hai đứa mình có thể cùng nhau đến đó vào tối thứ Bảy.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ khi cậu đến nơi để tớ dẫn cậu đi dạo quanh thành phố nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 212,
             "key_structures": [
@@ -6743,7 +6743,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "bring clothes that are easy to layer, such as long-sleeved shirts, cardigans, and a windproof jacket",
                   "action_vi": "mang theo những bộ trang phục dễ mặc phối nhiều lớp như áo dài tay, áo khoác len mỏng và một chiếc áo khoác cản gió",
-                  "reason_en": "because the weather here is cool and sunny during the daytime but gets quite chilly and breezy at night.",
+                  "reason_en": "because the weather here is cool and sunny during the daytime but gets quite cool and windy at night.",
                   "reason_vi": "vì thời tiết ở đây mát mẻ và có nắng vào ban ngày nhưng lại trở nên khá se lạnh và nhiều gió vào ban đêm.",
                   "expansion_1_en": "Packing a small folding umbrella will also be handy in case there is light winter drizzle.",
                   "expansion_1_vi": "Mang theo một chiếc ô gấp nhỏ cũng sẽ rất tiện lợi phòng khi có mưa phùn nhẹ vào mùa đông."
@@ -6765,7 +6765,7 @@ const LETTERS_DATA = [
               "icon": "fa-house-laptop",
               "options": [
                 {
-                  "action_en": "cook a steaming Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum",
+                  "action_en": "cook a hot Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum",
                   "action_vi": "cùng nấu một nồi lẩu Việt Nam nóng hổi tại nhà, tham gia xưởng nặn gốm truyền thống và ghé thăm Bảo tàng Mỹ thuật Quốc gia",
                   "reason_en": "because these indoor activities will keep us warm while giving you a great chance to experience local culture.",
                   "reason_vi": "vì những hoạt động trong nhà này sẽ giúp chúng mình giữ ấm đồng thời mang lại cho cậu cơ hội tuyệt vời để trải nghiệm văn hóa địa phương.",
@@ -6783,7 +6783,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "attend a Vietnamese coffee-brewing class, visit the indoor water puppet theater, and bake cookies together at my house",
                   "action_vi": "tham gia một lớp học pha chế cà phê Việt Nam, đi xem múa rối nước trong nhà và cùng nhau nướng bánh quy tại nhà tớ",
-                  "reason_en": "because you told me that you love handicrafts, traditional performing arts, and homemade desserts.",
+                  "reason_en": "because you told me that you love handmade items, traditional performing arts, and homemade desserts.",
                   "reason_vi": "vì cậu từng kể với tớ rằng cậu rất yêu thích đồ thủ công, nghệ thuật biểu diễn truyền thống và các món bánh ngọt tự làm.",
                   "expansion_1_en": "We can also invite a few of my close university friends over for a cozy indoor game night.",
                   "expansion_1_vi": "Chúng mình cũng có thể mời thêm một vài người bạn đại học thân thiết của tớ sang nhà cùng chơi trò chơi vào buổi tối."
@@ -6815,7 +6815,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "choose a set of Korean sheet masks for my mom and a small souvenir keychain for my dad",
                   "action_vi": "chọn một bộ mặt nạ dưỡng da Hàn Quốc cho mẹ tớ và một chiếc móc khóa lưu niệm nhỏ cho bố tớ",
-                  "reason_en": "because Korean skincare products and traditional handicrafts are very famous and well-loved in Vietnam.",
+                  "reason_en": "because Korean skincare products and traditional handmade items are very famous and well-loved in Vietnam.",
                   "reason_vi": "vì các sản phẩm chăm sóc da và đồ thủ công truyền thống của Hàn Quốc rất nổi tiếng và được yêu thích tại Việt Nam.",
                   "expansion_1_en": "My parents will definitely be touched by your thoughtfulness and kindness.",
                   "expansion_1_vi": "Bố mẹ tớ chắc chắn sẽ vô cùng cảm động trước sự chu đáo và tấm lòng của cậu."
@@ -6840,12 +6840,12 @@ const LETTERS_DATA = [
               "category": "1. Trang phục mùa đông (Winter clothes)"
             },
             {
-              "en": "chilly and breezy in the evening",
+              "en": "cool and windy in the evening",
               "vi": "se lạnh và có gió vào buổi tối",
               "category": "1. Trang phục mùa đông (Winter clothes)"
             },
             {
-              "en": "cook a steaming Vietnamese hotpot",
+              "en": "cook a hot Vietnamese hotpot",
               "vi": "nấu một nồi lẩu Việt Nam nóng hổi",
               "category": "2. Hoạt động trong nhà (Indoor activities)"
             },
@@ -6892,9 +6892,9 @@ const LETTERS_DATA = [
             "sign_off": "Best wishes,"
           },
           "sample_b1": {
-            "letter_en": "Dear Min-ji,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your winter holiday visit to Vietnam.\n\nTo begin with, you could consider packing some warm sweaters, hoodies, jeans, and a medium-weight jacket instead of heavy snow coats because winter in my city is much milder than the freezing winter in Korea, with temperatures usually around 15 to 20 degrees Celsius. You should also bring a light scarf and comfortable sneakers for walking around the city.\n\nSecond, it would be a good idea to cook a steaming Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum because these indoor activities will keep us warm while giving you a great chance to experience local culture. My mom is also very excited to teach you how to make crispy fried spring rolls in our kitchen.\n\nFinally, remember to buy a box of Korean ginseng tea or roasted seaweed for my parents because both my mom and dad enjoy drinking hot herbal tea every morning and really appreciate healthy traditional products from Korea. Please do not buy anything expensive because your visit itself is already a wonderful gift for our family.\n\nI hope you find my suggestions helpful. My family and I cannot wait to welcome you here. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Min-ji,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your winter holiday visit to Vietnam.\n\nTo begin with, you could consider packing some warm sweaters, hoodies, jeans, and a medium-weight jacket instead of heavy snow coats because winter in my city is much milder than the freezing winter in Korea, with temperatures usually around 15 to 20 degrees Celsius. You should also bring a light scarf and comfortable sneakers for walking around the city.\n\nSecond, it would be a good idea to cook a hot Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum because these indoor activities will keep us warm while giving you a great chance to experience local culture. My mom is also very excited to teach you how to make crispy fried spring rolls in our kitchen.\n\nFinally, remember to buy a box of Korean ginseng tea or roasted seaweed for my parents because both my mom and dad enjoy drinking hot herbal tea every morning and really appreciate healthy traditional products from Korea. Please do not buy anything expensive because your visit itself is already a wonderful gift for our family.\n\nI hope you find my suggestions helpful. My family and I cannot wait to welcome you here. Write back soon.\n\nBest wishes,",
             "letter_vi": "Min-ji thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm Việt Nam vào kỳ nghỉ đông này.\n\nĐầu tiên, cậu có thể cân nhắc việc mang theo một vài chiếc áo len ấm, áo hoodie, quần bò và một chiếc áo khoác vừa thay vì áo phao đi tuyết dày vì mùa đông ở thành phố của tớ ôn hòa hơn nhiều so với mùa đông giá lạnh ở Hàn Quốc, với nhiệt độ thường vào khoảng 15 đến 20 độ C. Cậu cũng nên mang theo một chiếc khăn quàng mỏng và đôi giày thể thao êm chân để đi dạo quanh thành phố.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu cùng nấu một nồi lẩu Việt Nam nóng hổi tại nhà, tham gia xưởng nặn gốm truyền thống và ghé thăm Bảo tàng Mỹ thuật Quốc gia vì những hoạt động trong nhà này sẽ giúp chúng mình giữ ấm đồng thời mang lại cho cậu cơ hội tuyệt vời để trải nghiệm văn hóa địa phương. Mẹ tớ cũng rất hào hứng muốn dạy cậu cách làm món nem rán giòn truyền thống ngay trong căn bếp của gia đình.\n\nCuối cùng, hãy nhớ mua một hộp trà nhân sâm Hàn Quốc hoặc rong biển nướng tặng bố mẹ tớ vì cả bố và mẹ tớ đều thích uống trà thảo mộc nóng vào mỗi buổi sáng và rất trân trọng những sản phẩm truyền thống tốt cho sức khỏe từ Hàn Quốc. Cậu đừng mua thứ gì đắt tiền nhé vì chính chuyến thăm của cậu đã là một món quà tuyệt vời đối với gia đình tớ rồi.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Gia đình tớ và tớ rất nóng lòng được chào đón cậu tại đây. Hồi âm sớm cho tớ nhé.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Min-ji,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your winter holiday visit to Vietnam.\n\nTo begin with, you could consider packing some warm sweaters, hoodies, jeans, and a medium-weight jacket instead of heavy snow coats because winter in my city is much milder than the freezing winter in Korea, with temperatures usually around 15 to 20 degrees Celsius. You should also bring a light scarf and comfortable sneakers for walking around the city.\n\nSecond, it would be a good idea to cook a steaming Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum because these indoor activities will keep us warm while giving you a great chance to experience local culture. My mom is also very excited to teach you how to make crispy fried spring rolls in our kitchen.\n\nFinally, remember to buy a box of Korean ginseng tea or roasted seaweed for my parents because both my mom and dad enjoy drinking hot herbal tea every morning and really appreciate healthy traditional products from Korea. Please do not buy anything expensive because your visit itself is already a wonderful gift for our family.\n\nI hope you find my suggestions helpful. My family and I cannot wait to welcome you here. Write back soon.\n\nBest wishes,",
+            "text": "Dear Min-ji,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your winter holiday visit to Vietnam.\n\nTo begin with, you could consider packing some warm sweaters, hoodies, jeans, and a medium-weight jacket instead of heavy snow coats because winter in my city is much milder than the freezing winter in Korea, with temperatures usually around 15 to 20 degrees Celsius. You should also bring a light scarf and comfortable sneakers for walking around the city.\n\nSecond, it would be a good idea to cook a hot Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum because these indoor activities will keep us warm while giving you a great chance to experience local culture. My mom is also very excited to teach you how to make crispy fried spring rolls in our kitchen.\n\nFinally, remember to buy a box of Korean ginseng tea or roasted seaweed for my parents because both my mom and dad enjoy drinking hot herbal tea every morning and really appreciate healthy traditional products from Korea. Please do not buy anything expensive because your visit itself is already a wonderful gift for our family.\n\nI hope you find my suggestions helpful. My family and I cannot wait to welcome you here. Write back soon.\n\nBest wishes,",
             "translation": "Min-ji thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm Việt Nam vào kỳ nghỉ đông này.\n\nĐầu tiên, cậu có thể cân nhắc việc mang theo một vài chiếc áo len ấm, áo hoodie, quần bò và một chiếc áo khoác vừa thay vì áo phao đi tuyết dày vì mùa đông ở thành phố của tớ ôn hòa hơn nhiều so với mùa đông giá lạnh ở Hàn Quốc, với nhiệt độ thường vào khoảng 15 đến 20 độ C. Cậu cũng nên mang theo một chiếc khăn quàng mỏng và đôi giày thể thao êm chân để đi dạo quanh thành phố.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu cùng nấu một nồi lẩu Việt Nam nóng hổi tại nhà, tham gia xưởng nặn gốm truyền thống và ghé thăm Bảo tàng Mỹ thuật Quốc gia vì những hoạt động trong nhà này sẽ giúp chúng mình giữ ấm đồng thời mang lại cho cậu cơ hội tuyệt vời để trải nghiệm văn hóa địa phương. Mẹ tớ cũng rất hào hứng muốn dạy cậu cách làm món nem rán giòn truyền thống ngay trong căn bếp của gia đình.\n\nCuối cùng, hãy nhớ mua một hộp trà nhân sâm Hàn Quốc hoặc rong biển nướng tặng bố mẹ tớ vì cả bố và mẹ tớ đều thích uống trà thảo mộc nóng vào mỗi buổi sáng và rất trân trọng những sản phẩm truyền thống tốt cho sức khỏe từ Hàn Quốc. Cậu đừng mua thứ gì đắt tiền nhé vì chính chuyến thăm của cậu đã là một món quà tuyệt vời đối với gia đình tớ rồi.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Gia đình tớ và tớ rất nóng lòng được chào đón cậu tại đây. Hồi âm sớm cho tớ nhé.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 234,
             "key_structures": [
@@ -6911,15 +6911,15 @@ const LETTERS_DATA = [
                 "vi": "áo khoác cản gió độ dày vừa phải"
               },
               {
-                "en": "chilly and breezy in the evening",
+                "en": "cool and windy in the evening",
                 "vi": "se lạnh và có gió vào buổi tối"
               }
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Min-ji,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your winter holiday visit to Vietnam.\n\nTo begin with, you could consider ***packing some warm sweaters, hoodies, jeans, and a medium-weight jacket instead of heavy snow coats*** because winter in my city is much milder than the freezing winter in Korea, with temperatures usually around 15 to 20 degrees Celsius. You should also bring a light scarf and comfortable sneakers for walking around the city.\n\nSecond, it would be a good idea to ***cook a steaming Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum*** because these indoor activities will keep us warm while giving you a great chance to experience local culture. My mom is also very excited to teach you how to make crispy fried spring rolls in our kitchen.\n\nFinally, remember to ***buy a box of Korean ginseng tea or roasted seaweed for my parents*** because both my mom and dad enjoy drinking hot herbal tea every morning and really appreciate healthy traditional products from Korea. Please do not buy anything expensive because your visit itself is already a wonderful gift for our family.\n\nI hope you find my suggestions helpful. My family and I cannot wait to welcome you here. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Min-ji,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your winter holiday visit to Vietnam.\n\nTo begin with, you could consider ***packing some warm sweaters, hoodies, jeans, and a medium-weight jacket instead of heavy snow coats*** because winter in my city is much milder than the freezing winter in Korea, with temperatures usually around 15 to 20 degrees Celsius. You should also bring a light scarf and comfortable sneakers for walking around the city.\n\nSecond, it would be a good idea to ***cook a hot Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum*** because these indoor activities will keep us warm while giving you a great chance to experience local culture. My mom is also very excited to teach you how to make crispy fried spring rolls in our kitchen.\n\nFinally, remember to ***buy a box of Korean ginseng tea or roasted seaweed for my parents*** because both my mom and dad enjoy drinking hot herbal tea every morning and really appreciate healthy traditional products from Korea. Please do not buy anything expensive because your visit itself is already a wonderful gift for our family.\n\nI hope you find my suggestions helpful. My family and I cannot wait to welcome you here. Write back soon.\n\nBest wishes,",
             "letter_vi": "Min-ji thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm Việt Nam vào kỳ nghỉ đông này.\n\nĐầu tiên, cậu có thể cân nhắc việc ***mang theo một vài chiếc áo len ấm, áo hoodie, quần bò và một chiếc áo khoác vừa thay vì áo phao đi tuyết dày*** vì mùa đông ở thành phố của tớ ôn hòa hơn nhiều so với mùa đông giá lạnh ở Hàn Quốc, với nhiệt độ thường vào khoảng 15 đến 20 độ C. Cậu cũng nên mang theo một chiếc khăn quàng mỏng và đôi giày thể thao êm chân để đi dạo quanh thành phố.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***cùng nấu một nồi lẩu Việt Nam nóng hổi tại nhà, tham gia xưởng nặn gốm truyền thống và ghé thăm Bảo tàng Mỹ thuật Quốc gia*** vì những hoạt động trong nhà này sẽ giúp chúng mình giữ ấm đồng thời mang lại cho cậu cơ hội tuyệt vời để trải nghiệm văn hóa địa phương. Mẹ tớ cũng rất hào hứng muốn dạy cậu cách làm món nem rán giòn truyền thống ngay trong căn bếp của gia đình.\n\nCuối cùng, hãy nhớ ***mua một hộp trà nhân sâm Hàn Quốc hoặc rong biển nướng tặng bố mẹ tớ*** vì cả bố và mẹ tớ đều thích uống trà thảo mộc nóng vào mỗi buổi sáng và rất trân trọng những sản phẩm truyền thống tốt cho sức khỏe từ Hàn Quốc. Cậu đừng mua thứ gì đắt tiền nhé vì chính chuyến thăm của cậu đã là một món quà tuyệt vời đối với gia đình tớ rồi.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Gia đình tớ và tớ rất nóng lòng được chào đón cậu tại đây. Hồi âm sớm cho tớ nhé.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Min-ji,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your winter holiday visit to Vietnam.\n\nTo begin with, you could consider ***packing some warm sweaters, hoodies, jeans, and a medium-weight jacket instead of heavy snow coats*** because winter in my city is much milder than the freezing winter in Korea, with temperatures usually around 15 to 20 degrees Celsius. You should also bring a light scarf and comfortable sneakers for walking around the city.\n\nSecond, it would be a good idea to ***cook a steaming Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum*** because these indoor activities will keep us warm while giving you a great chance to experience local culture. My mom is also very excited to teach you how to make crispy fried spring rolls in our kitchen.\n\nFinally, remember to ***buy a box of Korean ginseng tea or roasted seaweed for my parents*** because both my mom and dad enjoy drinking hot herbal tea every morning and really appreciate healthy traditional products from Korea. Please do not buy anything expensive because your visit itself is already a wonderful gift for our family.\n\nI hope you find my suggestions helpful. My family and I cannot wait to welcome you here. Write back soon.\n\nBest wishes,",
+            "text": "Dear Min-ji,\n\nThanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your winter holiday visit to Vietnam.\n\nTo begin with, you could consider ***packing some warm sweaters, hoodies, jeans, and a medium-weight jacket instead of heavy snow coats*** because winter in my city is much milder than the freezing winter in Korea, with temperatures usually around 15 to 20 degrees Celsius. You should also bring a light scarf and comfortable sneakers for walking around the city.\n\nSecond, it would be a good idea to ***cook a hot Vietnamese hotpot at home, join a traditional pottery-making workshop, and visit the National Fine Arts Museum*** because these indoor activities will keep us warm while giving you a great chance to experience local culture. My mom is also very excited to teach you how to make crispy fried spring rolls in our kitchen.\n\nFinally, remember to ***buy a box of Korean ginseng tea or roasted seaweed for my parents*** because both my mom and dad enjoy drinking hot herbal tea every morning and really appreciate healthy traditional products from Korea. Please do not buy anything expensive because your visit itself is already a wonderful gift for our family.\n\nI hope you find my suggestions helpful. My family and I cannot wait to welcome you here. Write back soon.\n\nBest wishes,",
             "translation": "Min-ji thân mến,\n\nCảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm Việt Nam vào kỳ nghỉ đông này.\n\nĐầu tiên, cậu có thể cân nhắc việc ***mang theo một vài chiếc áo len ấm, áo hoodie, quần bò và một chiếc áo khoác vừa thay vì áo phao đi tuyết dày*** vì mùa đông ở thành phố của tớ ôn hòa hơn nhiều so với mùa đông giá lạnh ở Hàn Quốc, với nhiệt độ thường vào khoảng 15 đến 20 độ C. Cậu cũng nên mang theo một chiếc khăn quàng mỏng và đôi giày thể thao êm chân để đi dạo quanh thành phố.\n\nThứ hai, sẽ là một ý kiến hay nếu cậu ***cùng nấu một nồi lẩu Việt Nam nóng hổi tại nhà, tham gia xưởng nặn gốm truyền thống và ghé thăm Bảo tàng Mỹ thuật Quốc gia*** vì những hoạt động trong nhà này sẽ giúp chúng mình giữ ấm đồng thời mang lại cho cậu cơ hội tuyệt vời để trải nghiệm văn hóa địa phương. Mẹ tớ cũng rất hào hứng muốn dạy cậu cách làm món nem rán giòn truyền thống ngay trong căn bếp của gia đình.\n\nCuối cùng, hãy nhớ ***mua một hộp trà nhân sâm Hàn Quốc hoặc rong biển nướng tặng bố mẹ tớ*** vì cả bố và mẹ tớ đều thích uống trà thảo mộc nóng vào mỗi buổi sáng và rất trân trọng những sản phẩm truyền thống tốt cho sức khỏe từ Hàn Quốc. Cậu đừng mua thứ gì đắt tiền nhé vì chính chuyến thăm của cậu đã là một món quà tuyệt vời đối với gia đình tớ rồi.\n\nTớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Gia đình tớ và tớ rất nóng lòng được chào đón cậu tại đây. Hồi âm sớm cho tớ nhé.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 234,
             "key_structures": [
@@ -6936,7 +6936,7 @@ const LETTERS_DATA = [
                 "vi": "áo khoác cản gió độ dày vừa phải"
               },
               {
-                "en": "chilly and breezy in the evening",
+                "en": "cool and windy in the evening",
                 "vi": "se lạnh và có gió vào buổi tối"
               }
             ]
@@ -7010,7 +7010,7 @@ const LETTERS_DATA = [
               "icon": "fa-sun",
               "options": [
                 {
-                  "action_en": "visiting from 2 to 7 July is a great choice, as our area hosts many vibrant summer festivals and coastal activities during the first week of July",
+                  "action_en": "visiting from 2 to 7 July is a great choice, as our area hosts many lively summer festivals and coastal activities during the first week of July",
                   "action_vi": "ghé thăm từ ngày 2 đến ngày 7 tháng 7 là một lựa chọn tuyệt vời, do khu vực của chúng tôi tổ chức nhiều lễ hội mùa hè sôi động và các hoạt động ven biển trong tuần đầu tháng 7",
                   "reason_en": "because the weather is mostly dry and sunny, which is ideal for sightseeing, although it can be quite hot around midday.",
                   "reason_vi": "vì thời tiết chủ yếu khô ráo và có nắng đẹp, rất lý tưởng để tham quan, mặc dù buổi trưa có thể khá nóng.",
@@ -7028,7 +7028,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "the period from 2 to 7 July is a good time to travel here, especially for a group with children on summer vacation",
                   "action_vi": "khoảng thời gian từ ngày 2 đến ngày 7 tháng 7 là thời điểm tốt để đi du lịch tại đây, đặc biệt đối với một đoàn có trẻ nhỏ đang nghỉ hè",
-                  "reason_en": "because the mornings and late afternoons are warm and bright, allowing your group to enjoy outdoor excursions comfortably.",
+                  "reason_en": "because the mornings and late afternoons are warm and bright, allowing your group to enjoy outdoor trips comfortably.",
                   "reason_vi": "vì buổi sáng và cuối buổi chiều ấm áp, nắng đẹp, cho phép đoàn của bà thoải mái tận hưởng các chuyến dã ngoại ngoài trời.",
                   "expansion_1_en": "Your group can schedule indoor shopping or rest at the hotel between 12:00 pm and 2:30 pm to avoid the afternoon heat.",
                   "expansion_1_vi": "Đoàn của bà có thể sắp xếp mua sắm trong nhà hoặc nghỉ ngơi tại khách sạn từ 12 giờ trưa đến 2 giờ 30 chiều để tránh nắng gắt."
@@ -7042,9 +7042,9 @@ const LETTERS_DATA = [
               "icon": "fa-hotel",
               "options": [
                 {
-                  "action_en": "regarding the Habana Hotel, it is a reputable four-star hotel in the city center that offers spacious interconnecting family rooms and a daily international buffet breakfast",
+                  "action_en": "regarding the Habana Hotel, it is a well-known four-star hotel in the city center that offers spacious large family rooms and a daily international buffet breakfast",
                   "action_vi": "về Khách sạn Habana, đây là một khách sạn bốn sao uy tín nằm ở trung tâm thành phố, cung cấp các phòng gia đình thông nhau rộng rãi và bữa sáng tự chọn quốc tế hàng ngày",
-                  "reason_en": "because it is well known for its spotless rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups.",
+                  "reason_en": "because it is well known for its very clean rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups.",
                   "reason_vi": "vì khách sạn này nổi tiếng với phòng ốc sạch sẽ, nhân viên giao tiếp tiếng Anh thân thiện và dịch vụ thuê xe minibus riêng rất thuận tiện cho các đoàn khách đông người.",
                   "expansion_1_en": "Moreover, the hotel offers a 15% discount when a group books five or more rooms together.",
                   "expansion_1_vi": "Hơn nữa, khách sạn còn giảm giá 15% khi đoàn đặt từ năm phòng trở lên cùng lúc."
@@ -7076,7 +7076,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "for shopping, I highly recommend visiting Vincom Center and Aeon Mall, which are only a ten-minute taxi ride from the Habana Hotel",
                   "action_vi": "về việc mua sắm, tôi đặc biệt gợi ý đoàn ghé thăm Vincom Center và Aeon Mall, chỉ cách Khách sạn Habana mười phút đi taxi",
-                  "reason_en": "because these two modern malls offer hundreds of international fashion brands, local handicraft souvenirs, and spacious air-conditioned food courts.",
+                  "reason_en": "because these two modern malls offer hundreds of international fashion brands, local handmade souvenirs, and spacious air-conditioned food courts.",
                   "reason_vi": "vì hai trung tâm thương mại hiện đại này có hàng trăm thương hiệu thời trang quốc tế, quà lưu niệm thủ công địa phương và khu ẩm thực có điều hòa mát mẻ, rộng rãi.",
                   "expansion_1_en": "Both malls also provide tax-refund counters for foreign tourists and comfortable lounge areas for adults to rest.",
                   "expansion_1_vi": "Cả hai trung tâm thương mại đều có quầy hoàn thuế cho du khách nước ngoài và khu vực ghế nghỉ thoải mái cho người lớn."
@@ -7118,7 +7118,7 @@ const LETTERS_DATA = [
           ],
           "vocab": [
             {
-              "en": "vibrant summer festivals",
+              "en": "lively summer festivals",
               "vi": "các lễ hội mùa hè sôi động",
               "category": "1. Thời điểm 2–7/7 (Timing in early July)"
             },
@@ -7133,7 +7133,7 @@ const LETTERS_DATA = [
               "category": "1. Thời điểm 2–7/7 (Timing in early July)"
             },
             {
-              "en": "interconnecting family rooms",
+              "en": "large family rooms",
               "vi": "các phòng gia đình thông nhau",
               "category": "2. Khách sạn Habana (The Habana Hotel)"
             },
@@ -7158,7 +7158,7 @@ const LETTERS_DATA = [
               "category": "3. Trung tâm mua sắm (Shopping malls)"
             },
             {
-              "en": "local handicraft souvenirs",
+              "en": "local handmade souvenirs",
               "vi": "quà lưu niệm thủ công địa phương",
               "category": "3. Trung tâm mua sắm (Shopping malls)"
             },
@@ -7185,14 +7185,14 @@ const LETTERS_DATA = [
             "sign_off": "Yours sincerely,"
           },
           "sample_b1": {
-            "letter_en": "Dear Mrs. Davidson,\n\nThank you for your email regarding your group’s upcoming trip from 2 to 7 July. After reading your email, I would be delighted to provide you with some helpful local information and suggestions for the 12 adults and 4 children.\n\nTo begin with, visiting from 2 to 7 July is a great choice, as our area hosts many vibrant summer festivals and coastal activities during the first week of July because the weather is mostly dry and sunny, which is ideal for sightseeing, although it can be quite hot around midday. Therefore, I advise the 12 adults and 4 children to pack light cotton clothes, sun hats, and sunscreen.\n\nSecond, regarding the Habana Hotel, it is a reputable four-star hotel in the city center that offers spacious interconnecting family rooms and a daily international buffet breakfast because it is well known for its spotless rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups. Moreover, the hotel offers a 15% discount when a group books five or more rooms together.\n\nNext, for shopping, I highly recommend visiting Vincom Center and Aeon Mall, which are only a ten-minute taxi ride from the Habana Hotel because these two modern malls offer hundreds of international fashion brands, local handicraft souvenirs, and spacious air-conditioned food courts. Both malls also provide tax-refund counters for foreign tourists and comfortable lounge areas for adults to rest.\n\nFinally, I suggest keeping the four children active at the Habana Hotel’s shaded kids’ swimming pool and the City Youth Sports Complex just five minutes away because the sports complex features safe indoor badminton courts, a mini football pitch, basketball hoops, and a climbing wall designed specifically for children. Certified lifeguards and sports coaches are always on duty there to ensure the children’s safety.\n\nI hope you find this information helpful for your group’s trip. Please feel free to contact me if you need any further assistance.\n\nYours sincerely,",
+            "letter_en": "Dear Mrs. Davidson,\n\nThank you for your email regarding your group’s upcoming trip from 2 to 7 July. After reading your email, I would be delighted to provide you with some helpful local information and suggestions for the 12 adults and 4 children.\n\nTo begin with, visiting from 2 to 7 July is a great choice, as our area hosts many lively summer festivals and coastal activities during the first week of July because the weather is mostly dry and sunny, which is ideal for sightseeing, although it can be quite hot around midday. Therefore, I advise the 12 adults and 4 children to pack light cotton clothes, sun hats, and sunscreen.\n\nSecond, regarding the Habana Hotel, it is a well-known four-star hotel in the city center that offers spacious large family rooms and a daily international buffet breakfast because it is well known for its very clean rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups. Moreover, the hotel offers a 15% discount when a group books five or more rooms together.\n\nNext, for shopping, I highly recommend visiting Vincom Center and Aeon Mall, which are only a ten-minute taxi ride from the Habana Hotel because these two modern malls offer hundreds of international fashion brands, local handmade souvenirs, and spacious air-conditioned food courts. Both malls also provide tax-refund counters for foreign tourists and comfortable lounge areas for adults to rest.\n\nFinally, I suggest keeping the four children active at the Habana Hotel’s shaded kids’ swimming pool and the City Youth Sports Complex just five minutes away because the sports complex features safe indoor badminton courts, a mini football pitch, basketball hoops, and a climbing wall designed specifically for children. Certified lifeguards and sports coaches are always on duty there to ensure the children’s safety.\n\nI hope you find this information helpful for your group’s trip. Please feel free to contact me if you need any further assistance.\n\nYours sincerely,",
             "letter_vi": "Kính gửi bà Davidson,\n\nCảm ơn email của bà liên quan đến chuyến đi sắp tới của đoàn từ ngày 2 đến ngày 7 tháng 7. Sau khi đọc thư của bà, tôi rất vui được cung cấp một số thông tin địa phương và gợi ý hữu ích cho đoàn gồm 12 người lớn và 4 trẻ em.\n\nĐầu tiên, ghé thăm từ ngày 2 đến ngày 7 tháng 7 là một lựa chọn tuyệt vời, do khu vực của chúng tôi tổ chức nhiều lễ hội mùa hè sôi động và các hoạt động ven biển trong tuần đầu tháng 7 vì thời tiết chủ yếu khô ráo và có nắng đẹp, rất lý tưởng để tham quan, mặc dù buổi trưa có thể khá nóng. Do đó, tôi khuyên 12 người lớn và 4 trẻ em trong đoàn nên mang theo quần áo cotton thoáng mát, mũ rộng vành và kem chống nắng.\n\nThứ hai, về Khách sạn Habana, đây là một khách sạn bốn sao uy tín nằm ở trung tâm thành phố, cung cấp các phòng gia đình thông nhau rộng rãi và bữa sáng tự chọn quốc tế hàng ngày vì khách sạn này nổi tiếng với phòng ốc sạch sẽ, nhân viên giao tiếp tiếng Anh thân thiện và dịch vụ thuê xe minibus riêng rất thuận tiện cho các đoàn khách đông người. Hơn nữa, khách sạn còn giảm giá 15% khi đoàn đặt từ năm phòng trở lên cùng lúc.\n\nTiếp theo, về việc mua sắm, tôi đặc biệt gợi ý đoàn ghé thăm Vincom Center và Aeon Mall, chỉ cách Khách sạn Habana mười phút đi taxi vì hai trung tâm thương mại hiện đại này có hàng trăm thương hiệu thời trang quốc tế, quà lưu niệm thủ công địa phương và khu ẩm thực có điều hòa mát mẻ, rộng rãi. Cả hai trung tâm thương mại đều có quầy hoàn thuế cho du khách nước ngoài và khu vực ghế nghỉ thoải mái cho người lớn.\n\nCuối cùng, tôi gợi ý cho 4 em nhỏ vận động tại hồ bơi trẻ em có mái che của Khách sạn Habana và Khu liên hợp Thể thao Thanh thiếu niên chỉ cách đó năm phút vì khu liên hợp thể thao này có sân cầu lông trong nhà an toàn, sân bóng đá mini, sân bóng rổ và tường leo núi được thiết kế dành riêng cho trẻ em. Các nhân viên cứu hộ và huấn luyện viên thể thao có chứng chỉ luôn túc trực tại đó để đảm bảo an toàn cho các bé.\n\nTôi hy vọng bà thấy những thông tin này hữu ích cho chuyến đi của đoàn. Xin vui lòng liên hệ với tôi nếu bà cần hỗ trợ gì thêm.\n\nTrân trọng,",
-            "text": "Dear Mrs. Davidson,\n\nThank you for your email regarding your group’s upcoming trip from 2 to 7 July. After reading your email, I would be delighted to provide you with some helpful local information and suggestions for the 12 adults and 4 children.\n\nTo begin with, visiting from 2 to 7 July is a great choice, as our area hosts many vibrant summer festivals and coastal activities during the first week of July because the weather is mostly dry and sunny, which is ideal for sightseeing, although it can be quite hot around midday. Therefore, I advise the 12 adults and 4 children to pack light cotton clothes, sun hats, and sunscreen.\n\nSecond, regarding the Habana Hotel, it is a reputable four-star hotel in the city center that offers spacious interconnecting family rooms and a daily international buffet breakfast because it is well known for its spotless rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups. Moreover, the hotel offers a 15% discount when a group books five or more rooms together.\n\nNext, for shopping, I highly recommend visiting Vincom Center and Aeon Mall, which are only a ten-minute taxi ride from the Habana Hotel because these two modern malls offer hundreds of international fashion brands, local handicraft souvenirs, and spacious air-conditioned food courts. Both malls also provide tax-refund counters for foreign tourists and comfortable lounge areas for adults to rest.\n\nFinally, I suggest keeping the four children active at the Habana Hotel’s shaded kids’ swimming pool and the City Youth Sports Complex just five minutes away because the sports complex features safe indoor badminton courts, a mini football pitch, basketball hoops, and a climbing wall designed specifically for children. Certified lifeguards and sports coaches are always on duty there to ensure the children’s safety.\n\nI hope you find this information helpful for your group’s trip. Please feel free to contact me if you need any further assistance.\n\nYours sincerely,",
+            "text": "Dear Mrs. Davidson,\n\nThank you for your email regarding your group’s upcoming trip from 2 to 7 July. After reading your email, I would be delighted to provide you with some helpful local information and suggestions for the 12 adults and 4 children.\n\nTo begin with, visiting from 2 to 7 July is a great choice, as our area hosts many lively summer festivals and coastal activities during the first week of July because the weather is mostly dry and sunny, which is ideal for sightseeing, although it can be quite hot around midday. Therefore, I advise the 12 adults and 4 children to pack light cotton clothes, sun hats, and sunscreen.\n\nSecond, regarding the Habana Hotel, it is a well-known four-star hotel in the city center that offers spacious large family rooms and a daily international buffet breakfast because it is well known for its very clean rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups. Moreover, the hotel offers a 15% discount when a group books five or more rooms together.\n\nNext, for shopping, I highly recommend visiting Vincom Center and Aeon Mall, which are only a ten-minute taxi ride from the Habana Hotel because these two modern malls offer hundreds of international fashion brands, local handmade souvenirs, and spacious air-conditioned food courts. Both malls also provide tax-refund counters for foreign tourists and comfortable lounge areas for adults to rest.\n\nFinally, I suggest keeping the four children active at the Habana Hotel’s shaded kids’ swimming pool and the City Youth Sports Complex just five minutes away because the sports complex features safe indoor badminton courts, a mini football pitch, basketball hoops, and a climbing wall designed specifically for children. Certified lifeguards and sports coaches are always on duty there to ensure the children’s safety.\n\nI hope you find this information helpful for your group’s trip. Please feel free to contact me if you need any further assistance.\n\nYours sincerely,",
             "translation": "Kính gửi bà Davidson,\n\nCảm ơn email của bà liên quan đến chuyến đi sắp tới của đoàn từ ngày 2 đến ngày 7 tháng 7. Sau khi đọc thư của bà, tôi rất vui được cung cấp một số thông tin địa phương và gợi ý hữu ích cho đoàn gồm 12 người lớn và 4 trẻ em.\n\nĐầu tiên, ghé thăm từ ngày 2 đến ngày 7 tháng 7 là một lựa chọn tuyệt vời, do khu vực của chúng tôi tổ chức nhiều lễ hội mùa hè sôi động và các hoạt động ven biển trong tuần đầu tháng 7 vì thời tiết chủ yếu khô ráo và có nắng đẹp, rất lý tưởng để tham quan, mặc dù buổi trưa có thể khá nóng. Do đó, tôi khuyên 12 người lớn và 4 trẻ em trong đoàn nên mang theo quần áo cotton thoáng mát, mũ rộng vành và kem chống nắng.\n\nThứ hai, về Khách sạn Habana, đây là một khách sạn bốn sao uy tín nằm ở trung tâm thành phố, cung cấp các phòng gia đình thông nhau rộng rãi và bữa sáng tự chọn quốc tế hàng ngày vì khách sạn này nổi tiếng với phòng ốc sạch sẽ, nhân viên giao tiếp tiếng Anh thân thiện và dịch vụ thuê xe minibus riêng rất thuận tiện cho các đoàn khách đông người. Hơn nữa, khách sạn còn giảm giá 15% khi đoàn đặt từ năm phòng trở lên cùng lúc.\n\nTiếp theo, về việc mua sắm, tôi đặc biệt gợi ý đoàn ghé thăm Vincom Center và Aeon Mall, chỉ cách Khách sạn Habana mười phút đi taxi vì hai trung tâm thương mại hiện đại này có hàng trăm thương hiệu thời trang quốc tế, quà lưu niệm thủ công địa phương và khu ẩm thực có điều hòa mát mẻ, rộng rãi. Cả hai trung tâm thương mại đều có quầy hoàn thuế cho du khách nước ngoài và khu vực ghế nghỉ thoải mái cho người lớn.\n\nCuối cùng, tôi gợi ý cho 4 em nhỏ vận động tại hồ bơi trẻ em có mái che của Khách sạn Habana và Khu liên hợp Thể thao Thanh thiếu niên chỉ cách đó năm phút vì khu liên hợp thể thao này có sân cầu lông trong nhà an toàn, sân bóng đá mini, sân bóng rổ và tường leo núi được thiết kế dành riêng cho trẻ em. Các nhân viên cứu hộ và huấn luyện viên thể thao có chứng chỉ luôn túc trực tại đó để đảm bảo an toàn cho các bé.\n\nTôi hy vọng bà thấy những thông tin này hữu ích cho chuyến đi của đoàn. Xin vui lòng liên hệ với tôi nếu bà cần hỗ trợ gì thêm.\n\nTrân trọng,",
             "word_count": 324,
             "key_structures": [
               {
-                "en": "vibrant summer festivals",
+                "en": "lively summer festivals",
                 "vi": "các lễ hội mùa hè sôi động"
               },
               {
@@ -7204,20 +7204,20 @@ const LETTERS_DATA = [
                 "vi": "quần áo cotton thoáng mát và kem chống nắng"
               },
               {
-                "en": "interconnecting family rooms",
+                "en": "large family rooms",
                 "vi": "các phòng gia đình thông nhau"
               }
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Mrs. Davidson,\n\nThank you for your email regarding your group’s upcoming trip from 2 to 7 July. After reading your email, I would be delighted to provide you with some helpful local information and suggestions for the 12 adults and 4 children.\n\nTo begin with, ***visiting from 2 to 7 July is a great choice, as our area hosts many vibrant summer festivals and coastal activities during the first week of July*** because the weather is mostly dry and sunny, which is ideal for sightseeing, although it can be quite hot around midday. Therefore, I advise the 12 adults and 4 children to pack light cotton clothes, sun hats, and sunscreen.\n\nSecond, ***regarding the Habana Hotel, it is a reputable four-star hotel in the city center that offers spacious interconnecting family rooms and a daily international buffet breakfast*** because it is well known for its spotless rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups. Moreover, the hotel offers a 15% discount when a group books five or more rooms together.\n\nNext, ***for shopping, I highly recommend visiting Vincom Center and Aeon Mall, which are only a ten-minute taxi ride from the Habana Hotel*** because these two modern malls offer hundreds of international fashion brands, local handicraft souvenirs, and spacious air-conditioned food courts. Both malls also provide tax-refund counters for foreign tourists and comfortable lounge areas for adults to rest.\n\nFinally, ***I suggest keeping the four children active at the Habana Hotel’s shaded kids’ swimming pool and the City Youth Sports Complex just five minutes away*** because the sports complex features safe indoor badminton courts, a mini football pitch, basketball hoops, and a climbing wall designed specifically for children. Certified lifeguards and sports coaches are always on duty there to ensure the children’s safety.\n\nI hope you find this information helpful for your group’s trip. Please feel free to contact me if you need any further assistance.\n\nYours sincerely,",
+            "letter_en": "Dear Mrs. Davidson,\n\nThank you for your email regarding your group’s upcoming trip from 2 to 7 July. After reading your email, I would be delighted to provide you with some helpful local information and suggestions for the 12 adults and 4 children.\n\nTo begin with, ***visiting from 2 to 7 July is a great choice, as our area hosts many lively summer festivals and coastal activities during the first week of July*** because the weather is mostly dry and sunny, which is ideal for sightseeing, although it can be quite hot around midday. Therefore, I advise the 12 adults and 4 children to pack light cotton clothes, sun hats, and sunscreen.\n\nSecond, ***regarding the Habana Hotel, it is a well-known four-star hotel in the city center that offers spacious large family rooms and a daily international buffet breakfast*** because it is well known for its very clean rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups. Moreover, the hotel offers a 15% discount when a group books five or more rooms together.\n\nNext, ***for shopping, I highly recommend visiting Vincom Center and Aeon Mall, which are only a ten-minute taxi ride from the Habana Hotel*** because these two modern malls offer hundreds of international fashion brands, local handmade souvenirs, and spacious air-conditioned food courts. Both malls also provide tax-refund counters for foreign tourists and comfortable lounge areas for adults to rest.\n\nFinally, ***I suggest keeping the four children active at the Habana Hotel’s shaded kids’ swimming pool and the City Youth Sports Complex just five minutes away*** because the sports complex features safe indoor badminton courts, a mini football pitch, basketball hoops, and a climbing wall designed specifically for children. Certified lifeguards and sports coaches are always on duty there to ensure the children’s safety.\n\nI hope you find this information helpful for your group’s trip. Please feel free to contact me if you need any further assistance.\n\nYours sincerely,",
             "letter_vi": "Kính gửi bà Davidson,\n\nCảm ơn email của bà liên quan đến chuyến đi sắp tới của đoàn từ ngày 2 đến ngày 7 tháng 7. Sau khi đọc thư của bà, tôi rất vui được cung cấp một số thông tin địa phương và gợi ý hữu ích cho đoàn gồm 12 người lớn và 4 trẻ em.\n\nĐầu tiên, ***ghé thăm từ ngày 2 đến ngày 7 tháng 7 là một lựa chọn tuyệt vời, do khu vực của chúng tôi tổ chức nhiều lễ hội mùa hè sôi động và các hoạt động ven biển trong tuần đầu tháng 7*** vì thời tiết chủ yếu khô ráo và có nắng đẹp, rất lý tưởng để tham quan, mặc dù buổi trưa có thể khá nóng. Do đó, tôi khuyên 12 người lớn và 4 trẻ em trong đoàn nên mang theo quần áo cotton thoáng mát, mũ rộng vành và kem chống nắng.\n\nThứ hai, ***về Khách sạn Habana, đây là một khách sạn bốn sao uy tín nằm ở trung tâm thành phố, cung cấp các phòng gia đình thông nhau rộng rãi và bữa sáng tự chọn quốc tế hàng ngày*** vì khách sạn này nổi tiếng với phòng ốc sạch sẽ, nhân viên giao tiếp tiếng Anh thân thiện và dịch vụ thuê xe minibus riêng rất thuận tiện cho các đoàn khách đông người. Hơn nữa, khách sạn còn giảm giá 15% khi đoàn đặt từ năm phòng trở lên cùng lúc.\n\nTiếp theo, ***về việc mua sắm, tôi đặc biệt gợi ý đoàn ghé thăm Vincom Center và Aeon Mall, chỉ cách Khách sạn Habana mười phút đi taxi*** vì hai trung tâm thương mại hiện đại này có hàng trăm thương hiệu thời trang quốc tế, quà lưu niệm thủ công địa phương và khu ẩm thực có điều hòa mát mẻ, rộng rãi. Cả hai trung tâm thương mại đều có quầy hoàn thuế cho du khách nước ngoài và khu vực ghế nghỉ thoải mái cho người lớn.\n\nCuối cùng, ***tôi gợi ý cho 4 em nhỏ vận động tại hồ bơi trẻ em có mái che của Khách sạn Habana và Khu liên hợp Thể thao Thanh thiếu niên chỉ cách đó năm phút*** vì khu liên hợp thể thao này có sân cầu lông trong nhà an toàn, sân bóng đá mini, sân bóng rổ và tường leo núi được thiết kế dành riêng cho trẻ em. Các nhân viên cứu hộ và huấn luyện viên thể thao có chứng chỉ luôn túc trực tại đó để đảm bảo an toàn cho các bé.\n\nTôi hy vọng bà thấy những thông tin này hữu ích cho chuyến đi của đoàn. Xin vui lòng liên hệ với tôi nếu bà cần hỗ trợ gì thêm.\n\nTrân trọng,",
-            "text": "Dear Mrs. Davidson,\n\nThank you for your email regarding your group’s upcoming trip from 2 to 7 July. After reading your email, I would be delighted to provide you with some helpful local information and suggestions for the 12 adults and 4 children.\n\nTo begin with, ***visiting from 2 to 7 July is a great choice, as our area hosts many vibrant summer festivals and coastal activities during the first week of July*** because the weather is mostly dry and sunny, which is ideal for sightseeing, although it can be quite hot around midday. Therefore, I advise the 12 adults and 4 children to pack light cotton clothes, sun hats, and sunscreen.\n\nSecond, ***regarding the Habana Hotel, it is a reputable four-star hotel in the city center that offers spacious interconnecting family rooms and a daily international buffet breakfast*** because it is well known for its spotless rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups. Moreover, the hotel offers a 15% discount when a group books five or more rooms together.\n\nNext, ***for shopping, I highly recommend visiting Vincom Center and Aeon Mall, which are only a ten-minute taxi ride from the Habana Hotel*** because these two modern malls offer hundreds of international fashion brands, local handicraft souvenirs, and spacious air-conditioned food courts. Both malls also provide tax-refund counters for foreign tourists and comfortable lounge areas for adults to rest.\n\nFinally, ***I suggest keeping the four children active at the Habana Hotel’s shaded kids’ swimming pool and the City Youth Sports Complex just five minutes away*** because the sports complex features safe indoor badminton courts, a mini football pitch, basketball hoops, and a climbing wall designed specifically for children. Certified lifeguards and sports coaches are always on duty there to ensure the children’s safety.\n\nI hope you find this information helpful for your group’s trip. Please feel free to contact me if you need any further assistance.\n\nYours sincerely,",
+            "text": "Dear Mrs. Davidson,\n\nThank you for your email regarding your group’s upcoming trip from 2 to 7 July. After reading your email, I would be delighted to provide you with some helpful local information and suggestions for the 12 adults and 4 children.\n\nTo begin with, ***visiting from 2 to 7 July is a great choice, as our area hosts many lively summer festivals and coastal activities during the first week of July*** because the weather is mostly dry and sunny, which is ideal for sightseeing, although it can be quite hot around midday. Therefore, I advise the 12 adults and 4 children to pack light cotton clothes, sun hats, and sunscreen.\n\nSecond, ***regarding the Habana Hotel, it is a well-known four-star hotel in the city center that offers spacious large family rooms and a daily international buffet breakfast*** because it is well known for its very clean rooms, friendly English-speaking staff, and convenient private minibus rental service for large groups. Moreover, the hotel offers a 15% discount when a group books five or more rooms together.\n\nNext, ***for shopping, I highly recommend visiting Vincom Center and Aeon Mall, which are only a ten-minute taxi ride from the Habana Hotel*** because these two modern malls offer hundreds of international fashion brands, local handmade souvenirs, and spacious air-conditioned food courts. Both malls also provide tax-refund counters for foreign tourists and comfortable lounge areas for adults to rest.\n\nFinally, ***I suggest keeping the four children active at the Habana Hotel’s shaded kids’ swimming pool and the City Youth Sports Complex just five minutes away*** because the sports complex features safe indoor badminton courts, a mini football pitch, basketball hoops, and a climbing wall designed specifically for children. Certified lifeguards and sports coaches are always on duty there to ensure the children’s safety.\n\nI hope you find this information helpful for your group’s trip. Please feel free to contact me if you need any further assistance.\n\nYours sincerely,",
             "translation": "Kính gửi bà Davidson,\n\nCảm ơn email của bà liên quan đến chuyến đi sắp tới của đoàn từ ngày 2 đến ngày 7 tháng 7. Sau khi đọc thư của bà, tôi rất vui được cung cấp một số thông tin địa phương và gợi ý hữu ích cho đoàn gồm 12 người lớn và 4 trẻ em.\n\nĐầu tiên, ***ghé thăm từ ngày 2 đến ngày 7 tháng 7 là một lựa chọn tuyệt vời, do khu vực của chúng tôi tổ chức nhiều lễ hội mùa hè sôi động và các hoạt động ven biển trong tuần đầu tháng 7*** vì thời tiết chủ yếu khô ráo và có nắng đẹp, rất lý tưởng để tham quan, mặc dù buổi trưa có thể khá nóng. Do đó, tôi khuyên 12 người lớn và 4 trẻ em trong đoàn nên mang theo quần áo cotton thoáng mát, mũ rộng vành và kem chống nắng.\n\nThứ hai, ***về Khách sạn Habana, đây là một khách sạn bốn sao uy tín nằm ở trung tâm thành phố, cung cấp các phòng gia đình thông nhau rộng rãi và bữa sáng tự chọn quốc tế hàng ngày*** vì khách sạn này nổi tiếng với phòng ốc sạch sẽ, nhân viên giao tiếp tiếng Anh thân thiện và dịch vụ thuê xe minibus riêng rất thuận tiện cho các đoàn khách đông người. Hơn nữa, khách sạn còn giảm giá 15% khi đoàn đặt từ năm phòng trở lên cùng lúc.\n\nTiếp theo, ***về việc mua sắm, tôi đặc biệt gợi ý đoàn ghé thăm Vincom Center và Aeon Mall, chỉ cách Khách sạn Habana mười phút đi taxi*** vì hai trung tâm thương mại hiện đại này có hàng trăm thương hiệu thời trang quốc tế, quà lưu niệm thủ công địa phương và khu ẩm thực có điều hòa mát mẻ, rộng rãi. Cả hai trung tâm thương mại đều có quầy hoàn thuế cho du khách nước ngoài và khu vực ghế nghỉ thoải mái cho người lớn.\n\nCuối cùng, ***tôi gợi ý cho 4 em nhỏ vận động tại hồ bơi trẻ em có mái che của Khách sạn Habana và Khu liên hợp Thể thao Thanh thiếu niên chỉ cách đó năm phút*** vì khu liên hợp thể thao này có sân cầu lông trong nhà an toàn, sân bóng đá mini, sân bóng rổ và tường leo núi được thiết kế dành riêng cho trẻ em. Các nhân viên cứu hộ và huấn luyện viên thể thao có chứng chỉ luôn túc trực tại đó để đảm bảo an toàn cho các bé.\n\nTôi hy vọng bà thấy những thông tin này hữu ích cho chuyến đi của đoàn. Xin vui lòng liên hệ với tôi nếu bà cần hỗ trợ gì thêm.\n\nTrân trọng,",
             "word_count": 324,
             "key_structures": [
               {
-                "en": "vibrant summer festivals",
+                "en": "lively summer festivals",
                 "vi": "các lễ hội mùa hè sôi động"
               },
               {
@@ -7229,7 +7229,7 @@ const LETTERS_DATA = [
                 "vi": "quần áo cotton thoáng mát và kem chống nắng"
               },
               {
-                "en": "interconnecting family rooms",
+                "en": "large family rooms",
                 "vi": "các phòng gia đình thông nhau"
               }
             ]
@@ -7337,7 +7337,7 @@ const LETTERS_DATA = [
           },
           "outline": {
             "salutation": "Dear Sir/Madam,",
-            "opening": "I am writing to request some information about the summer culinary course at Delight Kitchen, as I am interested in enhancing my cooking abilities and would like to learn more before making a decision.",
+            "opening": "I am writing to request some information about the summer cooking course at Delight Kitchen, as I am interested in enhancing my cooking abilities and would like to learn more before making a decision.",
             "body_points": [
               {
                 "point": "Hỏi học phí",
@@ -7497,9 +7497,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to request some information about the summer culinary course at Delight Kitchen, as I am interested in enhancing my cooking abilities and would like to learn more before making a decision.\n\nTo begin with, could you provide me with more information about the course schedule and campus locations? I need to verify whether the session hours fit comfortably around my full-time work commitments.\n\nIn addition, could you give me more details about the comprehensive tuition fees and whether necessary kitchen supplies and ingredients are fully covered?\n\nFurthermore, I would like to know more about the culinary instructors. I want to ensure that they possess extensive industry expertise and demonstrate a patient and supportive teaching approach for beginners.\n\nFinally, I am also wondering about the cooking course. Could you share what specific Vietnamese and Western dishes students will learn to make?\n\nThank you for your time. I look forward to hearing from you.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to request some information about the summer cooking course at Delight Kitchen, as I am interested in enhancing my cooking abilities and would like to learn more before making a decision.\n\nTo begin with, could you provide me with more information about the course schedule and campus locations? I need to verify whether the session hours fit comfortably around my full-time work commitments.\n\nIn addition, could you give me more details about the comprehensive tuition fees and whether necessary kitchen supplies and ingredients are fully covered?\n\nFurthermore, I would like to know more about the cooking instructors. I want to ensure that they possess extensive industry expertise and demonstrate a patient and supportive teaching approach for beginners.\n\nFinally, I am also wondering about the cooking course. Could you share what specific Vietnamese and Western dishes students will learn to make?\n\nThank you for your time. I look forward to hearing from you.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Ban Tuyển sinh,\n\nTôi viết thư này để xin một số thông tin về khóa học nấu ăn mùa hè tại Delight Kitchen, vì tôi rất quan tâm đến việc nâng cao kỹ năng nấu nướng của mình và muốn tìm hiểu thêm trước khi đưa ra quyết định.\n\nTrước hết, xin quý trung tâm vui lòng cung cấp thêm thông tin về thời khóa biểu khóa học và địa điểm học? Tôi cần kiểm tra xem giờ học có phù hợp với lịch làm việc toàn thời gian của mình hay không.\n\nThêm vào đó, xin quý trung tâm cho tôi biết thêm chi tiết về tổng học phí và liệu các dụng cụ làm bếp cùng nguyên liệu cần thiết đã được bao gồm hoàn toàn hay chưa?\n\nHơn nữa, tôi muốn tìm hiểu thêm về các giảng viên ẩm thực. Tôi muốn đảm bảo rằng họ có chuyên môn sâu rộng trong ngành và có phương pháp giảng dạy tận tình cho học viên mới bắt đầu.\n\nCuối cùng, tôi cũng đang băn khoăn về chương trình đào tạo. Xin vui lòng chia sẻ những món ăn Việt Nam và phương Tây cụ thể mà giáo trình thực hành chú trọng?\n\nCảm ơn vì thời gian của quý trung tâm. Tôi rất mong sớm nhận được hồi âm từ quý cơ quan.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to request some information about the summer culinary course at Delight Kitchen, as I am interested in enhancing my cooking abilities and would like to learn more before making a decision.\n\nTo begin with, could you provide me with more information about the course schedule and campus locations? I need to verify whether the session hours fit comfortably around my full-time work commitments.\n\nIn addition, could you give me more details about the comprehensive tuition fees and whether necessary kitchen supplies and ingredients are fully covered?\n\nFurthermore, I would like to know more about the culinary instructors. I want to ensure that they possess extensive industry expertise and demonstrate a patient and supportive teaching approach for beginners.\n\nFinally, I am also wondering about the cooking course. Could you share what specific Vietnamese and Western dishes students will learn to make?\n\nThank you for your time. I look forward to hearing from you.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to request some information about the summer cooking course at Delight Kitchen, as I am interested in enhancing my cooking abilities and would like to learn more before making a decision.\n\nTo begin with, could you provide me with more information about the course schedule and campus locations? I need to verify whether the session hours fit comfortably around my full-time work commitments.\n\nIn addition, could you give me more details about the comprehensive tuition fees and whether necessary kitchen supplies and ingredients are fully covered?\n\nFurthermore, I would like to know more about the cooking instructors. I want to ensure that they possess extensive industry expertise and demonstrate a patient and supportive teaching approach for beginners.\n\nFinally, I am also wondering about the cooking course. Could you share what specific Vietnamese and Western dishes students will learn to make?\n\nThank you for your time. I look forward to hearing from you.\n\nYours faithfully,",
             "translation": "Kính gửi Ban Tuyển sinh,\n\nTôi viết thư này để xin một số thông tin về khóa học nấu ăn mùa hè tại Delight Kitchen, vì tôi rất quan tâm đến việc nâng cao kỹ năng nấu nướng của mình và muốn tìm hiểu thêm trước khi đưa ra quyết định.\n\nTrước hết, xin quý trung tâm vui lòng cung cấp thêm thông tin về thời khóa biểu khóa học và địa điểm học? Tôi cần kiểm tra xem giờ học có phù hợp với lịch làm việc toàn thời gian của mình hay không.\n\nThêm vào đó, xin quý trung tâm cho tôi biết thêm chi tiết về tổng học phí và liệu các dụng cụ làm bếp cùng nguyên liệu cần thiết đã được bao gồm hoàn toàn hay chưa?\n\nHơn nữa, tôi muốn tìm hiểu thêm về các giảng viên ẩm thực. Tôi muốn đảm bảo rằng họ có chuyên môn sâu rộng trong ngành và có phương pháp giảng dạy tận tình cho học viên mới bắt đầu.\n\nCuối cùng, tôi cũng đang băn khoăn về chương trình đào tạo. Xin vui lòng chia sẻ những món ăn Việt Nam và phương Tây cụ thể mà giáo trình thực hành chú trọng?\n\nCảm ơn vì thời gian của quý trung tâm. Tôi rất mong sớm nhận được hồi âm từ quý cơ quan.\n\nTrân trọng,",
             "word_count": 156,
             "key_structures": [
@@ -7550,7 +7550,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Sự minh bạch về mức học phí giúp học viên có thể an tâm quản lý ngân quỹ học tập của mình."
                 },
                 {
-                  "action_en": "I would like to inquire about the cost of the culinary training program.",
+                  "action_en": "I would like to inquire about the cost of the cooking training program.",
                   "action_vi": "Tôi muốn hỏi về chi phí của chương trình đào tạo nấu ăn.",
                   "reason_en": "The main reason is that I want to choose a course that offers good value for money without putting too much pressure on my budget.",
                   "reason_vi": "Lý do chính là tôi muốn chọn một khóa học có chất lượng tương xứng với chi phí mà không gây quá nhiều áp lực lên ngân sách.",
@@ -7621,7 +7621,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I would like to learn about the session hours and weekly cooking objectives.",
                   "action_vi": "Tôi muốn tìm hiểu về khung giờ mỗi buổi học và mục tiêu thực hành hằng tuần.",
-                  "reason_en": "This is because a practical culinary program would help me build confidence and cook delicious meals for my family.",
+                  "reason_en": "This is because a practical cooking program would help me build confidence and cook delicious meals for my family.",
                   "reason_vi": "Điều này là vì một chương trình ẩm thực thiết thực sẽ giúp tôi tự tin hơn và nấu được nhiều món ngon cho gia đình.",
                   "expansion_1_en": "I would be interested to know whether the course teaches food presentation skills and proper dining etiquette.",
                   "expansion_1_vi": "Tôi muốn biết liệu khóa học có giảng dạy nghệ thuật bài trí món ăn thẩm mỹ và nghi thức phục vụ bàn tiệc không.",
@@ -7658,7 +7658,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Học hỏi từ những đầu bếp giàu kinh nghiệm sẽ đảm bảo học viên nắm vững vệ sinh an toàn thực phẩm và kỹ năng dùng dao chuẩn xác."
                 },
                 {
-                  "action_en": "I would like to learn about the culinary background and teaching style of the instructors.",
+                  "action_en": "I would like to learn about the cooking background and teaching style of the instructors.",
                   "action_vi": "Tôi muốn tìm hiểu về nền tảng ẩm thực và phương pháp giảng dạy của các giảng viên.",
                   "reason_en": "In fact, I would feel more confident if the instructors gave students useful feedback during each cooking session.",
                   "reason_vi": "Thực tế, tôi sẽ cảm thấy tự tin hơn nếu giảng viên đưa ra nhận xét hữu ích trong từng buổi thực hành đứng bếp.",
@@ -7668,9 +7668,9 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Những nhận xét ẩm thực tận tâm trong từng công đoạn nấu sẽ giúp người mới bắt đầu điều chỉnh gia vị chuẩn xác ngay lập tức."
                 },
                 {
-                  "action_en": "Could you clarify whether the instructors are certified executive chefs or experienced culinary lecturers?",
+                  "action_en": "Could you clarify whether the instructors are certified executive chefs or experienced cooking lecturers?",
                   "action_vi": "Quý trung tâm có thể làm rõ giảng viên là các bếp trưởng điều hành có chứng chỉ hay giảng viên ẩm thực giàu kinh nghiệm không?",
-                  "reason_en": "The main reason is that I want to learn authentic cooking techniques and improve my culinary skills through professional guidance.",
+                  "reason_en": "The main reason is that I want to learn traditional cooking techniques and improve my cooking skills through professional guidance.",
                   "reason_vi": "Lý do chính là tôi muốn học các kỹ thuật nấu ăn chuẩn mực và nâng cao tay nghề thông qua sự hướng dẫn chuyên nghiệp.",
                   "expansion_1_en": "I would be interested to learn about the chefs' teaching experience and signature cooking styles.",
                   "expansion_1_vi": "Tôi rất quan tâm tìm hiểu về kinh nghiệm giảng dạy và phong cách ẩm thực đặc trưng của đội ngũ đầu bếp.",
@@ -7719,7 +7719,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I am wondering whether the cost of daily ingredients is already included in the tuition fee.",
                   "action_vi": "Tôi đang băn khoăn liệu chi phí nguyên liệu thực hành hằng ngày đã nằm trong học phí hay chưa.",
-                  "reason_en": "In fact, I would like to know if students have to pay an extra fee for imported meats, seafood, or baking supplies.",
+                  "reason_en": "In fact, I would like to know if students have to pay a extra fee for imported meats, seafood, or baking supplies.",
                   "reason_vi": "Thực tế, tôi muốn biết liệu học viên có phải đóng thêm phụ phí cho các nguyên liệu như thịt nhập khẩu, hải sản hay đồ làm bánh không.",
                   "expansion_1_en": "Clear information about ingredient expenses will help me calculate the total cost of attending the course accurately.",
                   "expansion_1_vi": "Thông tin rõ ràng về chi phí nguyên liệu sẽ giúp tôi tính toán chính xác tổng kinh phí tham gia khóa học.",
@@ -7739,11 +7739,11 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I would appreciate it if you could confirm the quality and freshness of the ingredients provided.",
                   "action_vi": "Tôi sẽ rất cảm kích nếu trung tâm xác nhận về chất lượng và độ tươi ngon của nguồn nguyên liệu được cung cấp.",
-                  "reason_en": "This is because fresh, high-quality produce is essential for learning authentic flavors and food safety standards.",
+                  "reason_en": "This is because fresh, high-quality produce is essential for learning traditional flavors and food safety standards.",
                   "reason_vi": "Điều này là vì nông sản tươi ngon, chất lượng cao là yếu tố thiết yếu để học được hương vị chuẩn xác và đảm bảo an toàn thực phẩm.",
                   "expansion_1_en": "Could you also let me know if alternative ingredients are available for students with seafood or nut allergies?",
                   "expansion_1_vi": "Trung tâm cũng có thể cho tôi biết liệu có nguyên liệu thay thế dành cho học viên bị dị ứng hải sản hoặc các loại hạt không?",
-                  "expansion_2_en": "Thoughtful dietary accommodations ensure a safe and enjoyable culinary experience for every participant.",
+                  "expansion_2_en": "Thoughtful dietary accommodations ensure a safe and enjoyable food experience for every participant.",
                   "expansion_2_vi": "Sự điều chỉnh nguyên liệu chu đáo sẽ đảm bảo trải nghiệm học nấu ăn an toàn và trọn vẹn cho mọi học viên."
                 }
               ]
@@ -7938,9 +7938,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Linda,\n\nHow have you been lately? I’m writing to ask a few questions about the beginner Chinese course at New Horizon Language Center, as I’m planning to enroll there next month to prepare for my upcoming studies.\n\nFirst of all, can you let me know more about the location and commuting convenience of the center? I want to make sure it is easily accessible by bus from my university dormitory.\n\nBesides that, I want to know more about the total tuition fee and course materials. It is important for me to prepare an adequate budget beforehand.\n\nOn top of that, can you give me more information about the instructors and their instructional methods? I want to be certain that the classes focus heavily on authentic pronunciation and basic conversational dialogue.\n\nFinally, I’m also wondering about the class schedule and pacing. Could you tell me whether the weekly study load is manageable alongside university assignments?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Linda,\n\nHow have you been lately? I’m writing to ask a few questions about the beginner Chinese course at New Horizon Language Center, as I’m planning to enroll there next month to prepare for my upcoming studies.\n\nFirst of all, can you let me know more about the location and traveling convenience of the center? I want to make sure it is easily accessible by bus from my university dormitory.\n\nBesides that, I want to know more about the total tuition fee and course materials. It is important for me to prepare an adequate budget beforehand.\n\nOn top of that, can you give me more information about the instructors and their instructional methods? I want to be certain that the classes focus heavily on traditional pronunciation and basic conversational dialogue.\n\nFinally, I’m also wondering about the class schedule and pacing. Could you tell me whether the weekly study load is manageable alongside university assignments?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
             "letter_vi": "Chào Linda,\n\nDạo này cậu thế nào? Tớ viết thư này để hỏi vài thông tin về khóa học tiếng Trung cho người mới bắt đầu tại Trung tâm Ngoại ngữ New Horizon, vì tớ đang dự định đăng ký học vào tháng tới để chuẩn bị cho việc học sắp tới.\n\nTrước hết, cậu có thể cho tớ biết thêm về địa điểm và sự thuận tiện khi đi lại đến trung tâm không? Tớ muốn đảm bảo rằng nơi đó dễ dàng đi bằng xe buýt từ ký túc xá đại học của tớ.\n\nBên cạnh đó, tớ muốn biết thêm về tổng học phí và tài liệu học tập. Việc chuẩn bị ngân sách đầy đủ từ trước là rất quan trọng đối với tớ.\n\nThêm vào đó, cậu có thể cung cấp thêm thông tin về các giảng viên và phương pháp giảng dạy của họ không? Tớ muốn chắc chắn rằng các lớp học tập trung nhiều vào phát âm chuẩn và các đoạn hội thoại giao tiếp cơ bản.\n\nCuối cùng, tớ cũng đang băn khoăn về lịch học và tiến độ của khóa học. Cậu có thể cho tớ biết khối lượng học tập hàng tuần có thể sắp xếp cân bằng với các bài tập ở trường đại học không?\n\nTớ rất trân trọng sự giúp đỡ của cậu về việc này. Hãy hồi âm cho tớ sớm nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
-            "text": "Dear Linda,\n\nHow have you been lately? I’m writing to ask a few questions about the beginner Chinese course at New Horizon Language Center, as I’m planning to enroll there next month to prepare for my upcoming studies.\n\nFirst of all, can you let me know more about the location and commuting convenience of the center? I want to make sure it is easily accessible by bus from my university dormitory.\n\nBesides that, I want to know more about the total tuition fee and course materials. It is important for me to prepare an adequate budget beforehand.\n\nOn top of that, can you give me more information about the instructors and their instructional methods? I want to be certain that the classes focus heavily on authentic pronunciation and basic conversational dialogue.\n\nFinally, I’m also wondering about the class schedule and pacing. Could you tell me whether the weekly study load is manageable alongside university assignments?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
+            "text": "Dear Linda,\n\nHow have you been lately? I’m writing to ask a few questions about the beginner Chinese course at New Horizon Language Center, as I’m planning to enroll there next month to prepare for my upcoming studies.\n\nFirst of all, can you let me know more about the location and traveling convenience of the center? I want to make sure it is easily accessible by bus from my university dormitory.\n\nBesides that, I want to know more about the total tuition fee and course materials. It is important for me to prepare an adequate budget beforehand.\n\nOn top of that, can you give me more information about the instructors and their instructional methods? I want to be certain that the classes focus heavily on traditional pronunciation and basic conversational dialogue.\n\nFinally, I’m also wondering about the class schedule and pacing. Could you tell me whether the weekly study load is manageable alongside university assignments?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
             "translation": "Chào Linda,\n\nDạo này cậu thế nào? Tớ viết thư này để hỏi vài thông tin về khóa học tiếng Trung cho người mới bắt đầu tại Trung tâm Ngoại ngữ New Horizon, vì tớ đang dự định đăng ký học vào tháng tới để chuẩn bị cho việc học sắp tới.\n\nTrước hết, cậu có thể cho tớ biết thêm về địa điểm và sự thuận tiện khi đi lại đến trung tâm không? Tớ muốn đảm bảo rằng nơi đó dễ dàng đi bằng xe buýt từ ký túc xá đại học của tớ.\n\nBên cạnh đó, tớ muốn biết thêm về tổng học phí và tài liệu học tập. Việc chuẩn bị ngân sách đầy đủ từ trước là rất quan trọng đối với tớ.\n\nThêm vào đó, cậu có thể cung cấp thêm thông tin về các giảng viên và phương pháp giảng dạy của họ không? Tớ muốn chắc chắn rằng các lớp học tập trung nhiều vào phát âm chuẩn và các đoạn hội thoại giao tiếp cơ bản.\n\nCuối cùng, tớ cũng đang băn khoăn về lịch học và tiến độ của khóa học. Cậu có thể cho tớ biết khối lượng học tập hàng tuần có thể sắp xếp cân bằng với các bài tập ở trường đại học không?\n\nTớ rất trân trọng sự giúp đỡ của cậu về việc này. Hãy hồi âm cho tớ sớm nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
             "word_count": 167,
             "key_structures": [
@@ -7986,7 +7986,7 @@ const LETTERS_DATA = [
                   "reason_vi": "vì tớ chưa có xe máy riêng và phải đi lại bằng xe buýt mỗi ngày.",
                   "expansion_1_en": "I would like to know which bus routes stop directly in front of the language center building.",
                   "expansion_1_vi": "Mình muốn biết những tuyến xe buýt nào có trạm dừng ngay trước cửa tòa nhà trung tâm.",
-                  "expansion_2_en": "Convenient public transit will save me from having to commute in rainy summer weather.",
+                  "expansion_2_en": "Convenient public transit will save me from having to travel in rainy summer weather.",
                   "expansion_2_vi": "Phương tiện công cộng thuận tiện sẽ giúp mình tránh khỏi việc phải đội mưa đi lại vào mùa hè."
                 },
                 {
@@ -8000,7 +8000,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Chỗ để xe an toàn đồng nghĩa với việc mình không phải lo lắng cho chiếc xe khi đang tập trung học."
                 },
                 {
-                  "action_en": "ask how long it takes to commute there from the university campus during peak hours",
+                  "action_en": "ask how long it takes to travel there from the university campus during peak hours",
                   "action_vi": "hỏi thời gian di chuyển từ trường đại học đến đó trong giờ cao điểm mất bao lâu",
                   "reason_en": "because I want to schedule my evening departures properly and avoid being late.",
                   "reason_vi": "vì tớ muốn sắp xếp giờ khởi hành hợp lý để không bị muộn giờ vào lớp.",
@@ -8068,7 +8068,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Nếu rủ thêm bạn cùng đăng ký, tụi mình có thể nhận được mức chiết khấu học phí rất hấp dẫn."
                 },
                 {
-                  "action_en": "ask whether learners receive complimentary vocabulary flashcards and mobile apps",
+                  "action_en": "ask whether learners receive free vocabulary flashcards and mobile apps",
                   "action_vi": "hỏi xem học viên có được cấp thẻ nhớ từ vựng và ứng dụng học trên điện thoại không",
                   "reason_en": "because digital apps make memorizing tricky Chinese characters far more efficient.",
                   "reason_vi": "vì ứng dụng học tập giúp việc ghi nhớ các nét chữ Hán trở nên nhanh chóng hơn.",
@@ -8108,7 +8108,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "ask if the teachers are patient and supportive toward complete beginners",
                   "action_vi": "hỏi các thầy cô có kiên nhẫn và tận tình hướng dẫn người mới bắt đầu không",
-                  "reason_en": "because I have never learned Chinese before and feel quite intimidated by the tones.",
+                  "reason_en": "because I have never learned Chinese before and feel quite nervous by the tones.",
                   "reason_vi": "vì tớ chưa từng học tiếng Trung và cảm thấy khá e ngại về hệ thống thanh điệu.",
                   "expansion_1_en": "How do the instructors explain the four Mandarin tones so beginners can distinguish them easily?",
                   "expansion_1_vi": "Các thầy cô giải thích 4 thanh điệu tiếng Trung như thế nào để người mới học dễ dàng phân biệt được?",
@@ -8118,7 +8118,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "inquire whether native Chinese lecturers teach alongside Vietnamese teachers",
                   "action_vi": "hỏi xem giáo viên bản xứ có cùng giảng dạy với giảng viên Việt Nam không",
-                  "reason_en": "because learning from native speakers ensures natural pronunciation and authentic accents.",
+                  "reason_en": "because learning from native speakers ensures natural pronunciation and traditional accents.",
                   "reason_vi": "vì học cùng người bản xứ giúp luyện chuẩn ngữ điệu và phát âm tự nhiên nhất.",
                   "expansion_1_en": "Do the teachers patiently correct mouth shapes and vocal cords during class speaking drills?",
                   "expansion_1_vi": "Thầy cô có kiên nhẫn sửa khẩu hình miệng và dây thanh trong các bài luyện nói trên lớp không?",
@@ -8142,7 +8142,7 @@ const LETTERS_DATA = [
                   "reason_vi": "vì việc được sửa lỗi kịp thời sẽ tránh được những thói quen viết sai hoặc phát âm lệch.",
                   "expansion_1_en": "Do instructors incorporate lively communicative games and cultural storytelling into daily lessons?",
                   "expansion_1_vi": "Giáo viên có lồng ghép các trò chơi giao tiếp sinh động và câu chuyện văn hóa vào bài giảng không?",
-                  "expansion_2_en": "Engaging activities keep the classroom vibrant and make memorizing characters enjoyable.",
+                  "expansion_2_en": "Engaging activities keep the classroom lively and make memorizing characters enjoyable.",
                   "expansion_2_vi": "Các hoạt động hấp dẫn giữ cho lớp học luôn sôi nổi và khiến việc nhớ mặt chữ Hán thật hào hứng."
                 },
                 {
@@ -8160,7 +8160,7 @@ const LETTERS_DATA = [
                   "action_vi": "hỏi thầy cô có sẵn sàng giải đáp thắc mắc của học viên ngoài giờ lên lớp không",
                   "reason_en": "because I often need clarification when doing self-study exercises at home.",
                   "reason_vi": "vì tớ rất cần có người hướng dẫn khi tự giải bài tập ở nhà.",
-                  "expansion_1_en": "Does the school organize occasional speaking clubs with native Chinese exchange undergraduates?",
+                  "expansion_1_en": "Does the school organize occasional speaking clubs with native Chinese exchange university students?",
                   "expansion_1_vi": "Trung tâm có thi thoảng tổ chức các câu lạc bộ giao tiếp với sinh viên trao đổi người Trung Quốc không?",
                   "expansion_2_en": "Practicing with native peers provides great real-world speaking practice.",
                   "expansion_2_vi": "Thực hành với người bản xứ đem lại cơ hội tiếp xúc giao tiếp thực tế vô cùng quý báu."
@@ -8282,7 +8282,7 @@ const LETTERS_DATA = [
                   "reason_vi": "Điều này là vì vị trí thuận tiện sẽ giúp tôi tiết kiệm thời gian và tham gia lớp học đều đặn.",
                   "expansion_1_en": "A convenient central location would allow me to reach class quickly right after university lectures.",
                   "expansion_1_vi": "Vị trí trung tâm thuận tiện sẽ cho phép tôi đến lớp nhanh chóng ngay sau các giờ học ở trường đại học.",
-                  "expansion_2_en": "This will save commuting time and ensure I never miss critical grammar discussions.",
+                  "expansion_2_en": "This will save travel time and ensure I never miss critical grammar discussions.",
                   "expansion_2_vi": "Điều này sẽ tiết kiệm thời gian đi lại và đảm bảo tôi không bỏ lỡ các buổi thảo luận ngữ pháp quan trọng."
                 },
                 {
@@ -8302,7 +8302,7 @@ const LETTERS_DATA = [
                   "reason_vi": "Lý do chính là tôi muốn đảm bảo mình có thể dễ dàng đến trung tâm bằng xe máy, vì đây là phương tiện đi lại chính của tôi.",
                   "expansion_1_en": "I want to verify whether the branch is close to major city bus lines and easily accessible on a motorbike.",
                   "expansion_1_vi": "Tôi muốn xác nhận xem chi nhánh có gần các tuyến xe buýt chính và thuận tiện đi lại bằng xe máy không.",
-                  "expansion_2_en": "Easy accessibility ensures that poor weather will never disrupt my weekly study routine.",
+                  "expansion_2_en": "Easy accessibility ensures that poor weather will never affect my weekly study routine.",
                   "expansion_2_vi": "Giao thông thuận lợi đảm bảo rằng thời tiết xấu sẽ không bao giờ làm gián đoạn lịch học hằng tuần của tôi."
                 },
                 {
@@ -8320,7 +8320,7 @@ const LETTERS_DATA = [
                   "action_vi": "Tôi muốn biết liệu trung tâm có nằm ở khu vực thuận tiện đi lại không.",
                   "reason_en": "This would help me save traveling time and ensure I never miss a class.",
                   "reason_vi": "Điều này sẽ giúp tôi tiết kiệm thời gian di chuyển và đảm bảo không bị lỡ buổi học nào.",
-                  "expansion_1_en": "Knowing the exact crossroad will help me plan my evening travel itinerary accurately.",
+                  "expansion_1_en": "Knowing the exact crossroad will help me plan my evening travel travel plan accurately.",
                   "expansion_1_vi": "Biết rõ ngã tư giao cắt cụ thể sẽ giúp tôi lên lịch trình di chuyển buổi tối thật chuẩn xác.",
                   "expansion_2_en": "This will ensure I arrive fifteen minutes ahead of class to review vocabulary.",
                   "expansion_2_vi": "Điều này sẽ đảm bảo tôi có mặt sớm 15 phút trước giờ học để ôn lại từ vựng."
@@ -8410,7 +8410,7 @@ const LETTERS_DATA = [
                   "reason_vi": "Thực tế, tôi sẽ cảm thấy tự tin hơn nếu giáo viên đưa ra phản hồi hữu ích và khuyến khích học viên tham gia vào các hoạt động trên lớp.",
                   "expansion_1_en": "Constructive feedback delivered kindly encourages hesitant learners to speak up openly.",
                   "expansion_1_vi": "Những nhận xét mang tính xây dựng chân thành sẽ khích lệ các học viên còn e dè mạnh dạn phát biểu.",
-                  "expansion_2_en": "Regular speaking turns during debates and simulations accelerate natural fluency.",
+                  "expansion_2_en": "Regular speaking turns during group discussions and role-plays accelerate natural fluency.",
                   "expansion_2_vi": "Được phát biểu thường xuyên trong các buổi tranh biện và nhập vai sẽ đẩy nhanh độ trôi chảy tự nhiên."
                 },
                 {
@@ -8418,7 +8418,7 @@ const LETTERS_DATA = [
                   "action_vi": "Cậu có thể nói rõ giáo viên là người bản ngữ có chứng chỉ hay giảng viên Việt Nam giàu kinh nghiệm không?",
                   "reason_en": "The main reason is that I want to learn natural pronunciation and improve my English communication skills through professional guidance.",
                   "reason_vi": "Lý do chính là tớ muốn rèn phát âm tự nhiên và nâng cao kỹ năng giao tiếp tiếng Anh thông qua sự hướng dẫn chuyên nghiệp.",
-                  "expansion_1_en": "Native speakers provide genuine cultural nuances and authentic everyday phrases.",
+                  "expansion_1_en": "Native speakers provide genuine cultural nuances and traditional everyday phrases.",
                   "expansion_1_vi": "Giáo viên bản ngữ cung cấp những sắc thái văn hóa chân thực và các thành ngữ giao tiếp đời thường.",
                   "expansion_2_en": "Bilingual Vietnamese lecturers can also explain complex grammatical contrasts clearly.",
                   "expansion_2_vi": "Các giảng viên Việt Nam song ngữ cũng có thể giải thích các điểm ngữ pháp đối chiếu rất rõ ràng."
@@ -8469,7 +8469,7 @@ const LETTERS_DATA = [
                   "reason_vi": "Thực tế, tôi thích một khóa học tạo cơ hội thường xuyên để luyện nói và nghe trong các tình huống thực tế.",
                   "expansion_1_en": "Regular interactive pair work and class presentations practice real-life professional discussions.",
                   "expansion_1_vi": "Các bài làm việc cặp tương tác thường xuyên và thuyết trình trước lớp mô phỏng các cuộc thảo luận công việc thực tế.",
-                  "expansion_2_en": "These practical drills will eliminate the fear of speaking English in public meetings.",
+                  "expansion_2_en": "These practical drills will reduce the fear of speaking English in public meetings.",
                   "expansion_2_vi": "Những bài luyện thực tế này sẽ xóa tan nỗi sợ hãi khi phải phát biểu bằng tiếng Anh trước đám đông."
                 },
                 {
@@ -8487,7 +8487,7 @@ const LETTERS_DATA = [
                   "action_vi": "Tôi muốn tìm hiểu về mục tiêu khóa học và chuẩn đầu ra.",
                   "reason_en": "This is because a practical training program would help me build confidence and use English more effectively in daily communication.",
                   "reason_vi": "Điều này là vì một chương trình đào tạo phù hợp sẽ giúp tôi xây dựng sự tự tin và sử dụng tiếng Anh hiệu quả hơn trong giao tiếp hằng ngày.",
-                  "expansion_1_en": "Clear milestone assessments will allow me to track my expanding vocabulary and grammatical precision.",
+                  "expansion_1_en": "Clear special event assessments will allow me to track my expanding vocabulary and grammatical precision.",
                   "expansion_1_vi": "Các bài đánh giá định kỳ rõ ràng sẽ cho phép tôi theo dõi sự tiến bộ về vốn từ và độ chuẩn xác ngữ pháp.",
                   "expansion_2_en": "Achieving concrete course targets will prepare me effectively for official B2 certification exams.",
                   "expansion_2_vi": "Đạt được các mục tiêu bài học cụ thể sẽ giúp tôi chuẩn bị hiệu quả cho kỳ thi lấy chứng chỉ B2."
@@ -8617,14 +8617,14 @@ const LETTERS_DATA = [
               "id": 2,
               "part": "2. Thân thư - Câu hỏi 1: Địa chỉ trung tâm (Address)",
               "vi": "Trước hết, cậu có thể cho tớ biết địa chỉ chính xác của trung tâm ở đâu không vì tớ muốn xem nó có gần nhà tớ để đi lại thuận tiện không?",
-              "en": "First of all, could you tell me where the center is located because I want to see whether it is close to my house for easy commuting?",
+              "en": "First of all, could you tell me where the center is located because I want to see whether it is close to my house for easy traveling?",
               "vocab_hints": [
                 {
                   "en": "where the center is located",
                   "vi": "trung tâm tọa lạc ở đâu"
                 },
                 {
-                  "en": "easy commuting",
+                  "en": "easy traveling",
                   "vi": "đi lại thuận tiện"
                 }
               ],
@@ -8647,7 +8647,7 @@ const LETTERS_DATA = [
               ],
               "grammar_notes": [],
               "alternatives": [
-                "Firstly, could you let me know the exact address of the center so that I can check if it is convenient for my daily commute?"
+                "Firstly, could you let me know the exact address of the center so that I can check if it is convenient for my daily trip to work?"
               ],
               "criteria_tip": "Sử dụng câu hỏi gián tiếp lịch sự 'could you tell me where...' thể hiện vốn ngữ pháp phong phú."
             },
@@ -8813,7 +8813,7 @@ const LETTERS_DATA = [
                   "vi": "kết hợp các bài thi thử định kỳ"
                 }
               ],
-              "explanation": "Cấu trúc câu phức nâng cao B2 với liên từ 'whether... and whether...'.",
+              "explanation": "Cấu trúc câu phức nâng cao B2 với liên từ 'whether... And whether...'.",
               "checkpoints": [
                 {
                   "id": "cp1",
@@ -8854,9 +8854,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Moonie,\n\nHow have you been lately? I’m writing to ask a few questions about the English course at Rainbow Language Center, as I’m planning to enroll there next month to improve my language skills.\n\nFirst of all, can you let me know more about the address of the center? I need to figure out whether it is within a reasonable commuting distance from my apartment.\n\nBesides that, I want to know more about the tuition fee. It is essential for me to prepare a sufficient budget before officially signing up.\n\nOn top of that, can you give me more information about the teachers? I want to ensure that they possess strong teaching skills and are supportive enough to help me progress.\n\nFinally, I’m also wondering about the training program. Could you share what specific skills and topics the course focuses on?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Moonie,\n\nHow have you been lately? I’m writing to ask a few questions about the English course at Rainbow Language Center, as I’m planning to enroll there next month to improve my language skills.\n\nFirst of all, can you let me know more about the address of the center? I need to figure out whether it is within a reasonable traveling distance from my apartment.\n\nBesides that, I want to know more about the tuition fee. It is essential for me to prepare a sufficient budget before officially signing up.\n\nOn top of that, can you give me more information about the teachers? I want to ensure that they possess strong teaching skills and are supportive enough to help me progress.\n\nFinally, I’m also wondering about the training program. Could you share what specific skills and topics the course focuses on?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
             "letter_vi": "Chào Moonie,\n\nDạo này cậu thế nào? Tớ viết thư này để hỏi vài thông tin về khóa học tiếng Anh tại Trung tâm Ngoại ngữ Rainbow, vì tớ đang dự định đăng ký học vào tháng tới để nâng cao kỹ năng ngôn ngữ của mình.\n\nTrước hết, cậu có thể cho tớ biết thêm về địa chỉ của trung tâm không? Tớ cần kiểm tra xem khoảng cách đi lại từ căn hộ của tớ có thuận tiện không.\n\nBên cạnh đó, tớ muốn biết thêm về học phí. Việc chuẩn bị ngân sách đầy đủ trước khi chính thức đăng ký là rất cần thiết đối với tớ.\n\nThêm vào đó, cậu có thể cung cấp thêm thông tin về các giáo viên không? Tớ muốn đảm bảo rằng họ có kỹ năng giảng dạy vững vàng và luôn nhiệt tình hỗ trợ để giúp tớ tiến bộ.\n\nCuối cùng, tớ cũng đang băn khoăn về chương trình đào tạo. Cậu có thể chia sẻ những kỹ năng hoặc mảng kiến thức cụ thể nào mà giáo trình chú trọng không?\n\nTớ rất trân trọng sự giúp đỡ của cậu về việc này. Hãy hồi âm cho tớ sớm nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
-            "text": "Dear Moonie,\n\nHow have you been lately? I’m writing to ask a few questions about the English course at Rainbow Language Center, as I’m planning to enroll there next month to improve my language skills.\n\nFirst of all, can you let me know more about the address of the center? I need to figure out whether it is within a reasonable commuting distance from my apartment.\n\nBesides that, I want to know more about the tuition fee. It is essential for me to prepare a sufficient budget before officially signing up.\n\nOn top of that, can you give me more information about the teachers? I want to ensure that they possess strong teaching skills and are supportive enough to help me progress.\n\nFinally, I’m also wondering about the training program. Could you share what specific skills and topics the course focuses on?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
+            "text": "Dear Moonie,\n\nHow have you been lately? I’m writing to ask a few questions about the English course at Rainbow Language Center, as I’m planning to enroll there next month to improve my language skills.\n\nFirst of all, can you let me know more about the address of the center? I need to figure out whether it is within a reasonable traveling distance from my apartment.\n\nBesides that, I want to know more about the tuition fee. It is essential for me to prepare a sufficient budget before officially signing up.\n\nOn top of that, can you give me more information about the teachers? I want to ensure that they possess strong teaching skills and are supportive enough to help me progress.\n\nFinally, I’m also wondering about the training program. Could you share what specific skills and topics the course focuses on?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
             "translation": "Chào Moonie,\n\nDạo này cậu thế nào? Tớ viết thư này để hỏi vài thông tin về khóa học tiếng Anh tại Trung tâm Ngoại ngữ Rainbow, vì tớ đang dự định đăng ký học vào tháng tới để nâng cao kỹ năng ngôn ngữ của mình.\n\nTrước hết, cậu có thể cho tớ biết thêm về địa chỉ của trung tâm không? Tớ cần kiểm tra xem khoảng cách đi lại từ căn hộ của tớ có thuận tiện không.\n\nBên cạnh đó, tớ muốn biết thêm về học phí. Việc chuẩn bị ngân sách đầy đủ trước khi chính thức đăng ký là rất cần thiết đối với tớ.\n\nThêm vào đó, cậu có thể cung cấp thêm thông tin về các giáo viên không? Tớ muốn đảm bảo rằng họ có kỹ năng giảng dạy vững vàng và luôn nhiệt tình hỗ trợ để giúp tớ tiến bộ.\n\nCuối cùng, tớ cũng đang băn khoăn về chương trình đào tạo. Cậu có thể chia sẻ những kỹ năng hoặc mảng kiến thức cụ thể nào mà giáo trình chú trọng không?\n\nTớ rất trân trọng sự giúp đỡ của cậu về việc này. Hãy hồi âm cho tớ sớm nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
             "word_count": 155,
             "key_structures": [
@@ -8942,7 +8942,7 @@ const LETTERS_DATA = [
                   "action_vi": "hỏi trung tâm có giảm giá cho sinh viên hoặc đăng ký sớm không",
                   "reason_en": "because a discount would help ease my financial burden.",
                   "reason_vi": "vì giảm giá sẽ giúp giảm bớt gánh nặng chi phí.",
-                  "expansion_1_en": "Do they provide early-bird promotions or tuition reductions for university undergraduates?",
+                  "expansion_1_en": "Do they provide early-bird promotions or tuition reductions for university university students?",
                   "expansion_1_vi": "Trung tâm có áp dụng chính sách giảm giá đăng ký sớm hay ưu đãi cho sinh viên đại học không?",
                   "expansion_2_en": "Any small discount will ease my living expenses greatly this summer.",
                   "expansion_2_vi": "Bất kỳ sự giảm giá nào cũng sẽ giúp giảm bớt gánh nặng tài chính của mình trong mùa hè này."
@@ -9060,7 +9060,7 @@ const LETTERS_DATA = [
                   "reason_vi": "vì giáo viên bản xứ sẽ giúp rèn phát âm chuẩn 4 thanh điệu.",
                   "expansion_1_en": "Are classes led by native Chinese speakers or experienced Vietnamese lecturers who studied in Beijing?",
                   "expansion_1_vi": "Lớp học do giáo viên bản xứ Trung Quốc hay các giảng viên Việt Nam từng du học Bắc Kinh giảng dạy?",
-                  "expansion_2_en": "Native instructors provide authentic standard accents, while Vietnamese teachers explain grammatical nuances clearly.",
+                  "expansion_2_en": "Native instructors provide traditional standard accents, while Vietnamese teachers explain grammatical nuances clearly.",
                   "expansion_2_vi": "Giáo viên bản xứ đem lại phát âm chuẩn mực, còn giáo viên Việt Nam có thể giải thích rõ ràng các nét ngữ pháp."
                 },
                 {
@@ -9138,7 +9138,7 @@ const LETTERS_DATA = [
                   "reason_vi": "vì ban ngày các ngày trong tuần tớ bận đi làm thêm.",
                   "expansion_1_en": "Are evening classes from seven to eight-thirty available for working adults?",
                   "expansion_1_vi": "Trung tâm có các lớp học buổi tối từ 7h đến 8h30 dành cho người đi làm không?",
-                  "expansion_2_en": "An evening slot allows me to commute home, eat dinner, and attend class comfortably.",
+                  "expansion_2_en": "An evening slot allows me to travel home, eat dinner, and attend class comfortably.",
                   "expansion_2_vi": "Khung giờ tối cho phép mình về nhà, ăn tối thong thả rồi đến lớp trong tâm thế thoải mái nhất."
                 },
                 {
@@ -9505,9 +9505,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Linda,\n\nHow have you been lately? I’m writing to ask a few questions about the Chinese course at Happy Chinese Language Center, as I’m planning to enroll there next month to improve my language skills.\n\nFirst of all, can you let me know more about the address and commuting accessibility of the center? I need to figure out whether it is within a reasonable distance from my university.\n\nBesides that, I want to know more about the tuition fee and available discounts. It is essential for me to prepare an adequate budget before officially signing up.\n\nOn top of that, can you give me more information about the teachers? I want to ensure that they possess strong teaching skills and provide supportive pronunciation coaching for beginners.\n\nFinally, I’m also wondering about the training program. Could you share what specific speaking topics and practical activities the course covers?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Linda,\n\nHow have you been lately? I’m writing to ask a few questions about the Chinese course at Happy Chinese Language Center, as I’m planning to enroll there next month to improve my language skills.\n\nFirst of all, can you let me know more about the address and traveling accessibility of the center? I need to figure out whether it is within a reasonable distance from my university.\n\nBesides that, I want to know more about the tuition fee and available discounts. It is essential for me to prepare an adequate budget before officially signing up.\n\nOn top of that, can you give me more information about the teachers? I want to ensure that they possess strong teaching skills and provide supportive pronunciation coaching for beginners.\n\nFinally, I’m also wondering about the training program. Could you share what specific speaking topics and practical activities the course covers?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
             "letter_vi": "Chào Linda,\n\nDạo này cậu thế nào? Tớ viết thư này để hỏi vài thông tin về khóa học tiếng Trung tại Trung tâm Ngoại ngữ Happy Chinese, vì tớ đang dự định đăng ký học vào tháng tới để nâng cao kỹ năng ngôn ngữ của mình.\n\nTrước hết, cậu có thể cho tớ biết thêm về địa chỉ và cách đi lại đến trung tâm không? Tớ cần xem xét liệu trung tâm có nằm trong khoảng cách hợp lý từ trường đại học của tớ không.\n\nBên cạnh đó, tớ muốn biết thêm về học phí và các ưu đãi hiện có. Việc chuẩn bị ngân sách phù hợp trước khi đăng ký chính thức là rất quan trọng đối với tớ.\n\nThêm vào đó, cậu có thể cung cấp thêm thông tin về các giáo viên không? Tớ muốn đảm bảo rằng họ có kỹ năng sư phạm tốt và hướng dẫn phát âm tận tình cho người mới bắt đầu.\n\nCuối cùng, tớ cũng đang băn khoăn về chương trình đào tạo. Cậu có thể chia sẻ những chủ đề giao tiếp và hoạt động văn hóa cụ thể nào mà giáo trình bao gồm không?\n\nTớ rất trân trọng sự giúp đỡ của cậu về việc này. Hãy hồi âm cho tớ sớm nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
-            "text": "Dear Linda,\n\nHow have you been lately? I’m writing to ask a few questions about the Chinese course at Happy Chinese Language Center, as I’m planning to enroll there next month to improve my language skills.\n\nFirst of all, can you let me know more about the address and commuting accessibility of the center? I need to figure out whether it is within a reasonable distance from my university.\n\nBesides that, I want to know more about the tuition fee and available discounts. It is essential for me to prepare an adequate budget before officially signing up.\n\nOn top of that, can you give me more information about the teachers? I want to ensure that they possess strong teaching skills and provide supportive pronunciation coaching for beginners.\n\nFinally, I’m also wondering about the training program. Could you share what specific speaking topics and practical activities the course covers?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
+            "text": "Dear Linda,\n\nHow have you been lately? I’m writing to ask a few questions about the Chinese course at Happy Chinese Language Center, as I’m planning to enroll there next month to improve my language skills.\n\nFirst of all, can you let me know more about the address and traveling accessibility of the center? I need to figure out whether it is within a reasonable distance from my university.\n\nBesides that, I want to know more about the tuition fee and available discounts. It is essential for me to prepare an adequate budget before officially signing up.\n\nOn top of that, can you give me more information about the teachers? I want to ensure that they possess strong teaching skills and provide supportive pronunciation coaching for beginners.\n\nFinally, I’m also wondering about the training program. Could you share what specific speaking topics and practical activities the course covers?\n\nI’d really appreciate your help with this. Write back soon.\n\nBest wishes,",
             "translation": "Chào Linda,\n\nDạo này cậu thế nào? Tớ viết thư này để hỏi vài thông tin về khóa học tiếng Trung tại Trung tâm Ngoại ngữ Happy Chinese, vì tớ đang dự định đăng ký học vào tháng tới để nâng cao kỹ năng ngôn ngữ của mình.\n\nTrước hết, cậu có thể cho tớ biết thêm về địa chỉ và cách đi lại đến trung tâm không? Tớ cần xem xét liệu trung tâm có nằm trong khoảng cách hợp lý từ trường đại học của tớ không.\n\nBên cạnh đó, tớ muốn biết thêm về học phí và các ưu đãi hiện có. Việc chuẩn bị ngân sách phù hợp trước khi đăng ký chính thức là rất quan trọng đối với tớ.\n\nThêm vào đó, cậu có thể cung cấp thêm thông tin về các giáo viên không? Tớ muốn đảm bảo rằng họ có kỹ năng sư phạm tốt và hướng dẫn phát âm tận tình cho người mới bắt đầu.\n\nCuối cùng, tớ cũng đang băn khoăn về chương trình đào tạo. Cậu có thể chia sẻ những chủ đề giao tiếp và hoạt động văn hóa cụ thể nào mà giáo trình bao gồm không?\n\nTớ rất trân trọng sự giúp đỡ của cậu về việc này. Hãy hồi âm cho tớ sớm nhé.\n\nChúc cậu mọi điều tốt đẹp nhất,",
             "word_count": 160,
             "key_structures": [
@@ -9601,11 +9601,11 @@ const LETTERS_DATA = [
                   "action_vi": "hỏi xem cậu đã mua tấm vé đó giá bao nhiêu, thuộc khu vực VIP hay tiêu chuẩn và ai là nghệ sĩ biểu diễn chính",
                   "reason_en": "because I am a huge fan of live pop music and want to prepare the exact amount of money to pay you back.",
                   "reason_vi": "vì tớ là người rất hâm mộ nhạc trẻ biểu diễn trực tiếp và muốn chuẩn bị đúng số tiền để gửi lại cho cậu.",
-                  "expansion_1_en": "I am happy to reimburse you the full original price of the ticket.",
+                  "expansion_1_en": "I am happy to pay you back the full original price of the ticket.",
                   "expansion_1_vi": "Tớ rất sẵn lòng hoàn lại cho cậu toàn bộ mức giá gốc của tấm vé."
                 },
                 {
-                  "action_en": "ask about the lineup of guest artists, the row and seat number, and the price you would like me to pay for the ticket",
+                  "action_en": "ask about the list of guest artists, the row and seat number, and the price you would like me to pay for the ticket",
                   "action_vi": "hỏi về danh sách các nghệ sĩ khách mời, số hàng ghế và mức giá cậu muốn nhượng lại tấm vé cho tớ",
                   "reason_en": "because I have never attended a concert at the City Arena before and am very curious about the seating chart.",
                   "reason_vi": "vì tớ chưa từng tham dự buổi hòa nhạc nào tại Nhà thi đấu Thành phố trước đây nên rất tò mò về sơ đồ chỗ ngồi.",
@@ -9669,7 +9669,7 @@ const LETTERS_DATA = [
                   "expansion_1_vi": "Tớ cũng rất muốn chụp vài bức ảnh đẹp và mua một ít quà lưu niệm chính thức tại sự kiện tặng cho cậu nữa."
                 },
                 {
-                  "action_en": "ask about any special perks or side events included in the program before and after the live performances",
+                  "action_en": "ask about any extra gifts or side events included in the program before and after the live performances",
                   "action_vi": "hỏi về bất kỳ quyền lợi đặc biệt hoặc sự kiện phụ nào có trong chương trình trước và sau các màn trình diễn trực tiếp",
                   "reason_en": "because some music shows offer a soundcheck rehearsal viewing or an acoustic campfire session after the main concert.",
                   "reason_vi": "vì một số chương trình âm nhạc thường có phần xem tổng duyệt âm thanh hoặc buổi giao lưu nhạc mộc sau đêm diễn chính.",
@@ -10085,7 +10085,7 @@ const LETTERS_DATA = [
                   "reason_vi": "Cô ấy sẽ đến London như một phần của chương trình trao đổi học tập.",
                   "expansion_1_en": "This will give her a chance to gain international experience and learn more about a different culture.",
                   "expansion_1_vi": "Điều này sẽ cho cô ấy cơ hội tích lũy kinh nghiệm quốc tế và tìm hiểu thêm về một nền văn hóa khác.",
-                  "expansion_2_en": "She is exceptionally hard-working and maintains top academic grades in her department every semester.",
+                  "expansion_2_en": "She is very hard-working and maintains top academic grades in her department every semester.",
                   "expansion_2_vi": "Cô ấy học tập vô cùng chăm chỉ và luôn giữ vững thành tích sinh viên giỏi của khoa trong mọi kỳ học."
                 },
                 {
@@ -10095,7 +10095,7 @@ const LETTERS_DATA = [
                   "reason_vi": "Chuyến đi đến London là một phần giá trị trong chương trình đại học của cô ấy.",
                   "expansion_1_en": "During her stay, she will have opportunities to develop her communication skills and become more independent.",
                   "expansion_1_vi": "Trong thời gian ở đó, cô ấy sẽ có cơ hội phát triển kỹ năng giao tiếp và trở nên tự lập hơn.",
-                  "expansion_2_en": "Studying abroad in the UK is a vital milestone that will lay solid foundations for her career in education.",
+                  "expansion_2_en": "Studying abroad in the UK is a vital special event that will lay solid foundations for her career in education.",
                   "expansion_2_vi": "Du học tại Anh là một cột mốc quan trọng đặt nền móng vững chắc cho sự nghiệp giảng dạy của cô ấy."
                 }
               ]
@@ -10109,11 +10109,11 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I believe Hoa will fit in well with your family because she knows how to behave with other people.",
                   "action_vi": "Mình tin rằng Hoa sẽ hòa nhập tốt với gia đình bạn vì cô ấy biết cách cư xử với mọi người.",
-                  "reason_en": "This will help her build warm and harmonious relationships with your family members.",
+                  "reason_en": "This will help her build warm and friendly relationships with your family members.",
                   "reason_vi": "Điều này sẽ giúp cô ấy xây dựng mối quan hệ ấm áp và hòa thuận với các thành viên trong gia đình bạn.",
                   "expansion_1_en": "She knows how to behave with other people and treats everyone with warmth and sincerity.",
                   "expansion_1_vi": "Cô ấy biết cách cư xử với mọi người và đối đãi với tất cả bằng sự ấm áp, chân thành.",
-                  "expansion_2_en": "This will help her build warm and harmonious bonds with your parents and siblings effortlessly.",
+                  "expansion_2_en": "This will help her build warm and friendly bonds with your parents and siblings effortlessly.",
                   "expansion_2_vi": "Điều này sẽ giúp cô ấy xây dựng mối quan hệ hòa hợp, gần gũi với bố mẹ và anh chị em bạn rất tự nhiên."
                 },
                 {
@@ -10470,8 +10470,8 @@ const LETTERS_DATA = [
                 "vi": "Hơn thế nữa, liên quan đến..."
               },
               {
-                "en": "Finally, I believe ... because ...",
-                "vi": "Cuối cùng, mình tin rằng ... bởi vì ..."
+                "en": "Finally, I believe ... Because ...",
+                "vi": "Cuối cùng, mình tin rằng ... Bởi vì ..."
               }
             ]
           },
@@ -10545,7 +10545,7 @@ const LETTERS_DATA = [
               {
                 "point": "Miêu tả đường đua",
                 "formula": "Secondly, ...",
-                "detail": "Secondly, the racing track was very steep and challenging with rocky paths, but the mountain scenery was breathtaking."
+                "detail": "Secondly, the racing track was very steep and challenging with rocky paths, but the mountain scenery was beautiful."
               },
               {
                 "point": "Kết quả thi đấu",
@@ -10615,11 +10615,11 @@ const LETTERS_DATA = [
               "id": 3,
               "part": "3. Thân thư - Ý 2 (Miêu tả đường đua: Secondly, ...)",
               "vi": "Thứ hai, đường đua rất dốc và đầy thử thách với những con đường đầy đá sỏi, nhưng phong cảnh núi non thì tuyệt đẹp.",
-              "en": "Secondly, the racing track was very steep and challenging with rocky paths, but the mountain scenery was breathtaking.",
+              "en": "Secondly, the racing track was very steep and challenging with rocky paths, but the mountain scenery was beautiful.",
               "hints": [
                 "Secondly, the racing track was very steep",
                 "rocky paths",
-                "mountain scenery was breathtaking"
+                "mountain scenery was beautiful"
               ],
               "explanation": "Dẫn dắt ý 2 bằng liên từ Secondly miêu tả chi tiết đường đua."
             },
@@ -10664,11 +10664,11 @@ const LETTERS_DATA = [
               "id": 1,
               "part": "Miêu tả cung đường B2",
               "vi": "Cung đường đua địa hình quanh co với những khúc cua dốc đứng và bề mặt bùn lầy đòi hỏi sức bền thể lực phi thường cũng như phản xạ lái xe nhạy bén.",
-              "en": "The challenging trail with steep hills and slippery mud tested both our physical stamina and cycling skills.",
+              "en": "The challenging trail with steep hills and slippery mud tested both our physical energy and cycling skills.",
               "hints": [
                 "challenging bike trail",
                 "steep slopes",
-                "physical stamina"
+                "physical energy"
               ],
               "explanation": "Cấu trúc miêu tả sinh động với các tính từ hình ảnh: 'winding' (quanh co), 'steep slopes' (dốc đứng)."
             }
@@ -10699,9 +10699,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear John,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about the mountain biking competition that I participated in, so I’d like to share some exciting details with you.\n\nTo begin with, the event was held in Ba Vi National Park last weekend, drawing over two hundred seasoned riders across the region. The energetic atmosphere and friendly spirit among riders made the experience unforgettable.\n\nSecondly, the rugged trail featured steep uphill climbs, rocky descents, and winding pathways through dense pine woods. Riding along this difficult route required a lot of physical stamina and focus, but finishing in the top ten was truly exciting.\n\nNext, our cycling association is coordinating an adventurous weekend tour across the picturesque valleys surrounding Tam Dao.\n\nFinally, I would be delighted if you could join our team on this expedition, as your cycling expertise and love for outdoor adventure would make the journey even more memorable.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear John,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about the mountain biking competition that I participated in, so I’d like to share some exciting details with you.\n\nTo begin with, the event was held in Ba Vi National Park last weekend, drawing over two hundred seasoned riders across the region. The energetic atmosphere and friendly spirit among riders made the experience unforgettable.\n\nSecondly, the rugged trail featured steep uphill climbs, rocky descents, and winding pathways through dense pine woods. Riding along this difficult route required a lot of physical energy and focus, but finishing in the top ten was truly exciting.\n\nNext, our cycling association is coordinating an adventurous weekend tour across the beautiful valleys surrounding Tam Dao.\n\nFinally, I would be delighted if you could join our team on this trip, as your cycling expertise and love for outdoor adventure would make the journey even more memorable.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
             "letter_vi": "John thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều tốt đẹp. Trong thư của cậu, cậu có hỏi tớ về giải đua xe đạp leo núi mà tớ vừa tham gia, vì vậy tớ muốn chia sẻ một vài chi tiết thú vị với cậu.\n\nTrước hết, sự kiện được tổ chức tại Vườn quốc gia Ba Vì vào cuối tuần trước, thu hút hơn hai trăm tay đua kỳ cựu trên khắp khu vực. Bầu không khí tràn đầy năng lượng và tinh thần thể thao đã biến trải nghiệm này thành một kỷ niệm khó quên.\n\nThứ hai, đường đua gồ ghề với những đoạn leo dốc dựng đứng, những con dốc đá trơn trượt và những lối mòn quanh co qua rừng thông rậm rạp. Chinh phục những chướng ngại vật đầy thách thức này đòi hỏi thể lực bền bỉ và phản xạ nhanh nhạy, nhưng việc cán đích trong top mười là một cảm xúc thực sự phấn khích.\n\nTiếp theo, hội đạp xe của chúng tớ đang lên kế hoạch cho một tour dã ngoại cuối tuần qua những thung lũng thơ mộng quanh Tam Đảo.\n\nCuối cùng, tớ sẽ rất vui nếu cậu có thể đồng hành cùng nhóm tớ trong chuyến đi này, bởi vì kinh nghiệm đạp xe và tình yêu thiên nhiên của cậu sẽ khiến chuyến đi thêm phần đáng nhớ.\n\nTớ hy vọng cậu thấy những thông tin này bổ ích. Hãy cho tớ biết nếu cậu cần thêm chi tiết. Hồi âm sớm nhé.\n\nChúc những điều tốt đẹp nhất,",
-            "text": "Dear John,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about the mountain biking competition that I participated in, so I’d like to share some exciting details with you.\n\nTo begin with, the event was held in Ba Vi National Park last weekend, drawing over two hundred seasoned riders across the region. The energetic atmosphere and friendly spirit among riders made the experience unforgettable.\n\nSecondly, the rugged trail featured steep uphill climbs, rocky descents, and winding pathways through dense pine woods. Riding along this difficult route required a lot of physical stamina and focus, but finishing in the top ten was truly exciting.\n\nNext, our cycling association is coordinating an adventurous weekend tour across the picturesque valleys surrounding Tam Dao.\n\nFinally, I would be delighted if you could join our team on this expedition, as your cycling expertise and love for outdoor adventure would make the journey even more memorable.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
+            "text": "Dear John,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about the mountain biking competition that I participated in, so I’d like to share some exciting details with you.\n\nTo begin with, the event was held in Ba Vi National Park last weekend, drawing over two hundred seasoned riders across the region. The energetic atmosphere and friendly spirit among riders made the experience unforgettable.\n\nSecondly, the rugged trail featured steep uphill climbs, rocky descents, and winding pathways through dense pine woods. Riding along this difficult route required a lot of physical energy and focus, but finishing in the top ten was truly exciting.\n\nNext, our cycling association is coordinating an adventurous weekend tour across the beautiful valleys surrounding Tam Dao.\n\nFinally, I would be delighted if you could join our team on this trip, as your cycling expertise and love for outdoor adventure would make the journey even more memorable.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
             "translation": "John thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều tốt đẹp. Trong thư của cậu, cậu có hỏi tớ về giải đua xe đạp leo núi mà tớ vừa tham gia, vì vậy tớ muốn chia sẻ một vài chi tiết thú vị với cậu.\n\nTrước hết, sự kiện được tổ chức tại Vườn quốc gia Ba Vì vào cuối tuần trước, thu hút hơn hai trăm tay đua kỳ cựu trên khắp khu vực. Bầu không khí tràn đầy năng lượng và tinh thần thể thao đã biến trải nghiệm này thành một kỷ niệm khó quên.\n\nThứ hai, đường đua gồ ghề với những đoạn leo dốc dựng đứng, những con dốc đá trơn trượt và những lối mòn quanh co qua rừng thông rậm rạp. Chinh phục những chướng ngại vật đầy thách thức này đòi hỏi thể lực bền bỉ và phản xạ nhanh nhạy, nhưng việc cán đích trong top mười là một cảm xúc thực sự phấn khích.\n\nTiếp theo, hội đạp xe của chúng tớ đang lên kế hoạch cho một tour dã ngoại cuối tuần qua những thung lũng thơ mộng quanh Tam Đảo.\n\nCuối cùng, tớ sẽ rất vui nếu cậu có thể đồng hành cùng nhóm tớ trong chuyến đi này, bởi vì kinh nghiệm đạp xe và tình yêu thiên nhiên của cậu sẽ khiến chuyến đi thêm phần đáng nhớ.\n\nTớ hy vọng cậu thấy những thông tin này bổ ích. Hãy cho tớ biết nếu cậu cần thêm chi tiết. Hồi âm sớm nhé.\n\nChúc những điều tốt đẹp nhất,",
             "word_count": 178,
             "key_structures": [
@@ -10726,7 +10726,7 @@ const LETTERS_DATA = [
           "suggested_ideas": [
             {
               "id": 1,
-              "title_en": "1. The race venue & vibrant atmosphere",
+              "title_en": "1. The race venue & lively atmosphere",
               "title_vi": "Địa điểm & không khí cuộc đua xe đạp",
               "icon": "fa-flag-checkered",
               "options": [
@@ -10737,7 +10737,7 @@ const LETTERS_DATA = [
                   "reason_vi": "được bao quanh bởi không khí núi rừng mát mẻ, rừng thông bạt ngàn và cảnh sắc kỳ vĩ.",
                   "expansion_1_en": "Towering ancient pine trees lined both sides of the course, providing pleasant shade throughout the morning.",
                   "expansion_1_vi": "Những hàng thông cổ thụ sừng sững phủ bóng mát rượi hai bên đường đua suốt cả buổi sáng.",
-                  "expansion_2_en": "The crisp mountain breeze kept our bodies remarkably cool despite the tough physical workout.",
+                  "expansion_2_en": "The crisp mountain breeze kept our bodies very cool despite the tough physical workout.",
                   "expansion_2_vi": "Làn gió núi trong lành giữ cho cơ thể tụi mình vô cùng mát mẻ dù phải vận động thể lực rất căng thẳng."
                 },
                 {
@@ -10745,7 +10745,7 @@ const LETTERS_DATA = [
                   "action_vi": "hơn một trăm tay đua đầy đam mê đã tề tựu đông đủ tại vạch xuất phát",
                   "reason_en": "because it creates a lively and exciting atmosphere for everyone.",
                   "reason_vi": "tạo nên bầu không khí vô cùng náo nức, ngập tràn tinh thần thể thao và sự khích lệ lẫn nhau.",
-                  "expansion_1_en": "Riders from amateur clubs across northern provinces wore high-visibility aerodynamic jerseys and helmets.",
+                  "expansion_1_en": "Riders from amateur clubs across northern provinces wore bright sports shirts and helmets.",
                   "expansion_1_vi": "Các tay đua từ các câu lạc bộ nghiệp dư khắp các tỉnh phía Bắc mặc áo đua khí động học và đội mũ bảo hiểm nổi bật.",
                   "expansion_2_en": "The collective buzzing of bicycle gears and friendly pre-race banter filled the entire staging pavilion.",
                   "expansion_2_vi": "Tiếng líp xe đạp rào rào hòa cùng tiếng trò chuyện rôm rả trước giờ xuất phát làm náo nhiệt cả khu vực tập kết."
@@ -10757,13 +10757,13 @@ const LETTERS_DATA = [
                   "reason_vi": "tiếp thêm cho tất cả các tay đua nguồn năng lượng và động lực thi đấu tuyệt vời.",
                   "expansion_1_en": "Spectators beat drums, blew whistles, and waved colorful school banners to encourage the competitors.",
                   "expansion_1_vi": "Khán giả đánh trống, thổi còi và vẫy cờ hoa rực rỡ để tiếp thêm động lực cho các vận động viên.",
-                  "expansion_2_en": "Their thunderous cheers echoed across the valley, filling every cyclist with an great surge of adrenaline.",
+                  "expansion_2_en": "Their thunderous cheers echoed across the valley, filling every cyclist with a great surge of adrenaline.",
                   "expansion_2_vi": "Tiếng reo hò vang dội khắp thung lũng, truyền thêm nguồn năng lượng phấn khích tột độ cho từng tay đua."
                 },
                 {
                   "action_en": "hundreds of high-end mountain bikes with bright colorful jerseys filled the staging area",
                   "action_vi": "hàng trăm chiếc xe đạp leo núi cao cấp cùng áo đấu rực rỡ sắc màu phủ kín khu vực tập kết",
-                  "reason_en": "which made the entire event look remarkably professional and impressive.",
+                  "reason_en": "which made the entire event look very professional and impressive.",
                   "reason_vi": "khiến toàn bộ sự kiện trông vô cùng chuyên nghiệp và mãn nhãn.",
                   "expansion_1_en": "The course wound past sparkling highland reservoirs, terraced tea hills, and misty mountain ridges.",
                   "expansion_1_vi": "Đường đua uốn lượn qua những hồ nước vùng cao trong vắt, đồi chè bậc thang và những rặng núi mờ sương.",
@@ -10771,11 +10771,11 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Đạp xe giữa cảnh sắc thiên nhiên nguyên sơ biến cuộc đua cam go thành một trải nghiệm mãn nhãn khó quên."
                 },
                 {
-                  "action_en": "the event was impeccably organized with water stations and medical checkpoints",
+                  "action_en": "the event was very well organized with water stations and medical checkpoints",
                   "action_vi": "sự kiện được tổ chức bài bản với các trạm tiếp nước và điểm y tế chu đáo",
                   "reason_en": "because this helped keep all riders safe throughout the race.",
                   "reason_vi": "đảm bảo an toàn tuyệt đối cho mọi vận động viên thi đấu suốt cả ngày.",
-                  "expansion_1_en": "Professional marshals were stationed at every tricky junction with first-aid kits and hydration stations.",
+                  "expansion_1_en": "Professional marshals were stationed at every tricky junction with first-aid kits and drinking water stations.",
                   "expansion_1_vi": "Các trọng tài chuyên nghiệp chốt chặn tại mọi khúc cua hiểm trở cùng túi cứu thương và trạm tiếp nước.",
                   "expansion_2_en": "Their attentive presence ensured that all riders navigated the mountain safely without fear of accidents.",
                   "expansion_2_vi": "Sự túc trực chu đáo của họ đảm bảo tất cả tay đua vượt qua địa hình đồi núi an toàn mà không sợ tai nạn."
@@ -10801,7 +10801,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "the rugged trail featured steep uphill climbs and rocky descents through pine woods",
                   "action_vi": "cung đường gồ ghề với những đoạn leo dốc dựng đứng và đổ dốc sỏi đá qua rừng thông",
-                  "reason_en": "because riders needed good endurance and quick reflexes to finish the trail.",
+                  "reason_en": "because riders needed good fitness and quick reflexes to finish the trail.",
                   "reason_vi": "đòi hỏi thể lực bền bỉ và phản xạ đánh lái nhanh nhạy từ mỗi tay đua.",
                   "expansion_1_en": "Navigating loose gravel on fifteen-degree inclines demanded intense core strength and rapid gear shifting.",
                   "expansion_1_vi": "Vượt qua dốc sỏi đá 15 độ đòi hỏi cơ bụng cực khỏe và kỹ năng sang số xe đạp thật nhanh chóng.",
@@ -10819,13 +10819,13 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Băng qua những con suối cạn mát lạnh mang lại cảm giác phiêu lưu mạo hiểm vô cùng phấn khích."
                 },
                 {
-                  "action_en": "I maintained a steady pedaling pace and managed my stamina smartly over the 15-kilometer course",
+                  "action_en": "I maintained a steady pedaling pace and managed my energy smartly over the 15-kilometer course",
                   "action_vi": "tớ duy trì nhịp đạp đều đặn và phân phối sức lực hợp lý suốt chặng đua 15 km",
                   "reason_en": "which helped me save enough energy for the steep final climb to the summit.",
                   "reason_vi": "giúp tớ không bị kiệt sức ở con dốc khốc liệt cuối cùng dẫn lên đỉnh núi.",
-                  "expansion_1_en": "I avoided burning out early on steep sections by taking short, calculated sips of electrolyte solution.",
+                  "expansion_1_en": "I avoided burning out early on steep sections by taking short, calculated sips of sports solution.",
                   "expansion_1_vi": "Mình tránh bị kiệt sức sớm ở các đoạn dốc gắt bằng cách nhấp từng ngụm nước điện giải có tính toán.",
-                  "expansion_2_en": "Conserving my stamina allowed me to launch a decisive sprint over the final four hundred meters.",
+                  "expansion_2_en": "Conserving my energy allowed me to launch a decisive sprint over the final four hundred meters.",
                   "expansion_2_vi": "Dưỡng sức hợp lý cho phép mình tung ra cú nước rút quyết định trong 400 mét cuối cùng."
                 },
                 {
@@ -10839,7 +10839,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Nhận tấm huy chương kỷ niệm từ ban tổ chức như phần thưởng ngọt ngào cho chuỗi ngày miệt mài luyện tập."
                 },
                 {
-                  "action_en": "the wide view from the mountain summit was truly spectacular",
+                  "action_en": "the wide view from the mountain summit was truly wonderful",
                   "action_vi": "khung cảnh bao la nhìn từ đỉnh núi xuống thực sự ngoạn mục và thơ mộng",
                   "reason_en": "which made every drop of sweat and tiredness along the route completely worthwhile.",
                   "reason_vi": "khiến mọi giọt mồ hôi và sự nhức mỏi trên đường đua đều trở nên hoàn toàn xứng đáng.",
@@ -10917,13 +10917,13 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Hai người chốt đoàn sẽ đi sau cùng để hỗ trợ ngay nếu có ai đó cần vá săm hay chỉnh xích."
                 },
                 {
-                  "action_en": "we will stop by traditional local hamlets to taste authentic organic mountain produce",
+                  "action_en": "we will stop by traditional local hamlets to taste traditional organic mountain produce",
                   "action_vi": "chúng tớ sẽ dừng chân ở các bản làng truyền thống để thưởng thức đặc sản núi rừng",
                   "reason_en": "because we can try delicious local food and learn about mountain life.",
                   "reason_vi": "làm phong phú thêm trải nghiệm văn hóa và ẩm thực cho hành trình thể thao.",
                   "expansion_1_en": "We will dine at an eco-farm and savor local organic dishes like bamboo-tube rice and grilled mountain pork.",
                   "expansion_1_vi": "Tụi mình sẽ ăn tối tại trang trại sinh thái và thưởng thức các món ăn dân dã như cơm lam và lợn bản nướng.",
-                  "expansion_2_en": "Tasting authentic regional cuisine alongside warm village hosts will add wonderful cultural depth to the tour.",
+                  "expansion_2_en": "Tasting traditional regional cuisine alongside warm village hosts will add wonderful cultural depth to the tour.",
                   "expansion_2_vi": "Thưởng thức ẩm thực bản địa cùng những người dân quê mộc mạc sẽ làm chuyến đi thêm phần ý nghĩa."
                 }
               ]
@@ -10945,7 +10945,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Tụi mình có thể cùng nhau xem bản đồ và chụp cho nhau những bức ảnh kỷ niệm tuyệt đẹp dọc đường."
                 },
                 {
-                  "action_en": "your cycling experience and excellent stamina would make you a wonderful trail partner",
+                  "action_en": "your cycling experience and excellent energy would make you a wonderful trail partner",
                   "action_vi": "kinh nghiệm đạp xe và thể lực tuyệt vời của cậu sẽ là một sự bổ sung quý báu cho cả nhóm",
                   "reason_en": "because having your company on the road always makes long rides much more enjoyable.",
                   "reason_vi": "và có cậu đồng hành trên đường sẽ làm chuyến đi thêm phần vui vẻ, gắn kết.",
@@ -10979,7 +10979,7 @@ const LETTERS_DATA = [
                   "action_vi": "tớ sẵn lòng cho cậu mượn chiếc xe đạp địa hình dự phòng và mũ bảo hiểm của tớ",
                   "reason_en": "so that you will not need to worry about purchasing or transporting extra cycling gear.",
                   "reason_vi": "nên cậu không cần phải bận tâm về việc chuẩn bị hay chở thêm đồ đạc cồng kềnh.",
-                  "expansion_1_en": "We can split travel fuel and food costs evenly, so the entire two-day getaway will be exceptionally economical.",
+                  "expansion_1_en": "We can split travel fuel and food costs evenly, so the entire two-day getaway will be very economical.",
                   "expansion_1_vi": "Tụi mình có thể chia đều chi phí xăng xe và đồ ăn, giúp chuyến đi 2 ngày trở nên vô cùng tiết kiệm.",
                   "expansion_2_en": "It offers five-star outdoor memories for only a tiny fraction of conventional resort hotel expenses.",
                   "expansion_2_vi": "Chuyến dã ngoại mang lại trải nghiệm chuẩn năm sao mà chi phí chỉ bằng một phần nhỏ so với đi resort."
@@ -11020,7 +11020,7 @@ const LETTERS_DATA = [
             "letter_type": "Informal (Thư thân mật)",
             "purpose": "Miêu tả vị trí nhà mới, không gian phòng ốc, khu phố xung quanh và mời bạn đến ăn tối",
             "key_requirements": [
-              "Miêu tả vị trí và khoảng cách tới trường đại học (Location & commute)",
+              "Miêu tả vị trí và khoảng cách tới trường đại học (Location & travel)",
               "Miêu tả các phòng và tiện nghi trong nhà (Rooms & amenities)",
               "Miêu tả khu dân cư và các tiện ích xung quanh (Neighborhood)",
               "Đưa ra lời mời bạn tới thăm nhà mới (Invitation)"
@@ -11033,7 +11033,7 @@ const LETTERS_DATA = [
               {
                 "point": "Miêu tả vị trí",
                 "formula": "Firstly, ...",
-                "detail": "Firstly, my new house is located only five minutes away from the campus, which is very convenient for my daily commute."
+                "detail": "Firstly, my new house is located only five minutes away from the campus, which is very convenient for my daily trip to work."
               },
               {
                 "point": "Miêu tả không gian phòng",
@@ -11056,7 +11056,7 @@ const LETTERS_DATA = [
           },
           "vocab": [
             {
-              "en": "daily commute",
+              "en": "daily trip to work",
               "vi": "việc đi lại hàng ngày"
             },
             {
@@ -11093,10 +11093,10 @@ const LETTERS_DATA = [
               "id": 2,
               "part": "2. Thân thư - Ý 1 (Miêu tả vị trí: Firstly, ...)",
               "vi": "Đầu tiên, ngôi nhà mới của tớ chỉ cách khuôn viên trường năm phút, điều này rất thuận tiện cho việc đi lại hàng ngày của tớ.",
-              "en": "Firstly, my new house is located only five minutes away from the campus, which is very convenient for my daily commute.",
+              "en": "Firstly, my new house is located only five minutes away from the campus, which is very convenient for my daily trip to work.",
               "hints": [
                 "Firstly, my new house is located only five minutes away",
-                "convenient for my daily commute"
+                "convenient for my daily trip to work"
               ],
               "explanation": "Dẫn dắt ý 1 bằng liên từ Firstly miêu tả vị trí."
             },
@@ -11162,9 +11162,9 @@ const LETTERS_DATA = [
             }
           ],
           "sample_b1": {
-            "letter_en": "Dear Helen,\n\nHow are you? I hope you are doing well. In your letter, you asked me about my new house near the university campus, so here is some information.\n\nFirstly, the house is located on a quiet street, only a five-minute walk from the lecture halls. This makes my daily commute extremely convenient and saves me a lot of travel time.\n\nSecondly, the house has two bright bedrooms, a cozy living room, and a modern kitchen equipped with all necessary cooking appliances.\n\nNext, there is a lovely small balcony on the second floor where I grow green plants and enjoy my morning tea.\n\nFinally, the neighbourhood is very safe and friendly, with convenient convenience stores and cheap student eateries just around the corner.\n\nI hope you will find this information useful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Helen,\n\nHow are you? I hope you are doing well. In your letter, you asked me about my new house near the university campus, so here is some information.\n\nFirstly, the house is located on a quiet street, only a five-minute walk from the lecture halls. This makes my daily trip to work extremely convenient and saves me a lot of travel time.\n\nSecondly, the house has two bright bedrooms, a cozy living room, and a modern kitchen equipped with all necessary cooking appliances.\n\nNext, there is a lovely small balcony on the second floor where I grow green plants and enjoy my morning tea.\n\nFinally, the neighbourhood is very safe and friendly, with convenient convenience stores and cheap student eateries just around the corner.\n\nI hope you will find this information useful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
             "letter_vi": "Helen thân mến,\n\nCậu khỏe không? Tớ hy vọng cậu vẫn khỏe. Trong thư trước, cậu có hỏi tớ về ngôi nhà mới gần trường đại học, vì vậy đây là vài thông tin chia sẻ cùng cậu.\n\nĐầu tiên, ngôi nhà nằm trên một con phố yên tĩnh, chỉ cách giảng đường năm phút đi bộ. Điều này giúp việc đi lại hàng ngày của tớ cực kỳ thuận tiện và tiết kiệm được rất nhiều thời gian di chuyển.\n\nThứ hai, ngôi nhà có hai phòng ngủ sáng sủa, một phòng khách ấm cúng và một căn bếp hiện đại được trang bị đầy đủ dụng cụ nấu nướng cần thiết.\n\nTiếp theo, có một ban công nhỏ xinh xắn ở tầng hai, nơi tớ trồng cây xanh và thưởng thức trà sáng.\n\nCuối cùng, khu dân cư xung quanh rất an ninh và thân thiện, có các cửa hàng tiện lợi và quán ăn sinh viên giá rẻ ngay đầu ngõ.\n\nTớ hy vọng cậu thấy những thông tin này thú vị. Hãy cho tớ biết nếu cậu muốn biết thêm chi tiết nhé. Hồi âm sớm cho tớ.\n\nChúc cậu mọi điều tốt lành,",
-            "text": "Dear Helen,\n\nHow are you? I hope you are doing well. In your letter, you asked me about my new house near the university campus, so here is some information.\n\nFirstly, the house is located on a quiet street, only a five-minute walk from the lecture halls. This makes my daily commute extremely convenient and saves me a lot of travel time.\n\nSecondly, the house has two bright bedrooms, a cozy living room, and a modern kitchen equipped with all necessary cooking appliances.\n\nNext, there is a lovely small balcony on the second floor where I grow green plants and enjoy my morning tea.\n\nFinally, the neighbourhood is very safe and friendly, with convenient convenience stores and cheap student eateries just around the corner.\n\nI hope you will find this information useful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
+            "text": "Dear Helen,\n\nHow are you? I hope you are doing well. In your letter, you asked me about my new house near the university campus, so here is some information.\n\nFirstly, the house is located on a quiet street, only a five-minute walk from the lecture halls. This makes my daily trip to work extremely convenient and saves me a lot of travel time.\n\nSecondly, the house has two bright bedrooms, a cozy living room, and a modern kitchen equipped with all necessary cooking appliances.\n\nNext, there is a lovely small balcony on the second floor where I grow green plants and enjoy my morning tea.\n\nFinally, the neighbourhood is very safe and friendly, with convenient convenience stores and cheap student eateries just around the corner.\n\nI hope you will find this information useful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
             "translation": "Helen thân mến,\n\nCậu khỏe không? Tớ hy vọng cậu vẫn khỏe. Trong thư trước, cậu có hỏi tớ về ngôi nhà mới gần trường đại học, vì vậy đây là vài thông tin chia sẻ cùng cậu.\n\nĐầu tiên, ngôi nhà nằm trên một con phố yên tĩnh, chỉ cách giảng đường năm phút đi bộ. Điều này giúp việc đi lại hàng ngày của tớ cực kỳ thuận tiện và tiết kiệm được rất nhiều thời gian di chuyển.\n\nThứ hai, ngôi nhà có hai phòng ngủ sáng sủa, một phòng khách ấm cúng và một căn bếp hiện đại được trang bị đầy đủ dụng cụ nấu nướng cần thiết.\n\nTiếp theo, có một ban công nhỏ xinh xắn ở tầng hai, nơi tớ trồng cây xanh và thưởng thức trà sáng.\n\nCuối cùng, khu dân cư xung quanh rất an ninh và thân thiện, có các cửa hàng tiện lợi và quán ăn sinh viên giá rẻ ngay đầu ngõ.\n\nTớ hy vọng cậu thấy những thông tin này thú vị. Hãy cho tớ biết nếu cậu muốn biết thêm chi tiết nhé. Hồi âm sớm cho tớ.\n\nChúc cậu mọi điều tốt lành,",
             "word_count": 145,
             "key_structures": [
@@ -11187,9 +11187,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Helen,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about my new house near the university campus, so I’d like to share some information with you.\n\nTo begin with, the property is situated in a tranquil residential quarter, merely a brief stroll from the central campus library. This prime location completely eliminates commuting hassles and allows me to maximize my study schedule.\n\nSecondly, the house features a spacious open-concept living area, two comfortable bedrooms, and a fully equipped kitchen with contemporary amenities.\n\nNext, there is a charming rooftop terrace filled with potted flowers and herbs, creating a peaceful place to unwind after long study hours.\n\nFinally, the local community is remarkably secure and welcoming, with reputable cafes, grocery markets, and bookstores readily available within short walking distance.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Helen,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about my new house near the university campus, so I’d like to share some information with you.\n\nTo begin with, the property is situated in a quiet and peaceful residential quarter, merely a brief stroll from the central campus library. This prime location completely removes traveling hassles and allows me to maximize my study schedule.\n\nSecondly, the house features a spacious open-concept living area, two comfortable bedrooms, and a fully equipped kitchen with contemporary amenities.\n\nNext, there is a charming rooftop terrace filled with potted flowers and herbs, creating a peaceful place to relax after long study hours.\n\nFinally, the local community is very secure and welcoming, with reliable cafes, grocery markets, and bookstores readily available within short walking distance.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
             "letter_vi": "Helen thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều tốt đẹp. Trong thư của cậu, cậu có hỏi tớ về căn nhà mới gần trường đại học, vì vậy tớ muốn chia sẻ một vài thông tin với cậu.\n\nTrước hết, ngôi nhà nằm trong một khu dân cư yên tĩnh, chỉ cách thư viện trung tâm của trường vài bước đi bộ. Vị trí đắc địa này hoàn toàn loại bỏ những phiền toái khi đi lại và giúp tớ tối ưu hóa thời gian học tập.\n\nThứ hai, ngôi nhà sở hữu không gian phòng khách mở rộng rãi, hai phòng ngủ tiện nghi và một căn bếp hiện đại đầy đủ tiện ích.\n\nTiếp theo, trên sân thượng có một khoảng ban công xinh xắn phủ đầy hoa cỏ, tạo nên một không gian thư thái để nghỉ ngơi sau những giờ học căng thẳng.\n\nCuối cùng, khu dân cư xung quanh vô cùng an ninh và thân thiện, có các quán cà phê yên tĩnh, siêu thị thực phẩm và hiệu sách chỉ cách vài bước chân.\n\nTớ hy vọng cậu thấy những chia sẻ này hữu ích. Cho tớ biết nếu cậu cần thêm chi tiết nhé. Hồi âm sớm cho tớ.\n\nChúc những điều tốt đẹp nhất,",
-            "text": "Dear Helen,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about my new house near the university campus, so I’d like to share some information with you.\n\nTo begin with, the property is situated in a tranquil residential quarter, merely a brief stroll from the central campus library. This prime location completely eliminates commuting hassles and allows me to maximize my study schedule.\n\nSecondly, the house features a spacious open-concept living area, two comfortable bedrooms, and a fully equipped kitchen with contemporary amenities.\n\nNext, there is a charming rooftop terrace filled with potted flowers and herbs, creating a peaceful place to unwind after long study hours.\n\nFinally, the local community is remarkably secure and welcoming, with reputable cafes, grocery markets, and bookstores readily available within short walking distance.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
+            "text": "Dear Helen,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about my new house near the university campus, so I’d like to share some information with you.\n\nTo begin with, the property is situated in a quiet and peaceful residential quarter, merely a brief stroll from the central campus library. This prime location completely removes traveling hassles and allows me to maximize my study schedule.\n\nSecondly, the house features a spacious open-concept living area, two comfortable bedrooms, and a fully equipped kitchen with contemporary amenities.\n\nNext, there is a charming rooftop terrace filled with potted flowers and herbs, creating a peaceful place to relax after long study hours.\n\nFinally, the local community is very secure and welcoming, with reliable cafes, grocery markets, and bookstores readily available within short walking distance.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
             "translation": "Helen thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều tốt đẹp. Trong thư của cậu, cậu có hỏi tớ về căn nhà mới gần trường đại học, vì vậy tớ muốn chia sẻ một vài thông tin với cậu.\n\nTrước hết, ngôi nhà nằm trong một khu dân cư yên tĩnh, chỉ cách thư viện trung tâm của trường vài bước đi bộ. Vị trí đắc địa này hoàn toàn loại bỏ những phiền toái khi đi lại và giúp tớ tối ưu hóa thời gian học tập.\n\nThứ hai, ngôi nhà sở hữu không gian phòng khách mở rộng rãi, hai phòng ngủ tiện nghi và một căn bếp hiện đại đầy đủ tiện ích.\n\nTiếp theo, trên sân thượng có một khoảng ban công xinh xắn phủ đầy hoa cỏ, tạo nên một không gian thư thái để nghỉ ngơi sau những giờ học căng thẳng.\n\nCuối cùng, khu dân cư xung quanh vô cùng an ninh và thân thiện, có các quán cà phê yên tĩnh, siêu thị thực phẩm và hiệu sách chỉ cách vài bước chân.\n\nTớ hy vọng cậu thấy những chia sẻ này hữu ích. Cho tớ biết nếu cậu cần thêm chi tiết nhé. Hồi âm sớm cho tớ.\n\nChúc những điều tốt đẹp nhất,",
             "word_count": 156,
             "key_structures": [
@@ -11214,7 +11214,7 @@ const LETTERS_DATA = [
           "suggested_ideas": [
             {
               "id": 1,
-              "title_en": "1. Convenient location & easy university commute",
+              "title_en": "1. Convenient location & easy university travel",
               "title_vi": "Vị trí thuận tiện & đi lại đến trường",
               "icon": "fa-location-dot",
               "options": [
@@ -11225,7 +11225,7 @@ const LETTERS_DATA = [
                   "reason_vi": "giúp việc đi lại hàng ngày cực kỳ thuận tiện và loại bỏ hoàn toàn nỗi lo kẹt xe buổi sáng.",
                   "expansion_1_en": "I can wake up at seven-thirty in the morning and still reach the lecture hall ten minutes before classes start.",
                   "expansion_1_vi": "Mình có thể dậy lúc 7h30 sáng mà vẫn thong thả bước vào giảng đường trước giờ học 10 phút.",
-                  "expansion_2_en": "Avoiding morning traffic jams has reduced my daily stress and given me an extra hour of sleep.",
+                  "expansion_2_en": "Avoiding morning traffic jams has reduced my daily stress and given me a extra hour of sleep.",
                   "expansion_2_vi": "Tránh được cảnh tắc đường buổi sáng đã giúp giảm bớt mệt mỏi hằng ngày và cho mình thêm một giờ ngủ quý giá."
                 },
                 {
@@ -11265,11 +11265,11 @@ const LETTERS_DATA = [
                   "reason_vi": "bảo vệ tớ khỏi tiếng còi xe inh ỏi, khói bụi ô nhiễm và sự ồn ào của phố xá.",
                   "expansion_1_en": "The city bus stop is only a two-minute walk away, connecting straight to the shopping area.",
                   "expansion_1_vi": "Trạm xe buýt nhanh chỉ cách nhà 2 phút đi bộ, nối thẳng đến khu mua sắm trung tâm thành phố.",
-                  "expansion_2_en": "It makes weekend museum visits and social outings with friends remarkably fast and affordable.",
+                  "expansion_2_en": "It makes weekend museum visits and social outings with friends very fast and affordable.",
                   "expansion_2_vi": "Nó giúp các chuyến đi bảo tàng cuối tuần và tụ tập bạn bè trở nên vô cùng nhanh chóng, tiết kiệm."
                 },
                 {
-                  "action_en": "living this close to campus saves me over an hour of commuting time every single day",
+                  "action_en": "living this close to campus saves me over an hour of travel time every single day",
                   "action_vi": "sống gần trường giúp tớ tiết kiệm hơn một tiếng đồng hồ đi lại mỗi ngày",
                   "reason_en": "allowing me to get more rest in the morning and focus better on major assignments.",
                   "reason_vi": "giúp tớ có thêm thời gian ngủ buổi sáng và tập trung hơn cho các bài tập lớn.",
@@ -11291,7 +11291,7 @@ const LETTERS_DATA = [
                   "action_vi": "ngôi nhà có hai phòng ngủ sáng sủa với cửa sổ kính lớn đón nhiều ánh sáng tự nhiên",
                   "reason_en": "because they let in lots of sunlight and keep the room fresh.",
                   "reason_vi": "giữ cho không gian sống luôn thoáng mát, vui tươi và tràn đầy năng lượng buổi sáng.",
-                  "expansion_1_en": "The guest bedroom has an ergonomic study desk, a wardrobe, and a comfortable double bed ready for your visit.",
+                  "expansion_1_en": "The guest bedroom has a comfortable study desk, a wardrobe, and a comfortable double bed ready for your visit.",
                   "expansion_1_vi": "Phòng ngủ cho khách có bàn học công thái học, tủ quần áo và chiếc giường đôi êm ái sẵn sàng đón bạn đến chơi.",
                   "expansion_2_en": "You can stay over whenever you visit the city and enjoy total privacy in your own quiet room.",
                   "expansion_2_vi": "Bạn có thể ngủ lại bất cứ khi nào ghé thành phố và tận hưởng sự riêng tư trọn vẹn trong căn phòng riêng của mình."
@@ -11303,7 +11303,7 @@ const LETTERS_DATA = [
                   "reason_vi": "tạo nên không gian lý tưởng để tiếp bạn bè và cùng xem phim thư giãn vào cuối tuần.",
                   "expansion_1_en": "I arranged a cozy reading corner with a soft rug and an adjustable lamp that casts warm light.",
                   "expansion_1_vi": "Mình bố trí một góc đọc sách xinh xắn với thảm nhung êm ái và đèn sàn tỏa ánh sáng vàng dịu mắt.",
-                  "expansion_2_en": "It is the perfect place to sit back with an interesting book and a warm cup of tea.",
+                  "expansion_2_en": "It is the perfect place to sit back with a interesting book and a warm cup of tea.",
                   "expansion_2_vi": "Đây là nơi hoàn hảo để cuộn tròn đọc một cuốn tiểu thuyết lôi cuốn bên tách trà bạc hà nóng hổi."
                 },
                 {
@@ -11317,7 +11317,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Tụi mình có thể cùng nhau nấu những bữa cơm Việt ấm cúng và nướng bánh quy thơm giòn mỗi khi bạn sang chơi."
                 },
                 {
-                  "action_en": "each bedroom features an ergonomic study desk and an adjustable comfortable office chair",
+                  "action_en": "each bedroom features a comfortable study desk and an adjustable comfortable office chair",
                   "action_vi": "mỗi phòng ngủ đều có bàn học rộng rãi và ghế xoay công thái học êm ái",
                   "reason_en": "because it helps me concentrate better when studying for exams.",
                   "reason_vi": "tạo góc học tập lý tưởng cho những giờ làm đồ án và ôn thi căng thẳng.",
@@ -11327,7 +11327,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Chiếc gương lớn cùng đèn chiếu sáng giúp việc chuẩn bị trang phục mỗi sáng thật nhanh gọn, dễ chịu."
                 },
                 {
-                  "action_en": "the bathroom is spotless, tiled, and equipped with a steady instant water heater",
+                  "action_en": "the bathroom is very clean, tiled, and equipped with a steady instant water heater",
                   "action_vi": "phòng tắm sạch sẽ, lát gạch men và có bình nóng lạnh hoạt động ổn định",
                   "reason_en": "allowing me to enjoy a refreshing warm shower after busy days at university.",
                   "reason_vi": "mang lại cảm giác tắm rửa sảng khoái sau những giờ học bận rộn trên giảng đường.",
@@ -11365,7 +11365,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Chăm sóc vườn cây mỗi sáng mang lại khoảng lặng tâm hồn bình yên trước khi lên giảng đường."
                 },
                 {
-                  "action_en": "I set up a wooden tea table and two folding chairs on the breezy terrace",
+                  "action_en": "I set up a wooden tea table and two folding chairs on the cool terrace",
                   "action_vi": "tớ đã kê một chiếc bàn trà bằng gỗ và hai chiếc ghế gấp ngoài hiên thoáng mát",
                   "reason_en": "because I love drinking morning tea and listening to the birds there.",
                   "reason_vi": "tạo nên góc ưa thích nhất để nhâm nhi tách trà sáng và nghe tiếng chim hót.",
@@ -11401,7 +11401,7 @@ const LETTERS_DATA = [
                   "reason_vi": "giữ cho các phòng luôn thông thoáng và giảm đáng kể lượng điện tiêu thụ.",
                   "expansion_1_en": "I placed a comfortable armchair where you can sit back and listen to birds chirp in the trees.",
                   "expansion_1_vi": "Mình đặt một chiếc ghế mây êm ái nơi bạn có thể ngả lưng thư thái và lắng nghe tiếng chim hót trên cành.",
-                  "expansion_2_en": "It is the most tranquil spot in the entire house for meditating or daydreaming after exams.",
+                  "expansion_2_en": "It is the most quiet and peaceful spot in the entire house for meditating or daydreaming after exams.",
                   "expansion_2_vi": "Đây là góc tĩnh lặng nhất trong cả căn nhà để ngồi thiền hay thư giãn đầu óc sau mùa thi cử."
                 },
                 {
@@ -11423,7 +11423,7 @@ const LETTERS_DATA = [
               "icon": "fa-shop",
               "options": [
                 {
-                  "action_en": "the neighbourhood is exceptionally secure with security cameras and a friendly neighborhood watch",
+                  "action_en": "the neighbourhood is very secure with security cameras and a friendly neighborhood watch",
                   "action_vi": "khu dân cư xung quanh vô cùng an ninh với camera giám sát và tổ dân phố thân thiện",
                   "reason_en": "which makes me feel completely safe even when returning home late from the library.",
                   "reason_vi": "khiến tớ hoàn toàn an tâm ngay cả khi về nhà muộn sau giờ tự học ở thư viện.",
@@ -11447,13 +11447,13 @@ const LETTERS_DATA = [
                   "action_vi": "nhiều quán ăn sinh viên giá rẻ và tiệm phở bún truyền thống nằm rải rác quanh ngõ",
                   "reason_en": "offering plenty of delicious meal options at student-friendly prices.",
                   "reason_vi": "mang lại vô số lựa chọn món ăn ngon với giá cả cực kỳ vừa vặn túi tiền sinh viên.",
-                  "expansion_1_en": "Delicious bowls of steaming Pho, crispy spring rolls, and broken rice are sold just fifty meters away.",
+                  "expansion_1_en": "Delicious bowls of hot Pho, crispy spring rolls, and broken rice are sold just fifty meters away.",
                   "expansion_1_vi": "Những tô phở bốc khói thơm lừng, nem rán giòn tan và cơm tấm sườn nướng được bán chỉ cách nhà 50 mét.",
-                  "expansion_2_en": "Affordable student prices mean I can enjoy nutritious, authentic meals without breaking my budget.",
+                  "expansion_2_en": "Affordable student prices mean I can enjoy healthy, traditional meals without breaking my budget.",
                   "expansion_2_vi": "Mức giá sinh viên bình dân đồng nghĩa với việc mình được ăn ngon đủ chất mà không lo viêm màng túi."
                 },
                 {
-                  "action_en": "a bustling morning market is located just a three-minute walk away",
+                  "action_en": "a busy and lively morning market is located just a three-minute walk away",
                   "action_vi": "một khu chợ dân sinh buổi sáng tấp nập nằm cách nhà chỉ ba phút đi bộ",
                   "reason_en": "so I can easily buy fresh vegetables and seasonal fruits at affordable prices.",
                   "reason_vi": "giúp tớ mua được rau củ tươi ngon và hoa quả theo mùa với mức giá rất hợp lý.",
@@ -11540,7 +11540,7 @@ const LETTERS_DATA = [
                   "reason_vi": "nên cậu có thể đi xe buýt đến đó rất tiện lợi chỉ mất khoảng 20 phút.",
                   "expansion_1_en": "More than ten bus routes from surrounding university dormitories stop right in front of the gate.",
                   "expansion_1_vi": "Hơn 10 tuyến xe buýt chạy từ các ký túc xá đại học lân cận đều có trạm dừng ngay trước cổng.",
-                  "expansion_2_en": "This makes commuting safe and convenient even during heavy evening rainstorms.",
+                  "expansion_2_en": "This makes traveling safe and convenient even during heavy evening rainstorms.",
                   "expansion_2_vi": "Điều này giúp việc đi lại an toàn và không chút phiền hà ngay cả vào những buổi tối mưa dông lớn."
                 },
                 {
@@ -11558,7 +11558,7 @@ const LETTERS_DATA = [
                   "action_vi": "chỉ mất 10 phút đi bộ từ trường đại học của chúng mình",
                   "reason_en": "so you can walk straight to class right after university lectures.",
                   "reason_vi": "giúp cậu có thể đến thẳng lớp học ngay sau giờ tan trường.",
-                  "expansion_1_en": "It takes only twenty minutes by bus from your campus, allowing you to commute without rushing.",
+                  "expansion_1_en": "It takes only twenty minutes by bus from your campus, allowing you to travel without rushing.",
                   "expansion_1_vi": "Chỉ mất 20 phút đi xe buýt từ trường đại học của bạn, cho phép bạn đi học thảnh thơi mà không bị vội.",
                   "expansion_2_en": "You can use that travel time to review flashcards and prepare for class presentations.",
                   "expansion_2_vi": "Bạn có thể tận dụng thời gian trên xe để lướt flashcard và chuẩn bị bài phát biểu trên lớp."
@@ -11686,7 +11686,7 @@ const LETTERS_DATA = [
                   "reason_vi": "điều này đã giúp tớ nhận ra các lỗi ngữ pháp và tiến bộ rất nhanh.",
                   "expansion_1_en": "Instructors return graded essays within forty-eight hours with constructive margin annotations.",
                   "expansion_1_vi": "Giáo viên trả bài luận đã chấm trong vòng 48 giờ với những lời nhận xét chi tiết bên lề trang viết.",
-                  "expansion_2_en": "Tracking these detailed pointers helps you eliminate repetitive vocabulary and structural errors rapidly.",
+                  "expansion_2_en": "Tracking these detailed pointers helps you reduce repetitive vocabulary and structural errors rapidly.",
                   "expansion_2_vi": "Theo dõi các chỉ dẫn chi tiết này giúp bạn nhanh chóng khắc phục lỗi lặp từ và lỗi cấu trúc."
                 },
                 {
@@ -11694,7 +11694,7 @@ const LETTERS_DATA = [
                   "action_vi": "thầy cô áp dụng các trò chơi tương tác, hoạt động cặp và tranh luận nhóm",
                   "reason_en": "which keeps the three-hour evening classes lively and engaging.",
                   "reason_vi": "khiến các buổi học tối kéo dài 3 tiếng luôn hào hứng và không buồn ngủ.",
-                  "expansion_1_en": "They organize lively role-play simulations of job interviews, hotel check-ins, and group negotiations.",
+                  "expansion_1_en": "They organize lively role-play activities of job interviews, hotel check-ins, and group negotiations.",
                   "expansion_1_vi": "Thầy cô tổ chức các buổi mô phỏng phỏng vấn xin việc, thủ tục khách sạn và đàm phán nhóm sôi nổi.",
                   "expansion_2_en": "These practical speaking tasks prepare students to communicate effortlessly in real corporate settings.",
                   "expansion_2_vi": "Những bài tập nói thực tế này giúp học viên tự tin giao tiếp trong môi trường doanh nghiệp đời thực."
@@ -11754,7 +11754,7 @@ const LETTERS_DATA = [
                   "reason_vi": "nhờ đó cậu có thể theo dõi sự tiến bộ và không bị tâm lý khi đi thi thật.",
                   "expansion_1_en": "Students take computer-based mock tests in real exam rooms with strict countdown timers.",
                   "expansion_1_vi": "Học viên được làm bài thi thử trên máy tính trong phòng thi chuẩn với đồng hồ đếm ngược nghiêm ngặt.",
-                  "expansion_2_en": "Experiencing authentic test pressure eliminates exam anxiety and teaches smart time management.",
+                  "expansion_2_en": "Experiencing traditional test pressure removes exam anxiety and teaches smart time management.",
                   "expansion_2_vi": "Làm quen với áp lực phòng thi thực tế giúp xóa bỏ tâm lý lo lắng và rèn kỹ năng phân bổ thời gian thông minh."
                 },
                 {
@@ -11764,7 +11764,7 @@ const LETTERS_DATA = [
                   "reason_vi": "đảm bảo cậu có nhiều cơ hội nói và được giáo viên kèm cặp sát sao.",
                   "expansion_1_en": "You can access five hundred interactive quizzes, audio recordings, and model essays from your phone.",
                   "expansion_1_vi": "Bạn có thể truy cập 500 bài trắc nghiệm tương tác, file nghe và bài viết mẫu ngay trên điện thoại.",
-                  "expansion_2_en": "Reviewing short ten-minute exercises on the bus accelerates your vocabulary acquisition significantly.",
+                  "expansion_2_en": "Reviewing short ten-minute exercises on the bus accelerates your vocabulary learning significantly.",
                   "expansion_2_vi": "Ôn tập các bài tập 10 phút trên xe buýt giúp vốn từ vựng của bạn tăng trưởng vượt bậc."
                 },
                 {
@@ -11772,7 +11772,7 @@ const LETTERS_DATA = [
                   "action_vi": "cậu được cấp tài khoản miễn phí sử dụng ứng dụng học tập trên điện thoại",
                   "reason_en": "allowing you to practice vocabulary and listening conversations anytime and anywhere.",
                   "reason_vi": "giúp cậu có thể luyện từ vựng và nghe hội thoại mọi lúc mọi nơi.",
-                  "expansion_1_en": "Experienced foreign facilitators lead weekend debates on hot social topics like eco-tourism and technology.",
+                  "expansion_1_en": "Experienced foreign teachers lead weekend debates on hot social topics like eco-tourism and technology.",
                   "expansion_1_vi": "Các chuyên gia nước ngoài dẫn dắt các buổi tranh biện cuối tuần về du lịch sinh thái và công nghệ.",
                   "expansion_2_en": "It gives you extra hours of natural English conversation in a relaxed, friendly coffee setting.",
                   "expansion_2_vi": "Nó đem lại cho bạn thêm nhiều giờ giao tiếp tiếng Anh tự nhiên trong không gian cà phê ấm cúng."
@@ -11890,7 +11890,7 @@ const LETTERS_DATA = [
               "id": 2,
               "part": "2. Thân thư - Ý 1: Địa chỉ trung tâm (Address)",
               "vi": "Đầu tiên, trung tâm tọa lạc tại số 123 đường Nguyễn Trãi, Quận 1, ngay đối diện bến xe buýt trung tâm nên việc đi lại rất thuận tiện.",
-              "en": "Firstly, the center is conveniently located at 123 Nguyen Trai Street, District 1, right opposite the central bus station, which makes commuting very easy.",
+              "en": "Firstly, the center is conveniently located at 123 Nguyen Trai Street, District 1, right opposite the central bus station, which makes traveling very easy.",
               "vocab_hints": [
                 {
                   "en": "conveniently located",
@@ -12106,9 +12106,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Nam,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about the English course at Rainbow Language Center, so I’d like to share some detailed information with you.\n\nTo begin with, the center is situated right on Tran Hung Dao Avenue in the downtown district. Its central location offers convenient access via multiple bus routes and ample parking for commuters.\n\nSecondly, the overall tuition fee is highly competitive considering the modern multimedia classrooms and inclusive study materials.\n\nNext, the teaching faculty comprises highly qualified native lecturers alongside experienced bilingual teaching assistants who deliver personalized feedback on pronunciation.\n\nFinally, the course focuses on practical speaking activities, group presentations, and discussions, helping students improve their English confidence and writing skills quickly.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Nam,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about the English course at Rainbow Language Center, so I’d like to share some detailed information with you.\n\nTo begin with, the center is situated right on Tran Hung Dao Avenue in the downtown district. Its central location offers convenient access via multiple bus routes and ample parking for passengers.\n\nSecondly, the overall tuition fee is highly competitive considering the modern multimedia classrooms and inclusive study materials.\n\nNext, the teaching faculty comprises highly qualified native lecturers alongside experienced bilingual teaching assistants who deliver personalized feedback on pronunciation.\n\nFinally, the course focuses on practical speaking activities, group presentations, and discussions, helping students improve their English confidence and writing skills quickly.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
             "letter_vi": "Nam thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều thuận lợi. Trong thư của cậu, cậu có hỏi tớ về khóa học tiếng Anh tại trung tâm Rainbow, vì vậy tớ muốn chia sẻ một vài thông tin chi tiết với cậu.\n\nTrước hết, trung tâm nằm ngay trên đường Trần Hưng Đạo thuộc khu vực trung tâm thành phố. Vị trí trung tâm này mang lại sự thuận tiện đi lại tuyệt vời qua nhiều tuyến xe buýt và có bãi đỗ xe rộng rãi.\n\nThứ hai, mức học phí trọn gói rất cạnh tranh khi xét đến hệ thống phòng học đa phương tiện hiện đại cùng giáo trình học được cung cấp miễn phí.\n\nTiếp theo, đội ngũ giảng dạy bao gồm các giáo viên bản xứ có trình độ chuyên môn cao cùng các trợ giảng song ngữ nhiệt huyết luôn sửa phát âm chi tiết cho từng học viên.\n\nCuối cùng, giáo trình đào tạo chuyên sâu chú trọng vào kỹ năng thuyết trình, làm việc nhóm và các buổi tranh biện thực tế, đảm bảo sự tiến bộ nhanh chóng về độ lưu loát khi giao tiếp và khả năng viết học thuật.\n\nTớ hy vọng cậu thấy những thông tin này hữu ích. Cho tớ biết nếu cậu cần thêm thông tin nhé. Hồi âm sớm cho tớ.\n\nChúc những điều tốt đẹp nhất,",
-            "text": "Dear Nam,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about the English course at Rainbow Language Center, so I’d like to share some detailed information with you.\n\nTo begin with, the center is situated right on Tran Hung Dao Avenue in the downtown district. Its central location offers convenient access via multiple bus routes and ample parking for commuters.\n\nSecondly, the overall tuition fee is highly competitive considering the modern multimedia classrooms and inclusive study materials.\n\nNext, the teaching faculty comprises highly qualified native lecturers alongside experienced bilingual teaching assistants who deliver personalized feedback on pronunciation.\n\nFinally, the course focuses on practical speaking activities, group presentations, and discussions, helping students improve their English confidence and writing skills quickly.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
+            "text": "Dear Nam,\n\nHow have you been lately? I hope everything is going well. In your letter, you asked me about the English course at Rainbow Language Center, so I’d like to share some detailed information with you.\n\nTo begin with, the center is situated right on Tran Hung Dao Avenue in the downtown district. Its central location offers convenient access via multiple bus routes and ample parking for passengers.\n\nSecondly, the overall tuition fee is highly competitive considering the modern multimedia classrooms and inclusive study materials.\n\nNext, the teaching faculty comprises highly qualified native lecturers alongside experienced bilingual teaching assistants who deliver personalized feedback on pronunciation.\n\nFinally, the course focuses on practical speaking activities, group presentations, and discussions, helping students improve their English confidence and writing skills quickly.\n\nI hope you find this information helpful. Let me know if you need more details. Write back soon.\n\nBest wishes,",
             "translation": "Nam thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều thuận lợi. Trong thư của cậu, cậu có hỏi tớ về khóa học tiếng Anh tại trung tâm Rainbow, vì vậy tớ muốn chia sẻ một vài thông tin chi tiết với cậu.\n\nTrước hết, trung tâm nằm ngay trên đường Trần Hưng Đạo thuộc khu vực trung tâm thành phố. Vị trí trung tâm này mang lại sự thuận tiện đi lại tuyệt vời qua nhiều tuyến xe buýt và có bãi đỗ xe rộng rãi.\n\nThứ hai, mức học phí trọn gói rất cạnh tranh khi xét đến hệ thống phòng học đa phương tiện hiện đại cùng giáo trình học được cung cấp miễn phí.\n\nTiếp theo, đội ngũ giảng dạy bao gồm các giáo viên bản xứ có trình độ chuyên môn cao cùng các trợ giảng song ngữ nhiệt huyết luôn sửa phát âm chi tiết cho từng học viên.\n\nCuối cùng, giáo trình đào tạo chuyên sâu chú trọng vào kỹ năng thuyết trình, làm việc nhóm và các buổi tranh biện thực tế, đảm bảo sự tiến bộ nhanh chóng về độ lưu loát khi giao tiếp và khả năng viết học thuật.\n\nTớ hy vọng cậu thấy những thông tin này hữu ích. Cho tớ biết nếu cậu cần thêm thông tin nhé. Hồi âm sớm cho tớ.\n\nChúc những điều tốt đẹp nhất,",
             "word_count": 149,
             "key_structures": [
@@ -12282,7 +12282,7 @@ const LETTERS_DATA = [
                   "action_vi": "mình đã hoàn thiện tác phẩm ngày hôm qua và chọn phòng khách",
                   "reason_en": "because it is the coziest and warmest place in our house.",
                   "reason_vi": "vì đó là nơi ấm cúng và thoải mái nhất trong ngôi nhà.",
-                  "expansion_1_en": "The golden afternoon sunlight filtering through the curtains made every corner look remarkably gentle.",
+                  "expansion_1_en": "The golden afternoon sunlight filtering through the curtains made every corner look very gentle.",
                   "expansion_1_vi": "Ánh nắng vàng buổi chiều xuyên qua rèm cửa khiến từng góc phòng trông vô cùng dịu dàng.",
                   "expansion_2_en": "I was able to sketch calmly without being disturbed by outdoor street noise or unpredictable winds.",
                   "expansion_2_vi": "Mình đã có thể phác thảo một cách tĩnh lặng mà không bị làm phiền bởi tiếng ồn ngoài phố hay những cơn gió thất thường."
@@ -12350,7 +12350,7 @@ const LETTERS_DATA = [
                   "action_vi": "mình vẽ những ô cửa sổ kính lớn với ánh nắng chiếu rọi qua chậu cây xanh",
                   "reason_en": "because natural light always brings lively fresh energy into the room.",
                   "reason_vi": "vì ánh sáng tự nhiên luôn mang lại nguồn năng lượng tươi mới cho căn phòng.",
-                  "expansion_1_en": "The interplay between vibrant green leaves and warm golden rays creates a striking visual contrast.",
+                  "expansion_1_en": "The interplay between lively green leaves and warm golden rays creates a striking visual contrast.",
                   "expansion_1_vi": "Sự hòa quyện giữa sắc lá xanh mướt và những vệt nắng vàng ấm áp tạo nên độ tương phản thị giác ấn tượng.",
                   "expansion_2_en": "It successfully breathes life and freshness into an otherwise ordinary household setting.",
                   "expansion_2_vi": "Nó đã thổi bừng sức sống và sự tươi mới vào một không gian gia đình vốn đỗi bình dị."
@@ -12466,7 +12466,7 @@ const LETTERS_DATA = [
                   "action_vi": "vẽ khung cảnh này đã mang lại cho mình sự bình yên và thư thái tuyệt vời",
                   "reason_en": "because focusing on familiar home details helped relieve all school stress.",
                   "reason_vi": "vì tập trung vào những góc thân quen trong nhà giúp giải tỏa mọi căng thẳng việc học.",
-                  "expansion_1_en": "Immersing myself in detailed drawing helped me temporarily step away from exam preparation worries.",
+                  "expansion_1_en": "Enjoying detailed drawing helped me temporarily step away from exam preparation worries.",
                   "expansion_1_vi": "Hòa mình vào từng nét vẽ chi tiết đã giúp mình tạm gác lại những lo toan căng thẳng mùa ôn thi.",
                   "expansion_2_en": "I finished the canvas feeling thoroughly refreshed and mentally recharged for upcoming classes.",
                   "expansion_2_vi": "Mình hoàn tất khung tranh với tinh thần nhẹ nhõm và tràn đầy năng lượng tích cực cho các buổi học tới."
@@ -12854,12 +12854,12 @@ const LETTERS_DATA = [
               "id": 3,
               "part": "3. Thân bài B2 - Ý 2 (Heartwarming gift)",
               "vi": "Cậu bé là món quà sinh nhật vô giá từ anh trai tớ, người đã cẩn thận chọn một chú cún con giống Golden Retriever khỏe mạnh từ một trại thú cưng uy tín.",
-              "en": "He was an unforgettable birthday present from my brother, who adopted a healthy Golden Retriever puppy from a reputable local shelter.",
+              "en": "He was an unforgettable birthday present from my brother, who adopted a healthy Golden Retriever puppy from a well-known local shelter.",
               "hints": [
                 "unforgettable birthday present",
-                "adopted a healthy Golden Retriever puppy from a reputable shelter"
+                "adopted a healthy Golden Retriever puppy from a well-known shelter"
               ],
-              "explanation": "Dùng từ vựng chuẩn 'adopted from a reputable shelter'."
+              "explanation": "Dùng từ vựng chuẩn 'adopted from a well-known shelter'."
             },
             {
               "id": 4,
@@ -12974,7 +12974,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì bộ lông màu nâu mềm mại của chú trông giống hệt như sữa sô-cô-la.",
                   "expansion_1_en": "His coat has delicious caramel and creamy hues that resemble a sweet cup of warm malt milk.",
                   "expansion_1_vi": "Bộ lông của bé có sắc nâu caramen và màu kem ngọt ngào hệt như một ly sữa mạch nha ấm áp.",
-                  "expansion_2_en": "Whenever my sister calls out his name, he perks up his ears and dashes straight to her lap.",
+                  "expansion_2_en": "Whenever my sister calls out his name, he benefits up his ears and dashes straight to her lap.",
                   "expansion_2_vi": "Mỗi khi em gái gọi tên, chú cún lại vểnh tai rồi phóng vù ngay vào lòng con bé."
                 },
                 {
@@ -13158,7 +13158,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì Lucky rất thích chạy nhảy và bắt bóng tennis cùng những người bạn mới.",
                   "expansion_1_en": "Instead of staying glued to computer screens, I spend quality time outdoors walking with him.",
                   "expansion_1_vi": "Thay vì dán mắt vào màn hình máy tính, mình dành thời gian vận động ngoài trời cùng chú cún.",
-                  "expansion_2_en": "My stamina has noticeably improved, and I feel vastly more energetic throughout the school week.",
+                  "expansion_2_en": "My energy has noticeably improved, and I feel vastly more energetic throughout the school week.",
                   "expansion_2_vi": "Thể lực của mình cải thiện rõ rệt, và mình cảm thấy dồi dào năng lượng hơn hẳn suốt cả tuần học."
                 },
                 {
@@ -13174,7 +13174,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I will take plenty of funny photos of you playing with him",
                   "action_vi": "tớ sẽ chụp thật nhiều bức ảnh ngộ nghĩnh lúc cậu chơi cùng chú cún",
-                  "reason_en": "because those sweet memories will make wonderful keepsakes for both of us.",
+                  "reason_en": "because those sweet memories will make great souvenirs for both of us.",
                   "reason_vi": "bởi vì những kỷ niệm ngọt ngào đó sẽ là những món quà kỷ niệm tuyệt vời cho cả hai.",
                   "expansion_1_en": "Coming home to a loyal little friend who greets you enthusiastically is a priceless feeling.",
                   "expansion_1_vi": "Trở về nhà có một người bạn nhỏ trung thành đón chào nồng nhiệt là cảm giác vô cùng vô giá.",
@@ -13268,7 +13268,7 @@ const LETTERS_DATA = [
               "vi": "cơm hộp tự mang theo"
             },
             {
-              "en": "convenient and nutritious",
+              "en": "convenient and healthy",
               "vi": "tiện lợi và giàu dinh dưỡng"
             },
             {
@@ -13355,9 +13355,9 @@ const LETTERS_DATA = [
             },
             {
               "id": 2,
-              "part": "2. Thân bài B2 - Ý 1 (Educational itinerary)",
+              "part": "2. Thân bài B2 - Ý 1 (Educational travel plan)",
               "vi": "Chương trình dã ngoại kết hợp hài hòa giữa các buổi học thực địa về sinh thái và các trò chơi vận động rèn luyện kỹ năng làm việc nhóm.",
-              "en": "The itinerary thoughtfully combines interactive botanical field studies with supervised physical games to cultivate teamwork and social bonding.",
+              "en": "The travel plan thoughtfully combines interactive botanical field studies with supervised physical games to cultivate teamwork and social bonding.",
               "hints": [
                 "interactive botanical field studies",
                 "cultivate teamwork and social bonding"
@@ -13368,24 +13368,24 @@ const LETTERS_DATA = [
               "id": 3,
               "part": "3. Thân bài B2 - Ý 2 (Safety & Dietary considerations)",
               "vi": "Nhà trường khuyến khích phụ huynh tự chuẩn bị phần ăn trưa nhằm đảm bảo an toàn vệ sinh thực phẩm tối đa và phù hợp với cơ địa của từng em.",
-              "en": "To prioritize food hygiene and accommodate individual dietary restrictions, the school advises parents to prepare personalized lunch packs.",
+              "en": "To focus on food hygiene and have enough space for individual dietary restrictions, the school advises parents to prepare personalized lunch packs.",
               "hints": [
-                "prioritize food hygiene",
-                "accommodate individual dietary restrictions",
+                "focus on food hygiene",
+                "have enough space for individual dietary restrictions",
                 "personalized lunch packs"
               ],
-              "explanation": "Cách diễn đạt chuyên nghiệp 'accommodate dietary restrictions'."
+              "explanation": "Cách diễn đạt chuyên nghiệp 'have enough space for dietary restrictions'."
             },
             {
               "id": 4,
-              "part": "4. Thân bài B2 - Ý 3 (Nutritious meal suggestions)",
+              "part": "4. Thân bài B2 - Ý 3 (healthy meal suggestions)",
               "vi": "Các món ăn giàu protein như sandwich phô mai kèm rau xanh và trái cây tươi sẽ cung cấp nguồn năng lượng bền bỉ suốt cả ngày.",
-              "en": "Wholesome options such as whole-grain sandwiches, sliced fruits, and trail mix are highly recommended to provide sustained energy for active children.",
+              "en": "healthy options such as whole-grain sandwiches, sliced fruits, and trail mix are highly recommended to provide sustained energy for active children.",
               "hints": [
-                "Wholesome options such as whole-grain sandwiches",
+                "healthy options such as whole-grain sandwiches",
                 "sustained energy for active children"
               ],
-              "explanation": "Dùng từ vựng dinh dưỡng 'wholesome options', 'sustained energy'."
+              "explanation": "Dùng từ vựng dinh dưỡng 'healthy options', 'sustained energy'."
             },
             {
               "id": 5,
@@ -13479,7 +13479,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì các em có thể quan sát cách cây cối phát triển mà không dùng phân bón hóa học.",
                   "expansion_1_en": "Boarding the designated bus early ensures the entire class stays together under teacher supervision.",
                   "expansion_1_vi": "Lên đúng xe buýt quy định từ sớm đảm bảo cả lớp đi cùng nhau dưới sự giám sát chặt chẽ của giáo viên.",
-                  "expansion_2_en": "This organized transport eliminates any need for parents to drive through chaotic morning rush hours.",
+                  "expansion_2_en": "This organized transport removes any need for parents to drive through chaotic morning rush hours.",
                   "expansion_2_vi": "Hình thức di chuyển có tổ chức này giúp phụ huynh không phải vất vả lái xe giữa giờ cao điểm kẹt xe."
                 },
                 {
@@ -13541,7 +13541,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Trải nghiệm thực tế này dạy trẻ biết quý trọng sức lao động của nhà nông và ăn nhiều rau xanh ở nhà."
                 },
                 {
-                  "action_en": "we avoid preparing collective meals on outdoor excursions",
+                  "action_en": "we avoid preparing collective meals on outdoor trips",
                   "action_vi": "chúng tôi tránh chuẩn bị các bữa ăn tập thể trong các buổi tham quan ngoài trời",
                   "reason_en": "because several children suffer from severe dairy or peanut allergies.",
                   "reason_vi": "bởi vì một số em bị dị ứng nghiêm trọng với sữa bò hoặc đậu phộng.",
@@ -13584,7 +13584,7 @@ const LETTERS_DATA = [
             },
             {
               "id": 3,
-              "title_en": "3. Nutritious & convenient foods to pack for lunch",
+              "title_en": "3. Healthy & convenient foods to pack for lunch",
               "title_vi": "Món ăn tiện lợi & bổ dưỡng nên mang theo",
               "icon": "fa-apple-alt",
               "options": [
@@ -13593,7 +13593,7 @@ const LETTERS_DATA = [
                   "action_vi": "bà nên chuẩn bị bánh mì kẹp giăm bông và phô mai bọc trong giấy bạc",
                   "reason_en": "because sandwiches are easy to hold and do not spoil quickly.",
                   "reason_vi": "bởi vì bánh mì kẹp rất dễ cầm ăn và không bị ôi thiu nhanh.",
-                  "expansion_1_en": "Wrap the sandwiches neatly in parchment paper so she can hold them easily without messy fingers.",
+                  "expansion_1_en": "Wrap the sandwiches neatly in clean paper so she can hold them easily without messy fingers.",
                   "expansion_1_vi": "Gói bánh mì gọn ghẽ bằng giấy nến để cháu cầm ăn thuận tiện mà không bị lấm lem tay.",
                   "expansion_2_en": "A homemade meal guarantees food safety and caters precisely to her favorite flavor preferences.",
                   "expansion_2_vi": "Bữa ăn tự chuẩn bị tại nhà đảm bảo vệ sinh an toàn thực phẩm và đúng khẩu vị yêu thích của con."
@@ -13611,7 +13611,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "you should pack sliced apples and sweet bananas in a sealed box",
                   "action_vi": "bà nên xếp táo cắt lát và chuối ngọt vào một chiếc hộp kín",
-                  "reason_en": "because fresh fruits provide healthy vitamins and hydration.",
+                  "reason_en": "because fresh fruits provide healthy vitamins and drinking water.",
                   "reason_vi": "bởi vì trái cây tươi cung cấp nhiều vitamin lành mạnh và lượng nước cần thiết.",
                   "expansion_1_en": "Individually wrapped oat cookies provide quick carbohydrates whenever energy dips between activities.",
                   "expansion_1_vi": "Những gói bánh quy yến mạch bọc riêng lẻ cung cấp tinh bột tức thì khi năng lượng giảm sút giữa các chặng chơi.",
@@ -13916,9 +13916,9 @@ const LETTERS_DATA = [
           ],
           "sample_b1": {
             "word_count": 147,
-            "letter_en": "Dear Mrs. Lan,\n\nIn your letter, you asked me about my missing suitcase, so I am writing to provide you with some information.\n\nFirst, I travelled on Flight VN256 from Ho Chi Minh City to Hanoi last Sunday. My flight departed at 9:00 a.m. and arrived at Noi Bai International Airport at 11:10 a.m.\n\nSecond, my suitcase is a medium-sized black suitcase with four wheels. It has a red luggage tag attached to the handle, and my name is written on the tag. There is also a small blue sticker on the front of the suitcase.\n\nNext, you can contact me by phone at 0987 654 321 or by email at minhtran@gmail.com. I am available at any time if you need any additional information.\n\nI hope the information above will be helpful to you. Please feel free to contact me if you need more details.\n\nYours sincerely,",
+            "letter_en": "Dear Mrs. Lan,\n\nIn your letter, you asked me about my missing suitcase, so I am writing to provide you with some information.\n\nFirst, I travelled on Flight VN256 from Ho Chi Minh City to Hanoi last Sunday. My flight departed at 9:00 a.m. And arrived at Noi Bai International Airport at 11:10 a.m.\n\nSecond, my suitcase is a medium-sized black suitcase with four wheels. It has a red luggage tag attached to the handle, and my name is written on the tag. There is also a small blue sticker on the front of the suitcase.\n\nNext, you can contact me by phone at 0987 654 321 or by email at minhtran@gmail.com. I am available at any time if you need any additional information.\n\nI hope the information above will be helpful to you. Please feel free to contact me if you need more details.\n\nYours sincerely,",
             "letter_vi": "Thân gửi bà Lan,\n\nTrong thư của bà, bà có hỏi tôi về chiếc vali bị mất của tôi, vì vậy tôi viết thư này để cung cấp cho bà một số thông tin.\n\nĐầu tiên, tôi đã đi trên Chuyến bay VN256 từ Thành phố Hồ Chí Minh đến Hà Nội vào Chủ nhật tuần trước. Chuyến bay của tôi khởi hành lúc 9:00 sáng và đến Sân bay Quốc tế Nội Bài lúc 11:10 sáng.\n\nThứ hai, vali của tôi là một chiếc vali màu đen cỡ trung bình có bốn bánh xe. Nó có một thẻ hành lý màu đỏ được gắn vào tay cầm và tên của tôi được viết trên thẻ. Ngoài ra còn có một hình dán nhỏ màu xanh lam ở mặt trước của vali.\n\nTiếp theo, bà có thể liên lạc với tôi qua điện thoại theo số 0987 654 321 hoặc qua email tại minhtran@gmail.com. Tôi luôn sẵn sàng vào bất kỳ lúc nào nếu bà cần thêm bất kỳ thông tin nào.\n\nTôi hy vọng những thông tin trên sẽ hữu ích cho bà. Xin vui lòng liên hệ với tôi nếu bà cần thêm bất kỳ chi tiết nào.\n\nTrân trọng,",
-            "text": "Dear Mrs. Lan,\n\nIn your letter, you asked me about my missing suitcase, so I am writing to provide you with some information.\n\nFirst, I travelled on Flight VN256 from Ho Chi Minh City to Hanoi last Sunday. My flight departed at 9:00 a.m. and arrived at Noi Bai International Airport at 11:10 a.m.\n\nSecond, my suitcase is a medium-sized black suitcase with four wheels. It has a red luggage tag attached to the handle, and my name is written on the tag. There is also a small blue sticker on the front of the suitcase.\n\nNext, you can contact me by phone at 0987 654 321 or by email at minhtran@gmail.com. I am available at any time if you need any additional information.\n\nI hope the information above will be helpful to you. Please feel free to contact me if you need more details.\n\nYours sincerely,",
+            "text": "Dear Mrs. Lan,\n\nIn your letter, you asked me about my missing suitcase, so I am writing to provide you with some information.\n\nFirst, I travelled on Flight VN256 from Ho Chi Minh City to Hanoi last Sunday. My flight departed at 9:00 a.m. And arrived at Noi Bai International Airport at 11:10 a.m.\n\nSecond, my suitcase is a medium-sized black suitcase with four wheels. It has a red luggage tag attached to the handle, and my name is written on the tag. There is also a small blue sticker on the front of the suitcase.\n\nNext, you can contact me by phone at 0987 654 321 or by email at minhtran@gmail.com. I am available at any time if you need any additional information.\n\nI hope the information above will be helpful to you. Please feel free to contact me if you need more details.\n\nYours sincerely,",
             "translation": "Thân gửi bà Lan,\n\nTrong thư của bà, bà có hỏi tôi về chiếc vali bị mất của tôi, vì vậy tôi viết thư này để cung cấp cho bà một số thông tin.\n\nĐầu tiên, tôi đã đi trên Chuyến bay VN256 từ Thành phố Hồ Chí Minh đến Hà Nội vào Chủ nhật tuần trước. Chuyến bay của tôi khởi hành lúc 9:00 sáng và đến Sân bay Quốc tế Nội Bài lúc 11:10 sáng.\n\nThứ hai, vali của tôi là một chiếc vali màu đen cỡ trung bình có bốn bánh xe. Nó có một thẻ hành lý màu đỏ được gắn vào tay cầm và tên của tôi được viết trên thẻ. Ngoài ra còn có một hình dán nhỏ màu xanh lam ở mặt trước của vali.\n\nTiếp theo, bà có thể liên lạc với tôi qua điện thoại theo số 0987 654 321 hoặc qua email tại minhtran@gmail.com. Tôi luôn sẵn sàng vào bất kỳ lúc nào nếu bà cần thêm bất kỳ thông tin nào.\n\nTôi hy vọng những thông tin trên sẽ hữu ích cho bà. Xin vui lòng liên hệ với tôi nếu bà cần thêm bất kỳ chi tiết nào.\n\nTrân trọng,",
             "structure_analysis": [
               {
@@ -13949,9 +13949,9 @@ const LETTERS_DATA = [
           },
           "sample_b2": {
             "word_count": 189,
-            "letter_en": "Dear Mrs. Lan,\n\nThank you for your letter. In your letter, you asked me about my missing suitcase, so I am writing to provide you with some information.\n\nTo begin with, I was travelling on flight VN245 from Ho Chi Minh City to Da Nang. The flight departed at 8:30 a.m. and arrived at approximately 10:00 a.m. I realized that my suitcase was missing when I collected my luggage at the baggage claim area.\n\nSecondly, my suitcase is a medium-sized black suitcase with four wheels. It has a brown luggage tag attached to the handle and a small sticker with my name on the front. Inside the suitcase were several sets of clothes, a pair of sports shoes, and some important documents.\n\nFinally, you can contact me by phone at 0987 654 321 or by email at minh.nguyen@email.com. I am available at any time if you need any additional information. I would appreciate it if you could contact me as soon as my suitcase is found.\n\nI hope the information above is helpful to you. Please feel free to contact me if you need any further details.\n\nYours sincerely,",
+            "letter_en": "Dear Mrs. Lan,\n\nThank you for your letter. In your letter, you asked me about my missing suitcase, so I am writing to provide you with some information.\n\nTo begin with, I was travelling on flight VN245 from Ho Chi Minh City to Da Nang. The flight departed at 8:30 a.m. And arrived at approximately 10:00 a.m. I realized that my suitcase was missing when I collected my luggage at the baggage claim area.\n\nSecondly, my suitcase is a medium-sized black suitcase with four wheels. It has a brown luggage tag attached to the handle and a small sticker with my name on the front. Inside the suitcase were several sets of clothes, a pair of sports shoes, and some important documents.\n\nFinally, you can contact me by phone at 0987 654 321 or by email at minh.nguyen@email.com. I am available at any time if you need any additional information. I would appreciate it if you could contact me as soon as my suitcase is found.\n\nI hope the information above is helpful to you. Please feel free to contact me if you need any further details.\n\nYours sincerely,",
             "letter_vi": "Thân gửi bà Lan,\n\nCảm ơn thư của bà. Trong thư, bà có hỏi tôi về chiếc vali bị mất của tôi, vì vậy tôi viết thư này để cung cấp cho bà một số thông tin.\n\nĐầu tiên, tôi đã đi trên chuyến bay VN245 từ Thành phố Hồ Chí Minh đến Đà Nẵng. Chuyến bay khởi hành lúc 8:30 sáng và đến nơi vào khoảng 10:00 sáng. Tôi đã nhận ra chiếc vali của mình bị mất khi tôi đến lấy hành lý tại khu vực nhận hành lý.\n\nThứ hai, vali của tôi là một chiếc vali màu đen cỡ trung bình có bốn bánh xe. Nó có một thẻ hành lý màu nâu được gắn vào tay cầm và một hình dán nhỏ có tên tôi ở mặt trước. Bên trong vali là vài bộ quần áo, một đôi giày thể thao và một số tài liệu quan trọng.\n\nCuối cùng, bà có thể liên hệ với tôi qua điện thoại theo số 0987 654 321 hoặc qua email tại minh.nguyen@email.com. Tôi luôn sẵn sàng vào bất kỳ lúc nào nếu bà cần thêm bất kỳ thông tin nào. Tôi sẽ rất biết ơn nếu bà có thể liên lạc với tôi ngay khi tìm thấy vali của tôi.\n\nTôi hy vọng thông tin trên hữu ích đối với bà. Xin vui lòng liên hệ với tôi nếu bà cần bất kỳ thông tin chi tiết nào thêm.\n\nTrân trọng,",
-            "text": "Dear Mrs. Lan,\n\nThank you for your letter. In your letter, you asked me about my missing suitcase, so I am writing to provide you with some information.\n\nTo begin with, I was travelling on flight VN245 from Ho Chi Minh City to Da Nang. The flight departed at 8:30 a.m. and arrived at approximately 10:00 a.m. I realized that my suitcase was missing when I collected my luggage at the baggage claim area.\n\nSecondly, my suitcase is a medium-sized black suitcase with four wheels. It has a brown luggage tag attached to the handle and a small sticker with my name on the front. Inside the suitcase were several sets of clothes, a pair of sports shoes, and some important documents.\n\nFinally, you can contact me by phone at 0987 654 321 or by email at minh.nguyen@email.com. I am available at any time if you need any additional information. I would appreciate it if you could contact me as soon as my suitcase is found.\n\nI hope the information above is helpful to you. Please feel free to contact me if you need any further details.\n\nYours sincerely,",
+            "text": "Dear Mrs. Lan,\n\nThank you for your letter. In your letter, you asked me about my missing suitcase, so I am writing to provide you with some information.\n\nTo begin with, I was travelling on flight VN245 from Ho Chi Minh City to Da Nang. The flight departed at 8:30 a.m. And arrived at approximately 10:00 a.m. I realized that my suitcase was missing when I collected my luggage at the baggage claim area.\n\nSecondly, my suitcase is a medium-sized black suitcase with four wheels. It has a brown luggage tag attached to the handle and a small sticker with my name on the front. Inside the suitcase were several sets of clothes, a pair of sports shoes, and some important documents.\n\nFinally, you can contact me by phone at 0987 654 321 or by email at minh.nguyen@email.com. I am available at any time if you need any additional information. I would appreciate it if you could contact me as soon as my suitcase is found.\n\nI hope the information above is helpful to you. Please feel free to contact me if you need any further details.\n\nYours sincerely,",
             "translation": "Thân gửi bà Lan,\n\nCảm ơn thư của bà. Trong thư, bà có hỏi tôi về chiếc vali bị mất của tôi, vì vậy tôi viết thư này để cung cấp cho bà một số thông tin.\n\nĐầu tiên, tôi đã đi trên chuyến bay VN245 từ Thành phố Hồ Chí Minh đến Đà Nẵng. Chuyến bay khởi hành lúc 8:30 sáng và đến nơi vào khoảng 10:00 sáng. Tôi đã nhận ra chiếc vali của mình bị mất khi tôi đến lấy hành lý tại khu vực nhận hành lý.\n\nThứ hai, vali của tôi là một chiếc vali màu đen cỡ trung bình có bốn bánh xe. Nó có một thẻ hành lý màu nâu được gắn vào tay cầm và một hình dán nhỏ có tên tôi ở mặt trước. Bên trong vali là vài bộ quần áo, một đôi giày thể thao và một số tài liệu quan trọng.\n\nCuối cùng, bà có thể liên hệ với tôi qua điện thoại theo số 0987 654 321 hoặc qua email tại minh.nguyen@email.com. Tôi luôn sẵn sàng vào bất kỳ lúc nào nếu bà cần thêm bất kỳ thông tin nào. Tôi sẽ rất biết ơn nếu bà có thể liên lạc với tôi ngay khi tìm thấy vali của tôi.\n\nTôi hy vọng thông tin trên hữu ích đối với bà. Xin vui lòng liên hệ với tôi nếu bà cần bất kỳ thông tin chi tiết nào thêm.\n\nTrân trọng,",
             "structure_analysis": [
               {
@@ -13983,7 +13983,7 @@ const LETTERS_DATA = [
           "suggested_ideas": [
             {
               "id": 1,
-              "title_en": "1. Flight itinerary & arrival time details",
+              "title_en": "1. Flight schedule & arrival time details",
               "title_vi": "Chi tiết hành trình chuyến bay & giờ hạ cánh",
               "icon": "fa-plane-arrival",
               "options": [
@@ -14068,17 +14068,17 @@ const LETTERS_DATA = [
                 {
                   "action_en": "it is made of durable hard plastic with four wheels",
                   "action_vi": "vali được làm bằng nhựa cứng bền bỉ với bốn bánh xe xoay đa chiều",
-                  "reason_en": "because hard material protects fragile items inside from impacts.",
+                  "reason_en": "because hard material protects glass and breakable items inside from impacts.",
                   "reason_vi": "bởi vì chất liệu cứng bảo vệ các vật dụng dễ vỡ bên trong khỏi va đập.",
                   "expansion_1_en": "All four multi-directional wheels rotate smoothly without generating any rattling noise.",
                   "expansion_1_vi": "Cả bốn bánh xe xoay đa chiều đều vận hành êm ái, không hề phát ra tiếng kêu lọc cọc.",
-                  "expansion_2_en": "The durable hard plastic shell ensures fragile business items inside remain fully protected.",
+                  "expansion_2_en": "The durable hard plastic shell ensures breakable business items inside remain fully protected.",
                   "expansion_2_vi": "Lớp vỏ nhựa cứng chịu lực đảm bảo các vật dụng công việc dễ vỡ bên trong được bảo vệ tối đa."
                 },
                 {
                   "action_en": "there is a small rectangular Samsonite logo on the front surface",
                   "action_vi": "có một logo thương hiệu Samsonite hình chữ nhật nhỏ ở mặt trước",
-                  "reason_en": "because it is an authentic travel suitcase bought last year.",
+                  "reason_en": "because it is a traditional travel suitcase bought last year.",
                   "reason_vi": "bởi vì đó là chiếc vali du lịch chính hãng được mua vào năm ngoái.",
                   "expansion_1_en": "The metallic logo plaque is embossed cleanly in silver lettering on the upper front center.",
                   "expansion_1_vi": "Biển logo kim loại được dập nổi tinh xảo bằng chữ màu bạc ở chính giữa phần trên mặt trước.",
@@ -14293,7 +14293,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I gladly accept your invitation, and I feel truly delighted to join you for the performance",
                   "action_vi": "tớ rất sẵn lòng nhận lời mời của cậu, và tớ cảm thấy thật sự thích thú khi được đi xem buổi biểu diễn cùng cậu",
-                  "reason_en": "because watching a live performance is a great way to relax and unwind on the weekend.",
+                  "reason_en": "because watching a live performance is a great way to relax and relax on the weekend.",
                   "reason_vi": "vì xem biểu diễn trực tiếp là một cách tuyệt vời để thư giãn và xả hơi vào dịp cuối tuần.",
                   "expansion_1_en": "I cannot wait to see your friend perform on stage.",
                   "expansion_1_vi": "Tớ rất nóng lòng được xem bạn của cậu biểu diễn trên sân khấu."
@@ -14317,7 +14317,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "once the show finishes, we could go to a rooftop café in the city center for some drinks and desserts",
                   "action_vi": "khi buổi diễn kết thúc, chúng mình có thể ghé một quán cà phê sân thượng ở trung tâm thành phố để uống nước và ăn tráng miệng",
-                  "reason_en": "because the night view there is breathtaking and the atmosphere is very relaxing.",
+                  "reason_en": "because the night view there is beautiful and the atmosphere is very relaxing.",
                   "reason_vi": "vì khung cảnh ban đêm ở đó rất đẹp và không gian cũng vô cùng thư giãn.",
                   "expansion_1_en": "That will give us plenty of time to chat and take some nice photos together.",
                   "expansion_1_vi": "Điều đó sẽ cho chúng mình nhiều thời gian để hàn huyên và chụp vài bức ảnh kỷ niệm đẹp cùng nhau."
@@ -14650,7 +14650,7 @@ const LETTERS_DATA = [
               "category": "1. Sở thích mới (Recent hobby)"
             },
             {
-              "en": "unwind after stressful study hours",
+              "en": "relax after stressful study hours",
               "vi": "thư giãn sau những giờ học căng thẳng",
               "category": "1. Sở thích mới (Recent hobby)"
             },
@@ -14721,7 +14721,7 @@ const LETTERS_DATA = [
                 "vi": "góc nhìn sáng tạo"
               },
               {
-                "en": "unwind after stressful study hours",
+                "en": "relax after stressful study hours",
                 "vi": "thư giãn sau những giờ học căng thẳng"
               }
             ]
@@ -14746,7 +14746,7 @@ const LETTERS_DATA = [
                 "vi": "góc nhìn sáng tạo"
               },
               {
-                "en": "unwind after stressful study hours",
+                "en": "relax after stressful study hours",
                 "vi": "thư giãn sau những giờ học căng thẳng"
               }
             ]
@@ -15127,7 +15127,7 @@ const LETTERS_DATA = [
                   "expansion_1_vi": "Việc mang theo mũ và kính râm cũng sẽ rất hữu ích vào những buổi sáng nắng đẹp."
                 },
                 {
-                  "action_en": "the weather here is cool and breezy all week, so I recommend bringing long-sleeved shirts, jeans, and a warm sweater",
+                  "action_en": "the weather here is cool and cool all week, so I recommend bringing long-sleeved shirts, jeans, and a warm sweater",
                   "action_vi": "thời tiết ở đây mát mẻ và có gió nhẹ suốt cả tuần, nên tớ khuyên cậu mang theo áo dài tay, quần jean và một chiếc áo len ấm",
                   "reason_en": "because we will spend plenty of time exploring outdoor attractions and riverside parks.",
                   "reason_vi": "vì chúng mình sẽ dành nhiều thời gian khám phá các điểm tham quan ngoài trời và công viên ven sông.",
@@ -15145,13 +15145,13 @@ const LETTERS_DATA = [
                 {
                   "action_en": "during your visit, I have planned to take you to the Old Town, the Central Lake, and the famous Weekend Night Market",
                   "action_vi": "trong chuyến thăm của cậu, tớ đã lên kế hoạch dẫn cậu đi thăm khu Phố Cổ, Hồ Trung tâm và Chợ đêm Cuối tuần nổi tiếng",
-                  "reason_en": "because these places offer breathtaking scenery and the best traditional street food in our town.",
+                  "reason_en": "because these places offer beautiful scenery and the best traditional street food in our town.",
                   "reason_vi": "vì những địa điểm này có phong cảnh tuyệt đẹp cùng các món ăn đường phố truyền thống ngon nhất ở thị trấn của tớ.",
-                  "expansion_1_en": "On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a panoramic view of the valley.",
+                  "expansion_1_en": "On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a wide view of the valley.",
                   "expansion_1_vi": "Vào sáng Chủ nhật, chúng mình cũng có thể thuê xe đạp chạy lên Đồi Hoàng Hôn để ngắm toàn cảnh thung lũng."
                 },
                 {
-                  "action_en": "I have arranged a fun itinerary to take you to the Historical Museum, Green Valley Park, and a traditional craft village nearby",
+                  "action_en": "I have arranged a fun travel plan to take you to the Historical Museum, Green Valley Park, and a traditional craft village nearby",
                   "action_vi": "tớ đã sắp xếp một lịch trình thú vị để đưa cậu đến Bảo tàng Lịch sử, Công viên Thung lũng Xanh và một làng nghề truyền thống ở gần đó",
                   "reason_en": "because I know you love learning about local history and handmade souvenirs.",
                   "reason_vi": "vì tớ biết cậu rất thích tìm hiểu về lịch sử địa phương và các món đồ lưu niệm thủ công.",
@@ -15211,7 +15211,7 @@ const LETTERS_DATA = [
               "category": "2. Thời tiết & Quần áo (Weather & Clothes)"
             },
             {
-              "en": "plan an exciting itinerary",
+              "en": "plan an exciting travel plan",
               "vi": "lên kế hoạch một lịch trình thú vị",
               "category": "3. Điểm tham quan (Sightseeing plans)"
             },
@@ -15226,7 +15226,7 @@ const LETTERS_DATA = [
               "category": "3. Điểm tham quan (Sightseeing plans)"
             },
             {
-              "en": "panoramic view of the valley",
+              "en": "wide view of the valley",
               "vi": "tầm nhìn toàn cảnh thung lũng",
               "category": "3. Điểm tham quan (Sightseeing plans)"
             }
@@ -15238,9 +15238,9 @@ const LETTERS_DATA = [
             "sign_off": "Best wishes,"
           },
           "sample_b1": {
-            "letter_en": "Dear Lee,\n\nHow have you been lately? I hope everything is going well. I am so excited about your upcoming trip to my town, and I’d like to answer all the questions in your email.\n\nTo begin with, I can definitely meet you right at the main gate of the train station when you arrive because the station is only fifteen minutes from my house and I have taken the whole day off. I will drive my car there so that we can carry your luggage home comfortably.\n\nIn addition, the weather in my town at the moment is sunny and pleasant during the day but gets quite chilly at night, so you should bring both T-shirts and a light jacket because the temperature drops noticeably in the evening. Do not forget to pack a pair of comfortable walking shoes because we will do a lot of sightseeing.\n\nFinally, during your visit, I have planned to take you to the Old Town, the Central Lake, and the famous Weekend Night Market because these places offer breathtaking scenery and the best traditional street food in our town. On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a panoramic view of the valley.\n\nI can’t wait to welcome you to my home. Please text me your exact train arrival time. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Lee,\n\nHow have you been lately? I hope everything is going well. I am so excited about your upcoming trip to my town, and I’d like to answer all the questions in your email.\n\nTo begin with, I can definitely meet you right at the main gate of the train station when you arrive because the station is only fifteen minutes from my house and I have taken the whole day off. I will drive my car there so that we can carry your luggage home comfortably.\n\nIn addition, the weather in my town at the moment is sunny and pleasant during the day but gets quite chilly at night, so you should bring both T-shirts and a light jacket because the temperature drops noticeably in the evening. Do not forget to pack a pair of comfortable walking shoes because we will do a lot of sightseeing.\n\nFinally, during your visit, I have planned to take you to the Old Town, the Central Lake, and the famous Weekend Night Market because these places offer beautiful scenery and the best traditional street food in our town. On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a wide view of the valley.\n\nI can’t wait to welcome you to my home. Please text me your exact train arrival time. Write back soon.\n\nBest wishes,",
             "letter_vi": "Lee thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Tớ vô cùng hào hứng về chuyến đi sắp tới của cậu đến thị trấn của tớ, và tớ muốn giải đáp toàn bộ các câu hỏi trong email của cậu.\n\nĐầu tiên, tớ chắc chắn có thể ra đón cậu ngay tại cổng chính của nhà ga tàu hỏa khi cậu đến nơi vì nhà ga chỉ cách nhà tớ mười lăm phút di chuyển và tớ đã xin nghỉ nguyên ngày hôm đó. Tớ sẽ lái ô tô ra đó để chúng mình có thể chở hành lý của cậu về nhà một cách thoải mái.\n\nNgoài ra, thời tiết ở thị trấn của tớ hiện tại có nắng ấm và dễ chịu vào ban ngày nhưng khá se lạnh vào ban đêm, nên cậu hãy mang theo cả áo phông lẫn một chiếc áo khoác mỏng vì nhiệt độ thường giảm xuống rõ rệt vào buổi tối. Đừng quên mang theo một đôi giày đi bộ êm chân vì chúng mình sẽ đi tham quan khá nhiều.\n\nCuối cùng, trong chuyến thăm của cậu, tớ đã lên kế hoạch dẫn cậu đi thăm khu Phố Cổ, Hồ Trung tâm và Chợ đêm Cuối tuần nổi tiếng vì những địa điểm này có phong cảnh tuyệt đẹp cùng các món ăn đường phố truyền thống ngon nhất ở thị trấn của tớ. Vào sáng Chủ nhật, chúng mình cũng có thể thuê xe đạp chạy lên Đồi Hoàng Hôn để ngắm toàn cảnh thung lũng.\n\nTớ rất nóng lòng được chào đón cậu đến nhà tớ. Hãy nhắn cho tớ giờ tàu đến chính xác của cậu nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Lee,\n\nHow have you been lately? I hope everything is going well. I am so excited about your upcoming trip to my town, and I’d like to answer all the questions in your email.\n\nTo begin with, I can definitely meet you right at the main gate of the train station when you arrive because the station is only fifteen minutes from my house and I have taken the whole day off. I will drive my car there so that we can carry your luggage home comfortably.\n\nIn addition, the weather in my town at the moment is sunny and pleasant during the day but gets quite chilly at night, so you should bring both T-shirts and a light jacket because the temperature drops noticeably in the evening. Do not forget to pack a pair of comfortable walking shoes because we will do a lot of sightseeing.\n\nFinally, during your visit, I have planned to take you to the Old Town, the Central Lake, and the famous Weekend Night Market because these places offer breathtaking scenery and the best traditional street food in our town. On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a panoramic view of the valley.\n\nI can’t wait to welcome you to my home. Please text me your exact train arrival time. Write back soon.\n\nBest wishes,",
+            "text": "Dear Lee,\n\nHow have you been lately? I hope everything is going well. I am so excited about your upcoming trip to my town, and I’d like to answer all the questions in your email.\n\nTo begin with, I can definitely meet you right at the main gate of the train station when you arrive because the station is only fifteen minutes from my house and I have taken the whole day off. I will drive my car there so that we can carry your luggage home comfortably.\n\nIn addition, the weather in my town at the moment is sunny and pleasant during the day but gets quite chilly at night, so you should bring both T-shirts and a light jacket because the temperature drops noticeably in the evening. Do not forget to pack a pair of comfortable walking shoes because we will do a lot of sightseeing.\n\nFinally, during your visit, I have planned to take you to the Old Town, the Central Lake, and the famous Weekend Night Market because these places offer beautiful scenery and the best traditional street food in our town. On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a wide view of the valley.\n\nI can’t wait to welcome you to my home. Please text me your exact train arrival time. Write back soon.\n\nBest wishes,",
             "translation": "Lee thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Tớ vô cùng hào hứng về chuyến đi sắp tới của cậu đến thị trấn của tớ, và tớ muốn giải đáp toàn bộ các câu hỏi trong email của cậu.\n\nĐầu tiên, tớ chắc chắn có thể ra đón cậu ngay tại cổng chính của nhà ga tàu hỏa khi cậu đến nơi vì nhà ga chỉ cách nhà tớ mười lăm phút di chuyển và tớ đã xin nghỉ nguyên ngày hôm đó. Tớ sẽ lái ô tô ra đó để chúng mình có thể chở hành lý của cậu về nhà một cách thoải mái.\n\nNgoài ra, thời tiết ở thị trấn của tớ hiện tại có nắng ấm và dễ chịu vào ban ngày nhưng khá se lạnh vào ban đêm, nên cậu hãy mang theo cả áo phông lẫn một chiếc áo khoác mỏng vì nhiệt độ thường giảm xuống rõ rệt vào buổi tối. Đừng quên mang theo một đôi giày đi bộ êm chân vì chúng mình sẽ đi tham quan khá nhiều.\n\nCuối cùng, trong chuyến thăm của cậu, tớ đã lên kế hoạch dẫn cậu đi thăm khu Phố Cổ, Hồ Trung tâm và Chợ đêm Cuối tuần nổi tiếng vì những địa điểm này có phong cảnh tuyệt đẹp cùng các món ăn đường phố truyền thống ngon nhất ở thị trấn của tớ. Vào sáng Chủ nhật, chúng mình cũng có thể thuê xe đạp chạy lên Đồi Hoàng Hôn để ngắm toàn cảnh thung lũng.\n\nTớ rất nóng lòng được chào đón cậu đến nhà tớ. Hãy nhắn cho tớ giờ tàu đến chính xác của cậu nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 228,
             "key_structures": [
@@ -15263,9 +15263,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Lee,\n\nHow have you been lately? I hope everything is going well. I am so excited about your upcoming trip to my town, and I’d like to answer all the questions in your email.\n\nTo begin with, ***I can definitely meet you right at the main gate of the train station when you arrive*** because the station is only fifteen minutes from my house and I have taken the whole day off. I will drive my car there so that we can carry your luggage home comfortably.\n\nIn addition, ***the weather in my town at the moment is sunny and pleasant during the day but gets quite chilly at night, so you should bring both T-shirts and a light jacket*** because the temperature drops noticeably in the evening. Do not forget to pack a pair of comfortable walking shoes because we will do a lot of sightseeing.\n\nFinally, ***during your visit, I have planned to take you to the Old Town, the Central Lake, and the famous Weekend Night Market*** because these places offer breathtaking scenery and the best traditional street food in our town. On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a panoramic view of the valley.\n\nI can’t wait to welcome you to my home. Please text me your exact train arrival time. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Lee,\n\nHow have you been lately? I hope everything is going well. I am so excited about your upcoming trip to my town, and I’d like to answer all the questions in your email.\n\nTo begin with, ***I can definitely meet you right at the main gate of the train station when you arrive*** because the station is only fifteen minutes from my house and I have taken the whole day off. I will drive my car there so that we can carry your luggage home comfortably.\n\nIn addition, ***the weather in my town at the moment is sunny and pleasant during the day but gets quite chilly at night, so you should bring both T-shirts and a light jacket*** because the temperature drops noticeably in the evening. Do not forget to pack a pair of comfortable walking shoes because we will do a lot of sightseeing.\n\nFinally, ***during your visit, I have planned to take you to the Old Town, the Central Lake, and the famous Weekend Night Market*** because these places offer beautiful scenery and the best traditional street food in our town. On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a wide view of the valley.\n\nI can’t wait to welcome you to my home. Please text me your exact train arrival time. Write back soon.\n\nBest wishes,",
             "letter_vi": "Lee thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Tớ vô cùng hào hứng về chuyến đi sắp tới của cậu đến thị trấn của tớ, và tớ muốn giải đáp toàn bộ các câu hỏi trong email của cậu.\n\nĐầu tiên, ***tớ chắc chắn có thể ra đón cậu ngay tại cổng chính của nhà ga tàu hỏa khi cậu đến nơi*** vì nhà ga chỉ cách nhà tớ mười lăm phút di chuyển và tớ đã xin nghỉ nguyên ngày hôm đó. Tớ sẽ lái ô tô ra đó để chúng mình có thể chở hành lý của cậu về nhà một cách thoải mái.\n\nNgoài ra, ***thời tiết ở thị trấn của tớ hiện tại có nắng ấm và dễ chịu vào ban ngày nhưng khá se lạnh vào ban đêm, nên cậu hãy mang theo cả áo phông lẫn một chiếc áo khoác mỏng*** vì nhiệt độ thường giảm xuống rõ rệt vào buổi tối. Đừng quên mang theo một đôi giày đi bộ êm chân vì chúng mình sẽ đi tham quan khá nhiều.\n\nCuối cùng, ***trong chuyến thăm của cậu, tớ đã lên kế hoạch dẫn cậu đi thăm khu Phố Cổ, Hồ Trung tâm và Chợ đêm Cuối tuần nổi tiếng*** vì những địa điểm này có phong cảnh tuyệt đẹp cùng các món ăn đường phố truyền thống ngon nhất ở thị trấn của tớ. Vào sáng Chủ nhật, chúng mình cũng có thể thuê xe đạp chạy lên Đồi Hoàng Hôn để ngắm toàn cảnh thung lũng.\n\nTớ rất nóng lòng được chào đón cậu đến nhà tớ. Hãy nhắn cho tớ giờ tàu đến chính xác của cậu nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
-            "text": "Dear Lee,\n\nHow have you been lately? I hope everything is going well. I am so excited about your upcoming trip to my town, and I’d like to answer all the questions in your email.\n\nTo begin with, ***I can definitely meet you right at the main gate of the train station when you arrive*** because the station is only fifteen minutes from my house and I have taken the whole day off. I will drive my car there so that we can carry your luggage home comfortably.\n\nIn addition, ***the weather in my town at the moment is sunny and pleasant during the day but gets quite chilly at night, so you should bring both T-shirts and a light jacket*** because the temperature drops noticeably in the evening. Do not forget to pack a pair of comfortable walking shoes because we will do a lot of sightseeing.\n\nFinally, ***during your visit, I have planned to take you to the Old Town, the Central Lake, and the famous Weekend Night Market*** because these places offer breathtaking scenery and the best traditional street food in our town. On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a panoramic view of the valley.\n\nI can’t wait to welcome you to my home. Please text me your exact train arrival time. Write back soon.\n\nBest wishes,",
+            "text": "Dear Lee,\n\nHow have you been lately? I hope everything is going well. I am so excited about your upcoming trip to my town, and I’d like to answer all the questions in your email.\n\nTo begin with, ***I can definitely meet you right at the main gate of the train station when you arrive*** because the station is only fifteen minutes from my house and I have taken the whole day off. I will drive my car there so that we can carry your luggage home comfortably.\n\nIn addition, ***the weather in my town at the moment is sunny and pleasant during the day but gets quite chilly at night, so you should bring both T-shirts and a light jacket*** because the temperature drops noticeably in the evening. Do not forget to pack a pair of comfortable walking shoes because we will do a lot of sightseeing.\n\nFinally, ***during your visit, I have planned to take you to the Old Town, the Central Lake, and the famous Weekend Night Market*** because these places offer beautiful scenery and the best traditional street food in our town. On Sunday morning, we can also rent bicycles to ride up Sunset Hill for a wide view of the valley.\n\nI can’t wait to welcome you to my home. Please text me your exact train arrival time. Write back soon.\n\nBest wishes,",
             "translation": "Lee thân mến,\n\nDạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Tớ vô cùng hào hứng về chuyến đi sắp tới của cậu đến thị trấn của tớ, và tớ muốn giải đáp toàn bộ các câu hỏi trong email của cậu.\n\nĐầu tiên, ***tớ chắc chắn có thể ra đón cậu ngay tại cổng chính của nhà ga tàu hỏa khi cậu đến nơi*** vì nhà ga chỉ cách nhà tớ mười lăm phút di chuyển và tớ đã xin nghỉ nguyên ngày hôm đó. Tớ sẽ lái ô tô ra đó để chúng mình có thể chở hành lý của cậu về nhà một cách thoải mái.\n\nNgoài ra, ***thời tiết ở thị trấn của tớ hiện tại có nắng ấm và dễ chịu vào ban ngày nhưng khá se lạnh vào ban đêm, nên cậu hãy mang theo cả áo phông lẫn một chiếc áo khoác mỏng*** vì nhiệt độ thường giảm xuống rõ rệt vào buổi tối. Đừng quên mang theo một đôi giày đi bộ êm chân vì chúng mình sẽ đi tham quan khá nhiều.\n\nCuối cùng, ***trong chuyến thăm của cậu, tớ đã lên kế hoạch dẫn cậu đi thăm khu Phố Cổ, Hồ Trung tâm và Chợ đêm Cuối tuần nổi tiếng*** vì những địa điểm này có phong cảnh tuyệt đẹp cùng các món ăn đường phố truyền thống ngon nhất ở thị trấn của tớ. Vào sáng Chủ nhật, chúng mình cũng có thể thuê xe đạp chạy lên Đồi Hoàng Hôn để ngắm toàn cảnh thung lũng.\n\nTớ rất nóng lòng được chào đón cậu đến nhà tớ. Hãy nhắn cho tớ giờ tàu đến chính xác của cậu nhé. Hồi âm sớm cho tớ.\n\nChúc cậu những điều tốt đẹp nhất,",
             "word_count": 228,
             "key_structures": [
@@ -15389,7 +15389,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I would like to check the exact starting time and the meeting place, and I wonder if we should bring a bouquet of roses and a congratulation card for Lily",
                   "action_vi": "tớ muốn kiểm tra lại giờ bắt đầu chính xác cùng địa điểm hẹn gặp, và tớ băn khoăn liệu chúng mình có nên mang theo một bó hoa hồng kèm thiệp chúc mừng cho Lily hay không",
-                  "reason_en": "because it is a special milestone for her and a lovely gift will show our support.",
+                  "reason_en": "because it is a special special event for her and a lovely gift will show our support.",
                   "reason_vi": "vì đây là một cột mốc đặc biệt của cô ấy và một món quà xinh xắn sẽ thể hiện sự ủng hộ của chúng mình.",
                   "expansion_1_en": "Please also let me know if you want me to pick you up at your house before we go.",
                   "expansion_1_vi": "Cậu cũng nhớ cho tớ biết nếu cậu muốn tớ qua nhà đón cậu trước khi đi nhé."
@@ -15657,7 +15657,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "it costs 300,000 VND per person to attend the party this Saturday evening",
                   "action_vi": "chi phí tham dự bữa tiệc vào tối thứ Bảy này là 300.000 đồng mỗi người",
-                  "reason_en": "because we selected a high-quality restaurant package that includes both an all-you-can-eat buffet and unlimited beverages.",
+                  "reason_en": "because we selected a high-quality restaurant package that includes both an all-you-can-eat buffet and unlimited drinks.",
                   "reason_vi": "vì chúng tôi đã chọn gói dịch vụ nhà hàng chất lượng cao bao gồm cả tiệc buffet ăn thỏa thích và đồ uống không giới hạn.",
                   "expansion_1_en": "You will not need to pay any extra money during the entire evening.",
                   "expansion_1_vi": "Ông sẽ không cần phải trả thêm bất kỳ khoản tiền phát sinh nào trong suốt cả buổi tối."
@@ -15695,7 +15695,7 @@ const LETTERS_DATA = [
                   "expansion_1_vi": "Nếu ông gặp bất kỳ trục trặc nào với ứng dụng, xin hãy ghé qua bàn làm việc của tôi vào sáng mai và tôi sẽ sẵn lòng hỗ trợ ông."
                 },
                 {
-                  "action_en": "making an online payment is very straightforward, even if you rarely use digital banking",
+                  "action_en": "making an online payment is very simple and easy, even if you rarely use digital banking",
                   "action_vi": "việc thực hiện thanh toán trực tuyến rất dễ dàng, ngay cả khi ông ít khi sử dụng ngân hàng số",
                   "reason_en": "because I have sent a direct payment link to our department chat group where you only need to enter your card details once.",
                   "reason_vi": "vì tôi đã gửi một đường dẫn thanh toán trực tiếp vào nhóm trò chuyện của phòng ban, nơi ông chỉ cần nhập thông tin thẻ một lần.",
@@ -15737,7 +15737,7 @@ const LETTERS_DATA = [
               "category": "2. Chi phí tham gia (Participation cost)"
             },
             {
-              "en": "cover all food and beverages",
+              "en": "cover all food and drinks",
               "vi": "bao gồm toàn bộ đồ ăn và thức uống",
               "category": "2. Chi phí tham gia (Participation cost)"
             },
@@ -16153,7 +16153,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "the conference will be held in the Grand Ballroom on the third floor of the National Convention Center in the heart of the city",
                   "action_vi": "hội nghị sẽ được tổ chức tại Hội trường Lớn ở tầng ba của Trung tâm Hội nghị Quốc gia ngay trung tâm thành phố",
-                  "reason_en": "because this modern venue is equipped with state-of-the-art audio-visual facilities and is only a 25-minute taxi ride from the international airport.",
+                  "reason_en": "because this modern venue is equipped with modern audio-visual facilities and is only a 25-minute taxi ride from the international airport.",
                   "reason_vi": "vì địa điểm hiện đại này được trang bị hệ thống âm thanh hình ảnh tiên tiến và chỉ cách sân bay quốc tế 25 phút đi taxi.",
                   "expansion_1_en": "I have attached a detailed map of the building and the conference agenda to this email for your convenience.",
                   "expansion_1_vi": "Tôi đã đính kèm bản đồ chi tiết của tòa nhà và lịch trình hội nghị vào email này để ông tiện theo dõi."
@@ -16167,11 +16167,11 @@ const LETTERS_DATA = [
                   "expansion_1_vi": "Quầy đăng ký đại biểu sẽ mở cửa lúc 8 giờ sáng tại sảnh chính ở tầng trệt."
                 },
                 {
-                  "action_en": "the conference sessions will be hosted at the City University Auditorium at 120 Tran Phu Street",
+                  "action_en": "the conference sessions will be hosted at the City University Main Hall at 120 Tran Phu Street",
                   "action_vi": "các phiên họp của hội nghị sẽ được tổ chức tại Hội trường Đại học Thành phố ở số 120 đường Trần Phú",
-                  "reason_en": "because the auditorium can accommodate over five hundred delegates and has multiple seminar rooms for group discussions.",
+                  "reason_en": "because the main hall can hold over five hundred participants and has multiple seminar rooms for group discussions.",
                   "reason_vi": "vì hội trường này có sức chứa hơn năm trăm đại biểu và có nhiều phòng hội thảo chuyên đề cho các phiên thảo luận nhóm.",
-                  "expansion_1_en": "Complimentary tea, coffee, and light refreshments will be served in the hallway between sessions.",
+                  "expansion_1_en": "Free tea, coffee, and drinks and snacks will be served in the hallway between sessions.",
                   "expansion_1_vi": "Trà, cà phê và đồ ăn nhẹ miễn phí sẽ được phục vụ tại hành lang giữa các phiên họp."
                 }
               ]
@@ -16183,11 +16183,11 @@ const LETTERS_DATA = [
               "icon": "fa-hotel",
               "options": [
                 {
-                  "action_en": "I highly recommend staying at the Sapphire Hotel, which is a reputable four-star hotel located just a five-minute walk from the conference venue",
+                  "action_en": "I highly recommend staying at the Sapphire Hotel, which is a well-known four-star hotel located just a five-minute walk from the conference venue",
                   "action_vi": "tôi đặc biệt khuyên ông nên lưu trú tại Khách sạn Sapphire, một khách sạn bốn sao uy tín nằm cách địa điểm tổ chức hội nghị chỉ năm phút đi bộ",
-                  "reason_en": "because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a complimentary airport shuttle service.",
+                  "reason_en": "because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a free airport shuttle service.",
                   "reason_vi": "vì nơi đây cung cấp các phòng nghỉ yên tĩnh, đầy đủ tiện nghi với bàn làm việc rộng rãi, Wi-Fi tốc độ cao và dịch vụ xe đưa đón sân bay miễn phí.",
-                  "expansion_1_en": "Staying there will save you a lot of commuting time every morning during the conference.",
+                  "expansion_1_en": "Staying there will save you a lot of travel time every morning during the conference.",
                   "expansion_1_vi": "Lưu trú tại đó sẽ giúp ông tiết kiệm được rất nhiều thời gian di chuyển vào mỗi buổi sáng trong suốt kỳ hội nghị."
                 },
                 {
@@ -16195,7 +16195,7 @@ const LETTERS_DATA = [
                   "action_vi": "cho kỳ lưu trú của ông, tôi gợi ý đặt phòng tại Khách sạn Lotus Boutique nằm ngay bên kia đường đối diện trung tâm hội nghị",
                   "reason_en": "because the hotel is well known for its professional English-speaking staff, comfortable beds, and excellent restaurant.",
                   "reason_vi": "vì khách sạn này nổi tiếng với đội ngũ nhân viên giao tiếp tiếng Anh chuyên nghiệp, giường ngủ êm ái và nhà hàng chất lượng tuyệt vời.",
-                  "expansion_1_en": "Many international speakers and delegates are also staying at this hotel during the event.",
+                  "expansion_1_en": "Many international speakers and participants are also staying at this hotel during the event.",
                   "expansion_1_vi": "Nhiều diễn giả và đại biểu quốc tế cũng sẽ lưu trú tại khách sạn này trong thời gian diễn ra sự kiện."
                 },
                 {
@@ -16219,13 +16219,13 @@ const LETTERS_DATA = [
                   "action_vi": "một phòng đơn tiêu chuẩn tại khách sạn này có giá 55 đô la mỗi đêm theo mức giá ưu đãi đặc biệt dành cho đại biểu tham dự hội nghị",
                   "reason_en": "because our organizing committee has partnered with the hotel to offer a 20% discount that already includes a daily buffet breakfast and all taxes.",
                   "reason_vi": "vì ban tổ chức của chúng tôi đã liên kết với khách sạn để mang lại mức giảm giá 20%, đã bao gồm bữa sáng tự chọn hàng ngày và toàn bộ thuế phí.",
-                  "expansion_1_en": "If you would like me to reserve a room for you at this preferential rate, please let me know your arrival and departure dates.",
+                  "expansion_1_en": "If you would like me to reserve a room for you at this special discount price, please let me know your arrival and departure dates.",
                   "expansion_1_vi": "Nếu ông muốn tôi đặt trước một phòng theo mức giá ưu đãi này, xin vui lòng cho tôi biết ngày đến và ngày đi của ông."
                 },
                 {
                   "action_en": "the accommodation costs between $50 and $75 per night depending on whether you choose a standard room or a deluxe executive room",
                   "action_vi": "chi phí lưu trú dao động từ 50 đến 75 đô la mỗi đêm tùy thuộc vào việc ông chọn phòng tiêu chuẩn hay phòng hạng sang (Deluxe)",
-                  "reason_en": "because both options offer excellent value for money and include complimentary breakfast, laundry service, and access to the gym.",
+                  "reason_en": "because both options offer excellent value for money and include free breakfast, laundry service, and access to the gym.",
                   "reason_vi": "vì cả hai lựa chọn đều mang lại giá trị xứng đáng với chi phí và bao gồm bữa sáng miễn phí, dịch vụ giặt là cũng như quyền sử dụng phòng tập gym.",
                   "expansion_1_en": "You can pay either by credit card when booking online or upon check-out at the reception desk.",
                   "expansion_1_vi": "Ông có thể thanh toán bằng thẻ tín dụng khi đặt phòng trực tuyến hoặc khi làm thủ tục trả phòng tại quầy lễ tân."
@@ -16235,7 +16235,7 @@ const LETTERS_DATA = [
                   "action_vi": "giá phòng là 60 đô la mỗi đêm, hoặc trọn gói 165 đô la cho kỳ lưu trú ba đêm dự hội nghị",
                   "reason_en": "because the hotel offers a package deal for business travelers that covers airport pickup, breakfast, and high-speed internet.",
                   "reason_vi": "vì khách sạn có gói ưu đãi dành cho khách công tác bao gồm dịch vụ đón tại sân bay, bữa sáng và internet tốc độ cao.",
-                  "expansion_1_en": "We can also issue an official invoice from the hotel if you need it for your company’s reimbursement.",
+                  "expansion_1_en": "We can also issue an official invoice from the hotel if you need it for your company’s payment.",
                   "expansion_1_vi": "Chúng tôi cũng có thể hỗ trợ xuất hóa đơn chính thức từ khách sạn nếu ông cần để thanh toán công tác phí với công ty."
                 }
               ]
@@ -16248,7 +16248,7 @@ const LETTERS_DATA = [
               "category": "1. Địa điểm hội nghị (Conference venue)"
             },
             {
-              "en": "state-of-the-art audio-visual facilities",
+              "en": "modern audio-visual facilities",
               "vi": "trang thiết bị âm thanh hình ảnh hiện đại",
               "category": "1. Địa điểm hội nghị (Conference venue)"
             },
@@ -16263,7 +16263,7 @@ const LETTERS_DATA = [
               "category": "1. Địa điểm hội nghị (Conference venue)"
             },
             {
-              "en": "a reputable four-star hotel",
+              "en": "a well-known four-star hotel",
               "vi": "một khách sạn 4 sao uy tín",
               "category": "2. Nơi lưu trú gợi ý (Recommended hotel)"
             },
@@ -16273,17 +16273,17 @@ const LETTERS_DATA = [
               "category": "2. Nơi lưu trú gợi ý (Recommended hotel)"
             },
             {
-              "en": "complimentary airport shuttle service",
+              "en": "free airport shuttle service",
               "vi": "dịch vụ xe đưa đón sân bay miễn phí",
               "category": "2. Nơi lưu trú gợi ý (Recommended hotel)"
             },
             {
-              "en": "save commuting time every morning",
+              "en": "save travel time every morning",
               "vi": "tiết kiệm thời gian di chuyển mỗi sáng",
               "category": "2. Nơi lưu trú gợi ý (Recommended hotel)"
             },
             {
-              "en": "special discounted rate for delegates",
+              "en": "special discounted rate for participants",
               "vi": "mức giá ưu đãi đặc biệt cho đại biểu",
               "category": "3. Chi phí lưu trú (Accommodation cost)"
             },
@@ -16298,7 +16298,7 @@ const LETTERS_DATA = [
               "category": "3. Chi phí lưu trú (Accommodation cost)"
             },
             {
-              "en": "reserve a room at this preferential rate",
+              "en": "reserve a room at this special discount price",
               "vi": "đặt trước phòng theo mức giá ưu đãi này",
               "category": "3. Chi phí lưu trú (Accommodation cost)"
             }
@@ -16310,9 +16310,9 @@ const LETTERS_DATA = [
             "sign_off": "Yours sincerely,"
           },
           "sample_b1": {
-            "letter_en": "Dear Mr. Clark,\n\nThank you for your email regarding the upcoming conference in our city. I am writing to provide you with a detailed description of the conference venue, recommended accommodation, and room rates as requested.\n\nTo begin with, the conference will be held in the Grand Ballroom on the third floor of the National Convention Center in the heart of the city because this modern venue is equipped with state-of-the-art audio-visual facilities and is only a 25-minute taxi ride from the international airport. I have attached a detailed map of the building and the conference agenda to this email for your convenience.\n\nIn addition, I highly recommend staying at the Sapphire Hotel, which is a reputable four-star hotel located just a five-minute walk from the conference venue because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a complimentary airport shuttle service. Staying there will save you a lot of commuting time every morning during the conference.\n\nFinally, a standard single room at this hotel costs $55 per night under the special discounted rate for conference participants because our organizing committee has partnered with the hotel to offer a 20% discount that already includes a daily buffet breakfast and all taxes. If you would like me to reserve a room for you at this preferential rate, please let me know your arrival and departure dates.\n\nI hope the above information is useful to you. Please feel free to contact me if you require any further details.\n\nYours sincerely,",
+            "letter_en": "Dear Mr. Clark,\n\nThank you for your email regarding the upcoming conference in our city. I am writing to provide you with a detailed description of the conference venue, recommended accommodation, and room rates as requested.\n\nTo begin with, the conference will be held in the Grand Ballroom on the third floor of the National Convention Center in the heart of the city because this modern venue is equipped with modern audio-visual facilities and is only a 25-minute taxi ride from the international airport. I have attached a detailed map of the building and the conference agenda to this email for your convenience.\n\nIn addition, I highly recommend staying at the Sapphire Hotel, which is a well-known four-star hotel located just a five-minute walk from the conference venue because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a free airport shuttle service. Staying there will save you a lot of travel time every morning during the conference.\n\nFinally, a standard single room at this hotel costs $55 per night under the special discounted rate for conference participants because our organizing committee has partnered with the hotel to offer a 20% discount that already includes a daily buffet breakfast and all taxes. If you would like me to reserve a room for you at this special discount price, please let me know your arrival and departure dates.\n\nI hope the above information is useful to you. Please feel free to contact me if you require any further details.\n\nYours sincerely,",
             "letter_vi": "Kính gửi ông Clark,\n\nCảm ơn email của ông liên quan đến hội nghị sắp tới tại thành phố của chúng tôi. Tôi viết thư này để cung cấp cho ông thông tin chi tiết về địa điểm tổ chức hội nghị, nơi lưu trú được khuyến nghị và mức giá phòng theo như yêu cầu.\n\nĐầu tiên, hội nghị sẽ được tổ chức tại Hội trường Lớn ở tầng ba của Trung tâm Hội nghị Quốc gia ngay trung tâm thành phố vì địa điểm hiện đại này được trang bị hệ thống âm thanh hình ảnh tiên tiến và chỉ cách sân bay quốc tế 25 phút đi taxi. Tôi đã đính kèm bản đồ chi tiết của tòa nhà và lịch trình hội nghị vào email này để ông tiện theo dõi.\n\nNgoài ra, tôi đặc biệt khuyên ông nên lưu trú tại Khách sạn Sapphire, một khách sạn bốn sao uy tín nằm cách địa điểm tổ chức hội nghị chỉ năm phút đi bộ vì nơi đây cung cấp các phòng nghỉ yên tĩnh, đầy đủ tiện nghi với bàn làm việc rộng rãi, Wi-Fi tốc độ cao và dịch vụ xe đưa đón sân bay miễn phí. Lưu trú tại đó sẽ giúp ông tiết kiệm được rất nhiều thời gian di chuyển vào mỗi buổi sáng trong suốt kỳ hội nghị.\n\nCuối cùng, một phòng đơn tiêu chuẩn tại khách sạn này có giá 55 đô la mỗi đêm theo mức giá ưu đãi đặc biệt dành cho đại biểu tham dự hội nghị vì ban tổ chức của chúng tôi đã liên kết với khách sạn để mang lại mức giảm giá 20%, đã bao gồm bữa sáng tự chọn hàng ngày và toàn bộ thuế phí. Nếu ông muốn tôi đặt trước một phòng theo mức giá ưu đãi này, xin vui lòng cho tôi biết ngày đến và ngày đi của ông.\n\nTôi hy vọng những thông tin trên hữu ích đối với ông. Xin vui lòng liên hệ với tôi nếu ông cần thêm bất kỳ thông tin chi tiết nào.\n\nTrân trọng,",
-            "text": "Dear Mr. Clark,\n\nThank you for your email regarding the upcoming conference in our city. I am writing to provide you with a detailed description of the conference venue, recommended accommodation, and room rates as requested.\n\nTo begin with, the conference will be held in the Grand Ballroom on the third floor of the National Convention Center in the heart of the city because this modern venue is equipped with state-of-the-art audio-visual facilities and is only a 25-minute taxi ride from the international airport. I have attached a detailed map of the building and the conference agenda to this email for your convenience.\n\nIn addition, I highly recommend staying at the Sapphire Hotel, which is a reputable four-star hotel located just a five-minute walk from the conference venue because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a complimentary airport shuttle service. Staying there will save you a lot of commuting time every morning during the conference.\n\nFinally, a standard single room at this hotel costs $55 per night under the special discounted rate for conference participants because our organizing committee has partnered with the hotel to offer a 20% discount that already includes a daily buffet breakfast and all taxes. If you would like me to reserve a room for you at this preferential rate, please let me know your arrival and departure dates.\n\nI hope the above information is useful to you. Please feel free to contact me if you require any further details.\n\nYours sincerely,",
+            "text": "Dear Mr. Clark,\n\nThank you for your email regarding the upcoming conference in our city. I am writing to provide you with a detailed description of the conference venue, recommended accommodation, and room rates as requested.\n\nTo begin with, the conference will be held in the Grand Ballroom on the third floor of the National Convention Center in the heart of the city because this modern venue is equipped with modern audio-visual facilities and is only a 25-minute taxi ride from the international airport. I have attached a detailed map of the building and the conference agenda to this email for your convenience.\n\nIn addition, I highly recommend staying at the Sapphire Hotel, which is a well-known four-star hotel located just a five-minute walk from the conference venue because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a free airport shuttle service. Staying there will save you a lot of travel time every morning during the conference.\n\nFinally, a standard single room at this hotel costs $55 per night under the special discounted rate for conference participants because our organizing committee has partnered with the hotel to offer a 20% discount that already includes a daily buffet breakfast and all taxes. If you would like me to reserve a room for you at this special discount price, please let me know your arrival and departure dates.\n\nI hope the above information is useful to you. Please feel free to contact me if you require any further details.\n\nYours sincerely,",
             "translation": "Kính gửi ông Clark,\n\nCảm ơn email của ông liên quan đến hội nghị sắp tới tại thành phố của chúng tôi. Tôi viết thư này để cung cấp cho ông thông tin chi tiết về địa điểm tổ chức hội nghị, nơi lưu trú được khuyến nghị và mức giá phòng theo như yêu cầu.\n\nĐầu tiên, hội nghị sẽ được tổ chức tại Hội trường Lớn ở tầng ba của Trung tâm Hội nghị Quốc gia ngay trung tâm thành phố vì địa điểm hiện đại này được trang bị hệ thống âm thanh hình ảnh tiên tiến và chỉ cách sân bay quốc tế 25 phút đi taxi. Tôi đã đính kèm bản đồ chi tiết của tòa nhà và lịch trình hội nghị vào email này để ông tiện theo dõi.\n\nNgoài ra, tôi đặc biệt khuyên ông nên lưu trú tại Khách sạn Sapphire, một khách sạn bốn sao uy tín nằm cách địa điểm tổ chức hội nghị chỉ năm phút đi bộ vì nơi đây cung cấp các phòng nghỉ yên tĩnh, đầy đủ tiện nghi với bàn làm việc rộng rãi, Wi-Fi tốc độ cao và dịch vụ xe đưa đón sân bay miễn phí. Lưu trú tại đó sẽ giúp ông tiết kiệm được rất nhiều thời gian di chuyển vào mỗi buổi sáng trong suốt kỳ hội nghị.\n\nCuối cùng, một phòng đơn tiêu chuẩn tại khách sạn này có giá 55 đô la mỗi đêm theo mức giá ưu đãi đặc biệt dành cho đại biểu tham dự hội nghị vì ban tổ chức của chúng tôi đã liên kết với khách sạn để mang lại mức giảm giá 20%, đã bao gồm bữa sáng tự chọn hàng ngày và toàn bộ thuế phí. Nếu ông muốn tôi đặt trước một phòng theo mức giá ưu đãi này, xin vui lòng cho tôi biết ngày đến và ngày đi của ông.\n\nTôi hy vọng những thông tin trên hữu ích đối với ông. Xin vui lòng liên hệ với tôi nếu ông cần thêm bất kỳ thông tin chi tiết nào.\n\nTrân trọng,",
             "word_count": 252,
             "key_structures": [
@@ -16321,7 +16321,7 @@ const LETTERS_DATA = [
                 "vi": "Trung tâm Hội nghị Quốc gia"
               },
               {
-                "en": "state-of-the-art audio-visual facilities",
+                "en": "modern audio-visual facilities",
                 "vi": "trang thiết bị âm thanh hình ảnh hiện đại"
               },
               {
@@ -16335,9 +16335,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Mr. Clark,\n\nThank you for your email regarding the upcoming conference in our city. I am writing to provide you with a detailed description of the conference venue, recommended accommodation, and room rates as requested.\n\nTo begin with, ***the conference will be held in the Grand Ballroom on the third floor of the National Convention Center in the heart of the city*** because this modern venue is equipped with state-of-the-art audio-visual facilities and is only a 25-minute taxi ride from the international airport. I have attached a detailed map of the building and the conference agenda to this email for your convenience.\n\nIn addition, ***I highly recommend staying at the Sapphire Hotel, which is a reputable four-star hotel located just a five-minute walk from the conference venue*** because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a complimentary airport shuttle service. Staying there will save you a lot of commuting time every morning during the conference.\n\nFinally, ***a standard single room at this hotel costs $55 per night under the special discounted rate for conference participants*** because our organizing committee has partnered with the hotel to offer a 20% discount that already includes a daily buffet breakfast and all taxes. If you would like me to reserve a room for you at this preferential rate, please let me know your arrival and departure dates.\n\nI hope the above information is useful to you. Please feel free to contact me if you require any further details.\n\nYours sincerely,",
+            "letter_en": "Dear Mr. Clark,\n\nThank you for your email regarding the upcoming conference in our city. I am writing to provide you with a detailed description of the conference venue, recommended accommodation, and room rates as requested.\n\nTo begin with, ***the conference will be held in the Grand Ballroom on the third floor of the National Convention Center in the heart of the city*** because this modern venue is equipped with modern audio-visual facilities and is only a 25-minute taxi ride from the international airport. I have attached a detailed map of the building and the conference agenda to this email for your convenience.\n\nIn addition, ***I highly recommend staying at the Sapphire Hotel, which is a well-known four-star hotel located just a five-minute walk from the conference venue*** because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a free airport shuttle service. Staying there will save you a lot of travel time every morning during the conference.\n\nFinally, ***a standard single room at this hotel costs $55 per night under the special discounted rate for conference participants*** because our organizing committee has partnered with the hotel to offer a 20% discount that already includes a daily buffet breakfast and all taxes. If you would like me to reserve a room for you at this special discount price, please let me know your arrival and departure dates.\n\nI hope the above information is useful to you. Please feel free to contact me if you require any further details.\n\nYours sincerely,",
             "letter_vi": "Kính gửi ông Clark,\n\nCảm ơn email của ông liên quan đến hội nghị sắp tới tại thành phố của chúng tôi. Tôi viết thư này để cung cấp cho ông thông tin chi tiết về địa điểm tổ chức hội nghị, nơi lưu trú được khuyến nghị và mức giá phòng theo như yêu cầu.\n\nĐầu tiên, ***hội nghị sẽ được tổ chức tại Hội trường Lớn ở tầng ba của Trung tâm Hội nghị Quốc gia ngay trung tâm thành phố*** vì địa điểm hiện đại này được trang bị hệ thống âm thanh hình ảnh tiên tiến và chỉ cách sân bay quốc tế 25 phút đi taxi. Tôi đã đính kèm bản đồ chi tiết của tòa nhà và lịch trình hội nghị vào email này để ông tiện theo dõi.\n\nNgoài ra, ***tôi đặc biệt khuyên ông nên lưu trú tại Khách sạn Sapphire, một khách sạn bốn sao uy tín nằm cách địa điểm tổ chức hội nghị chỉ năm phút đi bộ*** vì nơi đây cung cấp các phòng nghỉ yên tĩnh, đầy đủ tiện nghi với bàn làm việc rộng rãi, Wi-Fi tốc độ cao và dịch vụ xe đưa đón sân bay miễn phí. Lưu trú tại đó sẽ giúp ông tiết kiệm được rất nhiều thời gian di chuyển vào mỗi buổi sáng trong suốt kỳ hội nghị.\n\nCuối cùng, ***một phòng đơn tiêu chuẩn tại khách sạn này có giá 55 đô la mỗi đêm theo mức giá ưu đãi đặc biệt dành cho đại biểu tham dự hội nghị*** vì ban tổ chức của chúng tôi đã liên kết với khách sạn để mang lại mức giảm giá 20%, đã bao gồm bữa sáng tự chọn hàng ngày và toàn bộ thuế phí. Nếu ông muốn tôi đặt trước một phòng theo mức giá ưu đãi này, xin vui lòng cho tôi biết ngày đến và ngày đi của ông.\n\nTôi hy vọng những thông tin trên hữu ích đối với ông. Xin vui lòng liên hệ với tôi nếu ông cần thêm bất kỳ thông tin chi tiết nào.\n\nTrân trọng,",
-            "text": "Dear Mr. Clark,\n\nThank you for your email regarding the upcoming conference in our city. I am writing to provide you with a detailed description of the conference venue, recommended accommodation, and room rates as requested.\n\nTo begin with, ***the conference will be held in the Grand Ballroom on the third floor of the National Convention Center in the heart of the city*** because this modern venue is equipped with state-of-the-art audio-visual facilities and is only a 25-minute taxi ride from the international airport. I have attached a detailed map of the building and the conference agenda to this email for your convenience.\n\nIn addition, ***I highly recommend staying at the Sapphire Hotel, which is a reputable four-star hotel located just a five-minute walk from the conference venue*** because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a complimentary airport shuttle service. Staying there will save you a lot of commuting time every morning during the conference.\n\nFinally, ***a standard single room at this hotel costs $55 per night under the special discounted rate for conference participants*** because our organizing committee has partnered with the hotel to offer a 20% discount that already includes a daily buffet breakfast and all taxes. If you would like me to reserve a room for you at this preferential rate, please let me know your arrival and departure dates.\n\nI hope the above information is useful to you. Please feel free to contact me if you require any further details.\n\nYours sincerely,",
+            "text": "Dear Mr. Clark,\n\nThank you for your email regarding the upcoming conference in our city. I am writing to provide you with a detailed description of the conference venue, recommended accommodation, and room rates as requested.\n\nTo begin with, ***the conference will be held in the Grand Ballroom on the third floor of the National Convention Center in the heart of the city*** because this modern venue is equipped with modern audio-visual facilities and is only a 25-minute taxi ride from the international airport. I have attached a detailed map of the building and the conference agenda to this email for your convenience.\n\nIn addition, ***I highly recommend staying at the Sapphire Hotel, which is a well-known four-star hotel located just a five-minute walk from the conference venue*** because it offers quiet, well-equipped rooms with spacious work desks, high-speed Wi-Fi, and a free airport shuttle service. Staying there will save you a lot of travel time every morning during the conference.\n\nFinally, ***a standard single room at this hotel costs $55 per night under the special discounted rate for conference participants*** because our organizing committee has partnered with the hotel to offer a 20% discount that already includes a daily buffet breakfast and all taxes. If you would like me to reserve a room for you at this special discount price, please let me know your arrival and departure dates.\n\nI hope the above information is useful to you. Please feel free to contact me if you require any further details.\n\nYours sincerely,",
             "translation": "Kính gửi ông Clark,\n\nCảm ơn email của ông liên quan đến hội nghị sắp tới tại thành phố của chúng tôi. Tôi viết thư này để cung cấp cho ông thông tin chi tiết về địa điểm tổ chức hội nghị, nơi lưu trú được khuyến nghị và mức giá phòng theo như yêu cầu.\n\nĐầu tiên, ***hội nghị sẽ được tổ chức tại Hội trường Lớn ở tầng ba của Trung tâm Hội nghị Quốc gia ngay trung tâm thành phố*** vì địa điểm hiện đại này được trang bị hệ thống âm thanh hình ảnh tiên tiến và chỉ cách sân bay quốc tế 25 phút đi taxi. Tôi đã đính kèm bản đồ chi tiết của tòa nhà và lịch trình hội nghị vào email này để ông tiện theo dõi.\n\nNgoài ra, ***tôi đặc biệt khuyên ông nên lưu trú tại Khách sạn Sapphire, một khách sạn bốn sao uy tín nằm cách địa điểm tổ chức hội nghị chỉ năm phút đi bộ*** vì nơi đây cung cấp các phòng nghỉ yên tĩnh, đầy đủ tiện nghi với bàn làm việc rộng rãi, Wi-Fi tốc độ cao và dịch vụ xe đưa đón sân bay miễn phí. Lưu trú tại đó sẽ giúp ông tiết kiệm được rất nhiều thời gian di chuyển vào mỗi buổi sáng trong suốt kỳ hội nghị.\n\nCuối cùng, ***một phòng đơn tiêu chuẩn tại khách sạn này có giá 55 đô la mỗi đêm theo mức giá ưu đãi đặc biệt dành cho đại biểu tham dự hội nghị*** vì ban tổ chức của chúng tôi đã liên kết với khách sạn để mang lại mức giảm giá 20%, đã bao gồm bữa sáng tự chọn hàng ngày và toàn bộ thuế phí. Nếu ông muốn tôi đặt trước một phòng theo mức giá ưu đãi này, xin vui lòng cho tôi biết ngày đến và ngày đi của ông.\n\nTôi hy vọng những thông tin trên hữu ích đối với ông. Xin vui lòng liên hệ với tôi nếu ông cần thêm bất kỳ thông tin chi tiết nào.\n\nTrân trọng,",
             "word_count": 252,
             "key_structures": [
@@ -16346,7 +16346,7 @@ const LETTERS_DATA = [
                 "vi": "Trung tâm Hội nghị Quốc gia"
               },
               {
-                "en": "state-of-the-art audio-visual facilities",
+                "en": "modern audio-visual facilities",
                 "vi": "trang thiết bị âm thanh hình ảnh hiện đại"
               },
               {
@@ -16527,7 +16527,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "Some of the lockers were out of order.",
                   "action_vi": "Một số tủ khóa không thể sử dụng được.",
-                  "reason_en": "I was unable to secure my personal belongings, so I felt very concerned about their safety.",
+                  "reason_en": "I was unable to secure my personal things, so I felt very concerned about their safety.",
                   "reason_vi": "Tôi không thể cất giữ đồ dùng cá nhân một cách an toàn, vì vậy tôi cảm thấy rất lo lắng về sự an toàn của chúng.",
                   "solution_en": "I would like to suggest that you repair or replace the faulty lockers as soon as possible.",
                   "solution_vi": "Tôi muốn gợi ý rằng quý vị sửa chữa hoặc thay thế các tủ khóa bị lỗi sớm nhất có thể."
@@ -16537,7 +16537,7 @@ const LETTERS_DATA = [
                   "action_vi": "Không có đủ tủ khóa cho các thành viên.",
                   "reason_en": "I had to wait until a locker became available, and this wasted valuable time before my workout.",
                   "reason_vi": "Tôi phải chờ đến khi có tủ trống, và điều này làm lãng phí thời gian quý báu trước buổi tập.",
-                  "solution_en": "I suggest that you install additional lockers to accommodate more members.",
+                  "solution_en": "I suggest that you install additional lockers to have enough space for more members.",
                   "solution_vi": "Tôi đề xuất quý vị lắp đặt thêm tủ khóa để phục vụ nhiều thành viên hơn."
                 }
               ]
@@ -16583,7 +16583,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "The lighting in the changing room was too dim.",
                   "action_vi": "Hệ thống chiếu sáng trong phòng thay đồ không đủ.",
-                  "reason_en": "I found it difficult to locate my personal belongings, especially in the darker areas of the room.",
+                  "reason_en": "I found it difficult to locate my personal things, especially in the darker areas of the room.",
                   "reason_vi": "Tôi thấy khó tìm đồ dùng cá nhân, đặc biệt ở những khu vực tối hơn trong phòng.",
                   "solution_en": "I believe that steps should be taken to install brighter lights to improve visibility.",
                   "solution_vi": "Tôi tin rằng các biện pháp cần được thực hiện để lắp đặt đèn sáng hơn nhằm cải thiện tầm nhìn."
@@ -16607,7 +16607,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "Some of the clothes hooks were damaged.",
                   "action_vi": "Một số móc treo quần áo bị hỏng.",
-                  "reason_en": "I was unable to hang my clothes properly, and this made it difficult to keep my belongings neat and organized.",
+                  "reason_en": "I was unable to hang my clothes properly, and this made it difficult to keep my things neat and organized.",
                   "reason_vi": "Tôi không thể treo quần áo gọn gàng, và điều này khiến việc giữ đồ đạc ngăn nắp trở nên khó khăn.",
                   "solution_en": "I strongly recommend that the management repair or replace the damaged clothes hooks.",
                   "solution_vi": "Tôi tha thiết đề xuất ban quản lý sửa chữa hoặc thay thế các móc treo quần áo bị hỏng."
@@ -16791,7 +16791,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "The toilets were poorly maintained and very dirty.",
                   "action_vi": "Nhà vệ sinh được giữ gìn kém và mất vệ sinh.",
-                  "reason_en": "The unsanitary conditions made me uncomfortable using the toilets and raised concerns about the overall hygiene standards of the sports center.",
+                  "reason_en": "The dirty conditions made me uncomfortable using the toilets and raised concerns about the overall hygiene standards of the sports center.",
                   "reason_vi": "Điều kiện mất vệ sinh khiến tôi không thoải mái khi sử dụng nhà vệ sinh và làm dấy lên lo ngại về tiêu chuẩn vệ sinh chung của trung tâm thể thao.",
                   "solution_en": "I believe that steps should be taken to clean and disinfect the toilets more regularly.",
                   "solution_vi": "Tôi tin rằng các biện pháp cần được thực hiện để vệ sinh và khử trùng nhà vệ sinh thường xuyên hơn."
@@ -16898,7 +16898,7 @@ const LETTERS_DATA = [
               "id": 2,
               "part": "2. Thân thư 1 - Cặp 1: Câu vấn đề chính 1 + Câu mô tả cụ thể 1",
               "vi": "Trước hết, vấn đề chính là phòng thay đồ được giữ gìn kém. Rác vương vãi khắp sàn nhà, vì vậy toàn bộ khu vực trông mất vệ sinh và gây cảm giác khó chịu khi sử dụng.",
-              "en": "To begin with, the main problem was that the changing room was poorly maintained. Rubbish was scattered across the floor, so the entire area looked unhygienic and unpleasant to use.",
+              "en": "To begin with, the main problem was that the changing room was poorly maintained. Rubbish was scattered across the floor, so the entire area looked not clean and unpleasant to use.",
               "vocab_hints": [
                 {
                   "en": "To begin with, the main problem was that",
@@ -16913,7 +16913,7 @@ const LETTERS_DATA = [
                   "vi": "Rác vương vãi khắp sàn nhà"
                 },
                 {
-                  "en": "which made the entire area look unhygienic",
+                  "en": "which made the entire area look not clean",
                   "vi": "điều này khiến toàn bộ khu vực trông mất vệ sinh"
                 },
                 {
@@ -16933,14 +16933,14 @@ const LETTERS_DATA = [
               ],
               "grammar_notes": [],
               "alternatives": [
-                "The main problem was that the changing room was poorly maintained, and rubbish was scattered across the floor, so the area looked very unhygienic."
+                "The main problem was that the changing room was poorly maintained, and rubbish was scattered across the floor, so the area looked very not clean."
               ]
             },
             {
               "id": 3,
               "part": "3. Thân thư 1 - Cặp 2 & 3: Các vấn đề tiếp theo kèm mô tả cụ thể",
               "vi": "Một mối bận tâm khác là một vài tủ đồ không thể sử dụng được. Tôi không thể cất giữ đồ dùng cá nhân an toàn, điều này khiến tôi lo lắng về sự an toàn của chúng. Một vấn đề nữa là không có nước nóng trong phòng tắm vòi sen, khiến việc vệ sinh cơ thể sau khi tập luyện rất bất tiện.",
-              "en": "Another concern was that several lockers were out of order. I was unable to secure my personal belongings, so I felt very concerned about their safety. A further issue was that there was no hot water in the showers, so it was very inconvenient to freshen up after exercising.",
+              "en": "Another concern was that several lockers were out of order. I was unable to secure my personal things, so I felt very concerned about their safety. A further issue was that there was no hot water in the showers, so it was very inconvenient to freshen up after exercising.",
               "vocab_hints": [
                 {
                   "en": "Another concern was that",
@@ -16951,7 +16951,7 @@ const LETTERS_DATA = [
                   "vi": "bị hỏng / không sử dụng được"
                 },
                 {
-                  "en": "unable to secure my personal belongings",
+                  "en": "unable to secure my personal things",
                   "vi": "không thể cất giữ đồ đạc an toàn"
                 },
                 {
@@ -16986,7 +16986,7 @@ const LETTERS_DATA = [
               "id": 4,
               "part": "4. Thân thư 2 - Giải thích cảm xúc (Feelings & Expectations)",
               "vi": "Tôi đặc biệt thất vọng với trải nghiệm này vì tôi đã kỳ vọng mức chất lượng và dịch vụ tốt hơn từ một trung tâm thể thao có uy tín. Tình trạng mất vệ sinh này khiến tôi cảm thấy vô cùng bực bội và khó chịu trong suốt chuyến đi.",
-              "en": "I was particularly disappointed with this experience because I expected a better level of quality and service from a reputable sports center. This unhygienic condition made me feel extremely frustrated and uncomfortable throughout my visit.",
+              "en": "I was particularly disappointed with this experience because I expected a better level of quality and service from a well-known sports center. This not clean condition made me feel extremely frustrated and uncomfortable throughout my visit.",
               "vocab_hints": [
                 {
                   "en": "particularly disappointed with",
@@ -16997,11 +16997,11 @@ const LETTERS_DATA = [
                   "vi": "kỳ vọng chất lượng và dịch vụ tốt hơn"
                 },
                 {
-                  "en": "reputable sports center",
+                  "en": "reliable sports center",
                   "vi": "trung tâm thể thao có uy tín"
                 },
                 {
-                  "en": "unhygienic condition",
+                  "en": "not clean condition",
                   "vi": "điều kiện mất vệ sinh"
                 },
                 {
@@ -17137,9 +17137,9 @@ const LETTERS_DATA = [
             }
           ],
           "sample_b1": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to complain about the condition of the changing room at your sports center. I recently used the facility and was not satisfied with it.\n\nThe main problem was that the floor was very dirty and wet, so it was quite dangerous for members. Another issue was that several lockers were broken, so I could not safely store my personal belongings.\n\nFinally, I also found that some of the showers did not have hot water. I was very disappointed with these problems because I have always enjoyed using your center.\n\nTherefore, I would appreciate it if you could clean the changing room more regularly, repair the broken lockers, and fix the showers as soon as possible.\n\nI hope that you will look into these issues soon. I look forward to receiving your reply soon.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to complain about the condition of the changing room at your sports center. I recently used the facility and was not satisfied with it.\n\nThe main problem was that the floor was very dirty and wet, so it was quite dangerous for members. Another issue was that several lockers were broken, so I could not safely store my personal things.\n\nFinally, I also found that some of the showers did not have hot water. I was very disappointed with these problems because I have always enjoyed using your center.\n\nTherefore, I would appreciate it if you could clean the changing room more regularly, repair the broken lockers, and fix the showers as soon as possible.\n\nI hope that you will look into these issues soon. I look forward to receiving your reply soon.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Ông/Bà,\n\nTôi viết thư này để phàn nàn về tình trạng của phòng thay đồ tại trung tâm thể thao của ông/bà. Gần đây tôi đã sử dụng cơ sở vật chất này và không hài lòng với nó.\n\nVấn đề chính là sàn nhà rất bẩn và ẩm ướt, điều này khá nguy hiểm cho các hội viên. Một vấn đề khác là một số tủ đựng đồ bị hỏng, vì vậy tôi không thể cất giữ đồ dùng cá nhân của mình một cách an toàn.\n\nCuối cùng, tôi cũng nhận thấy một số vòi hoa sen không có nước nóng. Tôi rất thất vọng với những vấn đề này vì tôi luôn thích sử dụng trung tâm của ông/bà.\n\nDo đó, tôi sẽ rất cảm kích nếu ông/bà có thể dọn dẹp phòng thay đồ thường xuyên hơn, sửa chữa các tủ đựng đồ bị hỏng và sửa lại các vòi hoa sen càng sớm càng tốt.\n\nTôi hy vọng ông/bà sẽ sớm xem xét các vấn đề này. Tôi rất mong sớm nhận được phản hồi từ ông/bà.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to complain about the condition of the changing room at your sports center. I recently used the facility and was not satisfied with it.\n\nThe main problem was that the floor was very dirty and wet, so it was quite dangerous for members. Another issue was that several lockers were broken, so I could not safely store my personal belongings.\n\nFinally, I also found that some of the showers did not have hot water. I was very disappointed with these problems because I have always enjoyed using your center.\n\nTherefore, I would appreciate it if you could clean the changing room more regularly, repair the broken lockers, and fix the showers as soon as possible.\n\nI hope that you will look into these issues soon. I look forward to receiving your reply soon.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to complain about the condition of the changing room at your sports center. I recently used the facility and was not satisfied with it.\n\nThe main problem was that the floor was very dirty and wet, so it was quite dangerous for members. Another issue was that several lockers were broken, so I could not safely store my personal things.\n\nFinally, I also found that some of the showers did not have hot water. I was very disappointed with these problems because I have always enjoyed using your center.\n\nTherefore, I would appreciate it if you could clean the changing room more regularly, repair the broken lockers, and fix the showers as soon as possible.\n\nI hope that you will look into these issues soon. I look forward to receiving your reply soon.\n\nYours faithfully,",
             "translation": "Kính gửi Ông/Bà,\n\nTôi viết thư này để phàn nàn về tình trạng của phòng thay đồ tại trung tâm thể thao của ông/bà. Gần đây tôi đã sử dụng cơ sở vật chất này và không hài lòng với nó.\n\nVấn đề chính là sàn nhà rất bẩn và ẩm ướt, điều này khá nguy hiểm cho các hội viên. Một vấn đề khác là một số tủ đựng đồ bị hỏng, vì vậy tôi không thể cất giữ đồ dùng cá nhân của mình một cách an toàn.\n\nCuối cùng, tôi cũng nhận thấy một số vòi hoa sen không có nước nóng. Tôi rất thất vọng với những vấn đề này vì tôi luôn thích sử dụng trung tâm của ông/bà.\n\nDo đó, tôi sẽ rất cảm kích nếu ông/bà có thể dọn dẹp phòng thay đồ thường xuyên hơn, sửa chữa các tủ đựng đồ bị hỏng và sửa lại các vòi hoa sen càng sớm càng tốt.\n\nTôi hy vọng ông/bà sẽ sớm xem xét các vấn đề này. Tôi rất mong sớm nhận được phản hồi từ ông/bà.\n\nTrân trọng,",
             "word_count": 140,
             "key_structures": [
@@ -17162,9 +17162,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of the changing rooms at your sports center, which I visited yesterday afternoon.\n\nFirst of all, the main problem was that the changing rooms were poorly maintained. Litter was scattered across the floor, and several shower heads were broken. Another concern was that many lockers were damaged and could not be locked, which made me feel worried about my belongings.\n\nIn addition, the air conditioning in the workout area was out of order. As a result, the room became uncomfortably hot and stuffy during peak workout hours.\n\nTo improve your service, I suggest that you clean the changing rooms more frequently and repair the broken lockers promptly. Furthermore, please fix the air conditioning system to ensure a comfortable workout environment for all members.\n\nI hope you will take these issues seriously and resolve them soon. I look forward to hearing from you.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of the changing rooms at your sports center, which I visited yesterday afternoon.\n\nFirst of all, the main problem was that the changing rooms were poorly maintained. Litter was scattered across the floor, and several shower heads were broken. Another concern was that many lockers were damaged and could not be locked, which made me feel worried about my things.\n\nIn addition, the air conditioning in the workout area was out of order. As a result, the room became uncomfortably hot and stuffy during peak workout hours.\n\nTo improve your service, I suggest that you clean the changing rooms more frequently and repair the broken lockers promptly. Furthermore, please fix the air conditioning system to ensure a comfortable workout environment for all members.\n\nI hope you will take these issues seriously and resolve them soon. I look forward to hearing from you.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Ban Quản lý,\n\nTôi viết thư này để bày tỏ sự không hài lòng về tình trạng phòng thay đồ tại trung tâm thể thao của quý vị trong chuyến đến tập vào chiều hôm qua.\n\nTrước hết, vấn đề chính là phòng thay đồ chưa được giữ gìn vệ sinh tốt. Rác vương vãi trên sàn nhà và nhiều vòi sen bị hỏng. Một vấn đề đáng lo ngại khác là nhiều tủ để đồ bị hỏng khóa, khiến tôi rất lo lắng về đồ đạc cá nhân của mình.\n\nThêm vào đó, hệ thống điều hòa ở khu vực tập luyện cũng bị hỏng. Do đó, căn phòng trở nên rất nóng bức và ngột ngạt trong giờ cao điểm.\n\nĐể cải thiện chất lượng dịch vụ, tôi đề nghị quý vị cho dọn dẹp phòng thay đồ thường xuyên hơn và khẩn trương sửa chữa các tủ đồ bị hỏng. Hơn nữa, xin vui lòng sửa lại hệ thống điều hòa để đảm bảo môi trường tập luyện dễ chịu cho tất cả hội viên.\n\nTôi hy vọng quý vị sẽ lưu tâm đến các vấn đề này và sớm khắc phục. Tôi rất mong sớm nhận được hồi đáp.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of the changing rooms at your sports center, which I visited yesterday afternoon.\n\nFirst of all, the main problem was that the changing rooms were poorly maintained. Litter was scattered across the floor, and several shower heads were broken. Another concern was that many lockers were damaged and could not be locked, which made me feel worried about my belongings.\n\nIn addition, the air conditioning in the workout area was out of order. As a result, the room became uncomfortably hot and stuffy during peak workout hours.\n\nTo improve your service, I suggest that you clean the changing rooms more frequently and repair the broken lockers promptly. Furthermore, please fix the air conditioning system to ensure a comfortable workout environment for all members.\n\nI hope you will take these issues seriously and resolve them soon. I look forward to hearing from you.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of the changing rooms at your sports center, which I visited yesterday afternoon.\n\nFirst of all, the main problem was that the changing rooms were poorly maintained. Litter was scattered across the floor, and several shower heads were broken. Another concern was that many lockers were damaged and could not be locked, which made me feel worried about my things.\n\nIn addition, the air conditioning in the workout area was out of order. As a result, the room became uncomfortably hot and stuffy during peak workout hours.\n\nTo improve your service, I suggest that you clean the changing rooms more frequently and repair the broken lockers promptly. Furthermore, please fix the air conditioning system to ensure a comfortable workout environment for all members.\n\nI hope you will take these issues seriously and resolve them soon. I look forward to hearing from you.\n\nYours faithfully,",
             "translation": "Kính gửi Ban Quản lý,\n\nTôi viết thư này để bày tỏ sự không hài lòng về tình trạng phòng thay đồ tại trung tâm thể thao của quý vị trong chuyến đến tập vào chiều hôm qua.\n\nTrước hết, vấn đề chính là phòng thay đồ chưa được giữ gìn vệ sinh tốt. Rác vương vãi trên sàn nhà và nhiều vòi sen bị hỏng. Một vấn đề đáng lo ngại khác là nhiều tủ để đồ bị hỏng khóa, khiến tôi rất lo lắng về đồ đạc cá nhân của mình.\n\nThêm vào đó, hệ thống điều hòa ở khu vực tập luyện cũng bị hỏng. Do đó, căn phòng trở nên rất nóng bức và ngột ngạt trong giờ cao điểm.\n\nĐể cải thiện chất lượng dịch vụ, tôi đề nghị quý vị cho dọn dẹp phòng thay đồ thường xuyên hơn và khẩn trương sửa chữa các tủ đồ bị hỏng. Hơn nữa, xin vui lòng sửa lại hệ thống điều hòa để đảm bảo môi trường tập luyện dễ chịu cho tất cả hội viên.\n\nTôi hy vọng quý vị sẽ lưu tâm đến các vấn đề này và sớm khắc phục. Tôi rất mong sớm nhận được hồi đáp.\n\nTrân trọng,",
             "word_count": 156,
             "key_structures": [
@@ -17205,8 +17205,8 @@ const LETTERS_DATA = [
           "outline": {
             "salutation": "Dear Sir/Madam,",
             "opening": "I am writing to express my dissatisfaction with the condition of the changing room at your sports center. I recently used this facility, and I was disappointed with the experience.",
-            "body_1": "To begin with, the main problem was that the changing room was poorly maintained. Rubbish was scattered across the floor, so the entire area looked unhygienic and unpleasant to use. Another concern was that several lockers were out of order. I was unable to secure my personal belongings, so I felt very concerned about their safety. A further issue was that there was no hot water available in the showers. I had no choice but to take a cold shower after exercising, and it was particularly uncomfortable.",
-            "body_2": "I was particularly disappointed with this experience because I expected a better level of quality and service from a reputable sports center. This unhygienic condition made me feel extremely frustrated and uncomfortable throughout my visit.",
+            "body_1": "To begin with, the main problem was that the changing room was poorly maintained. Rubbish was scattered across the floor, so the entire area looked not clean and unpleasant to use. Another concern was that several lockers were out of order. I was unable to secure my personal things, so I felt very concerned about their safety. A further issue was that there was no hot water available in the showers. I had no choice but to take a cold shower after exercising, and it was particularly uncomfortable.",
+            "body_2": "I was particularly disappointed with this experience because I expected a better level of quality and service from a well-known sports center. This not clean condition made me feel extremely frustrated and uncomfortable throughout my visit.",
             "body_3": "I would appreciate it if you could arrange for the changing room to be cleaned and inspected much more frequently throughout the day. In addition, I strongly recommend that the management repair the faulty lockers and ensure a steady supply of hot water immediately. I believe that these steps should be taken to ensure a clean, safe, and pleasant environment for all members.",
             "closing": "I hope that these issues will be addressed promptly. I look forward to hearing from you soon.",
             "signoff": "Yours faithfully,"
@@ -17405,9 +17405,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of the workout equipment at Elite Fitness Club. I recently used your facility, and I was quite disappointed with the experience.\n\nTo begin with, the main problem was the ***unacceptable level of maintenance across the cardio equipment***. ***Multiple treadmills and stationary bicycles have remained defective for weeks*** without any repair notices, and this resulted in excessive crowding and inconvenience for paying members.\n\nTo make matters worse, another concern was the ***physical condition of the resistance weight machines***. Several cable attachments were visibly frayed and weight pins were missing, and this posed severe safety hazards during heavy training sessions.\n\nAnother concern was that the ***non-functioning air conditioning system***, so the workout atmosphere was oppressive and poorly ventilated.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***repair all defective machinery, schedule regular technical inspections, and fix the air conditioning system***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of the workout equipment at Elite Fitness Club. I recently used your facility, and I was quite disappointed with the experience.\n\nTo begin with, the main problem was the ***unacceptable level of maintenance across the cardio equipment***. ***Multiple treadmills and stationary bicycles have remained defective for weeks*** without any repair notices, and this resulted in excessive crowding and inconvenience for paying members.\n\nTo make matters worse, another concern was the ***physical condition of the resistance weight machines***. Several cable attachments were visibly frayed and weight pins were missing, and this posed severe safety hazards during heavy training sessions.\n\nAnother concern was that the ***non-functioning air conditioning system***, so the workout atmosphere was very hot and stuffy.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***repair all defective machinery, schedule regular technical inspections, and fix the air conditioning system***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Ban Quản lý,\n\nTôi viết thư này để bày tỏ sự không hài lòng về tình trạng thiết bị tập luyện tại Elite Fitness Club. Gần đây tôi có sử dụng cơ sở vật chất của quý trung tâm và cảm thấy khá thất vọng về trải nghiệm này.\n\nVấn đề lớn nhất là sự thiếu hụt nghiêm trọng trong công tác bảo trì các thiết bị cardio. Nhiều máy chạy bộ và xe đạp tập đã bị hỏng nhiều tuần liền mà không có bất kỳ thông báo sửa chữa nào, dẫn đến tình trạng quá tải và bất tiện cho các hội viên đóng phí.\n\nMột mối quan ngại khác là tình trạng vật lý của các máy tập tạ kháng lực. Nhiều dây cáp có dấu hiệu sờn rách rõ rệt và chốt tạ bị thất lạc, gây ra những hiểm họa an toàn khôn lường trong lúc tập nặng.\n\nMột vấn đề nữa là hệ thống điều hòa không hoạt động, tạo ra bầu không khí ngột ngạt và thiếu thông gió nghiêm trọng.\n\nDo đó, tôi rất mong quý vị sẽ có những hành động kịp thời để xử lý các vấn đề này. Cụ thể, tôi đề xuất quý vị bảo trì lại toàn bộ máy móc hỏng, thắt chặt việc kiểm tra kỹ thuật định kỳ và sửa chữa hệ thống điều hòa nhiệt độ.\n\nTôi hy vọng vấn đề này sẽ được giải quyết nhanh chóng. Tôi rất mong sớm nhận được phản hồi từ quý vị.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of the workout equipment at Elite Fitness Club. I recently used your facility, and I was quite disappointed with the experience.\n\nTo begin with, the main problem was the ***unacceptable level of maintenance across the cardio equipment***. ***Multiple treadmills and stationary bicycles have remained defective for weeks*** without any repair notices, and this resulted in excessive crowding and inconvenience for paying members.\n\nTo make matters worse, another concern was the ***physical condition of the resistance weight machines***. Several cable attachments were visibly frayed and weight pins were missing, and this posed severe safety hazards during heavy training sessions.\n\nAnother concern was that the ***non-functioning air conditioning system***, so the workout atmosphere was oppressive and poorly ventilated.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***repair all defective machinery, schedule regular technical inspections, and fix the air conditioning system***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of the workout equipment at Elite Fitness Club. I recently used your facility, and I was quite disappointed with the experience.\n\nTo begin with, the main problem was the ***unacceptable level of maintenance across the cardio equipment***. ***Multiple treadmills and stationary bicycles have remained defective for weeks*** without any repair notices, and this resulted in excessive crowding and inconvenience for paying members.\n\nTo make matters worse, another concern was the ***physical condition of the resistance weight machines***. Several cable attachments were visibly frayed and weight pins were missing, and this posed severe safety hazards during heavy training sessions.\n\nAnother concern was that the ***non-functioning air conditioning system***, so the workout atmosphere was very hot and stuffy.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***repair all defective machinery, schedule regular technical inspections, and fix the air conditioning system***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
             "translation": "Kính gửi Ban Quản lý,\n\nTôi viết thư này để bày tỏ sự không hài lòng về tình trạng thiết bị tập luyện tại Elite Fitness Club. Gần đây tôi có sử dụng cơ sở vật chất của quý trung tâm và cảm thấy khá thất vọng về trải nghiệm này.\n\nVấn đề lớn nhất là sự thiếu hụt nghiêm trọng trong công tác bảo trì các thiết bị cardio. Nhiều máy chạy bộ và xe đạp tập đã bị hỏng nhiều tuần liền mà không có bất kỳ thông báo sửa chữa nào, dẫn đến tình trạng quá tải và bất tiện cho các hội viên đóng phí.\n\nMột mối quan ngại khác là tình trạng vật lý của các máy tập tạ kháng lực. Nhiều dây cáp có dấu hiệu sờn rách rõ rệt và chốt tạ bị thất lạc, gây ra những hiểm họa an toàn khôn lường trong lúc tập nặng.\n\nMột vấn đề nữa là hệ thống điều hòa không hoạt động, tạo ra bầu không khí ngột ngạt và thiếu thông gió nghiêm trọng.\n\nDo đó, tôi rất mong quý vị sẽ có những hành động kịp thời để xử lý các vấn đề này. Cụ thể, tôi đề xuất quý vị bảo trì lại toàn bộ máy móc hỏng, thắt chặt việc kiểm tra kỹ thuật định kỳ và sửa chữa hệ thống điều hòa nhiệt độ.\n\nTôi hy vọng vấn đề này sẽ được giải quyết nhanh chóng. Tôi rất mong sớm nhận được phản hồi từ quý vị.\n\nTrân trọng,",
             "word_count": 175,
             "key_structures": [
@@ -17449,7 +17449,7 @@ const LETTERS_DATA = [
                   "action_vi": "Màn hình điều khiển điện tử trên máy chạy bộ thường xuyên bị đơ và dừng lại đột ngột.",
                   "reason_en": "This sudden breakdown was very dangerous, and it could easily cause runners to fall and get injured.",
                   "reason_vi": "Sự cố kỹ thuật này rất nguy hiểm, và nó có thể dễ dàng khiến người chạy bị ngã và chấn thương.",
-                  "solution_en": "I strongly recommend that the management inspect and calibrate all running machines immediately.",
+                  "solution_en": "I strongly recommend that the management check and fix all running machines immediately.",
                   "solution_vi": "Tôi tha thiết đề xuất ban quản lý kiểm tra và hiệu chỉnh lại toàn bộ các máy chạy bộ ngay lập tức."
                 }
               ]
@@ -17511,7 +17511,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "The drinking water dispensers were dirty and out of cold water.",
                   "action_vi": "Các cây nước uống bị bẩn và hết nước mát.",
-                  "reason_en": "Members were unable to rehydrate properly during their workouts, and this was very inconvenient.",
+                  "reason_en": "Members were unable to drink water properly during their workouts, and this was very inconvenient.",
                   "reason_vi": "Hội viên không thể bổ sung nước đầy đủ khi tập luyện, và điều này rất bất tiện.",
                   "solution_en": "I would appreciate it if you could clean the water dispensers daily and provide sufficient drinking water.",
                   "solution_vi": "Tôi sẽ rất cảm kích nếu quý vị có thể vệ sinh cây nước hàng ngày và cung cấp đủ nước uống."
@@ -17551,7 +17551,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I was particularly disappointed with this experience because I expected a much better standard of service.",
                   "action_vi": "Tôi đặc biệt thất vọng với trải nghiệm này vì tôi đã kỳ vọng mức chất lượng dịch vụ tốt hơn nhiều.",
-                  "reason_en": "As an annual fee-paying member, this persistent breakdown severely disrupted my daily fitness routine.",
+                  "reason_en": "As an annual fee-paying member, this persistent breakdown severely disturbed my daily fitness routine.",
                   "reason_vi": "Với tư cách là hội viên đóng phí cả năm, sự cố hỏng hóc kéo dài này đã làm gián đoạn nghiêm trọng thói quen tập luyện hàng ngày của tôi.",
                   "solution_en": "I believe that these steps should be taken to ensure a safe, clean, and professional gym environment.",
                   "solution_vi": "Tôi tin rằng các biện pháp này cần được thực hiện để đảm bảo một môi trường phòng tập an toàn, sạch sẽ và chuyên nghiệp."
@@ -17754,9 +17754,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the dining experience and customer service at The Grand Bistro. I recently visited your restaurant to celebrate a family dinner, and I was quite disappointed with the service.\n\nTo begin with, the main problem was the ***unacceptable delay in table allocation and course delivery***. Despite our confirmed reservation, our party was made to ***wait over forty-five minutes in the lobby*** before being seated, and the main courses arrived nearly an hour later.\n\nTo make matters worse, another concern was the ***poor culinary execution***. Both the grilled salmon and steak were served lukewarm, tough, and improperly seasoned.\n\nAnother concern was that the ***unprofessional attitude of the waitstaff***, who displayed visible annoyance and unhelpfulness when politely requested to correct the mistakes.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***implement stricter kitchen workflow supervision and conduct mandatory hospitality training for your dining staff***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the dining experience and customer service at The Grand Bistro. I recently visited your restaurant to celebrate a family dinner, and I was quite disappointed with the service.\n\nTo begin with, the main problem was the ***unacceptable delay in table allocation and course delivery***. Despite our confirmed reservation, our party was made to ***wait over forty-five minutes in the lobby*** before being seated, and the main courses arrived nearly an hour later.\n\nTo make matters worse, another concern was the ***poor cooking execution***. Both the grilled salmon and steak were served lukewarm, tough, and improperly seasoned.\n\nAnother concern was that the ***unprofessional attitude of the waitstaff***, who displayed visible annoyance and unhelpfulness when politely requested to correct the mistakes.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***implement stricter kitchen workflow supervision and conduct mandatory hospitality training for your dining staff***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Quản lý nhà hàng,\n\nTôi viết thư này để bày tỏ sự không hài lòng sâu sắc về trải nghiệm ẩm thực và dịch vụ khách hàng tại The Grand Bistro. Gần đây tôi có đến nhà hàng để kỷ niệm một sự kiện gia đình, và tôi đã cảm thấy rất thất vọng với trải nghiệm này.\n\nVấn đề lớn nhất là sự chậm trễ không thể chấp nhận được trong việc sắp xếp bàn và lên món. Mặc dù chúng tôi đã đặt bàn từ trước, cả nhóm vẫn phải chờ hơn bốn mươi lăm phút tại sảnh mới được xếp chỗ, và các món chính được dọn ra sau đó gần một tiếng đồng hồ.\n\nMột mối quan ngại khác là chất lượng chế biến dưới chuẩn. Cả món cá hồi nướng và bít tết đều được phục vụ trong tình trạng nguội, dai và nêm nếm không đạt yêu cầu.\n\nMột vấn đề nữa là thái độ thiếu chuyên nghiệp của nhân viên phục vụ, những người tỏ ra khó chịu và bất hợp tác khi được yêu cầu khắc phục sai sót một cách lịch sự.\n\nDo đó, tôi rất mong quý vị sẽ có những hành động kịp thời để xử lý các vấn đề này. Cụ thể, tôi đề xuất quý vị thiết lập quy trình kiểm soát bếp chặt chẽ hơn và tổ chức các buổi đào tạo bắt buộc về nghiệp vụ phục vụ cho nhân viên.\n\nTôi hy vọng vấn đề này sẽ được giải quyết nhanh chóng. Tôi rất mong sớm nhận được phản hồi từ quý vị.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the dining experience and customer service at The Grand Bistro. I recently visited your restaurant to celebrate a family dinner, and I was quite disappointed with the service.\n\nTo begin with, the main problem was the ***unacceptable delay in table allocation and course delivery***. Despite our confirmed reservation, our party was made to ***wait over forty-five minutes in the lobby*** before being seated, and the main courses arrived nearly an hour later.\n\nTo make matters worse, another concern was the ***poor culinary execution***. Both the grilled salmon and steak were served lukewarm, tough, and improperly seasoned.\n\nAnother concern was that the ***unprofessional attitude of the waitstaff***, who displayed visible annoyance and unhelpfulness when politely requested to correct the mistakes.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***implement stricter kitchen workflow supervision and conduct mandatory hospitality training for your dining staff***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the dining experience and customer service at The Grand Bistro. I recently visited your restaurant to celebrate a family dinner, and I was quite disappointed with the service.\n\nTo begin with, the main problem was the ***unacceptable delay in table allocation and course delivery***. Despite our confirmed reservation, our party was made to ***wait over forty-five minutes in the lobby*** before being seated, and the main courses arrived nearly an hour later.\n\nTo make matters worse, another concern was the ***poor cooking execution***. Both the grilled salmon and steak were served lukewarm, tough, and improperly seasoned.\n\nAnother concern was that the ***unprofessional attitude of the waitstaff***, who displayed visible annoyance and unhelpfulness when politely requested to correct the mistakes.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***implement stricter kitchen workflow supervision and conduct mandatory hospitality training for your dining staff***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
             "translation": "Kính gửi Quản lý nhà hàng,\n\nTôi viết thư này để bày tỏ sự không hài lòng sâu sắc về trải nghiệm ẩm thực và dịch vụ khách hàng tại The Grand Bistro. Gần đây tôi có đến nhà hàng để kỷ niệm một sự kiện gia đình, và tôi đã cảm thấy rất thất vọng với trải nghiệm này.\n\nVấn đề lớn nhất là sự chậm trễ không thể chấp nhận được trong việc sắp xếp bàn và lên món. Mặc dù chúng tôi đã đặt bàn từ trước, cả nhóm vẫn phải chờ hơn bốn mươi lăm phút tại sảnh mới được xếp chỗ, và các món chính được dọn ra sau đó gần một tiếng đồng hồ.\n\nMột mối quan ngại khác là chất lượng chế biến dưới chuẩn. Cả món cá hồi nướng và bít tết đều được phục vụ trong tình trạng nguội, dai và nêm nếm không đạt yêu cầu.\n\nMột vấn đề nữa là thái độ thiếu chuyên nghiệp của nhân viên phục vụ, những người tỏ ra khó chịu và bất hợp tác khi được yêu cầu khắc phục sai sót một cách lịch sự.\n\nDo đó, tôi rất mong quý vị sẽ có những hành động kịp thời để xử lý các vấn đề này. Cụ thể, tôi đề xuất quý vị thiết lập quy trình kiểm soát bếp chặt chẽ hơn và tổ chức các buổi đào tạo bắt buộc về nghiệp vụ phục vụ cho nhân viên.\n\nTôi hy vọng vấn đề này sẽ được giải quyết nhanh chóng. Tôi rất mong sớm nhận được phản hồi từ quý vị.\n\nTrân trọng,",
             "word_count": 182,
             "key_structures": [
@@ -17796,7 +17796,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "The soup was excessively salty and the bread was stale.",
                   "action_vi": "Món súp bị quá mặn và bánh mì thì bị cũ dai.",
-                  "reason_en": "We were unable to finish our appetizers, and this was very disappointing for a reputable restaurant.",
+                  "reason_en": "We were unable to finish our appetizers, and this was very disappointing for a well-known restaurant.",
                   "reason_vi": "Chúng tôi không thể ăn hết các món khai vị, và điều này rất đáng thất vọng đối với một nhà hàng có tiếng.",
                   "solution_en": "I strongly recommend that the head chef monitor food quality more strictly before dishes leave the kitchen.",
                   "solution_vi": "Tôi tha thiết đề xuất bếp trưởng giám sát chất lượng món ăn chặt chẽ hơn trước khi mang ra cho khách."
@@ -17870,7 +17870,7 @@ const LETTERS_DATA = [
                   "action_vi": "Phí dịch vụ đầy đủ vẫn bị tính dù chất lượng phục vụ mà chúng tôi nhận được rất tệ.",
                   "reason_en": "We felt that this automatic service charge was unfair, so we left the restaurant feeling deeply disappointed.",
                   "reason_vi": "Chúng tôi cảm thấy khoản phí bắt buộc này là không công bằng, vì vậy chúng tôi rời nhà hàng với tâm trạng vô cùng thất vọng.",
-                  "solution_en": "I strongly recommend that you offer a partial refund or discount voucher as a gesture of goodwill.",
+                  "solution_en": "I strongly recommend that you offer a partial refund or discount voucher as a special offer.",
                   "solution_vi": "Tôi tha thiết đề xuất quý vị hoàn lại một phần tiền hoặc tặng phiếu giảm giá như một hành động thiện chí."
                 }
               ]
@@ -18004,7 +18004,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "The in-room Wi-Fi connection was extremely weak and kept disconnecting.",
                   "action_vi": "Kết nối Wi-Fi trong phòng rất yếu và liên tục bị ngắt kết nối.",
-                  "reason_en": "I was unable to load travel itineraries or check important work emails. As a result, this caused great frustration.",
+                  "reason_en": "I was unable to load travel travel plans or check important work emails. As a result, this caused great frustration.",
                   "reason_vi": "Tôi không thể tải lịch trình du lịch hay kiểm tra email công việc quan trọng. Kết quả là, điều này gây bực bội lớn.",
                   "solution_en": "I would appreciate it if you could upgrade the wireless internet system on all guest floors.",
                   "solution_vi": "Tôi sẽ rất cảm kích nếu quý vị có thể nâng cấp hệ thống internet không dây trên tất cả các tầng phòng nghỉ."
@@ -18154,7 +18154,7 @@ const LETTERS_DATA = [
               ],
               "grammar_notes": [],
               "alternatives": [
-                "First of all, the air conditioning unit was extremely noisy and ineffective, and both the bed linens and bathroom were noticeably unhygienic."
+                "First of all, the air conditioning unit was extremely noisy and ineffective, and both the bed linens and bathroom were noticeably not clean."
               ],
               "criteria_tip": "Sử dụng liên từ 'while' để nối 2 mệnh đề đối chiếu giúp câu văn lưu loát."
             },
@@ -18224,7 +18224,7 @@ const LETTERS_DATA = [
               "id": 5,
               "part": "5. Thân thư - Ý 4: Đề xuất bồi thường thiện chí",
               "vi": "Ngoài ra, tôi cho rằng việc hoàn lại một phần tiền phòng hoặc tặng phiếu giảm giá cho lần lưu trú sau sẽ là một sự đền bù thỏa đáng cho kỳ nghỉ bị hỏng của tôi.",
-              "en": "In addition, I believe a partial refund or discount voucher for future stays would be an appropriate gesture of goodwill to compensate for my ruined holiday.",
+              "en": "In addition, I believe a partial refund or discount voucher for future stays would be an appropriate special offer to compensate for my ruined holiday.",
               "vocab_hints": [
                 {
                   "en": "partial refund or discount voucher",
@@ -18235,7 +18235,7 @@ const LETTERS_DATA = [
                   "vi": "bù đắp cho kỳ nghỉ bị hỏng của tôi"
                 }
               ],
-              "explanation": "Đề xuất phương án bồi thường lịch sự bằng cụm 'gesture of goodwill'.",
+              "explanation": "Đề xuất phương án bồi thường lịch sự bằng cụm 'special offer'.",
               "checkpoints": [
                 {
                   "id": "cp1",
@@ -18249,7 +18249,7 @@ const LETTERS_DATA = [
               "alternatives": [
                 "Furthermore, I expect an appropriate financial compensation or credit voucher for the inconvenience we endured."
               ],
-              "criteria_tip": "Cụm 'gesture of goodwill' là collocation trang trọng rất được đánh giá cao."
+              "criteria_tip": "Cụm 'special offer' là collocation trang trọng rất được đánh giá cao."
             },
             {
               "id": 6,
@@ -18340,9 +18340,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of room 302 during my recent vacation stay at your hotel. I recently used your facility, and I was quite disappointed with the experience.\n\nTo begin with, the main problem was the ***unacceptable level of noise and malfunction regarding the climate control system***. The unit ***continually emitted a grating mechanical rattle while blowing warm air***, so restful sleep was virtually impossible throughout our holiday.\n\nTo make matters worse, another concern was the ***defective plumbing fixtures in the en-suite bathroom***. ***Stagnant wastewater regularly accumulated across the tiles*** due to a clogged drain, and this created an unhygienic slipping hazard.\n\nAnother concern was that the ***total apathy exhibited by your front desk personnel***, who dismissed our complaints without dispatching engineering assistance.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***repair the air conditioners and offer a partial refund for our bad experience***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of room 302 during my recent vacation stay at your hotel. I recently used your facility, and I was quite disappointed with the experience.\n\nTo begin with, the main problem was the ***unacceptable level of noise and technical problem regarding the climate control system***. The unit ***continually emitted a grating mechanical rattle while blowing warm air***, so restful sleep was virtually impossible throughout our holiday.\n\nTo make matters worse, another concern was the ***defective plumbing fixtures in the en-suite bathroom***. ***Stagnant wastewater regularly accumulated across the tiles*** due to a clogged drain, and this created an not clean slipping hazard.\n\nAnother concern was that the ***total apathy exhibited by your front desk personnel***, who dismissed our complaints without dispatching engineering assistance.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***repair the air conditioners and offer a partial refund for our bad experience***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Ban Quản lý khách sạn,\n\nTôi viết thư này để bày tỏ sự không hài lòng về tình trạng phòng 302 trong kỳ nghỉ dưỡng gần đây của tôi tại khách sạn của quý vị. Gần đây tôi đã sử dụng dịch vụ lưu trú của quý khách sạn và cảm thấy rất thất vọng với trải nghiệm này.\n\nVấn đề lớn nhất là tiếng ồn không thể chịu đựng nổi và sự cố của hệ thống điều hòa nhiệt độ. Chiếc máy liên tục phát ra tiếng kêu cơ khí chói tai trong khi chỉ thổi ra luồng khí nóng, khiến việc nghỉ ngơi vào ban đêm của chúng tôi trở nên bất khả thi trong suốt kỳ nghỉ.\n\nMột mối quan ngại khác là các thiết bị vệ sinh bị hỏng trong phòng tắm. Nước thải thường xuyên ứ đọng trên nền gạch do đường ống thoát nước bị tắc, gây mất vệ sinh và nguy cơ trơn trượt nguy hiểm.\n\nMột vấn đề nữa là thái độ thờ ơ từ nhân viên lễ tân, những người đã gạt phắt khiếu nại của chúng tôi mà không hề cử nhân viên kỹ thuật lên hỗ trợ.\n\nDo đó, tôi rất mong quý vị có hành động giải quyết ngay các vấn đề này. Cụ thể, tôi đề nghị quý vị bảo dưỡng toàn diện hệ thống điều hòa và hoàn trả một phần chi phí lưu trú cho kỳ nghỉ bị ảnh hưởng của chúng tôi.\n\nTôi hy vọng vấn đề này sẽ được giải quyết thỏa đáng. Tôi rất mong sớm nhận được phản hồi từ quý vị.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of room 302 during my recent vacation stay at your hotel. I recently used your facility, and I was quite disappointed with the experience.\n\nTo begin with, the main problem was the ***unacceptable level of noise and malfunction regarding the climate control system***. The unit ***continually emitted a grating mechanical rattle while blowing warm air***, so restful sleep was virtually impossible throughout our holiday.\n\nTo make matters worse, another concern was the ***defective plumbing fixtures in the en-suite bathroom***. ***Stagnant wastewater regularly accumulated across the tiles*** due to a clogged drain, and this created an unhygienic slipping hazard.\n\nAnother concern was that the ***total apathy exhibited by your front desk personnel***, who dismissed our complaints without dispatching engineering assistance.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***repair the air conditioners and offer a partial refund for our bad experience***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to express my dissatisfaction with the condition of room 302 during my recent vacation stay at your hotel. I recently used your facility, and I was quite disappointed with the experience.\n\nTo begin with, the main problem was the ***unacceptable level of noise and technical problem regarding the climate control system***. The unit ***continually emitted a grating mechanical rattle while blowing warm air***, so restful sleep was virtually impossible throughout our holiday.\n\nTo make matters worse, another concern was the ***defective plumbing fixtures in the en-suite bathroom***. ***Stagnant wastewater regularly accumulated across the tiles*** due to a clogged drain, and this created an not clean slipping hazard.\n\nAnother concern was that the ***total apathy exhibited by your front desk personnel***, who dismissed our complaints without dispatching engineering assistance.\n\nFinally, I would appreciate it if you could take immediate action to address these problems. Specifically, I suggest that you ***repair the air conditioners and offer a partial refund for our bad experience***.\n\nI hope that this issue will be addressed promptly. I look forward to receiving your reply soon.\n\nYours faithfully,",
             "translation": "Kính gửi Ban Quản lý khách sạn,\n\nTôi viết thư này để bày tỏ sự không hài lòng về tình trạng phòng 302 trong kỳ nghỉ dưỡng gần đây của tôi tại khách sạn của quý vị. Gần đây tôi đã sử dụng dịch vụ lưu trú của quý khách sạn và cảm thấy rất thất vọng với trải nghiệm này.\n\nVấn đề lớn nhất là tiếng ồn không thể chịu đựng nổi và sự cố của hệ thống điều hòa nhiệt độ. Chiếc máy liên tục phát ra tiếng kêu cơ khí chói tai trong khi chỉ thổi ra luồng khí nóng, khiến việc nghỉ ngơi vào ban đêm của chúng tôi trở nên bất khả thi trong suốt kỳ nghỉ.\n\nMột mối quan ngại khác là các thiết bị vệ sinh bị hỏng trong phòng tắm. Nước thải thường xuyên ứ đọng trên nền gạch do đường ống thoát nước bị tắc, gây mất vệ sinh và nguy cơ trơn trượt nguy hiểm.\n\nMột vấn đề nữa là thái độ thờ ơ từ nhân viên lễ tân, những người đã gạt phắt khiếu nại của chúng tôi mà không hề cử nhân viên kỹ thuật lên hỗ trợ.\n\nDo đó, tôi rất mong quý vị có hành động giải quyết ngay các vấn đề này. Cụ thể, tôi đề nghị quý vị bảo dưỡng toàn diện hệ thống điều hòa và hoàn trả một phần chi phí lưu trú cho kỳ nghỉ bị ảnh hưởng của chúng tôi.\n\nTôi hy vọng vấn đề này sẽ được giải quyết thỏa đáng. Tôi rất mong sớm nhận được phản hồi từ quý vị.\n\nTrân trọng,",
             "word_count": 182,
             "key_structures": [
@@ -18503,12 +18503,12 @@ const LETTERS_DATA = [
             "body_points": [
               {
                 "point": "Điểm khen",
-                "formula": "First of all, I would like to mention some positive points... I was very satisfied with... because...",
+                "formula": "First of all, I would like to mention some positive points... I was very satisfied with... Because...",
                 "detail": "First of all, I would like to mention some positive points about your service. I was very satisfied with the polite attitude of the drivers because they were patient and helpful. In addition, the bus interior was always clean and tidy."
               },
               {
                 "point": "Điểm chê",
-                "formula": "However, there were also some areas that needed improvement. I was disappointed with... because...",
+                "formula": "However, there were also some areas that needed improvement. I was disappointed with... Because...",
                 "detail": "However, there were also some areas that needed improvement. I was disappointed with the bus schedule because buses frequently arrived 15 to 20 minutes late during rush hours. Furthermore, the electronic ticket machines at several stops were often out of order."
               },
               {
@@ -18620,9 +18620,9 @@ const LETTERS_DATA = [
             }
           ],
           "sample_b1": {
-            "letter_en": "Dear Mr. Tailor,\n\nI am writing to give you feedback on my recent experience with public bus route 08. I recently used your services and would like to share my experience.\n\nFirst of all, I would like to mention some positive points about the bus service. I was very satisfied with the polite attitude of the drivers because they always greet passengers warmly and drive very safely. In addition, the ticket prices are remarkably economical for daily commuters. However, there were also some areas that needed improvement. I was disappointed with the schedule adherence because buses frequently arrive ten to twenty minutes late during morning peak hours. Furthermore, the air-conditioning on several older buses is weak and noisy. To enhance the quality of your services, I suggest that you should deploy more buses during rush hours and maintain cooling equipment regularly.\n\nI hope my feedback will help you improve your service. Please feel free to contact me if you have any further questions.\n\nYours sincerely,",
+            "letter_en": "Dear Mr. Tailor,\n\nI am writing to give you feedback on my recent experience with public bus route 08. I recently used your services and would like to share my experience.\n\nFirst of all, I would like to mention some positive points about the bus service. I was very satisfied with the polite attitude of the drivers because they always greet passengers warmly and drive very safely. In addition, the ticket prices are very economical for daily passengers. However, there were also some areas that needed improvement. I was disappointed with the schedule adherence because buses frequently arrive ten to twenty minutes late during morning peak hours. Furthermore, the air-conditioning on several older buses is weak and noisy. To enhance the quality of your services, I suggest that you should deploy more buses during rush hours and maintain cooling equipment regularly.\n\nI hope my feedback will help you improve your service. Please feel free to contact me if you have any further questions.\n\nYours sincerely,",
             "letter_vi": "Kính gửi ông Tailor,\n\nTôi viết thư này để gửi ý kiến phản hồi về trải nghiệm gần đây của mình trên tuyến xe buýt công cộng số 08. Tôi thường xuyên sử dụng dịch vụ này và muốn chia sẻ một vài đánh giá của bản thân.\n\nTrước hết, tôi muốn nhắc đến một số điểm tích cực của dịch vụ xe buýt. Tôi rất hài lòng với thái độ lịch sự của các tài xế vì họ luôn chào hỏi hành khách niềm nở và lái xe rất an toàn. Thêm vào đó, giá vé vô cùng tiết kiệm đối với những người đi lại hàng ngày. Tuy nhiên, cũng có một số điểm cần được cải thiện. Tôi cảm thấy thất vọng về việc tuân thủ lịch trình vì xe thường xuyên đến muộn từ mười đến hai mươi phút vào các khung giờ cao điểm buổi sáng. Hơn nữa, điều hòa trên một số xe cũ hoạt động rất yếu và phát ra tiếng ồn. Để nâng cao chất lượng dịch vụ, tôi đề xuất ông nên tăng cường thêm xe vào giờ cao điểm và bảo dưỡng hệ thống điều hòa thường xuyên hơn.\n\nTôi hy vọng những phản hồi của tôi sẽ giúp ông cải thiện chất lượng dịch vụ. Xin vui lòng liên hệ với tôi nếu ông cần thêm bất kỳ thông tin nào.\n\nTrân trọng,",
-            "text": "Dear Mr. Tailor,\n\nI am writing to give you feedback on my recent experience with public bus route 08. I recently used your services and would like to share my experience.\n\nFirst of all, I would like to mention some positive points about the bus service. I was very satisfied with the polite attitude of the drivers because they always greet passengers warmly and drive very safely. In addition, the ticket prices are remarkably economical for daily commuters. However, there were also some areas that needed improvement. I was disappointed with the schedule adherence because buses frequently arrive ten to twenty minutes late during morning peak hours. Furthermore, the air-conditioning on several older buses is weak and noisy. To enhance the quality of your services, I suggest that you should deploy more buses during rush hours and maintain cooling equipment regularly.\n\nI hope my feedback will help you improve your service. Please feel free to contact me if you have any further questions.\n\nYours sincerely,",
+            "text": "Dear Mr. Tailor,\n\nI am writing to give you feedback on my recent experience with public bus route 08. I recently used your services and would like to share my experience.\n\nFirst of all, I would like to mention some positive points about the bus service. I was very satisfied with the polite attitude of the drivers because they always greet passengers warmly and drive very safely. In addition, the ticket prices are very economical for daily passengers. However, there were also some areas that needed improvement. I was disappointed with the schedule adherence because buses frequently arrive ten to twenty minutes late during morning peak hours. Furthermore, the air-conditioning on several older buses is weak and noisy. To enhance the quality of your services, I suggest that you should deploy more buses during rush hours and maintain cooling equipment regularly.\n\nI hope my feedback will help you improve your service. Please feel free to contact me if you have any further questions.\n\nYours sincerely,",
             "translation": "Kính gửi ông Tailor,\n\nTôi viết thư này để gửi ý kiến phản hồi về trải nghiệm gần đây của mình trên tuyến xe buýt công cộng số 08. Tôi thường xuyên sử dụng dịch vụ này và muốn chia sẻ một vài đánh giá của bản thân.\n\nTrước hết, tôi muốn nhắc đến một số điểm tích cực của dịch vụ xe buýt. Tôi rất hài lòng với thái độ lịch sự của các tài xế vì họ luôn chào hỏi hành khách niềm nở và lái xe rất an toàn. Thêm vào đó, giá vé vô cùng tiết kiệm đối với những người đi lại hàng ngày. Tuy nhiên, cũng có một số điểm cần được cải thiện. Tôi cảm thấy thất vọng về việc tuân thủ lịch trình vì xe thường xuyên đến muộn từ mười đến hai mươi phút vào các khung giờ cao điểm buổi sáng. Hơn nữa, điều hòa trên một số xe cũ hoạt động rất yếu và phát ra tiếng ồn. Để nâng cao chất lượng dịch vụ, tôi đề xuất ông nên tăng cường thêm xe vào giờ cao điểm và bảo dưỡng hệ thống điều hòa thường xuyên hơn.\n\nTôi hy vọng những phản hồi của tôi sẽ giúp ông cải thiện chất lượng dịch vụ. Xin vui lòng liên hệ với tôi nếu ông cần thêm bất kỳ thông tin nào.\n\nTrân trọng,",
             "word_count": 165,
             "key_structures": [
@@ -18645,9 +18645,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Mr. Tailor,\n\nI am writing to provide feedback on the public bus service in our city. As a daily commuter on Route 8, I would like to share my thoughts on how to improve the service.\n\nOn the positive side, I really appreciate the punctual schedule and clean, air-conditioned buses. The drivers are generally polite and follow traffic rules safely, which makes my daily commute comfortable.\n\nHowever, there are still a few areas that need improvement. During peak morning hours, the buses are severely overcrowded, leaving many passengers waiting at bus stops. In addition, some buses arrive late due to traffic congestion, making students and workers late for school and work.\n\nTo enhance service quality, I suggest increasing bus frequency during rush hours from 7:00 to 8:30 AM. Furthermore, it would be very helpful if the city could launch a mobile app that allows passengers to track bus locations in real time.\n\nI hope you find my feedback helpful. Thank you for your time and dedication.\n\nYours sincerely,",
+            "letter_en": "Dear Mr. Tailor,\n\nI am writing to provide feedback on the public bus service in our city. As a daily commuter on Route 8, I would like to share my thoughts on how to improve the service.\n\nOn the positive side, I really appreciate the punctual schedule and clean, air-conditioned buses. The drivers are generally polite and follow traffic rules safely, which makes my daily trip to work comfortable.\n\nHowever, there are still a few areas that need improvement. During peak morning hours, the buses are severely overcrowded, leaving many passengers waiting at bus stops. In addition, some buses arrive late due to traffic congestion, making students and workers late for school and work.\n\nTo enhance service quality, I suggest increasing bus frequency during rush hours from 7:00 to 8:30 AM. Furthermore, it would be very helpful if the city could launch a mobile app that allows passengers to track bus locations in real time.\n\nI hope you find my feedback helpful. Thank you for your time and dedication.\n\nYours sincerely,",
             "letter_vi": "Kính gửi ông Tailor,\n\nTôi viết thư này để đóng góp ý kiến về dịch vụ xe buýt công cộng tại thành phố của chúng ta. Là một hành khách đi lại hàng ngày trên Tuyến số 8, tôi xin chia sẻ vài nhận xét nhằm nâng cao chất lượng dịch vụ.\n\nVề mặt tích cực, tôi rất đánh giá cao lịch trình đúng giờ và những chiếc xe buýt sạch sẽ, có điều hòa mát mẻ. Các bác tài nhìn chung lịch sự và lái xe an toàn, giúp chuyến đi làm hàng ngày của tôi rất thoải mái.\n\nTuy nhiên, vẫn còn một vài điểm cần cải thiện. Vào các khung giờ cao điểm buổi sáng, các chuyến xe thường quá tải nghiêm trọng, khiến nhiều hành khách phải đứng chờ ở trạm. Ngoài ra, một số chuyến bị trễ do tắc đường, gây ảnh hưởng đến giờ học và giờ làm của học sinh, công nhân viên.\n\nĐể cải thiện dịch vụ, tôi đề xuất tăng tần suất các chuyến xe trong giờ cao điểm từ 7:00 đến 8:30 sáng. Hơn nữa, sẽ rất hữu ích nếu thành phố triển khai ứng dụng di động cho phép hành khách theo dõi vị trí xe buýt theo thời gian thực.\n\nTôi hy vọng những góp ý này sẽ hữu ích. Cảm ơn ông đã dành thời gian và tâm huyết.\n\nTrân trọng,",
-            "text": "Dear Mr. Tailor,\n\nI am writing to provide feedback on the public bus service in our city. As a daily commuter on Route 8, I would like to share my thoughts on how to improve the service.\n\nOn the positive side, I really appreciate the punctual schedule and clean, air-conditioned buses. The drivers are generally polite and follow traffic rules safely, which makes my daily commute comfortable.\n\nHowever, there are still a few areas that need improvement. During peak morning hours, the buses are severely overcrowded, leaving many passengers waiting at bus stops. In addition, some buses arrive late due to traffic congestion, making students and workers late for school and work.\n\nTo enhance service quality, I suggest increasing bus frequency during rush hours from 7:00 to 8:30 AM. Furthermore, it would be very helpful if the city could launch a mobile app that allows passengers to track bus locations in real time.\n\nI hope you find my feedback helpful. Thank you for your time and dedication.\n\nYours sincerely,",
+            "text": "Dear Mr. Tailor,\n\nI am writing to provide feedback on the public bus service in our city. As a daily commuter on Route 8, I would like to share my thoughts on how to improve the service.\n\nOn the positive side, I really appreciate the punctual schedule and clean, air-conditioned buses. The drivers are generally polite and follow traffic rules safely, which makes my daily trip to work comfortable.\n\nHowever, there are still a few areas that need improvement. During peak morning hours, the buses are severely overcrowded, leaving many passengers waiting at bus stops. In addition, some buses arrive late due to traffic congestion, making students and workers late for school and work.\n\nTo enhance service quality, I suggest increasing bus frequency during rush hours from 7:00 to 8:30 AM. Furthermore, it would be very helpful if the city could launch a mobile app that allows passengers to track bus locations in real time.\n\nI hope you find my feedback helpful. Thank you for your time and dedication.\n\nYours sincerely,",
             "translation": "Kính gửi ông Tailor,\n\nTôi viết thư này để đóng góp ý kiến về dịch vụ xe buýt công cộng tại thành phố của chúng ta. Là một hành khách đi lại hàng ngày trên Tuyến số 8, tôi xin chia sẻ vài nhận xét nhằm nâng cao chất lượng dịch vụ.\n\nVề mặt tích cực, tôi rất đánh giá cao lịch trình đúng giờ và những chiếc xe buýt sạch sẽ, có điều hòa mát mẻ. Các bác tài nhìn chung lịch sự và lái xe an toàn, giúp chuyến đi làm hàng ngày của tôi rất thoải mái.\n\nTuy nhiên, vẫn còn một vài điểm cần cải thiện. Vào các khung giờ cao điểm buổi sáng, các chuyến xe thường quá tải nghiêm trọng, khiến nhiều hành khách phải đứng chờ ở trạm. Ngoài ra, một số chuyến bị trễ do tắc đường, gây ảnh hưởng đến giờ học và giờ làm của học sinh, công nhân viên.\n\nĐể cải thiện dịch vụ, tôi đề xuất tăng tần suất các chuyến xe trong giờ cao điểm từ 7:00 đến 8:30 sáng. Hơn nữa, sẽ rất hữu ích nếu thành phố triển khai ứng dụng di động cho phép hành khách theo dõi vị trí xe buýt theo thời gian thực.\n\nTôi hy vọng những góp ý này sẽ hữu ích. Cảm ơn ông đã dành thời gian và tâm huyết.\n\nTrân trọng,",
             "word_count": 169,
             "key_structures": [
@@ -18677,11 +18677,11 @@ const LETTERS_DATA = [
               "icon": "fa-bus-simple",
               "options": [
                 {
-                  "action_en": "the buses on route 08 operate remarkably punctually according to published schedules",
+                  "action_en": "the buses on route 08 operate very punctually according to published schedules",
                   "action_vi": "các chuyến xe buýt tuyến 08 vận hành rất đúng giờ theo lịch trình niêm yết",
-                  "reason_en": "allowing daily commuters like me to plan work and study schedules reliably.",
+                  "reason_en": "allowing daily passengers like me to plan work and study schedules reliably.",
                   "reason_vi": "giúp những hành khách đi lại hàng ngày như tôi có thể chủ động sắp xếp lịch trình đi làm, đi học.",
-                  "expansion_1_en": "Reliable schedules allow office workers and students to commute without worrying about arriving late.",
+                  "expansion_1_en": "Reliable schedules allow office workers and students to travel without worrying about arriving late.",
                   "expansion_1_vi": "Lịch trình đáng tin cậy giúp dân công sở và học sinh đi lại mà không phải lo lắng về việc đến muộn.",
                   "expansion_2_en": "This punctuality fosters great trust in the municipal public transit system across our community.",
                   "expansion_2_vi": "Sự đúng giờ này tạo dựng niềm tin to lớn vào hệ thống giao thông công cộng của thành phố trong cộng đồng."
@@ -18689,11 +18689,11 @@ const LETTERS_DATA = [
                 {
                   "action_en": "the vehicles are newly fitted, clean, and equipped with powerful air conditioning",
                   "action_vi": "các xe buýt đều mới, sạch sẽ và được trang bị hệ thống điều hòa mát mẻ",
-                  "reason_en": "providing a cool, pleasant ride away from the sweltering heat outside.",
+                  "reason_en": "providing a cool, pleasant ride away from the hot summer weather outside.",
                   "reason_vi": "mang lại không gian di chuyển mát mẻ, dễ chịu, tránh xa cái nóng oi ả ngoài đường phố.",
-                  "expansion_1_en": "The comfortable air-conditioned interior provides a refreshing refuge from sweltering midday city heat.",
+                  "expansion_1_en": "The comfortable air-conditioned interior provides a refreshing refuge from hot midday weather.",
                   "expansion_1_vi": "Không gian máy lạnh mát rượi bên trong mang lại sự thư thái, tránh xa cái nóng gay gắt giữa trưa của thành phố.",
-                  "expansion_2_en": "Clean upholstery and polished handrails demonstrate commendable hygiene standards maintained by the depot.",
+                  "expansion_2_en": "Clean upholstery and polished handrails demonstrate very good hygiene standards maintained by the depot.",
                   "expansion_2_vi": "Ghế đệm sạch sẽ và tay vịn sáng bóng thể hiện tiêu chuẩn vệ sinh rất đáng khen ngợi của trạm xe."
                 },
                 {
@@ -18707,13 +18707,13 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Tính năng tự động này đặc biệt hữu ích và an tâm cho những người lần đầu đi xe và người cao tuổi."
                 },
                 {
-                  "action_en": "transit ticket prices are exceptionally affordable and subsidised for students",
+                  "action_en": "transit ticket prices are very affordable and subsidised for students",
                   "action_vi": "giá vé xe buýt rất rẻ và có chính sách trợ giá ưu đãi cho học sinh, sinh viên",
                   "reason_en": "because this helps encourage hundreds of residents to choose public transport over private motorbikes.",
                   "reason_vi": "khuyến khích người dân tích cực sử dụng phương tiện công cộng thay cho xe máy cá nhân.",
-                  "expansion_1_en": "Discounted monthly passes make daily commuting very affordable for students with limited allowances.",
+                  "expansion_1_en": "Discounted monthly passes make daily traveling very affordable for students with limited allowances.",
                   "expansion_1_vi": "Vé tháng trợ giá giúp việc đi lại hằng ngày trở nên rất vừa túi tiền đối với học sinh sinh viên có ngân sách hẹp.",
-                  "expansion_2_en": "Encouraging bus ridership helps reduce traffic gridlocks and air pollution throughout urban streets.",
+                  "expansion_2_en": "Encouraging bus ridership helps reduce traffic jams and air pollution throughout urban streets.",
                   "expansion_2_vi": "Khuyến khích đi xe buýt góp phần giảm thiểu ùn tắc giao thông và ô nhiễm không khí khắp các tuyến phố đô thị."
                 },
                 {
@@ -18731,7 +18731,7 @@ const LETTERS_DATA = [
                   "action_vi": "ứng dụng di động theo dõi xe buýt cung cấp định vị GPS chính xác của xe sắp đến trạm",
                   "reason_en": "helping minimize waiting times at roadside stops during bad weather.",
                   "reason_vi": "giúp giảm thiểu thời gian hành khách phải đứng chờ ngoài trời dưới thời tiết xấu.",
-                  "expansion_1_en": "Checking arrival countdowns allows commuters to step out of their homes just in time to catch the bus.",
+                  "expansion_1_en": "Checking arrival countdowns allows passengers to step out of their homes just in time to catch the bus.",
                   "expansion_1_vi": "Theo dõi đồng hồ đếm ngược giờ xe đến giúp hành khách bước ra khỏi nhà vừa kịp lúc để đón xe.",
                   "expansion_2_en": "This digital innovation significantly modernizes public transport convenience in our city.",
                   "expansion_2_vi": "Cải tiến số hóa này giúp hiện đại hóa đáng kể sự tiện lợi của giao thông công cộng tại thành phố."
@@ -18751,11 +18751,11 @@ const LETTERS_DATA = [
                   "reason_vi": "do nhu cầu đi lại của sinh viên và người đi làm vượt xa sức chứa của phương tiện.",
                   "expansion_1_en": "During morning peak hours, passengers are packed shoulder-to-shoulder with barely any room to move.",
                   "expansion_1_vi": "Vào giờ cao điểm sáng, hành khách chen chúc vai kề vai đến mức gần như không có chỗ cử động.",
-                  "expansion_2_en": "Such extreme congestion makes daily commuting deeply exhausting and physically stressful.",
+                  "expansion_2_en": "Such extreme congestion makes daily traveling deeply exhausting and physically stressful.",
                   "expansion_2_vi": "Cảnh chen lấn quá mức như vậy khiến hành trình đi lại mỗi ngày trở nên vô cùng mệt mỏi và căng thẳng thể chất."
                 },
                 {
-                  "action_en": "commuters are packed tightly like sardines, making it difficult to breathe or reach exit doors",
+                  "action_en": "passengers are packed tightly like sardines, making it difficult to breathe or reach exit doors",
                   "action_vi": "hành khách phải chen chúc nghẹt thở, gây khó khăn cho việc hít thở hoặc bước ra cửa xuống",
                   "reason_en": "because passengers have no space to breathe or stand comfortably.",
                   "reason_vi": "gây cảm giác mệt mỏi và bức bối sau những giờ làm việc căng thẳng.",
@@ -18767,7 +18767,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "passengers waiting at intermediate stops are frequently passed by because buses are full",
                   "action_vi": "hành khách đứng đợi ở các trạm giữa chừng thường xuyên bị bỏ lại vì xe đã chật kín",
-                  "reason_en": "forcing commuters to wait for the next bus and frequently arrive late for work or class.",
+                  "reason_en": "forcing passengers to wait for the next bus and frequently arrive late for work or class.",
                   "reason_vi": "buộc họ phải chờ chuyến kế tiếp và thường xuyên bị muộn giờ làm hoặc giờ học.",
                   "expansion_1_en": "Students standing at bus shelters watch fully loaded buses drive past without picking up a single person.",
                   "expansion_1_vi": "Học sinh đứng đợi ở nhà chờ phải nhìn những chuyến xe chật ních chạy lướt qua mà không đón nổi một ai.",
@@ -18781,27 +18781,27 @@ const LETTERS_DATA = [
                   "reason_vi": "đe dọa sự an toàn về tài sản cá nhân của những hành khách đi xe hàng ngày.",
                   "expansion_1_en": "Pickpockets frequently exploit packed aisles to steal smartphones and wallets unnoticed from backpacks.",
                   "expansion_1_vi": "Kẻ gian thường lợi dụng lối đi chen chúc để móc trộm điện thoại và ví tiền trong ba lô mà không ai hay.",
-                  "expansion_2_en": "Several passengers have reported losing personal documents while commuting along this specific line.",
+                  "expansion_2_en": "Several passengers have reported losing personal documents while traveling along this specific line.",
                   "expansion_2_vi": "Nhiều hành khách đã phản ánh bị mất giấy tờ tùy thân khi di chuyển trên chính tuyến xe này."
                 },
                 {
-                  "action_en": "vulnerable passengers like elderly citizens and pregnant women are left standing without seats",
+                  "action_en": "unsafe passengers like elderly citizens and pregnant women are left standing without seats",
                   "action_vi": "những hành khách yếu thế như người cao tuổi và phụ nữ mang thai phải đứng suốt chặng",
                   "reason_en": "because the extreme overcrowding makes it impossible for others to vacate seats for them.",
                   "reason_vi": "vì không gian quá chật chội khiến người khác khó có thể nhường ghế an toàn.",
                   "expansion_1_en": "Despite published priority seating rules, standing crowds make it impossible for seniors to navigate forward.",
                   "expansion_1_vi": "Mặc dù có quy định ghế ưu tiên, đám đông đứng chen chúc khiến người lớn tuổi không thể bước lên phía trước.",
-                  "expansion_2_en": "Conductors rarely step in to assist vulnerable passengers when the bus is completely jammed.",
+                  "expansion_2_en": "Conductors rarely step in to assist unsafe passengers when the bus is completely jammed.",
                   "expansion_2_vi": "Nhân viên bán vé hiếm khi can thiệp hỗ trợ hành khách cần giúp đỡ khi xe đã quá chật chội."
                 },
                 {
-                  "action_en": "boarding and alighting at busy stops takes twice as long due to jammed doorways",
+                  "action_en": "getting on and off the bus at busy stops takes twice as long due to jammed doorways",
                   "action_vi": "việc lên xuống tại các điểm dừng mất nhiều thời gian hơn do cửa xe bị bít kín",
                   "reason_en": "which significantly slows down the overall travel duration of the entire bus route.",
                   "reason_vi": "làm chậm đáng kể tiến độ di chuyển chung của toàn bộ lộ trình tuyến xe.",
                   "expansion_1_en": "Struggling through clogged doors delays each stop by several minutes, accumulating heavy route delays.",
                   "expansion_1_vi": "Việc chật vật chen qua cửa xe bị nghẽn làm chậm mỗi trạm vài phút, tích tụ thành sự trễ giờ lớn cho toàn tuyến.",
-                  "expansion_2_en": "This bottleneck turns a standard thirty-minute trip into a frustrating hour-long journey.",
+                  "expansion_2_en": "This delay turns a standard thirty-minute trip into a frustrating hour-long journey.",
                   "expansion_2_vi": "Điểm nghẽn này biến một chuyến đi tiêu chuẩn ba mươi phút thành một hành trình mệt mỏi kéo dài cả tiếng đồng hồ."
                 }
               ]
@@ -18847,7 +18847,7 @@ const LETTERS_DATA = [
                   "action_vi": "tài xế thỉnh thoảng bỏ qua các trạm dừng quy định khi bị trễ lịch trình",
                   "reason_en": "because waiting passengers get left behind in the rain or heat.",
                   "reason_vi": "bỏ rơi những hành khách đang đứng đợi bơ vơ dưới mưa gió bên lề đường.",
-                  "expansion_1_en": "Skipping scheduled shelters leaves dozens of weary commuters stranded in heavy afternoon downpours.",
+                  "expansion_1_en": "Skipping scheduled shelters leaves dozens of weary passengers stranded in heavy afternoon heavy rain.",
                   "expansion_1_vi": "Bỏ trạm đón khiến hàng chục hành khách mệt mỏi bị bỏ lại bơ vơ giữa cơn mưa rào nặng hạt buổi chiều.",
                   "expansion_2_en": "Such unprofessional behavior completely undermines municipal efforts to encourage green public transit.",
                   "expansion_2_vi": "Hành vi thiếu chuyên nghiệp như vậy làm suy giảm hoàn toàn nỗ lực thúc đẩy giao thông công cộng của thành phố."
@@ -18855,7 +18855,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "some ticket conductors exhibit rude and impatient attitudes when giving change",
                   "action_vi": "một vài nhân viên bán vé có thái độ gắt gỏng, thiếu kiên nhẫn khi trả lại tiền thừa",
-                  "reason_en": "which tarnishes the welcoming and helpful public image of the municipal bus network.",
+                  "reason_en": "which hurts the friendly image of the municipal bus network.",
                   "reason_vi": "làm xấu đi hình ảnh thân thiện và văn minh của hệ thống xe buýt thành phố.",
                   "expansion_1_en": "Snapping at passengers or refusing to accept small change creates an unwelcoming, tense atmosphere.",
                   "expansion_1_vi": "Gắt gỏng với hành khách hoặc từ chối nhận tiền lẻ tạo ra một bầu không khí căng thẳng và thiếu thân thiện.",
@@ -18887,7 +18887,7 @@ const LETTERS_DATA = [
                   "reason_vi": "nhằm giải tỏa hành khách nhanh chóng và chấm dứt tình trạng chen chúc quá tải.",
                   "expansion_1_en": "Shortening intervals between departures would swiftly clear accumulated crowds at major university stops.",
                   "expansion_1_vi": "Rút ngắn thời gian giữa các chuyến sẽ nhanh chóng giải tỏa lượng khách ùn ứ tại các trạm trường đại học lớn.",
-                  "expansion_2_en": "This targeted scheduling adjustment would eliminate unbearable rush-hour sardine-can crowding.",
+                  "expansion_2_en": "This targeted scheduling adjustment would reduce unbearable rush-hour sardine-can crowding.",
                   "expansion_2_vi": "Sự điều chỉnh lịch trình kịp thời này sẽ xóa bỏ cảnh chen chúc nghẹt thở như nêm vào giờ cao điểm."
                 },
                 {
@@ -18905,7 +18905,7 @@ const LETTERS_DATA = [
                   "action_vi": "tổ chức các khóa đào tạo bắt buộc về lái xe an toàn và kỹ năng phục vụ khách hàng cho nhân viên",
                   "reason_en": "in order to cultivate smooth driving habits and polite, respectful customer care on every trip.",
                   "reason_vi": "nhằm rèn luyện thói quen lái xe êm ái và thái độ hòa nhã, tôn trọng hành khách trên mỗi chuyến đi.",
-                  "expansion_1_en": "Fixing broken automated kiosks and supporting NFC cashless payments would eliminate ticket change delays.",
+                  "expansion_1_en": "Fixing broken automated kiosks and supporting NFC cashless payments would reduce ticket change delays.",
                   "expansion_1_vi": "Sửa chữa các cây bán vé tự động và hỗ trợ thanh toán không tiền mặt NFC sẽ loại bỏ việc chờ thối tiền lẻ.",
                   "expansion_2_en": "Contactless card tapping significantly accelerates the boarding process at every roadside stop.",
                   "expansion_2_vi": "Chạm thẻ không tiếp xúc giúp đẩy nhanh đáng kể tốc độ đón khách tại mỗi điểm dừng ven đường."
@@ -18923,11 +18923,11 @@ const LETTERS_DATA = [
                 {
                   "action_en": "enforce strict penalties and performance reviews for operators guilty of reckless driving",
                   "action_vi": "áp dụng các hình thức phạt nghiêm khắc và đánh giá thi đua đối với các tài xế lái ẩu",
-                  "reason_en": "in order to deter hazardous road behavior and ensure passenger safety remains uncompromising.",
+                  "reason_en": "in order to deter hazardous road behavior and keep all passengers safe.",
                   "reason_vi": "nhằm răn đe các hành vi lái xe nguy hiểm và đảm bảo an toàn tuyệt đối cho người đi xe.",
                   "expansion_1_en": "Installing discreet CCTV cameras in passenger aisles would deter pickpockets from operating on buses.",
                   "expansion_1_vi": "Lắp đặt camera an ninh kín đáo ở lối đi sẽ răn đe những kẻ móc túi không dám hoạt động trên xe buýt.",
-                  "expansion_2_en": "Visible security measures will give commuters genuine peace of mind during crowded morning rides.",
+                  "expansion_2_en": "Visible security measures will give passengers genuine peace of mind during crowded morning rides.",
                   "expansion_2_vi": "Các biện pháp an ninh rõ ràng sẽ mang lại sự yên tâm thực sự cho hành khách trên các chuyến xe đông đúc."
                 },
                 {
@@ -18958,7 +18958,7 @@ const LETTERS_DATA = [
           "Góp ý",
           "B1 & B2"
         ],
-        "context": "You recently held your 21st birthday gathering at Golden Spoon restaurant with 15 friends. You liked the cozy ambiance and appetizing food, but were let down by a malfunctioning sound system and delayed birthday cake presentation. Write a feedback letter to the restaurant manager.",
+        "context": "You recently held your 21st birthday gathering at Golden Spoon restaurant with 15 friends. You liked the cozy ambiance and delicious food, but were let down by a malfunctioning sound system and delayed birthday cake presentation. Write a feedback letter to the restaurant manager.",
         "prompt": "You held a birthday party with your friends at Golden Spoon restaurant last Saturday. Write an email to the restaurant manager offering your feedback. In your email, you should: Praise what went well (food taste & table decoration), point out what could be improved (microphone buzz & slow dessert), and give suggestions for future events.\n\nYou should write at least 120 words. **Do not include your name or address.** Your response will be evaluated in terms of **Task Fulfillment**, **Organization**, **Vocabulary**, and **Grammar**.",
         "has_full_details": true,
         "details": {
@@ -18978,12 +18978,12 @@ const LETTERS_DATA = [
             "body_points": [
               {
                 "point": "Điểm khen",
-                "formula": "First of all, I would like to mention some positive points... I really liked... because...",
+                "formula": "First of all, I would like to mention some positive points... I really liked... Because...",
                 "detail": "First of all, I would like to mention some positive points about your restaurant. I really liked the food quality because the seafood dishes were fresh and delicious. In addition, the dining room was beautifully decorated."
               },
               {
                 "point": "Điểm chê",
-                "formula": "However, there were also some areas that needed improvement. One thing that disappointed me was... because...",
+                "formula": "However, there were also some areas that needed improvement. One thing that disappointed me was... Because...",
                 "detail": "However, there were also some areas that needed improvement. One thing that disappointed me was the sound system because the microphone kept buzzing during our celebration. Furthermore, the birthday cake was served quite late after the guests had finished dining."
               },
               {
@@ -19090,9 +19090,9 @@ const LETTERS_DATA = [
               "hints": [
                 "Assigning a dedicated floor captain",
                 "audio soundchecks",
-                "synchronize dessert timing"
+                "match dessert timing"
               ],
-              "explanation": "Thuật ngữ nhà hàng B2: 'dedicated floor captain' (trưởng ca chuyên trách), 'synchronize timing' (đồng bộ thời gian)."
+              "explanation": "Thuật ngữ nhà hàng B2: 'dedicated floor captain' (trưởng ca chuyên trách), 'match timing' (đồng bộ thời gian)."
             }
           ],
           "sample_b1": {
@@ -19159,7 +19159,7 @@ const LETTERS_DATA = [
                   "reason_vi": "nhận được nhiều lời khen ngợi từ tất cả các khách mời trong suốt bữa tiệc.",
                   "expansion_1_en": "The broth had a rich, natural sweetness infused with aromatic herbs that delighted everyone.",
                   "expansion_1_vi": "Nước dùng có vị ngọt thanh tự nhiên hòa quyện với các loại thảo mộc dậy mùi thơm khiến ai cũng tấm tắc.",
-                  "expansion_2_en": "Several relatives complimented the kitchen staff on the authentic flavors of the soup.",
+                  "expansion_2_en": "Several relatives complimented the kitchen staff on the traditional flavors of the soup.",
                   "expansion_2_vi": "Nhiều người thân trong gia đình tôi đã dành lời khen ngợi cho đội ngũ bếp về hương vị đậm đà nguyên bản."
                 },
                 {
@@ -19169,21 +19169,21 @@ const LETTERS_DATA = [
                   "reason_vi": "tạo nên phông nền ấm cúng, chụp ảnh rất đẹp cho những bức hình kỷ niệm sinh nhật.",
                   "expansion_1_en": "The festive ribbon arches and tailored floral arrangements created a truly memorable photo backdrop.",
                   "expansion_1_vi": "Những dải ruy băng rực rỡ cùng hoa tươi sắp đặt khéo léo đã tạo nên góc chụp ảnh lưu niệm vô cùng lung linh.",
-                  "expansion_2_en": "The tasteful setup provided a wonderful environment for our milestone family celebration.",
+                  "expansion_2_en": "The tasteful setup provided a wonderful environment for our special event family celebration.",
                   "expansion_2_vi": "Không gian bài trí trang nhã đã đem lại một bối cảnh tuyệt vời cho buổi kỷ niệm quan trọng của gia đình."
                 },
                 {
-                  "action_en": "the complimentary birthday cake prepared by your pastry chef was fresh and delicious",
+                  "action_en": "the free birthday cake prepared by your pastry chef was fresh and delicious",
                   "action_vi": "chiếc bánh sinh nhật tặng kèm do đầu bếp bánh làm rất mềm xốp và ngọt ngào vừa miệng",
                   "reason_en": "which made the candle-blowing moment truly memorable and joyful for my friends.",
                   "reason_vi": "khiến khoảnh khắc thổi nến thực sự đáng nhớ và ngập tràn niềm vui cho bạn bè tôi.",
                   "expansion_1_en": "The vanilla sponge was light and airy, layered with fresh strawberries and rich velvety cream.",
                   "expansion_1_vi": "Cốt bánh vani mềm xốp nhẹ nhàng, xen kẽ dâu tây tươi và lớp kem tươi béo ngậy thơm ngon.",
-                  "expansion_2_en": "This complimentary dessert added a deeply personalized touch to our evening festivities.",
+                  "expansion_2_en": "This free dessert added a deeply personalized touch to our evening festivities.",
                   "expansion_2_vi": "Món tráng miệng tặng kèm này đã mang lại một điểm nhấn vô cùng ấm áp và tinh tế cho bữa tiệc tối."
                 },
                 {
-                  "action_en": "the ambient dining lighting created an intimate, sophisticated celebration setting",
+                  "action_en": "the ambient dining lighting created an intimate, modern celebration setting",
                   "action_vi": "hệ thống ánh sáng ấm cúng tạo nên không gian tiệc mừng thân mật và sang trọng",
                   "reason_en": "helping everyone feel relaxed and thoroughly enjoy the celebration.",
                   "reason_vi": "giúp mọi người cảm thấy thư thái và tận hưởng trọn vẹn buổi sum họp.",
@@ -19193,9 +19193,9 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Nó tạo ra một bầu không khí thư thái, hân hoan khiến mọi người cảm thấy ấm cúng ngay từ đầu."
                 },
                 {
-                  "action_en": "the steamed seafood platter was remarkably fresh and seasoned to perfection",
+                  "action_en": "the steamed seafood platter was very fresh and seasoned to perfection",
                   "action_vi": "đĩa hải sản hấp rất tươi ngon và được nêm nếm vừa vặn hoàn hảo",
-                  "reason_en": "demonstrating high culinary skill and the freshness of your restaurant's ingredients.",
+                  "reason_en": "demonstrating high cooking skill and the freshness of your restaurant's ingredients.",
                   "reason_vi": "thể hiện tay nghề ẩm thực cao và độ tươi mới của nguyên liệu tại nhà hàng quý vị.",
                   "expansion_1_en": "The jumbo king prawns and sea bass were cooked to tender perfection with crisp scallions.",
                   "expansion_1_vi": "Những con tôm sú cỡ lớn và cá vược được hấp chín tới giữ trọn vị ngọt mềm cùng hành lá giòn thơm.",
@@ -19227,7 +19227,7 @@ const LETTERS_DATA = [
                   "reason_vi": "khiến khách mời phải ngồi đợi quanh bàn trống và câu chuyện dần bị đứt quãng.",
                   "expansion_1_en": "Guests were left staring at empty ceramic plates while waiting for the broth burners to ignite.",
                   "expansion_1_vi": "Các vị khách phải ngồi ngắm những chiếc đĩa sứ trống trơn trong lúc chờ bếp lẩu được châm lửa.",
-                  "expansion_2_en": "This awkward lull disrupted the lively conversational momentum of our celebration party.",
+                  "expansion_2_en": "This awkward lull disturbed the lively conversational momentum of our celebration party.",
                   "expansion_2_vi": "Khoảng lặng bất tiện này đã làm gián đoạn nhịp điệu rôm rả sôi nổi của bữa tiệc mừng sinh nhật."
                 },
                 {
@@ -19253,9 +19253,9 @@ const LETTERS_DATA = [
                 {
                   "action_en": "staff seemed overwhelmed by weekend bookings and missed two vegetarian orders completely",
                   "action_vi": "nhân viên có vẻ bị quá tải vì khách đông cuối tuần và bỏ sót hoàn toàn hai suất ăn chay",
-                  "reason_en": "forcing my vegetarian friends to wait an extra forty minutes for their meals.",
+                  "reason_en": "forcing my vegetarian friends to wait a extra forty minutes for their meals.",
                   "reason_vi": "buộc những người bạn ăn chay của tôi phải đợi thêm tới 40 phút mới có đồ ăn.",
-                  "expansion_1_en": "Our two vegetarian guests sat waiting uncomfortably while others were served steaming meat courses.",
+                  "expansion_1_en": "Our two vegetarian guests sat waiting uncomfortably while others were served hot meat courses.",
                   "expansion_1_vi": "Hai người bạn ăn chay của chúng tôi phải ngồi chờ ngượng ngùng trong khi những người khác đã có món thịt nóng sốt.",
                   "expansion_2_en": "Pre-ordered dietary requirements should always be registered accurately on kitchen prep tickets.",
                   "expansion_2_vi": "Các yêu cầu ăn kiêng đã đặt trước phải luôn được ghi nhận chính xác trên phiếu chế biến của bếp."
@@ -19303,7 +19303,7 @@ const LETTERS_DATA = [
                   "action_vi": "danh sách nhạc phát toàn nhạc điện tử EDM dồn dập thay vì những giai điệu acoustic êm dịu",
                   "reason_en": "because fast dance music does not suit a quiet dinner party.",
                   "reason_vi": "hoàn toàn không phù hợp với không gian ẩm thực sang trọng của một buổi tiệc tối.",
-                  "expansion_1_en": "Fast-paced club dance beats felt entirely inappropriate for an intimate multigenerational family dinner.",
+                  "expansion_1_en": "Fast-paced club dance beats felt entirely inappropriate for an warm family dinner.",
                   "expansion_1_vi": "Những giai điệu nhạc sàn điện tử sôi động hoàn toàn không phù hợp cho bữa cơm gia đình nhiều thế hệ ấm cúng.",
                   "expansion_2_en": "Gentle background music would have created a much more relaxing and pleasant celebratory atmosphere.",
                   "expansion_2_vi": "Những điệu nhạc mộc êm dịu đáng lẽ sẽ mang lại không gian tiệc mừng tinh tế và thanh bình hơn nhiều."
@@ -19325,7 +19325,7 @@ const LETTERS_DATA = [
                   "reason_vi": "gây nhức đầu và cảm giác mệt mỏi thính giác cho các vị khách lớn tuổi.",
                   "expansion_1_en": "Piercing treble screeches emitted from the ceiling grille caused noticeable ear discomfort.",
                   "expansion_1_vi": "Những âm thanh chói gắt phát ra từ lưới loa gắn trần gây cảm giác khó chịu rõ rệt cho màng nhĩ.",
-                  "expansion_2_en": "Sound system equalizers should be tuned professionally to eliminate harsh high-frequency distortion.",
+                  "expansion_2_en": "Sound system equalizers should be tuned professionally to reduce harsh high-frequency distortion.",
                   "expansion_2_vi": "Hệ thống chỉnh âm cần được cân chỉnh chuyên nghiệp để loại bỏ hiện tượng méo tiếng chói tai."
                 },
                 {
@@ -19341,9 +19341,9 @@ const LETTERS_DATA = [
                 {
                   "action_en": "no soundproofing existed between the adjacent party room and ours",
                   "action_vi": "không có vách cách âm giữa phòng tiệc của chúng tôi và phòng bên cạnh",
-                  "reason_en": "allowing loud karaoke noise from next door to disrupt our private celebration.",
+                  "reason_en": "allowing loud karaoke noise from next door to affect our private celebration.",
                   "reason_vi": "khiến tiếng hát karaoke ồn ào phòng bên lọt sang làm ảnh hưởng bữa tiệc riêng tư.",
-                  "expansion_1_en": "Boisterous cheers and karaoke singing from the adjacent function hall bled through the thin partition wall.",
+                  "expansion_1_en": "Loud cheers and karaoke singing from the adjacent function hall bled through the thin partition wall.",
                   "expansion_1_vi": "Tiếng hò reo ầm ĩ và hát karaoke từ phòng tiệc bên cạnh lọt thẳng qua vách ngăn mỏng manh.",
                   "expansion_2_en": "Investing in adequate soundproof wall insulation would safeguard the privacy of VIP dining suites.",
                   "expansion_2_vi": "Đầu tư cách âm vách ngăn thỏa đáng sẽ bảo đảm sự riêng tư trọn vẹn cho các phòng tiệc VIP."
@@ -19357,7 +19357,7 @@ const LETTERS_DATA = [
               "icon": "fa-wand-magic-sparkles",
               "options": [
                 {
-                  "action_en": "synchronize kitchen dispatching to ensure course items are delivered in a smooth, continuous sequence",
+                  "action_en": "match kitchen dispatching to ensure course items are delivered in a smooth, continuous sequence",
                   "action_vi": "đồng bộ quy trình ra món trong bếp để đảm bảo các món ăn được dọn ra nhịp nhàng, liên tục",
                   "reason_en": "so as to prevent awkward waiting gaps and keep the dining atmosphere lively.",
                   "reason_vi": "tránh tình trạng chờ đợi ngắt quãng và giữ cho bầu không khí bàn tiệc luôn sôi nổi.",
@@ -19371,7 +19371,7 @@ const LETTERS_DATA = [
                   "action_vi": "tuyển chọn danh sách nhạc jazz không lời hoặc thính phòng nhẹ nhàng với âm lượng vừa phải",
                   "reason_en": "allowing diners to converse comfortably without having to raise their voices.",
                   "reason_vi": "giúp thực khách có thể trò chuyện dễ dàng mà không phải gắng sức nói to.",
-                  "expansion_1_en": "Soft instrumental jazz or classical bossa nova provides a gentle, sophisticated dining ambiance.",
+                  "expansion_1_en": "Soft instrumental jazz or classical bossa nova provides a gentle, modern dining ambiance.",
                   "expansion_1_vi": "Nhạc jazz không lời êm dịu hoặc bossa nova cổ điển tạo nên không gian ẩm thực sang trọng và tao nhã.",
                   "expansion_2_en": "Maintaining moderate background volumes allows diners to converse effortlessly without straining their voices.",
                   "expansion_2_vi": "Giữ âm lượng nền vừa phải giúp thực khách trò chuyện nhẹ nhàng mà không phải gồng giọng mệt mỏi."
@@ -19391,9 +19391,9 @@ const LETTERS_DATA = [
                   "action_vi": "lắp đặt công tắc điều chỉnh âm lượng riêng trong từng phòng tiệc biệt lập",
                   "reason_en": "so that hosts can choose suitable background music according to their event style.",
                   "reason_vi": "để chủ tiệc có thể tùy chỉnh âm lượng theo đúng phong cách sự kiện của mình.",
-                  "expansion_1_en": "Wall-mounted rotary controls allow party organizers to calibrate audio levels to their specific preference.",
+                  "expansion_1_en": "Wall-mounted rotary controls allow party organizers to adjust the music volume to their specific preference.",
                   "expansion_1_vi": "Nút vặn điều chỉnh trên tường cho phép chủ tiệc tự căn chỉnh mức âm lượng theo ý thích riêng của mình.",
-                  "expansion_2_en": "This simple adjustment eliminates awkward repeated requests to waitstaff throughout the night.",
+                  "expansion_2_en": "This simple adjustment removes awkward repeated requests to waitstaff throughout the night.",
                   "expansion_2_vi": "Sự điều chỉnh đơn giản này xóa bỏ việc phải liên tục nhắc nhở nhân viên phục vụ suốt buổi tối."
                 },
                 {
@@ -19411,7 +19411,7 @@ const LETTERS_DATA = [
                   "action_vi": "tặng đĩa hoa quả tráng miệng hoặc thẻ hội viên ưu đãi cho những lần đặt tiệc tiếp theo",
                   "reason_en": "as a gracious gesture to retain valued customers and encourage return visits.",
                   "reason_vi": "như một cử chỉ tri ân chu đáo để giữ chân khách quen và khuyến khích họ quay lại.",
-                  "expansion_1_en": "Offering small discount vouchers or complimentary fruit platters builds long-lasting customer goodwill.",
+                  "expansion_1_en": "Offering small discount vouchers or free fruit platters builds long-lasting customer goodwill.",
                   "expansion_1_vi": "Tặng voucher giảm giá nhỏ hoặc đĩa hoa quả tráng miệng sẽ xây dựng thiện cảm lâu dài với khách hàng.",
                   "expansion_2_en": "We would gladly choose Golden Spoon again once these service refinements are implemented.",
                   "expansion_2_vi": "Gia đình chúng tôi sẽ rất vui lòng chọn lại Golden Spoon một khi các cải tiến này được áp dụng."
@@ -19503,7 +19503,7 @@ const LETTERS_DATA = [
                   "action_vi": "tôi nhận thấy tiện nghi phòng nghỉ thỏa đáng và phù hợp với ngân sách du lịch của chúng tôi.",
                   "reason_en": "because the room rate offered good value for money given the central location.",
                   "reason_vi": "vì giá phòng mang lại giá trị tương xứng so với vị trí trung tâm thuận tiện.",
-                  "expansion_1_en": "The complimentary amenities provided in the room were thoughtful and very convenient.",
+                  "expansion_1_en": "The free amenities provided in the room were thoughtful and very convenient.",
                   "expansion_1_vi": "Các tiện nghi miễn phí được bố trí trong phòng rất chu đáo và tiện lợi.",
                   "expansion_2_en": "It made our short weekend getaway smooth and enjoyable.",
                   "expansion_2_vi": "Điều đó đã giúp chuyến đi nghỉ cuối tuần ngắn ngày của chúng tôi trở nên êm ả và thú vị."
@@ -19539,7 +19539,7 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Cách đón tiếp niềm nở của họ khiến chúng tôi tin tưởng rằng nhu cầu của du khách thực sự được coi trọng."
                 },
                 {
-                  "action_en": "The guest room was exceptionally clean, well-arranged, and spacious.",
+                  "action_en": "The guest room was very clean, well-arranged, and spacious.",
                   "action_vi": "phòng nghỉ đặc biệt sạch sẽ, ngăn nắp và rộng rãi.",
                   "reason_en": "because the housekeeping staff cleaned thoroughly and refreshed fresh towels every morning.",
                   "reason_vi": "vì đội ngũ dọn phòng đã làm vệ sinh rất kỹ và thay khăn mới mỗi buổi sáng.",
@@ -19573,7 +19573,7 @@ const LETTERS_DATA = [
                   "action_vi": "đệm và gối nằm rất êm ái, sạch sẽ và vô cùng thoải mái.",
                   "reason_en": "which helped us get deep, peaceful sleep after long walking tours around the city.",
                   "reason_vi": "giúp chúng tôi có giấc ngủ sâu và yên bình sau những chuyến đi bộ dài quanh thành phố.",
-                  "expansion_1_en": "The bedsheets were spotless and smelled fresh throughout our entire stay.",
+                  "expansion_1_en": "The bedsheets were very clean and smelled fresh throughout our entire stay.",
                   "expansion_1_vi": "Ga trải giường sạch tinh tươm và thơm mát trong suốt kỳ lưu trú của chúng tôi.",
                   "expansion_2_en": "High-quality bedding is definitely one of your hotel's strongest highlights.",
                   "expansion_2_vi": "Bộ chăn ga gối chất lượng cao chắc chắn là một trong những điểm cộng lớn nhất của khách sạn."
@@ -19663,7 +19663,7 @@ const LETTERS_DATA = [
                   "action_vi": "tôi khuyến nghị tổ chức các buổi tập huấn chăm sóc khách hàng định kỳ cho toàn bộ nhân viên lễ tân và phục vụ.",
                   "reason_en": "to maintain a consistently polite, prompt, and welcoming attitude toward international guests.",
                   "reason_vi": "nhằm duy trì thái độ luôn lịch sự, nhanh nhẹn và niềm nở đối với du khách quốc tế.",
-                  "expansion_1_en": "A warm smile and proactive greeting at the lobby door make a huge positive difference to every traveler.",
+                  "expansion_1_en": "A warm smile and active and helpful greeting at the lobby door make a huge positive difference to every traveler.",
                   "expansion_1_vi": "Một nụ cười ấm áp và lời chào chủ động ngay cửa sảnh sẽ tạo nên ấn tượng rất lớn với mọi du khách."
                 }
               ]
@@ -19778,10 +19778,10 @@ const LETTERS_DATA = [
               "id": 3,
               "part": "3. Thân thư - Ý 2: Miêu tả trải nghiệm (Describe your experience)",
               "vi": "Trong suốt kỳ nghỉ, phòng ngủ của chúng tôi rất sạch sẽ và bữa sáng tự chọn rất ngon miệng; tuy nhiên, kết nối wifi trong phòng đôi khi bị chập chờn vào buổi tối.",
-              "en": "During my stay, our room was spotless and the breakfast buffet was delicious; however, the wifi connection in our bedroom was occasionally unstable in the evening.",
+              "en": "During my stay, our room was very clean and the breakfast buffet was delicious; however, the wifi connection in our bedroom was occasionally unstable in the evening.",
               "vocab_hints": [
                 {
-                  "en": "room was spotless",
+                  "en": "room was very clean",
                   "vi": "phòng ốc sạch sẽ tinh tươm"
                 },
                 {
@@ -20074,9 +20074,9 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I would certainly recommend your restaurant to friends and colleagues",
                   "action_vi": "tôi chắc chắn sẽ giới thiệu nhà hàng của quý vị cho bạn bè và đồng nghiệp",
-                  "reason_en": "because of the authentic tastes and fresh ingredients.",
+                  "reason_en": "because of the traditional tastes and fresh ingredients.",
                   "reason_vi": "bởi hương vị chuẩn ngon và nguyên liệu tươi mới.",
-                  "expansion_1_en": "The exceptional quality of your imported beef and artisanal desserts deserves wide recognition.",
+                  "expansion_1_en": "The exceptional quality of your imported beef and homemade desserts deserves wide recognition.",
                   "expansion_1_vi": "Chất lượng hảo hạng của món thịt bò nhập khẩu và bánh tráng miệng thủ công rất xứng đáng được biết đến rộng rãi.",
                   "expansion_2_en": "I have already shared glowing recommendations with my work colleagues and social circles.",
                   "expansion_2_vi": "Tôi đã chia sẻ những lời giới thiệu nồng nhiệt tới các đồng nghiệp công ty và bạn bè của mình."
@@ -20092,7 +20092,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "the grilled salmon and seafood pasta were cooked to perfection with rich flavors",
                   "action_vi": "món cá hồi nướng và mì hải sản được chế biến hoàn hảo với hương vị đậm đà",
-                  "reason_en": "showcasing the executive chef's impressive culinary craftsmanship.",
+                  "reason_en": "showcasing the executive chef's impressive cooking craftsmanship.",
                   "reason_vi": "thể hiện tay nghề xuất sắc của bếp trưởng.",
                   "expansion_1_en": "The salmon fillet had a wonderfully crispy skin while remaining tender and juicy inside.",
                   "expansion_1_vi": "Miếng cá hồi phi lê có lớp da giòn rụm tuyệt vời trong khi phần thịt bên trong vẫn mọng nước và béo ngậy.",
@@ -20168,23 +20168,23 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Tốc độ ra món nhanh hơn sẽ giữ chân thực khách hào hứng và tăng đáng kể hiệu suất quay vòng bàn."
                 },
                 {
-                  "action_en": "offer complimentary bread, crackers, or small appetizers while guests wait",
+                  "action_en": "offer free bread, crackers, or small appetizers while guests wait",
                   "action_vi": "phục vụ bánh mì, bánh quy hoặc món khai vị nhỏ miễn phí trong lúc khách chờ",
                   "reason_en": "so that guests feel cared for and satisfied while waiting for their main courses.",
                   "reason_vi": "giúp thực khách vui vẻ, hài lòng trong thời gian chờ đợi.",
-                  "expansion_1_en": "Serving a basket of warm artisanal sourdough with herb butter keeps waiting diners content.",
+                  "expansion_1_en": "Serving a basket of warm fresh bread with herb butter keeps waiting diners content.",
                   "expansion_1_vi": "Phục vụ một giỏ bánh mì men tự nhiên ấm nóng kèm bơ thảo mộc sẽ giúp thực khách vui vẻ trong khi chờ đợi.",
-                  "expansion_2_en": "This hospitable gesture bridges cooking intervals gracefully and leaves a lasting impression.",
+                  "expansion_2_en": "This friendly and welcoming gesture bridges cooking intervals gracefully and leaves a lasting impression.",
                   "expansion_2_vi": "Cử chỉ hiếu khách này sẽ khỏa lấp khoảng thời gian chờ nấu nướng một cách duyên dáng và ấn tượng."
                 },
                 {
                   "action_en": "use digital order screens for the kitchen",
                   "action_vi": "sử dụng màn hình điện tử báo đơn cho nhà bếp",
-                  "reason_en": "in order to speed up food delivery and eliminate mistakes.",
+                  "reason_en": "in order to speed up food delivery and reduce mistakes.",
                   "reason_vi": "để việc truyền đơn món ăn nhanh chóng và không bị nhầm lẫn.",
                   "expansion_1_en": "Digital handheld terminals allow waitstaff to relay food orders straight to the kitchen display.",
                   "expansion_1_vi": "Máy tính bảng cầm tay cho phép nhân viên gửi thẳng đơn gọi món vào màn hình của bếp tức thì.",
-                  "expansion_2_en": "Direct communication eliminates paper delays and prevents accidental dish omissions.",
+                  "expansion_2_en": "Direct communication removes paper delays and prevents accidental dish omissions.",
                   "expansion_2_vi": "Giao tiếp trực tiếp xóa bỏ sự chậm trễ của phiếu giấy và ngăn ngừa nhầm lẫn bỏ sót món của khách."
                 },
                 {
@@ -20212,7 +20212,7 @@ const LETTERS_DATA = [
                   "action_vi": "giới thiệu các set thực đơn đặc biệt theo mùa kết hợp rượu vang",
                   "reason_en": "because new seasonal dishes keep customers excited when they return.",
                   "reason_vi": "mang đến cho khách quen những trải nghiệm ẩm thực mới mẻ.",
-                  "expansion_1_en": "Rotating seasonal tasting menus featuring fresh catches keeps returning food enthusiasts intrigued.",
+                  "expansion_1_en": "Rotating seasonal tasting menus featuring fresh catches keeps returning food enthusiasts interested.",
                   "expansion_1_vi": "Đổi mới thực đơn theo mùa với các mẻ hải sản tươi mới sẽ luôn thu hút sự tò mò của những người sành ăn.",
                   "expansion_2_en": "Special seasonal dishes give regular customers a good reason to revisit every month.",
                   "expansion_2_vi": "Những nét chấm phá ẩm thực sáng tạo mang đến cho khách quen lý do hấp dẫn để quay lại mỗi tháng."
@@ -20252,7 +20252,7 @@ const LETTERS_DATA = [
               "category": "3. Đề xuất (Suggestions)"
             },
             {
-              "en": "offer complimentary bread and appetizers",
+              "en": "offer free bread and appetizers",
               "vi": "tặng bánh mì và món khai vị miễn phí",
               "category": "3. Đề xuất (Suggestions)"
             },
@@ -20321,7 +20321,7 @@ const LETTERS_DATA = [
               ],
               "grammar_notes": [],
               "alternatives": [
-                "Firstly, I would like to say that I was largely satisfied with the culinary presentation and the delightful dining environment."
+                "Firstly, I would like to say that I was largely satisfied with the cooking presentation and the delightful dining environment."
               ],
               "criteria_tip": "Hoàn thành trọn vẹn bullet 1 của đề bài."
             },
@@ -20329,14 +20329,14 @@ const LETTERS_DATA = [
               "id": 3,
               "part": "3. Thân thư - Ý 2: Miêu tả trải nghiệm (Describe your experience)",
               "vi": "Món cá hồi nướng và mì hải sản có hương vị rất đậm đà và tươi ngon; tuy nhiên, gia đình tôi đã phải đợi gần bốn mươi phút thì các món chính mới được phục vụ.",
-              "en": "The grilled salmon and seafood pasta were exceptionally flavorful and fresh; however, my family had to wait nearly forty minutes for our main courses to arrive.",
+              "en": "The grilled salmon and seafood pasta were very flavorful and fresh; however, my family had to wait nearly forty minutes for our main courses to arrive.",
               "vocab_hints": [
                 {
                   "en": "grilled salmon and seafood pasta",
                   "vi": "cá hồi nướng và mì Ý hải sản"
                 },
                 {
-                  "en": "exceptionally flavorful and fresh",
+                  "en": "very flavorful and fresh",
                   "vi": "đậm đà hương vị và rất tươi ngon"
                 },
                 {
@@ -20399,10 +20399,10 @@ const LETTERS_DATA = [
               "id": 5,
               "part": "5. Thân thư - Ý 4: Đề xuất phục vụ bánh mì/đồ ăn nhẹ miễn phí",
               "vi": "Ngoài ra, việc phục vụ bánh mì hoặc đồ ăn nhẹ miễn phí trong khi khách đợi món sẽ giúp trải nghiệm ăn uống của thực khách thêm phần dễ chịu.",
-              "en": "In addition, offering complimentary bread or small snacks while guests wait would make the dining experience much more pleasant.",
+              "en": "In addition, offering free bread or small snacks while guests wait would make the dining experience much more pleasant.",
               "vocab_hints": [
                 {
-                  "en": "offering complimentary bread",
+                  "en": "offering free bread",
                   "vi": "phục vụ bánh mì miễn phí"
                 },
                 {
@@ -20422,7 +20422,7 @@ const LETTERS_DATA = [
               ],
               "grammar_notes": [],
               "alternatives": [
-                "Furthermore, serving complimentary breadsticks and dips would keep diners happy when the kitchen is busy."
+                "Furthermore, serving free breadsticks and dips would keep diners happy when the kitchen is busy."
               ],
               "criteria_tip": "Đề xuất mang tính chuyên môn cao trong ngành F&B."
             },
@@ -20490,9 +20490,9 @@ const LETTERS_DATA = [
             }
           ],
           "sample_b1": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to give you feedback on my recent dinner at your new restaurant. I recently used your services and would like to share my experience.\n\nFirst of all, I would like to mention some positive points about your restaurant. I was very satisfied with the taste of the seafood dishes because the ingredients were remarkably fresh and delicious. In addition, the interior design was modern and cozy. However, there were also some areas that needed improvement. I was disappointed with the serving speed because we waited over forty minutes for our main courses. Furthermore, the dessert menu was quite limited. To enhance the quality of your services, I suggest that you should recruit more kitchen staff and expand your dessert selections.\n\nI hope my feedback will help you improve your service. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to give you feedback on my recent dinner at your new restaurant. I recently used your services and would like to share my experience.\n\nFirst of all, I would like to mention some positive points about your restaurant. I was very satisfied with the taste of the seafood dishes because the ingredients were very fresh and delicious. In addition, the interior design was modern and cozy. However, there were also some areas that needed improvement. I was disappointed with the serving speed because we waited over forty minutes for our main courses. Furthermore, the dessert menu was quite limited. To enhance the quality of your services, I suggest that you should recruit more kitchen staff and expand your dessert selections.\n\nI hope my feedback will help you improve your service. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Quản lý nhà hàng,\n\nTôi viết thư này để gửi ý kiến phản hồi về bữa tối gần đây của tôi tại nhà hàng mới của quý vị. Gần đây tôi đã dùng bữa tại nhà hàng và muốn chia sẻ một vài đánh giá.\n\nTrước hết, tôi muốn nêu một vài điểm tích cực về nhà hàng. Tôi rất hài lòng với hương vị của các món hải sản vì nguyên liệu rất tươi ngon và đậm đà. Thêm vào đó, thiết kế nội thất của quán rất hiện đại và ấm cúng. Tuy nhiên, cũng có một số điểm cần được cải thiện. Tôi cảm thấy thất vọng về tốc độ phục vụ vì chúng tôi phải đợi hơn bốn mươi phút mới có món chính. Hơn nữa, thực đơn món tráng miệng còn khá nghèo nàn. Để nâng cao chất lượng dịch vụ, tôi đề xuất nhà hàng nên tuyển thêm nhân viên phụ bếp và mở rộng thêm các lựa chọn tráng miệng.\n\nTôi hy vọng phản hồi của tôi sẽ giúp nhà hàng nâng cao chất lượng phục vụ. Xin vui lòng liên hệ nếu quý vị có thêm câu hỏi nào.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to give you feedback on my recent dinner at your new restaurant. I recently used your services and would like to share my experience.\n\nFirst of all, I would like to mention some positive points about your restaurant. I was very satisfied with the taste of the seafood dishes because the ingredients were remarkably fresh and delicious. In addition, the interior design was modern and cozy. However, there were also some areas that needed improvement. I was disappointed with the serving speed because we waited over forty minutes for our main courses. Furthermore, the dessert menu was quite limited. To enhance the quality of your services, I suggest that you should recruit more kitchen staff and expand your dessert selections.\n\nI hope my feedback will help you improve your service. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to give you feedback on my recent dinner at your new restaurant. I recently used your services and would like to share my experience.\n\nFirst of all, I would like to mention some positive points about your restaurant. I was very satisfied with the taste of the seafood dishes because the ingredients were very fresh and delicious. In addition, the interior design was modern and cozy. However, there were also some areas that needed improvement. I was disappointed with the serving speed because we waited over forty minutes for our main courses. Furthermore, the dessert menu was quite limited. To enhance the quality of your services, I suggest that you should recruit more kitchen staff and expand your dessert selections.\n\nI hope my feedback will help you improve your service. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
             "translation": "Kính gửi Quản lý nhà hàng,\n\nTôi viết thư này để gửi ý kiến phản hồi về bữa tối gần đây của tôi tại nhà hàng mới của quý vị. Gần đây tôi đã dùng bữa tại nhà hàng và muốn chia sẻ một vài đánh giá.\n\nTrước hết, tôi muốn nêu một vài điểm tích cực về nhà hàng. Tôi rất hài lòng với hương vị của các món hải sản vì nguyên liệu rất tươi ngon và đậm đà. Thêm vào đó, thiết kế nội thất của quán rất hiện đại và ấm cúng. Tuy nhiên, cũng có một số điểm cần được cải thiện. Tôi cảm thấy thất vọng về tốc độ phục vụ vì chúng tôi phải đợi hơn bốn mươi phút mới có món chính. Hơn nữa, thực đơn món tráng miệng còn khá nghèo nàn. Để nâng cao chất lượng dịch vụ, tôi đề xuất nhà hàng nên tuyển thêm nhân viên phụ bếp và mở rộng thêm các lựa chọn tráng miệng.\n\nTôi hy vọng phản hồi của tôi sẽ giúp nhà hàng nâng cao chất lượng phục vụ. Xin vui lòng liên hệ nếu quý vị có thêm câu hỏi nào.\n\nTrân trọng,",
             "word_count": 149,
             "key_structures": [
@@ -20515,9 +20515,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent dining experience at your newly opened restaurant. I recently used your services and would like to share my experience.\n\nOverall, I found your restaurant quite satisfactory, although there are some aspects that could be improved. One aspect I appreciated was the excellent quality and freshness of the pan-seared seafood, which showcased your culinary talent. Furthermore, I was particularly impressed with the welcoming attitude and helpfulness of the front-of-house greeting staff.\n\nHowever, there were also several areas that required improvement. One issue that I encountered was the prolonged wait time between appetizers and main courses, which exceeded forty-five minutes during peak dinner hours. Additionally, I was disappointed with the limited dessert selection, which lacked dairy-free or fruit-based selections.\n\nTo enhance the quality of your services, I have a few suggestions. I suggest that you optimize kitchen prep lines to accelerate plating times during rush hours. Furthermore, it would be better if you could broaden your dessert menu to accommodate diverse dietary preferences.\n\nI hope my feedback will be useful in improving your restaurant. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent dining experience at your newly opened restaurant. I recently used your services and would like to share my experience.\n\nOverall, I found your restaurant quite satisfactory, although there are some aspects that could be improved. One aspect I appreciated was the excellent quality and freshness of the pan-seared seafood, which showcased your cooking talent. Furthermore, I was particularly impressed with the welcoming attitude and helpfulness of the front-of-house greeting staff.\n\nHowever, there were also several areas that required improvement. One issue that I encountered was the prolonged wait time between appetizers and main courses, which exceeded forty-five minutes during peak dinner hours. Additionally, I was disappointed with the limited dessert selection, which lacked dairy-free or fruit-based selections.\n\nTo enhance the quality of your services, I have a few suggestions. I suggest that you optimize kitchen prep lines to accelerate plating times during rush hours. Furthermore, it would be better if you could broaden your dessert menu to have enough space for diverse dietary preferences.\n\nI hope my feedback will be useful in improving your restaurant. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Quản lý nhà hàng,\n\nTôi viết thư này để cung cấp đánh giá phản hồi về trải nghiệm ẩm thực gần đây của tôi tại nhà hàng mới khai trương của quý vị. Gần đây tôi đã dùng bữa tại nhà hàng và muốn chia sẻ những nhận xét khách quan của mình.\n\nNhìn chung, tôi nhận thấy nhà hàng của quý vị rất đáng khen ngợi, mặc dù vẫn còn một vài khía cạnh có thể cải thiện tốt hơn. Một điểm tôi rất trân trọng là chất lượng tuyệt hảo và độ tươi mới của các món hải sản áp chảo, thể hiện rõ tài năng của bếp trưởng. Hơn nữa, tôi đặc biệt ấn tượng với phong thái chào đón niềm nở và sự chu đáo của nhân viên lễ tân.\n\nTuy nhiên, cũng có một số điểm cần được nâng cao. Một vấn đề mà chúng tôi gặp phải là thời gian chờ đợi kéo dài giữa món khai vị và món chính, lên tới hơn bốn mươi lăm phút trong khung giờ cao điểm buổi tối. Thêm vào đó, tôi cảm thấy thất vọng với danh mục món tráng miệng còn đơn điệu, thiếu các lựa chọn không chứa sữa hoặc các món từ trái cây tươi.\n\nĐể nâng cao chất lượng dịch vụ, tôi có một vài góp ý. Tôi đề xuất quý nhà hàng tối ưu hóa dây chuyền chuẩn bị bếp để đẩy nhanh tốc độ ra món trong giờ cao điểm. Hơn nữa, sẽ tốt hơn nếu quý vị mở rộng thực đơn tráng miệng để đáp ứng nhiều sở thích ăn uống khác nhau của thực khách.\n\nTôi hy vọng những phản hồi của tôi sẽ hữu ích cho sự phát triển của nhà hàng. Xin vui lòng liên hệ nếu quý vị cần thêm thông tin.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent dining experience at your newly opened restaurant. I recently used your services and would like to share my experience.\n\nOverall, I found your restaurant quite satisfactory, although there are some aspects that could be improved. One aspect I appreciated was the excellent quality and freshness of the pan-seared seafood, which showcased your culinary talent. Furthermore, I was particularly impressed with the welcoming attitude and helpfulness of the front-of-house greeting staff.\n\nHowever, there were also several areas that required improvement. One issue that I encountered was the prolonged wait time between appetizers and main courses, which exceeded forty-five minutes during peak dinner hours. Additionally, I was disappointed with the limited dessert selection, which lacked dairy-free or fruit-based selections.\n\nTo enhance the quality of your services, I have a few suggestions. I suggest that you optimize kitchen prep lines to accelerate plating times during rush hours. Furthermore, it would be better if you could broaden your dessert menu to accommodate diverse dietary preferences.\n\nI hope my feedback will be useful in improving your restaurant. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent dining experience at your newly opened restaurant. I recently used your services and would like to share my experience.\n\nOverall, I found your restaurant quite satisfactory, although there are some aspects that could be improved. One aspect I appreciated was the excellent quality and freshness of the pan-seared seafood, which showcased your cooking talent. Furthermore, I was particularly impressed with the welcoming attitude and helpfulness of the front-of-house greeting staff.\n\nHowever, there were also several areas that required improvement. One issue that I encountered was the prolonged wait time between appetizers and main courses, which exceeded forty-five minutes during peak dinner hours. Additionally, I was disappointed with the limited dessert selection, which lacked dairy-free or fruit-based selections.\n\nTo enhance the quality of your services, I have a few suggestions. I suggest that you optimize kitchen prep lines to accelerate plating times during rush hours. Furthermore, it would be better if you could broaden your dessert menu to have enough space for diverse dietary preferences.\n\nI hope my feedback will be useful in improving your restaurant. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
             "translation": "Kính gửi Quản lý nhà hàng,\n\nTôi viết thư này để cung cấp đánh giá phản hồi về trải nghiệm ẩm thực gần đây của tôi tại nhà hàng mới khai trương của quý vị. Gần đây tôi đã dùng bữa tại nhà hàng và muốn chia sẻ những nhận xét khách quan của mình.\n\nNhìn chung, tôi nhận thấy nhà hàng của quý vị rất đáng khen ngợi, mặc dù vẫn còn một vài khía cạnh có thể cải thiện tốt hơn. Một điểm tôi rất trân trọng là chất lượng tuyệt hảo và độ tươi mới của các món hải sản áp chảo, thể hiện rõ tài năng của bếp trưởng. Hơn nữa, tôi đặc biệt ấn tượng với phong thái chào đón niềm nở và sự chu đáo của nhân viên lễ tân.\n\nTuy nhiên, cũng có một số điểm cần được nâng cao. Một vấn đề mà chúng tôi gặp phải là thời gian chờ đợi kéo dài giữa món khai vị và món chính, lên tới hơn bốn mươi lăm phút trong khung giờ cao điểm buổi tối. Thêm vào đó, tôi cảm thấy thất vọng với danh mục món tráng miệng còn đơn điệu, thiếu các lựa chọn không chứa sữa hoặc các món từ trái cây tươi.\n\nĐể nâng cao chất lượng dịch vụ, tôi có một vài góp ý. Tôi đề xuất quý nhà hàng tối ưu hóa dây chuyền chuẩn bị bếp để đẩy nhanh tốc độ ra món trong giờ cao điểm. Hơn nữa, sẽ tốt hơn nếu quý vị mở rộng thực đơn tráng miệng để đáp ứng nhiều sở thích ăn uống khác nhau của thực khách.\n\nTôi hy vọng những phản hồi của tôi sẽ hữu ích cho sự phát triển của nhà hàng. Xin vui lòng liên hệ nếu quý vị cần thêm thông tin.\n\nTrân trọng,",
             "word_count": 197,
             "key_structures": [
@@ -20599,19 +20599,19 @@ const LETTERS_DATA = [
               "icon": "fa-thumbs-up",
               "options": [
                 {
-                  "action_en": "Overall, I was very impressed with the complimentary buffet breakfast and the attentive reception staff",
+                  "action_en": "Overall, I was very impressed with the free buffet breakfast and the attentive reception staff",
                   "action_vi": "Nhìn chung, tôi rất ấn tượng với bữa sáng tự chọn miễn phí và đội ngũ nhân viên lễ tân chu đáo",
                   "reason_en": "because the riverside restaurant offered a wide variety of fresh local dishes and the receptionists helped me book city tours quickly.",
                   "reason_vi": "vì nhà hàng ven sông phục vụ thực đơn món địa phương tươi ngon đa dạng và các nhân viên lễ tân đã hỗ trợ tôi đặt tour tham quan thành phố rất nhanh chóng.",
-                  "expansion_1_en": "My room also had a breathtaking view of the river, which made my mornings truly relaxing.",
+                  "expansion_1_en": "My room also had a beautiful view of the river, which made my mornings truly relaxing.",
                   "expansion_1_vi": "Phòng nghỉ của tôi cũng có tầm nhìn tuyệt đẹp ra bờ sông, giúp mỗi buổi sáng của tôi thực sự thư thái."
                 },
                 {
                   "action_en": "Overall, the service I liked most during my three-night stay was the daily housekeeping and the rooftop swimming pool",
                   "action_vi": "Nhìn chung, dịch vụ tôi yêu thích nhất trong ba đêm lưu trú là dịch vụ dọn phòng hàng ngày và hồ bơi trên sân thượng",
-                  "reason_en": "because my room was kept spotless every day and the pool area was clean and peaceful.",
+                  "reason_en": "because my room was kept very clean every day and the pool area was clean and peaceful.",
                   "reason_vi": "vì căn phòng của tôi luôn được dọn dẹp sạch bong mỗi ngày và khu vực hồ bơi rất sạch sẽ, yên tĩnh.",
-                  "expansion_1_en": "The staff at the pool bar were also remarkably polite and welcoming.",
+                  "expansion_1_en": "The staff at the pool bar were also very polite and welcoming.",
                   "expansion_1_vi": "Nhân viên tại quầy bar hồ bơi cũng vô cùng lịch sự và hiếu khách."
                 },
                 {
@@ -20667,13 +20667,13 @@ const LETTERS_DATA = [
                   "action_vi": "nâng cấp bộ phát Wi-Fi và kiểm tra bảo dưỡng hệ thống điều hòa định kỳ, vì tôi chắc chắn vẫn sẽ giới thiệu Khách sạn Riverside cho bạn bè và đồng nghiệp của mình",
                   "reason_en": "because your hotel offers a convenient riverside location, reasonable room rates, and warm hospitality.",
                   "reason_vi": "vì khách sạn của quý vị sở hữu vị trí ven sông thuận lợi, giá phòng hợp lý và sự hiếu khách nồng hậu.",
-                  "expansion_1_en": "Once those minor technical issues are resolved, I am sure future guests will have a flawless experience.",
+                  "expansion_1_en": "Once those minor technical issues are resolved, I am sure future guests will have a wonderful experience.",
                   "expansion_1_vi": "Một khi những sự cố kỹ thuật nhỏ đó được khắc phục, tôi tin chắc các vị khách tương lai sẽ có một trải nghiệm hoàn hảo."
                 },
                 {
                   "action_en": "improve the internet stability and room maintenance, and I would still gladly recommend your hotel to other travelers",
                   "action_vi": "cải thiện độ ổn định của mạng internet và công tác bảo trì phòng ốc, đồng thời tôi vẫn rất sẵn lòng giới thiệu khách sạn của quý vị cho các du khách khác",
-                  "reason_en": "because the overall comfort and customer service were truly commendable.",
+                  "reason_en": "because the overall comfort and customer service were really good.",
                   "reason_vi": "vì sự tiện nghi tổng thể cũng như dịch vụ chăm sóc khách hàng thực sự rất đáng khen ngợi.",
                   "expansion_1_en": "I also plan to stay at the Riverside Hotel again on my next business trip to your city.",
                   "expansion_1_vi": "Tôi cũng dự định sẽ quay lại lưu trú tại Khách sạn Riverside trong chuyến công tác tiếp theo tới thành phố của quý vị."
@@ -20691,7 +20691,7 @@ const LETTERS_DATA = [
           ],
           "vocab": [
             {
-              "en": "complimentary buffet breakfast",
+              "en": "free buffet breakfast",
               "vi": "bữa sáng tự chọn miễn phí",
               "category": "1. Dịch vụ hài lòng nhất (Best service)"
             },
@@ -20701,12 +20701,12 @@ const LETTERS_DATA = [
               "category": "1. Dịch vụ hài lòng nhất (Best service)"
             },
             {
-              "en": "breathtaking view of the river",
+              "en": "beautiful view of the river",
               "vi": "tầm nhìn tuyệt đẹp ra bờ sông",
               "category": "1. Dịch vụ hài lòng nhất (Best service)"
             },
             {
-              "en": "kept spotless every day",
+              "en": "kept very clean every day",
               "vi": "luôn được dọn dẹp sạch bong mỗi ngày",
               "category": "1. Dịch vụ hài lòng nhất (Best service)"
             },
@@ -20758,14 +20758,14 @@ const LETTERS_DATA = [
             "sign_off": "Yours faithfully,"
           },
           "sample_b1": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent three-night stay at the Riverside Hotel. I recently used your accommodation services and would like to share my experience.\n\nOverall, I was very impressed with the complimentary buffet breakfast and the attentive reception staff because the riverside restaurant offered a wide variety of fresh local dishes and the receptionists helped me book city tours quickly. My room also had a breathtaking view of the river, which made my mornings truly relaxing.\n\nHowever, I was not satisfied with the Wi-Fi connection in my room and the noisy air conditioner at night because the internet signal disconnected frequently when I needed to send urgent work emails. In addition, the air conditioner made a loud humming sound that disturbed my sleep on the second night.\n\nTo enhance the quality of your service, I suggest that you upgrade the Wi-Fi routers and inspect the air-conditioning units regularly, as I would definitely recommend the Riverside Hotel to my friends and colleagues because your hotel offers a convenient riverside location, reasonable room rates, and warm hospitality. Once those minor technical issues are resolved, I am sure future guests will have a flawless experience.\n\nI hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent three-night stay at the Riverside Hotel. I recently used your accommodation services and would like to share my experience.\n\nOverall, I was very impressed with the free buffet breakfast and the attentive reception staff because the riverside restaurant offered a wide variety of fresh local dishes and the receptionists helped me book city tours quickly. My room also had a beautiful view of the river, which made my mornings truly relaxing.\n\nHowever, I was not satisfied with the Wi-Fi connection in my room and the noisy air conditioner at night because the internet signal disconnected frequently when I needed to send urgent work emails. In addition, the air conditioner made a loud humming sound that disturbed my sleep on the second night.\n\nTo enhance the quality of your service, I suggest that you upgrade the Wi-Fi routers and inspect the air-conditioning units regularly, as I would definitely recommend the Riverside Hotel to my friends and colleagues because your hotel offers a convenient riverside location, reasonable room rates, and warm hospitality. Once those minor technical issues are resolved, I am sure future guests will have a wonderful experience.\n\nI hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Quý Ông/Bà,\n\nTôi viết thư này để đóng góp ý kiến phản hồi về kỳ lưu trú ba đêm vừa qua tại Khách sạn Riverside. Gần đây tôi có sử dụng dịch vụ lưu trú của quý khách sạn và muốn chia sẻ trải nghiệm của mình.\n\nNhìn chung, tôi rất ấn tượng với bữa sáng tự chọn miễn phí và đội ngũ nhân viên lễ tân chu đáo vì nhà hàng ven sông phục vụ thực đơn món địa phương tươi ngon đa dạng và các nhân viên lễ tân đã hỗ trợ tôi đặt tour tham quan thành phố rất nhanh chóng. Phòng nghỉ của tôi cũng có tầm nhìn tuyệt đẹp ra bờ sông, giúp mỗi buổi sáng của tôi thực sự thư thái.\n\nTuy nhiên, tôi chưa hài lòng với kết nối Wi-Fi trong phòng nghỉ và chiếc máy điều hòa phát ra tiếng ồn vào ban đêm vì tín hiệu mạng thường xuyên bị ngắt quãng khi tôi cần gửi các email công việc khẩn cấp. Thêm vào đó, máy điều hòa phát ra tiếng kêu ù khá lớn làm ảnh hưởng đến giấc ngủ của tôi vào đêm thứ hai.\n\nĐể nâng cao chất lượng dịch vụ, tôi đề xuất quý vị nâng cấp bộ phát Wi-Fi và kiểm tra bảo dưỡng hệ thống điều hòa định kỳ, vì tôi chắc chắn vẫn sẽ giới thiệu Khách sạn Riverside cho bạn bè và đồng nghiệp của mình vì khách sạn của quý vị sở hữu vị trí ven sông thuận lợi, giá phòng hợp lý và sự hiếu khách nồng hậu. Một khi những sự cố kỹ thuật nhỏ đó được khắc phục, tôi tin chắc các vị khách tương lai sẽ có một trải nghiệm hoàn hảo.\n\nTôi hy vọng những phản hồi của tôi sẽ hữu ích trong việc nâng cao chất lượng dịch vụ của khách sạn. Xin vui lòng liên hệ với tôi nếu quý vị có bất kỳ câu hỏi nào thêm.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent three-night stay at the Riverside Hotel. I recently used your accommodation services and would like to share my experience.\n\nOverall, I was very impressed with the complimentary buffet breakfast and the attentive reception staff because the riverside restaurant offered a wide variety of fresh local dishes and the receptionists helped me book city tours quickly. My room also had a breathtaking view of the river, which made my mornings truly relaxing.\n\nHowever, I was not satisfied with the Wi-Fi connection in my room and the noisy air conditioner at night because the internet signal disconnected frequently when I needed to send urgent work emails. In addition, the air conditioner made a loud humming sound that disturbed my sleep on the second night.\n\nTo enhance the quality of your service, I suggest that you upgrade the Wi-Fi routers and inspect the air-conditioning units regularly, as I would definitely recommend the Riverside Hotel to my friends and colleagues because your hotel offers a convenient riverside location, reasonable room rates, and warm hospitality. Once those minor technical issues are resolved, I am sure future guests will have a flawless experience.\n\nI hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent three-night stay at the Riverside Hotel. I recently used your accommodation services and would like to share my experience.\n\nOverall, I was very impressed with the free buffet breakfast and the attentive reception staff because the riverside restaurant offered a wide variety of fresh local dishes and the receptionists helped me book city tours quickly. My room also had a beautiful view of the river, which made my mornings truly relaxing.\n\nHowever, I was not satisfied with the Wi-Fi connection in my room and the noisy air conditioner at night because the internet signal disconnected frequently when I needed to send urgent work emails. In addition, the air conditioner made a loud humming sound that disturbed my sleep on the second night.\n\nTo enhance the quality of your service, I suggest that you upgrade the Wi-Fi routers and inspect the air-conditioning units regularly, as I would definitely recommend the Riverside Hotel to my friends and colleagues because your hotel offers a convenient riverside location, reasonable room rates, and warm hospitality. Once those minor technical issues are resolved, I am sure future guests will have a wonderful experience.\n\nI hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
             "translation": "Kính gửi Quý Ông/Bà,\n\nTôi viết thư này để đóng góp ý kiến phản hồi về kỳ lưu trú ba đêm vừa qua tại Khách sạn Riverside. Gần đây tôi có sử dụng dịch vụ lưu trú của quý khách sạn và muốn chia sẻ trải nghiệm của mình.\n\nNhìn chung, tôi rất ấn tượng với bữa sáng tự chọn miễn phí và đội ngũ nhân viên lễ tân chu đáo vì nhà hàng ven sông phục vụ thực đơn món địa phương tươi ngon đa dạng và các nhân viên lễ tân đã hỗ trợ tôi đặt tour tham quan thành phố rất nhanh chóng. Phòng nghỉ của tôi cũng có tầm nhìn tuyệt đẹp ra bờ sông, giúp mỗi buổi sáng của tôi thực sự thư thái.\n\nTuy nhiên, tôi chưa hài lòng với kết nối Wi-Fi trong phòng nghỉ và chiếc máy điều hòa phát ra tiếng ồn vào ban đêm vì tín hiệu mạng thường xuyên bị ngắt quãng khi tôi cần gửi các email công việc khẩn cấp. Thêm vào đó, máy điều hòa phát ra tiếng kêu ù khá lớn làm ảnh hưởng đến giấc ngủ của tôi vào đêm thứ hai.\n\nĐể nâng cao chất lượng dịch vụ, tôi đề xuất quý vị nâng cấp bộ phát Wi-Fi và kiểm tra bảo dưỡng hệ thống điều hòa định kỳ, vì tôi chắc chắn vẫn sẽ giới thiệu Khách sạn Riverside cho bạn bè và đồng nghiệp của mình vì khách sạn của quý vị sở hữu vị trí ven sông thuận lợi, giá phòng hợp lý và sự hiếu khách nồng hậu. Một khi những sự cố kỹ thuật nhỏ đó được khắc phục, tôi tin chắc các vị khách tương lai sẽ có một trải nghiệm hoàn hảo.\n\nTôi hy vọng những phản hồi của tôi sẽ hữu ích trong việc nâng cao chất lượng dịch vụ của khách sạn. Xin vui lòng liên hệ với tôi nếu quý vị có bất kỳ câu hỏi nào thêm.\n\nTrân trọng,",
             "word_count": 224,
             "key_structures": [
               {
-                "en": "complimentary buffet breakfast",
+                "en": "free buffet breakfast",
                 "vi": "bữa sáng tự chọn miễn phí"
               },
               {
@@ -20773,24 +20773,24 @@ const LETTERS_DATA = [
                 "vi": "đội ngũ nhân viên lễ tân chu đáo"
               },
               {
-                "en": "breathtaking view of the river",
+                "en": "beautiful view of the river",
                 "vi": "tầm nhìn tuyệt đẹp ra bờ sông"
               },
               {
-                "en": "kept spotless every day",
+                "en": "kept very clean every day",
                 "vi": "luôn được dọn dẹp sạch bong mỗi ngày"
               }
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent three-night stay at the Riverside Hotel. I recently used your accommodation services and would like to share my experience.\n\nOverall, ***I was very impressed with the complimentary buffet breakfast and the attentive reception staff*** because the riverside restaurant offered a wide variety of fresh local dishes and the receptionists helped me book city tours quickly. My room also had a breathtaking view of the river, which made my mornings truly relaxing.\n\nHowever, ***I was not satisfied with the Wi-Fi connection in my room and the noisy air conditioner at night*** because the internet signal disconnected frequently when I needed to send urgent work emails. In addition, the air conditioner made a loud humming sound that disturbed my sleep on the second night.\n\nTo enhance the quality of your service, I suggest that you ***upgrade the Wi-Fi routers and inspect the air-conditioning units regularly, as I would definitely recommend the Riverside Hotel to my friends and colleagues*** because your hotel offers a convenient riverside location, reasonable room rates, and warm hospitality. Once those minor technical issues are resolved, I am sure future guests will have a flawless experience.\n\nI hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
+            "letter_en": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent three-night stay at the Riverside Hotel. I recently used your accommodation services and would like to share my experience.\n\nOverall, ***I was very impressed with the free buffet breakfast and the attentive reception staff*** because the riverside restaurant offered a wide variety of fresh local dishes and the receptionists helped me book city tours quickly. My room also had a beautiful view of the river, which made my mornings truly relaxing.\n\nHowever, ***I was not satisfied with the Wi-Fi connection in my room and the noisy air conditioner at night*** because the internet signal disconnected frequently when I needed to send urgent work emails. In addition, the air conditioner made a loud humming sound that disturbed my sleep on the second night.\n\nTo enhance the quality of your service, I suggest that you ***upgrade the Wi-Fi routers and inspect the air-conditioning units regularly, as I would definitely recommend the Riverside Hotel to my friends and colleagues*** because your hotel offers a convenient riverside location, reasonable room rates, and warm hospitality. Once those minor technical issues are resolved, I am sure future guests will have a wonderful experience.\n\nI hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Quý Ông/Bà,\n\nTôi viết thư này để đóng góp ý kiến phản hồi về kỳ lưu trú ba đêm vừa qua tại Khách sạn Riverside. Gần đây tôi có sử dụng dịch vụ lưu trú của quý khách sạn và muốn chia sẻ trải nghiệm của mình.\n\nNhìn chung, ***tôi rất ấn tượng với bữa sáng tự chọn miễn phí và đội ngũ nhân viên lễ tân chu đáo*** vì nhà hàng ven sông phục vụ thực đơn món địa phương tươi ngon đa dạng và các nhân viên lễ tân đã hỗ trợ tôi đặt tour tham quan thành phố rất nhanh chóng. Phòng nghỉ của tôi cũng có tầm nhìn tuyệt đẹp ra bờ sông, giúp mỗi buổi sáng của tôi thực sự thư thái.\n\nTuy nhiên, ***tôi chưa hài lòng với kết nối Wi-Fi trong phòng nghỉ và chiếc máy điều hòa phát ra tiếng ồn vào ban đêm*** vì tín hiệu mạng thường xuyên bị ngắt quãng khi tôi cần gửi các email công việc khẩn cấp. Thêm vào đó, máy điều hòa phát ra tiếng kêu ù khá lớn làm ảnh hưởng đến giấc ngủ của tôi vào đêm thứ hai.\n\nĐể nâng cao chất lượng dịch vụ, tôi đề xuất quý vị ***nâng cấp bộ phát Wi-Fi và kiểm tra bảo dưỡng hệ thống điều hòa định kỳ, vì tôi chắc chắn vẫn sẽ giới thiệu Khách sạn Riverside cho bạn bè và đồng nghiệp của mình*** vì khách sạn của quý vị sở hữu vị trí ven sông thuận lợi, giá phòng hợp lý và sự hiếu khách nồng hậu. Một khi những sự cố kỹ thuật nhỏ đó được khắc phục, tôi tin chắc các vị khách tương lai sẽ có một trải nghiệm hoàn hảo.\n\nTôi hy vọng những phản hồi của tôi sẽ hữu ích trong việc nâng cao chất lượng dịch vụ của khách sạn. Xin vui lòng liên hệ với tôi nếu quý vị có bất kỳ câu hỏi nào thêm.\n\nTrân trọng,",
-            "text": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent three-night stay at the Riverside Hotel. I recently used your accommodation services and would like to share my experience.\n\nOverall, ***I was very impressed with the complimentary buffet breakfast and the attentive reception staff*** because the riverside restaurant offered a wide variety of fresh local dishes and the receptionists helped me book city tours quickly. My room also had a breathtaking view of the river, which made my mornings truly relaxing.\n\nHowever, ***I was not satisfied with the Wi-Fi connection in my room and the noisy air conditioner at night*** because the internet signal disconnected frequently when I needed to send urgent work emails. In addition, the air conditioner made a loud humming sound that disturbed my sleep on the second night.\n\nTo enhance the quality of your service, I suggest that you ***upgrade the Wi-Fi routers and inspect the air-conditioning units regularly, as I would definitely recommend the Riverside Hotel to my friends and colleagues*** because your hotel offers a convenient riverside location, reasonable room rates, and warm hospitality. Once those minor technical issues are resolved, I am sure future guests will have a flawless experience.\n\nI hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
+            "text": "Dear Sir/Madam,\n\nI am writing to provide feedback on my recent three-night stay at the Riverside Hotel. I recently used your accommodation services and would like to share my experience.\n\nOverall, ***I was very impressed with the free buffet breakfast and the attentive reception staff*** because the riverside restaurant offered a wide variety of fresh local dishes and the receptionists helped me book city tours quickly. My room also had a beautiful view of the river, which made my mornings truly relaxing.\n\nHowever, ***I was not satisfied with the Wi-Fi connection in my room and the noisy air conditioner at night*** because the internet signal disconnected frequently when I needed to send urgent work emails. In addition, the air conditioner made a loud humming sound that disturbed my sleep on the second night.\n\nTo enhance the quality of your service, I suggest that you ***upgrade the Wi-Fi routers and inspect the air-conditioning units regularly, as I would definitely recommend the Riverside Hotel to my friends and colleagues*** because your hotel offers a convenient riverside location, reasonable room rates, and warm hospitality. Once those minor technical issues are resolved, I am sure future guests will have a wonderful experience.\n\nI hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.\n\nYours faithfully,",
             "translation": "Kính gửi Quý Ông/Bà,\n\nTôi viết thư này để đóng góp ý kiến phản hồi về kỳ lưu trú ba đêm vừa qua tại Khách sạn Riverside. Gần đây tôi có sử dụng dịch vụ lưu trú của quý khách sạn và muốn chia sẻ trải nghiệm của mình.\n\nNhìn chung, ***tôi rất ấn tượng với bữa sáng tự chọn miễn phí và đội ngũ nhân viên lễ tân chu đáo*** vì nhà hàng ven sông phục vụ thực đơn món địa phương tươi ngon đa dạng và các nhân viên lễ tân đã hỗ trợ tôi đặt tour tham quan thành phố rất nhanh chóng. Phòng nghỉ của tôi cũng có tầm nhìn tuyệt đẹp ra bờ sông, giúp mỗi buổi sáng của tôi thực sự thư thái.\n\nTuy nhiên, ***tôi chưa hài lòng với kết nối Wi-Fi trong phòng nghỉ và chiếc máy điều hòa phát ra tiếng ồn vào ban đêm*** vì tín hiệu mạng thường xuyên bị ngắt quãng khi tôi cần gửi các email công việc khẩn cấp. Thêm vào đó, máy điều hòa phát ra tiếng kêu ù khá lớn làm ảnh hưởng đến giấc ngủ của tôi vào đêm thứ hai.\n\nĐể nâng cao chất lượng dịch vụ, tôi đề xuất quý vị ***nâng cấp bộ phát Wi-Fi và kiểm tra bảo dưỡng hệ thống điều hòa định kỳ, vì tôi chắc chắn vẫn sẽ giới thiệu Khách sạn Riverside cho bạn bè và đồng nghiệp của mình*** vì khách sạn của quý vị sở hữu vị trí ven sông thuận lợi, giá phòng hợp lý và sự hiếu khách nồng hậu. Một khi những sự cố kỹ thuật nhỏ đó được khắc phục, tôi tin chắc các vị khách tương lai sẽ có một trải nghiệm hoàn hảo.\n\nTôi hy vọng những phản hồi của tôi sẽ hữu ích trong việc nâng cao chất lượng dịch vụ của khách sạn. Xin vui lòng liên hệ với tôi nếu quý vị có bất kỳ câu hỏi nào thêm.\n\nTrân trọng,",
             "word_count": 224,
             "key_structures": [
               {
-                "en": "complimentary buffet breakfast",
+                "en": "free buffet breakfast",
                 "vi": "bữa sáng tự chọn miễn phí"
               },
               {
@@ -20798,11 +20798,11 @@ const LETTERS_DATA = [
                 "vi": "đội ngũ nhân viên lễ tân chu đáo"
               },
               {
-                "en": "breathtaking view of the river",
+                "en": "beautiful view of the river",
                 "vi": "tầm nhìn tuyệt đẹp ra bờ sông"
               },
               {
-                "en": "kept spotless every day",
+                "en": "kept very clean every day",
                 "vi": "luôn được dọn dẹp sạch bong mỗi ngày"
               }
             ]
@@ -20883,11 +20883,11 @@ const LETTERS_DATA = [
       },
       {
         "name": "Giải thích lý do (Thân mật)",
-        "en": "First of all, let me explain why this happened. I’m really sorry that I couldn’t... because..."
+        "en": "First of all, let me explain why this happened. I’m really sorry that I couldn’t... Because..."
       },
       {
         "name": "Giải thích lý do (Trang trọng)",
-        "en": "First of all, I would like to explain why this happened. The reason why I could not... was that..."
+        "en": "First of all, I would like to explain why this happened. The reason why I could not... Was that..."
       },
       {
         "name": "Đề xuất khắc phục (Thân mật)",
@@ -20922,7 +20922,7 @@ const LETTERS_DATA = [
           "B1 & B2"
         ],
         "context": "You were unable to submit your Linguistics term paper by the Friday deadline due to sudden hard drive failure and computer repair delays. Write a formal apology letter to Professor Johnson explaining the incident, attaching the finished assignment, and requesting forgiveness.",
-        "prompt": "You are a university student who failed to submit your term research paper on time. Write an email to your course instructor, Professor Johnson, apologizing for the late submission. In your email, you should: Sincerely apologize, explain the specific reason (technical malfunction in past simple tense), attach the completed paper, and promise to adhere to future deadlines.\n\nYou should write at least 120 words. **Do not include your name or address.** Your response will be evaluated in terms of **Task Fulfillment**, **Organization**, **Vocabulary**, and **Grammar**.",
+        "prompt": "You are a university student who failed to submit your term research paper on time. Write an email to your course instructor, Professor Johnson, apologizing for the late submission. In your email, you should: Sincerely apologize, explain the specific reason (technical technical problem in past simple tense), attach the completed paper, and promise to adhere to future deadlines.\n\nYou should write at least 120 words. **Do not include your name or address.** Your response will be evaluated in terms of **Task Fulfillment**, **Organization**, **Vocabulary**, and **Grammar**.",
         "has_full_details": true,
         "details": {
           "analysis": {
@@ -20942,8 +20942,8 @@ const LETTERS_DATA = [
             "body_points": [
               {
                 "point": "Giải thích lý do",
-                "formula": "First of all, I would like to explain why this happened. Unfortunately, I could not... because...",
-                "detail": "First of all, I would like to explain why this happened. Unfortunately, I could not send the paper on time because my laptop crashed unexpectedly on Wednesday evening. The hard drive malfunctioned, and I lost access to all my unsaved documents. It took me two days to recover my files at a computer repair center."
+                "formula": "First of all, I would like to explain why this happened. Unfortunately, I could not... Because...",
+                "detail": "First of all, I would like to explain why this happened. Unfortunately, I could not send the paper on time because my laptop crashed unexpectedly on Wednesday evening. The hard drive stopped working, and I lost access to all my unsaved documents. It took me two days to recover my files at a computer repair center."
               },
               {
                 "point": "Hành động bù đắp",
@@ -20964,7 +20964,7 @@ const LETTERS_DATA = [
               "vi": "máy tính xách tay bị sập nguồn đột ngột"
             },
             {
-              "en": "hard drive malfunctioned",
+              "en": "hard drive stopped working",
               "vi": "ổ cứng máy tính gặp trục trặc"
             },
             {
@@ -21009,9 +21009,9 @@ const LETTERS_DATA = [
               "id": 3,
               "part": "3. Thân thư - Chi tiết quá khứ đơn (Mô tả tình huống 1-3 câu)",
               "vi": "Ổ cứng của máy đã bị hỏng, và tôi bị mất quyền truy cập vào tất cả các bản thảo tài liệu. Tôi đã phải mang máy đến một trung tâm sửa chữa máy tính và mất hai ngày để khôi phục các tệp của mình.",
-              "en": "The hard drive malfunctioned, and I lost access to all my document drafts. I had to take the computer to a repair shop, and it took two days to recover my files.",
+              "en": "The hard drive stopped working, and I lost access to all my document drafts. I had to take the computer to a repair shop, and it took two days to recover my files.",
               "hints": [
-                "hard drive malfunctioned",
+                "hard drive stopped working",
                 "lost access to all my drafts",
                 "took two days to recover my files"
               ],
@@ -21057,9 +21057,9 @@ const LETTERS_DATA = [
             }
           ],
           "sample_b1": {
-            "letter_en": "Dear Professor Johnson,\n\nI am writing to apologize for submitting my research paper late. I understand that this may have caused some inconvenience, and I would like to explain the situation.\n\nFirst of all, let me explain why this happened. I could not submit the paper before Friday's deadline because my laptop suffered a sudden hard drive failure, causing me to lose my final revisions and bibliography citations. In addition, I had to take the device to a repair center to recover my data.\n\nNext, I plan to submit the complete research paper by this Tuesday morning along with the original drafts.\n\nFinally, let me make it up to you by submitting an extra literature review summary if you require it.\n\nOnce again, I sincerely apologize for the delay. Thanks for taking the time to read this. I look forward to hearing from you soon.\n\nYours sincerely,",
+            "letter_en": "Dear Professor Johnson,\n\nI am writing to apologize for submitting my research paper late. I understand that this may have caused some inconvenience, and I would like to explain the situation.\n\nFirst of all, let me explain why this happened. I could not submit the paper before Friday's deadline because my laptop suffered a sudden hard drive failure, causing me to lose my final revisions and reference list. In addition, I had to take the device to a repair center to recover my data.\n\nNext, I plan to submit the complete research paper by this Tuesday morning along with the original drafts.\n\nFinally, let me make it up to you by submitting a extra literature review summary if you require it.\n\nOnce again, I sincerely apologize for the delay. Thanks for taking the time to read this. I look forward to hearing from you soon.\n\nYours sincerely,",
             "letter_vi": "Kính gửi Giáo sư Johnson,\n\nEm viết thư này để xin lỗi thầy vì đã nộp bài nghiên cứu muộn hạn. Em hiểu rằng điều này có thể đã gây ra những phiền toái, và em xin phép được giải thích về tình huống đã xảy ra.\n\nTrước hết, em xin được trình bày lý do của sự chậm trễ này. Em không thể nộp bài trước hạn chót thứ Sáu vì máy tính xách tay của em bất ngờ bị hỏng ổ cứng, khiến em bị mất các chỉnh sửa cuối cùng và phần trích dẫn tài liệu tham khảo. Thêm vào đó, em đã phải mang máy đến trung tâm sửa chữa để khôi phục lại dữ liệu.\n\nTiếp theo, em dự định sẽ nộp toàn bộ bài nghiên cứu hoàn chỉnh vào sáng thứ Ba này kèm theo các bản thảo gốc.\n\nCuối cùng, để chuộc lại lỗi lầm, em xin phép được nộp thêm một bản tóm tắt tổng quan tài liệu nếu thầy yêu cầu.\n\nMột lần nữa, em xin chân thành xin lỗi thầy vì sự chậm trễ này. Em cảm ơn thầy đã dành thời gian đọc thư. Em rất mong sớm nhận được phản hồi từ thầy.\n\nKính thư,",
-            "text": "Dear Professor Johnson,\n\nI am writing to apologize for submitting my research paper late. I understand that this may have caused some inconvenience, and I would like to explain the situation.\n\nFirst of all, let me explain why this happened. I could not submit the paper before Friday's deadline because my laptop suffered a sudden hard drive failure, causing me to lose my final revisions and bibliography citations. In addition, I had to take the device to a repair center to recover my data.\n\nNext, I plan to submit the complete research paper by this Tuesday morning along with the original drafts.\n\nFinally, let me make it up to you by submitting an extra literature review summary if you require it.\n\nOnce again, I sincerely apologize for the delay. Thanks for taking the time to read this. I look forward to hearing from you soon.\n\nYours sincerely,",
+            "text": "Dear Professor Johnson,\n\nI am writing to apologize for submitting my research paper late. I understand that this may have caused some inconvenience, and I would like to explain the situation.\n\nFirst of all, let me explain why this happened. I could not submit the paper before Friday's deadline because my laptop suffered a sudden hard drive failure, causing me to lose my final revisions and reference list. In addition, I had to take the device to a repair center to recover my data.\n\nNext, I plan to submit the complete research paper by this Tuesday morning along with the original drafts.\n\nFinally, let me make it up to you by submitting a extra literature review summary if you require it.\n\nOnce again, I sincerely apologize for the delay. Thanks for taking the time to read this. I look forward to hearing from you soon.\n\nYours sincerely,",
             "translation": "Kính gửi Giáo sư Johnson,\n\nEm viết thư này để xin lỗi thầy vì đã nộp bài nghiên cứu muộn hạn. Em hiểu rằng điều này có thể đã gây ra những phiền toái, và em xin phép được giải thích về tình huống đã xảy ra.\n\nTrước hết, em xin được trình bày lý do của sự chậm trễ này. Em không thể nộp bài trước hạn chót thứ Sáu vì máy tính xách tay của em bất ngờ bị hỏng ổ cứng, khiến em bị mất các chỉnh sửa cuối cùng và phần trích dẫn tài liệu tham khảo. Thêm vào đó, em đã phải mang máy đến trung tâm sửa chữa để khôi phục lại dữ liệu.\n\nTiếp theo, em dự định sẽ nộp toàn bộ bài nghiên cứu hoàn chỉnh vào sáng thứ Ba này kèm theo các bản thảo gốc.\n\nCuối cùng, để chuộc lại lỗi lầm, em xin phép được nộp thêm một bản tóm tắt tổng quan tài liệu nếu thầy yêu cầu.\n\nMột lần nữa, em xin chân thành xin lỗi thầy vì sự chậm trễ này. Em cảm ơn thầy đã dành thời gian đọc thư. Em rất mong sớm nhận được phản hồi từ thầy.\n\nKính thư,",
             "word_count": 147,
             "key_structures": [
@@ -21082,9 +21082,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Professor Johnson,\n\nI am writing to apologize for failing to submit the term research paper for Advanced Linguistics prior to the scheduled deadline. I understand that this may have caused inconvenience, and I would like to explain the situation.\n\nFirst of all, I would like to explain why this happened. Unfortunately, I was unable to submit the manuscript on time because my computer suffered a critical operating system crash, which corrupted my finalized statistical analyses and citations. Fortunately, technical support technicians have successfully retrieved the raw data files, enabling me to reconstruct the lost chapters thoroughly and carefully.\n\nTo make up for my mistake, I would like to submit the fully revised manuscript alongside my analytical appendices by noon this coming Wednesday. I will ensure that this will not happen again, and I would be willing to complete supplementary methodology readings to demonstrate my dedication to the course.\n\nI would like to apologize once again for the inconvenience. Thank you for your patience and kind understanding. I look forward to hearing from you soon.\n\nYours sincerely,",
+            "letter_en": "Dear Professor Johnson,\n\nI am writing to apologize for failing to submit the term research paper for Advanced Linguistics prior to the scheduled deadline. I understand that this may have caused inconvenience, and I would like to explain the situation.\n\nFirst of all, I would like to explain why this happened. Unfortunately, I was unable to submit my research paper on time because my computer suffered a critical operating system crash, which corrupted my finalized data and references. Fortunately, technical support technicians have successfully retrieved the raw data files, enabling me to reconstruct the lost chapters thoroughly and carefully.\n\nTo make up for my mistake, I would like to submit my completed research paper alongside my data tables by noon this coming Wednesday. I will ensure that this will not happen again, and I would be willing to complete extra reading exercises to demonstrate my dedication to the course.\n\nI would like to apologize once again for the inconvenience. Thank you for your patience and kind understanding. I look forward to hearing from you soon.\n\nYours sincerely,",
             "letter_vi": "Kính gửi Giáo sư Johnson,\n\nEm viết thư này để xin lỗi thầy vì đã không thể nộp bài nghiên cứu học kỳ môn Ngôn ngữ học Nâng cao trước thời hạn quy định. Em hiểu rằng điều này có thể đã gây ra sự bất tiện, và em muốn giải thích rõ tình huống này.\n\nTrước hết, em xin giải thích lý do tại sao sự việc này xảy ra. Thật không may, em đã không thể nộp bản thảo đúng hạn vì máy tính của em gặp sự cố lỗi hệ điều hành nghiêm trọng, làm hỏng các phân tích thống kê và trích dẫn đã hoàn thiện. May mắn thay, các kỹ thuật viên hỗ trợ kỹ thuật đã khôi phục thành công các tệp dữ liệu gốc, cho phép em tái cấu trúc lại các chương bị mất một cách tỉ mỉ.\n\nĐể bù đắp cho sai sót của mình, em xin phép được nộp bản thảo đã chỉnh sửa hoàn chỉnh cùng các phụ lục phân tích trước trưa thứ Tư tới. Em xin đảm bảo rằng việc này sẽ không lặp lại, và em rất sẵn lòng hoàn thành các bài đọc phương pháp luận bổ sung để chứng minh tinh thần học tập nghiêm túc của mình đối với khóa học.\n\nEm xin chân thành xin lỗi một lần nữa vì sự bất tiện này. Cảm ơn thầy vì sự kiên nhẫn và thấu hiểu. Em rất mong sớm nhận được hồi âm từ thầy.\n\nTrân trọng,",
-            "text": "Dear Professor Johnson,\n\nI am writing to apologize for failing to submit the term research paper for Advanced Linguistics prior to the scheduled deadline. I understand that this may have caused inconvenience, and I would like to explain the situation.\n\nFirst of all, I would like to explain why this happened. Unfortunately, I was unable to submit the manuscript on time because my computer suffered a critical operating system crash, which corrupted my finalized statistical analyses and citations. Fortunately, technical support technicians have successfully retrieved the raw data files, enabling me to reconstruct the lost chapters thoroughly and carefully.\n\nTo make up for my mistake, I would like to submit the fully revised manuscript alongside my analytical appendices by noon this coming Wednesday. I will ensure that this will not happen again, and I would be willing to complete supplementary methodology readings to demonstrate my dedication to the course.\n\nI would like to apologize once again for the inconvenience. Thank you for your patience and kind understanding. I look forward to hearing from you soon.\n\nYours sincerely,",
+            "text": "Dear Professor Johnson,\n\nI am writing to apologize for failing to submit the term research paper for Advanced Linguistics prior to the scheduled deadline. I understand that this may have caused inconvenience, and I would like to explain the situation.\n\nFirst of all, I would like to explain why this happened. Unfortunately, I was unable to submit my research paper on time because my computer suffered a critical operating system crash, which corrupted my finalized data and references. Fortunately, technical support technicians have successfully retrieved the raw data files, enabling me to reconstruct the lost chapters thoroughly and carefully.\n\nTo make up for my mistake, I would like to submit my completed research paper alongside my data tables by noon this coming Wednesday. I will ensure that this will not happen again, and I would be willing to complete extra reading exercises to demonstrate my dedication to the course.\n\nI would like to apologize once again for the inconvenience. Thank you for your patience and kind understanding. I look forward to hearing from you soon.\n\nYours sincerely,",
             "translation": "Kính gửi Giáo sư Johnson,\n\nEm viết thư này để xin lỗi thầy vì đã không thể nộp bài nghiên cứu học kỳ môn Ngôn ngữ học Nâng cao trước thời hạn quy định. Em hiểu rằng điều này có thể đã gây ra sự bất tiện, và em muốn giải thích rõ tình huống này.\n\nTrước hết, em xin giải thích lý do tại sao sự việc này xảy ra. Thật không may, em đã không thể nộp bản thảo đúng hạn vì máy tính của em gặp sự cố lỗi hệ điều hành nghiêm trọng, làm hỏng các phân tích thống kê và trích dẫn đã hoàn thiện. May mắn thay, các kỹ thuật viên hỗ trợ kỹ thuật đã khôi phục thành công các tệp dữ liệu gốc, cho phép em tái cấu trúc lại các chương bị mất một cách tỉ mỉ.\n\nĐể bù đắp cho sai sót của mình, em xin phép được nộp bản thảo đã chỉnh sửa hoàn chỉnh cùng các phụ lục phân tích trước trưa thứ Tư tới. Em xin đảm bảo rằng việc này sẽ không lặp lại, và em rất sẵn lòng hoàn thành các bài đọc phương pháp luận bổ sung để chứng minh tinh thần học tập nghiêm túc của mình đối với khóa học.\n\nEm xin chân thành xin lỗi một lần nữa vì sự bất tiện này. Cảm ơn thầy vì sự kiên nhẫn và thấu hiểu. Em rất mong sớm nhận được hồi âm từ thầy.\n\nTrân trọng,",
             "word_count": 175,
             "key_structures": [
@@ -21126,7 +21126,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I deeply regret missing the scheduled submission cutoff and take full personal responsibility",
                   "action_vi": "em vô cùng ân hận vì đã lỡ hạn chót nộp bài và hoàn toàn nhận trách nhiệm về mình",
-                  "reason_en": "as I fully understand that my delay has disrupted your grading schedule and course evaluation timeline.",
+                  "reason_en": "as I fully understand that my delay has disturbed your grading schedule and course evaluation timeline.",
                   "reason_vi": "vì biết sự chậm trễ này đã làm ảnh hưởng đến tiến độ chấm bài và đánh giá khóa học của thầy.",
                   "expansion_1_en": "I recognize that grading dozens of student papers requires a lot of time and careful focus.",
                   "expansion_1_vi": "Em hiểu rằng việc chấm hàng chục bài nghiên cứu dài đòi hỏi rất nhiều thời gian và sự tập trung cao độ.",
@@ -21138,7 +21138,7 @@ const LETTERS_DATA = [
                   "action_vi": "máy tính xách tay của em gặp sự cố sập hệ điều hành nghiêm trọng vào tối ngay trước hạn nộp",
                   "reason_en": "which rendered my computer completely unresponsive and locked my files inside.",
                   "reason_vi": "khiến máy bị đơ hoàn toàn và khóa toàn bộ tài liệu bên trong.",
-                  "expansion_1_en": "The blue screen error occurred without warning just as I was typing the final bibliography section.",
+                  "expansion_1_en": "The blue screen error occurred without warning just as I was typing the final reference list.",
                   "expansion_1_vi": "Lỗi màn hình xanh xuất hiện đột ngột không báo trước ngay lúc em đang hoàn thiện phần thư mục tài liệu tham khảo.",
                   "expansion_2_en": "Repeated attempts to reboot the machine in safe mode proved completely unsuccessful.",
                   "expansion_2_vi": "Mọi nỗ lực khởi động lại máy ở chế độ an toàn sau đó đều hoàn toàn không đem lại kết quả."
@@ -21146,7 +21146,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "a sudden electrical power surge caused my main research document to become corrupted",
                   "action_vi": "sự cố tăng áp điện đột ngột đã khiến tệp tài liệu nghiên cứu chính của em bị lỗi hỏng",
-                  "reason_en": "which rendered several key chapters unreadable right as I was formatting the bibliography.",
+                  "reason_en": "which rendered several key chapters unreadable right as I was formatting the reference list.",
                   "reason_vi": "khiến nhiều chương quan trọng không thể mở được ngay khi em đang định dạng danh mục tham khảo.",
                   "expansion_1_en": "A sudden voltage spike during the thunderstorm caused the operating system to shut down instantly.",
                   "expansion_1_vi": "Một đợt tăng áp đột ngột trong cơn giông bão khiến hệ điều hành bị sập nguồn ngay tức khắc.",
@@ -21184,7 +21184,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "the main document containing my survey charts and statistical analyses was completely corrupted",
                   "action_vi": "tệp văn bản chính chứa các biểu đồ khảo sát và phân tích thống kê bị lỗi toàn bộ",
-                  "reason_en": "because I had not synchronized my latest final revisions to cloud storage in time.",
+                  "reason_en": "because I had not combined my latest final revisions to cloud storage in time.",
                   "reason_vi": "do em chưa kịp đồng bộ các chỉnh sửa hoàn thiện cuối cùng lên dịch vụ lưu trữ đám mây.",
                   "expansion_1_en": "The sudden hard drive failure corrupted my primary Word document and embedded statistical spreadsheets.",
                   "expansion_1_vi": "Sự cố ổ cứng bất ngờ đã làm hỏng tệp văn bản chính và các bảng tính phân tích thống kê đính kèm của em.",
@@ -21198,11 +21198,11 @@ const LETTERS_DATA = [
                   "reason_vi": "nơi các chuyên viên phải can thiệp nhiều giờ để cứu các phân vùng ổ cứng bị lỗi.",
                   "expansion_1_en": "The IT technicians had to use specialized recovery tools to retrieve uncorrupted file fragments.",
                   "expansion_1_vi": "Các kỹ thuật viên tin học đã phải dùng phần mềm cứu hộ chuyên dụng để trích xuất các mảnh dữ liệu còn nguyên vẹn.",
-                  "expansion_2_en": "Their intervention enabled me to restore the essential empirical findings without starting entirely from scratch.",
+                  "expansion_2_en": "Their intervention enabled me to restore the essential research results without starting entirely from scratch.",
                   "expansion_2_vi": "Sự hỗ trợ kịp thời của họ đã giúp em khôi phục các phát hiện thực nghiệm cốt lõi mà không phải làm lại từ đầu."
                 },
                 {
-                  "action_en": "I stayed up the entire night painstakingly rewriting the literature review and methodology chapters",
+                  "action_en": "I stayed up the entire night carefully rewriting the main parts of my paper",
                   "action_vi": "em đã thức trắng suốt đêm để viết lại cẩn thận các chương tổng quan lý thuyết và phương pháp",
                   "reason_en": "by relying on my handwritten notebooks and journal article references to reconstruct the content.",
                   "reason_vi": "dựa vào các ghi chép tay trong sổ và tài liệu tham khảo để tái tạo lại nội dung bài viết.",
@@ -21212,17 +21212,17 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Thức trắng đêm làm việc vô cùng mệt mỏi, nhưng điều đó đảm bảo tính chuẩn xác học thuật cho bài viết của em."
                 },
                 {
-                  "action_en": "I have successfully reconstructed all empirical findings and verified the analytical formulas",
+                  "action_en": "I have successfully reconstructed all research results and verified the analytical formulas",
                   "action_vi": "em đã tái lập thành công toàn bộ kết quả nghiên cứu và kiểm tra lại các công thức phân tích",
                   "reason_en": "because I wanted to make sure all the facts and numbers in the report were correct.",
                   "reason_vi": "đảm bảo rằng chất lượng học thuật và tính trung thực của bài báo cáo không hề bị suy giảm.",
-                  "expansion_1_en": "I double-checked every citation and re-ran the regression formulas to maintain rigorous standards.",
+                  "expansion_1_en": "I double-checked every reference and checked all the numbers again to make sure my work is accurate.",
                   "expansion_1_vi": "Em đã kiểm tra lại từng trích dẫn và chạy lại các công thức hồi quy để giữ vững độ chính xác tuyệt đối.",
                   "expansion_2_en": "I refused to turn in an incomplete or rushed document that did not meet your high expectations.",
                   "expansion_2_vi": "Em kiên quyết không nộp một bản nháp vội vã, sơ sài không đáp ứng được những kỳ vọng cao của thầy."
                 },
                 {
-                  "action_en": "I have now configured automatic real-time cloud synchronization on both my laptop and Google Drive",
+                  "action_en": "I have now configured automatic real-time cloud connection on both my laptop and Google Drive",
                   "action_vi": "hiện em đã thiết lập chế độ tự động đồng bộ thời gian thực trên cả máy tính và Google Drive",
                   "reason_en": "because it ensures that such a technical mishap will never happen again in the future.",
                   "reason_vi": "đảm bảo rằng sự cố kỹ thuật đáng tiếc này sẽ không bao giờ tái diễn trong tương lai.",
@@ -21252,9 +21252,9 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I have attached the complete, finalized research paper in PDF format alongside this email",
                   "action_vi": "em xin đính kèm toàn bộ bài nghiên cứu đã hoàn thiện dưới định dạng PDF cùng thư này",
-                  "reason_en": "after carefully proofreading all citations, the abstract, and the reference list.",
+                  "reason_en": "after carefully proofreading all references and the summary section.",
                   "reason_vi": "sau khi đã kiểm tra kỹ lưỡng toàn bộ trích dẫn, tóm tắt và danh mục tài liệu tham khảo.",
-                  "expansion_1_en": "The attached PDF contains the complete thirty-page research report along with comprehensive appendices.",
+                  "expansion_1_en": "The attached PDF contains the complete thirty-page research report along with detailed charts.",
                   "expansion_1_vi": "Tệp PDF đính kèm chứa trọn vẹn bản báo cáo nghiên cứu ba mươi trang cùng các phụ lục chi tiết.",
                   "expansion_2_en": "I have reviewed all formatting, references, and margins in accordance with the course guidelines.",
                   "expansion_2_vi": "Em đã rà soát kỹ lưỡng định dạng, trích dẫn tài liệu và căn lề đúng theo hướng dẫn của đề cương."
@@ -21318,9 +21318,9 @@ const LETTERS_DATA = [
               "icon": "fa-certificate",
               "options": [
                 {
-                  "action_en": "I promise to manage my academic timeline rigorously and never miss course deadlines again",
+                  "action_en": "I promise to manage my academic timeline carefully and never miss course deadlines again",
                   "action_vi": "em xin hứa sẽ quản lý thời gian học tập nghiêm túc và tuyệt đối không để trễ hạn thêm lần nào",
-                  "reason_en": "because this incident has instilled in me a lifelong appreciation of proactive scheduling.",
+                  "reason_en": "because this incident has instilled in me a lifelong appreciation of active and helpful scheduling.",
                   "reason_vi": "vì bài học này đã rèn luyện cho em ý thức quản lý thời gian một cách chủ động suốt đời.",
                   "expansion_1_en": "I have established a rigorous calendar that schedules all final assignment completions three days early.",
                   "expansion_1_vi": "Em đã lập một thời gian biểu nghiêm ngặt, đặt mục tiêu hoàn thành mọi bài tập trước hạn chót ba ngày.",
@@ -21340,7 +21340,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I will provide regular weekly progress updates during my upcoming final graduation project",
                   "action_vi": "em sẽ cập nhật tiến độ hàng tuần đều đặn trong dự án khóa luận tốt nghiệp sắp tới",
-                  "reason_en": "so that my academic supervisors can monitor my developmental milestones smoothly.",
+                  "reason_en": "so that my academic supervisors can monitor my developmental goals smoothly.",
                   "reason_vi": "để thầy cô hướng dẫn có thể theo dõi từng chặng phát triển của đề tài một cách sát sao.",
                   "expansion_1_en": "I deeply value your guidance and am eager to prove my dedication in the upcoming exam.",
                   "expansion_1_vi": "Em rất trân trọng sự hướng dẫn tận tình của thầy và khao khát chứng minh sự nỗ lực trong kỳ thi sắp tới.",
@@ -21354,7 +21354,7 @@ const LETTERS_DATA = [
                   "reason_vi": "và lắng nghe những lời nhận xét quý báu của thầy nhằm nâng cao năng lực nghiên cứu.",
                   "expansion_1_en": "I will make sure to consult with you during faculty office hours should any early obstacles emerge.",
                   "expansion_1_vi": "Em sẽ chủ động tới gặp thầy trong giờ tiếp sinh viên nếu có bất kỳ trở ngại nào xuất hiện từ sớm.",
-                  "expansion_2_en": "Proactive communication will remain my guiding principle throughout the rest of my university degree.",
+                  "expansion_2_en": "active and helpful communication will remain my guiding principle throughout the rest of my university degree.",
                   "expansion_2_vi": "Chủ động trao đổi sẽ luôn là kim chỉ nam của em trong suốt quãng thời gian học đại học còn lại."
                 },
                 {
@@ -21396,7 +21396,7 @@ const LETTERS_DATA = [
           "B1 & B2"
         ],
         "context": "Mr. Smith stayed at your luxury hotel and complained about an hour-long room service delay on Friday evening and cold soup. As the customer relations manager, write an official apology letter explaining the kitchen technical glitch, offering compensation, and inviting him back.",
-        "prompt": "You are the Guest Relations Manager at Pearl Palace Hotel. A guest, Mr. Smith, had an unpleasant stay due to slow room service and lukewarm food. Write an apology email to Mr. Smith. In your letter, you should: Apologize sincerely for the poor experience, explain the unexpected kitchen incident (in past simple tense), offer compensation (discount or complimentary vouchers), and assure him of enhanced quality.\n\nYou should write at least 120 words. **Do not include your name or address.** Your response will be evaluated in terms of **Task Fulfillment**, **Organization**, **Vocabulary**, and **Grammar**.",
+        "prompt": "You are the Guest Relations Manager at Pearl Palace Hotel. A guest, Mr. Smith, had an unpleasant stay due to slow room service and lukewarm food. Write an apology email to Mr. Smith. In your letter, you should: Apologize sincerely for the poor experience, explain the unexpected kitchen incident (in past simple tense), offer compensation (discount or free vouchers), and assure him of enhanced quality.\n\nYou should write at least 120 words. **Do not include your name or address.** Your response will be evaluated in terms of **Task Fulfillment**, **Organization**, **Vocabulary**, and **Grammar**.",
         "has_full_details": true,
         "details": {
           "analysis": {
@@ -21416,13 +21416,13 @@ const LETTERS_DATA = [
             "body_points": [
               {
                 "point": "Giải thích lý do",
-                "formula": "First of all, I would like to explain why this happened. We were unable to... because...",
+                "formula": "First of all, I would like to explain why this happened. We were unable to... Because...",
                 "detail": "First of all, I would like to explain why this happened. We were unable to deliver your dinner order promptly because our central kitchen experienced a sudden power outage on Friday evening. Consequently, our electronic ordering system broke down, and kitchen staff had to prepare meals manually, which caused unexpected delays."
               },
               {
                 "point": "Hành động đền bù",
                 "formula": "To make up for my mistake, I would like to [Vo]...",
-                "detail": "To make up for my mistake and demonstrate our goodwill, I would like to offer you a 30% discount on your next reservation along with a complimentary voucher for breakfast at our luxury restaurant."
+                "detail": "To make up for my mistake and demonstrate our goodwill, I would like to offer you a 30% discount on your next reservation along with a free voucher for breakfast at our luxury restaurant."
               }
             ],
             "closing": "I would like to apologize once again for the inconvenience. Thank you for taking the time to read my letter. I look forward to receiving your reply soon.",
@@ -21450,7 +21450,7 @@ const LETTERS_DATA = [
               "vi": "thể hiện thiện chí của chúng tôi"
             },
             {
-              "en": "complimentary voucher",
+              "en": "free voucher",
               "vi": "phiếu quà tặng miễn phí"
             }
           ],
@@ -21495,12 +21495,12 @@ const LETTERS_DATA = [
               "id": 4,
               "part": "4. Thân thư - Hành động bù đắp (Cấu trúc: To make up for my mistake, I would like to...)",
               "vi": "Để bù đắp cho lỗi của chúng tôi và thể hiện thiện chí, tôi muốn gửi tặng ông mức giảm giá 30% cho lần đặt phòng tiếp theo cùng với một phiếu ăn sáng miễn phí tại nhà hàng của chúng tôi.",
-              "en": "To make up for my mistake and show our goodwill, I would like to offer you a 30% discount on your next reservation along with a complimentary voucher for breakfast at our restaurant.",
+              "en": "To make up for my mistake and show our goodwill, I would like to offer you a 30% discount on your next reservation along with a free voucher for breakfast at our restaurant.",
               "hints": [
                 "To make up for my mistake",
                 "show our goodwill",
                 "30% discount on your next reservation",
-                "complimentary voucher"
+                "free voucher"
               ],
               "explanation": "Áp dụng cấu trúc nêu hành động đền bù trang trọng chuẩn B2."
             },
@@ -21525,16 +21525,16 @@ const LETTERS_DATA = [
               "en": "We have installed backup power generators and reorganized night-shift kitchen staff to ensure smooth and fast room service for all guests.",
               "hints": [
                 "instituted auxiliary backup power generators",
-                "restructured night-shift culinary workflows",
+                "restructured night-shift cooking workflows",
                 "ensure smooth service"
               ],
               "explanation": "Từ vựng B2 quản trị khách sạn: 'auxiliary backup generators', 'ensure smooth service'."
             }
           ],
           "sample_b1": {
-            "letter_en": "Dear Mr. Smith,\n\nI am writing to apologize for the unpleasant experience you had during your recent stay at Pearl Palace Hotel. I understand that our service did not meet your expectations, and I would like to explain the situation.\n\nFirst of all, let me explain why this happened. We could not serve your room dinner promptly because our kitchen was experiencing an unexpected shortage of staff due to severe weather that evening. In addition, our room service hotline was overwhelmed with orders.\n\nNext, we have already upgraded our kitchen order system to prevent such delays in the future.\n\nFinally, let me make it up to you by offering you a full refund for that meal and a complimentary dinner voucher for your next visit.\n\nOnce again, I sincerely apologize for the inconvenience. Thanks for your patience and understanding. I look forward to welcoming you back soon.\n\nYours sincerely,",
+            "letter_en": "Dear Mr. Smith,\n\nI am writing to apologize for the unpleasant experience you had during your recent stay at Pearl Palace Hotel. I understand that our service did not meet your expectations, and I would like to explain the situation.\n\nFirst of all, let me explain why this happened. We could not serve your room dinner promptly because our kitchen was experiencing an unexpected shortage of staff due to severe weather that evening. In addition, our room service hotline was overwhelmed with orders.\n\nNext, we have already upgraded our kitchen order system to prevent such delays in the future.\n\nFinally, let me make it up to you by offering you a full refund for that meal and a free dinner voucher for your next visit.\n\nOnce again, I sincerely apologize for the inconvenience. Thanks for your patience and understanding. I look forward to welcoming you back soon.\n\nYours sincerely,",
             "letter_vi": "Kính gửi ông Smith,\n\nTôi viết thư này để xin lỗi ông về trải nghiệm không hài lòng mà ông đã gặp phải trong kỳ lưu trú gần đây tại khách sạn Pearl Palace. Tôi hiểu rằng dịch vụ của chúng tôi chưa đáp ứng được kỳ vọng của ông, và tôi muốn được giải thích về sự cố này.\n\nTrước hết, xin phép được giải thích lý do xảy ra tình trạng này. Chúng tôi không thể phục vụ bữa tối tại phòng cho ông đúng giờ vì bộ phận bếp bị thiếu hụt nhân viên đột xuất do thời tiết xấu vào tối hôm đó. Thêm vào đó, đường dây nóng phục vụ phòng bị quá tải các đơn hàng.\n\nTiếp theo, chúng tôi đã nâng cấp hệ thống nhận đơn tại bếp để ngăn chặn những sự chậm trễ tương tự trong tương lai.\n\nCuối cùng, để tạ lỗi với ông, chúng tôi xin phép được hoàn lại toàn bộ tiền bữa ăn đó và gửi tặng ông một phiếu dùng bữa tối miễn phí cho lần lưu trú tiếp theo.\n\nMột lần nữa, tôi xin chân thành xin lỗi ông vì những bất tiện vừa qua. Cảm ơn ông đã kiên nhẫn và thấu hiểu. Chúng tôi rất mong sớm được đón tiếp ông trở lại.\n\nTrân trọng,",
-            "text": "Dear Mr. Smith,\n\nI am writing to apologize for the unpleasant experience you had during your recent stay at Pearl Palace Hotel. I understand that our service did not meet your expectations, and I would like to explain the situation.\n\nFirst of all, let me explain why this happened. We could not serve your room dinner promptly because our kitchen was experiencing an unexpected shortage of staff due to severe weather that evening. In addition, our room service hotline was overwhelmed with orders.\n\nNext, we have already upgraded our kitchen order system to prevent such delays in the future.\n\nFinally, let me make it up to you by offering you a full refund for that meal and a complimentary dinner voucher for your next visit.\n\nOnce again, I sincerely apologize for the inconvenience. Thanks for your patience and understanding. I look forward to welcoming you back soon.\n\nYours sincerely,",
+            "text": "Dear Mr. Smith,\n\nI am writing to apologize for the unpleasant experience you had during your recent stay at Pearl Palace Hotel. I understand that our service did not meet your expectations, and I would like to explain the situation.\n\nFirst of all, let me explain why this happened. We could not serve your room dinner promptly because our kitchen was experiencing an unexpected shortage of staff due to severe weather that evening. In addition, our room service hotline was overwhelmed with orders.\n\nNext, we have already upgraded our kitchen order system to prevent such delays in the future.\n\nFinally, let me make it up to you by offering you a full refund for that meal and a free dinner voucher for your next visit.\n\nOnce again, I sincerely apologize for the inconvenience. Thanks for your patience and understanding. I look forward to welcoming you back soon.\n\nYours sincerely,",
             "translation": "Kính gửi ông Smith,\n\nTôi viết thư này để xin lỗi ông về trải nghiệm không hài lòng mà ông đã gặp phải trong kỳ lưu trú gần đây tại khách sạn Pearl Palace. Tôi hiểu rằng dịch vụ của chúng tôi chưa đáp ứng được kỳ vọng của ông, và tôi muốn được giải thích về sự cố này.\n\nTrước hết, xin phép được giải thích lý do xảy ra tình trạng này. Chúng tôi không thể phục vụ bữa tối tại phòng cho ông đúng giờ vì bộ phận bếp bị thiếu hụt nhân viên đột xuất do thời tiết xấu vào tối hôm đó. Thêm vào đó, đường dây nóng phục vụ phòng bị quá tải các đơn hàng.\n\nTiếp theo, chúng tôi đã nâng cấp hệ thống nhận đơn tại bếp để ngăn chặn những sự chậm trễ tương tự trong tương lai.\n\nCuối cùng, để tạ lỗi với ông, chúng tôi xin phép được hoàn lại toàn bộ tiền bữa ăn đó và gửi tặng ông một phiếu dùng bữa tối miễn phí cho lần lưu trú tiếp theo.\n\nMột lần nữa, tôi xin chân thành xin lỗi ông vì những bất tiện vừa qua. Cảm ơn ông đã kiên nhẫn và thấu hiểu. Chúng tôi rất mong sớm được đón tiếp ông trở lại.\n\nTrân trọng,",
             "word_count": 149,
             "key_structures": [
@@ -21557,9 +21557,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Mr. Smith,\n\nI am writing to apologize for the poor service and delays you experienced with our in-room dining during your recent stay at Pearl Palace Hotel. I understand that this may have caused inconvenience, and I would like to explain the situation.\n\nFirst of all, I would like to explain why this happened. We were unable to fulfill your dining order promptly because our evening culinary department suffered an unforeseen technical failure with the food elevators, combined with exceptional weekend occupancy. Fortunately, our engineering team has fully resolved the elevator malfunction and reinforced our room service dispatch protocols.\n\nTo make up for this mistake, I would like to offer you a full refund for that dinner. We will make sure this issue does not happen again, and we would be delighted to provide you with a free room upgrade during your next stay.\n\nI would like to apologize once again for the inconvenience. Thank you for your kind understanding and continued patronage. I look forward to welcoming you back to our hotel.\n\nYours sincerely,",
+            "letter_en": "Dear Mr. Smith,\n\nI am writing to apologize for the poor service and delays you experienced with our in-room dining during your recent stay at Pearl Palace Hotel. I understand that this may have caused inconvenience, and I would like to explain the situation.\n\nFirst of all, I would like to explain why this happened. We were unable to fulfill your dining order promptly because our evening cooking department suffered an unforeseen technical failure with the food elevators, combined with exceptional weekend occupancy. Fortunately, our engineering team has fully resolved the elevator technical problem and reinforced our room service dispatch protocols.\n\nTo make up for this mistake, I would like to offer you a full refund for that dinner. We will make sure this issue does not happen again, and we would be delighted to provide you with a free room upgrade during your next stay.\n\nI would like to apologize once again for the inconvenience. Thank you for your kind understanding and continued support. I look forward to welcoming you back to our hotel.\n\nYours sincerely,",
             "letter_vi": "Kính gửi Quý khách Smith,\n\nTôi viết thư này để xin lỗi vì chất lượng phục vụ chưa tốt và sự chậm trễ mà quý khách gặp phải với dịch vụ ăn uống tại phòng trong kỳ lưu trú gần đây tại Khách sạn Pearl Palace. Tôi hiểu rằng sự việc này có thể đã gây ra sự bất tiện, và tôi muốn giải thích rõ tình huống này.\n\nTrước hết, tôi xin giải thích lý do tại sao sự việc này xảy ra. Chúng tôi đã không thể phục vụ bữa tối của quý khách kịp thời vì bộ phận bếp buổi tối gặp sự cố kỹ thuật đột xuất với thang máy chuyển đồ ăn, kết hợp với lượng khách quá đông vào cuối tuần. May mắn thay, đội ngũ kỹ thuật của chúng tôi đã khắc phục hoàn toàn sự cố thang máy và tăng cường quy trình điều phối phục vụ phòng.\n\nĐể bù đắp cho sai sót này, tôi xin phép được hoàn lại toàn bộ tiền bữa tối bị ảnh hưởng trực tiếp vào thẻ thanh toán của quý khách. Chúng tôi sẽ đảm bảo rằng sự cố này sẽ không tái diễn, và chúng tôi rất hân hạnh được nâng cấp miễn phí lên hạng phòng suite sang trọng cùng quyền sử dụng sảnh thương gia trong chuyến lưu trú tiếp theo của quý khách.\n\nTôi xin chân thành xin lỗi một lần nữa vì sự bất tiện này. Cảm ơn quý khách vì sự cảm thông và tiếp tục ủng hộ. Chúng tôi rất mong được đón tiếp quý khách trở lại khách sạn.\n\nTrân trọng,",
-            "text": "Dear Mr. Smith,\n\nI am writing to apologize for the poor service and delays you experienced with our in-room dining during your recent stay at Pearl Palace Hotel. I understand that this may have caused inconvenience, and I would like to explain the situation.\n\nFirst of all, I would like to explain why this happened. We were unable to fulfill your dining order promptly because our evening culinary department suffered an unforeseen technical failure with the food elevators, combined with exceptional weekend occupancy. Fortunately, our engineering team has fully resolved the elevator malfunction and reinforced our room service dispatch protocols.\n\nTo make up for this mistake, I would like to offer you a full refund for that dinner. We will make sure this issue does not happen again, and we would be delighted to provide you with a free room upgrade during your next stay.\n\nI would like to apologize once again for the inconvenience. Thank you for your kind understanding and continued patronage. I look forward to welcoming you back to our hotel.\n\nYours sincerely,",
+            "text": "Dear Mr. Smith,\n\nI am writing to apologize for the poor service and delays you experienced with our in-room dining during your recent stay at Pearl Palace Hotel. I understand that this may have caused inconvenience, and I would like to explain the situation.\n\nFirst of all, I would like to explain why this happened. We were unable to fulfill your dining order promptly because our evening cooking department suffered an unforeseen technical failure with the food elevators, combined with exceptional weekend occupancy. Fortunately, our engineering team has fully resolved the elevator technical problem and reinforced our room service dispatch protocols.\n\nTo make up for this mistake, I would like to offer you a full refund for that dinner. We will make sure this issue does not happen again, and we would be delighted to provide you with a free room upgrade during your next stay.\n\nI would like to apologize once again for the inconvenience. Thank you for your kind understanding and continued support. I look forward to welcoming you back to our hotel.\n\nYours sincerely,",
             "translation": "Kính gửi Quý khách Smith,\n\nTôi viết thư này để xin lỗi vì chất lượng phục vụ chưa tốt và sự chậm trễ mà quý khách gặp phải với dịch vụ ăn uống tại phòng trong kỳ lưu trú gần đây tại Khách sạn Pearl Palace. Tôi hiểu rằng sự việc này có thể đã gây ra sự bất tiện, và tôi muốn giải thích rõ tình huống này.\n\nTrước hết, tôi xin giải thích lý do tại sao sự việc này xảy ra. Chúng tôi đã không thể phục vụ bữa tối của quý khách kịp thời vì bộ phận bếp buổi tối gặp sự cố kỹ thuật đột xuất với thang máy chuyển đồ ăn, kết hợp với lượng khách quá đông vào cuối tuần. May mắn thay, đội ngũ kỹ thuật của chúng tôi đã khắc phục hoàn toàn sự cố thang máy và tăng cường quy trình điều phối phục vụ phòng.\n\nĐể bù đắp cho sai sót này, tôi xin phép được hoàn lại toàn bộ tiền bữa tối bị ảnh hưởng trực tiếp vào thẻ thanh toán của quý khách. Chúng tôi sẽ đảm bảo rằng sự cố này sẽ không tái diễn, và chúng tôi rất hân hạnh được nâng cấp miễn phí lên hạng phòng suite sang trọng cùng quyền sử dụng sảnh thương gia trong chuyến lưu trú tiếp theo của quý khách.\n\nTôi xin chân thành xin lỗi một lần nữa vì sự bất tiện này. Cảm ơn quý khách vì sự cảm thông và tiếp tục ủng hộ. Chúng tôi rất mong được đón tiếp quý khách trở lại khách sạn.\n\nTrân trọng,",
             "word_count": 185,
             "key_structures": [
@@ -21605,7 +21605,7 @@ const LETTERS_DATA = [
                   "reason_vi": "điều này hoàn toàn đi ngược lại cam kết phục vụ nhanh chóng và chu đáo theo chuẩn năm sao.",
                   "expansion_1_en": "We fully understand how exhausting a long journey is and how important a prompt dinner becomes.",
                   "expansion_1_vi": "Chúng tôi hoàn toàn thấu hiểu một hành trình dài mệt mỏi ra sao và bữa tối kịp thời quan trọng thế nào.",
-                  "expansion_2_en": "Making you wait over an hour for basic room amenities was inexcusable and deeply regrettable.",
+                  "expansion_2_en": "Making you wait over an hour for basic room amenities was unacceptable and very disappointing.",
                   "expansion_2_vi": "Để quý khách phải chờ đợi hơn một tiếng đồng hồ cho các tiện nghi cơ bản là điều không thể biện minh."
                 },
                 {
@@ -21615,11 +21615,11 @@ const LETTERS_DATA = [
                   "reason_vi": "vì quý khách luôn xứng đáng được thưởng thức những món ăn nóng hổi và thơm ngon chuẩn vị.",
                   "expansion_1_en": "Receiving cold food after waiting for a long time completely ruins the dining experience.",
                   "expansion_1_vi": "Nhận những món ăn nguội ngắt sau chuỗi thời gian chờ mệt mỏi đã phá hỏng hoàn toàn trải nghiệm dùng bữa.",
-                  "expansion_2_en": "Every guest at Pearl Palace rightfully expects steaming food prepared to five-star standards.",
+                  "expansion_2_en": "Every guest at Pearl Palace rightfully expects hot food prepared to five-star standards.",
                   "expansion_2_vi": "Mỗi vị khách tại Pearl Palace đều xứng đáng được thưởng thức những món ăn nóng hổi chuẩn 5 sao."
                 },
                 {
-                  "action_en": "I take full responsibility for the service mistakes that disrupted your stay",
+                  "action_en": "I take full responsibility for the service mistakes that disturbed your stay",
                   "action_vi": "tôi hoàn toàn nhận trách nhiệm cá nhân về những sai sót dịch vụ làm gián đoạn kỳ nghỉ của quý khách",
                   "reason_en": "because ensuring your comfort and contentment is my team's most important duty.",
                   "reason_vi": "bởi vì đảm bảo sự thoải mái và hài lòng của quý khách là trách nhiệm hàng đầu của chúng tôi.",
@@ -21633,7 +21633,7 @@ const LETTERS_DATA = [
                   "action_vi": "chúng tôi vô cùng hổ thẹn vì cách xử lý thiếu nhã nhặn của nhân viên trực quầy lễ tân ban đêm",
                   "reason_en": "because poor service and unhelpful attitudes will never be accepted at our hotel.",
                   "reason_vi": "vì thái độ thờ ơ với phản hồi của khách là điều không bao giờ được chấp nhận tại khách sạn.",
-                  "expansion_1_en": "A hospitality professional should always listen empathetically and resolve issues with urgent care.",
+                  "expansion_1_en": "A hospitality professional should always listen carefully and politely and resolve issues with urgent care.",
                   "expansion_1_vi": "Một nhân viên khách sạn chuyên nghiệp phải luôn lắng nghe với sự thấu cảm và giải quyết sự cố tận tình.",
                   "expansion_2_en": "We have reprimanded the duty staff involved and reiterated our strict customer service guidelines.",
                   "expansion_2_vi": "Chúng tôi đã khiển trách nghiêm khắc nhân viên trực và nhắc lại các quy chuẩn ứng xử bắt buộc."
@@ -21643,7 +21643,7 @@ const LETTERS_DATA = [
                   "action_vi": "xin quý khách vui lòng chấp nhận lời xin lỗi sâu sắc về những phiền toái đã gây ra cho gia đình",
                   "reason_en": "because we understand how important a relaxing holiday getaway is to our valued guests.",
                   "reason_vi": "vì chúng tôi thấu hiểu một kỳ nghỉ bình yên có ý nghĩa quan trọng như thế nào đối với quý khách.",
-                  "expansion_1_en": "Vacations are precious opportunities for families to unwind, recharge, and create lasting memories.",
+                  "expansion_1_en": "Vacations are precious opportunities for families to relax, recharge, and create lasting memories.",
                   "expansion_1_vi": "Kỳ nghỉ là dịp quý báu để các gia đình thư giãn, tái tạo năng lượng và lưu giữ những kỷ niệm đẹp.",
                   "expansion_2_en": "We are deeply saddened that our logistical shortcomings caused distress during your stay with us.",
                   "expansion_2_vi": "Chúng tôi vô cùng đau lòng khi những sơ suất vận hành đã gây ra phiền muộn cho quý khách tại khách sạn."
@@ -21661,7 +21661,7 @@ const LETTERS_DATA = [
                   "action_vi": "nhà bếp của chúng tôi đối mặt với lượng đơn tiệc đột biến từ một hội nghị thượng đỉnh diễn ra tối qua",
                   "reason_en": "because the kitchen was overwhelmed with many orders at the same time.",
                   "reason_vi": "gây ra tình trạng quá tải cục bộ tại các khâu chuẩn bị và điều phối món ăn.",
-                  "expansion_1_en": "A sudden influx of three corporate summit groups created a temporary bottleneck in our hot kitchen.",
+                  "expansion_1_en": "A sudden influx of three corporate summit groups created a sudden delay in our hot kitchen.",
                   "expansion_1_vi": "Lượng khách bất ngờ từ ba đoàn hội nghị thượng đỉnh đã tạo nên sự quá tải tạm thời tại khu bếp nóng.",
                   "expansion_2_en": "Kitchen commanders failed to balance banquet plating with private in-room dining tickets effectively.",
                   "expansion_2_vi": "Bếp trưởng đã không điều phối nhịp nhàng giữa tiệc lớn và các đơn gọi món về phòng riêng lẻ."
@@ -21713,7 +21713,7 @@ const LETTERS_DATA = [
                   "reason_vi": "vì quý khách luôn có quyền kỳ vọng vào tiêu chuẩn phục vụ hoàn hảo nhất dù khách sạn có bận rộn.",
                   "expansion_1_en": "Regardless of internal challenges, our guests should never bear the consequences of operational pressures.",
                   "expansion_1_vi": "Dù có bất kỳ khó khăn nội bộ nào, quý khách cũng tuyệt đối không phải gánh chịu hậu quả từ sự quá tải đó.",
-                  "expansion_2_en": "We hold ourselves to uncompromising standards and offer no excuses for this unsatisfactory delivery.",
+                  "expansion_2_en": "We hold ourselves to high standards and offer no excuses for this unsatisfactory delivery.",
                   "expansion_2_vi": "Chúng tôi luôn tự đặt ra những tiêu chuẩn khắt khe nhất và không có lời biện minh nào cho sự cố này."
                 }
               ]
@@ -21749,7 +21749,7 @@ const LETTERS_DATA = [
                   "action_vi": "chúng tôi đã đầu tư nâng cấp xe đẩy giữ nhiệt chạy điện và chụp giữ nhiệt chân không mới",
                   "reason_en": "because it ensures that all in-room dining courses remain piping hot upon arrival.",
                   "reason_vi": "đảm bảo rằng mọi món ăn phục vụ tại phòng luôn giữ được độ nóng sốt thơm ngon khi đến nơi.",
-                  "expansion_1_en": "We have acquired state-of-the-art electric warming carts that maintain exact oven temperatures in transit.",
+                  "expansion_1_en": "We have acquired modern electric warming carts that maintain exact oven temperatures in transit.",
                   "expansion_1_vi": "Chúng tôi đã trang bị các xe đẩy giữ nhiệt chạy điện hiện đại giúp duy trì chuẩn nhiệt độ như trong lò nướng.",
                   "expansion_2_en": "This capital investment guarantees that steaks and soups reach guests piping hot on any floor.",
                   "expansion_2_vi": "Sự đầu tư này đảm bảo các món bít tết và súp đến tay thực khách luôn nóng hổi trên mọi tầng phòng."
@@ -21759,7 +21759,7 @@ const LETTERS_DATA = [
                   "action_vi": "một quản lý chất lượng ca trực hiện được bố trí túc trực thường xuyên tại bếp trong giờ cao điểm",
                   "reason_en": "in order to inspect each room service tray personally before it departs the kitchen.",
                   "reason_vi": "để đích thân kiểm tra từng khay đồ ăn trước khi rời khỏi khu vực nhà bếp.",
-                  "expansion_1_en": "The duty manager will carefully inspect tray presentation and correct condiments before serving.",
+                  "expansion_1_en": "The duty manager will carefully inspect tray presentation and the right sauces before serving.",
                   "expansion_1_vi": "Quản lý trực ca sẽ kiểm tra tỉ mỉ cách bài trí khay, đồ uống đi kèm và các loại gia vị chuẩn xác.",
                   "expansion_2_en": "This final checkpoint prevents missing items and guarantees immaculate fine-dining elegance.",
                   "expansion_2_vi": "Chốt kiểm tra cuối cùng này ngăn ngừa việc thiếu đồ và đảm bảo tính thẩm mỹ chuẩn mực của bữa ăn."
@@ -21788,7 +21788,7 @@ const LETTERS_DATA = [
             },
             {
               "id": 4,
-              "title_en": "4. Complimentary compensation & welcome-back offer",
+              "title_en": "4. Free compensation & welcome-back offer",
               "title_vi": "Bồi thường voucher & lời mời quay lại",
               "icon": "fa-gift",
               "options": [
@@ -21803,21 +21803,21 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Chúng tôi hy vọng việc miễn trừ lập tức này thể hiện mong muốn chân thành của chúng tôi trong việc nhận trách nhiệm."
                 },
                 {
-                  "action_en": "please accept our complimentary dining voucher for two at our Michelin-selected rooftop restaurant",
+                  "action_en": "please accept our free dining voucher for two at our Michelin-selected rooftop restaurant",
                   "action_vi": "xin quý khách vui lòng nhận voucher bữa tối miễn phí cho hai người tại nhà hàng tầng thượng sang trọng",
                   "reason_en": "so that we may have the opportunity to offer you a wonderful dining experience.",
                   "reason_vi": "để chúng tôi có cơ hội được đón tiếp quý khách với một trải nghiệm ẩm thực thực sự hoàn hảo.",
-                  "expansion_1_en": "Our head sommelier will curate a private wine pairing tailored specifically to your taste preferences.",
+                  "expansion_1_en": "Our restaurant manager will prepare free drinks tailored specifically to your taste preferences.",
                   "expansion_1_vi": "Chuyên gia rượu vang của chúng tôi sẽ thiết kế riêng một thực đơn rượu kết hợp đúng theo khẩu vị của quý khách.",
                   "expansion_2_en": "We would be honored to host you and your partner for an exceptional evening on us.",
                   "expansion_2_vi": "Chúng tôi rất vinh hạnh được đón tiếp quý khách và người thân trong một buổi tối tuyệt vời hoàn toàn miễn phí."
                 },
                 {
-                  "action_en": "we would be honored to grant you a complimentary room upgrade to our Executive Suite on your next visit",
+                  "action_en": "we would be honored to grant you a free room upgrade to our Executive Suite on your next visit",
                   "action_vi": "chúng tôi rất vinh dự được nâng hạng phòng miễn phí lên phòng Suite cao cấp trong lần lưu trú tới",
                   "reason_en": "giving you the luxurious and seamless stay you truly deserve.",
                   "reason_vi": "mang lại cho quý khách một kỳ nghỉ sang trọng, trọn vẹn đúng như những gì quý khách xứng đáng có được.",
-                  "expansion_1_en": "Your customer profile has been flagged for a VIP complimentary upgrade on all future visits.",
+                  "expansion_1_en": "Your customer profile has been flagged for a VIP free upgrade on all future visits.",
                   "expansion_1_vi": "Hồ sơ khách hàng của quý khách đã được gắn cờ ưu tiên nâng hạng phòng VIP miễn phí cho mọi chuyến đi sau.",
                   "expansion_2_en": "Our reservations manager will ensure your preferred oceanfront suite is reserved and prepared.",
                   "expansion_2_vi": "Trưởng bộ phận đặt phòng sẽ đảm bảo căn phòng hướng biển ưa thích của quý khách luôn sẵn sàng đón tiếp."
@@ -21827,7 +21827,7 @@ const LETTERS_DATA = [
                   "action_vi": "một chai sâm panh Pháp thượng hạng cùng giỏ hoa quả tươi đã được chuyển đến phòng quý khách",
                   "reason_en": "as a token of our compliments and warmest personal regards from hotel leadership.",
                   "reason_vi": "cùng lời chúc tốt đẹp và lời xin lỗi chân thành nhất từ ban lãnh đạo khách sạn.",
-                  "expansion_1_en": "Our concierge has placed a chilled bottle of Moet & Chandon alongside a basket of tropical fruits.",
+                  "expansion_1_en": "Our reception staff have prepared a fresh fruit basket in your room.",
                   "expansion_1_vi": "Bộ phận tiền sảnh đã gửi tới phòng một chai sâm panh Moet & Chandon ướp lạnh cùng giỏ trái cây nhiệt đới.",
                   "expansion_2_en": "Please accept these compliments as a small token of our high esteem and apologies.",
                   "expansion_2_vi": "Xin quý khách vui lòng đón nhận những món quà này như lời xin lỗi và sự trân trọng chân thành nhất."
@@ -22521,14 +22521,14 @@ const LETTERS_DATA = [
               "en": "I have been so snowed under with revision for my final exams that I completely forgot to bring the book back to you.",
               "hints": [
                 "snowed under with revision",
-                "so... that I completely forgot"
+                "so... That I completely forgot"
               ],
               "scoring_weights": {
                 "checkpoints": 60,
                 "similarity": 30,
                 "grammar": 10
               },
-              "explanation": "Cấu trúc kết quả 'so... that' kết hợp thành ngữ quen thuộc 'snowed under with'."
+              "explanation": "Cấu trúc kết quả 'so... That' kết hợp thành ngữ quen thuộc 'snowed under with'."
             },
             {
               "id": 3,
@@ -22605,9 +22605,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Helen,\n\nI’m really sorry for failing to return your book on time. I feel terrible about what happened, and I’d like to explain the situation more clearly.\n\nFirst of all, here is the reason for this. I couldn’t manage to give the book back to you because I have been overwhelmed with a highly demanding project at work over the past few weeks. I had to stay late at the office almost every evening, which completely slipped my mind regarding our agreement. Fortunately, I have already finished reading the novel, and I must admit that the storyline was incredibly captivating.\n\nLet me make it up to you by bringing the book directly to your apartment this coming Saturday afternoon, and I’ll make sure this does not happen again. I would also love to treat you to a cup of coffee at our favorite cafe as a small token of my apology.\n\nI’m really sorry once again. I truly appreciate your understanding. Write back soon.\n\nBest wishes,",
+            "letter_en": "Dear Helen,\n\nI’m really sorry for failing to return your book on time. I feel terrible about what happened, and I’d like to explain the situation more clearly.\n\nFirst of all, here is the reason for this. I couldn’t manage to give the book back to you because I have been overwhelmed with a highly demanding project at work over the past few weeks. I had to stay late at the office almost every evening, which completely slipped my mind regarding our agreement. Fortunately, I have already finished reading the novel, and I must admit that the storyline was incredibly interesting.\n\nLet me make it up to you by bringing the book directly to your apartment this coming Saturday afternoon, and I’ll make sure this does not happen again. I would also love to treat you to a cup of coffee at our favorite cafe as a small token of my apology.\n\nI’m really sorry once again. I truly appreciate your understanding. Write back soon.\n\nBest wishes,",
             "letter_vi": "Helen thân mến,\n\nTớ thực sự xin lỗi vì đã không trả lại sách của cậu đúng hạn. Tớ cảm thấy rất tồi tệ về những gì đã xảy ra, và tớ muốn giải thích tình hình rõ ràng hơn.\n\nTrước hết, đây là lý do cho việc này. Tớ không thể xoay sở để trả lại cuốn sách cho cậu vì tớ đã bị choáng ngợp bởi một dự án yêu cầu cao tại nơi làm việc trong vài tuần qua. Tớ đã phải ở lại văn phòng muộn gần như mỗi tối, điều đó khiến tớ hoàn toàn quên mất thỏa thuận của chúng ta. May mắn thay, tớ đã đọc xong cuốn tiểu thuyết, và tớ phải thừa nhận rằng cốt truyện vô cùng lôi cuốn.\n\nHãy để tớ bù đắp cho cậu bằng cách mang sách trực tiếp đến căn hộ của cậu vào chiều thứ Bảy tới đây, và tớ sẽ đảm bảo điều này không lặp lại. Tớ cũng rất muốn mời cậu một tách cà phê tại quán cà phê yêu thích của chúng ta như một món quà nhỏ thay cho lời xin lỗi của tớ.\n\nTớ thực sự xin lỗi một lần nữa. Tớ thực sự đánh giá cao sự thông cảm của cậu. Viết thư lại sớm nhé.\n\nChúc mọi điều tốt đẹp nhất,",
-            "text": "Dear Helen,\n\nI’m really sorry for failing to return your book on time. I feel terrible about what happened, and I’d like to explain the situation more clearly.\n\nFirst of all, here is the reason for this. I couldn’t manage to give the book back to you because I have been overwhelmed with a highly demanding project at work over the past few weeks. I had to stay late at the office almost every evening, which completely slipped my mind regarding our agreement. Fortunately, I have already finished reading the novel, and I must admit that the storyline was incredibly captivating.\n\nLet me make it up to you by bringing the book directly to your apartment this coming Saturday afternoon, and I’ll make sure this does not happen again. I would also love to treat you to a cup of coffee at our favorite cafe as a small token of my apology.\n\nI’m really sorry once again. I truly appreciate your understanding. Write back soon.\n\nBest wishes,",
+            "text": "Dear Helen,\n\nI’m really sorry for failing to return your book on time. I feel terrible about what happened, and I’d like to explain the situation more clearly.\n\nFirst of all, here is the reason for this. I couldn’t manage to give the book back to you because I have been overwhelmed with a highly demanding project at work over the past few weeks. I had to stay late at the office almost every evening, which completely slipped my mind regarding our agreement. Fortunately, I have already finished reading the novel, and I must admit that the storyline was incredibly interesting.\n\nLet me make it up to you by bringing the book directly to your apartment this coming Saturday afternoon, and I’ll make sure this does not happen again. I would also love to treat you to a cup of coffee at our favorite cafe as a small token of my apology.\n\nI’m really sorry once again. I truly appreciate your understanding. Write back soon.\n\nBest wishes,",
             "translation": "Helen thân mến,\n\nTớ thực sự xin lỗi vì đã không trả lại sách của cậu đúng hạn. Tớ cảm thấy rất tồi tệ về những gì đã xảy ra, và tớ muốn giải thích tình hình rõ ràng hơn.\n\nTrước hết, đây là lý do cho việc này. Tớ không thể xoay sở để trả lại cuốn sách cho cậu vì tớ đã bị choáng ngợp bởi một dự án yêu cầu cao tại nơi làm việc trong vài tuần qua. Tớ đã phải ở lại văn phòng muộn gần như mỗi tối, điều đó khiến tớ hoàn toàn quên mất thỏa thuận của chúng ta. May mắn thay, tớ đã đọc xong cuốn tiểu thuyết, và tớ phải thừa nhận rằng cốt truyện vô cùng lôi cuốn.\n\nHãy để tớ bù đắp cho cậu bằng cách mang sách trực tiếp đến căn hộ của cậu vào chiều thứ Bảy tới đây, và tớ sẽ đảm bảo điều này không lặp lại. Tớ cũng rất muốn mời cậu một tách cà phê tại quán cà phê yêu thích của chúng ta như một món quà nhỏ thay cho lời xin lỗi của tớ.\n\nTớ thực sự xin lỗi một lần nữa. Tớ thực sự đánh giá cao sự thông cảm của cậu. Viết thư lại sớm nhé.\n\nChúc mọi điều tốt đẹp nhất,",
             "word_count": 167,
             "key_structures": [
@@ -23047,7 +23047,7 @@ const LETTERS_DATA = [
               ],
               "alternatives": [
                 "Regrettably, my computer crashed unexpectedly on Thursday evening, resulting in the loss of my unsaved drafts.",
-                "Unfortunately, my laptop's hard drive malfunctioned on Thursday, so I could not retrieve my completed assignment in time."
+                "Unfortunately, my laptop's hard drive stopped working on Thursday, so I could not retrieve my completed assignment in time."
               ],
               "scoring_weights": {
                 "checkpoints": 60,
@@ -23066,7 +23066,7 @@ const LETTERS_DATA = [
                 "computer repair center",
                 "recover all my work"
               ],
-              "explanation": "Mô tả nỗ lực giải quyết vấn đề bằng cấu trúc 'had to take... to recover...'.",
+              "explanation": "Mô tả nỗ lực giải quyết vấn đề bằng cấu trúc 'had to take... To recover...'.",
               "checkpoints": [
                 {
                   "desc": "Mang máy đi sửa (take device to computer repair center)",
@@ -23281,7 +23281,7 @@ const LETTERS_DATA = [
                 "similarity": 30,
                 "grammar": 10
               },
-              "explanation": "Cấu trúc hành động liên hoàn với 'After taking...' và cụm từ 'attached... for your review'."
+              "explanation": "Cấu trúc hành động liên hoàn với 'After taking...' và cụm từ 'attached... For your review'."
             },
             {
               "id": 5,
@@ -23540,7 +23540,7 @@ const LETTERS_DATA = [
                 "full refund has already been processed",
                 "sent directly to your bank account"
               ],
-              "explanation": "Cấu trúc bị động trang trọng 'has already been processed... will be credited'."
+              "explanation": "Cấu trúc bị động trang trọng 'has already been processed... Will be credited'."
             },
             {
               "id": 4,
@@ -23619,7 +23619,7 @@ const LETTERS_DATA = [
               },
               {
                 "label": "Customer Goodwill & Closing",
-                "desc": "Offering complimentary upgrades for future stays, expressing gratitude, and professional sign-off"
+                "desc": "Offering free upgrades for future stays, expressing gratitude, and professional sign-off"
               }
             ]
           },
@@ -23645,7 +23645,7 @@ const LETTERS_DATA = [
                   "action_vi": "ban quản lý khách sạn chúng tôi vô cùng lấy làm tiếc về sự ồn ào từ phòng bên cạnh",
                   "reason_en": "because we failed to assign security staff to resolve the problem immediately.",
                   "reason_vi": "bởi vì chúng tôi đã không kịp thời điều động nhân viên an ninh tới xử lý ngay.",
-                  "expansion_1_en": "Failing to dispatch duty security to quell the neighboring disturbance promptly was inexcusable.",
+                  "expansion_1_en": "Failing to dispatch duty security to quell the neighboring disturbance promptly was unacceptable.",
                   "expansion_1_vi": "Việc không cử nhân viên an ninh can thiệp kịp thời để dẹp tiếng ồn phòng bên là điều không thể biện minh.",
                   "expansion_2_en": "We have reprimanded the night supervisor for neglecting your legitimate comfort request.",
                   "expansion_2_vi": "Chúng tôi đã khiển trách nghiêm khắc giám sát ca đêm vì lơ là yêu cầu chính đáng của bà."
@@ -23653,7 +23653,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "we take full responsibility for the delayed room service on Friday",
                   "action_vi": "chúng tôi xin nhận hoàn toàn trách nhiệm về việc giao bữa ăn lên phòng chậm trễ vào tối thứ Sáu",
-                  "reason_en": "because our kitchen team experienced an unexpected computer malfunction.",
+                  "reason_en": "because our kitchen team experienced an unexpected computer technical problem.",
                   "reason_vi": "bởi vì đội ngũ nhân viên bếp gặp phải sự cố máy tính bất ngờ.",
                   "expansion_1_en": "An unexpected network outage at our kitchen terminals delayed Friday evening dinner orders.",
                   "expansion_1_vi": "Sự cố mất mạng đột ngột tại quầy bếp đã làm chậm trễ các đơn gọi món tối thứ Sáu của khách.",
@@ -23713,7 +23713,7 @@ const LETTERS_DATA = [
                   "action_vi": "chúng tôi sẽ gửi biên lai giao dịch điện tử tới hộp thư email của bà",
                   "reason_en": "because you can easily track and confirm the transaction reference number.",
                   "reason_vi": "bởi vì bà có thể dễ dàng theo dõi và xác nhận mã tham chiếu giao dịch.",
-                  "expansion_1_en": "The digital remittance slip containing transaction reference TX-9842 is attached below.",
+                  "expansion_1_en": "The bank transfer receipt containing transaction reference TX-9842 is attached below.",
                   "expansion_1_vi": "Phiếu chuyển tiền điện tử với mã giao dịch tham chiếu TX-9842 đã được đính kèm ở bên dưới.",
                   "expansion_2_en": "You can quote this identifier to your bank branch should any clearance questions arise.",
                   "expansion_2_vi": "Bà có thể dùng mã định danh này để đối soát với ngân hàng nếu có bất kỳ thắc mắc nào phát sinh."
@@ -23751,7 +23751,7 @@ const LETTERS_DATA = [
                   "action_vi": "chúng tôi đang tổ chức các lớp bồi dưỡng dịch vụ khách hàng bắt buộc cho toàn bộ nhân viên lễ tân",
                   "reason_en": "because staff need to respond to guest inquiries politely and promptly.",
                   "reason_vi": "bởi vì nhân viên cần phải phản hồi các câu hỏi của khách một cách lễ phép và nhanh chóng.",
-                  "expansion_1_en": "All frontline hospitality personnel are attending intensive de-escalation and courtesy modules.",
+                  "expansion_1_en": "All frontline hospitality personnel are attending intensive customer service training courses.",
                   "expansion_1_vi": "Toàn bộ nhân viên tiếp tân đang tham gia khóa đào tạo chuyên sâu về ứng xử lịch thiệp và giải quyết khiếu nại.",
                   "expansion_2_en": "We are reinforcing our standard operating procedure to address guest concerns within ten minutes.",
                   "expansion_2_vi": "Chúng tôi đang thắt chặt quy trình vận hành để giải quyết mọi thắc mắc của khách trong vòng mười phút."
@@ -23773,7 +23773,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì việc giám sát chặt chẽ đảm bảo tốc độ đưa món nhanh và nhiệt độ món ăn chuẩn xác.",
                   "expansion_1_en": "The floor supervisor will personally examine food temperature and presentation before room dispatch.",
                   "expansion_1_vi": "Giám sát sảnh tiệc sẽ trực tiếp kiểm tra độ nóng và cách bài trí món ăn trước khi chuyển lên phòng.",
-                  "expansion_2_en": "Heated delivery boxes will ensure hot dishes arrive steaming regardless of elevator transit.",
+                  "expansion_2_en": "Heated delivery boxes will ensure hot dishes arrive hot regardless of elevator transit.",
                   "expansion_2_vi": "Các hộp giữ nhiệt chuyên dụng sẽ đảm bảo món ăn đến nơi luôn bốc khói nghi ngút bất kể thời gian thang máy."
                 },
                 {
@@ -23783,7 +23783,7 @@ const LETTERS_DATA = [
                   "reason_vi": "bởi vì các đơn gọi món sẽ tự động in tại các vị trí nấu mà không gặp bất kỳ độ trễ nào.",
                   "expansion_1_en": "Our newly installed point-of-sale software routes food tickets directly to individual chef stations.",
                   "expansion_1_vi": "Phần mềm quản lý đơn hàng mới lắp đặt sẽ chuyển thẳng phiếu gọi món tới từng vị trí bếp nấu tương ứng.",
-                  "expansion_2_en": "This automated workflow eliminates paper bottlenecks and cuts kitchen preparation times by half.",
+                  "expansion_2_en": "This automated workflow removes paper bottlenecks and cuts kitchen preparation times by half.",
                   "expansion_2_vi": "Quy trình tự động hóa này xóa bỏ sự chậm trễ của phiếu giấy và cắt giảm một nửa thời gian chuẩn bị."
                 },
                 {
@@ -23805,7 +23805,7 @@ const LETTERS_DATA = [
               "icon": "fa-gift",
               "options": [
                 {
-                  "action_en": "I would like to offer you a complimentary weekend stay in our Executive Suite",
+                  "action_en": "I would like to offer you a free weekend stay in our Executive Suite",
                   "action_vi": "tôi xin được gửi tặng bà một kỳ nghỉ cuối tuần miễn phí tại phòng Executive Suite",
                   "reason_en": "because we hope to demonstrate our genuine service improvements in person.",
                   "reason_vi": "bởi vì chúng tôi hy vọng được trực tiếp chứng minh những đổi mới dịch vụ thực sự của mình.",
@@ -23819,19 +23819,19 @@ const LETTERS_DATA = [
                   "action_vi": "chúng tôi xin gửi kèm một phiếu ăn tối miễn phí cho hai người tại nhà hàng tầng thượng",
                   "reason_en": "because we wish to offer you a memorable dining experience.",
                   "reason_vi": "bởi vì chúng tôi mong muốn được thết đãi bà một trải nghiệm ẩm thực khó quên.",
-                  "expansion_1_en": "The rooftop voucher includes a four-course degustation menu prepared by our master chef.",
+                  "expansion_1_en": "The rooftop voucher includes a four-course special dinner menu prepared by our master chef.",
                   "expansion_1_vi": "Phiếu ăn tại tầng thượng bao gồm thực đơn nếm thử bốn món thượng hạng do bếp trưởng đích thân thực hiện.",
                   "expansion_2_en": "We hope this wonderful dining experience will create pleasant memories for your family.",
                   "expansion_2_vi": "Chúng tôi hy vọng trải nghiệm ẩm thực tinh tế này sẽ tạo nên những kỷ niệm mới tươi đẹp cho gia đình bà."
                 },
                 {
-                  "action_en": "you will receive complimentary airport transfer on your next trip",
+                  "action_en": "you will receive free airport transfer on your next trip",
                   "action_vi": "bà sẽ được đưa đón sân bay miễn phí trong chuyến đi tiếp theo",
-                  "reason_en": "because our private chauffeur can provide smooth and relaxing transportation.",
+                  "reason_en": "because our hotel driver can provide smooth and relaxing transportation.",
                   "reason_vi": "bởi vì tài xế riêng của chúng tôi sẽ mang lại sự di chuyển êm ái và thư giãn.",
                   "expansion_1_en": "Our private Mercedes limousine will meet you at the airport terminal and transfer you to the hotel.",
                   "expansion_1_vi": "Xe limousine Mercedes riêng của khách sạn sẽ đón bà tận cửa nhà ga sân bay và đưa về khách sạn.",
-                  "expansion_2_en": "Our chauffeur will handle all luggage smoothly to ensure an effortless arrival journey.",
+                  "expansion_2_en": "Our driver will handle all luggage smoothly to ensure an effortless arrival journey.",
                   "expansion_2_vi": "Tài xế riêng sẽ chu đáo chăm sóc toàn bộ hành lý để đảm bảo một hành trình đến nơi nhẹ nhàng nhất."
                 },
                 {
@@ -23961,7 +23961,7 @@ const LETTERS_DATA = [
             "body_points": [
               {
                 "point": "1. Học vấn & Năng lực",
-                "formula": "I recently graduated from... with a bachelor’s degree in...",
+                "formula": "I recently graduated from... With a bachelor’s degree in...",
                 "detail": "I recently graduated from Can Tho University with a bachelor’s degree in Hospitality Management. During my studies, I developed a strong understanding of customer service standards. I also gained useful knowledge and abilities such as English communication and team collaboration."
               },
               {
@@ -23971,7 +23971,7 @@ const LETTERS_DATA = [
               },
               {
                 "point": "3. Kinh nghiệm làm việc",
-                "formula": "I worked part-time as a... at...",
+                "formula": "I worked part-time as a... At...",
                 "detail": "I worked part-time as a waiter at a local cafe for six months. In this job, I was responsible for welcoming guests, taking food orders, and keeping dining tables clean. This experience helped me develop problem-solving skills and careful listening skills."
               },
               {
@@ -24023,7 +24023,7 @@ const LETTERS_DATA = [
             },
             {
               "id": 2,
-              "part": "2. Thân 1: Học vấn & Chuyên môn (Cấu trúc: I recently graduated from... with a bachelor’s degree in...)",
+              "part": "2. Thân 1: Học vấn & Chuyên môn (Cấu trúc: I recently graduated from... With a bachelor’s degree in...)",
               "vi": "Tôi vừa tốt nghiệp Đại học Cần Thơ với tấm bằng cử nhân ngành Quản trị Nhà hàng - Khách sạn. Trong quá trình học, tôi đã phát triển sự hiểu biết sâu sắc về dịch vụ khách hàng và tích lũy được các kỹ năng như giao tiếp tiếng Anh và làm việc nhóm.",
               "en": "I recently graduated from Can Tho University with a bachelor’s degree in Hospitality Management. During my studies, I developed a strong understanding of customer service and gained skills such as English communication and teamwork.",
               "hints": [
@@ -24046,7 +24046,7 @@ const LETTERS_DATA = [
             },
             {
               "id": 4,
-              "part": "4. Thân 3: Kinh nghiệm làm việc (Cấu trúc: I worked part-time as a... at... In this job, I was responsible for...)",
+              "part": "4. Thân 3: Kinh nghiệm làm việc (Cấu trúc: I worked part-time as a... At... In this job, I was responsible for...)",
               "vi": "Tôi đã từng làm việc bán thời gian với tư cách là nhân viên phục vụ tại một quán cà phê địa phương trong sáu tháng. Trong công việc này, tôi chịu trách nhiệm đón tiếp khách, ghi món và giữ bàn ăn sạch sẽ. Kinh nghiệm này đã giúp tôi phát triển kỹ năng giải quyết vấn đề và chăm sóc khách hàng.",
               "en": "I worked part-time as a waiter at a local cafe for six months. In this job, I was responsible for welcoming guests, taking food orders, and keeping dining tables clean. This experience helped me develop problem-solving and customer care skills.",
               "hints": [
@@ -24102,7 +24102,7 @@ const LETTERS_DATA = [
             "word_count": 172,
             "key_structures": [
               {
-                "en": "Currently, I am a ... student majoring in ..., seeking a dynamic working environment...",
+                "en": "Currently, I am a ... Student majoring in ..., seeking a dynamic working environment...",
                 "vi": "Hiện tại tôi là sinh viên chuyên ngành ..., đang tìm kiếm môi trường năng động..."
               },
               {
@@ -24110,8 +24110,8 @@ const LETTERS_DATA = [
                 "vi": "Tôi đặc biệt quan tâm đến vị trí này vì..."
               },
               {
-                "en": "Previously, I worked part-time as a ... where I was responsible for...",
-                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... nơi tôi chịu trách nhiệm..."
+                "en": "Previously, I worked part-time as a ... Where I was responsible for...",
+                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... Nơi tôi chịu trách nhiệm..."
               },
               {
                 "en": "I believe I would be an ideal candidate because...",
@@ -24127,7 +24127,7 @@ const LETTERS_DATA = [
             "word_count": 186,
             "key_structures": [
               {
-                "en": "Currently, I am a ... student majoring in ..., seeking a dynamic working environment...",
+                "en": "Currently, I am a ... Student majoring in ..., seeking a dynamic working environment...",
                 "vi": "Hiện tại tôi là sinh viên chuyên ngành ..., đang tìm kiếm môi trường năng động..."
               },
               {
@@ -24135,8 +24135,8 @@ const LETTERS_DATA = [
                 "vi": "Tôi đặc biệt quan tâm đến vị trí này vì..."
               },
               {
-                "en": "Previously, I worked part-time as a ... where I was responsible for...",
-                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... nơi tôi chịu trách nhiệm..."
+                "en": "Previously, I worked part-time as a ... Where I was responsible for...",
+                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... Nơi tôi chịu trách nhiệm..."
               },
               {
                 "en": "I believe I would be an ideal candidate because...",
@@ -24234,7 +24234,7 @@ const LETTERS_DATA = [
                   "action_vi": "tôi có kinh nghiệm thực tế trong việc giới thiệu thực đơn và tư vấn các món ăn đặc sắc của bếp",
                   "reason_en": "helping diners choose dishes that best suit their tastes and dietary preferences.",
                   "reason_vi": "giúp thực khách lựa chọn được những món ăn vừa vặn khẩu vị và nhu cầu ăn uống của mình.",
-                  "expansion_1_en": "I excel at upselling appetizing side dishes and vintage wines by highlighting chef recommendations.",
+                  "expansion_1_en": "I am good at introducing delicious side dishes and popular wines by highlighting chef recommendations.",
                   "expansion_1_vi": "Em có thế mạnh trong việc tư vấn các món ăn kèm hấp dẫn và rượu vang dựa trên gợi ý của bếp trưởng.",
                   "expansion_2_en": "My friendly suggestions consistently enhanced guest satisfaction and boosted average check values.",
                   "expansion_2_vi": "Những gợi ý thân thiện của em luôn gia tăng sự hài lòng của thực khách và nâng cao giá trị đơn hàng."
@@ -24264,7 +24264,7 @@ const LETTERS_DATA = [
                   "action_vi": "người quản lý trước đây từng đánh giá cao tính đúng giờ, sự trung thực và tinh thần hợp tác của tôi",
                   "reason_en": "because I consistently stepped in to cover extra shifts during busy holiday rushes.",
                   "reason_vi": "vì tôi luôn chủ động hỗ trợ tăng ca vào những đợt lễ tết đông khách nhất.",
-                  "expansion_1_en": "My supervisor awarded me Employee of the Month for my dependable attitude and proactive initiative.",
+                  "expansion_1_en": "My supervisor awarded me Employee of the Month for my dependable attitude and active and helpful initiative.",
                   "expansion_1_vi": "Quản lý trước đây đã trao tặng em danh hiệu Nhân viên xuất sắc của tháng vì tinh thần trách nhiệm và chủ động.",
                   "expansion_2_en": "I treat every workplace with deep respect and take genuine pride in fulfilling all responsibilities.",
                   "expansion_2_vi": "Em luôn coi trọng nơi làm việc và thực sự tự hào khi hoàn thành tốt mọi nhiệm vụ được giao phó."
@@ -24276,7 +24276,7 @@ const LETTERS_DATA = [
                   "reason_vi": "đảm bảo tuân thủ nghiêm ngặt các quy tắc giữ gìn vệ sinh bàn ăn và dụng cụ nhà bếp.",
                   "expansion_1_en": "I strictly observe food safety guidelines regarding allergen cross-contamination and table sanitization.",
                   "expansion_1_vi": "Em tuân thủ nghiêm ngặt các hướng dẫn an toàn thực phẩm về chống nhiễm khuẩn chéo và khử trùng bàn ăn.",
-                  "expansion_2_en": "Ensuring spotless dining hygiene protects customer health and upholds the restaurant's reputation.",
+                  "expansion_2_en": "Ensuring very clean dining hygiene protects customer health and upholds the restaurant's reputation.",
                   "expansion_2_vi": "Đảm bảo vệ sinh ăn uống sạch sẽ giúp bảo vệ sức khỏe thực khách và giữ gìn uy tín của nhà hàng."
                 }
               ]
@@ -24288,7 +24288,7 @@ const LETTERS_DATA = [
               "icon": "fa-star",
               "options": [
                 {
-                  "action_en": "I possess outstanding interpersonal communication skills and an infectious, warm smile",
+                  "action_en": "I possess outstanding communication skills and an infectious, warm smile",
                   "action_vi": "tôi có kỹ năng giao tiếp xuất sắc và nụ cười niềm nở, thân thiện tự nhiên",
                   "reason_en": "making every diner feel warmly welcomed from the very first moment they walk in.",
                   "reason_vi": "giúp mỗi thực khách đều cảm thấy được chào đón nồng hậu ngay từ giây phút đầu tiên bước vào quán.",
@@ -24298,13 +24298,13 @@ const LETTERS_DATA = [
                   "expansion_2_vi": "Em luôn nỗ lực để mọi khách hàng đều cảm nhận được sự trân trọng ngay từ giây phút bước qua cửa."
                 },
                 {
-                  "action_en": "I have robust physical stamina and can stay comfortably active on my feet throughout long shifts",
+                  "action_en": "I have robust physical energy and can stay comfortably active on my feet throughout long shifts",
                   "action_vi": "tôi có sức khỏe dẻo dai và có thể di chuyển nhanh nhẹn liên tục suốt các ca làm việc dài",
                   "reason_en": "because this helps maintain energetic posture and high service speed without fatigue.",
                   "reason_vi": "duy trì tác phong nhanh nhẹn và tốc độ phục vụ cao mà không bị uể oải, mệt mỏi.",
                   "expansion_1_en": "I am physically fit and capable of carrying heavy trays across lengthy four-hour evening services.",
                   "expansion_1_vi": "Em có thể lực dẻo dai và sẵn sàng bưng bê khay nặng suốt ca làm việc bốn tiếng buổi tối mà không mệt mỏi.",
-                  "expansion_2_en": "My energy levels remain consistently vibrant from the first customer to closing cleanup.",
+                  "expansion_2_en": "My energy levels remain consistently lively from the first customer to closing cleanup.",
                   "expansion_2_vi": "Nguồn năng lượng của em luôn được duy trì tích cực từ vị khách đầu tiên cho đến khi dọn dẹp đóng cửa."
                 },
                 {
@@ -24315,7 +24315,7 @@ const LETTERS_DATA = [
                   "b1_sentence": "I always stay polite and calm when talking to difficult customers because I know how to solve problems and make customers feel respected.",
                   "expansion_1_en": "I listen attentively to complaints with genuine empathy and resolve disputes following company protocols.",
                   "expansion_1_vi": "Em luôn chăm chú lắng nghe phàn nàn với sự thấu cảm và giải quyết khúc mắc theo đúng quy trình của quán.",
-                  "expansion_2_en": "Staying calm under pressure prevents unnecessary friction and preserves a harmonious atmosphere.",
+                  "expansion_2_en": "Staying calm under pressure prevents unnecessary friction and preserves a friendly atmosphere.",
                   "expansion_2_vi": "Giữ được sự điềm tĩnh trước áp lực giúp ngăn ngừa mâu thuẫn không đáng có và duy trì không khí hài hòa."
                 },
                 {
@@ -24335,7 +24335,7 @@ const LETTERS_DATA = [
                   "reason_en": "so the restaurant always looks clean and welcoming.",
                   "reason_vi": "để nhà hàng luôn trông sạch sẽ và ấm cúng.",
                   "b1_sentence": "I always check tables and chairs carefully before guests arrive, so the restaurant always looks clean and welcoming.",
-                  "expansion_1_en": "I carefully inspect cutlery, glassware, and condiments to guarantee clean table setups.",
+                  "expansion_1_en": "I carefully inspect spoons, glasses, and sauces to guarantee clean table setups.",
                   "expansion_1_vi": "Em tỉ mỉ kiểm tra dao nĩa, ly cốc và các lọ gia vị để đảm bảo bàn ăn luôn được sắp đặt tinh tươm.",
                   "expansion_2_en": "Careful preparation before opening hours ensures guests enjoy a pleasant dining environment.",
                   "expansion_2_vi": "Khâu chuẩn bị kỹ lưỡng trước giờ đón khách đảm bảo thực khách được tận hưởng một không gian ẩm thực tuyệt vời."
@@ -24395,7 +24395,7 @@ const LETTERS_DATA = [
                   "reason_vi": "trong đó nêu rõ quá trình công tác trước đây cùng kết quả học tập của tôi.",
                   "expansion_1_en": "My detailed resume and supervisor recommendation letters are attached for your evaluation.",
                   "expansion_1_vi": "Bản sơ yếu lý lịch chi tiết và thư giới thiệu từ quản lý cũ đã được đính kèm để anh/chị xem xét.",
-                  "expansion_2_en": "Please feel free to contact my referees to confirm my work ethic and interpersonal skills.",
+                  "expansion_2_en": "Please feel free to contact my referees to confirm my work ethic and teamwork and communication skills.",
                   "expansion_2_vi": "Xin vui lòng liên hệ với người tham chiếu của em để xác thực về thái độ làm việc và kỹ năng giao tiếp."
                 },
                 {
@@ -24458,7 +24458,7 @@ const LETTERS_DATA = [
             "body_points": [
               {
                 "point": "1. Học vấn & Năng lực",
-                "formula": "I am currently a student at... majoring in...",
+                "formula": "I am currently a student at... Majoring in...",
                 "detail": "I am currently a third-year student at Hanoi University majoring in International Relations. During my studies, I developed a strong understanding of event organization and public relations. I also gained useful knowledge and abilities such as cross-cultural communication and schedule planning."
               },
               {
@@ -24520,7 +24520,7 @@ const LETTERS_DATA = [
             },
             {
               "id": 2,
-              "part": "2. Thân 1: Học vấn & Chuyên môn (Cấu trúc: I am currently a student at... majoring in...)",
+              "part": "2. Thân 1: Học vấn & Chuyên môn (Cấu trúc: I am currently a student at... Majoring in...)",
               "vi": "Hiện tại tôi là sinh viên năm thứ ba tại Đại học Hà Nội chuyên ngành Quan hệ Quốc tế. Trong quá trình học, tôi đã phát triển sự hiểu biết sâu sắc về tổ chức sự kiện và tích lũy được các năng lực như giao tiếp đa văn hóa và lập kế hoạch thời gian.",
               "en": "I am currently a third-year student at Hanoi University majoring in International Relations. During my studies, I developed a strong understanding of event organization and gained abilities such as cross-cultural communication and schedule planning.",
               "hints": [
@@ -24543,7 +24543,7 @@ const LETTERS_DATA = [
             },
             {
               "id": 4,
-              "part": "4. Thân 3: Kinh nghiệm làm việc (Cấu trúc: I worked as a... at... In this job, I was responsible for...)",
+              "part": "4. Thân 3: Kinh nghiệm làm việc (Cấu trúc: I worked as a... At... In this job, I was responsible for...)",
               "vi": "Tôi đã từng làm điều phối viên tình nguyện viên tại trại thanh niên của trường chúng tôi vào học kỳ trước. Trong công việc này, tôi chịu trách nhiệm hướng dẫn các khách tham dự, kiểm tra hậu cần sân khấu và hỗ trợ các diễn giả. Kinh nghiệm này đã giúp tôi phát triển kỹ năng lãnh đạo và xử lý sự cố.",
               "en": "I worked as a volunteer coordinator at our university youth camp last semester. In this job, I was responsible for guiding visitors, checking stage logistics, and supporting guest speakers. This experience helped me develop leadership and problem-solving skills.",
               "hints": [
@@ -24599,7 +24599,7 @@ const LETTERS_DATA = [
             "word_count": 178,
             "key_structures": [
               {
-                "en": "Currently, I am a ... student majoring in ..., seeking a dynamic working environment...",
+                "en": "Currently, I am a ... Student majoring in ..., seeking a dynamic working environment...",
                 "vi": "Hiện tại tôi là sinh viên chuyên ngành ..., đang tìm kiếm môi trường năng động..."
               },
               {
@@ -24607,8 +24607,8 @@ const LETTERS_DATA = [
                 "vi": "Tôi đặc biệt quan tâm đến vị trí này vì..."
               },
               {
-                "en": "Previously, I worked part-time as a ... where I was responsible for...",
-                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... nơi tôi chịu trách nhiệm..."
+                "en": "Previously, I worked part-time as a ... Where I was responsible for...",
+                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... Nơi tôi chịu trách nhiệm..."
               },
               {
                 "en": "I believe I would be an ideal candidate because...",
@@ -24624,7 +24624,7 @@ const LETTERS_DATA = [
             "word_count": 184,
             "key_structures": [
               {
-                "en": "Currently, I am a ... student majoring in ..., seeking a dynamic working environment...",
+                "en": "Currently, I am a ... Student majoring in ..., seeking a dynamic working environment...",
                 "vi": "Hiện tại tôi là sinh viên chuyên ngành ..., đang tìm kiếm môi trường năng động..."
               },
               {
@@ -24632,8 +24632,8 @@ const LETTERS_DATA = [
                 "vi": "Tôi đặc biệt quan tâm đến vị trí này vì..."
               },
               {
-                "en": "Previously, I worked part-time as a ... where I was responsible for...",
-                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... nơi tôi chịu trách nhiệm..."
+                "en": "Previously, I worked part-time as a ... Where I was responsible for...",
+                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... Nơi tôi chịu trách nhiệm..."
               },
               {
                 "en": "I believe I would be an ideal candidate because...",
@@ -24750,7 +24750,7 @@ const LETTERS_DATA = [
                   "reason_en": "because I want to gain more practical experience outside the classroom.",
                   "reason_vi": "vì tôi muốn tích lũy thêm nhiều kinh nghiệm thực tế ngoài giảng đường.",
                   "b1_sentence": "I want to apply for this job because I want to gain more practical experience outside the classroom.",
-                  "expansion_1_en": "Working on this festival offers authentic logistical challenges that cannot be learned from textbooks.",
+                  "expansion_1_en": "Working on this festival offers traditional logistical challenges that cannot be learned from textbooks.",
                   "expansion_1_vi": "Làm việc tại lễ hội mang lại những thử thách hậu cần thực tế mà sách vở giảng đường không thể dạy hết.",
                   "expansion_2_en": "I am excited to test my organizational abilities under real-world event pressures.",
                   "expansion_2_vi": "Em rất hào hứng được thử thách năng lực tổ chức của bản thân dưới áp lực sự kiện thực tế."
@@ -24761,9 +24761,9 @@ const LETTERS_DATA = [
                   "reason_en": "because I enjoy working in a dynamic and friendly environment.",
                   "reason_vi": "vì tôi thích được làm việc trong một môi trường năng động và thân thiện.",
                   "b1_sentence": "I am eager to join the organizing team of the Youth Cultural Festival because I enjoy working in a dynamic and friendly environment.",
-                  "expansion_1_en": "The vibrant, youth-driven energy of your festival committee is genuinely contagious and motivating.",
+                  "expansion_1_en": "The lively, youth-driven energy of your festival committee is genuinely contagious and motivating.",
                   "expansion_1_vi": "Bầu không khí trẻ trung, giàu năng lượng của ban tổ chức lễ hội thực sự truyền cảm hứng to lớn cho em.",
-                  "expansion_2_en": "I am eager to contribute my creativity and proactive attitude to this collective effort.",
+                  "expansion_2_en": "I am eager to contribute my creativity and active and helpful attitude to this collective effort.",
                   "expansion_2_vi": "Em nóng lòng được đóng góp sức sáng tạo và tinh thần xông xáo vào nỗ lực chung của tập thể."
                 },
                 {
@@ -24772,7 +24772,7 @@ const LETTERS_DATA = [
                   "reason_en": "because it will give me a great chance to improve my teamwork skills.",
                   "reason_vi": "vì nó mang lại cho tôi cơ hội tuyệt vời để nâng cao kỹ năng làm việc nhóm.",
                   "b1_sentence": "I would like to contribute to this special event because it will give me a great chance to improve my teamwork skills.",
-                  "expansion_1_en": "Collaborating alongside experienced festival directors will refine my organizational stamina.",
+                  "expansion_1_en": "Collaborating alongside experienced festival directors will refine my organizational energy.",
                   "expansion_1_vi": "Được sát cánh làm việc cùng các anh chị chỉ đạo lễ hội dày dặn kinh nghiệm sẽ mài giũa bản lĩnh của em.",
                   "expansion_2_en": "I welcome every opportunity to absorb feedback and develop into a dependable team member.",
                   "expansion_2_vi": "Em luôn sẵn lòng đón nhận mọi góp ý để ngày càng hoàn thiện và trở thành cộng sự đáng tin cậy."
@@ -24802,7 +24802,7 @@ const LETTERS_DATA = [
                   "reason_en": "where I was responsible for welcoming guests and supporting guest speakers.",
                   "reason_vi": "nơi tôi chịu trách nhiệm đón tiếp khách mời và hỗ trợ các diễn giả.",
                   "b1_sentence": "I worked as a volunteer coordinator at our university cultural day last year because I was responsible for welcoming guests and supporting speakers.",
-                  "expansion_1_en": "I coordinated keynote speaker itineraries and managed backstage hospitality for three hundred guests.",
+                  "expansion_1_en": "I coordinated keynote speaker travel plans and managed backstage hospitality for three hundred guests.",
                   "expansion_1_vi": "Em đã điều phối lịch trình cho các diễn giả chính và phụ trách hậu cần hậu trường cho ba trăm khách mời.",
                   "expansion_2_en": "This role taught me to stay alert, responsive, and composed amidst unexpected schedule shifts.",
                   "expansion_2_vi": "Nhiệm vụ này đã rèn cho em sự nhạy bén, linh hoạt và điềm tĩnh trước những thay đổi lịch trình bất ngờ."
@@ -24848,7 +24848,7 @@ const LETTERS_DATA = [
                   "b1_sentence": "I helped manage food and game booths at a local festival last summer, so I have good experience in keeping areas clean and organized.",
                   "expansion_1_en": "I oversaw vendor hygiene compliance and maintained waste disposal stations throughout festival grounds.",
                   "expansion_1_vi": "Em đã giám sát an toàn vệ sinh của các gian hàng và điều phối các điểm gom rác khắp khuôn viên lễ hội.",
-                  "expansion_2_en": "Keeping the public walkway spotless earned our volunteer team high praise from university leaders.",
+                  "expansion_2_en": "Keeping the public walkway very clean earned our volunteer team high praise from university leaders.",
                   "expansion_2_vi": "Giữ cho khu vực đi bộ luôn sạch đẹp đã giúp đội tình nguyện nhận được lời khen ngợi từ ban giám hiệu."
                 },
                 {
@@ -24876,7 +24876,7 @@ const LETTERS_DATA = [
                   "reason_en": "because I am hardworking, responsible, and enthusiastic.",
                   "reason_vi": "bởi vì tôi là người chăm chỉ, có trách nhiệm và nhiệt huyết.",
                   "b1_sentence": "I believe I would be a suitable candidate for this position because I am hardworking, responsible, and enthusiastic.",
-                  "expansion_1_en": "I bring tireless energy, proactive initiative, and a positive problem-solving mindset to every task.",
+                  "expansion_1_en": "I bring tireless energy, active and helpful initiative, and a positive problem-solving mindset to every task.",
                   "expansion_1_vi": "Em mang theo nguồn năng lượng dồi dào, sự chủ động xông xáo và tư duy giải quyết vấn đề tích cực vào mọi việc.",
                   "expansion_2_en": "You can count on me to carry out all assigned responsibilities with absolute dedication.",
                   "expansion_2_vi": "Ban tổ chức có thể hoàn toàn tin tưởng giao phó cho em mọi nhiệm vụ với tinh thần trách nhiệm cao nhất."
@@ -25015,7 +25015,7 @@ const LETTERS_DATA = [
                   "reason_en": "so I can always arrive on time and work extra shifts when needed.",
                   "reason_vi": "nên tôi luôn có thể đến đúng giờ và làm thêm ca khi cần.",
                   "b1_sentence": "I live very close to your clothing store in the city centre, so I can always arrive on time and work extra shifts when needed.",
-                  "expansion_1_en": "Residing only five minutes away on foot ensures I will never be delayed by traffic gridlocks.",
+                  "expansion_1_en": "Residing only five minutes away on foot ensures I will never be delayed by traffic jams.",
                   "expansion_1_vi": "Việc chỉ sống cách cửa hàng năm phút đi bộ đảm bảo em sẽ không bao giờ bị trễ giờ vì tắc đường kẹt xe.",
                   "expansion_2_en": "You can count on my absolute punctuality and readiness to open or close the boutique.",
                   "expansion_2_vi": "Quý quản lý có thể hoàn toàn yên tâm về sự đúng giờ tuyệt đối và khả năng mở hoặc đóng cửa hàng của em."
@@ -25045,7 +25045,7 @@ const LETTERS_DATA = [
                   "reason_en": "because I really like your beautiful clothes and modern store design.",
                   "reason_vi": "vì tôi rất thích các mẫu quần áo đẹp và phong cách hiện đại của tiệm.",
                   "b1_sentence": "I have been a loyal customer of your clothing store for a long time because I really like your beautiful clothes and modern store design.",
-                  "expansion_1_en": "I admire your brand's minimalist silhouettes, premium eco-friendly fabrics, and luminous display windows.",
+                  "expansion_1_en": "I admire your brand's modern designs, premium eco-friendly fabrics, and luminous display windows.",
                   "expansion_1_vi": "Em rất ngưỡng mộ những thiết kế tối giản, chất liệu vải thân thiện môi trường và tủ kính trưng bày lung linh.",
                   "expansion_2_en": "Representing a clothing line that I personally adore would inspire my daily sales enthusiasm.",
                   "expansion_2_vi": "Được đại diện cho một thương hiệu thời trang mà bản thân say mê sẽ thôi thúc tinh thần bán hàng mỗi ngày."
@@ -25056,7 +25056,7 @@ const LETTERS_DATA = [
                   "reason_en": "because I enjoy talking with customers and helping them choose nice clothes.",
                   "reason_vi": "vì tôi thích trò chuyện với khách hàng và giúp họ chọn những bộ đồ đẹp.",
                   "b1_sentence": "I want to work as a sales assistant at your shop because I enjoy talking with customers and helping them choose nice clothes.",
-                  "expansion_1_en": "I genuinely enjoy engaging with people, discovering their aesthetic preferences, and finding their perfect fit.",
+                  "expansion_1_en": "I genuinely enjoy engaging with people, discovering their nice preferences, and finding their perfect fit.",
                   "expansion_1_vi": "Em thực lòng thích trò chuyện với mọi người, lắng nghe gu thẩm mỹ và tìm cho họ cỡ áo quần vừa vặn nhất.",
                   "expansion_2_en": "Building a warm rapport with shoppers transforms ordinary retail visits into delightful experiences.",
                   "expansion_2_vi": "Xây dựng sự gắn kết ấm áp với khách hàng sẽ biến một buổi mua sắm thông thường thành trải nghiệm tuyệt vời."
@@ -25067,7 +25067,7 @@ const LETTERS_DATA = [
                   "reason_en": "because this job will give me valuable communication experience.",
                   "reason_vi": "vì công việc này sẽ cho tôi những kinh nghiệm giao tiếp quý báu.",
                   "b1_sentence": "I am very eager to learn about fashion retail because this job will give me valuable communication experience.",
-                  "expansion_1_en": "I want to gain comprehensive insights into visual merchandising, stock management, and retail operations.",
+                  "expansion_1_en": "I want to gain comprehensive insights into arranging clothes nicely, stock management, and retail operations.",
                   "expansion_1_vi": "Em muốn học hỏi toàn diện về nghệ thuật trưng bày bắt mắt, bổ sung hàng hóa và quản lý vận hành bán lẻ.",
                   "expansion_2_en": "I am a quick, enthusiastic learner who takes on new responsibilities with great dedication.",
                   "expansion_2_vi": "Em là người học việc nhanh nhạy, nhiệt huyết và luôn đón nhận nhiệm vụ mới với tinh thần trách nhiệm cao."
@@ -25119,7 +25119,7 @@ const LETTERS_DATA = [
                   "reason_en": "because I always listened carefully to customer requests.",
                   "reason_vi": "vì tôi luôn chú ý lắng nghe các yêu cầu của khách hàng.",
                   "b1_sentence": "I was praised by my previous manager for my friendliness and honesty because I always listened carefully to customer requests.",
-                  "expansion_1_en": "My former supervisor praised my proactive work ethic, cash register precision, and radiant friendliness.",
+                  "expansion_1_en": "My former supervisor praised my active and helpful work ethic, cash register precision, and radiant friendliness.",
                   "expansion_1_vi": "Quản lý cũ đánh giá cao tính chủ động, độ chính xác khi thu ngân và nụ cười rạng rỡ của em.",
                   "expansion_2_en": "I always listen attentively to customer preferences to ensure they leave feeling delighted.",
                   "expansion_2_vi": "Em luôn chú ý lắng nghe sở thích của khách để đảm bảo họ ra về trong tâm trạng phấn khởi nhất."
@@ -25138,7 +25138,7 @@ const LETTERS_DATA = [
                   "reason_en": "because I am hardworking, honest, and enthusiastic.",
                   "reason_vi": "bởi vì tôi là người chăm chỉ, trung thực và nhiệt huyết.",
                   "b1_sentence": "I believe I would be a great sales assistant for your store because I am hardworking, honest, and enthusiastic.",
-                  "expansion_1_en": "I possess a sunny personality, strong integrity, and the physical stamina needed for active retail shifts.",
+                  "expansion_1_en": "I possess a sunny personality, strong integrity, and the physical energy needed for active retail shifts.",
                   "expansion_1_vi": "Em sở hữu tính cách vui vẻ, lòng trung thực và thể lực dẻo dai cần thiết cho những ca đứng bán hàng năng động.",
                   "expansion_2_en": "I will take pride in keeping your boutique tidy and driving daily sales targets.",
                   "expansion_2_vi": "Em sẽ tự hào giữ gìn cửa hàng luôn ngăn nắp và nỗ lực hoàn thành xuất sắc các chỉ tiêu doanh số."
@@ -25146,9 +25146,9 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I can work long shifts on weekends and holidays",
                   "action_vi": "tôi có thể làm các ca dài vào cuối tuần và ngày lễ",
-                  "reason_en": "because I am healthy and enjoy an active work environment.",
+                  "reason_en": "because I am healthy and enjoy a active work environment.",
                   "reason_vi": "vì tôi có sức khỏe tốt và thích môi trường làm việc năng động.",
-                  "b1_sentence": "I can work long shifts on weekends and holidays because I am healthy and enjoy an active work environment.",
+                  "b1_sentence": "I can work long shifts on weekends and holidays because I am healthy and enjoy a active work environment.",
                   "expansion_1_en": "I am ready to work ten-hour weekend shifts and cover festive holiday hours without complaint.",
                   "expansion_1_vi": "Em sẵn sàng làm việc các ca mười tiếng cuối tuần và đi làm vào các dịp lễ tết mà không hề nề hà.",
                   "expansion_2_en": "My dependable schedule flexibility will give your roster coordinators complete peace of mind.",
@@ -25658,7 +25658,7 @@ const LETTERS_DATA = [
             "word_count": 196,
             "key_structures": [
               {
-                "en": "Currently, I am a ... student majoring in ..., seeking a dynamic working environment...",
+                "en": "Currently, I am a ... Student majoring in ..., seeking a dynamic working environment...",
                 "vi": "Hiện tại tôi là sinh viên chuyên ngành ..., đang tìm kiếm môi trường năng động..."
               },
               {
@@ -25666,8 +25666,8 @@ const LETTERS_DATA = [
                 "vi": "Tôi đặc biệt quan tâm đến vị trí này vì..."
               },
               {
-                "en": "Previously, I worked part-time as a ... where I was responsible for...",
-                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... nơi tôi chịu trách nhiệm..."
+                "en": "Previously, I worked part-time as a ... Where I was responsible for...",
+                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... Nơi tôi chịu trách nhiệm..."
               },
               {
                 "en": "I believe I would be an ideal candidate because...",
@@ -25683,7 +25683,7 @@ const LETTERS_DATA = [
             "word_count": 179,
             "key_structures": [
               {
-                "en": "Currently, I am a ... student majoring in ..., seeking a dynamic working environment...",
+                "en": "Currently, I am a ... Student majoring in ..., seeking a dynamic working environment...",
                 "vi": "Hiện tại tôi là sinh viên chuyên ngành ..., đang tìm kiếm môi trường năng động..."
               },
               {
@@ -25691,8 +25691,8 @@ const LETTERS_DATA = [
                 "vi": "Tôi đặc biệt quan tâm đến vị trí này vì..."
               },
               {
-                "en": "Previously, I worked part-time as a ... where I was responsible for...",
-                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... nơi tôi chịu trách nhiệm..."
+                "en": "Previously, I worked part-time as a ... Where I was responsible for...",
+                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... Nơi tôi chịu trách nhiệm..."
               },
               {
                 "en": "I believe I would be an ideal candidate because...",
@@ -25755,7 +25755,7 @@ const LETTERS_DATA = [
                   "reason_en": "so I can welcome foreign tourists and answer their questions easily.",
                   "reason_vi": "nên tôi có thể đón tiếp khách du lịch nước ngoài và trả lời câu hỏi dễ dàng.",
                   "b1_sentence": "I have a B1 English certificate and I can speak English fluently, so I can welcome foreign tourists and answer their questions easily.",
-                  "expansion_1_en": "I can converse effortlessly with international guests and assist them with complex travel itineraries.",
+                  "expansion_1_en": "I can converse effortlessly with international guests and assist them with complex travel travel plans.",
                   "expansion_1_vi": "Em có thể tự tin trò chuyện lưu loát với khách quốc tế và hỗ trợ họ lên lịch trình tham quan chi tiết.",
                   "expansion_2_en": "My language skills ensure cross-cultural misunderstandings are avoided during registration and billing.",
                   "expansion_2_vi": "Khả năng ngoại ngữ tốt giúp em tránh được mọi hiểu lầm văn hóa trong quá trình đón tiếp và thanh toán."
@@ -25785,7 +25785,7 @@ const LETTERS_DATA = [
                   "reason_en": "because it offers a warm and professional working environment.",
                   "reason_vi": "vì nơi đây có môi trường làm việc ấm cúng và chuyên nghiệp.",
                   "b1_sentence": "I want to become a receptionist at your hotel because it offers a warm and professional working environment.",
-                  "expansion_1_en": "Your hotel's great reputation for sophisticated, tranquil hospitality deeply connects with me.",
+                  "expansion_1_en": "Your hotel's great reputation for modern, quiet and peaceful hospitality deeply connects with me.",
                   "expansion_1_vi": "Danh tiếng xuất sắc của khách sạn về phong cách phục vụ tinh tế, thanh bình hoàn toàn đồng điệu với em.",
                   "expansion_2_en": "I would take great pride in being the first welcoming face our guests see upon arrival.",
                   "expansion_2_vi": "Em sẽ vô cùng tự hào khi là gương mặt chào đón đầu tiên mà các du khách nhìn thấy khi bước vào khách sạn."
@@ -25804,7 +25804,7 @@ const LETTERS_DATA = [
                   "reason_en": "so I know how to check in guests, issue room keys, and answer phones politely.",
                   "reason_vi": "nên tôi biết cách làm thủ tục nhận phòng, giao chìa khóa và nghe điện thoại lịch thiệp.",
                   "b1_sentence": "I worked as an intern receptionist at a three-star hotel last summer, so I know how to check in guests, issue room keys, and answer phones politely.",
-                  "expansion_1_en": "During my internship, I checked in over five hundred guests and resolved concierge inquiries smoothly and pleasantly.",
+                  "expansion_1_en": "During my internship, I checked in over five hundred guests and answered guest questions smoothly and pleasantly.",
                   "expansion_1_vi": "Trong kỳ thực tập, em đã làm thủ tục nhận phòng cho hơn năm trăm lượt khách và giải đáp mọi yêu cầu chỉn chu.",
                   "expansion_2_en": "I was commended by the front-office manager for my calm attitude and swift problem solving.",
                   "expansion_2_vi": "Em đã được trưởng bộ phận tiền sảnh khen ngợi vì tác phong điềm đạm và kỹ năng xử lý tình huống nhanh nhạy."
@@ -26233,7 +26233,7 @@ const LETTERS_DATA = [
               ],
               "alternatives": [
                 "With my polite attitude and good problem-solving abilities, I believe I am well-suited for this position.",
-                "I am detail-oriented and proactive, and I am sure that my qualifications make me an ideal fit for your team."
+                "I am detail-oriented and active and helpful, and I am sure that my qualifications make me an ideal fit for your team."
               ],
               "scoring_weights": {
                 "checkpoints": 60,
@@ -26333,7 +26333,7 @@ const LETTERS_DATA = [
             "word_count": 171,
             "key_structures": [
               {
-                "en": "Currently, I am a ... student majoring in ..., seeking a dynamic working environment...",
+                "en": "Currently, I am a ... Student majoring in ..., seeking a dynamic working environment...",
                 "vi": "Hiện tại tôi là sinh viên chuyên ngành ..., đang tìm kiếm môi trường năng động..."
               },
               {
@@ -26341,8 +26341,8 @@ const LETTERS_DATA = [
                 "vi": "Tôi đặc biệt quan tâm đến vị trí này vì..."
               },
               {
-                "en": "Previously, I worked part-time as a ... where I was responsible for...",
-                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... nơi tôi chịu trách nhiệm..."
+                "en": "Previously, I worked part-time as a ... Where I was responsible for...",
+                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... Nơi tôi chịu trách nhiệm..."
               },
               {
                 "en": "I believe I would be an ideal candidate because...",
@@ -26358,7 +26358,7 @@ const LETTERS_DATA = [
             "word_count": 179,
             "key_structures": [
               {
-                "en": "Currently, I am a ... student majoring in ..., seeking a dynamic working environment...",
+                "en": "Currently, I am a ... Student majoring in ..., seeking a dynamic working environment...",
                 "vi": "Hiện tại tôi là sinh viên chuyên ngành ..., đang tìm kiếm môi trường năng động..."
               },
               {
@@ -26366,8 +26366,8 @@ const LETTERS_DATA = [
                 "vi": "Tôi đặc biệt quan tâm đến vị trí này vì..."
               },
               {
-                "en": "Previously, I worked part-time as a ... where I was responsible for...",
-                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... nơi tôi chịu trách nhiệm..."
+                "en": "Previously, I worked part-time as a ... Where I was responsible for...",
+                "vi": "Trước đây tôi từng làm bán thời gian ở vị trí ... Nơi tôi chịu trách nhiệm..."
               },
               {
                 "en": "I believe I would be an ideal candidate because...",
@@ -26439,7 +26439,7 @@ const LETTERS_DATA = [
                   "action_vi": "tôi kỳ vọng mức lương hàng tháng khoảng 15 triệu đồng",
                   "reason_en": "because this matches my three years of relevant experience and professional qualifications.",
                   "reason_vi": "vì mức này phù hợp với ba năm kinh nghiệm liên quan và trình độ chuyên môn của tôi.",
-                  "expansion_1_en": "However, I am open to discussing this further based on the company’s compensation structure.",
+                  "expansion_1_en": "However, I am open to discussing this further based on the company’s salary policy.",
                   "expansion_1_vi": "Tuy nhiên, tôi hoàn toàn cởi mở để trao đổi thêm dựa trên chế độ đãi ngộ của công ty."
                 },
                 {
@@ -26485,7 +26485,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "I can attend the interview at any time on Monday or Wednesday next week",
                   "action_vi": "tôi có thể tham dự buổi phỏng vấn vào bất kỳ thời gian nào trong ngày thứ Hai hoặc thứ Tư tuần tới",
-                  "reason_en": "because I have arranged my personal schedule to prioritize this opportunity.",
+                  "reason_en": "because I have arranged my personal schedule to focus on this opportunity.",
                   "reason_vi": "vì tôi đã thu xếp lịch cá nhân để ưu tiên cho cơ hội việc làm này.",
                   "expansion_1_en": "I will make sure to arrive at your office at least fifteen minutes early.",
                   "expansion_1_vi": "Tôi chắc chắn sẽ có mặt tại văn phòng của Quý vị sớm ít nhất mười lăm phút."
@@ -26503,7 +26503,7 @@ const LETTERS_DATA = [
                   "action_vi": "nếu được nhận vào vị trí này, tôi có thể bắt đầu làm việc vào đầu tháng tới",
                   "reason_en": "because I need two weeks to hand over my current duties at my present workplace.",
                   "reason_vi": "vì tôi cần hai tuần để bàn giao lại các công việc hiện tại ở nơi làm việc cũ.",
-                  "expansion_1_en": "This will ensure a smooth transition so that I can focus fully on my new role.",
+                  "expansion_1_en": "This will ensure a smooth handover so that I can focus fully on my new role.",
                   "expansion_1_vi": "Điều này sẽ đảm bảo quá trình chuyển giao suôn sẻ để tôi có thể tập trung toàn bộ cho vai trò mới."
                 },
                 {
@@ -26517,7 +26517,7 @@ const LETTERS_DATA = [
                 {
                   "action_en": "should my application be successful, I could begin working within one week of receiving the offer",
                   "action_vi": "nếu hồ sơ ứng tuyển của tôi thành công, tôi có thể bắt đầu làm việc trong vòng một tuần kể từ khi nhận được thư mời nhận việc",
-                  "reason_en": "because I only need a few days to complete my final administrative procedures.",
+                  "reason_en": "because I only need a few days to complete my final paperwork.",
                   "reason_vi": "vì tôi chỉ cần một vài ngày để hoàn tất các thủ tục hành chính cuối cùng.",
                   "expansion_1_en": "I am very eager to join your team and contribute to upcoming projects.",
                   "expansion_1_vi": "Tôi rất mong chờ được gia nhập đội ngũ của Quý vị và đóng góp vào các dự án sắp tới."
@@ -26577,7 +26577,7 @@ const LETTERS_DATA = [
               "category": "3. Ngày nhận việc (Start date)"
             },
             {
-              "en": "ensure a smooth transition",
+              "en": "ensure a smooth handover",
               "vi": "đảm bảo quá trình chuyển giao công việc suôn sẻ",
               "category": "3. Ngày nhận việc (Start date)"
             },
@@ -26594,9 +26594,9 @@ const LETTERS_DATA = [
             "sign_off": "Yours faithfully,"
           },
           "sample_b1": {
-            "letter_en": "Dear Hiring Manager,\n\nThank you very much for reviewing my application and inviting me to attend a face-to-face interview. I am writing to provide the details regarding my salary expectations, interview availability, and potential start date.\n\nFirst of all, I would expect a monthly salary of around 15 million VND because this matches my three years of relevant experience and professional qualifications. However, I am open to discussing this further based on the company’s compensation structure.\n\nIn addition, I am available for the face-to-face interview on Tuesday or Thursday morning next week because my schedule on those days is completely free. If another time is more convenient for you, I can easily adjust my plans.\n\nFinally, if I am offered the position, I can start working at the beginning of next month because I need two weeks to hand over my current duties at my present workplace. This will ensure a smooth transition so that I can focus fully on my new role.\n\nThank you once again for this opportunity. I look forward to meeting you in person and discussing my qualifications further.\n\nYours faithfully,",
+            "letter_en": "Dear Hiring Manager,\n\nThank you very much for reviewing my application and inviting me to attend a face-to-face interview. I am writing to provide the details regarding my salary expectations, interview availability, and potential start date.\n\nFirst of all, I would expect a monthly salary of around 15 million VND because this matches my three years of relevant experience and professional qualifications. However, I am open to discussing this further based on the company’s salary policy.\n\nIn addition, I am available for the face-to-face interview on Tuesday or Thursday morning next week because my schedule on those days is completely free. If another time is more convenient for you, I can easily adjust my plans.\n\nFinally, if I am offered the position, I can start working at the beginning of next month because I need two weeks to hand over my current duties at my present workplace. This will ensure a smooth handover so that I can focus fully on my new role.\n\nThank you once again for this opportunity. I look forward to meeting you in person and discussing my qualifications further.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Quản lý Tuyển dụng,\n\nXin chân thành cảm ơn Quý vị đã xem xét hồ sơ ứng tuyển và mời tôi tham dự buổi phỏng vấn trực tiếp. Tôi viết thư này để cung cấp thông tin chi tiết về mức lương kỳ vọng, thời gian có thể phỏng vấn và ngày có thể bắt đầu làm việc.\n\nTrước hết, tôi kỳ vọng mức lương hàng tháng khoảng 15 triệu đồng vì mức này phù hợp với ba năm kinh nghiệm liên quan và trình độ chuyên môn của tôi. Tuy nhiên, tôi hoàn toàn cởi mở để trao đổi thêm dựa trên chế độ đãi ngộ của công ty.\n\nThêm vào đó, tôi có thể tham dự buổi phỏng vấn trực tiếp vào sáng thứ Ba hoặc sáng thứ Năm tuần tới vì lịch trình của tôi vào những ngày đó hoàn toàn trống. Nếu một khung giờ khác thuận tiện hơn cho Quý vị, tôi có thể dễ dàng điều chỉnh kế hoạch của mình.\n\nCuối cùng, nếu được nhận vào vị trí này, tôi có thể bắt đầu làm việc vào đầu tháng tới vì tôi cần hai tuần để bàn giao lại các công việc hiện tại ở nơi làm việc cũ. Điều này sẽ đảm bảo quá trình chuyển giao suôn sẻ để tôi có thể tập trung toàn bộ cho vai trò mới.\n\nMột lần nữa xin cảm ơn Quý vị vì cơ hội này. Tôi rất mong được gặp trực tiếp Quý vị và trao đổi sâu hơn về năng lực chuyên môn của mình.\n\nTrân trọng,",
-            "text": "Dear Hiring Manager,\n\nThank you very much for reviewing my application and inviting me to attend a face-to-face interview. I am writing to provide the details regarding my salary expectations, interview availability, and potential start date.\n\nFirst of all, I would expect a monthly salary of around 15 million VND because this matches my three years of relevant experience and professional qualifications. However, I am open to discussing this further based on the company’s compensation structure.\n\nIn addition, I am available for the face-to-face interview on Tuesday or Thursday morning next week because my schedule on those days is completely free. If another time is more convenient for you, I can easily adjust my plans.\n\nFinally, if I am offered the position, I can start working at the beginning of next month because I need two weeks to hand over my current duties at my present workplace. This will ensure a smooth transition so that I can focus fully on my new role.\n\nThank you once again for this opportunity. I look forward to meeting you in person and discussing my qualifications further.\n\nYours faithfully,",
+            "text": "Dear Hiring Manager,\n\nThank you very much for reviewing my application and inviting me to attend a face-to-face interview. I am writing to provide the details regarding my salary expectations, interview availability, and potential start date.\n\nFirst of all, I would expect a monthly salary of around 15 million VND because this matches my three years of relevant experience and professional qualifications. However, I am open to discussing this further based on the company’s salary policy.\n\nIn addition, I am available for the face-to-face interview on Tuesday or Thursday morning next week because my schedule on those days is completely free. If another time is more convenient for you, I can easily adjust my plans.\n\nFinally, if I am offered the position, I can start working at the beginning of next month because I need two weeks to hand over my current duties at my present workplace. This will ensure a smooth handover so that I can focus fully on my new role.\n\nThank you once again for this opportunity. I look forward to meeting you in person and discussing my qualifications further.\n\nYours faithfully,",
             "translation": "Kính gửi Quản lý Tuyển dụng,\n\nXin chân thành cảm ơn Quý vị đã xem xét hồ sơ ứng tuyển và mời tôi tham dự buổi phỏng vấn trực tiếp. Tôi viết thư này để cung cấp thông tin chi tiết về mức lương kỳ vọng, thời gian có thể phỏng vấn và ngày có thể bắt đầu làm việc.\n\nTrước hết, tôi kỳ vọng mức lương hàng tháng khoảng 15 triệu đồng vì mức này phù hợp với ba năm kinh nghiệm liên quan và trình độ chuyên môn của tôi. Tuy nhiên, tôi hoàn toàn cởi mở để trao đổi thêm dựa trên chế độ đãi ngộ của công ty.\n\nThêm vào đó, tôi có thể tham dự buổi phỏng vấn trực tiếp vào sáng thứ Ba hoặc sáng thứ Năm tuần tới vì lịch trình của tôi vào những ngày đó hoàn toàn trống. Nếu một khung giờ khác thuận tiện hơn cho Quý vị, tôi có thể dễ dàng điều chỉnh kế hoạch của mình.\n\nCuối cùng, nếu được nhận vào vị trí này, tôi có thể bắt đầu làm việc vào đầu tháng tới vì tôi cần hai tuần để bàn giao lại các công việc hiện tại ở nơi làm việc cũ. Điều này sẽ đảm bảo quá trình chuyển giao suôn sẻ để tôi có thể tập trung toàn bộ cho vai trò mới.\n\nMột lần nữa xin cảm ơn Quý vị vì cơ hội này. Tôi rất mong được gặp trực tiếp Quý vị và trao đổi sâu hơn về năng lực chuyên môn của mình.\n\nTrân trọng,",
             "word_count": 185,
             "key_structures": [
@@ -26619,9 +26619,9 @@ const LETTERS_DATA = [
             ]
           },
           "sample_b2": {
-            "letter_en": "Dear Hiring Manager,\n\nThank you very much for reviewing my application and inviting me to attend a face-to-face interview. I am writing to provide the details regarding my salary expectations, interview availability, and potential start date.\n\nFirst of all, ***I would expect a monthly salary of around 15 million VND*** because this matches my three years of relevant experience and professional qualifications. However, I am open to discussing this further based on the company’s compensation structure.\n\nIn addition, ***I am available for the face-to-face interview on Tuesday or Thursday morning next week*** because my schedule on those days is completely free. If another time is more convenient for you, I can easily adjust my plans.\n\nFinally, ***if I am offered the position, I can start working at the beginning of next month*** because I need two weeks to hand over my current duties at my present workplace. This will ensure a smooth transition so that I can focus fully on my new role.\n\nThank you once again for this opportunity. I look forward to meeting you in person and discussing my qualifications further.\n\nYours faithfully,",
+            "letter_en": "Dear Hiring Manager,\n\nThank you very much for reviewing my application and inviting me to attend a face-to-face interview. I am writing to provide the details regarding my salary expectations, interview availability, and potential start date.\n\nFirst of all, ***I would expect a monthly salary of around 15 million VND*** because this matches my three years of relevant experience and professional qualifications. However, I am open to discussing this further based on the company’s salary policy.\n\nIn addition, ***I am available for the face-to-face interview on Tuesday or Thursday morning next week*** because my schedule on those days is completely free. If another time is more convenient for you, I can easily adjust my plans.\n\nFinally, ***if I am offered the position, I can start working at the beginning of next month*** because I need two weeks to hand over my current duties at my present workplace. This will ensure a smooth handover so that I can focus fully on my new role.\n\nThank you once again for this opportunity. I look forward to meeting you in person and discussing my qualifications further.\n\nYours faithfully,",
             "letter_vi": "Kính gửi Quản lý Tuyển dụng,\n\nXin chân thành cảm ơn Quý vị đã xem xét hồ sơ ứng tuyển và mời tôi tham dự buổi phỏng vấn trực tiếp. Tôi viết thư này để cung cấp thông tin chi tiết về mức lương kỳ vọng, thời gian có thể phỏng vấn và ngày có thể bắt đầu làm việc.\n\nTrước hết, ***tôi kỳ vọng mức lương hàng tháng khoảng 15 triệu đồng*** vì mức này phù hợp với ba năm kinh nghiệm liên quan và trình độ chuyên môn của tôi. Tuy nhiên, tôi hoàn toàn cởi mở để trao đổi thêm dựa trên chế độ đãi ngộ của công ty.\n\nThêm vào đó, ***tôi có thể tham dự buổi phỏng vấn trực tiếp vào sáng thứ Ba hoặc sáng thứ Năm tuần tới*** vì lịch trình của tôi vào những ngày đó hoàn toàn trống. Nếu một khung giờ khác thuận tiện hơn cho Quý vị, tôi có thể dễ dàng điều chỉnh kế hoạch của mình.\n\nCuối cùng, ***nếu được nhận vào vị trí này, tôi có thể bắt đầu làm việc vào đầu tháng tới*** vì tôi cần hai tuần để bàn giao lại các công việc hiện tại ở nơi làm việc cũ. Điều này sẽ đảm bảo quá trình chuyển giao suôn sẻ để tôi có thể tập trung toàn bộ cho vai trò mới.\n\nMột lần nữa xin cảm ơn Quý vị vì cơ hội này. Tôi rất mong được gặp trực tiếp Quý vị và trao đổi sâu hơn về năng lực chuyên môn của mình.\n\nTrân trọng,",
-            "text": "Dear Hiring Manager,\n\nThank you very much for reviewing my application and inviting me to attend a face-to-face interview. I am writing to provide the details regarding my salary expectations, interview availability, and potential start date.\n\nFirst of all, ***I would expect a monthly salary of around 15 million VND*** because this matches my three years of relevant experience and professional qualifications. However, I am open to discussing this further based on the company’s compensation structure.\n\nIn addition, ***I am available for the face-to-face interview on Tuesday or Thursday morning next week*** because my schedule on those days is completely free. If another time is more convenient for you, I can easily adjust my plans.\n\nFinally, ***if I am offered the position, I can start working at the beginning of next month*** because I need two weeks to hand over my current duties at my present workplace. This will ensure a smooth transition so that I can focus fully on my new role.\n\nThank you once again for this opportunity. I look forward to meeting you in person and discussing my qualifications further.\n\nYours faithfully,",
+            "text": "Dear Hiring Manager,\n\nThank you very much for reviewing my application and inviting me to attend a face-to-face interview. I am writing to provide the details regarding my salary expectations, interview availability, and potential start date.\n\nFirst of all, ***I would expect a monthly salary of around 15 million VND*** because this matches my three years of relevant experience and professional qualifications. However, I am open to discussing this further based on the company’s salary policy.\n\nIn addition, ***I am available for the face-to-face interview on Tuesday or Thursday morning next week*** because my schedule on those days is completely free. If another time is more convenient for you, I can easily adjust my plans.\n\nFinally, ***if I am offered the position, I can start working at the beginning of next month*** because I need two weeks to hand over my current duties at my present workplace. This will ensure a smooth handover so that I can focus fully on my new role.\n\nThank you once again for this opportunity. I look forward to meeting you in person and discussing my qualifications further.\n\nYours faithfully,",
             "translation": "Kính gửi Quản lý Tuyển dụng,\n\nXin chân thành cảm ơn Quý vị đã xem xét hồ sơ ứng tuyển và mời tôi tham dự buổi phỏng vấn trực tiếp. Tôi viết thư này để cung cấp thông tin chi tiết về mức lương kỳ vọng, thời gian có thể phỏng vấn và ngày có thể bắt đầu làm việc.\n\nTrước hết, ***tôi kỳ vọng mức lương hàng tháng khoảng 15 triệu đồng*** vì mức này phù hợp với ba năm kinh nghiệm liên quan và trình độ chuyên môn của tôi. Tuy nhiên, tôi hoàn toàn cởi mở để trao đổi thêm dựa trên chế độ đãi ngộ của công ty.\n\nThêm vào đó, ***tôi có thể tham dự buổi phỏng vấn trực tiếp vào sáng thứ Ba hoặc sáng thứ Năm tuần tới*** vì lịch trình của tôi vào những ngày đó hoàn toàn trống. Nếu một khung giờ khác thuận tiện hơn cho Quý vị, tôi có thể dễ dàng điều chỉnh kế hoạch của mình.\n\nCuối cùng, ***nếu được nhận vào vị trí này, tôi có thể bắt đầu làm việc vào đầu tháng tới*** vì tôi cần hai tuần để bàn giao lại các công việc hiện tại ở nơi làm việc cũ. Điều này sẽ đảm bảo quá trình chuyển giao suôn sẻ để tôi có thể tập trung toàn bộ cho vai trò mới.\n\nMột lần nữa xin cảm ơn Quý vị vì cơ hội này. Tôi rất mong được gặp trực tiếp Quý vị và trao đổi sâu hơn về năng lực chuyên môn của mình.\n\nTrân trọng,",
             "word_count": 185,
             "key_structures": [
