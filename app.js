@@ -2837,9 +2837,9 @@ function renderStep1Reading() {
     vocabByGroup[g].push(v);
   });
 
-  // Build Interactive Idea Selection HTML + Complete 5-Part B2 Writing Suggestion Frame
+  // Build Interactive Idea Selection HTML (Brainstorming according to requirements)
   let ideaSelectorHtml = '';
-  if (suggestedIdeas.length > 0 && b2Frame) {
+  if (suggestedIdeas.length > 0) {
     const groupsHtml = suggestedIdeas.map((group, gIdx) => {
       const selArr = Array.isArray(topicSel[gIdx]) ? topicSel[gIdx] : [];
       const optionsHtml = (group.options || []).map((opt, optIdx) => {
@@ -2885,89 +2885,15 @@ function renderStep1Reading() {
       `;
     }).join('');
 
-    const summaryHtml = `
-      <div style="margin-top: 1.45rem; padding: 1.25rem; background: var(--bg-primary); border: 1.5px solid var(--accent-primary); border-radius: var(--radius-md);">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem;">
-          <div style="font-weight: 800; color: var(--accent-primary); font-size: 0.98rem;">
-            📝 KHUNG GỢI Ý VIẾT BÀI THƯ CHUẨN DÀN Ý B2 (ĐỒNG BỘ SANG BƯỚC 02)
-          </div>
-        </div>
-
-        <div class="b2-five-step-list">
-          <div class="b2-step-row step-1">
-            <div class="b2-step-head">
-              <span class="b2-step-badge">PHẦN 1</span>
-              <span>LỜI CHÀO MỞ ĐẦU (SALUTATION)</span>
-            </div>
-            <div class="b2-step-formula">
-              <div style="color: var(--text-primary); font-size: 0.93rem; font-weight: 600;">🇻🇳 ${escapeHtml(b2Frame.salutationVi)}</div>
-              <div style="font-size: 0.84rem; color: var(--accent-primary); margin-top: 0.2rem;">🔑 Cấu trúc B2 gợi ý: <code>${escapeHtml(b2Frame.salutationFormulaEn)}</code></div>
-            </div>
-          </div>
-
-          <div class="b2-step-row step-2">
-            <div class="b2-step-head">
-              <span class="b2-step-badge" style="background: #0ea5e9;">PHẦN 2</span>
-              <span>MỞ THƯ (OPENING — NÊU LÝ DO &amp; MỤC ĐÍCH VIẾT THƯ)</span>
-            </div>
-            <div class="b2-step-formula">
-              <div style="color: var(--text-primary); font-size: 0.93rem; font-weight: 600; line-height: 1.55;">🇻🇳 ${escapeHtml(b2Frame.openingVi)}</div>
-              <div style="font-size: 0.84rem; color: var(--accent-primary); margin-top: 0.25rem; line-height: 1.5;">🔑 Cụm từ &amp; cấu trúc B2 gợi ý: <code>${escapeHtml(b2Frame.openingHints.map(h => h.en).join(' • '))}</code></div>
-            </div>
-          </div>
-
-          <div class="b2-step-row step-3">
-            <div class="b2-step-head">
-              <span class="b2-step-badge" style="background: #8b5cf6;">PHẦN 3</span>
-              <span>THÂN THƯ (BODY PARAGRAPHS — ${b2Frame.bodyItems.length} Ý B2 BẠN ĐÃ CHỌN)</span>
-            </div>
-            <div class="b2-step-formula">
-              <ul class="outline-summary-list" style="margin: 0;">
-                ${b2Frame.bodyItems.map((item, idx) => `
-                  <li>
-                    <strong>Ý thân thư ${idx + 1} — ${escapeHtml(item.reqTitle)}:</strong>
-                    <div style="color: var(--text-primary); font-size: 0.93rem; margin-top: 0.2rem; line-height: 1.55;">🇻🇳 ${escapeHtml(item.vi)}</div>
-                    <div style="font-size: 0.83rem; color: var(--accent-primary); margin-top: 0.22rem; line-height: 1.5;">🔑 Cấu trúc &amp; cụm từ B2 gợi ý: <code>${escapeHtml(item.hints.map(h => h.en).join(' • '))}</code></div>
-                  </li>
-                `).join('')}
-              </ul>
-            </div>
-          </div>
-
-          <div class="b2-step-row step-4">
-            <div class="b2-step-head">
-              <span class="b2-step-badge" style="background: #f59e0b;">PHẦN 4</span>
-              <span>KẾT THƯ (CLOSING SENTENCE)</span>
-            </div>
-            <div class="b2-step-formula">
-              <div style="color: var(--text-primary); font-size: 0.93rem; font-weight: 600; line-height: 1.55;">🇻🇳 ${escapeHtml(b2Frame.closingVi)}</div>
-              <div style="font-size: 0.84rem; color: var(--accent-primary); margin-top: 0.25rem; line-height: 1.5;">🔑 Cụm từ &amp; cấu trúc B2 gợi ý: <code>${escapeHtml(b2Frame.closingHints.map(h => h.en).join(' • '))}</code></div>
-            </div>
-          </div>
-
-          <div class="b2-step-row step-5">
-            <div class="b2-step-head">
-              <span class="b2-step-badge" style="background: #10b981;">PHẦN 5</span>
-              <span>LỜI CHÀO KẾT THÚC (SIGN-OFF — KHÔNG KÝ TÊN THẬT)</span>
-            </div>
-            <div class="b2-step-formula">
-              <div style="color: var(--text-primary); font-size: 0.93rem; font-weight: 600;">🇻🇳 ${escapeHtml(b2Frame.signoffVi)} <span style="color: var(--danger); font-weight: 700;">— ⚠️ Lưu ý: Đề thi VSTEP yêu cầu KHÔNG viết tên riêng bên dưới!</span></div>
-              <div style="font-size: 0.84rem; color: var(--accent-primary); margin-top: 0.2rem;">🔑 Cấu trúc B2 gợi ý: <code>${escapeHtml(b2Frame.signoffFormulaEn)}</code></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-
     const helperNote = isMultiGroupTopic
-      ? 'Đề thư phàn nàn này cung cấp nhiều nhóm sự cố gợi ý. Hệ thống đã chọn sẵn các ý tiêu biểu nhất — bạn có thể <strong>bấm vào ô đang chọn để bỏ chọn</strong> hoặc chọn sang nhóm sự cố khác (nên giữ từ <strong>3 – 4 ý</strong> để bức thư mạch lạc 140–180 từ).'
-      : 'Mỗi cột tương ứng với <strong>1 yêu cầu bắt buộc trong đề thi</strong>. Hãy nhấn chọn 1 phương án tâm đắc nhất cho từng cột — hệ thống sẽ tự động ghép vào <strong>Khung gợi ý viết 5 phần chuẩn dàn ý B2</strong> bên dưới và đồng bộ sang <strong>Bước 2: Tập diễn đạt ý tưởng</strong>!';
+      ? 'Đề thư phàn nàn này cung cấp nhiều nhóm sự cố gợi ý. Hãy <strong>chọn từ 2 đến 4 ý tiêu biểu</strong> để đưa sang Bước 2 luyện tập diễn đạt.'
+      : 'Mỗi cột tương ứng với <strong>1 yêu cầu trọng tâm trong đề bài</strong>. Hãy bấm chọn 1 phương án gợi ý bạn muốn viết cho từng cột — hệ thống sẽ tự động đưa các ý này sang <strong>Bước 2: Tập diễn đạt ý tưởng</strong> để bạn luyện viết từng câu!';
 
     ideaSelectorHtml = `
       <div class="reading-section-card idea-selection-card">
         <div class="idea-selection-header">
           <div style="flex: 1; min-width: 260px;">
-            <h3 style="margin-bottom: 0.35rem; border: none; padding: 0;">🎯 3. CHỌN Ý TƯỞNG &amp; KHUNG GỢI Ý VIẾT BÀI THƯ CHUẨN DÀN Ý B2</h3>
+            <h3 style="margin-bottom: 0.35rem; border: none; padding: 0;">💡 3. Ý TƯỞNG GỢI Ý (BRAINSTORMING) — CHỌN Ý BẠN MUỐN ĐƯA VÀO BÀI VIẾT</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55;">
               ${helperNote}
             </p>
@@ -2979,11 +2905,10 @@ function renderStep1Reading() {
         <div class="idea-selection-grid">
           ${groupsHtml}
         </div>
-        ${summaryHtml}
 
         <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
           <button class="btn btn-primary" onclick="switchStep('trans')" style="padding: 0.8rem 1.65rem; font-size: 0.96rem; font-weight: 700;">
-            TIẾP THEO: BƯỚC 02 - TẬP DIỄN ĐẠT Ý TƯỞNG B2 &rarr;
+            TIẾP THEO: BƯỚC 02 - TẬP DIỄN ĐẠT CÁC Ý ĐÃ CHỌN &rarr;
           </button>
         </div>
       </div>
@@ -3089,49 +3014,13 @@ function buildExercisesForActiveTopic(topic) {
   const b2Frame = buildTopicB2FivePartFrame(topic);
   if (!b2Frame) return [];
 
-  const bodyExercises = b2Frame.bodyItems.map((item, idx) => ({
+  return b2Frame.bodyItems.map((item, idx) => ({
     role: 'body',
-    partTitle: `PHẦN 3.${idx + 1}: THÂN THƯ — ${item.reqTitle.toUpperCase()}`,
+    partTitle: `Ý TƯỞNG ${idx + 1}: ${item.reqTitle.toUpperCase()}`,
     vi: item.vi,
     en: item.en,
     hints: item.hints
   }));
-
-  return [
-    {
-      role: 'salutation',
-      partTitle: 'PHẦN 1: LỜI CHÀO MỞ ĐẦU (SALUTATION)',
-      vi: b2Frame.salutationVi,
-      en: b2Frame.salutationEn,
-      hints: [
-        { en: b2Frame.salutationFormulaEn, vi: 'Cấu trúc chào mở đầu chuẩn văn phong kèm dấu phẩy cuối dòng' }
-      ]
-    },
-    {
-      role: 'opening',
-      partTitle: 'PHẦN 2: MỞ THƯ (OPENING — NÊU LÝ DO & MỤC ĐÍCH VIẾT THƯ)',
-      vi: b2Frame.openingVi,
-      en: b2Frame.openingEn,
-      hints: b2Frame.openingHints
-    },
-    ...bodyExercises,
-    {
-      role: 'closing',
-      partTitle: 'PHẦN 4: KẾT THƯ (CLOSING SENTENCE)',
-      vi: b2Frame.closingVi,
-      en: b2Frame.closingEn,
-      hints: b2Frame.closingHints
-    },
-    {
-      role: 'signoff',
-      partTitle: 'PHẦN 5: LỜI CHÀO KẾT THÚC (SIGN-OFF — KHÔNG KÝ TÊN THẬT)',
-      vi: b2Frame.signoffVi,
-      en: b2Frame.signoffEn,
-      hints: [
-        { en: b2Frame.signoffFormulaEn, vi: 'Lưu ý: Đề thi VSTEP yêu cầu KHÔNG ghi tên thật của bạn bên dưới!' }
-      ]
-    }
-  ];
 }
 
 function renderTranslationExercises() {
@@ -3148,9 +3037,9 @@ function renderTranslationExercises() {
   const bannerHtml = `
     <div class="trans-selected-banner">
       <div>
-        <strong style="color: var(--accent-primary);">💡 Lộ trình 5 phần chuẩn VSTEP B2:</strong>
+        <strong style="color: var(--accent-primary);">💡 Luyện tập diễn đạt các ý tưởng bạn đã chọn:</strong>
         <span style="font-size: 0.9rem; color: var(--text-secondary); margin-left: 0.35rem;">
-          Các câu thân thư bên dưới được tạo trực tiếp từ những ý tưởng B2 bạn đã chọn ở Bước 1. Sau khi tự gõ và kiểm tra lỗi từng câu tiếng Anh, hãy chuyển sang Bước 3 để tự đánh máy lại bức thư hoàn chỉnh!
+          Các câu bên dưới là chính những ý tưởng B2 bạn đã chọn ở Bước 1. Hãy thực hành viết câu tiếng Anh cho từng ý và bấm <strong>✓ Kiểm tra & Xem đáp án B2</strong> để hoàn thiện kỹ năng diễn đạt trước khi tự viết bức thư hoàn chỉnh ở Bước 3!
         </span>
       </div>
       <button class="btn btn-secondary" onclick="switchStep('read')" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
