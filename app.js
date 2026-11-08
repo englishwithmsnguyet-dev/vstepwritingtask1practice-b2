@@ -53,7 +53,7 @@ let state = {
 };
 
 // ============================================================================
-// 2. VIETNAMESE PROMPT TRANSLATIONS (COMPLETE FOR ALL 37 TOPICS)
+// 2. VIETNAMESE PROMPT TRANSLATIONS (COMPLETE FOR ALL 57 TOPICS)
 // ============================================================================
 const RUBRIC_VI_FOOTER = 'Bạn nên viết ít nhất 120 từ. **Không ghi tên hoặc địa chỉ của bạn.** Bài viết của bạn sẽ được đánh giá dựa trên các tiêu chí: **Hoàn thành nhiệm vụ (Task Fulfillment)**, **Bố cục (Organization)**, **Từ vựng (Vocabulary)** và **Ngữ pháp (Grammar)**.';
 
@@ -342,6 +342,189 @@ Hãy viết một bức thư phản hồi cho bà Lan. Trong thư, bạn nên:
 • Cung cấp thông tin chi tiết về chuyến bay của bạn
 • Miêu tả rõ ràng đặc điểm nhận dạng chiếc vali
 • Cung cấp đầy đủ thông tin liên lạc của bạn
+
+${RUBRIC_VI_FOOTER}`,
+
+      'de-38': `Một công ty đã xem xét đơn ứng tuyển cùng CV của bạn và đang cân nhắc tuyển dụng bạn vào một vị trí. Người quản lý tuyển dụng muốn sắp xếp một buổi phỏng vấn trực tiếp. Hãy viết một email gửi cho người quản lý tuyển dụng.
+
+Trong email, bạn nên nêu rõ:
+• Mức lương bạn kỳ vọng (what salary you would expect)
+• Thời gian bạn có thể tham gia buổi phỏng vấn (when you would be available for the interview)
+• Thời điểm bạn có thể bắt đầu đi làm nếu được nhận vào làm việc (when you could start work if you were offered the job)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-39': `Người bạn John của bạn đang có ý định tham gia một trại hè và đã viết thư xin lời khuyên của bạn. Hãy viết một email gửi cho John.
+
+Trong email, bạn nên nói rõ:
+• Trải nghiệm tham gia trại hè trước đây của bạn như thế nào (what your experience of a summer camp was like)
+• Những yêu cầu đặc biệt nào bạn ấy nên kiểm tra trước khi đăng ký tham gia (what special requirements he should check before joining)
+• Bạn ấy có thể chuẩn bị như thế nào để đáp ứng các yêu cầu đó (how he can prepare to meet those requirements)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-40': `Người bạn Harry của bạn đã mời bạn đi xem một buổi biểu diễn của một người bạn của cậu ấy. Hãy viết một email gửi cho Harry.
+
+Trong email, bạn nên nói rõ:
+• Bạn có muốn nhận lời mời không và cảm thấy thế nào về lời mời đó (whether you would like to accept the invitation and how you feel about it)
+• Bạn muốn hai người cùng làm gì sau buổi biểu diễn (what you would like to do together after the performance)
+• Trong chuyến thăm này, bạn thích đi dạo bằng thuyền (boat trip) hay đi xem một trận bóng đá (football match) hơn, và tại sao (whether you would prefer a boat trip or watching a football match during your visit, and why)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-41': `Trưởng đoàn của một đoàn khách tham quan đã đặt một khách sạn tại khu vực của bạn và viết thư xin lời khuyên địa phương từ bạn. Hãy viết một email gửi cho vị trưởng đoàn.
+
+Trong email, bạn nên nêu rõ:
+• Một hoặc hai địa điểm mua sắm mà bạn gợi ý cho đoàn (which one or two places you recommend for shopping)
+• Trung tâm thể thao địa phương có thể cung cấp những dịch vụ/tiện ích gì cho đoàn (what a local sports centre can offer the group)
+• Nhận xét của bạn về khách sạn mà đoàn đã đặt và những thông tin chi tiết nào họ nên xác nhận lại (what you think about the hotel they have booked and what details they should confirm)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-42': `Người bạn Alex của bạn muốn thử chơi môn khúc côn cầu trên băng (ice hockey) nhưng lại lo lắng về việc có ít kinh nghiệm và thể lực chưa đủ tốt. Hãy viết một email gửi cho Alex.
+
+Trong email, bạn nên nói rõ:
+• Lời khuyên chung bạn dành cho Alex khi mới bắt đầu làm quen với môn này (what general advice you would give about getting started)
+• Alex có thể chuẩn bị như thế nào để đáp ứng các yêu cầu về thể lực (how Alex could prepare for the physical demands)
+• Những thói quen ăn uống hợp lý nào có thể hỗ trợ tốt cho quá trình chuẩn bị đó (what sensible eating habits could support the preparation)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-43': `Bạn vừa nhận được một email từ người bạn Anna, người sắp chuyển đến một ngôi nhà ở gần trường đại học của bạn. Cô ấy xin lời khuyên của bạn về việc chuyển nhà và khu dân cư xung quanh. Hãy viết một bức thư hồi âm thân mật.
+
+Trong email, bạn nên:
+• Giới thiệu một công ty dịch vụ chuyển nhà uy tín (Recommend a reliable moving company)
+• Cho biết bạn có thể giúp cô ấy chuyển nhà hay không và giải thích cụ thể bạn có thể phụ giúp việc gì (Say whether you can help with the move and explain what you can do)
+• Miêu tả những người hàng xóm trong khu vực đó (Describe the neighbours in the area)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-44': `Người bạn Anna của bạn vừa gửi email hỏi về một sở thích mới mà bạn mới bắt đầu gần đây. Cô ấy cũng đang muốn thử một hoạt động mới mẻ. Hãy viết một bức thư hồi âm thân mật.
+
+Trong email, bạn nên:
+• Cho biết sở thích mới gần đây của bạn là gì (Say what your recent hobby is)
+• Giải thích bạn đã bắt đầu sở thích đó như thế nào (Explain how you started it)
+• Đưa ra lời khuyên cho bạn của bạn nếu cô ấy cũng muốn thử sở thích này (Give advice to your friend if she wants to try it)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-45': `Người bạn Sam sống ở nước ngoài vừa mời bạn sang chơi vào kỳ nghỉ hè. Sam ngỏ ý dành cho bạn một căn phòng trống ở nhà có sẵn giường và bàn làm việc nhỏ, hoặc giúp bạn tìm một nhà nghỉ ở gần đó. Hãy viết một bức thư hồi âm thân mật.
+
+Trong email, bạn nên:
+• Cho biết bạn có muốn sang thăm không và thời điểm bạn dự định đến (Say whether you would like to come and when you hope to visit)
+• Chọn phương án chỗ ở và giải thích lý do tại sao chỗ ở đó phù hợp với bạn (Choose accommodation and describe why it would suit you)
+• Gợi ý các hoạt động hai bạn có thể làm cùng nhau (Suggest activities you could do together)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-46': `Người bạn Lee của bạn sắp đi du lịch đến thị trấn của bạn bằng tàu hỏa và sẽ ở cùng với bạn. Lee đã viết thư hỏi bạn một số câu hỏi. Hãy viết một email hồi âm cho Lee.
+
+Trong email, bạn nên nói rõ:
+• Bạn có thể ra nhà ga tàu hỏa để đón Lee hay không (whether you can meet Lee at the train station)
+• Thời tiết tại thị trấn của bạn hiện tại như thế nào và Lee nên mang theo những loại trang phục gì (what the weather is like in your town at the moment and what clothes Lee should bring)
+• Bạn đã lên kế hoạch dẫn Lee đi thăm những địa điểm nào trong suốt chuyến đi (where you have planned to take Lee during the visit)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-47': `Người bạn Anna đã viết thư cho bạn. Gần đây cô ấy bị tăng cân và cảm thấy rất căng thẳng về chuyện đó. Cô ấy biết trước đây bạn từng giảm cân thành công nên muốn xin lời khuyên của bạn. Hãy viết một email gửi cho Anna.
+
+Trong email, bạn nên nói rõ:
+• Những thay đổi nào cô ấy nên thực hiện trong thói quen ăn uống (what changes she should make to her eating habits)
+• Hình thức tập thể dục nào cô ấy có thể thực hiện (what kind of exercise she could do)
+• Làm thế nào để cô ấy giảm bớt căng thẳng và giữ vững động lực (how she can reduce stress and stay motivated)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-48': `Gần đây bạn đã lưu trú tại Khách sạn Riverside trong ba đêm. Người quản lý khách sạn vừa gửi email xin ý kiến phản hồi của bạn về kỳ nghỉ vừa qua. Hãy viết một email gửi người quản lý khách sạn.
+
+Trong email, bạn nên nêu rõ:
+• Dịch vụ nào tại khách sạn khiến bạn hài lòng và yêu thích nhất (which service at the hotel you liked most)
+• Điều gì khiến bạn chưa hài lòng trong suốt thời gian lưu trú (what you were not satisfied with during your stay)
+• Liệu bạn có giới thiệu khách sạn này cho những người khác hay không (whether you would recommend the hotel to other people)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-49': `Người bạn Sam của bạn sắp đến thăm thành phố của bạn vào tháng tới và đã viết thư xin bạn một vài lời khuyên. Hãy viết một email gửi cho Sam.
+
+Trong email, bạn nên nói rõ:
+• Những địa điểm ăn uống ngon nào Sam nên thử (what good places to eat Sam should try)
+• Món đặc sản nào từ quê hương của Sam mà bạn muốn nhờ Sam mang sang cho bạn (what special food from Sam's hometown you would like Sam to bring for you)
+• Sam có thể di chuyển đi lại trong thành phố bằng cách nào (how Sam can get around the city)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-50': `Người bạn Harry của bạn vừa viết thư mời bạn đi xem buổi biểu diễn nhảy của cô bạn Lily vào cuối tuần tới. Hãy viết một email gửi cho Harry.
+
+Trong email, bạn nên nói rõ:
+• Bạn có nhận lời mời không và cảm thấy thế nào về buổi biểu diễn đó (whether you accept the invitation and how you feel about it)
+• Những chi tiết bạn muốn kiểm tra lại, chẳng hạn như thời gian, địa điểm hẹn gặp và có nên mang hoa hoặc quà tặng cho Lily hay không (what details you would like to check, such as the time, the meeting place and whether to bring flowers or a gift for Lily)
+• Những hoạt động mà hai bạn có thể làm cùng nhau trước hoặc sau buổi biểu diễn (what activities the two of you could do together before or after the show)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-51': `Người bạn Alex của bạn sắp đến thăm thành phố của bạn lần đầu tiên và đã viết thư xin bạn một vài gợi ý. Hãy viết một email gửi cho Alex.
+
+Trong email, bạn nên nói rõ:
+• Những địa điểm nào Alex nhất định phải ghé thăm (Which places Alex must visit)
+• Những món ăn nào Alex nhất định phải thử (Which dishes Alex must try)
+• Những sự kiện hoặc lễ hội nào sẽ diễn ra trong thời gian chuyến đi (What events or festivals will take place during the trip)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-52': `Bạn đang tổ chức một bữa tiệc văn phòng vào cuối tuần này. Đồng nghiệp của bạn, ông Doal, đã gửi email hỏi một số thông tin về bữa tiệc. Hãy viết một bức thư hồi âm cho ông Doal.
+
+Trong email, bạn nên nêu rõ:
+• Bạn đã chuẩn bị những gì cho bữa tiệc (What you have prepared for the party)
+• Chi phí tham gia bữa tiệc là bao nhiêu (How much it costs to join the party)
+• Việc thanh toán trực tuyến có khó không và cách thức thanh toán như thế nào (Whether paying online is difficult and how to pay)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-53': `Người bạn của bạn đã mua một tấm vé xem hòa nhạc nhưng hiện tại muốn nhượng lại cho bạn. Hãy viết một email gửi cho người bạn của mình.
+
+Trong email, bạn nên:
+• Hỏi thông tin chi tiết về tấm vé: giá vé, vị trí ghế ngồi và nghệ sĩ biểu diễn (Ask for details about the ticket: price, seat, and performer)
+• Hỏi cách bạn có thể nhận được tấm vé đó (Ask how you can receive the ticket)
+• Hỏi xem trong chương trình còn bao gồm hoạt động gì khác ngoài buổi biểu diễn âm nhạc chính hay không (Ask what is included in the program besides the music show)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-54': `Bạn vừa nhận được một email từ người bạn Hàn Quốc sắp sang thăm bạn vào kỳ nghỉ đông. Hãy đọc trích đoạn email dưới đây:
+
+"Mình rất háo hức được sang thăm cậu vào mùa đông này! Mình có một vài câu hỏi để chuẩn bị tốt hơn:
+• Mình nên mang theo loại quần áo nào cho phù hợp với thời tiết ở đó? (What kind of clothes should I bring for the weather there?)
+• Chúng mình có thể cùng nhau làm những hoạt động trong nhà nào trong thời gian mình ở nhà cậu? (What indoor activities can we do together while I'm staying with you?)
+• Mình cũng muốn tặng bố mẹ cậu một món quà nhỏ — cậu nghĩ mình nên mua gì cho hai bác? (What do you think I should buy for your parents?)"
+
+Hãy viết một bức thư hồi âm cho người bạn của mình.
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-55': `Người bạn Ronnie của bạn đã viết cho bạn: "Gia đình tớ đang nghỉ hè tại ngôi nhà gần hồ của gia đình, và chúng tớ rất mong cậu đến ở chơi cùng một thời gian!" Hãy viết một bức thư hồi âm cho Ronnie.
+
+Trong email, bạn nên:
+• Nhận lời mời và gửi lời cảm ơn cô ấy cùng gia đình (accept the invitation and thank her)
+• Nói rõ khi nào bạn có thể đến và có thể ở lại trong bao lâu (say when you can come and how long you can stay)
+• Hỏi xem bạn nên mang theo những gì và có thể tham gia những hoạt động gì cùng gia đình cô ấy (ask what you should bring and what activities you can do with her family)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-56': `Ông David Clark sắp tham dự một hội nghị tại thành phố của bạn và đã viết thư hỏi một số thông tin. Hãy viết một email phản hồi cho ông Clark.
+
+Trong email, bạn nên nêu rõ:
+• Hội nghị sẽ được tổ chức ở đâu (Where the conference will be held)
+• Bạn gợi ý nơi lưu trú nào phù hợp (What accommodation you recommend)
+• Chi phí của nơi lưu trú đó là bao nhiêu (How much the accommodation costs)
+
+${RUBRIC_VI_FOOTER}`,
+
+  'de-57': `Hãy viết thư phản hồi cho bà Davidson. Đoàn của bà ấy gồm 12 người lớn và 4 trẻ em đang lên kế hoạch đến thăm khu vực của bạn từ ngày 2 đến ngày 7 tháng 7.
+
+Trong thư, bạn nên giải đáp đầy đủ các nội dung sau:
+• Từ ngày 2 đến ngày 7 tháng 7 có phải là thời điểm tốt để ghé thăm hay không? (Is this a good time to visit?)
+• Cung cấp cho bà ấy thông tin về Khách sạn Habana (Give her information about the Habana Hotel)
+• Gợi ý một hoặc hai trung tâm thương mại mua sắm (Recommend one or two shopping malls)
+• Đề xuất các cơ sở thể thao phù hợp dành cho các em nhỏ (Suggest sports facilities for the children)
 
 ${RUBRIC_VI_FOOTER}`
 };
@@ -775,7 +958,7 @@ function renderCategoryView() {
       (t.prompt && t.prompt.toLowerCase().includes(q))
     );
     if (titleEl) titleEl.textContent = `KẾT QUẢ TÌM KIẾM: "${state.searchQuery}" (${topics.length} ĐỀ)`;
-    if (descEl) descEl.textContent = `Tìm thấy ${topics.length} đề viết thư phù hợp với từ khóa của bạn trong ngân hàng 37 đề VSTEP B2.`;
+    if (descEl) descEl.textContent = `Tìm thấy ${topics.length} đề viết thư phù hợp với từ khóa của bạn trong ngân hàng 57 đề VSTEP B2.`;
   } else {
     const catData = getCategoryData(state.currentCategory);
     if (!catData) return;
@@ -1636,13 +1819,173 @@ const TOPIC_B2_OUTLINE_FRAMES = {
     closingEn: 'I would be grateful if you could consider my application. I am available for an interview at your convenience and look forward to hearing from you soon.',
     closingVi: 'Tôi sẽ rất biết ơn nếu quý vị xem xét hồ sơ ứng tuyển của tôi. Tôi sẵn sàng tham gia phỏng vấn vào thời gian thuận tiện và rất mong sớm nhận được phản hồi từ quý vị.',
     signoffEn: 'Yours faithfully,', signoffVi: 'Trân trọng,'
+  },
+      'de-38': {
+    salutationEn: "Dear Hiring Manager,", salutationVi: "Kính gửi Quản lý Tuyển dụng,",
+    openingEn: "Thank you very much for reviewing my application and inviting me to attend a face-to-face interview. I am writing to provide the details regarding my salary expectations, interview availability, and potential start date.",
+    openingVi: "Xin chân thành cảm ơn Quý vị đã xem xét hồ sơ ứng tuyển và mời tôi tham dự buổi phỏng vấn trực tiếp. Tôi viết thư này để cung cấp thông tin chi tiết về mức lương kỳ vọng, thời gian có thể phỏng vấn và ngày có thể bắt đầu làm việc.",
+    closingEn: "Thank you once again for this opportunity. I look forward to meeting you in person and discussing my qualifications further.",
+    closingVi: "Một lần nữa xin cảm ơn Quý vị vì cơ hội này. Tôi rất mong được gặp trực tiếp Quý vị và trao đổi sâu hơn về năng lực chuyên môn của mình.",
+    signoffEn: "Yours faithfully,", signoffVi: "Trân trọng,"
+  },
+  'de-39': {
+    salutationEn: "Dear John,", salutationVi: "John thân mến,",
+    openingEn: "Thanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider before joining the summer camp.",
+    openingVi: "Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc trước khi tham gia trại hè.",
+    closingEn: "I hope you find my suggestions helpful. Let me know how things go. Write back soon.",
+    closingVi: "Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết mọi chuyện diễn ra thế nào nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-40': {
+    salutationEn: "Dear Harry,", salutationVi: "Harry thân mến,",
+    openingEn: "How have you been lately? I hope everything is going well. Thank you so much for inviting me to watch your friend’s performance, and I’d love to share my plans with you.",
+    openingVi: "Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Cảm ơn cậu rất nhiều vì đã mời tớ đi xem buổi biểu diễn của bạn cậu, và tớ rất vui được chia sẻ kế hoạch của mình với cậu.",
+    closingEn: "I can’t wait to see you and enjoy the show together. Let me know what time we should meet. Write back soon.",
+    closingVi: "Tớ rất nóng lòng được gặp cậu và cùng thưởng thức buổi biểu diễn. Hãy cho tớ biết mấy giờ chúng mình nên gặp nhau nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-41': {
+    salutationEn: "Dear Sir/Madam,", salutationVi: "Kính gửi Quý Ông/Bà,",
+    openingEn: "Thank you for your email regarding your group’s upcoming visit to our area. I am writing to share some local recommendations about shopping places, sports facilities, and your hotel booking.",
+    openingVi: "Cảm ơn email của Ông/Bà về chuyến tham quan sắp tới của đoàn đến khu vực của chúng tôi. Tôi viết thư này để chia sẻ một số gợi ý địa phương về địa điểm mua sắm, cơ sở thể thao và việc đặt phòng khách sạn của đoàn.",
+    closingEn: "I hope these recommendations help your group have a pleasant stay. Please feel free to contact me if you need any further local information.",
+    closingVi: "Tôi hy vọng những gợi ý này sẽ giúp đoàn của Ông/Bà có một kỳ lưu trú tốt đẹp. Xin vui lòng liên hệ với tôi nếu Ông/Bà cần thêm bất kỳ thông tin địa phương nào.",
+    signoffEn: "Yours faithfully,", signoffVi: "Trân trọng,"
+  },
+  'de-42': {
+    salutationEn: "Dear Alex,", salutationVi: "Alex thân mến,",
+    openingEn: "Thanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider as you start playing ice hockey.",
+    openingVi: "Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc khi bắt đầu tập chơi môn khúc côn cầu trên băng.",
+    closingEn: "I hope you find my suggestions helpful. Let me know how your first training session goes. Write back soon.",
+    closingVi: "Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy cho tớ biết buổi tập đầu tiên của cậu diễn ra thế nào nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-43': {
+    salutationEn: "Dear Anna,", salutationVi: "Anna thân mến,",
+    openingEn: "Thanks for writing to me. How have you been lately? I am so excited to hear that you are moving to a house near my university, and I have a few helpful suggestions and details for you.",
+    openingVi: "Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Tớ vô cùng hào hứng khi nghe tin cậu sắp chuyển đến một ngôi nhà gần trường đại học của tớ, và tớ có một vài gợi ý cũng như thông tin hữu ích dành cho cậu.",
+    closingEn: "I hope you find this information helpful. Let me know the exact moving date so I can come over to help. Write back soon.",
+    closingVi: "Tớ hy vọng cậu thấy những thông tin này hữu ích. Hãy báo cho tớ biết ngày chuyển nhà chính xác để tớ sang phụ giúp nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-44': {
+    salutationEn: "Dear Anna,", salutationVi: "Anna thân mến,",
+    openingEn: "How have you been lately? I hope everything is going well. In your email, you asked me about the new hobby I have taken up recently, so I’d love to share my experience with you.",
+    openingVi: "Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Trong email, cậu có hỏi tớ về sở thích mới mà tớ vừa bắt đầu gần đây, nên tớ rất vui được chia sẻ trải nghiệm của mình với cậu.",
+    closingEn: "I hope this inspires you to give my hobby a try. Let me know if you want to practice together sometime. Write back soon.",
+    closingVi: "Tớ hy vọng những chia sẻ này sẽ truyền cảm hứng để cậu thử sức với sở thích này. Hãy cho tớ biết nếu hôm nào đó cậu muốn cùng tập với tớ nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-45': {
+    salutationEn: "Dear Sam,", salutationVi: "Sam thân mến,",
+    openingEn: "How have you been lately? I hope everything is going well. Thank you so much for inviting me to visit you this summer, and I’d love to share my travel plans with you.",
+    openingVi: "Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Cảm ơn cậu rất nhiều vì đã mời tớ sang chơi vào mùa hè này, và tớ rất vui được chia sẻ kế hoạch chuyến đi với cậu.",
+    closingEn: "I can’t wait to see you this summer and spend quality time together. Let me know if those dates work for you. Write back soon.",
+    closingVi: "Tớ rất nóng lòng được gặp cậu vào mùa hè này và có khoảng thời gian tuyệt vời bên nhau. Hãy cho tớ biết nếu lịch đó thuận tiện với cậu nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-46': {
+    salutationEn: "Dear Lee,", salutationVi: "Lee thân mến,",
+    openingEn: "How have you been lately? I hope everything is going well. I am so excited about your upcoming trip to my town, and I’d like to answer all the questions in your email.",
+    openingVi: "Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Tớ vô cùng hào hứng về chuyến đi sắp tới của cậu đến thị trấn của tớ, và tớ muốn giải đáp toàn bộ các câu hỏi trong email của cậu.",
+    closingEn: "I can’t wait to welcome you to my home. Please text me your exact train arrival time. Write back soon.",
+    closingVi: "Tớ rất nóng lòng được chào đón cậu đến nhà tớ. Hãy nhắn cho tớ giờ tàu đến chính xác của cậu nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-47': {
+    salutationEn: "Dear Anna,", salutationVi: "Anna thân mến,",
+    openingEn: "Thanks for writing to me. How have you been lately? Please don’t feel too stressed about your weight because I have a few practical suggestions that helped me lose weight successfully.",
+    openingVi: "Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Đừng quá căng thẳng về cân nặng của mình nhé vì tớ có một vài gợi ý thực tế từng giúp tớ giảm cân thành công.",
+    closingEn: "I hope you find my suggestions helpful. Believe in yourself and let me know how things go. Write back soon.",
+    closingVi: "Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy tin vào bản thân và cho tớ biết mọi chuyện tiến triển thế nào nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-48': {
+    salutationEn: "Dear Sir/Madam,", salutationVi: "Kính gửi Quý Ông/Bà,",
+    openingEn: "I am writing to provide feedback on my recent three-night stay at the Riverside Hotel. I recently used your accommodation services and would like to share my experience.",
+    openingVi: "Tôi viết thư này để đóng góp ý kiến phản hồi về kỳ lưu trú ba đêm vừa qua tại Khách sạn Riverside. Gần đây tôi có sử dụng dịch vụ lưu trú của quý khách sạn và muốn chia sẻ trải nghiệm của mình.",
+    closingEn: "I hope my feedback will be useful in improving your hotel services. Please feel free to contact me if you have any further questions.",
+    closingVi: "Tôi hy vọng những phản hồi của tôi sẽ hữu ích trong việc nâng cao chất lượng dịch vụ của khách sạn. Xin vui lòng liên hệ với tôi nếu quý vị có bất kỳ câu hỏi nào thêm.",
+    signoffEn: "Yours faithfully,", signoffVi: "Trân trọng,"
+  },
+  'de-49': {
+    salutationEn: "Dear Sam,", salutationVi: "Sam thân mến,",
+    openingEn: "Thanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your visit to my city next month.",
+    openingVi: "Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm thành phố của tớ vào tháng tới.",
+    closingEn: "I hope you find my suggestions helpful. Let me know your arrival date so we can meet up. Write back soon.",
+    closingVi: "Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ ngày đến của cậu để chúng mình gặp nhau nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-50': {
+    salutationEn: "Dear Harry,", salutationVi: "Harry thân mến,",
+    openingEn: "How have you been lately? I hope everything is going well. Thank you so much for inviting me to watch Lily’s dance show next weekend, and I’d like to confirm a few details with you.",
+    openingVi: "Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Cảm ơn cậu rất nhiều vì đã mời tớ đi xem buổi biểu diễn nhảy của Lily vào cuối tuần tới, và tớ muốn xác nhận lại một vài chi tiết với cậu.",
+    closingEn: "I am really looking forward to next weekend. Let me know the details soon. Write back soon.",
+    closingVi: "Tớ thực sự rất mong chờ đến cuối tuần tới. Hãy cho tớ biết các thông tin chi tiết sớm nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-51': {
+    salutationEn: "Dear Alex,", salutationVi: "Alex thân mến,",
+    openingEn: "Thanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your first trip to my city.",
+    openingVi: "Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến đi đầu tiên đến thành phố của tớ.",
+    closingEn: "I hope you find my suggestions helpful. Let me know when you arrive so I can show you around. Write back soon.",
+    closingVi: "Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Hãy báo cho tớ khi cậu đến nơi để tớ dẫn cậu đi dạo quanh thành phố nhé. Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-52': {
+    salutationEn: "Dear Mr. Doal,", salutationVi: "Thưa ông Doal,",
+    openingEn: "Thank you for your email regarding our upcoming office party this weekend. I am writing to provide you with a detailed description of the party preparations, the participation fee, and the online payment method as requested.",
+    openingVi: "Cảm ơn email của ông liên quan đến bữa tiệc văn phòng sắp tới vào cuối tuần này. Tôi viết thư này để cung cấp cho ông thông tin chi tiết về công tác chuẩn bị bữa tiệc, chi phí tham gia và phương thức thanh toán trực tuyến theo như yêu cầu.",
+    closingEn: "I hope the above information is useful to you. Please feel free to contact me if you require any further details.",
+    closingVi: "Tôi hy vọng những thông tin trên hữu ích đối với ông. Xin vui lòng liên hệ với tôi nếu ông cần thêm bất kỳ thông tin chi tiết nào.",
+    signoffEn: "Yours sincerely,", signoffVi: "Trân trọng,"
+  },
+  'de-53': {
+    salutationEn: "Dear Minh,", salutationVi: "Minh thân mến,",
+    openingEn: "How have you been lately? I hope everything is going well. I’m writing to ask for some information about the concert ticket that you want to pass on to me.",
+    openingVi: "Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Tớ viết thư này để hỏi xin một số thông tin về tấm vé xem hòa nhạc mà cậu muốn nhượng lại cho tớ.",
+    closingEn: "I hope to hear from you soon. Thanks a lot for your help, and take care!",
+    closingVi: "Tớ hy vọng sớm nhận được hồi âm từ cậu. Cảm ơn sự giúp đỡ của cậu rất nhiều, và giữ gìn sức khỏe nhé!",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-54': {
+    salutationEn: "Dear Min-ji,", salutationVi: "Min-ji thân mến,",
+    openingEn: "Thanks for writing to me. How have you been lately? After reading your email, I have a few suggestions that you may want to consider for your winter holiday visit to Vietnam.",
+    openingVi: "Cảm ơn cậu đã viết thư cho tớ. Dạo này cậu thế nào? Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc cho chuyến thăm Việt Nam vào kỳ nghỉ đông này.",
+    closingEn: "I hope you find my suggestions helpful. My family and I cannot wait to welcome you here. Write back soon.",
+    closingVi: "Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích. Gia đình tớ và tớ rất nóng lòng được chào đón cậu tại đây. Hồi âm sớm cho tớ nhé.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-55': {
+    salutationEn: "Dear Ronnie,", salutationVi: "Ronnie thân mến,",
+    openingEn: "How have you been lately? I hope everything is going well. Thank you so much for inviting me to your family’s house near the lake this summer, and I’d like to share my plans with you.",
+    openingVi: "Dạo này cậu thế nào? Tớ hy vọng mọi việc đều suôn sẻ. Cảm ơn cậu rất nhiều vì đã mời tớ đến ngôi nhà ven hồ của gia đình cậu vào mùa hè này, và tớ muốn chia sẻ kế hoạch của mình với cậu.",
+    closingEn: "Please send my warmest regards to your parents. I cannot wait to see you by the lake soon! Write back soon.",
+    closingVi: "Cho tớ gửi lời hỏi thăm nồng nhiệt nhất tới bố mẹ cậu nhé. Tớ rất nóng lòng được gặp cậu bên hồ vào dịp sắp tới! Hồi âm sớm cho tớ.",
+    signoffEn: "Best wishes,", signoffVi: "Chúc cậu những điều tốt đẹp nhất,"
+  },
+  'de-56': {
+    salutationEn: "Dear Mr. Clark,", salutationVi: "Kính gửi ông Clark,",
+    openingEn: "Thank you for your email regarding the upcoming conference in our city. I am writing to provide you with a detailed description of the conference venue, recommended accommodation, and room rates as requested.",
+    openingVi: "Cảm ơn email của ông liên quan đến hội nghị sắp tới tại thành phố của chúng tôi. Tôi viết thư này để cung cấp cho ông thông tin chi tiết về địa điểm tổ chức hội nghị, nơi lưu trú được khuyến nghị và mức giá phòng theo như yêu cầu.",
+    closingEn: "I hope the above information is useful to you. Please feel free to contact me if you require any further details.",
+    closingVi: "Tôi hy vọng những thông tin trên hữu ích đối với ông. Xin vui lòng liên hệ với tôi nếu ông cần thêm bất kỳ thông tin chi tiết nào.",
+    signoffEn: "Yours sincerely,", signoffVi: "Trân trọng,"
+  },
+  'de-57': {
+    salutationEn: "Dear Mrs. Davidson,", salutationVi: "Kính gửi bà Davidson,",
+    openingEn: "Thank you for your email regarding your group’s upcoming trip from 2 to 7 July. After reading your email, I would be delighted to provide you with some helpful local information and suggestions for the 12 adults and 4 children.",
+    openingVi: "Cảm ơn email của bà liên quan đến chuyến đi sắp tới của đoàn từ ngày 2 đến ngày 7 tháng 7. Sau khi đọc thư của bà, tôi rất vui được cung cấp một số thông tin địa phương và gợi ý hữu ích cho đoàn gồm 12 người lớn và 4 trẻ em.",
+    closingEn: "I hope you find this information helpful for your group’s trip. Please feel free to contact me if you need any further assistance.",
+    closingVi: "Tôi hy vọng bà thấy những thông tin này hữu ích cho chuyến đi của đoàn. Xin vui lòng liên hệ với tôi nếu bà cần hỗ trợ gì thêm.",
+    signoffEn: "Yours sincerely,", signoffVi: "Trân trọng,"
   }
 };
 
 function lowerClauseUnlessProperEn(str) {
   const s = (str || '').trim();
   if (!s) return '';
-  const keepCap = /^(?:I(?:\s|['’])|Wi-Fi\b|Hoa\b|Nam\b|Linda\b|Helen\b|Emily\b|John\b|Jane\b|Ann\b|Alex\b|Moonie\b|Lucky\b|Milo\b|Sunny\b|Hero\b|Hanoi\b|Can\s+Tho\b|Da\s+Nang\b|Ho\s+Chi\s+Minh\b|Tan\s+Son\s+Nhat\b|Noi\s+Bai\b|Vietnam\b|Vietnamese\b|English\b|Chinese\b|Mandarin\b|Monday\b|Tuesday\b|Wednesday\b|Thursday\b|Friday\b|Saturday\b|Sunday\b|Mr\.|Ms\.|Mrs\.|Professor\b|National\s+Geographic\b|BBC\b|QR\b|PDF\b|CV\b|B2\b|Elite\b|Rainbow\b|Delight\b|Pearl\b|Sunflower\b)/.test(s);
+  const keepCap = /^(?:I(?:\s|['’])|Wi-Fi\b|Hoa\b|Nam\b|Linda\b|Helen\b|Emily\b|John\b|Jane\b|Ann\b|Alex\b|Anna\b|Sam\b|Harry\b|Lee\b|Lily\b|Ronnie\b|Minh\b|Min-ji\b|David\b|Clark\b|Doal\b|Davidson\b|Habana\b|Riverside\b|Sapphire\b|Lotus\b|Vincom\b|Aeon\b|Diamond\b|Lotte\b|Anna\b|Sam\b|Harry\b|Lee\b|Lily\b|Ronnie\b|Minh\b|Min-ji\b|David\b|Clark\b|Doal\b|Davidson\b|Habana\b|Riverside\b|Sapphire\b|Lotus\b|Vincom\b|Aeon\b|Diamond\b|Lotte\b|Anna\b|Sam\b|Harry\b|Lee\b|Lily\b|Ronnie\b|Minh\b|Min-ji\b|David\b|Clark\b|Doal\b|Davidson\b|Habana\b|Riverside\b|Sapphire\b|Lotus\b|Vincom\b|Aeon\b|Diamond\b|Lotte\b|Moonie\b|Lucky\b|Milo\b|Sunny\b|Hero\b|Hanoi\b|Can\s+Tho\b|Da\s+Nang\b|Ho\s+Chi\s+Minh\b|Tan\s+Son\s+Nhat\b|Noi\s+Bai\b|Vietnam\b|Vietnamese\b|English\b|Chinese\b|Mandarin\b|Monday\b|Tuesday\b|Wednesday\b|Thursday\b|Friday\b|Saturday\b|Sunday\b|Mr\.|Ms\.|Mrs\.|Professor\b|National\s+Geographic\b|BBC\b|QR\b|PDF\b|CV\b|B2\b|Elite\b|Rainbow\b|Delight\b|Pearl\b|Sunflower\b)/.test(s);
   return keepCap ? s : s.charAt(0).toLowerCase() + s.slice(1);
 }
 
@@ -1717,11 +2060,19 @@ function buildB2IdeaSentencePair(topic, group, opt, seqIndex, totalSelected = 4,
     conn = reqEn[idxReq];
     connVi = reqVi[idxReq];
   } else if (catKey === 'application') {
-    const appEn = ['First of all,', 'In addition,', 'Regarding my previous experience,', 'Moreover,'];
-    const appVi = ['Trước hết,', 'Thêm vào đó,', 'Về kinh nghiệm làm việc trước đây,', 'Hơn thế nữa,'];
-    const idxApp = Math.min(3, resolvedGroupIdx >= 0 ? resolvedGroupIdx : (seqIndex % 4));
-    conn = appEn[idxApp];
-    connVi = appVi[idxApp];
+    if (topic.id === 'de-38') {
+      const app38En = ['First of all,', 'In addition,', 'Finally,'];
+      const app38Vi = ['Trước hết,', 'Thêm vào đó,', 'Cuối cùng,'];
+      const idx38 = isLastSelected ? 2 : Math.min(2, resolvedGroupIdx >= 0 ? resolvedGroupIdx : (seqIndex % 3));
+      conn = app38En[idx38];
+      connVi = app38Vi[idx38];
+    } else {
+      const appEn = ['First of all,', 'In addition,', 'Regarding my previous experience,', 'Moreover,'];
+      const appVi = ['Trước hết,', 'Thêm vào đó,', 'Về kinh nghiệm làm việc trước đây,', 'Hơn thế nữa,'];
+      const idxApp = Math.min(3, resolvedGroupIdx >= 0 ? resolvedGroupIdx : (seqIndex % 4));
+      conn = appEn[idxApp];
+      connVi = appVi[idxApp];
+    }
   } else {
     const genEn = ['First of all,', 'In addition,', 'Furthermore,', 'Finally,'];
     const genVi = ['Trước hết,', 'Thêm vào đó,', 'Hơn nữa,', 'Cuối cùng,'];
@@ -2241,7 +2592,27 @@ const TOPIC_OPENING_KEY_CHUNKS = {
   'de-13': { en: 'part-time waiter / restaurant’s website', vi: 'nhân viên phục vụ bán thời gian / trang web của nhà hàng' },
   'de-14': { en: 'Event Assistant / university noticeboard', vi: 'Trợ lý Sự kiện / bảng tin trường đại học' },
   'de-26': { en: 'Sales Assistant / official website', vi: 'Nhân viên bán hàng / trang web chính thức' },
-  'de-27': { en: 'Receptionist / official website', vi: 'Lễ tân / trang web chính thức' }
+  'de-27': { en: 'Receptionist / official website', vi: 'Lễ tân / trang web chính thức' },
+      'de-38': { en: "invite sb to attend a face-to-face interview", vi: "mời ai tham dự buổi phỏng vấn trực tiếp" },
+  'de-39': { en: "before joining the summer camp", vi: "trước khi tham gia trại hè" },
+  'de-40': { en: "invite sb to watch your friend’s performance", vi: "mời ai đi xem buổi biểu diễn của bạn cậu" },
+  'de-41': { en: "upcoming visit to our area", vi: "chuyến tham quan sắp tới của đoàn đến khu vực của chúng tôi" },
+  'de-42': { en: "start playing ice hockey", vi: "bắt đầu tập chơi môn khúc côn cầu trên băng" },
+  'de-43': { en: "move to a house near my university", vi: "chuyển đến một ngôi nhà gần trường đại học của tớ" },
+  'de-44': { en: "new hobby I have taken up recently", vi: "sở thích mới mà tớ vừa bắt đầu gần đây" },
+  'de-45': { en: "invite me to visit you this summer", vi: "mời tớ sang chơi vào mùa hè này" },
+  'de-46': { en: "upcoming trip to my town", vi: "chuyến đi sắp tới của cậu đến thị trấn của tớ" },
+  'de-47': { en: "lose weight successfully", vi: "giảm cân thành công" },
+  'de-48': { en: "recent three-night stay at the Riverside Hotel", vi: "kỳ lưu trú ba đêm vừa qua tại Khách sạn Riverside" },
+  'de-49': { en: "visit to my city next month", vi: "chuyến thăm thành phố của tớ vào tháng tới" },
+  'de-50': { en: "watch Lily’s dance show next weekend", vi: "xem buổi biểu diễn nhảy của Lily vào cuối tuần tới" },
+  'de-51': { en: "first trip to my city", vi: "chuyến đi đầu tiên đến thành phố của tớ" },
+  'de-52': { en: "upcoming office party this weekend", vi: "bữa tiệc văn phòng sắp tới vào cuối tuần này" },
+  'de-53': { en: "concert ticket that you want to pass on", vi: "tấm vé xem hòa nhạc mà cậu muốn nhượng lại" },
+  'de-54': { en: "winter holiday visit to Vietnam", vi: "chuyến thăm Việt Nam vào kỳ nghỉ đông" },
+  'de-55': { en: "invite sb to your family’s house near the lake", vi: "mời ai đến ngôi nhà ven hồ của gia đình cậu" },
+  'de-56': { en: "upcoming conference in our city", vi: "hội nghị sắp tới tại thành phố của chúng tôi" },
+  'de-57': { en: "your group’s upcoming trip from 2 to 7 July", vi: "chuyến đi sắp tới của đoàn từ ngày 2 đến ngày 7 tháng 7" }
 };
 
 function toBaseVerbForHint(v) {
