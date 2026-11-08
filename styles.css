@@ -501,6 +501,18 @@ input, textarea, button, select {
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
   margin-top: 1.5rem;
+  margin-bottom: 2.25rem;
+  align-items: stretch;
+}
+
+.dashboard-grid > div:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-topics-section {
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
 .welcome-banner {
@@ -632,8 +644,9 @@ input, textarea, button, select {
 
 .featured-topics-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  align-items: stretch;
 }
 
 .topic-card {
@@ -643,12 +656,19 @@ input, textarea, button, select {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 220px;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 230px;
   cursor: pointer;
   transition: all var(--transition-fast);
   position: relative;
   overflow: hidden;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .topic-card::after {
@@ -708,10 +728,11 @@ input, textarea, button, select {
 
 .card-body h4 {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
+  margin-bottom: 0.55rem;
+  line-height: 1.42;
+  min-height: 3.1em;
   color: var(--text-primary);
 }
 
@@ -719,8 +740,13 @@ input, textarea, button, select {
   font-size: 0.9rem;
   color: var(--text-secondary);
   font-style: italic;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  margin-bottom: 0.85rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.card-body p {
+  text-align: justify;
 }
 
 .card-footer {
@@ -751,7 +777,18 @@ input, textarea, button, select {
 .dashboard-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.dashboard-sidebar .sidebar-panel:last-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-sidebar .panel-list li {
+  text-align: justify;
 }
 
 .sidebar-panel {
@@ -1915,15 +1952,20 @@ h1, h2, h3, h4, h5, h6,
   border: 1px solid var(--panel-border);
   border-radius: var(--radius-lg);
   padding: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   animation: fadeIn 0.4s ease-out;
 }
 
 .guide-steps-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  flex: 1;
+  align-content: space-between;
 }
 
 .guide-step-card {
@@ -1971,8 +2013,9 @@ h1, h2, h3, h4, h5, h6,
 .guide-step-content p {
   font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
+  text-align: justify;
 }
 
 /* Specific styling for Top Header on Category Browse Screens */
