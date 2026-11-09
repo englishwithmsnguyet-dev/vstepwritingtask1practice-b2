@@ -5887,19 +5887,515 @@ function triggerDocDownload(htmlContent, filename) {
 // ============================================================================
 // 12. STEP 4: BÀI THƯ MẪU B2 SONG NGỮ & SO SÁNH BÀI VIẾT
 // ============================================================================
+const B2_EN_CONNECTORS = [
+  "Last but not least,",
+  "On the positive side,",
+  "To make matters worse,",
+  "To make up for my mistake,",
+  "To make up for this mistake,",
+  "To make up for this inconvenience,",
+  "To enhance the quality of your service,",
+  "To enhance the quality of your services,",
+  "To enhance guest satisfaction,",
+  "To enhance service quality,",
+  "To improve your service,",
+  "To prevent similar issues in the future,",
+  "When it comes to [a-zA-Z0-9\\s'-]+,",
+  "when it comes to [a-zA-Z0-9\\s'-]+,",
+  "In terms of [a-zA-Z0-9\\s'-]+,",
+  "in terms of [a-zA-Z0-9\\s'-]+,",
+  "Regarding [a-zA-Z0-9\\s'-]+,",
+  "regarding [a-zA-Z0-9\\s'-]+,",
+  "As for [a-zA-Z0-9\\s'-]+,",
+  "as for [a-zA-Z0-9\\s'-]+,",
+  "For the children,",
+  "for the children,",
+  "For shopping,",
+  "for shopping,",
+  "First of all,",
+  "To begin with,",
+  "Furthermore,",
+  "In addition,",
+  "Additionally,",
+  "Besides that,",
+  "On top of that,",
+  "Unfortunately,",
+  "Fortunately,",
+  "Specifically,",
+  "In particular,",
+  "As a result,",
+  "Once again,",
+  "Currently,",
+  "Moreover,",
+  "Therefore,",
+  "However,",
+  "Secondly,",
+  "Firstly,",
+  "Finally,",
+  "Overall,",
+  "Second,",
+  "First,",
+  "Next,"
+];
+
+const B2_EN_STRUCTURES = [
+  "Thank you very much for reviewing my application and inviting me to attend a face-to-face interview",
+  "Thank you for your email regarding",
+  "Thank you for your letter",
+  "Thanks for writing to me",
+  "Thanks for your letter",
+  "How have you been lately\\? I hope everything is going well\\.",
+  "How have you been lately\\?",
+  "I hope you are doing well\\.",
+  "After reading your letter, I have a few suggestions that you may want to consider",
+  "After reading your email, I have a few suggestions that you may want to consider",
+  "After reading your email, I would be delighted to provide you with",
+  "After thinking about your situation, I have a few suggestions that might help",
+  "I am writing to provide you with a detailed description of",
+  "I am writing to provide you with some details about",
+  "I am writing to provide you with some information",
+  "I am writing to provide the details regarding",
+  "I am writing to request some information about",
+  "I am writing to ask for some detailed information about",
+  "I’m writing to ask for some information about",
+  "I'm writing to ask for some information about",
+  "I’m writing to ask a few questions about",
+  "I'm writing to ask a few questions about",
+  "I am writing to express my dissatisfaction with",
+  "I am writing to formally complain about",
+  "I am writing to provide feedback on",
+  "I am writing to sincerely apologize for",
+  "I am writing to apologize for",
+  "I am writing as the hotel manager regarding your complaint about",
+  "I am writing to apply for the position of",
+  "I am writing to apply for",
+  "I am writing to share some local recommendations about",
+  "I’m really sorry for",
+  "I'm really sorry for",
+  "In your letter, you asked me about [a-zA-Z0-9\\s'-]+, so I’d be happy to share some details with you",
+  "In your letter, you asked me about [a-zA-Z0-9\\s'-]+, so I’d like to share some exciting details with you",
+  "In your letter, you asked me about [a-zA-Z0-9\\s'-]+, so I’d like to share some detailed information with you",
+  "In your letter, you asked me about [a-zA-Z0-9\\s'-]+, so I’d like to share some information with you",
+  "In your letter, you asked me about [a-zA-Z0-9\\s'-]+, so here are some details",
+  "In your letter, you asked me about [a-zA-Z0-9\\s'-]+, so I am writing to provide you with some information",
+  "In your email, you asked me about [a-zA-Z0-9\\s'-]+, so I’d love to share my experience with you",
+  "I understand that this may have caused inconvenience, and I would like to explain the situation",
+  "I feel terrible about what happened, and I’d like to explain the situation more clearly",
+  "as I am interested in [a-zA-Z0-9\\s'-]+ and would like to learn more before making a decision",
+  "as I’m planning to enroll there next month",
+  "as I'm planning to enroll there next month",
+  "it would be a good idea to",
+  "if I were you, I would",
+  "you could consider",
+  "you may want to",
+  "I highly recommend",
+  "I strongly recommend",
+  "I would recommend",
+  "I recommend",
+  "I suggest that you",
+  "I suggest that",
+  "I suggest",
+  "it would be better if you could",
+  "it would be very helpful if",
+  "Don’t forget to",
+  "Don't forget to",
+  "remember to",
+  "you should prepare",
+  "you should",
+  "please remind your daughter to",
+  "could you provide me with more information about",
+  "could you give me more details about",
+  "could you please let me know more about",
+  "could you please let me know",
+  "can you let me know more about",
+  "can you give me more information about",
+  "I would like to know more about",
+  "I want to know more about",
+  "I am also wondering about",
+  "I’m also wondering about",
+  "I'm also wondering about",
+  "Could you tell me whether",
+  "could you also tell me",
+  "Could you share",
+  "I would like to ask",
+  "I need to verify whether",
+  "I need to figure out whether",
+  "I want to make sure",
+  "I want to ensure that",
+  "I want to be certain that",
+  "It is important for me to",
+  "It is essential for me to",
+  "I would love to accept your wonderful invitation, and I hope to",
+  "I would love to accept your invitation, and I feel",
+  "I am so grateful for your kind invitation, and I would love to",
+  "I would be more than happy to",
+  "I would be delighted if",
+  "I would be happy to",
+  "I would like to share that",
+  "I would like us to",
+  "I would definitely prefer",
+  "I have planned to",
+  "you can contact me",
+  "the main problem was that",
+  "The main problem was that",
+  "The main issue was that",
+  "another concern was that",
+  "Another concern was that",
+  "One aspect I appreciated was",
+  "One issue that I encountered was",
+  "I was particularly impressed with",
+  "I was very impressed with",
+  "I was very impressed by",
+  "I was very pleased with",
+  "I really appreciate",
+  "I was not satisfied with",
+  "I was disappointed with",
+  "I would appreciate it if you could take immediate action to address these problems",
+  "I would appreciate it if you could",
+  "I would like to explain why this happened",
+  "here is the reason for this",
+  "I would like to offer our sincere apologies for",
+  "We deeply regret that",
+  "I was unable to",
+  "We were unable to",
+  "I couldn’t manage to",
+  "I couldn't manage to",
+  "I am pleased to inform you that",
+  "Let me make it up to you by",
+  "I will ensure that this will not happen again, and I would be willing to",
+  "We will make sure this issue does not happen again, and we would be delighted to",
+  "We would also be delighted to",
+  "I would also love to",
+  "I would like to apologize once again for the inconvenience\\.",
+  "I would like to",
+  "I am strongly motivated to apply for this role because",
+  "I am particularly interested in this position because",
+  "I am very interested in this job because",
+  "I worked as",
+  "I served as",
+  "I completed",
+  "In this role, I",
+  "This experience helped me develop",
+  "This experience helped me become",
+  "I believe I am a suitable candidate because",
+  "I believe I am an ideal candidate because",
+  "I would expect",
+  "I am available for",
+  "if I am offered the position, I can",
+  "Once again, please accept our sincere apologies\\.",
+  "I’m really sorry once again\\. I truly appreciate your understanding\\.",
+  "Thank you for your kind understanding and continued support\\.",
+  "Thank you for your patience and kind understanding\\.",
+  "Thank you for your time and understanding\\.",
+  "Thank you for your time and attention\\.",
+  "Thank you for your time\\.",
+  "Thank you once again for this opportunity\\.",
+  "I would be very grateful if you could consider my application\\.",
+  "I hope you find my suggestions helpful\\. Let me know how things go\\.",
+  "I hope you find my suggestions helpful\\.",
+  "I hope you find this information helpful\\.",
+  "I hope the above information is useful to you\\.",
+  "I hope the information above is helpful to you\\.",
+  "I hope this information is helpful\\.",
+  "I hope my feedback will be useful in improving your hotel services\\.",
+  "I hope my feedback will be useful in improving your restaurant\\.",
+  "I hope you find these suggestions useful in improving your restaurant\\.",
+  "I hope that this issue will be addressed promptly\\.",
+  "I hope you will take these issues seriously and resolve them soon\\.",
+  "Please feel free to contact me if you have any further questions\\.",
+  "Please feel free to contact me if you need any further details\\.",
+  "Please feel free to contact me if you require any further details\\.",
+  "Please feel free to contact me if you need any further local information\\.",
+  "Please feel free to contact me if you need any further assistance\\.",
+  "Please feel free to contact me if you have any questions\\.",
+  "I look forward to welcoming you back to our hotel\\.",
+  "We look forward to welcoming you back in the future\\.",
+  "I look forward to meeting you in person and discussing my qualifications further\\.",
+  "I look forward to receiving your reply soon\\.",
+  "I look forward to hearing from you soon\\.",
+  "I look forward to hearing from you\\.",
+  "I’d really appreciate your help with this\\.",
+  "Write back soon\\."
+].sort((a, b) => b.length - a.length);
+
+const B2_VI_CONNECTORS = [
+  "Cuối cùng nhưng không kém phần quan trọng,",
+  "Để tránh lặp lại các sự cố tương tự trong tương lai,",
+  "Để nâng cao sự hài lòng của khách hàng,",
+  "Để nâng cao chất lượng dịch vụ,",
+  "Để cải thiện chất lượng dịch vụ,",
+  "Để bù đắp cho sai sót của mình,",
+  "Để bù đắp cho sai sót này,",
+  "Khi nói về [^,]+,",
+  "khi nói về [^,]+,",
+  "Liên quan đến [^,]+,",
+  "liên quan đến [^,]+,",
+  "Xét về [^,]+,",
+  "xét về [^,]+,",
+  "Đối với các em nhỏ,",
+  "đối với các em nhỏ,",
+  "Về mặt tích cực,",
+  "Hơn thế nữa,",
+  "Thêm vào đó,",
+  "Bên cạnh đó,",
+  "May mắn thay,",
+  "Thật không may,",
+  "Một lần nữa,",
+  "Tệ hơn nữa,",
+  "Trước hết,",
+  "Đầu tiên,",
+  "Thứ nhất,",
+  "Thứ hai,",
+  "Tiếp theo,",
+  "Ngoài ra,",
+  "Hơn nữa,",
+  "Tuy nhiên,",
+  "Nhìn chung,",
+  "Cuối cùng,",
+  "Hiện tại,",
+  "Cụ thể,",
+  "Do đó,",
+  "Vì vậy,",
+  "Về [^,]{2,35},"
+];
+
+const B2_VI_STRUCTURES = [
+  "Xin chân thành cảm ơn Quý vị đã xem xét hồ sơ ứng tuyển và mời tôi tham dự buổi phỏng vấn trực tiếp",
+  "Cảm ơn email của [^,.]+",
+  "Cảm ơn vì đã viết thư cho tớ",
+  "Cảm ơn vì bức thư của cậu",
+  "Cảm ơn bức thư của cậu",
+  "Cảm ơn bà đã gửi thư",
+  "Cảm ơn thư của bà",
+  "Dạo này cậu thế nào\\? Tớ hy vọng mọi việc đều tốt đẹp\\.",
+  "Dạo này cậu thế nào\\? Tớ hy vọng mọi việc đều suôn sẻ\\.",
+  "Dạo này cậu thế nào\\? Tớ hy vọng mọi việc đều thuận lợi\\.",
+  "Dạo này cậu thế nào\\?",
+  "Dạo này bạn thế nào\\?",
+  "Sau khi đọc thư của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc",
+  "Sau khi đọc email của cậu, tớ có một vài gợi ý mà cậu có thể cân nhắc",
+  "Sau khi đọc thư của bà, tôi rất vui được cung cấp",
+  "Sau khi suy nghĩ về tình huống của cậu, tớ có một vài gợi ý có thể giúp ích được",
+  "Tôi viết thư này với tư cách là quản lý khách sạn liên quan đến khiếu nại của bà về",
+  "Tôi viết thư này để cung cấp cho ông thông tin chi tiết về",
+  "Tôi viết thư này để cung cấp một số thông tin chi tiết về",
+  "Tôi viết thư này để cung cấp thông tin chi tiết về",
+  "Tôi viết thư này để xin một số thông tin về",
+  "Tôi viết thư này để bày tỏ sự không hài lòng về",
+  "Tôi viết thư này để đóng góp ý kiến phản hồi về",
+  "Tôi viết thư này để đóng góp ý kiến về",
+  "Tôi viết thư này để chia sẻ một số gợi ý địa phương về",
+  "Tôi viết thư này để ứng tuyển vào",
+  "Tôi viết thư này để xin lỗi vì",
+  "Em viết thư này để xin lỗi thầy vì",
+  "Tớ viết thư này để hỏi xin một số thông tin về",
+  "Tớ viết thư này để hỏi vài thông tin về",
+  "Tớ thực sự xin lỗi vì",
+  "Tôi hiểu rằng sự việc này có thể đã gây ra sự bất tiện, và tôi muốn giải thích rõ tình huống này",
+  "Em hiểu rằng điều này có thể đã gây ra sự bất tiện, và em muốn giải thích rõ tình huống này",
+  "Tớ cảm thấy rất áy náy về chuyện đã xảy ra, và tớ muốn giải thích rõ tình hình hơn",
+  "Trong thư của cậu, cậu có hỏi tớ về [^,]+, vì vậy tớ muốn chia sẻ một vài thông tin chi tiết với cậu",
+  "Trong thư của cậu, cậu có hỏi tớ về [^,]+, vì vậy tớ muốn chia sẻ một vài chi tiết thú vị với cậu",
+  "Trong thư của cậu, cậu có hỏi tớ về [^,]+, vì vậy tớ muốn chia sẻ một vài thông tin với cậu",
+  "Trong thư của cậu, cậu đã hỏi tớ về [^,]+, vì vậy đây là một vài thông tin chi tiết",
+  "Trong thư trước cậu có hỏi về [^,]+, nên dưới đây là vài chia sẻ nhé",
+  "Trong thư bạn có hỏi mình về [^,]+, vì vậy mình rất vui được chia sẻ một vài chi tiết với bạn",
+  "Trong thư, bà có hỏi tôi về [^,]+, vì vậy tôi viết thư này để cung cấp cho bà một số thông tin",
+  "Trong email, cậu có hỏi tớ về [^,]+, nên tớ rất vui được chia sẻ trải nghiệm của mình với cậu",
+  "Chúng tôi sẽ đảm bảo sự cố này không tái diễn, và chúng tôi rất hân hạnh được",
+  "Em xin đảm bảo rằng việc này sẽ không lặp lại, và em rất sẵn lòng",
+  "sẽ là một ý kiến hay nếu cậu",
+  "sẽ là một ý kiến hay nếu",
+  "sẽ là một ý hay nếu cậu",
+  "nếu tớ là cậu, tớ sẽ",
+  "nếu là cậu, tớ sẽ",
+  "cậu có thể cân nhắc việc",
+  "cậu có thể cân nhắc",
+  "Đừng quên",
+  "đừng quên",
+  "hãy nhớ",
+  "tôi đặc biệt khuyên ông nên",
+  "tôi đặc biệt gợi ý",
+  "tôi khuyên đoàn nên",
+  "tôi gợi ý",
+  "tớ gợi ý",
+  "cậu nên",
+  "bà nên chuẩn bị",
+  "xin bà nhắc cháu",
+  "xin quý trung tâm vui lòng cung cấp thêm thông tin về",
+  "xin quý trung tâm cho tôi biết thêm chi tiết về",
+  "tôi muốn tìm hiểu thêm về",
+  "tôi cũng đang băn khoăn về",
+  "Xin vui lòng chia sẻ",
+  "Tôi cần kiểm tra xem",
+  "Tôi muốn đảm bảo rằng",
+  "cậu có thể cho tớ biết thêm về",
+  "cậu có thể cung cấp thêm thông tin về",
+  "cậu có thể cho tớ biết liệu",
+  "cậu có thể cho tớ biết",
+  "cậu cũng có thể cho tớ biết",
+  "Cậu có thể chia sẻ",
+  "tớ muốn biết thêm về",
+  "tớ muốn hỏi xem",
+  "tớ cũng đang băn khoăn về",
+  "Tớ muốn đảm bảo rằng",
+  "Tớ muốn chắc chắn rằng",
+  "Tớ cần kiểm tra xem",
+  "Tớ cần xem xét liệu",
+  "tớ rất vui được nhận lời mời tuyệt vời của cậu, và tớ hy vọng sẽ",
+  "tớ rất vui được nhận lời mời của cậu, và tớ cảm thấy",
+  "tớ vô cùng biết ơn lời mời tử tế này, và tớ rất muốn",
+  "tớ rất sẵn lòng",
+  "tớ sẽ rất vui nếu",
+  "tớ muốn chia sẻ rằng",
+  "tôi muốn chia sẻ rằng",
+  "tớ đã lên kế hoạch",
+  "bà có thể liên hệ với tôi",
+  "vấn đề chính là",
+  "Vấn đề chính là",
+  "một mối lo ngại khác là",
+  "Một vấn đề đáng lo ngại khác là",
+  "một vấn đề khác là",
+  "Một điểm tôi đánh giá cao là",
+  "Một vấn đề mà tôi gặp phải là",
+  "tôi rất đánh giá cao",
+  "tôi rất ấn tượng với",
+  "tôi đặc biệt ấn tượng với",
+  "tôi rất hài lòng với",
+  "tôi chưa hài lòng với",
+  "tôi cảm thấy hơi tiếc với",
+  "tôi đề xuất quý nhà hàng",
+  "tôi đề xuất quý vị",
+  "tôi đề nghị quý vị",
+  "tôi đề xuất",
+  "tôi xin giải thích lý do tại sao sự việc này xảy ra",
+  "em xin giải thích lý do tại sao sự việc này xảy ra",
+  "đây là lý do cho việc này",
+  "Chúng tôi đã không thể",
+  "em đã không thể",
+  "Tớ đã không thể",
+  "tôi xin phép được",
+  "em xin phép được",
+  "Hãy để tớ bù đắp cho cậu bằng cách",
+  "tôi xin gửi lời xin lỗi chân thành nhất về",
+  "Chúng tôi rất lấy làm tiếc khi",
+  "tôi xin thông báo rằng",
+  "Tôi rất quan tâm đến công việc này vì",
+  "Tôi đặc biệt quan tâm đến vị trí này vì",
+  "Tôi rất mong muốn ứng tuyển vào vị trí này vì",
+  "tôi từng làm",
+  "tôi đã hoàn thành",
+  "Trong công việc đó, tôi đã",
+  "Trong vai trò này, tôi đã",
+  "Kinh nghiệm này giúp tôi rèn luyện",
+  "Kinh nghiệm này đã giúp tôi phát triển",
+  "Kinh nghiệm này giúp tôi phát triển",
+  "Kinh nghiệm này giúp tôi trở nên",
+  "Tôi tin rằng mình là một ứng viên phù hợp vì",
+  "tôi kỳ vọng",
+  "tôi có thể tham dự",
+  "nếu được nhận vào vị trí này, tôi có thể",
+  "Tôi sẽ rất biết ơn nếu quý vị xem xét hồ sơ ứng tuyển của tôi\\.",
+  "Tôi rất biết ơn nếu quý vị xem xét hồ sơ ứng tuyển của tôi\\.",
+  "Tôi sẽ rất biết ơn nếu quý vị xem xét hồ sơ của tôi\\.",
+  "Tôi rất mong sớm nhận được hồi âm từ quý cơ quan\\.",
+  "Tôi rất mong sớm nhận được hồi âm từ quý vị\\.",
+  "Tôi rất mong sớm nhận được phản hồi từ quý vị\\.",
+  "Tôi rất mong sớm nhận được hồi đáp\\.",
+  "Em rất mong sớm nhận được hồi âm từ thầy\\.",
+  "Tớ hy vọng cậu thấy những gợi ý của tớ hữu ích\\.",
+  "Tớ hy vọng cậu thấy những thông tin này hữu ích\\.",
+  "Tôi hy vọng những thông tin trên hữu ích đối với ông\\.",
+  "Tôi hy vọng thông tin trên hữu ích đối với bà\\.",
+  "Tôi hy vọng thông tin trên hữu ích với bà\\.",
+  "Tôi xin chân thành xin lỗi một lần nữa vì sự bất tiện này\\.",
+  "Em xin chân thành xin lỗi một lần nữa vì sự bất tiện này\\."
+].sort((a, b) => b.length - a.length);
+
 function highlightSampleLetterB2(rawText) {
   if (!rawText) return '';
-  let html = escapeHtml(rawText);
-  html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong class="hl-key-idea">$1</strong>');
-  html = html.replace(/\*\*_(.*?)_\*\*/g, '<strong class="hl-key-idea">$1</strong>');
+  const paragraphs = rawText.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+  const connPattern = new RegExp(`(^|[\\s(])(${B2_EN_CONNECTORS.join('|')})`, 'g');
+  const structPattern = new RegExp(`\\b(${B2_EN_STRUCTURES.join('|')})`, 'gi');
 
-  const connectorRegex = /\b(First of all,|Firstly,|To begin with,|Second,|Secondly,|Next,|In addition,|Furthermore,\s*to make matters worse,|Furthermore,|Moreover,|Besides that,|On top of that,|However,|Therefore,|Overall,|In particular,|Specifically,|In fact,|Given these circumstances,|To make up for my mistake,|To make up for this inconvenience,|To enhance the quality of your service,|Finally,|Last but not least,|Regarding\s+my\s+previous\s+experience,|Regarding\s+[A-Za-z]+|As for\b)/g;
-  html = html.replace(connectorRegex, m => `<span class="hl-mark-connector" title="Từ nối mạch lạc B2">${m}</span>`);
+  return paragraphs.map(para => {
+    let text = escapeHtml(para);
 
-  const structRegex = /\b(I am writing to formally complain about|I am writing to sincerely apologize for|I am writing to apply for the position of|I am writing to provide feedback on|I am writing to ask for some detailed information about|I am writing to|I’m writing to|I'm writing to|After reading your letter,\s*I have a few suggestions that you may want to consider|The main issue that I would like to highlight is|One aspect I appreciated was|One issue that I encountered was|First of all,\s*here is the reason for this|Let me make it up to you by|I am particularly interested in|I believe I would be a suitable candidate|I would appreciate it if you could|I strongly recommend|It would be a good idea to|If I were you,\s*I would|You could consider|You may want to|I look forward to hearing from you|I look forward to receiving your response|I look forward to receiving your reply|I would be grateful if you could|Please accept my sincere apologies|To make up for)\b/gi;
-  html = html.replace(structRegex, m => `<span class="hl-mark-structure" title="Cấu trúc ăn điểm B2">${m}</span>`);
+    if (/^(Dear\s+[^,]+,|Best wishes,|Warm regards,|Yours sincerely,|Yours faithfully,|All the best,)$/i.test(text)) {
+      return `<p class="model-letter-para"><strong class="hl-mark-opening">${text}</strong></p>`;
+    }
 
-  return html;
+    const tokens = [];
+    const saveToken = (htmlStr) => {
+      const id = `__HL_TK_${tokens.length}__`;
+      tokens.push(htmlStr);
+      return id;
+    };
+
+    text = text.replace(/\*\*\*(.*?)\*\*\*/g, (_, inner) => {
+      return saveToken(`<strong class="hl-key-idea" title="Ý trọng tâm trả lời đề">${inner}</strong>`);
+    });
+    text = text.replace(/\*\*_(.*?)_\*\*/g, (_, inner) => {
+      return saveToken(`<strong class="hl-key-idea" title="Ý trọng tâm trả lời đề">${inner}</strong>`);
+    });
+
+    text = text.replace(connPattern, (match, prefix, conn) => {
+      return `${prefix}${saveToken(`<span class="hl-mark-connector" title="Từ nối chuyển ý">${conn}</span>`)}`;
+    });
+
+    text = text.replace(structPattern, (match) => {
+      return saveToken(`<span class="hl-mark-structure" title="Cấu trúc câu chuẩn B2">${match}</span>`);
+    });
+
+    tokens.forEach((tk, idx) => {
+      text = text.replace(`__HL_TK_${idx}__`, tk);
+    });
+
+    return `<p class="model-letter-para">${text}</p>`;
+  }).join('');
+}
+
+function highlightSampleLetterViB2(rawVi) {
+  if (!rawVi) return '';
+  const paragraphs = rawVi.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+  const connPattern = new RegExp(`(^|[\\s(])(${B2_VI_CONNECTORS.join('|')})`, 'g');
+  const structPattern = new RegExp(`(${B2_VI_STRUCTURES.join('|')})`, 'g');
+
+  return paragraphs.map(para => {
+    let text = escapeHtml(para);
+
+    if (/^(Kính gửi\s+[^,]+,|Thưa\s+[^,]+,|Chào\s+[^,]+,|[^,]+ thân mến,|Trân trọng,|Thân ái,|Chúc\s+[^,]+,)$/i.test(text)) {
+      return `<p class="model-letter-para"><strong class="hl-mark-opening">${text}</strong></p>`;
+    }
+
+    const tokens = [];
+    const saveToken = (htmlStr) => {
+      const id = `__HL_VTK_${tokens.length}__`;
+      tokens.push(htmlStr);
+      return id;
+    };
+
+    text = text.replace(/\*\*\*(.*?)\*\*\*/g, (_, inner) => {
+      return saveToken(`<strong class="hl-key-idea" title="Ý trọng tâm trả lời đề">${inner}</strong>`);
+    });
+    text = text.replace(/\*\*_(.*?)_\*\*/g, (_, inner) => {
+      return saveToken(`<strong class="hl-key-idea" title="Ý trọng tâm trả lời đề">${inner}</strong>`);
+    });
+
+    text = text.replace(connPattern, (match, prefix, conn) => {
+      return `${prefix}${saveToken(`<span class="hl-mark-connector" title="Từ nối chuyển ý">${conn}</span>`)}`;
+    });
+
+    text = text.replace(structPattern, (match) => {
+      return saveToken(`<span class="hl-mark-structure" title="Cấu trúc câu chuẩn B2">${match}</span>`);
+    });
+
+    tokens.forEach((tk, idx) => {
+      text = text.replace(`__HL_VTK_${idx}__`, tk);
+    });
+
+    return `<p class="model-letter-para">${text}</p>`;
+  }).join('');
 }
 
 function renderStep4ModelEssay() {
@@ -5909,7 +6405,7 @@ function renderStep4ModelEssay() {
 
   const sampleB2 = topic.details?.sample_b2 || topic.sample_b2 || {};
   const rawEn = sampleB2.letter_en || sampleB2.text || '';
-  const rawVi = (sampleB2.letter_vi || sampleB2.translation || '').replace(/\*\*\*|\*\*_/g, '').replace(/_\*\*/g, '');
+  const rawVi = sampleB2.letter_vi || sampleB2.translation || '';
   const cleanEnPlain = rawEn.replace(/\*\*\*|\*\*_/g, '').replace(/_\*\*/g, '');
   const words = sampleB2.word_count || countWords(cleanEnPlain);
   const keyStructures = sampleB2.key_structures || [];
@@ -5917,11 +6413,12 @@ function renderStep4ModelEssay() {
 
   container.innerHTML = `
     <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; padding: 0.85rem 1.25rem; background: var(--bg-secondary); border: 1px solid var(--panel-border); border-radius: var(--radius-md);">
-      <div style="font-size: 0.9rem; color: var(--text-secondary);">
-        <strong style="color: var(--accent-primary);">Ghi chú tô sáng:</strong>
-        <span class="hl-mark-connector" style="margin-left: 0.5rem;">Từ nối chuyển ý</span>
-        <span class="hl-mark-structure" style="margin-left: 0.5rem;">Cấu trúc câu chuẩn B2</span>
-        <strong class="hl-key-idea" style="margin-left: 0.5rem;">Ý trọng tâm trả lời đề</strong>
+      <div style="font-size: 0.9rem; color: var(--text-secondary); display: flex; align-items: center; flex-wrap: wrap; gap: 0.45rem;">
+        <strong style="color: var(--accent-primary); margin-right: 0.25rem;">Ghi chú tô sáng:</strong>
+        <strong class="hl-mark-opening">Mở & Kết thư</strong>
+        <span class="hl-mark-connector">Từ nối chuyển ý</span>
+        <span class="hl-mark-structure">Cấu trúc câu chuẩn B2</span>
+        <strong class="hl-key-idea">Ý trọng tâm trả lời đề</strong>
       </div>
       <span class="detail-badge">Độ dài bài mẫu: ${words} từ (Band B2+)</span>
     </div>
@@ -5933,7 +6430,7 @@ function renderStep4ModelEssay() {
       </div>
       <div class="essay-col">
         <h4>🇻🇳 BẢN DỊCH TIẾNG VIỆT ĐỐI CHIẾU</h4>
-        <div class="essay-text-content" style="color: var(--text-secondary);">${escapeHtml(rawVi)}</div>
+        <div class="essay-text-content" style="color: var(--text-secondary);">${highlightSampleLetterViB2(rawVi)}</div>
       </div>
     </div>
 
@@ -5972,7 +6469,7 @@ function openComparisonModal() {
 
   if (userWordsEl) userWordsEl.textContent = countWords(userVal);
   if (userTextEl) userTextEl.textContent = userVal || '(Bạn chưa nhập nội dung bài viết ở Bước 3.)';
-  if (sampleTextEl) sampleTextEl.textContent = cleanSample;
+  if (sampleTextEl) sampleTextEl.innerHTML = highlightSampleLetterB2(sampleB2.letter_en || sampleB2.text || '');
 
   modal.classList.add('active');
 }

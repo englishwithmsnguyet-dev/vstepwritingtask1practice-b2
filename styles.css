@@ -1891,11 +1891,21 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .essay-text-content {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.02rem;
+  line-height: 2.05;
   color: var(--text-primary);
-  white-space: pre-line;
-  text-align: justify;
+  white-space: normal;
+  text-align: left;
+}
+
+.essay-text-content .model-letter-para {
+  margin-bottom: 0.95rem;
+  line-height: 2.05;
+  text-align: left;
+}
+
+.essay-text-content .model-letter-para:last-child {
+  margin-bottom: 0;
 }
 
 .vocab-notes-card {
@@ -2713,31 +2723,72 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .hl-mark-opening {
-  background: rgba(99, 102, 241, 0.16);
-  border-bottom: 2px solid #6366f1;
-  padding: 0 3px;
-  border-radius: 3px;
+  font-weight: 700;
+  color: #6d28d9;
+  background: rgba(139, 92, 246, 0.14);
+  border-bottom: 2px solid #8b5cf6;
+  padding: 2px 7px;
+  border-radius: 5px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .hl-mark-connector {
-  background: rgba(245, 158, 11, 0.18);
-  border-bottom: 2px solid #f59e0b;
-  padding: 0 3px;
-  border-radius: 3px;
   font-weight: 700;
+  color: #c2410c;
+  background: rgba(249, 115, 22, 0.15);
+  border-bottom: 2px solid #f97316;
+  padding: 2px 7px;
+  border-radius: 5px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .hl-mark-structure {
-  background: rgba(16, 185, 129, 0.16);
+  font-weight: 600;
+  color: #047857;
+  background: rgba(16, 185, 129, 0.14);
   border-bottom: 2px solid #10b981;
-  padding: 0 3px;
-  border-radius: 3px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .hl-key-idea {
-  color: var(--accent-primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-weight: 700;
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.12);
+  border-bottom: 2px solid #2563eb;
+  padding: 2px 7px;
+  border-radius: 5px;
+  text-decoration: none;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+[data-theme="dark"] .hl-mark-opening {
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.22);
+  border-bottom-color: #a78bfa;
+}
+
+[data-theme="dark"] .hl-mark-connector {
+  color: #fdba74;
+  background: rgba(249, 115, 22, 0.22);
+  border-bottom-color: #fb923c;
+}
+
+[data-theme="dark"] .hl-mark-structure {
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.22);
+  border-bottom-color: #34d399;
+}
+
+[data-theme="dark"] .hl-key-idea {
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.22);
+  border-bottom-color: #60a5fa;
 }
 
 /* Mobile adjustments */
