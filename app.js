@@ -5244,6 +5244,184 @@ function detectPromptCopying(text, topic) {
   return false;
 }
 
+function splitLetterIntoSentencesWithMeta(text) {
+  const paragraphs = text.split(/\n+/).map(p => p.trim()).filter(Boolean);
+  const result = [];
+  let sentenceCounter = 1;
+
+  paragraphs.forEach((para, pIdx) => {
+    let protectedPara = para
+      .replace(/\b(Mr|Mrs|Ms|Dr|Prof|St|No|Vol|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\./gi, '$1__DOT__')
+      .replace(/\b(e\.g|i\.e|etc)\./gi, '$1__DOT__')
+      .replace(/\b(\d+)\.(\d+)\b/g, '$1__DECIMAL__$2');
+
+    const rawSentences = protectedPara.split(/(?<=[.!?])\s+(?=[A-Z0-9"']|$)/).map(s => s.trim()).filter(Boolean);
+
+    rawSentences.forEach((rawSent) => {
+      let sent = rawSent
+        .replace(/__DOT__/g, '.')
+        .replace(/__DECIMAL__/g, '.')
+        .trim();
+      if (!sent) return;
+
+      let role = 'Thân thư (Body)';
+      const lower = sent.toLowerCase();
+      if (pIdx === 0 && sentenceCounter === 1 && /^dear\b|^hello\b|^hi\b/i.test(sent)) {
+        role = 'Lời chào mở đầu (Salutation)';
+      } else if (pIdx === 0 || (pIdx === 1 && sentenceCounter <= 4 && /(thank|write|writing to|hear from|hope you|pleased to|glad to)/i.test(lower))) {
+        role = 'Mở thư - Mục đích viết (Opening)';
+      } else if (pIdx === paragraphs.length - 1 && /^(best wishes|warm regards|all the best|yours sincerely|yours faithfully|sincerely|warmly|regards|love|take care)/i.test(sent)) {
+        role = 'Lời chào kết thúc (Sign-off)';
+      } else if (pIdx >= paragraphs.length - 2 && /(look forward to|hope to|hear from you|let me know|see you soon|write back|please let me)/i.test(lower)) {
+        role = 'Kết thư (Closing)';
+      } else {
+        role = 'Thân thư - Đoạn ' + (pIdx + 1);
+      }
+
+      result.push({
+        num: sentenceCounter++,
+        paraIndex: pIdx,
+        role: role,
+        text: sent
+      });
+    });
+  });
+
+  return result;
+}
+
+const COMMON_TYPO_MAP_B2 = {
+  'recieved': 'received',
+  'definately': 'definitely',
+  'untill': 'until',
+  'seperate': 'separate',
+  'alot': 'a lot',
+  'writting': 'writing',
+  'begining': 'beginning',
+  'beleive': 'believe',
+  'oppinion': 'opinion',
+  'resturant': 'restaurant',
+  'diffrent': 'different',
+  'beautifull': 'beautiful',
+  'confortable': 'comfortable',
+  'sucessful': 'successful',
+  'tommorrow': 'tomorrow',
+  'wich': 'which'
+};
+
+function analyzeSentenceDetailsB2(sentObj, isFormal, topic) {
+  const text = sentObj.text;
+  let correctedText = text;
+  const errors = [];
+
+  function addError(cat, title, quote, fix, explanation) {
+    if (!errors.some(e => e.quote.toLowerCase() === quote.toLowerCase())) {
+      errors.push({
+        category: cat,
+        title,
+        quote,
+        fix,
+        explanation
+      });
+      const escaped = quote.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      correctedText = correctedText.replace(new RegExp(escaped, 'i'), fix);
+    }
+  }
+
+  // 1. Modal verbs + to V
+  const modalTo = /\b(should|can|could|must|will|would|may|might)\s+to\s+([a-z]+)\b/gi;
+  let m;
+  while ((m = modalTo.exec(text)) !== null) {
+    addError('grammar', 'Động từ khuyết thiếu đi với "to V"', m[0], m[1] + ' ' + m[2], 'Sau động từ khuyết thiếu <code>' + m[1] + '</code> dùng V nguyên mẫu không to.');
+  }
+
+  // 2. Modal verbs + V-ing
+  const modalIng = /\b(should|can|could|must|will|would|may|might)\s+([a-z]+ing)\b/gi;
+  while ((m = modalIng.exec(text)) !== null) {
+    const modal = m[1];
+    const ing = m[2].toLowerCase();
+    let base = ing.replace(/ing$/, '');
+    if (ing === 'trying') base = 'try';
+    else if (ing === 'taking') base = 'take';
+    else if (ing === 'going') base = 'go';
+    else if (ing === 'coming') base = 'come';
+    else if (ing === 'having') base = 'have';
+    else if (ing === 'doing') base = 'do';
+    else if (ing === 'seeing') base = 'see';
+    else if (ing === 'staying') base = 'stay';
+    else if (ing === 'visiting') base = 'visit';
+    else if (ing === 'eating') base = 'eat';
+    else if (ing === 'buying') base = 'buy';
+    addError('grammar', 'Động từ khuyết thiếu đi với V-ing', m[0], modal + ' ' + base, 'Sau động từ khuyết thiếu <code>' + modal + '</code> dùng V nguyên mẫu (V0).');
+  }
+
+  // 3. Missing to-be before adjectives
+  const adjList = ['convenient', 'easy', 'difficult', 'hard', 'important', 'necessary', 'hot', 'cold', 'expensive', 'cheap', 'famous', 'popular', 'delicious'];
+  const missingBe = new RegExp('(?<!\\b(?:makes|finds|make|find|found)\\s+)\\b(it|this|that|they)\\s+(' + adjList.join('|') + ')\\b', 'gi');
+  while ((m = missingBe.exec(text)) !== null) {
+    const subj = m[1];
+    const adj = m[2];
+    const be = subj.toLowerCase() === 'they' ? 'are' : 'is';
+    addError('grammar', 'Thiếu động từ "to be" trước tính từ', m[0], subj + ' ' + be + ' ' + adj, 'Sau chủ ngữ <code>' + subj + '</code> đi với tính từ <code>' + adj + '</code> cần có to be.');
+  }
+
+  // 4. There is + plural
+  const thereIsPlural = /\bthere\s+is\s+(many|several|a\s+lot\s+of|some|two|three|four)\s+([a-z]+s)\b/gi;
+  while ((m = thereIsPlural.exec(text)) !== null) {
+    addError('grammar', 'Hòa hợp chủ vị với "There is / There are"', m[0], 'there are ' + m[1] + ' ' + m[2], 'Danh từ số nhiều nên dùng <code>there are</code>.');
+  }
+
+  // 5. Look forward to + V-bare
+  const lookFwd = /\blook\s+forward\s+to\s+(hear|see|meet|visit|receive|catch|reply)\b/gi;
+  while ((m = lookFwd.exec(text)) !== null) {
+    addError('grammar', 'Cấu trúc "look forward to + V-ing"', m[0], 'look forward to ' + m[1] + 'ing', 'Sau <code>look forward to</code> bắt buộc là V-ing: viết <code>look forward to ' + m[1] + 'ing</code>.');
+  }
+
+  // 6. Uncountable nouns
+  const uncount = /\b(an\s+advice|advices|an\s+information|informations|furnitures|equipments|luggages)\b/gi;
+  while ((m = uncount.exec(text)) !== null) {
+    const w = m[0].toLowerCase();
+    let fix = 'some advice';
+    if (w.includes('information')) fix = 'some information';
+    else if (w.includes('equipment')) fix = 'equipment';
+    else if (w.includes('furniture')) fix = 'furniture';
+    addError('vocab', 'Danh từ không đếm được', m[0], fix, 'Từ <code>' + m[0] + '</code> là danh từ không đếm được, không thêm -s.');
+  }
+
+  // 7. Contractions in Formal letter
+  if (isFormal) {
+    const cont = /\b(I'm|I’m|don't|don’t|can't|can’t|won't|won’t|didn't|didn’t|it's|it’s)\b/gi;
+    while ((m = cont.exec(text)) !== null) {
+      const expanded = m[0].replace(/'m|’m/i, ' am').replace(/n't|n’t/i, ' not').replace(/'s|’s/i, ' is');
+      addError('register', 'Từ viết tắt trong thư trang trọng (Formal)', m[0], expanded, 'Trong thư trang trọng, hãy viết đầy đủ là <code>' + expanded + '</code>.');
+    }
+  }
+
+  // 8. Typos
+  const words = text.split(/\s+/);
+  words.forEach(w => {
+    const cleanWord = w.toLowerCase().replace(/[^a-z]/g, '');
+    if (COMMON_TYPO_MAP_B2[cleanWord]) {
+      addError('spelling', 'Lỗi chính tả', w, COMMON_TYPO_MAP_B2[cleanWord], 'Từ <code>' + w + '</code> viết sai chính tả. Cách viết đúng là <code>' + COMMON_TYPO_MAP_B2[cleanWord] + '</code>.');
+    }
+  });
+
+  // Highlight original text
+  let highlightedHtml = text;
+  errors.forEach(e => {
+    const escaped = e.quote.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    highlightedHtml = highlightedHtml.replace(new RegExp(escaped, 'gi'), '<span class="err-strike" title="' + escapeHtml(e.title) + '">$&</span>');
+  });
+
+  return {
+    ...sentObj,
+    status: errors.length === 0 ? 'clean' : (errors.length === 1 && errors[0].category === 'spelling' ? 'minor' : 'error'),
+    errors,
+    correctedText,
+    highlightedHtml
+  };
+}
+
 function evaluateLetterB2(text, topic) {
   const words = countWords(text);
   const lower = text.toLowerCase();
@@ -5257,12 +5435,25 @@ function evaluateLetterB2(text, topic) {
   const hasSignoff = /^(best wishes|warm regards|all the best|yours sincerely|yours faithfully|sincerely|regards|love|take care)/i.test(lastLine) ||
     (lines.length >= 2 && /^(best wishes|warm regards|all the best|yours sincerely|yours faithfully|sincerely|regards)/i.test(lines[lines.length - 2]));
 
+  // Phân tích chi tiết từng câu
+  const rawSentenceList = splitLetterIntoSentencesWithMeta(text);
+  const analyzedSentences = rawSentenceList.map(s => analyzeSentenceDetailsB2(s, isFormal, topic));
+  const cleanSentences = analyzedSentences.filter(s => s.status === 'clean');
+  const errorSentences = analyzedSentences.filter(s => s.status === 'error');
+  const totalSentences = analyzedSentences.length || 1;
+  const cleanRatio = cleanSentences.length / totalSentences;
+
+  const allSentenceErrors = [];
+  analyzedSentences.forEach(s => {
+    s.errors.forEach(e => {
+      if (!allSentenceErrors.some(x => x.quote.toLowerCase() === e.quote.toLowerCase())) {
+        allSentenceErrors.push({ ...e, sentenceNum: s.num });
+      }
+    });
+  });
+
   // Check Contractions in Formal Letter
-  const contractionsFound = [];
-  if (isFormal) {
-    const m = text.match(/\b(I'm|I’m|don't|don’t|can't|can’t|won't|won’t|didn't|didn’t|isn't|isn’t|aren't|aren’t|I'd|I’d|I'll|I’ll)\b/gi);
-    if (m) contractionsFound.push(...new Set(m));
-  }
+  const contractionsFound = allSentenceErrors.filter(e => e.category === 'register').map(e => e.quote);
 
   // Check Connectors
   const connectorPatterns = ['first of all', 'firstly', 'to begin with', 'second,', 'secondly', 'next,', 'in addition', 'furthermore', 'moreover', 'besides', 'on top of that', 'finally', 'last but not least', 'however', 'therefore', 'overall,', 'in particular', 'specifically', 'in fact', 'given these circumstances', 'to make up for', 'to enhance', 'regarding', 'as for'];
@@ -5279,34 +5470,16 @@ function evaluateLetterB2(text, topic) {
     else unmatchedVocab.push(v);
   });
 
-  // Grammar & Mechanics Diagnostics
-  const grammarIssues = [];
-  let m;
-  const modalIng = /\b(should|can|could|would|will|must|may|might)\s+([a-z]+ing)\b/gi;
-  while ((m = modalIng.exec(text)) !== null) {
-    grammarIssues.push(`Lỗi chia động từ sau Modal Verb: "${m[0]}" ➔ Sau "${m[1]}" cần dùng động từ nguyên mẫu (V0).`);
-  }
-  const lookForwardErr = /\blook\s+forward\s+to\s+(hear|receive|see|meet|reply)\b/gi;
-  while ((m = lookForwardErr.exec(text)) !== null) {
-    grammarIssues.push(`Lỗi cấu trúc B2: "${m[0]}" ➔ Sau "look forward to" bắt buộc dùng V-ing (ví dụ: look forward to ${m[1]}ing).`);
-  }
-  if (/\badvices\b|\binformations\b|\bequipments\b|\bfurnitures\b|\bluggages\b/i.test(text)) {
-    grammarIssues.push('Lỗi danh từ không đếm được: Không thêm "-s" vào các từ advice, information, equipment, furniture, luggage.');
-  }
-  if (contractionsFound.length > 0) {
-    grammarIssues.push(`Lỗi văn phong Trang trọng (Formal): Không dùng dạng viết tắt (${contractionsFound.join(', ')}) trong thư gửi quản lý/tổ chức/giáo sư.`);
-  }
-
   // Complex B2 structures check
   const hasComplex = /\b(because|since|although|while|which|who|where|that|if i were you|would appreciate it if|strongly recommend|particularly)\b/i.test(lower);
 
-  // Compute 4 Criterion Scores (0 - 10 scale)
+  // Compute 4 Criterion Scores (0 - 10 scale) strictly following official VSTEP Task 1 Scoring Guide
   let tfScore = 6.5;
   if (words < 50) tfScore = 2.0;
   else if (words < 80) tfScore = 4.0;
   else if (words < 100) tfScore = 5.0;
   else if (words < 120) tfScore = 6.0;
-  else if (words >= 140) tfScore = 8.0;
+  else if (words >= 140 && allSentenceErrors.length <= 2) tfScore = 8.0;
   else tfScore = 7.5;
   if (!hasSalutation || !hasSignoff) tfScore = Math.max(2.0, tfScore - 0.5);
 
@@ -5328,12 +5501,15 @@ function evaluateLetterB2(text, topic) {
 
   let graScore = 6.5;
   if (words < 60) graScore = 3.0;
-  else {
-    graScore = (hasComplex ? 7.5 : 6.0) - Math.min(2.5, grammarIssues.length * 0.5);
-  }
-  graScore = Math.min(9.0, Math.max(2.0, graScore));
+  else if (cleanRatio >= 0.85 && allSentenceErrors.length <= 1) graScore = 8.5;
+  else if (cleanRatio >= 0.70 && allSentenceErrors.length <= 2) graScore = 8.0;
+  else if (cleanRatio >= 0.55) graScore = 7.0;
+  else if (cleanRatio >= 0.40) graScore = 6.0;
+  else if (cleanRatio >= 0.25) graScore = 5.0;
+  else graScore = 4.0;
 
-  const overall = Number(((tfScore + orgScore + lexScore + graScore) / 4).toFixed(1));
+  const avg = (tfScore + orgScore + lexScore + graScore) / 4;
+  const overall = Number((Math.round(avg * 2) / 2).toFixed(1));
 
   return {
     overall,
@@ -5346,14 +5522,18 @@ function evaluateLetterB2(text, topic) {
     usedConnectors,
     matchedVocab,
     unmatchedVocab,
-    grammarIssues,
+    analyzedSentences,
+    cleanSentencesCount: cleanSentences.length,
+    errorSentencesCount: errorSentences.length,
+    totalErrorsCount: allSentenceErrors.length,
+    allSentenceErrors,
+    grammarIssues: allSentenceErrors.map(e => e.title + ': "' + e.quote + '" → "' + e.fix + '"'),
     tfScore: Number(tfScore.toFixed(1)),
     orgScore: Number(orgScore.toFixed(1)),
     lexScore: Number(lexScore.toFixed(1)),
     graScore: Number(graScore.toFixed(1))
   };
 }
-
 function submitEssay() {
   const textarea = document.getElementById('essay-textarea');
   const topic = state.activeTopic;
@@ -5475,7 +5655,75 @@ function renderSubmissionEvaluationUI(sub, topic) {
           </div>
         </div>
 
-        <div class="essay-col" style="background: var(--bg-primary);">
+        
+        <!-- BẢNG SỬA LỖI & PHÂN TÍCH TỪNG CÂU 1 -->
+        <div class="reading-section-card" style="margin-bottom: 1.25rem; border: 1.5px solid var(--panel-border);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--panel-border); flex-wrap: wrap; gap: 0.5rem;">
+            <h3 style="margin: 0; color: var(--accent-primary); font-size: 1.1rem; font-weight: 800;">
+              <i class="fa-solid fa-list-check"></i> SỬA LỖI &amp; PHÂN TÍCH TỪNG CÂU 1 (${(ev.analyzedSentences || []).length} câu)
+            </h3>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <span class="sent-summary-chip clean"><i class="fa-solid fa-circle-check"></i> Đạt chuẩn: ${ev.cleanSentencesCount || 0} câu</span>
+              <span class="sent-summary-chip error"><i class="fa-solid fa-circle-exclamation"></i> Cần sửa: ${ev.errorSentencesCount || 0} câu</span>
+            </div>
+          </div>
+
+          <div class="sent-eval-list">
+            ${(ev.analyzedSentences || []).map(s => {
+              const isClean = s.status === 'clean';
+              const isMinor = s.status === 'minor';
+              const badgeClass = isClean ? 'badge-clean' : (isMinor ? 'badge-minor' : 'badge-error');
+              const badgeText = isClean ? '✓ Đúng chuẩn B2' : (isMinor ? '⚠️ Sơ suất nhỏ' : `❌ ${s.errors.length} lỗi cần sửa`);
+
+              return `
+                <div class="sent-eval-card ${s.status}">
+                  <div class="sent-eval-head">
+                    <div class="sent-eval-num">
+                      <i class="fa-solid fa-quote-left"></i> Câu ${s.num}
+                    </div>
+                    <span class="sent-eval-role">${escapeHtml(s.role)}</span>
+                    <span class="sent-eval-badge ${badgeClass}">${badgeText}</span>
+                  </div>
+
+                  <div class="sent-eval-original">
+                    "${s.highlightedHtml}"
+                  </div>
+
+                  ${s.errors.length > 0 ? `
+                    <div class="sent-eval-errors">
+                      ${s.errors.map(err => `
+                        <div class="sent-err-row">
+                          <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.2rem;">
+                            <span class="sent-err-tag">${escapeHtml(err.category.toUpperCase())}</span>
+                            <strong style="color: var(--text-primary); font-size: 0.85rem;">${escapeHtml(err.title)}</strong>
+                          </div>
+                          <div class="sent-err-diff">
+                            <span class="sent-err-wrong">"${escapeHtml(err.quote)}"</span>
+                            <i class="fa-solid fa-arrow-right" style="color: #6366f1; font-size: 0.8rem;"></i>
+                            <span class="sent-err-fix"><i class="fa-solid fa-check"></i> "${escapeHtml(err.fix)}"</span>
+                          </div>
+                          <div class="sent-err-desc">
+                            <i class="fa-solid fa-circle-info"></i> ${err.explanation}
+                          </div>
+                        </div>
+                      `).join('')}
+
+                      <div class="sent-corrected-box">
+                        <span class="sent-corrected-label"><i class="fa-solid fa-circle-check"></i> Câu viết lại chuẩn xác:</span>
+                        <div class="sent-corrected-text">"${escapeHtml(s.correctedText)}"</div>
+                      </div>
+                    </div>
+                  ` : `
+                    <div class="sent-clean-note">
+                      <i class="fa-solid fa-circle-check"></i> Câu này diễn đạt tốt, đúng cấu trúc ngữ pháp và từ vựng B2.
+                    </div>
+                  `}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+  <div class="essay-col" style="background: var(--bg-primary);">
           <h4>📝 NGUYÊN VĂN BỨC THƯ BẠN ĐÃ NỘP</h4>
           <div class="essay-text-content">${escapeHtml(sub.content)}</div>
         </div>
