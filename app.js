@@ -535,6 +535,7 @@ ${RUBRIC_VI_FOOTER}`
 document.addEventListener('DOMContentLoaded', () => {
   loadPersistedState();
   checkSavedAuth();
+  updateStudentProfileDisplay();
   setupAntiCheatVisibilityWatcher();
   renderDashboard();
 });
@@ -586,9 +587,45 @@ function checkSavedAuth() {
         state.studentClass = parsed.classCode;
         state.isTeacher = !!parsed.isTeacher;
         hideGateway();
+        updateStudentProfileDisplay();
       }
     }
   } catch (e) {}
+}
+
+function updateStudentProfileDisplay() {
+  const nameEl = document.getElementById('studentNameDisplay');
+  const classEl = document.getElementById('studentClassDisplay');
+  const avatarIcon = document.getElementById('studentAvatarIcon');
+  if (nameEl) {
+    nameEl.textContent = state.studentName || 'Chưa đăng nhập';
+    nameEl.title = state.studentName || '';
+  }
+  if (classEl) {
+    if (state.isTeacher) {
+      classEl.innerHTML = '<span class="badge-class" style="background: rgba(16,185,129,0.15); color: #059669;">Giáo viên (GV)</span>';
+    } else {
+      classEl.innerHTML = `<span class="badge-class">${state.studentClass ? 'Lớp: ' + state.studentClass : 'Lớp: --'}</span>`;
+    }
+  }
+  if (avatarIcon) {
+    avatarIcon.innerHTML = state.isTeacher ? '<i class="fa-solid fa-chalkboard-user"></i>' : '<i class="fa-solid fa-user-graduate"></i>';
+  }
+}
+
+function reopenGateway() {
+  if (confirm('Bạn có muốn đăng xuất và đổi thông tin tài khoản không?')) {
+    sessionStorage.removeItem(STORAGE_KEYS.AUTH);
+    state.studentName = '';
+    state.studentClass = '';
+    state.isTeacher = false;
+    const gw = document.getElementById('access-gateway');
+    if (gw) {
+      gw.classList.remove('hidden-gateway');
+      gw.style.display = 'flex';
+    }
+    updateStudentProfileDisplay();
+  }
 }
 
 function togglePasswordVisibility() {
@@ -626,6 +663,7 @@ function verifyGateway() {
       isTeacher: true
     }));
     hideGateway();
+    updateStudentProfileDisplay();
     showToast(`Chào mừng Cô ${rawName} vào Phòng Viết Thư B2!`, 'success');
     return;
   }
@@ -662,6 +700,7 @@ function verifyGateway() {
   } catch (e) {}
 
   hideGateway();
+  updateStudentProfileDisplay();
   showToast(`Chào mừng ${rawName} (${rawClass})! Chúc bạn luyện viết hiệu quả!`, 'success');
 }
 
