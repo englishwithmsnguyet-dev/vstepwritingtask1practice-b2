@@ -5517,7 +5517,7 @@ function evaluateLetterB2(text, topic) {
   if (words < 50) tfScore = 2.0;
   else if (words < 80) tfScore = 4.0;
   else if (words < 100) tfScore = 5.0;
-  else if (words < 120) tfScore = 6.0;
+  else if (words < 120) tfScore = 5.5;
   else if (words >= 140 && allSentenceErrors.length <= 2) tfScore = 8.0;
   else tfScore = 7.5;
   if (!hasSalutation || !hasSignoff) tfScore = Math.max(2.0, tfScore - 0.5);
@@ -5825,6 +5825,11 @@ function renderSubmissionEvaluationUI(sub, topic) {
   const sampleB2 = topic.details?.sample_b2 || topic.sample_b2 || {};
   const rawSampleEn = (sampleB2.letter_en || sampleB2.text || '').replace(/\*\*\*|\*\*_/g, '').replace(/_\*\*/g, '');
   if (sampleTextEl) sampleTextEl.textContent = rawSampleEn;
+  if (window.VstepAIGrader && evalView) {
+    const _p = topic ? (topic.prompt || topic.context || topic.title_en || '') : '';
+    const _essayText = (sub && (sub.content || sub.text || sub.essay)) || (document.getElementById('essay-textarea') ? document.getElementById('essay-textarea').value : '');
+    window.VstepAIGrader.mountSingle(evalView, { taskType: 'task1', targetLevel: 'B2', prompt: _p, essay: _essayText });
+  }
 }
 
 function reopenEditorForRevision() {
