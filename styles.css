@@ -2504,10 +2504,10 @@ h1, h2, h3, h4, h5, h6,
   inset: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 50%, #e0f2fe 100%) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  display: flex;
+  background: rgba(15, 23, 42, 0.75) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   z-index: 999999 !important;

@@ -8,40 +8,45 @@
   <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
-  <!-- ACCESS GATEWAY OVERLAY -->
+    <!-- ACCESS GATEWAY OVERLAY -->
   <div id="access-gateway">
     <div class="login-card-custom">
-      <!-- Teacher Avatar Halo -->
+      <!-- Miss Nguyet Avatar Brand Ring -->
       <div class="login-teacher-avatar-wrap">
         <div class="login-teacher-halo">
           <img src="miss_nguyet.jpg" alt="Miss Nguyet" class="login-teacher-avatar" onerror="this.src='welcome_cats.png'">
         </div>
-        <span class="login-teacher-badge">✨ Lead Instructor</span>
+        <span class="login-teacher-badge">
+          <i class="fa-solid fa-certificate"></i> LEAD INSTRUCTOR
+        </span>
       </div>
 
       <div class="login-brand-tag">
-        <span>🌸</span> Welcome to Miss Nguyet's Class!
+        <i class="fa-solid fa-graduation-cap"></i> Welcome to Miss Nguyet's Class!
       </div>
-      <div class="login-course-title">
-        VSTEP WRITING TASK 01 – B2 LEVEL
-      </div>
-      
-      <h2 class="login-title-custom">ĐĂNG NHẬP PHÒNG LUYỆN VIẾT THƯ</h2>
+      <div class="login-course-title">PHÒNG LUYỆN VIẾT THƯ (TASK 01) – B2 LEVEL</div>
+      <h2 class="login-title-custom">NHẬP THÔNG TIN<br/>ĐỂ BẮT ĐẦU HỌC 🚀</h2>
       
       <div class="input-group-custom">
-        <label>👤 Họ và Tên Học Viên</label>
-        <input type="text" id="gateway-name" placeholder="Nhập họ và tên của bạn..." autocomplete="name">
+        <label for="gateway-name">
+          <i class="fa-solid fa-user-pen" style="color: #6366f1;"></i> HỌ VÀ TÊN HỌC VIÊN:
+        </label>
+        <input type="text" id="gateway-name" placeholder="Nhập họ và tên học viên..." autocomplete="off" onkeydown="if(event.key==='Enter') verifyGateway()">
       </div>
       
       <div class="input-group-custom">
-        <label>🏫 Mã Lớp Học</label>
-        <input type="text" id="gateway-class" placeholder="Nhập mã lớp học..." autocomplete="off">
+        <label for="gateway-class">
+          <i class="fa-solid fa-chalkboard-user" style="color: #06b6d4;"></i> MÃ LỚP HỌC:
+        </label>
+        <input type="text" id="gateway-class" placeholder="Nhập mã lớp học..." autocomplete="off" onkeydown="if(event.key==='Enter') verifyGateway()">
       </div>
       
       <div class="input-group-custom" style="margin-bottom: 1.35rem;">
-        <label>🔑 Mật Khẩu Lớp Học</label>
+        <label for="gateway-pass">
+          <i class="fa-solid fa-key" style="color: #f59e0b;"></i> MẬT KHẨU TRUY CẬP:
+        </label>
         <div style="position: relative; width: 100%;">
-          <input type="password" id="gateway-pass" placeholder="Nhập mật khẩu được cấp..." onkeypress="if(event.key === 'Enter') verifyGateway()" style="padding-right: 44px !important;">
+          <input type="password" id="gateway-pass" placeholder="Nhập mật khẩu..." onkeydown="if(event.key==='Enter') verifyGateway()" style="padding-right: 44px !important;">
           <button type="button" onclick="togglePasswordVisibility()" class="btn-toggle-pwd" title="Hiện/Ẩn mật khẩu">
             <svg id="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -55,13 +60,16 @@
         ⚠️ Mật khẩu chưa chính xác hoặc thông tin còn thiếu!
       </div>
       
-      <button onclick="verifyGateway()" class="btn-login-custom">
-        <span>VÀO PHÒNG LUYỆN VIẾT</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      <button onclick="verifyGateway()" class="btn-login-custom" id="start-btn">
+        <span>BẮT ĐẦU HỌC NGAY</span>
+        <i class="fa-solid fa-arrow-right"></i>
       </button>
 
       <div class="login-footer-signature">
-        <span>✨</span> ENGLISH WITH MISS NGUYET <span>✨</span>
+        <a href="https://www.facebook.com/nguyetpham28" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+          <i class="fa-brands fa-facebook" style="color: #1877f2; font-size: 16px;"></i>
+          <span>ENGLISH WITH MISS NGUYET</span>
+        </a>
       </div>
     </div>
   </div>
