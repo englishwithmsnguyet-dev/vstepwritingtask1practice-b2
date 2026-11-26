@@ -17,7 +17,7 @@ const CATEGORY_META = {
 };
 
 const VALID_PASSWORDS = ['STUDYHARD', 'VSTEPWRITING', 'VSTEOWRITING', 'PRACTICEWRITING'];
-const VALID_CLASSES = ['CB206', 'CB210', 'CB211', 'CB213', 'ONB103', 'B212', 'B2'];
+const VALID_CLASSES = ['CB206', 'CB210', 'CB211', 'CB213', 'ONB103', 'B212'];
 const TEACHER_NAMES = ['PTMN', 'NGUYET PHAM', 'NGUYỆT PHẠM', 'CO NGUYET', 'CÔ NGUYỆT', 'MISS NGUYET'];
 
 const STORAGE_KEYS = {
@@ -644,6 +644,16 @@ function verifyGateway() {
   const rawClass = (classEl ? classEl.value : '').trim().toUpperCase();
   const rawPass = (passEl ? passEl.value : '').trim().toUpperCase();
 
+  const normNoTone = rawName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d");
+  const isLockedStudent = normNoTone.includes('gia tue') || normNoTone.replace(/\s+/g, '').includes('giatue');
+  if (isLockedStudent || rawClass === 'B2') {
+    if (errEl) {
+      errEl.textContent = 'Tài khoản học viên "Gia Tuệ" hiện đã bị KHÓA! Vui lòng liên hệ Giáo viên (Cô Nguyệt).';
+      errEl.style.display = 'block';
+    }
+    return;
+  }
+
   if (!rawName || !rawClass) {
     if (errEl) {
       errEl.textContent = '⚠️ Vui lòng nhập đầy đủ Họ tên và Mã lớp học!';
@@ -669,7 +679,7 @@ function verifyGateway() {
   }
 
   // Check Student Account
-  const isValidClass = VALID_CLASSES.includes(rawClass) || /^CB\d+/i.test(rawClass) || /^B2/i.test(rawClass);
+  const isValidClass = (VALID_CLASSES.includes(rawClass) || /^CB\d+/i.test(rawClass) || /^B2\d+/i.test(rawClass)) && rawClass !== 'B2';
   const isValidPass = VALID_PASSWORDS.includes(rawPass);
 
   if (!isValidClass || !isValidPass) {
