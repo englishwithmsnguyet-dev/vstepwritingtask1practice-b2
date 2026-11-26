@@ -3704,3 +3704,226 @@ ins.sent-err-ins {
   background: rgba(16, 185, 129, 0.08);
   border-radius: 4px;
 }
+
+
+/* === UNIFIED SIGNATURE LOGIN MODAL MISS NGUYET (EXACT MATCH IMAGE 2) === */
+.login-card-custom,
+[data-theme="dark"] .login-card-custom,
+[data-theme="light"] .login-card-custom {
+  background: #ffffff !important;
+  max-width: 460px !important;
+  width: 92% !important;
+  margin: auto !important;
+  padding: 2.2rem 2.2rem 1.8rem 2.2rem !important;
+  border-radius: 26px !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 40px rgba(99, 102, 241, 0.2) !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  text-align: center !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  animation: modalPopIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Ensure FontAwesome icons NEVER get overridden by system font */
+.login-card-custom i,
+.login-card-custom .fa,
+.login-card-custom .fa-solid,
+.login-card-custom .fa-brands,
+.login-card-custom .fa-regular {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", "FontAwesome" !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  text-rendering: auto !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+}
+
+.login-teacher-avatar-wrap {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 1.15rem !important;
+  position: relative !important;
+}
+
+.login-teacher-halo {
+  position: relative !important;
+  width: 104px !important;
+  height: 104px !important;
+  border-radius: 50% !important;
+  padding: 4px !important;
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 50%, #38bdf8 100%) !important;
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.45), 0 0 45px rgba(236, 72, 153, 0.25) !important;
+  animation: haloPulse 3.5s ease-in-out infinite alternate !important;
+}
+
+.login-teacher-avatar {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center 20% !important;
+  border: 3px solid #ffffff !important;
+  display: block !important;
+  background: #eef2ff !important;
+}
+
+.login-teacher-badge {
+  margin-top: 0.6rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: 0.25rem 0.85rem !important;
+  border-radius: 9999px !important;
+  background: rgba(99, 102, 241, 0.12) !important;
+  border: 1px solid rgba(99, 102, 241, 0.35) !important;
+  color: #5842e3 !important;
+}
+
+.login-brand-tag {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: #6366f1 !important;
+  margin-bottom: 0.35rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.45rem !important;
+}
+
+.login-course-title {
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  color: #4f46e5 !important;
+  margin-bottom: 1rem !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+}
+
+.login-title-custom,
+[data-theme="dark"] .login-title-custom,
+[data-theme="light"] .login-title-custom {
+  font-size: 1.65rem !important;
+  font-weight: 900 !important;
+  color: #0f172a !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  text-align: center !important;
+}
+
+.input-group-custom {
+  text-align: left !important;
+  margin-bottom: 1.15rem !important;
+}
+
+.input-group-custom label,
+[data-theme="dark"] .input-group-custom label,
+[data-theme="light"] .input-group-custom label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  font-weight: 800 !important;
+  font-size: 0.82rem !important;
+  margin-bottom: 0.45rem !important;
+  color: #0f172a !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.input-group-custom input,
+[data-theme="dark"] .input-group-custom input,
+[data-theme="light"] .input-group-custom input {
+  width: 100% !important;
+  padding: 0.85rem 1.15rem !important;
+  border-radius: 12px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  font-size: 0.98rem !important;
+  outline: none !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.input-group-custom input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.input-group-custom input:focus,
+[data-theme="dark"] .input-group-custom input:focus,
+[data-theme="light"] .input-group-custom input:focus {
+  border-color: #6366f1 !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3.5px rgba(99, 102, 241, 0.16) !important;
+}
+
+.btn-login-custom,
+.btn-login-submit {
+  width: 100% !important;
+  padding: 0.95rem !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, #5842e3 0%, #7c3aed 100%) !important;
+  color: #ffffff !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6rem !important;
+  margin-top: 0.4rem !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.btn-login-custom:hover,
+.btn-login-submit:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.45) !important;
+  filter: brightness(1.08) !important;
+}
+
+.btn-login-custom:active,
+.btn-login-submit:active {
+  transform: translateY(0) !important;
+}
+
+.login-footer-signature {
+  margin-top: 1.35rem !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  color: #64748b !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.45rem !important;
+  letter-spacing: 0.5px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.login-footer-signature a {
+  color: inherit !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  transition: color 0.2s ease !important;
+}
+
+.login-footer-signature a:hover {
+  color: #1877f2 !important;
+}
