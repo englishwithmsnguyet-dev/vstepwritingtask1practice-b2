@@ -18,6 +18,51 @@ const CATEGORY_META = {
 
 const VALID_PASSWORDS = ['STUDYHARD', 'VSTEPWRITING', 'VSTEOWRITING', 'PRACTICEWRITING'];
 const VALID_CLASSES = ['CB206', 'CB210', 'CB211', 'CB213', 'ONB103', 'B212'];
+const VALID_STUDENTS = {
+  'CB206': [
+    'Văn Như Anh', 'Nguyễn Thị Vân Anh', 'Nguyễn Thị Hồng Duyên', 'Nguyễn Thị Thúy Hồng',
+    'Trương Ngọc Nhi', 'Nguyễn Phạm Như Quỳnh', 'Trần Lê Quỳnh', 'Thị Mỹ Tâm', 'Ông Lê Thành',
+    'Trần Nguyễn Thanh Thảo', 'Phan Nhật Thiện', 'Nguyễn Mỹ Tiên', 'Trần Thị Cẩm Tiên',
+    'Võ Trần Bảo Tính', 'Trương Thanh Toàn', 'Phạm Ngọc Trâm', 'Nguyễn Võ Bảo Trân'
+  ],
+  'CB210': [
+    'Nguyễn Võ Thành Đạt', 'Lê Huỳnh Thanh Duy', 'Nguyễn Cao Kỳ Duyên', 'Đào Ngọc Hân', 
+    'Trần Văn Hữu', 'Trần Văn Kim Khoa', 'Nguyễn Thanh Nâng', 'Huỳnh Kỳ Nguyên', 
+    'Võ Thị Kim Nguyên', 'Võ Hùng Sanh', 'Tiền Thị Thanh Thảo', 'Trần Thị Thanh Thảo', 'Đặng Thị Kim Thoa', 
+    'Trần Thị Tiên Tiên', 'Lê Kim Tuyền'
+  ],
+  'CB211': [
+    'Hồ Anh Quân', 'Lê Thành Nghiệp', 'Lê Khánh Lâm', 'Huỳnh Thị Ngọc Thắm', 
+    'Mai Trần Xuân Mai', 'Lê Thị Uyển Nhi', 'Nguyễn Thụy Thanh Trúc'
+  ],
+  'CB213': [
+    'Nguyễn Quốc Anh', 'Hoàng Hợp Minh Châu', 'Đặng Châu Gia Huy', 'Trần Minh Tuệ Mẩn', 
+    'Trần Minh Tuệẫn', 'Đặng Thị Trúc Măng', 'Trương Thị Kha My', 'Ngô Diễm My', 'Chiêm Chúc Ngân', 
+    'Huỳnh Thị Yến Nhi', 'Phạm Nguyễn Tâm Như', 'Phạm Nhựt Tiến', 'Phạm Nhật Tiến', 'Lê Thị Tú Trinh', 
+    'Trần Ngọc Vinh'
+  ],
+  'ONB103': [
+    'Nguyễn Thị Duy', 'Phạm Trần Mỹ Hân', 'Trịnh Thị Thu Hiền', 'Nguyễn Hoàng Kha', 
+    'Phạm Thị Út Lụa', 'Phạm Thị Út Lua', 'Lê Huỳnh Diễm My', 'Nguyễn Thị Ngọc Mỹ', 
+    'Huỳnh Thị Kim Ngân', 'Trần Thị Kim Ngân', 'Nguyễn Thị Tiểu Phụng', 'Trần Yến Phụng', 
+    'Phạm Ngọc Thạch', 'Cao Thị Thu Trang', 'Nguyễn Thị Thanh Tuyền', 'Trần Phạm Phương Uyên', 
+    'Trần Ngô Mỹ Vy'
+  ],
+  'B212': [
+    'Nguyễn Duy Hồng Anh', 'Nguyễn Ngọc Minh Anh', 'Nguyễn Lê Mỹ Hân', 'Nguyễn Hồng Minh Huy', 
+    'Nguyễn Quốc Khải', 'Đoàn Nguyễn Đình Khang', 'Lê Nguyễn Gia Khánh', 'Nguyễn Hữu Khánh', 
+    'Hồ Thị Ngọc Lan', 'Trần Thị Hồng Lỉnh', 'Võ Thị Triệu Minh', 'Hứa Đình Nghi', 
+    'Võ Thị Bảo Ngọc', 'Lê Tiến Phát', 'Nguyễn Kim Tiền', 'Lê Thị Bảo Trân', 
+    'Võ Thị Diễm Trinh', 'Nguyễn Tấn Trung', 'Nguyễn Tiến Trung', 'Trần Thị Ánh Tuyết', 
+    'Đặng Nguyễn Khánh Uyên', 'Nguyễn Thị Chúc Yến'
+  ]
+};
+
+function normalizeVietnameseName(str) {
+  if (!str) return '';
+  return str.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[đĐ]/g, 'd').replace(/\s+/g, ' ');
+}
+
 const TEACHER_NAMES = ['PTMN', 'NGUYET PHAM', 'NGUYỆT PHẠM', 'CO NGUYET', 'CÔ NGUYỆT', 'MISS NGUYET'];
 
 const STORAGE_KEYS = {
@@ -692,7 +737,20 @@ function verifyGateway() {
     return;
   }
 
-  state.studentName = rawName;
+  // Kiểm tra Họ và tên trong danh sách lớp
+  const roster = VALID_STUDENTS[rawClass] || [];
+  const normInp = normalizeVietnameseName(rawName);
+  const matchedStudent = roster.find(st => normalizeVietnameseName(st) === normInp);
+  if (!matchedStudent) {
+    if (errEl) {
+      errEl.textContent = `⚠️ Họ và tên "${rawName}" không có trong danh sách lớp ${rawClass}! Vui lòng kiểm tra lại họ và tên có dấu.`;
+      errEl.style.display = 'block';
+    }
+    if (nameEl) nameEl.focus();
+    return;
+  }
+
+  state.studentName = matchedStudent;
   state.studentClass = rawClass;
   state.isTeacher = false;
   sessionStorage.setItem(STORAGE_KEYS.AUTH, JSON.stringify({
